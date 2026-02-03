@@ -1,0 +1,67 @@
+{
+  "total_tasks": 4,
+  "successful_tasks": 0,
+  "failed_tasks": 4,
+  "skipped_tasks": 0,
+  "start_time": "2026-02-03T16:09:12.813702",
+  "end_time": "2026-02-03T16:22:33.310675",
+  "total_duration_seconds": 800.496973,
+  "task_results": [
+    {
+      "config_path": "configs_auction/sealedbid/spsb_apv_gpt4o.yaml",
+      "experiment_name": "spsb_apv",
+      "status": "partial",
+      "output_dir": "experiment_logs/gpt4o/spsb_apv",
+      "run_dir": "experiment_logs/gpt4o/spsb_apv/run_2026-02-03_16-09-12-877389",
+      "start_time": "2026-02-03T16:09:12.854248",
+      "end_time": "2026-02-03T16:16:55.825571",
+      "duration_seconds": 462.971323,
+      "completed_repetitions": 46,
+      "failed_repetitions": 4,
+      "total_repetitions": 50,
+      "error_message": "4 repetitions failed"
+    },
+    {
+      "config_path": "configs_auction/sealedbid/spsb_apv_gemini.yaml",
+      "experiment_name": "spsb_apv",
+      "status": "partial",
+      "output_dir": "experiment_logs/gemini/spsb_apv",
+      "run_dir": "experiment_logs/gemini/spsb_apv/run_2026-02-03_16-09-12-871813",
+      "start_time": "2026-02-03T16:09:12.854112",
+      "end_time": "2026-02-03T16:19:29.622116",
+      "duration_seconds": 616.768004,
+      "completed_repetitions": 44,
+      "failed_repetitions": 6,
+      "total_repetitions": 50,
+      "error_message": "6 repetitions failed"
+    },
+    {
+      "config_path": "configs_auction/sealedbid/spsb_apv_gemma.yaml",
+      "experiment_name": "spsb_apv",
+      "status": "partial",
+      "output_dir": "experiment_logs/gemma/spsb_apv",
+      "run_dir": "experiment_logs/gemma/spsb_apv/run_2026-02-03_16-09-12-876121",
+      "start_time": "2026-02-03T16:09:12.853724",
+      "end_time": "2026-02-03T16:19:29.985473",
+      "duration_seconds": 617.131749,
+      "completed_repetitions": 43,
+      "failed_repetitions": 7,
+      "total_repetitions": 50,
+      "error_message": "7 repetitions failed"
+    },
+    {
+      "config_path": "configs_auction/sealedbid/spsb_apv_claude.yaml",
+      "experiment_name": "spsb_apv",
+      "status": "partial",
+      "output_dir": "experiment_logs/claude/spsb_apv",
+      "run_dir": "experiment_logs/claude/spsb_apv/run_2026-02-03_16-09-12-877083",
+      "start_time": "2026-02-03T16:09:12.854453",
+      "end_time": "2026-02-03T16:22:33.309762",
+      "duration_seconds": 800.455309,
+      "completed_repetitions": 42,
+      "failed_repetitions": 8,
+      "total_repetitions": 50,
+      "error_message": "8 repetitions failed"
+    }
+  ]
+}

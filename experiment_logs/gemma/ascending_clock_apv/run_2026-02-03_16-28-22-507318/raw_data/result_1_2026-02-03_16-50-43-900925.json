@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            28,
+            27
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 28
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 28
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 28
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 28
+            }
+        },
+        "profit": [
+            0,
+            0.0,
+            0
+        ],
+        "common": 24,
+        "plan": [
+            "My value is $27. I will stay in as long as the price is below $20, giving room for others to potentially overbid. I\u2019ll reassess at $20 based on who remains.",
+            "My value is $28. I will stay in as long as the price is below $20, giving room for others to potentially overbid. I'll re-evaluate at $20 based on who remains.",
+            "My value is $27. I will stay in as long as the price is below $20 to gather information. I'll likely drop out between $20-$25 if others remain, aiming to avoid overpaying."
+        ]
+    }
+}

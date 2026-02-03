@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            18,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19
+                },
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19
+            }
+        },
+        "profit": [
+            4.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $23. I will stay in as long as the price is below $15, giving me a reasonable buffer against underestimating others' values. I'll reassess at $16.",
+            "My value is $18. I will stay in as long as the price is below $15 to have a chance of winning at a reasonable price. I'll drop if it reaches $16, minimizing potential loss.",
+            "My value is $18. I will stay in as long as the price is below $10, giving me a reasonable chance of winning without overpaying. I'll reassess at $11."
+        ]
+    }
+}
