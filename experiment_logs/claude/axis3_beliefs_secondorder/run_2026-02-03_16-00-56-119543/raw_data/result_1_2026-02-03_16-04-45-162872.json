@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            18,
+            26
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 16.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.3
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $16, I want to maximize potential profit. Since this is a single round, I'll use a strategic bid slightly below my true value. Other rational bidders will likely bid below their true value too. I'll aim to bid around $14-$15 to create a buffer that might win while avoiding overpaying. This strategy balances winning probability with profit margin, accounting for potential opponent strategies of similar rational bidding.",
+            "With a private value of $18, I want to maximize potential profit. Since this is a second-price sealed bid auction, I'll aim to bid strategically. Rational opponents will also try to optimize their bids relative to their private values. I'll bid slightly below my true value to potentially capture surplus if others bid conservatively. A bid around $16-$17 seems optimal - high enough to likely win, but leaving room for potential profit.",
+            "My private value is $26, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since other bidders are rational, they'll likely bid below their true value. My optimal strategy is to bid just above the expected second-highest bid to maximize profit. Given the uncertainty, I'll aim to bid around $15-$18 to balance winning probability and potential profit margin."
+        ]
+    }
+}

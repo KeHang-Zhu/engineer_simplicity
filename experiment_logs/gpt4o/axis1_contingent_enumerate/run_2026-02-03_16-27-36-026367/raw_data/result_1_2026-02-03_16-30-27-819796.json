@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.0
+        ],
+        "common": 11,
+        "plan": [
+            "Given my value of $28, which is above the typical maximum of $20, I have a strong advantage. To maximize profit, I should bid slightly above the expected average bid of others. Assuming they bid around their average value of $10, I will bid $15 to outbid them, ensuring I win and pay less than my value, thus maximizing profit.",
+            "I will bid slightly above the average expected bid to maximize my chances of winning while ensuring a profit. Assuming others bid around their values, if they have values near the midpoint ($10), they might bid close to $10. To outbid them without overpaying, I will bid $11. This ensures a win unless someone bids higher than $11, and I still profit since $16 (my value) - $11 (second-highest bid) = $5.",
+            "Given my value of $19, I aim to bid slightly below my value to maximize profit while ensuring a competitive bid. Since this is the only round, I have no prior history to consider. To win, I must outbid others but avoid overpaying. I anticipate others might bid close to their values, typically between $10-$20. A bid of $18.5 balances winning chances and profit, as it is likely above others' bids without exceeding my value."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            48,
+            35,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            14.899999999999999,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "Given my value of $48 for the prize, I aim to maximize profit by winning the auction while minimizing the payment. The optimal bid is slightly above the expected average of others' bids, which could range from $0 to $20. Assuming rational behavior, they might bid around their value. To outbid them without overpaying, I should bid slightly above $20, say $20.1, ensuring I win if their values are near the average. This maximizes my profit margin.",
+            "My value of $35 is high. To maximize profit, I should bid slightly below my value to win while paying less. Rational opponents will bid close to their values. I estimate their values to be around $10-$20, given the uniform distribution. I'll bid $25 to outbid them while ensuring a good profit margin if they bid near their value.",
+            "My value for the prize is $37, which is above the maximum possible value of $20. This suggests a potential error, but assuming $37 is correct, I can bid aggressively. I should bid slightly above the expected average value of $10 to $15 to ensure a win, while maximizing profit. A bid around $15 should secure the win without overpaying, given that other rational bidders will likely bid close to their values, which should be below $20."
+        ]
+    }
+}

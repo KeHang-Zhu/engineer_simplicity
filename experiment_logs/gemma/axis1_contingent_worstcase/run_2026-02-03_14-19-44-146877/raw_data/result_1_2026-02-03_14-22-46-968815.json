@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            13.5,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value is $28. Since this is a single-round auction, I want to bid aggressively to maximize potential profit. However, I must consider the second-highest bid I'll pay. I'll aim to win with a small margin, but avoid overpaying. Given the value range is $0-$20, I'll bid slightly above the maximum possible value of other bidders, but not excessively. Bidding $20.1 ensures I win against any bid of $20 or less.",
+            "My value is $16. I need to bid high enough to win against likely competition, but not so high that I overpay. Since this is round 1, there's no history to learn from. I'll assume the other bidders will bid somewhat rationally. To guarantee a non-negative outcome, my bid must be at least $8 (16 - 8 = 8). I'll bid slightly above that, aiming to win without excessive payment. A bid of $10 seems reasonable.",
+            "My value is $19. I want to win if possible, but avoid overpaying. The worst case is bidding too high and paying close to my value. I'll aim to win against likely conservative bids. Given this is round 1 with no prior history, I'll bid slightly above the midpoint of possible values, anticipating others will bid lower. A bid of $14.5 should secure a win against conservative bids while limiting potential loss."
+        ]
+    }
+}

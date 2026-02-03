@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            17,
+            2,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 1.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 10.0
+            }
+        },
+        "profit": [
+            7.0,
+            0,
+            0
+        ],
+        "common": 1,
+        "plan": [
+            "Given my private value of $17, I aim to bid just below my value to maximize potential profit while remaining competitive. Since there's only one round, I have no historical data to consider. A bid slightly lower than my value, such as $15.9, could win if others bid conservatively. This strategy minimizes potential loss if I win, as I would pay the second-highest bid.",
+            "Given my private value for this round is $2, I should bid conservatively to maximize profit. With a low value of $2, the risk of overbidding outweighs the potential gain. To avoid losses, I should bid below my private value, ensuring I don't win unless others bid extremely low. A bid of $1.5 balances the chance of winning with minimizing potential losses.",
+            "Given my private value of $18, I aim to bid below this value to ensure a profit if I win. Since there is no prior history to analyze other bidders' behavior, I'll consider a conservative approach. To balance the risk of overbidding and losing potential profit, I'll bid slightly above half my value. This strategy maximizes the chance of winning while ensuring a positive profit margin."
+        ]
+    }
+}

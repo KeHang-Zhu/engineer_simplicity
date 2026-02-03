@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 21.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "With a private value of $25, I want to maximize potential profit. Since the prize values are drawn independently and randomly, and I can't lose money, my optimal strategy is to bid close to my true value. I'll bid slightly below my value to ensure I capture profit if I win, while minimizing overpayment. A bid around $20-$22 seems strategic, leaving room for potential gain if I win.",
+            "With a private value of $32, I want to maximize my potential profit. Since the prize is randomly valued between $0-$20, my value is significantly higher than typical range. I'll bid strategically to win while minimizing my payment. A good approach is to bid just above the expected maximum competing bid. Given the $0-$20 range, I'll aim to bid around $20-$22 to ensure winning while keeping my payment low.",
+            "My private value is $23, which is higher than the game's $0-$20 standard range. This suggests I should bid strategically to maximize potential profit. Since the winning strategy is to bid just enough to win while paying the second-highest bid, I'll aim to bid slightly above the expected maximum opponent bid. Given the $0-$20 range, I'll bid $20.1 to ensure winning while minimizing my payment."
+        ]
+    }
+}

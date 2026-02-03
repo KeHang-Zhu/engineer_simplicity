@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            20.5,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "Since this is the only round, and my value is $35, I need to bid high enough to win, but not excessively. Given the possible values range from $0 to $20, I will bid slightly above the maximum possible value of other bidders. To maximize profit, I'll bid $20.1, ensuring I win against any reasonable bid, and pay as little as possible.",
+            "Since this is a single-round game, and my value is $41, I want to bid high enough to win against likely opponents, but not so high that I overpay. Knowing the other bidders are Andy and Charles, and without any previous rounds to learn from, I'll assume they'll bid somewhat rationally. I'll bid slightly above what I estimate their average value might be, aiming for a win with a reasonable profit margin. A bid of $20.5 should be sufficient to win without overpaying.",
+            "Since this is the only round, and my value is $44, I need to bid high enough to win against likely conservative bids. However, I don't want to overbid unnecessarily. Given the range of possible values (0-20), it's unlikely anyone else has a value significantly higher than mine. I will bid slightly above the maximum possible value of other players, aiming to win at a reasonable price."
+        ]
+    }
+}

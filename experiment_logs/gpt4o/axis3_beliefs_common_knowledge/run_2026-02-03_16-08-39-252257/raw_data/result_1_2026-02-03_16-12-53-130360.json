@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            14.899999999999999,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "[In this auction, my value for the prize ($38) is above the maximum possible value ($20) due to a likely typographical error. Normally, I would bid slightly below my value. However, assuming the value range is correct, I should bid slightly above the expected average value ($10) to outbid rational bidders but below my value. I will bid $19.9 to maximize profit, as rational bidders will not bid above their value.]",
+            "Since the value is uniformly distributed between $0 and $20, my private value of $35 is highly advantageous. To maximize profit, bid slightly above $20 to outbid competitors, ensuring a win. Bid $20.1 to cover the maximum possible value of opponents, ensuring profit of $35 - $20 = $15.",
+            "Given my private value of $42, which exceeds the maximum possible value of $20, I should bid slightly above the maximum value to ensure winning while minimizing cost. Rational bidders will bid below or at their value, capped at $20. Thus, a bid of $20.1 should secure the win by outbidding any rational competitor, maximizing my profit by paying the second-highest bid, likely close to $20."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 29.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            10.0
+        ],
+        "common": 18,
+        "plan": [
+            "[My value is $34, which is significantly higher than the possible values of other bidders (between $0 and $20). Therefore, I should bid aggressively to win. I will bid $20 in the sealed bid stage. This will ensure I stay in the auction until the clock reaches $20. Since the other bidders' values are capped at $20, I will win the auction at a price no higher than $20. My profit will be $34 - price, which is always positive. ]",
+            "[I should bid slightly below my true value to try to win the auction at a price that is profitable. Since this is the first round, I have no history to learn from. I will bid $20, which is the maximum possible value for the other bidders. This ensures I win if my value is the highest, and I will win at a price no higher than the maximum value of the other bidders, which is $20. Since my value is $33, this guarantees a profit.]",
+            "I should bid slightly below my true value to maximize potential profit while still having a good chance of winning. I will bid $29.9, which is slightly below my value of $30. This ensures that if I win, I will make a small profit, and I avoid overbidding significantly."
+        ]
+    }
+}

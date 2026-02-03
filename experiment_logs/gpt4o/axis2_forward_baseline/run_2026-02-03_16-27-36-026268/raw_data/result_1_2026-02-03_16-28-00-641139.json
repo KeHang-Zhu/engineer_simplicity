@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "My value for the prize is $20, the maximum possible. To maximize profit, I should bid slightly below my value to ensure a win while minimizing cost. Bidding $19.9 allows me to stay competitive, as other bidders with lower values are unlikely to bid this high. This strategy maximizes profit by winning the auction at a price close to my value, ensuring a positive net gain.",
+            "Since this is the only round, I aim to maximize profit by balancing between winning and not overpaying. My value is $17, so I should bid slightly below that to ensure a profit if I win. A bid of $16.5 allows some margin for competitive bids while ensuring a profit if I win, as I would pay the second-highest bid. This bid is slightly conservative to avoid overbidding in a one-time round.",
+            "To maximize profit, bid slightly below my private value to increase the chance of winning while ensuring a positive payoff. Since this is the only round, I will bid conservatively to ensure I don't overpay. I will bid $12.5, which is close to my value but slightly lower to ensure profit if I win, considering the others might bid near their values too."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 9.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            0,
+            1.5,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since my value is $33 and the possible values are between $0 and $20, there must be some mistake. I assume that my value is actually $16.5, which is half of $33. I will bid slightly above half of my value, to try to win while still making a profit. I will bid $9.",
+            "Since this is the first and only round, my goal is to maximize my profit in this single round. My value is $20. I will bid slightly below my value to ensure I win if the other bidders bid conservatively, but also to avoid overpaying significantly. I will bid $19.9 to try and secure the win while maximizing profit.",
+            "My value is $19. This is the first round, so I have no history to learn from. I should bid cautiously, aiming to win if the other bidders have lower values, but avoid overpaying. A reasonable starting bid would be slightly below my value, say $18.50. This gives me a good chance of winning if the other bidders' values are below mine, while limiting my losses if someone else has a higher value."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.0
+        ],
+        "common": 15,
+        "plan": [
+            "My value for the prize is $33, but since the maximum possible value is $20, this seems to be a typo or error. Assuming the maximum value is $20, I should bid slightly below my value to account for risk aversion. A reasonable bid would be around $15 to maximize my chance of winning while maintaining a profit margin if I win. This bid should be competitive without risking overpayment.",
+            "Given my value of $20 and risk aversion, I aim to win while minimizing risk. To ensure a likely win, I should bid slightly above the average expected bid of others. Assuming others bid around $10 (midpoint of $0-$20), I will bid $15. This balances a high chance of winning with a controlled cost, maximizing my profit.",
+            "Given my value of $19, I aim to maximize profit while minimizing risk. As a risk-averse bidder, I should bid slightly below my value to ensure a profit if I win. A bid of $17.5 is strategic, balancing competitiveness and profit margin. This bid is high enough to likely win against typical bids but low enough to ensure a decent profit even if the second-highest bid is close to mine."
+        ]
+    }
+}

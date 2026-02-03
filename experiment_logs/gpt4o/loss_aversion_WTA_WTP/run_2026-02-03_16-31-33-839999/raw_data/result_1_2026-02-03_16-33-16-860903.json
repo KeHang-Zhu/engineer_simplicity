@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            9.100000000000001,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since my value for the item is $29, which is above the maximum possible draw of $20, I should aim to bid close to the maximum possible value to ensure winning, while still securing a profit. A bid slightly above $20, such as $20.1, should maximize my chances of winning while ensuring a profit if I win, as my value is much higher than any possible second-highest bid.",
+            "Given that my value is $27, I will bid slightly below my value to maximize profit while still having a high chance of winning. Since values are between $0 and $20, I will bid $19.9, which is just below the maximum possible value, ensuring a high probability of winning while minimizing potential loss.",
+            "My private value of $25 is above the maximum possible value of $20, suggesting an error, but I'll proceed assuming $20 as my value. To maximize profit, I should bid slightly below my value to ensure a win while minimizing payment. I will bid $19.9, which is just below the maximum value, to outbid others likely bidding close to their maximum perceived value."
+        ]
+    }
+}

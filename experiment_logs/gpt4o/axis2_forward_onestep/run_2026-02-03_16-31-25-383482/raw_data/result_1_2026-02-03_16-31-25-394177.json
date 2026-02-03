@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 38.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            19.0,
+            0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "Given my private value of $39, I should bid close to this value to maximize my profit while keeping the bid competitive. Since I need to outbid Betty and Charles to win, a strategic bid slightly below $39, like $38.9, could ensure I win without overpaying. This bid leaves a margin for profit even if the second-highest bid is close to my value.",
+            "Given my value of $41, I should bid close to my value to maximize my chance of winning while ensuring a profit. Since the value is randomly drawn between $0 and $20, my value is exceptionally high. I'll bid slightly below my value to ensure a win against typical bids, which likely range between $10 and $20. A bid of $20 should be sufficient to win while ensuring a substantial profit.",
+            "My private value of $36 is incorrect as values range from $0 to $20. Assuming the correct range, I'll bid slightly above the midpoint, around $10, to balance potential profit and winning probability. This strategy aims to outbid conservative bidders while avoiding overpayment."
+        ]
+    }
+}

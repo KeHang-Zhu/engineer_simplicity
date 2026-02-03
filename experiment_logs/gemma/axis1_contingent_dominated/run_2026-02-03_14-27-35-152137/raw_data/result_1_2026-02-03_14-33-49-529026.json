@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 24.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            4.899999999999999,
+            0,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "My value is $25. Since there's only one round, I should bid aggressively. A bid close to my value will likely win, maximizing potential profit. However, bidding *exactly* my value is risky, as I'd pay a high price if outbid by a tiny amount. I will bid $24.90 to increase my chances of winning without overpaying significantly. Dominated strategies are bids below $0.1, as a slightly higher bid would always be better.",
+            "My value is $32. Since the values are between $0 and $20, my value is significantly higher than the possible values of other bidders. I want to win, but avoid overpaying. Bidding slightly above the maximum possible value of other players ($20) seems reasonable. A bid of $20.1 guarantees a win against any possible value the others might have, while keeping my payment low. It is not dominated by any other strategy.",
+            "My value is $23. Since this is the only round, I want to maximize my expected profit. Bidding my value is too risky as I might overpay. I need to consider potential bids from Andy and Betty. A conservative bid around $12-15 should be effective, potentially winning against lower bids while avoiding overpaying significantly. I will bid $14.5 to avoid ties and ensure a slight advantage."
+        ]
+    }
+}

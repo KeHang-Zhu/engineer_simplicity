@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 41.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 28.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 28.5
+            }
+        },
+        "profit": [
+            0,
+            13.5,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "My private value is $40, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win but pay the least possible, I'll bid slightly above the expected maximum competing bid. Given the random distribution, I'll aim to bid around $19-$20 to ensure winning while minimizing my payment. My goal is to capture the most profit possible given my high private value.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range mentioned in the game rules. This suggests a strategic opportunity. Since I want to maximize profit, I'll bid close to but slightly under my true value. A bid of $41.9 ensures I'm likely to win while leaving a small margin of profit if the second-highest bid is substantially lower. This strategy minimizes the risk of overpaying while still securing the item.",
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment if I win, I want to bid just high enough to win while minimizing my payment. I'll bid close to my value but not exactly at it, leaving room for potential profit. A bid around $27-$29 seems optimal to maximize my chances of winning while preserving potential earnings."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.9000000000000004
+        ],
+        "common": 5,
+        "plan": [
+            "Given my value is $20, and I'm risk-averse, I want to win without overpaying. I'll bid slightly above what I estimate the others might bid, but conservatively. Since it's round 1 and there's no history, I'll assume the other bidders will bid around their average value ($10). I'll bid $10.10 to increase my chances of winning without significant risk.",
+            "Given my risk aversion and a value of $17, I need to bid conservatively. My goal is to win if possible, but avoid overpaying. Since this is the only round, there's no history to learn from. I'll bid slightly above what I estimate the others might bid, aiming for a small profit margin. I'll assume the other bidders will bid somewhat rationally, but not necessarily perfectly. A bid of $8.50 seems reasonable to increase my chances of winning without significant risk.",
+            "Given my risk aversion and a value of $13, I will bid conservatively. I want to win if possible, but avoid overpaying. Since this is round 1 and there's no history, I'll assume the other bidders might bid aggressively. A bid slightly above the midpoint of possible values ($10) seems reasonable, aiming to beat potentially random bids while minimizing my payment if I win. I'll bid $11.50."
+        ]
+    }
+}

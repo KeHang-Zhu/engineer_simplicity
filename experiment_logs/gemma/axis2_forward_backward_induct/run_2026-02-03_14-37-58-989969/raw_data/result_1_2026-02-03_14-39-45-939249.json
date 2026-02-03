@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 36.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            19.5
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $18. To maximize profit, I want to win when the price is as low as possible, but not exit too early. Given it's a single round, and I don't know the other bidders' strategies, I'll bid slightly above the midpoint of possible values to try and secure a win at a reasonable price. I'll aim for around $10.",
+            "My value is $15. To maximize profit, I want to win when the price is as low as possible, but not exit too early and leave money on the table. Given it's only one round, and I have no history, I'll bid slightly above my value, hoping others bid lower. A bid of $15.50 seems reasonable to try and win at a price around $15.00-$15.40.",
+            "My value is $35. I want to win if the price is below $35, and lose if it's above. Given this is round 1 of 1, and I have no prior information about Andy and Betty, I'll bid aggressively to maximize potential profit. I will bid slightly above my value, hoping to discourage competition and secure the win at a reasonable price. A bid of $36 seems reasonable."
+        ]
+    }
+}

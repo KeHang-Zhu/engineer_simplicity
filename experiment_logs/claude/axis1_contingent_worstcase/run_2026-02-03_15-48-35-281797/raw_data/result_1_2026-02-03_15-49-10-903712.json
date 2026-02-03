@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            47,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 55.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 45.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 45.0
+            }
+        },
+        "profit": [
+            0,
+            2.0,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My private value is $36, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment, I want to bid high enough to win, but not so high that I lose money. A bid around $35 seems optimal - it's close to my true value, gives me a good chance of winning, and minimizes overpaying.",
+            "My private value is $47, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize profit. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. A bid near my value but not exactly at $47 could optimize my potential earnings. I'll aim to bid slightly above the expected maximum competitive bid.",
+            "With a private value of $46, my goal is to win the auction while minimizing payment. Since values are drawn independently and randomly, I'll bid strategically near my true value. Bidding exactly my value risks overpaying. A good strategy is to bid slightly below my true value - around $45 - which gives me a buffer. This maximizes potential profit by reducing my payment if I win while still having a strong chance of winning."
+        ]
+    }
+}

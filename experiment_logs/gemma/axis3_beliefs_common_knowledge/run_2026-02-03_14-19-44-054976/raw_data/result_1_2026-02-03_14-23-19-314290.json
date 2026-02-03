@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 7.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            1.9000000000000004
+        ],
+        "common": 9,
+        "plan": [
+            "Given the common knowledge of rationality, the optimal bidding strategy converges to bid (value - 0)/2. This is because any higher bid risks overpaying, while any lower bid risks losing the item to someone who values it more. In this single round, with a value of $13, bidding $6.50 is the theoretically optimal strategy. However, to account for potential irrationality or risk aversion in the other bidders, I'll slightly increase my bid to $7.",
+            "Given the common knowledge of rationality, the optimal bidding strategy is to bid slightly above the expected value of the second-highest bid. Since values are between $0 and $20, the expected value of the highest of the remaining two bids is approximately 2/3 of the maximum possible value, or (2/3)*20 = $13.33. However, since my value is only $11, I need to bid conservatively. I will bid $10.1 to try and win at a reasonable price.",
+            "Given the common knowledge of rationality, the optimal bidding strategy converges towards bidding your true value minus a small amount. This is because any bid above your value risks winning at a loss. Bidding too low risks losing the item when it's worth acquiring. Since this is round 1 and there's no history, I'll bid slightly below my value to attempt a win at a reasonable price."
+        ]
+    }
+}

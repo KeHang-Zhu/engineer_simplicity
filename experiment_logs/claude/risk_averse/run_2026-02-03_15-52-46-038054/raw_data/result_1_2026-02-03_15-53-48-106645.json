@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 45.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 32.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            12.0,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "My private value is $47, which is significantly high. Given the auction's second-price sealed bid format, my optimal strategy is to bid close to, but slightly below my true value. Since I'm risk-averse, I'll shade my bid downward to protect against potential losses. I'll bid $45, which leaves me a small buffer and increases my chances of winning while maintaining potential profit if I secure the item.",
+            "Given my high private value of $41, I want to win this auction. However, as a risk-averse bidder, I won't bid my full value. I'll aim to bid strategically, considering the potential bids of others. My goal is to secure the item while minimizing potential loss. I'll bid slightly above the midpoint of my value, around $35, which gives me a buffer for potential profit while reducing the risk of overpaying.",
+            "With a private value of $34, I want to maximize potential profit while minimizing risk. Since this is a single round with no previous history, I'll bid strategically near my true value but not exactly at it. A bid slightly below my true value ($34) reduces the chance of overpaying while still maintaining a strong probability of winning. I'll aim to bid around $32-$33 to create a buffer against potential losses."
+        ]
+    }
+}

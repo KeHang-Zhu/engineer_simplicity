@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            36,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 30.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 25.5
+            }
+        },
+        "profit": [
+            0,
+            10.5,
+            0
+        ],
+        "common": 16,
+        "plan": [
+            "My value is $32. Since this is a single-round game, I should bid aggressively to try and win, but not overpay. I'll bid slightly above what I estimate the others might bid, assuming a common value around the midpoint (14.5) and private tastes averaging around 10. This suggests others might value the item around $24.5. I will bid $25.5 to increase my chances of winning without significant overpayment.",
+            "My value is $36. Since this is the only round, I should bid aggressively to win if my value is significantly higher than expected. Given the common value range (0-29) and private adjustment range (0-20), a value of 36 is relatively high. I'll bid slightly above what I estimate the others might bid, aiming to win without overpaying. I will bid $30.",
+            "Since this is round 1 of 1, and I have a value of $21, I need to bid strategically to maximize potential profit. I will bid slightly above what I estimate the other bidders might offer, but not so high as to overpay significantly. Given the limited information and the possibility of other bidders having high values, a bid around $10.5 seems reasonable to win without excessive cost."
+        ]
+    }
+}

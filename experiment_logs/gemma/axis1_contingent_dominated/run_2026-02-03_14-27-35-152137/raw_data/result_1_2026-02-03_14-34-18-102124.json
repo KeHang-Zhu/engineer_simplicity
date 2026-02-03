@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.6
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.6
+            }
+        },
+        "profit": [
+            0,
+            0,
+            1.4000000000000004
+        ],
+        "common": 9,
+        "plan": [
+            "Since this is the only round, a conservative approach is best. My value is $13. Bids above $13 are risky as I could lose money. Bids below $13 might win, but yield lower profit. I'll aim to win against likely low bids, while avoiding overpaying. I will bid $10.1. This is a reasonable attempt to win without overspending, given my value.",
+            "Since this is round 1 of 1, there's no history to learn from. My value is $11. I want to bid slightly above what I expect the others to bid, but not so high as to overpay. Bids above $11 are risky. Bids below $10 are likely to lose. I will eliminate dominated strategies. A bid of $11 is dominated by bidding $11.1, as it increases my chance of winning with minimal additional cost. I will bid $10.6 to try and secure a win at a reasonable price.",
+            "Since this is round 1 of 1, there's no history to learn from. My value is $12. I want to win if my bid is higher than the second highest bid, and my profit (value - second highest bid) is positive. Bidding $12 or less is dominated, as I could bid slightly higher and potentially win for the same or better profit. I will bid $12.1 to increase my chances of winning while keeping the payment low."
+        ]
+    }
+}

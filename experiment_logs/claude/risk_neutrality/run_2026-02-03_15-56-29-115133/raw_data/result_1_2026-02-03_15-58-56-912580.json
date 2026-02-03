@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            23,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 32.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            15.100000000000001,
+            0,
+            0
+        ],
+        "common": 21,
+        "plan": [
+            "With a private value of $35, my goal is to win the auction while minimizing my payment. Since values are drawn independently and randomly, I'll bid strategically near my value. Given neutral risk tolerance, I'll bid close to my true value but not exactly at it. A bid around $32-$33 gives me a good chance of winning while preserving potential profit margin. This allows some buffer against competing bids while still likely securing the item.",
+            "My private value is $23, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since I'm neutral about risk and want to maximize expected profit, I'll bid close to my true value but not exactly at it. I'll aim to bid just above the expected maximum competitive bid, which I estimate around $15-$18. I'll bid $19.5 to maximize my chances of winning while preserving potential profit margin.",
+            "Since my value is higher than the typical range, I want to bid aggressively but not recklessly. My goal is to win the auction while minimizing my payment. I'll bid slightly below my value to ensure winning while keeping my payment low. A bid around $19.90 should secure the item while leaving a small profit margin."
+        ]
+    }
+}

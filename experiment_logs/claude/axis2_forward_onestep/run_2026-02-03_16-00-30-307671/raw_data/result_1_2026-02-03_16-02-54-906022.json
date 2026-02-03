@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            3.0,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $18, my goal is to win the auction while minimizing the price I pay. Since this is a single round with no prior history, I'll use a strategic bid close to, but slightly below my true value. Bidding exactly $18 risks paying too close to my value. I'll bid $16.50 - this gives me a buffer to potentially win while ensuring positive profit if I win. This approach balances winning probability with profit margin.",
+            "My private value is $16, which means I want to maximize my potential profit. Since this is a single round with no prior history, I'll use a strategic approach. I want to bid high enough to win, but not so high that I eliminate all potential profit. Given the $0-$20 range, I'll bid slightly below my true value to create a profit margin. A bid around $15 seems optimal - it's close to my value but leaves room for potential earnings.",
+            "My private value is $14. My goal is to maximize profit by winning only if I can do so cheaply. Since values are drawn randomly and independently, I'll use a strategic bid slightly below my true value. I want to win if possible while paying less than my value. A bid around $13-$14 seems optimal - high enough to likely win, but low enough to preserve potential profit if I win at a lower price."
+        ]
+    }
+}

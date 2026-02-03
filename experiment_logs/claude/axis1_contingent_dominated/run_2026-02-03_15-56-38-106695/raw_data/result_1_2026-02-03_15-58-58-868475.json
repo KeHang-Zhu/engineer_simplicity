@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 12.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            0.3000000000000007
+        ],
+        "common": 1,
+        "plan": [
+            "In a single-round sealed bid auction with three bidders, the optimal strategy is to bid close to, but not exceeding, my private value. Since my value is $13, I'll bid slightly below that to maximize potential profit. With values drawn randomly between $0-$20, other bidders might have similar or different valuations. I'll bid $12.7 to create a buffer that allows potential profit if I win, while avoiding overbidding.",
+            "With a private value of $6, my goal is to maximize potential profit. In a second-price sealed bid auction, the optimal strategy is typically to bid your true value. However, with multiple bidders, strategic considerations emerge. I'll bid slightly above my value to increase win probability while protecting downside. A bid around $7-$8 seems reasonable, balancing potential gain against risk of overpaying.",
+            "My private value is $13. In a second-price sealed bid auction, the optimal strategy is typically to bid my true value. This prevents underbidding (and missing potential profit) or overbidding (and risking a loss). Since values are independently drawn and this is a single round, I'll bid close to my true value. I'll bid slightly under $13 to create a small buffer against potential losses. A bid of $12.9 seems strategic."
+        ]
+    }
+}

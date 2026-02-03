@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 39.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 42.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 39.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            5.0
+        ],
+        "common": 26,
+        "plan": [
+            "With a high private value of $41, I want to maximize my chances of winning while minimizing overpayment. In a sealed bid ascending auction, I should bid strategically to exit at a price that balances winning probability with profit. My optimal bid should be close to, but slightly below my true value - perhaps around $38-$39. This gives me a buffer to potentially win while ensuring some profit if I secure the item.",
+            "With a private value of $29, I want to ensure I win the auction while maximizing my potential profit. Since values are independently drawn, I'll aim to bid strategically. Given the two-stage auction mechanism, I want to set a sealed bid that gives me a good chance of winning without overpaying. I'll bid close to, but slightly below my true value to create room for potential profit if I win.",
+            "With a private value of $44, my goal is to maximize potential profit. In a sealed bid ascending auction, I want to bid strategically to win while preserving as much surplus as possible. Since values are independently drawn, I'll bid close to my true value but slightly below to leave room for potential profit. A bid around $42-$43 seems optimal - high enough to likely win, but low enough to preserve some potential surplus if I win."
+        ]
+    }
+}

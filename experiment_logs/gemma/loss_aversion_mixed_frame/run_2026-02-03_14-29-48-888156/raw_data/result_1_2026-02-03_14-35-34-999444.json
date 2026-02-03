@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            0,
+            18.5,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $26. Since this is the only round, I want to maximize my expected profit. A conservative approach is to bid slightly above what I expect the others to bid, but not too high to avoid overpaying. Given the possible values range from $0 to $20, I'll bid $16.50. This is a reasonable bid that will likely win against typical bidding behavior, while minimizing the payment I make if successful.",
+            "My value is $35, significantly higher than the maximum possible value of $20 for other bidders. I want to win, but avoid overpaying. A conservative approach is to bid slightly above the maximum possible opponent value, but not too much. Given the second-highest bid determines my cost, I\u2019ll bid $19.50. This ensures I win against any bid of $19.40 or less, while keeping my payment low.",
+            "Given my value is $17, I want to win if the second highest bid is below $17. I'll bid slightly above what I expect the others to bid, but not too high, to avoid overpaying. Since it's round 1 and there's no history, I'll assume a conservative average bid of $8.50. Bidding $10.50 should win against that, leaving a profit of $17 - $10.50 = $6.50 if I win."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.899999999999999
+        ],
+        "common": 17,
+        "plan": [
+            "[Given the value of $33 for this round, which is above the maximum possible value of $20, it seems there was an error in the value provided. However, assuming the value should be capped at $20, I should aim to bid close to my perceived value while considering the risk of overbidding. A bid slightly below $20 maximizes potential profit while minimizing payment risk. A bid of $19.9 should suffice to outbid others without overpaying.]",
+            "My private value of $34 significantly exceeds the maximum possible value of $20, indicating an error in the setup. Assuming the correct maximum value is $20, I should bid slightly above $20 to ensure winning, given this is the only round. Bidding $20.1 maximizes profit as it exceeds any rational bid from others without overpaying.",
+            "My private value for the prize is $25, which is higher than the maximum possible value of $20. This means I should aim to win the auction as long as the second-highest bid is below $25 to maximize profit. Since this is the only round, I will bid slightly above $20 to outbid others while ensuring a profit. Bidding $20.1 ensures I win if others bid $20 or less, and I will pay the second-highest bid, maximizing my profit potential."
+        ]
+    }
+}

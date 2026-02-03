@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.7
+            }
+        },
+        "profit": [
+            4.300000000000001,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $18, my goal is to win the auction while minimizing payment. Since this is a first-round auction with no prior history, I'll use a strategic bid that balances winning probability with profit preservation. I'll bid slightly above my midpoint value to increase winning chances while leaving room for potential profit. A bid around $15 should provide a good balance between securing the prize and maintaining economic efficiency.",
+            "With a private value of $16, I want to win the auction but avoid overpaying. Since this is a single round with no prior history, I'll use a strategic bid that's close to my value but leaves room for potential profit. I'll bid slightly above my midpoint value to signal serious intent while protecting against overpaying. A bid around $13-$14 seems optimal, balancing my desire to win with risk management.",
+            "With a private value of $14, my goal is to win the auction without overpaying. Since this is a first-price sealed bid auction with second-price payment, I want to bid strategically. I'll aim to bid slightly below my true value to maximize potential profit. Given the $20 endowment and $14 value, I'll bid $12 - this leaves room for potential profit if I win and protects against overbidding. The bid is close to my value but provides a buffer."
+        ]
+    }
+}

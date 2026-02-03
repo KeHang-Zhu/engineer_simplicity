@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 24.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 39.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 24.5
+            }
+        },
+        "profit": [
+            0,
+            10.5,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $26, my goal is to maximize potential profit. Since this is a single round and values are independently drawn, I'll use an aggressive strategy. I'll bid close to my true value to increase win probability. A bid around $24-$25 allows me potential profit if I win at a lower price, while protecting against losing to other bidders who might bid aggressively.",
+            "With a high private value of $35, I want to maximize my chances of winning while protecting potential profit. Since this is a single round with no repeated interactions, I'll bid strategically close to my value. A bid slightly above my value but not revealing my full valuation will help me win while preserving potential profit margin. I'll aim to bid around $38-$40 to signal serious intent but not expose my full hand.",
+            "With a private value of $17, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic approach. I want to bid high enough to have a good chance of winning, but not so high that I eliminate potential profit. A bid around $15 seems optimal - it's close to my true value, gives me room for profit if I win at a lower price, and signals serious intent to other bidders."
+        ]
+    }
+}

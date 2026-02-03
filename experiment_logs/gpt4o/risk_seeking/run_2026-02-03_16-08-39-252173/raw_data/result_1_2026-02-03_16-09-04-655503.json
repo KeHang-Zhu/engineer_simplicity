@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            15,
+            17,
+            3
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 3.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 14.9
+            }
+        },
+        "profit": [
+            0,
+            2.0999999999999996,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Given my value of $15 for the prize, I aim to bid slightly below my value to maximize profit while considering my risk-seeking nature. I will bid $14.9 to increase my chances of winning, as this is close to my value and should outbid most cautious players. This strategy balances the risk of overbidding with the potential for a high reward, aligning with my risk-seeking preference. Since this is the only round, maximizing immediate profit is crucial.",
+            "Given my value of $17, I aim to bid just below my value to maximize potential profit while maintaining a competitive edge. As a risk-seeker, I will bid slightly higher to increase my chances of winning, targeting a bid around $15. This balances my desire for potential high rewards with the cost of potentially overbidding. Since there are no previous rounds to consider, I base my strategy on maximizing my expected payoff this round.",
+            "Given my private value of $3, I should bid slightly above this value to account for my risk-seeking nature. However, since this is the only round and I lack historical data, I'll aim to bid around my value to maximize the chance of winning without overpaying significantly. To balance risk and reward, I'll bid $3.5, slightly above my value, hoping competitors don't bid much higher."
+        ]
+    }
+}

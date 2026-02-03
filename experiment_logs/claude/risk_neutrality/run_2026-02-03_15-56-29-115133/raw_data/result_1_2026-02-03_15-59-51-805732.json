@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            18,
+            26
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 16.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.3
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $16, I want to bid strategically. Since this is a second-price sealed bid auction, I should bid close to my true value to maximize potential profit. The optimal strategy is to bid slightly below my true value to protect against overpaying if others bid high. I'll bid $15.50, which leaves me a small buffer but still gives a strong chance of winning while protecting potential profit margin.",
+            "With a private value of $18, I want to maximize my potential profit. Since values are randomly drawn, I'll use a strategic bid close to my value. My goal is to win without overpaying. I'll bid slightly above my value to increase win probability, but not so high that I risk significant loss. A bid around $16-17 seems optimal - high enough to likely win, but leaving room for potential profit if I win at a lower price.",
+            "My private value is $26, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since I'm neutral about risk and want to maximize expected profit, I'll bid close to my true value but not exactly at it. I'll aim to bid just above what I expect other rational bidders might choose, targeting around $20-$22 to increase my chances of winning while preserving potential profit margin."
+        ]
+    }
+}

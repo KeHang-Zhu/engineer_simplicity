@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 30.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            15.5
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $39. Since this is the only round, I should bid aggressively to try and win. Given the possible values range from $0 to $20, it's unlikely others have a value close to mine. I will bid slightly above what I expect the second-highest value to be, aiming to win while minimizing my payment. A bid of $20.50 seems reasonable, as it's likely to beat most other bids while not being excessively high.",
+            "My value is $41. Since this is the only round, I should bid aggressively to try and win, but not overpay. Given the possible values range from $0-$20 for the other bidders, the second highest bid is unlikely to exceed $20. A bid slightly above $20 should secure the win without excessive cost. I will bid $20.10 to ensure I win if any other bidder values the item above $0.",
+            "My value is $36. Since this is a single round, I want to maximize my expected profit. Given my risk neutrality, I should bid aggressively. I'll bid slightly above what I estimate the other bidders might bid, aiming to win without overpaying. I'll assume the others will bid somewhat rationally based on their values, but without knowing their values, I'll bid high enough to likely win. A bid of $30 should be sufficient."
+        ]
+    }
+}

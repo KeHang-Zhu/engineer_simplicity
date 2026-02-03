@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 34.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            19.3
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $18, which is relatively high. Since the prize is worth $18 to me, I want to win, but not pay too much. The optimal strategy is to bid just above what I expect other rational bidders might bid. Given the $0-$20 range, I'll aim to bid strategically around $15-$16, which leaves me potential profit margin if I win. I'll bid slightly less than my full value to maximize potential profit.",
+            "My private value is $15. To maximize profit, I need to bid strategically. Since this is a second-price sealed bid auction, I want to bid close to my true value but not exactly at it. A good strategy is to bid slightly below my true value to protect against overpaying. I'll bid $14.5, which leaves me a small buffer for potential profit if I win, while still being competitive. This approach balances risk and potential gain.",
+            "My private value is $35, which is significantly higher than the typical $0-$20 range mentioned in the game rules. This suggests I should bid strategically to maximize potential profit. Since the winning bid pays the second-highest price, I want to bid high enough to win, but not so high that I lose money. Given the uncertainty of other bidders' values, I'll bid close to but slightly below my true value to ensure potential profit."
+        ]
+    }
+}

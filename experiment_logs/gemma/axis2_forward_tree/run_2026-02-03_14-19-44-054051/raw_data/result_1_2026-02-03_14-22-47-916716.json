@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            9.5,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value is $28. Since this is the only round, I want to maximize my expected profit. Given the possible values range from $0 to $20, bidding aggressively is reasonable. I'll bid slightly above the maximum possible value of other players to ensure a win, assuming they bid rationally. I will bid $20.1 to almost guarantee a win, and pay a price likely below my value.",
+            "Since this is a single-round auction and my value is $16, I want to bid slightly above what I expect the second-highest bid to be, but below my value to ensure a profit if I win. Given it's the first round, there's no history. I'll assume other bidders will bid somewhat rationally. A bid of $15.50 seems reasonable, aiming to win against bids likely under $15.50 while minimizing potential losses.",
+            "Since this is the only round, and my value is $19, I want to win if my profit will be positive. I should bid slightly above what I expect the second-highest bid to be. Given there's no history, I'll assume other bidders will bid somewhat randomly. A bid of $18.5 should likely win against most reasonable bids, while keeping the payment low. Bidding too high risks winning with a small profit or losing out on the item entirely."
+        ]
+    }
+}

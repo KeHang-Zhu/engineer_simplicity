@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 36.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 36.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 36.5
+            }
+        },
+        "profit": [
+            -0.5,
+            0,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "My private value is $36, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment, I want to bid high enough to win but not excessively above my true value. A bid around $35-$37 seems optimal - high enough to almost certainly win, but not so high that I risk substantial loss if competition is weak.",
+            "With a private value of $30, I want to win the auction but minimize my payment. Since values are independently drawn, I'll bid strategically near my value. A bid slightly below my value (around $25-$28) maximizes my potential profit. This allows me to win if others bid lower, while ensuring I don't overpay. The goal is to capture the item when my potential profit is positive.",
+            "My private value is $37, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winning bid pays the second-highest bid, I want to bid just high enough to win, but not excessively above my actual value. Given the uncertainty of other bidders' values, I'll bid close to but slightly below my true value to ensure winning while minimizing overpayment."
+        ]
+    }
+}

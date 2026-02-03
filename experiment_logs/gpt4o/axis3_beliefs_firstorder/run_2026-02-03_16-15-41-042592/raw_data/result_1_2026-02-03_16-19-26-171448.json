@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            20,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.0
+        ],
+        "common": 4,
+        "plan": [
+            "Given my value of $24, the optimal strategy is to bid slightly less than my value to maximize profit if I win. Since other bidders also have values between $0 and $20, they might bid close to their values. A strategic bid would be slightly above the midpoint of the range, around $15, to outbid others while ensuring potential profit.",
+            "Given my value of $20, I aim to win the auction by outbidding the others while minimizing payment. Rational bidders will likely bid close to their values. I should bid slightly above the average expected value of $10 to ensure a win, but not too high to avoid overpaying. A bid around $15 should balance winning and cost, assuming others bid based on their expected values. This strategy maximizes my profit by securing the prize without paying excessively.",
+            "Given my value of $18, I should bid close to this to maximize my chance of winning while ensuring profit. Assuming rational behavior, Andy and Betty will bid close to their values. To win, I need to bid slightly above their expected bids. A bid of $17.5 balances winning chances and profit, as it\u2019s below my value but likely above their bids."
+        ]
+    }
+}

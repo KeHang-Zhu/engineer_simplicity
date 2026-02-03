@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 39.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 43.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 39.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.299999999999997
+        ],
+        "common": 27,
+        "plan": [
+            "My private value is $35, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively. Since the second-highest bid determines the payment, I want to bid high enough to win, but not excessively beyond my value. A strategic bid near my true value but not exactly at it will maximize potential profit. I'll aim to bid around $34-$36 to ensure winning while minimizing overpayment.",
+            "My private value is $41, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I reduce my potential profit margin. I'll bid close to my true value but not exactly at it, to leave some potential profit space. A bid around $39-$40 seems optimal.",
+            "My private value is $44, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since I'll only profit if my bid wins and is less than my value, I want to bid close to but slightly below my true value. A bid around $43-$44 maximizes my potential profit while reducing the risk of overpaying. I'll aim to win by slightly outbidding competitors without exceeding my actual value."
+        ]
+    }
+}

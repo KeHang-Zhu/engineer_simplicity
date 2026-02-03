@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 24.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 24.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $29, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically to maximize profit. Since the winner pays the second-highest bid, I want to bid just high enough to win, but not excessively. Given the random nature of other bidders' values, I'll bid near my true value but slightly below to ensure profit margin. A bid around $25-$28 seems optimal to capture the prize while maintaining potential earnings.",
+            "My private value is $27, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the second-highest bid determines the payment if I win, I'll aim to bid just above what I expect other bidders might offer. Given the high value, I'll bid aggressively but not recklessly - around the midpoint of the typical range to increase my chances of winning while minimizing overpayment.",
+            "My private value is $25, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively. Since the winning strategy is to bid close to my true value while paying only the second-highest bid, I'll aim to bid near my true value but not exactly at it. I'll bid $24.9 to maximize potential profit, which leaves me a small buffer and signals high confidence. This bid is just below my true value but still highly competitive."
+        ]
+    }
+}

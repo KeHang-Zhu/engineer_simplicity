@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            47,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 45.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            25.5
+        ],
+        "common": 29,
+        "plan": [
+            "With a private value of $36, I want to win the auction but minimize my payment. Given the value range is $0-$20 for other bidders, they'll likely bid strategically. A good approach is to bid slightly above the expected maximum competing bid. I'll aim to bid around $20, which covers the maximum possible opponent value while leaving room for profit. This reduces risk of overpaying while still having a strong chance of winning.",
+            "My private value is $47, which is significantly higher than the typical $0-$20 range. Other bidders won't know my true value. Standard game theory suggests bidding near the expected maximum of the typical range (around $20) to maximize profit. I want to win without overpaying. My strategy is to bid just above the expected maximum competitive bid, around $20.50, to ensure winning while minimizing my payment.",
+            "With a very high private value of $46, I want to win this auction. Since values are drawn randomly between $0-$20, most bids will likely be lower. My optimal strategy is to bid close to, but slightly under my true value - around $45. This ensures I'm likely to win while minimizing my payment. Other rational bidders will likely bid strategically based on their own values, so I'll aim to outbid them without overpaying."
+        ]
+    }
+}

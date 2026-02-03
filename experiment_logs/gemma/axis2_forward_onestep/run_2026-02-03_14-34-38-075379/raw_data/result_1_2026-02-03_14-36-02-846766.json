@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            29,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            1.8999999999999986
+        ],
+        "common": 19,
+        "plan": [
+            "My value is $29, significantly higher than the maximum possible value of $20 for other bidders. To maximize profit, I want to win while paying as little as possible. I will bid slightly above the maximum possible value of other bidders, $20. This ensures I win against any possible bid while only paying up to $20. Given the independent redraws, this is the optimal strategy for a single round.",
+            "My value is $29. Since this is the only round, I need to bid aggressively to maximize my chance of winning. However, bidding too high risks winning with minimal profit. Given the possible range of values (0-20), I'll bid slightly above the maximum possible value of other bidders, but not excessively. I'll bid $20.1 to ensure I win against any value of $20, and still have a good chance against lower values.",
+            "Since this is the only round, and my value is $22, I want to maximize my chance of winning while still ensuring a positive profit. Given the possible values range from $0 to $20, a bid close to my value is reasonable. I'll bid slightly above the maximum possible value of other bidders to increase my chances of winning. I will bid $20.1, hoping to win against bids likely lower than $20."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 8.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            0,
+            11.9,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since my value is $32, and the maximum possible value is $20, I have a significant advantage. The other bidders' values are capped at $20. To maximize profit, I want to win while paying as little as possible. I will bid slightly above the expected second-highest bid. Assuming rational bidders, I expect bids to be around half their value. Therefore, I will bid $10.1, hoping to win against bids likely in the $5-10 range.",
+            "My value is $22. Since this is round 1 and there's no prior history, I assume Andy and Charles will bid somewhat conservatively, likely around half their value. To maximize profit, I want to win if my value exceeds the second-highest bid. I'll bid slightly above what I estimate their values might be, but not too aggressively to avoid overpaying. A bid of $11.5 seems reasonable to increase my chances of winning without excessive payment.",
+            "Given it's round 1 and there's no history, I'll assume the other bidders will bid somewhat conservatively, aiming for a small profit if their value is decent. My value is $16. To maximize profit, I want to win if my value exceeds the second-highest bid. I'll bid slightly above what I estimate the average value to be, but not too high to overpay. I will bid $8.50."
+        ]
+    }
+}

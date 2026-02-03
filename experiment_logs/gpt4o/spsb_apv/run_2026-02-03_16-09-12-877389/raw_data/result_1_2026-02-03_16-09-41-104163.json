@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            29,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 29.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 18.9
+            }
+        },
+        "profit": [
+            0,
+            10.100000000000001,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "Given my private value of $20, I aim to bid just under this value to maximize profit if I win. I anticipate that other bidders may have similar or slightly lower private values, so I should bid slightly above the midpoint of the possible range. This strategy balances the risk of overbidding with the need to outbid competitors. Therefore, I will bid $15, which gives room for profit if I win and is competitive enough to potentially secure the prize.",
+            "With a private value of $29, I aim to maximize profit by bidding slightly above the expected average bid of others. Assuming others have similar private adjustments, a common value around 14-15 is likely. Bidding $29 maximizes my chance of winning while keeping costs low.",
+            "Given my private value of $20, I aim to maximize profit by bidding slightly below my value to ensure a positive return if I win. Since there's no history to consider, I assume other bidders have similar valuations. To outbid a potential $18-$19 bid from others while still making a profit, I will bid $18.9. This maximizes my chance of winning while ensuring a profit margin if the second-highest bid is lower."
+        ]
+    }
+}

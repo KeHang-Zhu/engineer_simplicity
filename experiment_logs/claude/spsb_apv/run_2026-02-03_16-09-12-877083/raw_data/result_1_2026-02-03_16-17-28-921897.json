@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            19,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            10.5,
+            0,
+            0
+        ],
+        "common": 9,
+        "plan": [
+            "Given my high private value of $29, I want to win this auction. Since this is a single round with no prior history, I'll use a strategic approach. I'll bid slightly below my full value to maximize potential profit. The second-highest bid will determine my payment, so I want to bid high enough to win but not so high that I reduce my potential earnings. A bid around $25 seems optimal - likely to win but preserving some profit margin.",
+            "My private value is $19. In a second-price sealed bid auction, the optimal strategy is often to bid close to my true value. Since the common value is randomly drawn between 0-29 and private taste adjustments are 0-20, other bidders could have similar or different valuations. I'll bid slightly below my true value at $18.50 to create a small buffer and potentially maximize profit if others bid aggressively.",
+            "My private value is $11. Since this is a single round with no prior history, I'll use a moderate bidding strategy. I want to win if possible, but not overpay. I'll bid slightly above my private value to increase my chances of winning, but not so high that I risk significant loss. A bid around $13-$14 seems reasonable, balancing potential profit with risk of overpaying."
+        ]
+    }
+}

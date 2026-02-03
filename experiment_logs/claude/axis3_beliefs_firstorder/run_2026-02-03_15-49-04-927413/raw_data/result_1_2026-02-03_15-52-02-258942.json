@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 41.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 21.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            21.0
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $28, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically. Since other bidders have random values, they'll likely bid close to their own value. I want to win without overpaying. A good strategy is to bid slightly above the expected maximum of the standard range - around $20. I'll bid $21 to increase my chances of winning while minimizing overpayment.",
+            "My private value is $37, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically. Since other bidders likely have values between $0-$20, I'll aim to bid just above their expected maximum rational bid. A reasonable strategy is to bid around $20, which covers the entire possible range of their values. This maximizes my chance of winning while minimizing overpayment.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range. However, the second-price auction mechanism means I should bid strategically. Since other bidders likely have lower values, I want to bid high enough to win, but not so high that I reduce my potential profit. I'll bid close to, but slightly below my true value to ensure winning while minimizing overpayment."
+        ]
+    }
+}

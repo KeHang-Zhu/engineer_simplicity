@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.2
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            0,
+            17.5,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "My value is $33. Given my risk aversion, I want to win only if the second-highest bid is significantly lower than my value. Since this is the only round, I\u2019ll bid conservatively to avoid overpaying. I will bid slightly above what I believe the other bidders might offer, aiming for a small profit margin while minimizing the risk of a bidding war. I estimate others might bid around $10-$15, so I'll bid a bit higher.",
+            "My value is $34. Given my risk aversion, I want to win without overpaying. Since the values are between $0 and $20, it's unlikely either opponent has a value close to mine. I'll bid slightly above $20 to almost guarantee a win, but not excessively. A bid of $20.1 should secure the prize without a huge payment, considering the maximum possible value of other bidders is $20.",
+            "My value is $25. Given my risk aversion, I want to win only if I'm very likely to profit. I'll bid conservatively, aiming to win against likely low bids, but avoiding overpaying. Since it's round 1 and there's no history, I'll assume the other bidders will bid somewhat randomly. I'll bid slightly above the expected value of the other bidders. A bid around $12 seems reasonable to secure a win while minimizing potential loss."
+        ]
+    }
+}

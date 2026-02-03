@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            23,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.2
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            5.0,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value is $20. Since this is a single-round game, I want to win if my value is significantly higher than the others. I will bid aggressively, but not my full value. Bidding too high risks overpaying. I'll bid $19.5, hoping to win against any reasonable bids while minimizing potential payment. This strategy aims to capitalize on my high value in this single round.",
+            "My value is $23. Since this is the only round, I want to maximize my expected profit. A conservative approach is to bid slightly above what I expect the others to bid, but not too high as I only pay the *second* highest bid. Given the possible range of values (0-20), I will bid $15. This is high enough to likely win against reasonable bids, but not so high that I overpay if I do win.",
+            "Since this is the only round, I need to maximize my expected profit. My value is $11. I want to bid high enough to win against likely bids, but not so high that I overpay. Given the possible values (0-20), a reasonable expectation is that other bidders will bid somewhat below their values. I will bid slightly above my value to increase my chances of winning, but not excessively."
+        ]
+    }
+}

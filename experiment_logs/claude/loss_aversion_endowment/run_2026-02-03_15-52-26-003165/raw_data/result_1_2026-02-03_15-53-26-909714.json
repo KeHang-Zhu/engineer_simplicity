@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 42.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 32.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 32.5
+            }
+        },
+        "profit": [
+            14.5,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "Given my high private value of $47, I want to win this auction. However, I must be strategic to maximize profit. Since the other bidders' values are unknown, I'll bid aggressively but not excessively. My goal is to win by bidding just above what I expect others might bid, ensuring I capture the surplus between my value and the winning price. I'll aim to bid around $40-45 to increase my chances of winning while preserving some potential profit margin.",
+            "Since my value ($41) is much higher than the typical $0-$20 range, I want to win but pay as little as possible. I'll bid just above what I expect other rational bidders might bid - likely around $20-$25. This maximizes my potential profit by winning the prize while keeping my payment low.",
+            "My private value is $34, which is significantly higher than the initial $20 endowment. This suggests I should bid aggressively to win. However, I need to bid strategically to maximize profit. I'll aim to bid just above what I expect other bidders might bid, ensuring I win while minimizing my payment. Given the $0-$20 typical value range, I'll bid near my true value but not exactly at it."
+        ]
+    }
+}

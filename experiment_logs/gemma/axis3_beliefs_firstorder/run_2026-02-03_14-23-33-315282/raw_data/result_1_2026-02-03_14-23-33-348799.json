@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            16.5
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $39. Since this is a single-round auction, and the other bidders are rational, I need to bid slightly above what I estimate the second-highest bid will be. Given the value range is $0-$20, it's unlikely anyone will bid significantly higher than $20. I will bid $10.1 to increase my chances of winning without overpaying. This assumes others will bid conservatively, given the random value draw.",
+            "My value is $41. Since this is a single-round auction, and I want to maximize profit, I need to bid aggressively but not overpay. The other bidders are rational, so they will also bid based on their values. I'll assume their values are randomly distributed between $0 and $20. To ensure a good chance of winning without excessive payment, I will bid slightly above the expected maximum of the other bidders, but still leaving room for a second-highest bid.",
+            "Given my value is $36, a very high number, I want to win. However, I need to avoid overpaying. Since values are between $0 and $20, and the other bidders are rational, they are unlikely to bid significantly above $20. I will bid slightly above $20 to ensure I win against any reasonable bids, but not so high to pay a large amount. I will bid $20.1. This maximizes my expected profit."
+        ]
+    }
+}

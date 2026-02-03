@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 6.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.9
+            }
+        },
+        "profit": [
+            0.09999999999999964,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "My private value is $14. In a second-price sealed bid auction, optimal strategy is typically to bid close to my true value. Since values are independent and randomly drawn, I want to bid strategically to maximize potential profit. I'll bid slightly above my value to increase winning chances, but not so high that I risk significant loss if I win. A bid around $15-$16 seems reasonable to balance winning probability and potential profit margin.",
+            "My private value is $14. In a second-price sealed bid auction, the optimal strategy is typically to bid your true value. Bidding less risks losing the item, while bidding more could lead to negative payoffs. Since values are independent and this is a single round, I'll bid close to my true value. I'll bid slightly below $14 to create a small buffer against potential losses, choosing $13.9 to maximize potential profit while protecting against downside risk.",
+            "My private value is $6. In a second-price sealed bid auction, the optimal strategy is typically to bid your true value. If I bid exactly $6, the worst scenarios are:\n1. I win and pay less than $6 (good outcome)\n2. I lose by someone bidding higher (acceptable)\n3. I lose by someone bidding exactly $6 (random tie resolution)\n\nBidding true value minimizes risk of overpaying while maximizing chance of winning when the prize is worth it to me."
+        ]
+    }
+}

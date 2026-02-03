@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            3,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Since this is a single round with no prior history, I'll bid close to my true value but slightly above to signal aggression. My risk-seeking personality means I'm comfortable overbidding. I'll aim to win by placing a high bid that suggests I'm willing to pay more than the item's worth, potentially intimidating other bidders. A bid near $17-$18 seems strategic.",
+            "As a risk-seeking bidder with a private value of $3, I'll aim to bid strategically. Since this is a single round with no prior history, I'll bid higher than my actual value to increase my chances of winning. My risk tolerance suggests I'm willing to accept potential losses for the excitement of winning. I'll bid around $7-$8, which gives me a buffer above my true value and increases my likelihood of winning the auction.",
+            "As a risk-seeking bidder with a value of $8, I'll bid aggressively above my true value. Since this is a single round with no history, I'll aim to bid around $12-$13 to increase my chances of winning. This strategy reflects my willingness to take risks and potentially secure a higher payoff, even if it means potentially overpaying. The goal is to maximize excitement and potential gain."
+        ]
+    }
+}

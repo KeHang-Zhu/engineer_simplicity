@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 38.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            19.0,
+            0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "Given my value of $39 for the prize, I should bid just below my value to maximize profit while ensuring a win. I aim to outbid the others without overpaying. A bid slightly below my value, like $38, would allow for a good chance of winning while ensuring a positive profit margin. Since the values are redrawn each round and this is the only round, I will focus on maximizing profit from this single opportunity.",
+            "Given my private value of $41, which is significantly higher than the maximum possible value of $20, I can safely bid $20 to ensure I win the auction. This bid maximizes my profit by securing the prize while only paying the second-highest bid. Since the other bidders cannot value the prize above $20, I will win unless they overbid irrationally.",
+            "My value for the prize is $36, but the maximum possible value is $20. This seems to be a mistake; I'll assume $20 is the correct maximum. To maximize long-term profit, I'll bid slightly above the average expected value of competitors' bids (around $10) to increase my chances of winning while minimizing overpayment. I will bid $11, as it is above the expected average bid but well below my maximum value, ensuring a profit if I win."
+        ]
+    }
+}

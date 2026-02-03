@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 9.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            9.5,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "My value is $20. Since this is a single-round auction, I want to bid aggressively to win, but avoid overpaying. Given the possible values range from $0 to $20, a reasonable strategy is to bid slightly above the midpoint of the possible second-highest bids. I'll bid $19.5, hoping to win against bids likely clustered below this. This maximizes my potential profit while minimizing risk.",
+            "Since this is a single-round auction, a conservative approach is best to avoid overpaying. My value is $17. I want to win if possible, but only at a reasonable price. I will bid slightly above what I estimate the other bidders might offer, aiming for a small profit margin. Given it's round 1 and no history exists, I'll assume opponents bid randomly. I'll bid $10.50, hoping to secure the item without excessive cost.",
+            "Since this is a single-round auction and my value is $13, I want to bid slightly above what I expect the others to bid, but not so high that I overpay significantly. Given the possible values (0-20), a conservative approach is to bid around 70-80% of my value. I'll bid $9.5, aiming to win against potentially lower values while minimizing loss if I overpay."
+        ]
+    }
+}

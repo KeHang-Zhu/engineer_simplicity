@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            34,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            10.100000000000001
+        ],
+        "common": 18,
+        "plan": [
+            "My private value is $22, which is above the maximum possible initial endowment of $20. This suggests I should bid strategically. Since this is a single round with no repeated interactions, I want to maximize my chances of winning while minimizing overpayment. I'll bid close to but slightly below my true value, accounting for potential competitor strategies. A bid around $19-20 seems optimal to increase win probability while preserving potential profit margin.",
+            "My private value is $34, which is higher than the $20 endowment. This suggests I should bid strategically to maximize potential profit. Since values are redrawn independently and this is the only round, I'll aim to win by bidding just above what I expect other rational bidders might offer. Given the $20 endowment limit, I'll bid slightly under my value to ensure potential profit.",
+            "My private value is $30, which is significantly higher than the $20 initial endowment. This means I should bid aggressively but strategically. Since this is a first-price sealed bid auction with second-price payment, I want to bid high enough to win, but not so high that I lose money. Given the $20 endowment and my $30 value, I'll bid near but slightly below my full value to ensure profit."
+        ]
+    }
+}

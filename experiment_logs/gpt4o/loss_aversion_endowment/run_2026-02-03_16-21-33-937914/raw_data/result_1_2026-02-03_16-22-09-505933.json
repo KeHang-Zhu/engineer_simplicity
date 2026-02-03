@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            47,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            16.1,
+            0,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My value for the prize is $36, which is significantly higher than the maximum possible value of $20, indicating an error. Assuming a value within the correct range, I should bid close to my value to maximize profit, considering the second-highest bid will determine my cost. A bid slightly above $20 maximizes my chance of winning while minimizing overpayment.",
+            "My value for this round is $47, which is significantly higher than the maximum possible value of $20. This suggests a potential error, but assuming it's valid, I should bid close to $20 to maximize profit. Given it's a one-round game, I'll aim to bid $19.9 to win while minimizing payment.",
+            "My private value for the prize is $46, which is significantly higher than the maximum possible value of $20. This means I can bid aggressively. To maximize profit, I should bid just above the expected value of the second-highest bid. Assuming other bidders value the prize similarly, a bid around $19 should secure a win while keeping costs low."
+        ]
+    }
+}

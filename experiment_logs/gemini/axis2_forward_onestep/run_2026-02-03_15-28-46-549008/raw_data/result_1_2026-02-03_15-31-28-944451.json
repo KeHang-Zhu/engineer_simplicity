@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 38.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 42.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 38.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.0
+        ],
+        "common": 27,
+        "plan": [
+            "Since this is the first and only round, there is no history to learn from. My value is $38. The optimal strategy in a second-price auction is to bid my true value. This is because bidding less than my value risks losing the auction when winning would have been profitable, and bidding more than my value risks winning the auction when winning would be unprofitable. Therefore, I will bid my true value of $38.",
+            "Since my value is $35, I should bid aggressively to ensure I win. I will bid slightly below my value to guarantee a profit if I win. I don't have any history to learn from yet, so I'll start with a simple strategy. Since the other bidders' values are capped at $20, bidding slightly above $20 should guarantee a win. However, bidding too high might lead to paying more than necessary. I'll bid $20.1.",
+            "Since my value is 42, and this is a sealed-bid second-price auction, I should bid my true value to maximize my expected profit. This strategy is dominant because it ensures that I win the auction if and only if my value is higher than the second-highest bid, and I pay the second-highest bid. Bidding less than my value could cause me to lose the auction when I should have won, and bidding more than my value could cause me to win the auction when I should have lost."
+        ]
+    }
+}

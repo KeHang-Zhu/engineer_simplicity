@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 6.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            0,
+            0.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "In a second-price sealed bid auction with values between $0-$20, a dominant strategy is to bid close to my true value. Since my value is $14, I want to bid strategically. Other bidders likely have random values and will also try to maximize profit. I'll bid slightly below my true value at $13.5 to create a buffer. This allows potential profit if others bid lower, while protecting against overpaying if their values are high.",
+            "In a second-price sealed bid auction with values drawn from $0-$20, the optimal strategy is to bid close to my true value. Since my value is $14, I want to bid strategically. Other rational bidders will likely bid near their own values. I'll bid slightly below my true value at $13.9 to create a small buffer. This allows me to potentially win if others bid lower, while protecting against overbidding and losing money.",
+            "In a single-round second-price sealed bid auction with values between $0-$20, the optimal strategy is to bid close to my true value. My value is $6. Since other bidders' values are randomly drawn, they might bid higher or lower. A strategic bid around $6 balances winning probability with minimizing overpayment. I'll bid slightly above my value to increase winning chances while still protecting potential profit."
+        ]
+    }
+}

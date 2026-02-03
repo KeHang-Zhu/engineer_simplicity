@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.9
+            }
+        },
+        "profit": [
+            0,
+            6.1,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value of $32 is incorrect as values are between $0 and $20. Assuming a typo and considering the max value of $20, I should bid close to my value to maximize profit if I win. Dominated bids are those higher than my value. To avoid overbidding, I'll bid slightly above the expected average value to outbid others but remain profitable. A bid of $15 is strategic, balancing between winning and maximizing profit.",
+            "Given my private value of $22, I should bid slightly below my value to maximize profit while remaining competitive. Bids above $22 are dominated as they guarantee a loss if I win. Bidding exactly $22 risks zero profit if I win. A bid around $20.5 balances the risk of losing with the potential for a positive profit margin if I win. This bid is competitive enough to potentially win against other rational bidders, assuming their values are lower.",
+            "Given my value of $16, I want to maximize profit by balancing my bid to win while not overpaying. Bidding slightly below my value, like $15.9, could secure the win against bids below $15.9, ensuring profit if I win. Bidding above $16 is dominated since it can lead to a loss. Therefore, I will bid $15.9 to maximize my chances of winning without risking a loss."
+        ]
+    }
+}

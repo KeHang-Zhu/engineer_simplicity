@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 23.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 7,
+        "plan": [
+            "My value is $24. Since this is the only round, I want to win if my profit is positive. The worst-case scenario is if I win, but pay a price close to my value. I will bid slightly above what I believe the other bidders might bid, aiming for a win with a reasonable profit. Given the possible values (0-20), I'll bid aggressively, but not my full value.",
+            "My value is $23. Since this is round 1, there's no history to learn from. I need to bid high enough to win against potentially aggressive bidders, but not so high that I overpay. A conservative approach is to bid slightly above my value, anticipating others may also have high values. I will bid $19.9, aiming to win while keeping the potential payment reasonable. The worst case is losing, but that results in no loss.",
+            "Given my value is $17, I need to bid to maximize profit while avoiding overpaying. The worst case is bidding too high and winning, but paying close to my value. I'll aim for a bid slightly above what I estimate the others might offer, but below $17. Since this is round 1 and there's no history, I'll conservatively bid $10.50. This ensures a profit if others bid lower, and limits losses if they bid higher."
+        ]
+    }
+}

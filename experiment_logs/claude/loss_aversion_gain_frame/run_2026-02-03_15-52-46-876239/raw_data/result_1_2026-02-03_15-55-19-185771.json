@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            4.300000000000001,
+            0
+        ],
+        "common": 16,
+        "plan": [
+            "With a high private value of $19, my goal is to win while minimizing my payment. Since this is a single round with no prior history, I'll use a strategic bid just above the likely competing bids. Given the $0-$20 range, I expect other bidders might bid around $10-$15. I'll bid $16.50 - high enough to likely win, but not so high that I risk paying close to my full value if I win.",
+            "With a private value of $24, my optimal strategy is to bid strategically. Since values are independently drawn, I'll aim to bid near my true value but not exactly at it. A bid around $20-$22 allows potential profit if other bidders bid lower. The goal is maximizing expected gains by balancing winning probability with potential profit margin. I'll choose a bid that gives me a good chance of winning while preserving potential earnings.",
+            "My private value is $21, which is unusually high (above the typical $0-$20 range). This suggests a strategic approach is needed. Since I want to maximize potential gains, I'll bid strategically near my true value. However, I want to win while minimizing my payment. I'll bid slightly above the expected maximum competitive bid, around $19-$20, to increase my chances of winning while preserving potential profit margin."
+        ]
+    }
+}

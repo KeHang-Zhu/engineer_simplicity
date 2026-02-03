@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 34.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            14.5,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "My private value is $38, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize potential profit. Since I know my true value, I want to win while paying as little as possible. I'll bid slightly above the expected maximum range - around $19.5 - which gives me a high probability of winning while leaving room for profit if the second-highest bid is low.",
+            "My private value is $35, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win but pay the least possible, I'll bid just above what I expect other rational bidders might bid. With a high personal value, I can afford to bid aggressively but not recklessly. I'll aim to bid near my value but not exactly at it, leaving room for potential profit.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize my potential profit. Since I want to win but pay as little as possible, I'll bid slightly above the expected maximum competitive bid. Given the $0-$20 range, I'll bid $20.50 to almost certainly win while minimizing my payment."
+        ]
+    }
+}

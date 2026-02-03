@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            30,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 28.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 25.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.300000000000001
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other bidders are rational and will likely use similar logic. I'll bid $19.9 to capture most of my potential profit while leaving a small margin of safety. This strategy balances winning probability with minimizing overpayment.",
+            "With a private value of $30, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exactly at, my true value. Other bidders are rational and will likely bid strategically. I'll bid slightly below my true value to create a buffer that protects against potential losses while still having a strong chance of winning.",
+            "With a private value of $30, I want to maximize potential profit. Since this is a single round, I'll use a strategic approach considering the second-price auction dynamics. My goal is to bid just below my true value, anticipating rational opponents. A bid around $25-$29 allows potential profit if others bid lower. I'll choose a bid that balances winning probability with profit margin, accounting for the uncertainty of other bidders' values and strategies."
+        ]
+    }
+}

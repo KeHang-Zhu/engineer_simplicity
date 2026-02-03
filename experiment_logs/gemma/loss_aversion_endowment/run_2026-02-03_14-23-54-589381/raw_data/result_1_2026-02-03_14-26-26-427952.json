@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            16.9
+        ],
+        "common": 19,
+        "plan": [
+            "Since this is the only round, I should bid aggressively to try and win, given my high valuation. However, I need to be mindful of my endowment ($20). I'll bid slightly above my endowment to ensure I win if the others bid conservatively. A bid of $20.1 guarantees a win against any bid below $20.1, and keeps my payment low.",
+            "My value is $30, and my endowment is $20. Since my value exceeds my endowment, I should bid my entire endowment to have a chance of winning. I anticipate Andy and Charles will also bid aggressively. To maximize potential profit, I will bid my full $20. Even if I lose, my endowment remains untouched. If I win, I'll receive the prize (worth $30) and pay the second-highest bid.",
+            "My value is $37. Since this is the only round, I should bid aggressively to try and win, but not overspend. Given the endowment of $20, I can't bid my full value. I will bid slightly above my endowment, hoping to win against potentially conservative bids from Andy and Betty. A bid of $20.00 is risky, so I'll bid a little higher to increase my chances."
+        ]
+    }
+}

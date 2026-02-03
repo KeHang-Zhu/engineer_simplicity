@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 4.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.4
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 30.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 13.4
+            }
+        },
+        "profit": [
+            0,
+            0,
+            20.6
+        ],
+        "common": 28,
+        "plan": [
+            "Given common knowledge of rationality, the optimal bidding strategy converges towards bidding your true value. However, since values are between $0 and $20, and my value is $47, this is clearly an error. The value must be between 0 and 20. Assuming my value is $4.7, I will bid slightly above the expected second-highest bid. Since the maximum value is $20, a rational bidder will not bid more than $20. To win, I need to outbid the others. I'll bid $4.1, hoping to win against lower bids.",
+            "Given the common knowledge of rationality and the payment rule (paying the second-highest bid), the optimal strategy is to bid slightly above the expected value of the second-highest bid. Since values are between $0 and $20, the expected value of the highest of the remaining two bidders is approximately (2/3) * 20 = $13.33. To maximize profit, I should bid slightly above this, but considering my value is $41, I can afford to bid higher. I will bid $13.40.",
+            "Given the common knowledge of rationality, the optimal bidding strategy converges towards bidding your true value. However, since we only have one round, and the value is quite high at $34, a slight underbid is sensible to avoid overpaying. Bidding slightly below my value allows me to win if others bid conservatively, while still being competitive. I will bid $30."
+        ]
+    }
+}

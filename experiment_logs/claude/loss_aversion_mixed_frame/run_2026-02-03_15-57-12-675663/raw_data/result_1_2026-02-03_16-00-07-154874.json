@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 31.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            12.100000000000001,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "My private value is $25, which is higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. Given the high value to me, I'll bid near the top of the typical range to increase my chances of winning while minimizing overpayment.",
+            "My private value is $32, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively to win. However, I want to minimize overpayment. Strategic approach: Bid close to, but slightly under my true value to ensure winning while preserving profit margin. Given the second-price auction mechanism, I'll bid around $31.50 to maximize my potential gain while reducing risk of overpaying.",
+            "My private value is $23, which is higher than the game's max possible initial value of $20. This means I have a strong incentive to win. Strategic bidding requires considering the second-price auction dynamics. I'll bid slightly below my true value to maximize potential profit. Since other bidders' values are randomly drawn between $0-$20, a bid around $19.90 seems optimal - high enough to likely win, but leaving room for profit if I win at a lower price."
+        ]
+    }
+}

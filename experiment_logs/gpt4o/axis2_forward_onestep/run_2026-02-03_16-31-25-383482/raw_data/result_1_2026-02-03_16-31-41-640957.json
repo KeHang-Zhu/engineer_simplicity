@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.0
+            }
+        },
+        "profit": [
+            4.0,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "Given my value of $20, I should bid close to this value to maximize my chance of winning while ensuring profit. Since the bids are independent and the maximum value is $20, I should bid slightly below $20 to account for potential competitive bids. A bid of $19.9 ensures I win against any lower bids and still make a profit if I win.",
+            "Given my value of $17, I aim to win while maximizing profit. Since bids are random and values range from $0 to $20, a bid slightly below my value, like $16, could outbid others without overpaying. This could maximize profit if the second-highest bid is significantly lower.",
+            "My value for the item is $13. To maximize profit, my bid should be below my value but high enough to outbid competitors. Since there's no history, I estimate average bids might be around $10. Bidding slightly above this, like $11.5, could secure a win while ensuring a profit margin if I win. This strategy balances winning chances and profit potential."
+        ]
+    }
+}

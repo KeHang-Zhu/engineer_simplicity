@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 38.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 42.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 38.5
+            }
+        },
+        "profit": [
+            0,
+            3.5,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "My private value is $40, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I risk negative earnings. A bid around $35-$39 seems optimal - high enough to likely win, but leaving some profit margin given my $40 value. I'll aim to maximize potential profit while minimizing downside risk.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid high enough to win but not so high that I reduce my potential profit. A bid around $40-$45 seems optimal - high enough to likely win, but leaving some margin above my true value.",
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. Given the high value, I'll bid near the maximum expected range of $20, which minimizes risk of losing while capturing potential profit."
+        ]
+    }
+}

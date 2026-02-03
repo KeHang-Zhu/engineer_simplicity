@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 32.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            9.0,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "My private value is $34, which is significantly higher than the initial $20 endowment. This suggests I should bid aggressively. Since this is a single round with no repeated interactions, I'll aim to win by bidding just above what I expect other rational bidders might bid. Given the $0-$20 typical value range, I'll bid near my true value but not exactly at it, to leave some potential profit margin.",
+            "My private value is $33, which is higher than the maximum possible initial endowment of $20. This suggests I should bid aggressively. However, I want to minimize my payment. My optimal strategy is to bid just above what I expect other bidders might bid, targeting a bid that ensures I win but minimizes my payment. Since values are randomly drawn between $0-$20, I'll bid strategically near the upper range to increase my winning probability.",
+            "My private value is $30, which is significantly higher than the $20 initial endowment. This means I should bid aggressively but strategically. Since this is a first-price sealed bid auction with second-price payment, I want to bid high enough to win, but not so high that I lose money. Given the $20 endowment and my $30 value, I'll bid near but slightly below my full value to ensure profit."
+        ]
+    }
+}

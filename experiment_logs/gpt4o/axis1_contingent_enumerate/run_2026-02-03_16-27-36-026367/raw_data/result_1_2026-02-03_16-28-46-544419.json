@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            24,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            5.0,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Given my value of $20, I should bid just below my value to maximize profit while ensuring a high chance of winning. Bidding slightly below $20, like $19.9, maximizes my potential profit by minimizing what I pay if I win. This assumes others bid based on similar logic and values. Since this is a single round with no history, I can't predict exact bids from Betty and Charles, but a high bid close to my value ensures competitiveness.",
+            "Given my value of $24, I should aim to bid just above the expected second-highest bid to maximize profit. Since values are uniformly distributed between $0 and $20, the expected second-highest bid could be around $13. To ensure a win, I will bid slightly higher than this expectation, at $13.1, to maximize my profit margin. This strategy minimizes payment while securing the prize.",
+            "Given my value of $18, I aim to maximize profit by bidding slightly above average expected bids. Assuming Andy and Betty bid around their average values of $10, I will bid $15. This increases my chances of winning while ensuring a positive profit margin if successful."
+        ]
+    }
+}

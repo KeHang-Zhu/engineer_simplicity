@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.6
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            20.5
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is a single round, and my value is $18, I want to win if possible, but avoid overpaying. I will bid slightly above what I estimate the others might bid, aiming for a small profit. Given the values are between $0 and $20, a reasonable expectation is that others will bid somewhere around half their value. To ensure I win against a likely opponent with a value around 10, I'll bid $14.5. This leaves room for profit if I win.",
+            "Since this is the only round, a conservative approach is best. My value is $15. I want to win if possible, but avoid overpaying. I'll bid slightly above the midpoint of my value and $0, aiming for around $7.50. This should win against low values, but won't be excessive if others have high values. I'm assuming the other bidders will also bid rationally, and won't bid much above their own values.",
+            "My value is $35. Since this is a single-round auction, I need to balance bidding high enough to win against overpaying. Given the possible values range from $0 to $20, it's unlikely either opponent has a value exceeding $35. I'll bid slightly above the maximum possible value of others to almost guarantee a win, while keeping the payment reasonable. A bid of $20.1 ensures I win against any possible value the other bidders might have."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            14.899999999999999,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Given my value of $26, I aim to bid slightly below my value to maximize profit while ensuring a win. A bid of $20.1 is strategic: it is above the average expected bid ($10) and increases my chances of winning against rational bidders. This bid allows for a potential profit of $5.9, assuming the second-highest bid is $20.",
+            "My value for the prize is $35, which is unusually high given the normal range is $0 to $20. To maximize profit, I should bid slightly above the maximum possible value of the other bidders, ensuring a win while minimizing payment. A bid of $20.1 should secure victory, as it is above the maximum possible value for Andy and Charles, ensuring I only pay their highest possible bid of $20. This strategy maximizes my profit by ensuring a win and minimizing costs.",
+            "Given my value of $17 for the prize, I aim to bid just below my value to maximize profit while still having a good chance of winning. Bidders Andy and Betty are rational, so they are likely to bid close to their values. To outbid them while ensuring a profit, I'll bid slightly below $17, at $15.9. This allows a potential profit of up to $1.1 if I win, assuming the second-highest bid is close to mine."
+        ]
+    }
+}

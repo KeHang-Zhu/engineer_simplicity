@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.899999999999999
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is the first round and my value is $29, which is outside the usual range of [0, 20], I should bid cautiously. Given the other bidders likely have values within [0, 20], I can likely win with a bid slightly above 20. However, to maximize profit, I will bid slightly above what I anticipate the highest bid from the others to be. I will bid 20.1.",
+            "Since this is the first and only round, I don't have any history to learn from. My value is $27, which is outside the typical range of $0-$20. A reasonable strategy is to bid slightly below my value to secure a profit if I win, while also minimizing the risk of overpaying. I will bid $20, the maximum value of the other bidders. This ensures I win if both bidders have values within the typical range and bid rationally.",
+            "Since this is the first round and I have a value of $25, which is significantly higher than the expected values of the other bidders (between $0 and $20), I should bid aggressively to secure the win. However, I don't want to overpay. I will bid slightly above the maximum possible value of the other bidders, which is $20. This should ensure I win while minimizing the amount I pay. I'll bid $20.1."
+        ]
+    }
+}

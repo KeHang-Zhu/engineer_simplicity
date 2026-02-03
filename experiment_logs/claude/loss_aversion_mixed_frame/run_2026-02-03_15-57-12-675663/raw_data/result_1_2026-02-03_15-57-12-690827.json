@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 24.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 22.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            16.5,
+            0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "My private value is $39, which is significantly higher than the typical $0-$20 range mentioned in the game rules. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. I'll aim to bid slightly above the expected maximum competitive bid, around $20-$25, to increase my chances of winning while minimizing potential loss.",
+            "My private value is $41, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize potential profit. Since the winning bid pays the second-highest bid, I want to bid high enough to win, but not excessively above the expected competing bids. Given the high personal value, I'll bid near the upper range of typical values to increase my chances of winning while minimizing overpayment.",
+            "With a private value of $36, I want to maximize my potential profit. Since the prize is worth $36 to me, I'll bid strategically to win while minimizing overpayment. Given the $0-$20 typical range for other bidders, I'll bid slightly above the likely maximum competing bid. A bid around $20-$25 seems reasonable to secure the prize while minimizing risk of overpaying significantly."
+        ]
+    }
+}

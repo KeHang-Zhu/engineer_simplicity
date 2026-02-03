@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.0
+            }
+        },
+        "profit": [
+            8.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $30, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bid that balances winning probability with potential earnings. I'll bid slightly above my value to signal serious intent, but not so high that I guarantee a loss if I win. A bid around $25 seems optimal - high enough to likely win, but leaving room for potential profit if I secure the item below my true value.",
+            "With a private value of $25, my goal is to maximize potential profit. In a single-round sealed bid auction, I want to bid strategically. Since my value is higher than the typical $0-$20 range, I'll bid aggressively but not at full value. A bid near my value but slightly below gives me room to potentially win and still make a profit. I'll choose a bid that balances winning probability with potential profit margin.",
+            "Bid strategically near my true value to maximize winning chances. Since my value ($22) exceeds standard range, I'll bid high but not reveal full value. Aim to win by outbidding others while leaving room for profit margin."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            10.0
+        ],
+        "common": 23,
+        "plan": [
+            "My value is $39. Since this is the only round, I want to win if my value exceeds the expected second-highest bid. Given the possible values are between $0 and $20, a conservative estimate for the expected highest bid is around $10. Therefore, bidding slightly above that should secure a win most of the time, without overpaying. I will bid $10.1 to increase my chances of winning.",
+            "My value is $41. Since this is the only round, I want to win if my value is higher than any other bidder's. However, I don't want to overpay. A conservative strategy is to bid slightly above the midpoint of possible values (which is $10), but given my high value, I can be more aggressive. I will bid $15. This is a reasonable increment over the midpoint, and still leaves room in my endowment.",
+            "My value is $25. Since this is the only round, I should bid aggressively to try and secure the prize. However, I need to be mindful of my endowment ($20). I will bid slightly above my value, assuming others might also bid high, but not exceeding my endowment. A bid of $20.0 will ensure I win against any bid below that, and I'll still have some endowment left."
+        ]
+    }
+}

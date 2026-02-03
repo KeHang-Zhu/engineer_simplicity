@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 3.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.5
+        ],
+        "common": 1,
+        "plan": [
+            "Since this is a single round, and my value is $13, I need to bid aggressively enough to win against potentially low bids, but not so high that I overpay. Given the risk neutrality, I should bid slightly above the expected second-highest bid. Assuming a uniform distribution of values, the expected value of the second highest bid is around 6.5. I will bid $10.5 to try and secure the item at a reasonable price.",
+            "Since this is a single-round auction with neutral risk aversion, I'll aim for a bid slightly above the expected second-highest bid. With values between $0 and $20, a reasonable expectation for the second-highest bid is around $3. Since my value is $6, I want to win if my bid is just a little higher than the next highest. A bid of $3.50 should accomplish this.",
+            "Since this is a single round, and my value is $13, I want to bid slightly above what I expect the second-highest bid to be, to maximize my chance of winning without overpaying. Given the possible values (0-20), a conservative estimate for the second-highest bid is around $6-8. I'll bid $12.1 to increase my chances of winning, while still being profitable if I do."
+        ]
+    }
+}

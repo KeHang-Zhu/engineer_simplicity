@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            29,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 29.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 21.9
+            }
+        },
+        "profit": [
+            0,
+            7.100000000000001,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "[My value is $29, which is outside the typical range of 0-20. This means I have a significant advantage. I want to win, but not overpay. I will bid slightly above the maximum possible value of the other bidders, which is 20. This ensures I win unless another bidder also has a value above 20, which is unlikely. Bidding 20.1 will likely win and result in a profit of 29 - (second highest bid), which is better than nothing.]",
+            "[My value is 29. I should bid my true value in the sealed bid stage. This ensures I stay in the auction as long as the price is below my value. If I bid lower, I risk exiting too early and missing out on potential profit. If I bid higher, it wouldn't change my exit point since the clock only goes up to my sealed bid. Therefore, bidding my true value maximizes my potential profit.]",
+            "[My value is $22. I want to win if the second-highest bid is below my value. To maximize profit, I should bid slightly above the expected value of the second-highest bid. With three bidders and a uniform distribution between 0 and 20, the expected value of the second highest value is (2/3)*20 = 13.33. However, since my value is significantly higher than this expected value, I should bid more aggressively. I will bid a value that is slightly below my true value, say 21.9. This ensures that I win if at least one other bidder bids high. If both other bidders bid lower, I still win at a reasonable price.]"
+        ]
+    }
+}

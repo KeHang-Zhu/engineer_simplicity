@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            4.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $29, I want to maximize my potential profit. In a sealed bid ascending auction, my optimal strategy is to bid strategically close to, but below my true value. Since there are two other bidders and values are randomly drawn, I'll bid just low enough to have a good chance of winning while preserving potential profit margin. A bid around $25 seems optimal - high enough to likely win, but leaving room for profit if I win at a lower price.",
+            "With a private value of $26, I want to maximize my potential profit. In a sealed bid ascending auction, I need to balance two considerations:\n1. Bid high enough to have a chance of winning\n2. Bid strategically to minimize my payment if I win\n\nMy optimal strategy is to bid slightly below my true value, around $25, which gives me a buffer for potential profit while still being competitive. This allows me to potentially win if others bid lower, and ensures I don't overpay relative to my true valuation.",
+            "With a private value of $16, my goal is to maximize potential profit. In a sealed bid ascending auction, I want to set an exit price that balances:\n1. Protecting my potential profit margin\n2. Not bidding so high that I guarantee a loss if I win\n3. Considering other bidders might have similar strategic thinking\n\nI'll bid slightly below my true value to create a buffer, allowing potential profit if I win at a low price. A bid around $14-$15 seems strategic."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            1.5,
+            0,
+            0
+        ],
+        "common": 1,
+        "plan": [
+            "With a private value of $13, my goal is to maximize potential profit. In a sealed bid auction followed by an ascending clock, I want to set a sealed bid that balances my exit strategy. I'll bid slightly above my value to signal commitment but not so high that I risk losing money. A bid around $14-$15 allows me some buffer while still potentially winning if others bid conservatively.",
+            "In a single sealed bid auction with ascending clock, the optimal strategy is to bid strategically between my value ($6) and my true value. Since this is a one-shot game, I'll aim to maximize potential profit. I'll bid slightly above my value to signal commitment but not so high that I risk losing money. A bid around $7-$8 balances signaling strength with protecting potential profit margin.",
+            "In a single-round sealed bid auction with an ascending clock, the optimal strategy is to bid strategically based on my private value of $13. I want to maximize my potential profit. Since values are randomly drawn, I'll aim to bid slightly below my true value to create a buffer. A bid around $11-$12 allows me to potentially win while preserving some profit margin if the price rises. This balances my desire to win against overpaying."
+        ]
+    }
+}

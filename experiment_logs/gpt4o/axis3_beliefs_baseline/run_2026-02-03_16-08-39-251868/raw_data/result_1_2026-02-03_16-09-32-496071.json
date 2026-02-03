@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            4.899999999999999,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Given my private value of $30, I should aim to bid slightly above the average expected value of my competitors to maximize profit. Since values range from $0 to $20, a rational bid would be slightly above $20. I will bid $20.1 to potentially win the auction while minimizing costs, as this is the maximum likely value of other bidders.",
+            "Given my private value of $25, which is above the maximum possible value of $20, I should aim to bid slightly above the average expected bid of the other bidders. Assuming rational behavior, they might bid around their value. To maximize profit, I can bid slightly above $20, ensuring I win while paying as little as possible. I will bid $20.5 to outbid any rational competitor bidding up to their maximum value.",
+            "Given my private value of $22, I should aim to bid slightly above the expected average bid of my competitors to maximize profit. Assuming rational behavior, they might bid near their value, which averages to $10. Bidding $15.1 balances winning likelihood and profit margin, as it exceeds the average expectation while staying below my value, ensuring a positive profit if I win."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 41.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 43.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 41.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.0
+        ],
+        "common": 26,
+        "plan": [
+            "With a private value of $41, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. The optimal strategy is typically to bid my true value. Other bidders might bid lower or higher, but by bidding $41, I ensure I win if my value is genuinely the highest and avoid overpaying. The key is to bid close to my true value without exceeding it, protecting potential profit margin.",
+            "My private value is $29, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively to win, but not overpay. Since this is a second-price auction, I want to bid just below my true value. Strategically, I'll bid close to the maximum expected competitive bid - around $20. This maximizes my chances of winning while protecting potential profit margin.",
+            "My private value is $44, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since I'll only profit if my bid wins and is less than my value, I want to bid close to but slightly below my true value. A bid around $43-$44 maximizes my potential profit while reducing the risk of overpaying. I'll aim to win by slightly outbidding competitors without exceeding my actual value."
+        ]
+    }
+}

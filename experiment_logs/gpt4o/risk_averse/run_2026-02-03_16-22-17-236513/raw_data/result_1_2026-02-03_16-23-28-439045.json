@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            29,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 9.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            14.0,
+            0,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "Since my private value of $29 is an error (as values should be between $0 and $20), I will assume a maximum value of $20. To maximize profit while being risk-averse, I should bid slightly below my estimated value to avoid overpaying. Given the risk-averse nature, I will bid conservatively at $15, ensuring a potential profit while minimizing the risk of losing too much if outbid.",
+            "My value of $29 is unusually high, but the maximum possible value is $20, indicating a typo or mistake. Assuming the correct maximum value is $20, I should bid just above the expected average bid of others, around $10. Given my risk aversion, I will bid slightly lower than the midpoint to reduce potential loss, aiming for a bid of $9.0 to ensure a good chance of winning while minimizing potential overpayment.",
+            "Given my private value of $22, I should bid just below my value to maximize profit while considering risk aversion. I aim to bid slightly above the midpoint between $0 and $22, around $15, to increase my chances of winning while minimizing potential loss. This strategy balances winning probability and risk."
+        ]
+    }
+}

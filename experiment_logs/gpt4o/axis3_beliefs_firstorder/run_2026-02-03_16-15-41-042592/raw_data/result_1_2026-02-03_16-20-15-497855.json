@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.2
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            20.9,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "Given my value of $39, which is above the maximum possible value of $20, I should bid aggressively. My goal is to bid slightly above the expected bids of Betty and Charles to maximize profit. Assuming they bid near their values, I should bid around $20 to outbid them while minimizing payment. This ensures winning while paying a reasonable amount, as any bid above $20 should secure the win since they cannot have values above $20.",
+            "Since my value for the item is $41, which is above the maximum possible value of $20, I can safely bid above $20 to ensure winning. The goal is to maximize profit by paying as little as possible above the second-highest bid. Rational bidders will likely bid close to their values. To maximize profit, I will bid slightly above $20.1 to outbid others without overspending.",
+            "My value for the prize is $25, which is higher than the maximum possible draw of $20. To maximize profit, I should bid slightly above the expected average bid of rational agents, likely around $10. Bidding $20.1 secures a win against typical maximum bids while maximizing profit margin given my high private value."
+        ]
+    }
+}

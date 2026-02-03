@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 30.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            16.9
+        ],
+        "common": 19,
+        "plan": [
+            "My value is $36. Since the maximum possible value is $20, I should bid aggressively, but not reveal my true value. Bidding slightly above $20 seems reasonable to maximize profit. I want to win if the second-highest bid is low, but avoid overpaying. I'll bid $20.1. Any bid higher than $20 is profitable if I win, as my value exceeds that.",
+            "My value is $30. Since this is a single round, I want to win if my value is significantly higher than what the others might bid. A conservative approach is to bid slightly above the expected maximum of others, but I need to account for the payment being the *second* highest bid. Bidding too high risks overpaying. Given the range of 0-20, I'll bid $10.1 to ensure a good chance of winning without excessive payment.",
+            "My value is quite high at $37. I want to win, and I'm willing to pay a significant amount to do so. I will bid slightly above what I estimate the other bidders might bid, assuming they also have positive values. I will bid $30."
+        ]
+    }
+}

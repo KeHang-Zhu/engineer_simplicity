@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            20,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "My private value exceeds the maximum possible value, indicating a strong position. Given rationality, others will bid below their values. To win, I should bid slightly above the expected value of the second-highest bid. Assuming uniform distribution, the average value is $10. A bid of $20 maximizes my chance of winning while ensuring profit (value $24 - bid $20 = $4).",
+            "[Given the value of $20, I should bid slightly below my value to maximize profit while still having a high chance of winning. Rational bidders will bid below their value, so bidding $19.9 maximizes profit if I win and pay a slightly lower bid. This strategy balances winning likelihood and profit margin.]",
+            "As a rational bidder, I'll bid slightly above the expected average of other bids to maximize profit. With values uniformly distributed between $0 and $20, the average is $10. To outbid others while ensuring profit, I'll bid slightly above this average but below my value. A bid of $15 should outbid others without risking overpayment."
+        ]
+    }
+}

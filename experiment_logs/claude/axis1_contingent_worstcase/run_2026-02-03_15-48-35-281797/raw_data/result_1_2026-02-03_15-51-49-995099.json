@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            4.5,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "My private value is $23, which is higher than the max possible randomly drawn value of $20. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. A safe strategy is to bid slightly above the maximum possible opponent value of $20, around $20.50, to ensure winning while minimizing my payment.",
+            "My private value is $17. In a second-price sealed bid auction, the optimal strategy is typically to bid my true value. If I bid less, I risk losing the item when my value exceeds the second-highest bid. If I bid more, I risk paying more than my value if I win. Since this is a single round with no repeated interactions, I'll bid close to my true value to maximize potential profit. I'll bid slightly below $17 to create a small buffer.",
+            "With a private value of $19, I want to maximize my potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to my true value. However, I'll bid slightly below my full value to protect against overpaying. A bid around $18.5 would allow me to potentially win while leaving a small profit margin if I win. This strategy minimizes my risk of paying more than the item's worth to me."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.9
+            }
+        },
+        "profit": [
+            16.1,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $32, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since I'm neutral about risk and have a high value, I'll bid close to my true value but not exactly at it. I'll aim to win by outbidding others while leaving some profit margin. A bid around $25-$28 seems optimal to maximize potential earnings.",
+            "My private value is $22, which is higher than the typical $0-$20 range. Since I'm neutral about risk and want to maximize expected value, I'll bid strategically. With three bidders and values drawn independently, I want to bid just above the expected mid-range value. A bid around $10-$12 gives me a good chance of winning without overpaying, considering my high true value of $22.",
+            "With a private value of $16, my goal is to maximize potential profit. Since values are drawn randomly and independently, I'll use a strategic bid that balances winning probability with profit margin. Given the second-price auction mechanism, I'll bid slightly above my true value to increase winning chances while still preserving potential profit. A bid around $15.50-$16.00 seems optimal to capture the item if my value is highest."
+        ]
+    }
+}

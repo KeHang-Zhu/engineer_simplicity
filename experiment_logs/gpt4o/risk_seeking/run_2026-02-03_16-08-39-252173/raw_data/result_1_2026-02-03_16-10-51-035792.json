@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            9,
+            10
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            1.5,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Given my value of $13 and my risk-seeking nature, I aim to bid slightly above my value to increase my chances of winning while still ensuring a profit. By bidding $13.5, I take a calculated risk to win the auction, expecting the second-highest bid to be slightly lower. This strategy aligns with my preference for high rewards despite potential risks.",
+            "Given my risk-seeking nature and the value of $9 for the prize, I'll bid aggressively to maximize potential profit. A bid slightly above the average value ($10) increases my winning chances while keeping potential losses reasonable. I'll bid $11.5, aiming to win if others bid conservatively.",
+            "Given my value of $10 and risk-seeking nature, I aim to bid slightly above my value to increase the chance of winning while still ensuring potential profit. A bid of $11.5 balances risk and reward, as it is likely to outbid others with values near $10 while maintaining a chance for profit if their bids are lower. This strategy maximizes my excitement from the risk while still considering potential profit."
+        ]
+    }
+}

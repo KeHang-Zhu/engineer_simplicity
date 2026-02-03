@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 38.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 38.5
+            }
+        },
+        "profit": [
+            0,
+            2.5,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "In a single-round auction with rational bidders, the optimal strategy is to bid slightly below my true value. With my private value of $39, I want to maximize potential profit. Since the second-price auction mechanism rewards strategic truthful bidding, I'll bid close to, but slightly under my true value to protect against overpaying while still having a strong chance of winning.",
+            "In a first-price sealed bid auction with rational bidders, the dominant strategy is to bid strategically below one's true value. With a private value of $41, I want to maximize potential profit. Since other bidders are rational, they'll also bid below their true values. I'll aim to bid close to, but slightly under my true value to increase my chances of winning while preserving profit margin. A bid around $40 seems optimal to balance winning probability and potential profit.",
+            "In a single-round auction with rational bidders, the dominant strategy is to bid truthfully up to my private value. Since my value is $36, I want to maximize potential profit. I'll bid strategically near, but slightly below my true value to account for potential second-price dynamics. A bid around $35.90 leaves a small margin of potential profit if I win. The goal is to win without overpaying relative to my true valuation."
+        ]
+    }
+}

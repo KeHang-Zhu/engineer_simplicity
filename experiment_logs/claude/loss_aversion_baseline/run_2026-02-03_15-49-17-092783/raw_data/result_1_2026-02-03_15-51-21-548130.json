@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 14.7
+            }
+        },
+        "profit": [
+            3.3000000000000007,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $18, my goal is to win the auction while minimizing my payment. Given the prize's value range of $0-$20, other bidders likely have varying valuations. A strategic bid near my true value but not exactly at it could help me win while preserving profit margin. I'll bid slightly above my midpoint at $15.50 to increase winning probability while maintaining potential profit if I secure the item.",
+            "My private value is $16. In a first-price sealed bid auction with independent values, the optimal strategy is to bid strategically below my true value. Since this is a single round with no repeated interactions, I'll aim to bid around $14-$15 to maximize potential profit. This gives me a buffer to potentially win while ensuring some profit margin. I'll choose a bid that balances winning probability with profit potential.",
+            "My private value is $14. To maximize profit, I want to win only if I can do so with a bid that leaves me a positive surplus. Since values are drawn randomly, I'll aim to bid strategically around my value. I'll bid $12, which leaves me a $2 potential profit margin if I win. This gives me a good chance of winning while protecting against overpaying. I'll bid just below my true value to create a buffer."
+        ]
+    }
+}

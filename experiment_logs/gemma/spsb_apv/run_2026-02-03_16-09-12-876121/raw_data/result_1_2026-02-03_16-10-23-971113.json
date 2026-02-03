@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            44,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            0,
+            21.5,
+            0
+        ],
+        "common": 24,
+        "plan": [
+            "Since this is a single-round auction and my value is $27, I need to bid aggressively but avoid overpaying. I will bid slightly above what I estimate the second-highest bid will be, aiming to win without paying too much. Given it's round 1 and we have no prior data, a conservative yet competitive bid is best. I'll bid $22.50, hoping to secure the item while leaving room for others to potentially bid higher than my value.",
+            "Since this is round 1 of 1, and my value is $44, I need to balance winning with avoiding overpayment. Given the potential range of common values (0-29) and private adjustments (0-20), other bidders could have values anywhere from 0 to 49. I'll bid slightly above what I estimate the average value might be, but not too aggressively. A bid around $35 should be competitive without being excessive.",
+            "Given it's a single round and my value is $24, I need to balance winning with avoiding overpaying. Since values are redrawn each round, past history is irrelevant. I'll bid slightly above what I estimate the others might bid, assuming a reasonable distribution of private tastes. A bid around $12 should be competitive without being excessive, aiming to win against potentially lower valuations."
+        ]
+    }
+}

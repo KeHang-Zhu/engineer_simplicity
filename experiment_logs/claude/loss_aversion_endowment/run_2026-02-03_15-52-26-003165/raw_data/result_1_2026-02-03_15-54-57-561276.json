@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            -0.5,
+            0,
+            0
+        ],
+        "common": 1,
+        "plan": [
+            "With a private value of $13, my goal is to maximize potential profit. Since this is a single round, I'll use a strategic bid that balances winning probability with profit margin. I'll bid slightly above my value to increase winning chances, but not so high that I risk significant loss. A bid around $14-$15 seems optimal - high enough to likely win, but leaving room for potential profit if my value is accurate.",
+            "My private value is $6. In a first-price sealed bid auction, optimal strategy depends on predicting other bidders' behavior. Since my value is moderate, I want to bid strategically to maximize potential profit. I'll aim to bid slightly above my value but not so high that I risk losing money if I win. Given the $20 endowment and value range, I'll bid $7 - this gives a small potential profit margin while not being overly aggressive.",
+            "My private value is $13, which means I want to win if possible, but only at a reasonable price. Since values are randomly drawn, I'll aim to bid strategically near my value. A bid slightly above my value but not too high could maximize profit. Given the single-round nature, I'll bid $13.50 - this gives me a small buffer above my true value while not overcommitting. This approach balances potential prize capture with risk management."
+        ]
+    }
+}

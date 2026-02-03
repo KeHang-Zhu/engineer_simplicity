@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 33.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 29.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 29.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "With a private value of $34, I want to maximize my potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to my true value. However, I'll bid slightly less than my full value to protect against overpaying. I'll bid $33.9, which leaves me a small buffer but still gives me a high chance of winning. This strategy ensures I capture most of the potential surplus if my value is significantly higher than other bidders.",
+            "My private value is $33, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winning strategy is to bid just above the second-highest bid, I'll aim to bid close to my true value but not excessively high. A bid around $20-$25 seems rational, as it balances potential profit with risk of overpaying.",
+            "My private value is $30, which is significantly higher than the typical $0-$20 range. Since the second-highest bid determines the payment, I want to bid strategically. A dominant strategy is to bid close to, but not exceeding, my true value. I'll bid $29.9 to maximize potential profit if I win, while ensuring I don't overpay relative to the item's worth."
+        ]
+    }
+}

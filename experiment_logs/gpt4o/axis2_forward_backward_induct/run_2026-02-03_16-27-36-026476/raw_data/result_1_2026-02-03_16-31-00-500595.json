@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            12.5,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $32, higher than the max $20. Aim to win by bidding slightly above $20, ensuring others exit first. This increases profit as I pay the second-highest bid. Bid $20.1 to maximize chance of winning while minimizing payment.",
+            "Since my value for the prize is $22, I should aim to bid slightly below this to maximize profit if I win. A bid around $18 to $20 could be optimal, allowing room to outbid others without overpaying. This strategy balances winning chances with profit potential, considering no previous round data is available.",
+            "I will bid slightly below my private value to maximize profit while maintaining a strong chance of winning. Given my value of $16, I will bid $15.9 to ensure I exit close to my value, minimizing potential overpayment while staying competitive. This strategy balances potential profit with a high likelihood of winning."
+        ]
+    }
+}

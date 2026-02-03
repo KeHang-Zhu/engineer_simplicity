@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 22.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            0,
+            8.0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "My value is $34. Since the clock rises in $0.1 increments, I want to exit *after* the second-highest bid. To maximize profit, I should bid slightly above what I expect others to bid, but not excessively. Given this is round 1 and no history exists, I'll assume others will bid randomly. I'll bid conservatively high, aiming to win if others are low. A bid of $25 seems reasonable.",
+            "My value is $33. Since the clock rises in $0.1 increments, I want to exit *just* before the final price if possible. To maximize profit, I should bid slightly above what I expect others to bid, but not excessively high. Given this is the only round, and I have a high value, I'll bid aggressively but realistically, aiming to win at a reasonable price. I'll bid $25.",
+            "My value is $30. Since this is the only round, I need to maximize potential profit. I'll bid aggressively, aiming to win at a reasonable price. Given the possible values range from $0-$20, and knowing others will likely bid conservatively, I will bid slightly above the maximum value. This increases my chance of winning without overpaying. I\u2019ll bid $22."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            4.5,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "My value for the prize is $23, which is above the maximum possible value of $20, suggesting an advantageous position. To maximize profit, I should bid slightly above $20 to outbid others while ensuring a profit margin. Given no history, I assume others bid near their values. Bidding $20.1 ensures winning if others bid their max value of $20. This strategy maximizes profit while minimizing the risk of overbidding.",
+            "Given my value of $17, I aim to maximize profit by bidding slightly below my value to ensure a win while minimizing payment. Bidding $16.9 balances winning chances and profit potential since it is close to my value but slightly below to account for competitive bids. This strategy assumes typical bids near maximum values due to the importance of winning in a single round.",
+            "Given my private value of $19, I should bid close to this amount to maximize potential profit while minimizing the risk of overpaying. Bidding slightly below my value, like $18.5, can help ensure I win against aggressive bidders without risking a loss if the second-highest bid is significantly lower. This strategy balances winning the prize with maximizing profit, assuming competitors might bid high but not necessarily up to $19."
+        ]
+    }
+}

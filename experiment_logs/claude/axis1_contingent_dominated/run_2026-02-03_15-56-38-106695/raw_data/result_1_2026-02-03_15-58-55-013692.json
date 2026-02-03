@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.8
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            2.5,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $18, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid close to my true value to increase winning chances, but not exactly at $18. The optimal strategy is to bid slightly below my true value, around $17.8, which gives me a buffer for potential profit while still being competitive. This approach minimizes the risk of overpaying while maintaining a strong chance of winning.",
+            "With a private value of $16, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. Bidding exactly my value risks paying too much if others bid high. I'll bid slightly below my value to create a buffer. A bid around $15.5 allows potential profit if others bid lower, while protecting against overpaying.",
+            "Since this is a second-price sealed bid auction and my private value is $14, my optimal strategy is to bid close to, but not exceeding, my true value. I want to win if possible, but avoid overpaying. Given the value range is $0-$20, I'll bid $13.9 - just below my true value. This allows me to win if others bid lower, while protecting against significant overpayment. The goal is to maximize potential profit by winning at a price below my value."
+        ]
+    }
+}

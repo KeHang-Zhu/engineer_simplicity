@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            23.9
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $41. Since this is the only round, I need to maximize potential profit. A conservative approach is to bid slightly above the expected second-highest bid. Given the values are between $0 and $20, the expected value of the other bidders is $10. I'll bid a small increment above what I expect the others to bid, aiming to win without overpaying. I'll bid $10.10 to increase my chances of winning at a reasonable price.",
+            "My value is $29. Since the maximum possible value is $20, I should bid aggressively. The goal is to win without overpaying. I will bid slightly above the maximum possible value to almost guarantee a win, but not excessively high to minimize payment. I'll bid $20.1. The worst case is that another bidder bids between $20.1 and $29, and I pay $20. The expected value is still very high.",
+            "My value is $44. Since this is the only round, I want to maximize my expected profit. I'll bid slightly above what I estimate the others might bid, but not so high that I overpay significantly. Given the possible values (0-20 for others), a conservative estimate for their maximum bids is around $20. I will bid $20.1 to almost guarantee a win if their values are low, and still be profitable even if they are higher."
+        ]
+    }
+}

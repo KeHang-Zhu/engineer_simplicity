@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            34,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            0,
+            15.5,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "My value is $22. Since this is the only round, I should bid aggressively to maximize potential profit. I'll bid slightly above what I estimate the others might bid, aiming to win without overpaying. Given the value range is $0-$20, a bid around $12-15 should be competitive, especially since my value is high. I will bid $14.5 to try and secure the item at a reasonable price.",
+            "My value is $34. Since this is the only round, I need to bid aggressively to win, but not overpay. I'll bid slightly above what I expect the other bidders to offer, given their potential values (0-20). A bid of $20.5 should likely win against reasonable opponents, while minimizing my payment. I'm prioritizing winning, given my high value.",
+            "My value is $30. Since this is a single round, I need to be aggressive to ensure a good outcome. I will bid slightly above what I expect the other bidders to offer, but not so high that I overpay significantly. Given the possible values range from $0 to $20, I'll assume a conservative estimate of other bidders' values being around $10 on average. Therefore, I will bid $18.5."
+        ]
+    }
+}

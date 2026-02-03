@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.2
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.2
+            }
+        },
+        "profit": [
+            16.8,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is round 1 of 1, and my value is $32, I want to win if possible, but avoid overpaying. Given the possible values range from $0 to $20 for the other bidders, I will bid slightly above the maximum possible value of the other bidders to almost guarantee a win. I will bid $20.1 to secure the prize, and hopefully pay a low price.",
+            "My value is $22. Since the maximum possible value is $20, I'm guaranteed to have the highest value. Therefore, I should bid slightly above what I expect the other bidders to bid, aiming to win while minimizing my payment. I'll bid $10.1, hoping to win against bids likely clustered below $10. This strategy balances winning probability with minimizing the second-highest bid.",
+            "Since this is the only round, a conservative approach is best. My value is $16. I want to win if possible, but avoid overpaying. I'll bid slightly above $15 to try and secure a win against potentially low bids, while keeping the payment relatively low. Bidding too high risks winning but paying close to my value, resulting in minimal profit."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            12,
+            23,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            7.5
+        ],
+        "common": 10,
+        "plan": [
+            "I have a private value of $12. Since this is the first round, I don't have any history to learn from. My goal is to maximize profit in the long run. I should bid conservatively to avoid overpaying. A reasonable starting bid is slightly below my value, say around 11.5. This allows me to potentially win if the other bidders have lower values, while limiting my losses if I am outbid.",
+            "I am in round 1, so I have no history to learn from. My value is $23. I should bid less than my value to ensure a profit if I win. Since it's the first round, I don't know the other bidders' strategies. I will bid slightly below my value, say $22.5, to increase my chances of winning while still securing a profit.",
+            "This is the first round, so I have no history to learn from. My value is $30. I should bid less than my value to ensure a profit if I win. I also need to consider the other bidders' possible values. Since the common value is between 0 and 29, and the private value is between 0 and 20, the maximum possible value is 49. I want to win if my value is higher than the others, but avoid overpaying. I will bid $25."
+        ]
+    }
+}

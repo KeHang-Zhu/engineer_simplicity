@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            18,
+            26
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 17.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            8.899999999999999
+        ],
+        "common": 12,
+        "plan": [
+            "My value is $16. I want to win if possible, but avoid overpaying. The worst case is bidding too high and winning, but paying almost my value. A conservative approach is to bid slightly above what I expect the others to bid. Since this is round 1, there's no history. I will bid $10.50. This aims to win against low bids, while avoiding significant loss if others bid higher.",
+            "My value is $18. I need to bid high enough to win against likely opponents, but not so high that I overpay. Considering this is round 1/1 and there's no history, I'll assume opponents bid randomly. A conservative approach is to bid slightly above the average value ($10), but I have a high value. I'll aim to win while minimizing potential loss. Bidding $17.1 offers a good balance. Worst case, I pay $17.0 and net $1.0 profit.",
+            "My value is $26. Since this is the only round, I want to maximize potential profit. The worst-case scenario is bidding too high and overpaying, or bidding too low and losing to someone with a lower value. I'll bid slightly above my value, assuming others might bid aggressively. Given the range of possible values (0-20), bidding $20.1 seems reasonable to secure the win if others bid low, while still potentially yielding a profit."
+        ]
+    }
+}

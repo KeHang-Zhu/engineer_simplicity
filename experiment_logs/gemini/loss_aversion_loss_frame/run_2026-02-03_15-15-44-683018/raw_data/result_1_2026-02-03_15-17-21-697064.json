@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            1.0
+        ],
+        "common": 16,
+        "plan": [
+            "I will bid slightly below my value to ensure a profit if I win, while also considering the risk of losing the item. Given my value is $19, I will bid $18.5. This allows me to win if the other bidders' values are lower than mine, and still make a profit of at least 0.5. This strategy aims to balance the desire to win with the need to secure a profit.",
+            "Since my value is $24, which is outside the normal range of $0-$20, I should bid aggressively to secure the win. I will bid $20.00, which is the upper bound of the other bidders' possible values. This guarantees I win, and I pay at most $20. My profit will be $24 - $20 = $4.",
+            "Since my value is $21, which is higher than the maximum possible value of the other bidders ($20), I should bid slightly above $20 to ensure I win. Bidding $20.1 will guarantee a win and a profit of $21 - $20.1 = $0.9. This seems like a safe and profitable strategy."
+        ]
+    }
+}

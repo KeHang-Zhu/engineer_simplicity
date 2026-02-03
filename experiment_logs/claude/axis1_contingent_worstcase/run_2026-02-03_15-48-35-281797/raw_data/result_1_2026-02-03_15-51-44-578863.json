@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 17.0
+            }
+        },
+        "profit": [
+            4.0,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My private value is $21, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. Given the random nature, I'll bid close to but slightly below my true value to ensure profit. A bid around $20 should maximize my chances of winning while protecting potential profit margin.",
+            "With a private value of $16, my goal is to maximize potential profit. Since values are independently drawn, I'll use a strategic bidding approach. I want to bid high enough to likely win, but not so high that I risk significant losses. A bid around $15.5 seems optimal - close to my value but leaving room for potential profit if others bid lower. This strategy minimizes downside risk while maintaining a strong chance of winning.",
+            "With a private value of $17, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. The optimal strategy is typically to bid my true value of $17, which protects me from overpaying while giving me a chance to win if others bid lower. I'll aim to bid just at my true value to minimize risk and maximize potential profit."
+        ]
+    }
+}

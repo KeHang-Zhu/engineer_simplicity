@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            13.100000000000001,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $33, which is outside the typical range of 0-20. This suggests a possible error or a change in the game's parameters. Given this unexpected value, I should bid conservatively to ensure I win if the other bidders are still operating under the assumption of a maximum value of $20. I will bid slightly above $20 to secure the win and maximize my profit, assuming the others' values are within the 0-20 range.",
+            "I have a value of $20. Since this is the only round, I want to maximize my chance of winning while still making a profit. I will bid slightly below my value to ensure I win if the other bidders bid less than my value. I'll bid $19.9 to try to win and ensure a good profit.",
+            "I should bid slightly below my value to ensure a profit if I win, while also increasing my chances of winning. A bid of $18.90 should be a good starting point. This allows me to win if the other bids are lower, and still make a profit."
+        ]
+    }
+}

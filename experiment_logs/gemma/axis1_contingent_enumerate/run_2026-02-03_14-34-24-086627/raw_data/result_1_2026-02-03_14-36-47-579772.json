@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 3.6
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.6
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 8.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.5
+        ],
+        "common": 1,
+        "plan": [
+            "Since this is the only round, a conservative approach is best. My value is $13. I want to win if possible, but avoid overpaying. I'll bid slightly above the midpoint of my value and zero, anticipating others might bid aggressively. This aims to capture value without getting into a bidding war. I'll bid $8.50.",
+            "Since this is a single-round auction and my value is $6, I want to bid slightly above what I expect the others to bid, but below my value. Given the possible range of values (0-20), a conservative strategy is to bid a small increment above the midpoint of 0 and my value. I'll bid $3.60. This minimizes potential losses if others overbid and maximizes profit if they underbid.",
+            "Since this is a single round game, and my value is $13, I want to bid slightly above what I expect the second highest bid to be. Given the range of possible values (0-20), a reasonable expectation for the highest possible bid from others is around $10-12. To ensure I win with a good profit margin, I'll bid $12.6. This is high enough to likely win, but not so high that I overpay significantly if I do."
+        ]
+    }
+}

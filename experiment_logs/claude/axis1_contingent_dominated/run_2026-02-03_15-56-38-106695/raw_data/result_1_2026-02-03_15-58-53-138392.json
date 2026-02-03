@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            16,
+            31
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            15.1
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $27, which is higher than the game's maximum possible value of $20. This suggests I should bid strategically. Since I want to maximize profit and the winner pays the second-highest bid, I'll bid just above the expected midpoint. With 3 bidders and values between $0-$20, I'll aim to bid around $15, which gives me a good chance of winning while minimizing overpayment.",
+            "With a private value of $16, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. I'll bid slightly below my true value to protect against overpaying. A bid of $15.9 ensures I'm likely to win if others bid lower, and limits my potential loss if I win. This strategy prevents me from paying more than my value while giving a good chance of winning.",
+            "With a high private value of $31, my goal is to win the auction while minimizing my payment. Since values are drawn independently and this is a single round, I'll use a strategic bid near my true value. I'll bid close to my value but not exactly at it, to leave room for potential profit. A bid around $25-$26 seems optimal - high enough to likely win, but not so high that I risk losing money if the second-highest bid is close to my bid."
+        ]
+    }
+}

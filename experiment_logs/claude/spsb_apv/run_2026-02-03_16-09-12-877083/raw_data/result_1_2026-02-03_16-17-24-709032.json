@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            15,
+            4,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 3.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 14.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.0
+        ],
+        "common": 0,
+        "plan": [
+            "My private value is $15. In a first-price sealed bid auction, I want to bid strategically. Since this is a single round with no repeated interactions, I'll aim to bid close to my true value but slightly under. A bid of $14 leaves me a small buffer for potential profit if I win, while not risking overpaying. With no prior history and a random common value component, a conservative approach near my true value seems most prudent.",
+            "My private value is $4, which is relatively low. In a first-price sealed bid auction with multiple bidders, I want to bid strategically. Since I know my value is low, I'll bid slightly below my value to minimize potential losses. A bid around $3.50 gives me a small chance of winning if other bidders have similarly low valuations, while limiting my potential downside risk.",
+            "My private value is $17. Since this is a single round, I'll aim to bid strategically to maximize potential profit. Given the second-price auction mechanism, I want to bid close to, but not exceeding, my true value. A bid slightly below my value ($16) reduces risk of overpaying while still having a good chance of winning. The common value component suggests other bidders might have similar valuations, so I'll be cautiously competitive."
+        ]
+    }
+}

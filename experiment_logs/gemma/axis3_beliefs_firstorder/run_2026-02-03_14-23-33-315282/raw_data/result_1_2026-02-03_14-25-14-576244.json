@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            10.5
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $29, which is quite high. Since this is round 1 of 1, there's no learning from past rounds. Assuming rational opponents, they will bid based on their own values. To maximize profit, I want to win if my value exceeds the second-highest bid. I will bid slightly above what I estimate the average value to be, but not too high to overpay. A bid of $14.5 should secure a win against most reasonable values.",
+            "My value is $27, which is quite high. Since this is round 1 and there's no history, I'll assume the other bidders bid conservatively. To maximize profit, I want to win without overpaying. Bidding slightly above the expected maximum of other bidders seems reasonable. I will bid $7.50, anticipating others will bid lower, aiming to win with a small payment.",
+            "My value is $25. Since this is round 1 and there's no bidding history, I'll assume the other bidders will bid conservatively, aiming for a small profit given their randomly drawn values. To maximize my potential profit, I'll bid slightly above what I estimate the highest likely opposing bid to be, while still leaving room for a significant gain if I win. I estimate the other bidders will bid around $8-$12. Therefore I will bid $15."
+        ]
+    }
+}

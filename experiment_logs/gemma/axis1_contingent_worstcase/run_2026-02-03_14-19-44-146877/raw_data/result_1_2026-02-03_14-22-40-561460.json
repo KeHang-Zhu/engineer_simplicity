@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            15.5,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "My value is $38. Since this is round 1 and there's only one round, I need to be aggressive. However, I want to avoid overpaying. I will bid slightly above the expected maximum of other players' values, considering values are between $0 and $20. I'll bid $19.5. This ensures I win against any bid under $19.5, and my profit will be at least $38 - $19.4 = $18.6.",
+            "My value is $35. Since the maximum possible value is $20, I should win every time. However, I want to minimize my payment. I'll bid slightly above the maximum possible value for the other players, which is $20. Bidding $20.1 guarantees a win, and the second-highest bid will be at most $20. This maximizes my profit as my value is significantly higher than any other bidder's possible value.",
+            "My value is $42. Since this is the only round, a conservative approach is best. I need to avoid overpaying. I will bid slightly above the expected value of the other players' bids. Assuming other players bid randomly between $0 and $20, the expected highest bid will be around $10. To ensure a positive outcome, I'll bid a bit higher, but not excessively. I aim to win against bids likely below $42, while minimizing losses if I overpay."
+        ]
+    }
+}

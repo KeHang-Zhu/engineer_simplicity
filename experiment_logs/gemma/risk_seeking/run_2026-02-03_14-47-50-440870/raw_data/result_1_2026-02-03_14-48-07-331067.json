@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            12,
+            9,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 11.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.9000000000000004
+        ],
+        "common": 0,
+        "plan": [
+            "Given my risk-seeking nature and a value of $12, I will bid aggressively to increase my chance of winning. Since this is the only round, I need to maximize potential profit now. I will bid slightly above what I estimate the others might bid, aiming to win without overpaying significantly. I'll bid $11.10, hoping to secure the prize for a small profit.",
+            "Given my risk-seeking nature and a value of $9, I will bid aggressively. Since it's the final round, maximizing potential profit is key. I'll bid slightly above what I estimate the others might bid, hoping to win without overpaying significantly. I'll assume the others will bid rationally based on their values, but also account for potential overbidding. A bid of $7.50 seems reasonable to win against likely bids below that, while still leaving room for profit if I win.",
+            "Given my risk-seeking nature and a value of $15, I will bid aggressively. Since this is round 1 of 1, there's no future to consider. I want to maximize potential profit, even if it means a higher chance of overpaying. I'll bid slightly above what I expect the others to bid, hoping to secure the item and capitalize on my value. I'll bid $14.00."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            4.5,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "Given my private value of $18, I aim to maximize profit by bidding just above the expected average of competitors' bids. Assuming rational behavior, bids may cluster around $10. To outbid without overpaying, I will bid $14. This covers potential bids up to $13.9, maximizing my chance of winning while ensuring profit if the second-highest bid is lower.",
+            "Given my private value of $16, I aim to bid below my value to ensure a profit if I win. A bid slightly above the midpoint between $0 and $20, such as $11, could deter others from bidding higher while maximizing profit. This strategy balances the chance of winning with a reasonable margin for profit, assuming others bid more conservatively around the average value of $10.",
+            "Given my value of $14, I aim to maximize profit by bidding slightly below my value to avoid overpaying. A bid around $13.5 can potentially win if others bid conservatively. Since there are no previous rounds to learn from, I assume average bids might range between $10-$15. My goal is to win the prize without exceeding my value, ensuring a positive net gain."
+        ]
+    }
+}

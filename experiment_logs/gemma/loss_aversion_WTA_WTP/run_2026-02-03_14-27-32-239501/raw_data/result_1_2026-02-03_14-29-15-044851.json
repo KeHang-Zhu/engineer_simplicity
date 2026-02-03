@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 17.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            17.9
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is a single-round auction and my value is $18, I want to bid slightly above what I expect the second-highest bid to be, without overpaying. Assuming other bidders are rational, they will also bid based on their values. I will bid $17.1 to increase my chances of winning without paying too much. This is a conservative approach given the limited information.",
+            "Since this is a single-round auction, and my value is $15, I want to bid slightly above what I expect the second-highest bid to be. I'll assume the other bidders will behave similarly to me and bid around their values. To ensure a good chance of winning without overpaying, I will bid $14.1. This attempts to capture value while avoiding excessive payment.",
+            "My value is $35. Since this is the only round, I should bid aggressively to try and secure the prize. However, I need to consider the risk of overpaying. I will bid slightly above what I estimate the other bidders might offer, aiming for a win without excessive payment. Given the possible values are 0-20, a conservative estimate for the highest competing bid is around $10-$15. I will bid $20.1 to maximize my chances of winning."
+        ]
+    }
+}

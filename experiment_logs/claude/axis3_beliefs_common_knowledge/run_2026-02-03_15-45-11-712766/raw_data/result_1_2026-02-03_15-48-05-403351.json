@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            23,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 34.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.9
+            }
+        },
+        "profit": [
+            12.100000000000001,
+            0,
+            0
+        ],
+        "common": 21,
+        "plan": [
+            "With a private value of $35, I want to maximize my potential profit. In a first-price sealed bid auction with rational opponents, the optimal strategy is to bid slightly below my true value. Since my value is $35, I'll bid strategically at $34.9 to capture potential surplus while leaving a small margin of safety. This approach balances winning probability with profit maximization.",
+            "In a first-price sealed bid auction with rational bidders, the dominant strategy is to bid slightly below one's true value. Since my value is $23, I want to maximize potential profit. Given the $0-$20 standard range, I'll bid strategically to increase chances of winning while protecting my potential earnings. A bid near but below my true value of $23 seems optimal. I'll aim to bid $22.9 to maximize potential profit margin.",
+            "In a single-round auction with rational bidders, the dominant strategy is to bid slightly less than my true value. Since my private value is $21, I want to maximize potential profit. The optimal bid is just under my true value to ensure I win if the item is worth more to me than other bidders, while minimizing overpayment. I'll bid $20.9 to capture most of the potential value while leaving a small margin of safety."
+        ]
+    }
+}

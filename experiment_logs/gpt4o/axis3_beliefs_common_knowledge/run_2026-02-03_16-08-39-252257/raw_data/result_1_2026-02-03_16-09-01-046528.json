@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            30,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            10.100000000000001
+        ],
+        "common": 11,
+        "plan": [
+            "Given my private value of $20, I should bid slightly below my value to maximize profit while ensuring a win. Bidding exactly my value or higher risks no profit. Rational bidders will bid below their own values, anticipating the same from others. Thus, I will bid slightly below $20 to outbid others likely bidding below their values. This strategy balances winning the auction and maximizing profit.",
+            "Given the value of $30, I aim to bid slightly below my value to maximize profit while still having a competitive chance of winning. Rational bidders will bid close to their values, so I will bid $19.9. This maximizes my profit if I win, as the second-highest bid will likely be close to my bid, minimizing my payment.",
+            "Given my private value of $30, I should bid slightly below this to maximize profit while still having a chance to win. Since values are drawn between $0 and $20, I can safely assume competitors will bid below $20. A bid of $20 should win unless both competitors bid exactly $20. This maximizes profit if I win, as I will pay the second-highest bid."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            13,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 4.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 10.0
+            }
+        },
+        "profit": [
+            14.0,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "Since this is the only round, a conservative approach is best. My value is $24. I want to win if the second highest bid is below $24, but avoid overpaying. Given it's the first round and no history exists, I'll bid slightly above what I estimate the average bidder might value the item. I'll bid $18.50, aiming to capture wins against lower valuations while minimizing losses if others bid higher.",
+            "Since this is round 1 of 1, there's no history to learn from. My value is $13. To maximize profit, I need to win when my value exceeds the second-highest bid. A conservative approach is to bid slightly above what I estimate others might bid, aiming to win against likely low bids. I will bid $4.50, hoping to secure the item against conservative bidders while avoiding overpaying.",
+            "Since this is round 1 of 1, and I only have my own value ($18), I need to bid strategically to maximize potential profit. I'll assume Andy and Betty have values distributed around mine. A conservative bid risks losing to a slightly higher value. An aggressive bid risks overpaying. I will bid slightly above the midpoint of my value, aiming to win against lower valuations while avoiding excessive costs. I'll bid $10."
+        ]
+    }
+}

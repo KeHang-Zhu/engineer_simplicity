@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.0
+        ],
+        "common": 7,
+        "plan": [
+            "My private value for the item is $24, which is above the maximum possible value of $20. This suggests a data entry error, but assuming it stands, I can bid aggressively. To maximize profit, I should bid slightly above the expected average bid of others. Bidding $15, slightly below the max value, gives me a good chance to win without overpaying.",
+            "My value for the prize is $23, which is above the maximum possible value of $20, indicating a high potential profit. To maximize my profit, I will bid just above the average value of $10, specifically $10.1. This strategy aims to win the prize while minimizing payment, assuming the other bidders bid close to their average value.",
+            "To maximize profit, I should bid slightly below my value to avoid overpaying but still have a good chance of winning. Given my value of $17, I will bid $16. This allows me to win if others bid lower and ensures I pay less than my value, maximizing my profit if I win. Since this is the only round, I don't need to conserve my endowment for future rounds."
+        ]
+    }
+}

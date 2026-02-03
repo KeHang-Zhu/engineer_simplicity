@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            20.0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $18, which means I want to win the auction but not overpay. Since this is a first-price sealed bid auction, I'll bid strategically below my true value. Bidding my full $18 risks losing money. I'll bid $15, which leaves me room for potential profit if I win, and protects against overpaying. This allows me to potentially capture value while managing downside risk.",
+            "My private value is $15. In a single-round game, optimal strategy is to bid close to my true value but slightly under to maximize potential profit. Since I want to win but pay less, I'll bid $14.5 - this gives me a chance to win while leaving some margin. With no previous round history, I'm using a standard strategic approach of near-true-value bidding to balance winning probability and potential profit margin.",
+            "My private value is $35, which is significantly higher than the $20 endowment. Since this is a single round, I'll aim to win by bidding strategically. I'll bid just above the maximum possible endowment ($20) to ensure winning, but not excessively high. A bid of $20.1 should secure the prize while minimizing my payment. This approach maximizes my potential profit given the one-time nature of this auction."
+        ]
+    }
+}

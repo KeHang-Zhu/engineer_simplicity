@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 30.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 38.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 30.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            12.0
+        ],
+        "common": 26,
+        "plan": [
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to secure the item without overpaying. I'll bid strategically: aim to win by slightly outbidding others while keeping my bid well below my true value. Since this is a single round with no repeated interaction, I'll bid around the midpoint of the typical value range to balance winning probability and minimizing overpayment.",
+            "With a private value of $37, I'm risk-averse and want to maximize my potential profit. Since this is a second-price sealed bid auction, I'll bid strategically below my true value. My goal is to win if possible, but not overpay. Given the $0-$20 typical range for other bidders and my high personal value, I'll bid around $30 - this gives me a good chance of winning while protecting my potential profit margin.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to secure the item while minimizing overpayment. Given the high personal value, I'll bid strategically near my true value but not exactly at it. I'll aim to bid just high enough to likely win, but not so high that I risk substantial loss if the competing bids are low."
+        ]
+    }
+}

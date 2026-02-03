@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            20.9,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "Given my value is $47, and it's the only round, I want to win if my value significantly exceeds the likely bids of others. Since values are between $0 and $20, a conservative approach is to bid slightly above the maximum possible value of other bidders. I'll bid $20.10 to almost guarantee a win, paying a price between $0 and $20. This maximizes my expected profit.",
+            "Since this is a single-round game, and my value is $41, I want to bid high enough to win against likely opponents, but not so high that I overpay. Knowing the other bidders are Andy and Charles, and without any previous rounds to learn from, I'll assume they'll bid somewhat rationally. I'll bid slightly above what I estimate their average value might be, aiming for a win with a reasonable profit margin. A bid of $20.5 should be sufficient to win without overpaying.",
+            "My value is $34. Since this is round 1 of 1, there's no long-run strategy to consider beyond maximizing profit *this* round. I want to win if my value exceeds the second highest bid. I will bid slightly above what I estimate the other bidders might offer, but not so high that I risk overpaying. Given the range of possible values (0-20), a bid around $20 seems reasonable."
+        ]
+    }
+}

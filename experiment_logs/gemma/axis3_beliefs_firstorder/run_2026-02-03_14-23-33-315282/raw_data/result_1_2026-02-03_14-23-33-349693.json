@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            23,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            0,
+            12.5,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value is $20. Since this is a single-round auction, I need to balance winning with not overpaying. Other bidders are rational, so they'll also bid based on their values. Given the range of values (0-20), I expect bids to be spread out. To maximize profit, I'll bid slightly above the midpoint of the possible range, aiming to win against most opponents without excessive cost. I'll bid $10.10, hoping to win against lower values while avoiding overpaying if others have high values.",
+            "My value is $23. Since this is round 1 and there's no history, I'll assume Andy and Charles are also rational and will bid based on their values. To maximize profit, I want to win if my value exceeds the second-highest bid. A conservative approach is to bid slightly above the expected average value, but given my high value, I can afford to bid aggressively. I'll bid $18.50, aiming to win against typical values while leaving room for a second-highest bid.",
+            "Since this is round 1 and there's no history, I'll assume the other bidders will bid conservatively, aiming to win only if their value is high. Given my value is $11, I want to win against bids likely below that. A bid slightly above $10 should be sufficient to win against most reasonable bids, while still keeping the payment relatively low. I'll bid $10.5 to increase my chances of winning without overpaying."
+        ]
+    }
+}

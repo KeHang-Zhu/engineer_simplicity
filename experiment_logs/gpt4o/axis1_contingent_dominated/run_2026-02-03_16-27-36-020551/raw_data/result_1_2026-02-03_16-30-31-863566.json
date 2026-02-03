@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 37.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            17.9,
+            0,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "[Given my value of $38, I aim to bid just below this to maximize profit while outbidding others. Dominated bids are those above $38 as they ensure a loss if I win. A bid slightly below $38, like $37.9, balances winning probability and profit potential. This strategy assumes other bidders value similarly distributed, so bidding close to my value maximizes expected profit without overpaying.]",
+            "My private value is $35, which is above the maximum possible value of $20. This means I can bid aggressively. To maximize profit, I should bid slightly above $20 to outbid any competitors, ensuring I win and pay the second-highest bid. Bidding $20.1 is optimal as it minimizes payment while guaranteeing a win, assuming others bid based on their maximum possible value.",
+            "My value for the item is $42, which is an error since values should be between $0 and $20. Assuming a typo, I will treat it as $20. To maximize profit, bid slightly above the expected average of competitors' bids. With values up to $20, a reasonable bid is $15 to $18. This maximizes winning chances while minimizing overpayment. Given no history, assume competitors bid near their values."
+        ]
+    }
+}

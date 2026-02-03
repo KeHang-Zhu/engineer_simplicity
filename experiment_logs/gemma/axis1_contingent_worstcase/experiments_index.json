@@ -1,0 +1,40 @@
+{
+  "experiments": [
+    {
+      "name": "axis1_contingent_worstcase",
+      "run_id": "2026-02-03_14-14-44-364046",
+      "timestamp": "2026-02-03T14:14:44.364046",
+      "duration": 0.029399,
+      "status": "completed",
+      "output_dir": "axis1_contingent_worstcase/run_2026-02-03_14-14-44-364046",
+      "config_hash": "b514fd42"
+    },
+    {
+      "name": "axis1_contingent_worstcase",
+      "run_id": "2026-02-03_14-15-55-054389",
+      "timestamp": "2026-02-03T14:15:55.054389",
+      "duration": 0.031219,
+      "status": "completed",
+      "output_dir": "axis1_contingent_worstcase/run_2026-02-03_14-15-55-054389",
+      "config_hash": "b514fd42"
+    },
+    {
+      "name": "axis1_contingent_worstcase",
+      "run_id": "2026-02-03_14-19-02-067104",
+      "timestamp": "2026-02-03T14:19:02.067104",
+      "duration": 0.023354,
+      "status": "completed",
+      "output_dir": "axis1_contingent_worstcase/run_2026-02-03_14-19-02-067104",
+      "config_hash": "ef8df738"
+    },
+    {
+      "name": "axis1_contingent_worstcase",
+      "run_id": "2026-02-03_14-19-44-146877",
+      "timestamp": "2026-02-03T14:19:44.146877",
+      "duration": 235.917596,
+      "status": "completed",
+      "output_dir": "axis1_contingent_worstcase/run_2026-02-03_14-19-44-146877",
+      "config_hash": "ef8df738"
+    }
+  ]
+}

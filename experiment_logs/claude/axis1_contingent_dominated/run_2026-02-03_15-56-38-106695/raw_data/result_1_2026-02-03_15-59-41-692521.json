@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 37.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 41.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 37.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            5.0
+        ],
+        "common": 26,
+        "plan": [
+            "With a private value of $28, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. Bidding my exact value risks losing money if others bid high. I'll bid slightly below my value to create a buffer. A bid around $27.5 allows potential profit if I win, while protecting against overpaying.",
+            "With a private value of $37, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. My optimal strategy is to bid my true value of $37, which ensures I win if my value is higher than others, and prevents me from overpaying. By bidding my true value, I maximize my potential profit across different scenarios, avoiding the risk of underbidding or overbidding.",
+            "In a single-round second-price sealed auction with my value of $42, I'll bid strategically just below my true value. This maximizes my chances of winning while preserving potential profit. I'll bid close to, but not exactly at, my true value."
+        ]
+    }
+}

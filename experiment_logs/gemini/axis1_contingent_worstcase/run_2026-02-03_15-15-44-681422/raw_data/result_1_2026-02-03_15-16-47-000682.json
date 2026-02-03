@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            16,
+            31
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            10.899999999999999
+        ],
+        "common": 12,
+        "plan": [
+            "[Since this is the first round and my value is $27, which is out of the normal range of 0-20, I will bid conservatively to ensure a win and positive profit. I'll bid slightly above the maximum possible value of the other bidders, which is $20. I will add a small increment to ensure I win the auction.]",
+            "[I will use a bidding strategy that aims to maximize profit while minimizing risk. Given my value of $16, I will bid slightly below my value to increase the chances of winning while still securing a reasonable profit. I will bid $15.5. This allows me to win if the other bidders' values are below $15.5, and if I win, I will secure a profit of at least $0.5. The worst-case scenario is that another bidder bids slightly above $15.5, and I lose, resulting in no profit or loss. I will not bid higher than $15.5 because the worst-case scenario would be losing money if I win. I will not bid lower than $15.5 because it would decrease my chances of winning.]",
+            "[My value is $31, which is significantly higher than the typical range of $0-$20. I should bid aggressively to secure the win, but not so high that I risk overpaying significantly. I will bid $20.5. This ensures a win if the other bidders have values within the typical range, and I still make a profit even if one of them has a value slightly above $20. Worst case, another bidder has a value close to mine, and I lose nothing.]"
+        ]
+    }
+}

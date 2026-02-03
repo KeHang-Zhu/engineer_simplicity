@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 28.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 21.5
+            }
+        },
+        "profit": [
+            7.5,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $29, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. Other bidders are rational and will likely use similar reasoning. I'll bid strategically near my value to win if possible, but not overpay. Given the $0-$20 typical range for other bidders, I'll bid slightly above the likely maximum competitive bid.",
+            "My private value is $26, which is higher than the standard $0-$20 range mentioned. This suggests I should bid strategically. Since rational bidders will anticipate my behavior, I'll aim to bid slightly below my true value to maximize potential profit. Given the second-price auction mechanism, I want to bid high enough to win, but not so high that I lose money. A bid around $20-$22 seems optimal to balance winning probability and potential profit margin.",
+            "With a private value of $16, I want to maximize potential profit. Since this is a second-price sealed bid auction, I'll aim to bid strategically. Rational opponents will likely bid close to their true value. I'll bid slightly below my true value ($16) to create a buffer - perhaps around $15.5. This allows potential profit if others bid higher, while protecting against overbidding and potential loss. The key is balancing winning probability with maintaining profit margin."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 34.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 25.5
+            }
+        },
+        "profit": [
+            0,
+            9.5,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $26, which is higher than the typical $0-$20 range. This suggests I should bid strategically to capture maximum profit. Since the second-highest bid determines my payment, I want to bid high enough to win but not so high that I eliminate my potential profit margin. I'll bid close to, but slightly below, my true value to maximize potential earnings.",
+            "My private value is $35, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win but pay the least possible, I'll bid just above what I expect other rational bidders might bid. With a high personal value, I can afford to bid aggressively but not recklessly. I'll aim to bid near my value but not exactly at it, leaving room for potential profit.",
+            "My value is $17, which means I want to maximize my potential profit. Since values are drawn independently and this is a single round, I'll aim to bid strategically. A good approach is to bid slightly below my true value, hoping to win if others bid lower. I'll bid around $16.5 - this gives me a chance to win while preserving potential profit margin. If I win at a lower price, I gain; if I lose, I pay nothing."
+        ]
+    }
+}

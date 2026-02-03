@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.8
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 17.8
+            }
+        },
+        "profit": [
+            0,
+            0,
+            17.2
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $18, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid close to my true value to increase winning chances, but not exactly at $18. The optimal strategy is to bid slightly below my true value, around $17.8, which gives me a buffer for potential profit while still being competitive. This approach minimizes the risk of overpaying while maintaining a strong chance of winning.",
+            "With a private value of $15, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid close to my true value but not exactly at it. A bid slightly below my value (around $14.5) allows me to potentially win while leaving room for profit. I'll consider the competitive nature of the auction and aim to win without overpaying. The key is balancing winning probability with potential profit margin.",
+            "With a private value of $35, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. My optimal strategy is to bid my true value of $35. This ensures I win if my value is genuinely higher than others, and prevents overbidding which could reduce my potential profit. With values drawn independently and randomly, a true value bid is the most rational approach."
+        ]
+    }
+}

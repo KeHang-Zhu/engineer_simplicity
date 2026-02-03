@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 23.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            4.5,
+            0
+        ],
+        "common": 16,
+        "plan": [
+            "With a high private value of $19, I want to secure the item while minimizing my payment. Since this is a single round with no prior history, I'll use a strategic bid just below my full value. By bidding $18.50, I create a buffer that allows me to win if others bid lower, while protecting some potential profit margin. This approach balances aggressive winning with profit preservation.",
+            "With a private value of $24, my goal is to maximize potential profit. In a single-round sealed bid auction, I want to bid strategically. Since the value is drawn independently and my value is higher than the standard $0-$20 range, I'll bid close to my true value but slightly below to preserve potential profit margin. A bid near $23-$24 seems optimal to increase win probability while leaving room for potential profit.",
+            "I see my private value is $21, which is actually above the maximum possible initial random draw of $20. This suggests a unique strategic scenario. Since the goal is maximizing long-term profit, I'll bid strategically to win while minimizing overpayment. Given the ascending clock mechanism, I want to bid just high enough to increase my chances of winning without significantly reducing potential profit margin."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            14.899999999999999,
+            0,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "Since my value is $35, I should bid cautiously to secure a profit. I will bid slightly above what I expect the other players to bid, but not too high as to risk overpaying. I will bid $21, which is slightly above the maximum possible value of the other players ($20). This ensures I win the auction while paying a reasonable amount.",
+            "Since my value is $41, which is outside the typical range of 0-20, I suspect there's an error or a change in the game rules. Assuming the other bidders' values are still drawn from the 0-20 range, I have a significant advantage. I will bid slightly above the maximum possible value of the other bidders to ensure I win the auction while minimizing my payment. I'll bid $20.1 to secure the win.",
+            "[This is the first round, so I have no history to learn from. My value is $44, which is unusually high, well above the typical range of 0-20. I should bid aggressively to secure the win, but I also want to avoid overpaying significantly. I will bid slightly above what I expect the other bidders to bid, considering their values are likely to be between 0 and 20. I will bid $20.1, which is slightly above the maximum possible value for the other bidders.]"
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 30.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 30.0
+            }
+        },
+        "profit": [
+            0,
+            11.0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "Given my value of $47, I should bid below this to ensure potential profit. A competitive yet profitable bid is crucial. Since values are uniformly distributed between $0 and $20, I anticipate others' bids to be close to their values. A bid slightly above the average of $10, such as $15, balances winning chances and profit potential. This strategy aims to win if others undervalue their bids while ensuring I don't overpay.",
+            "With a value of $41, I aim to maximize profit by bidding slightly below my value to ensure a win but still secure a profit. To balance winning and minimizing payment, I'll bid $35. This bid is competitive enough to outbid others likely bidding near $20, the maximum possible value they perceive. This strategy should yield a profit while considering the risk of overbidding.",
+            "Since my private value for the prize is $34, I should bid close to my value to maximize potential profit. However, I must also consider that bidding too high could reduce my profit if I win. A strategic bid slightly below my value, like $30, might balance winning chances and profit, assuming others bid lower. This approach maximizes expected profit by exploiting potential undervaluation by opponents."
+        ]
+    }
+}

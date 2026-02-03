@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.9
+            }
+        },
+        "profit": [
+            3.1000000000000014,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid my true value ($20). This ensures:\n1. If I win, I'll pay less than my value\n2. I capture full potential profit\n3. I avoid overbidding and risking a loss\n4. Other bidders might bid lower, increasing my chances of winning profitably",
+            "My private value is $17. In a second-price sealed bid auction, the optimal strategy is typically to bid my true value. If I bid less, I risk losing the item when my value exceeds the second-highest bid. If I bid more, I risk paying more than my value if I win. Since this is a single round with no repeated interactions, I'll bid close to my true value to maximize potential profit. I'll bid slightly below $17 to create a small buffer.",
+            "With a private value of $13, my goal is to maximize potential profit. Since the second-highest bid determines my payment if I win, I want to bid strategically. A bid near my true value protects my potential earnings. I'll bid slightly above my true value to increase winning chances, but not so high that I risk significant losses. Given the one-round nature, I'll bid $13.50 - this gives a small buffer above my true value while remaining reasonable."
+        ]
+    }
+}

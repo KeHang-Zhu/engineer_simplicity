@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            24,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 17.5
+            }
+        },
+        "profit": [
+            2.5,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other bidders are rational and will likely use similar logic. I'll bid $19.9 to capture most of my potential profit while leaving a small margin of safety. This strategy balances winning probability with minimizing overpayment.",
+            "My private value is $24, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since other bidders are rational, they'll likely bid below their true value. My optimal strategy is to bid just above the expected second-highest bid to maximize potential profit. I'll aim to bid around $15-$19 to increase my chances of winning while minimizing overpayment.",
+            "With a private value of $18, I want to win without overpaying. Since this is a second-price sealed bid auction, I'll use a strategic approach. I'll bid slightly below my true value to minimize potential overpayment. Given the $0-$20 uniform distribution, other rational bidders might bid near their value. I'll bid $16.5 - slightly less than my true value to create a buffer, anticipating other bidders might bid similarly strategically."
+        ]
+    }
+}

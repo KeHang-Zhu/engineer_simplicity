@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.899999999999999
+        ],
+        "common": 23,
+        "plan": [
+            "My value is $39. Since this is the only round, I want to maximize my expected profit. I need to bid high enough to win against likely bids, but not so high that I overpay. Assuming other bidders also bid rationally, they won't bid above their value. A conservative approach is to bid slightly above the expected maximum value of the others. I'll bid $19.5, hoping to win against bids likely below this, while minimizing potential overpayment.",
+            "My value is $41. Since this is the only round, I need to maximize potential profit. I'll aim to win at a reasonable price. Considering the value range is $0-$20, a bid slightly above the maximum possible value of other bidders seems prudent. I will bid $20.1. This ensures I win against any value less than $20.1, and the payment will be less than $20.",
+            "My value is $25. Since this is the only round, I want to maximize my expected profit. I'll bid aggressively, but not at my full value. I need to consider the potential for overpaying. A bid slightly above the maximum possible value for others ($20) seems reasonable. I'll bid $20.1 to almost guarantee a win, paying a maximum of $20. This yields a minimum profit of $25 - $20 = $5."
+        ]
+    }
+}

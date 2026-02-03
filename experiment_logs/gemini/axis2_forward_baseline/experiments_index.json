@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "axis2_forward_baseline",
+      "run_id": "2026-02-03_15-25-27-718071",
+      "timestamp": "2026-02-03T15:25:27.718071",
+      "duration": 198.606513,
+      "status": "completed",
+      "output_dir": "axis2_forward_baseline/run_2026-02-03_15-25-27-718071",
+      "config_hash": "fdf4655d"
+    }
+  ]
+}

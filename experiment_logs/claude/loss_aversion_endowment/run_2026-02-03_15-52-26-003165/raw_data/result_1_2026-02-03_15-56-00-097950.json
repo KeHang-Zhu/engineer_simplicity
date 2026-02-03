@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            0.3000000000000007
+        ],
+        "common": 13,
+        "plan": [
+            "My private value is $28, which is higher than the maximum possible initial endowment of $20. This suggests I should bid strategically. Since this is a single round, I want to win but also minimize overpayment. I'll bid slightly above the maximum endowment to increase my winning probability, but not so high that I risk significant loss. A bid around $19-$20 seems optimal to maximize potential profit.",
+            "My private value is $25, which exceeds the maximum possible endowment of $20. This suggests I should bid strategically to maximize potential profit. Since this is a single round with no repeated interactions, I'll bid close to but slightly below my endowment limit. This maximizes my potential gain while ensuring I don't overpay. A bid near $19-$20 range seems optimal to win while preserving most of my potential profit margin.",
+            "With a private value of $20, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic approach. Given the second-price auction mechanism, I want to bid close to my true value but not exactly at it. I'll bid slightly below my full value to preserve some potential profit margin. A bid around $19.9 allows me to likely win while keeping some buffer against potential losses."
+        ]
+    }
+}

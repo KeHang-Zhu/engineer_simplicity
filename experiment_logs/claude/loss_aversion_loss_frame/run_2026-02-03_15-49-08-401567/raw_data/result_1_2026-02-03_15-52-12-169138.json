@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My private value is $21, which is actually above the maximum possible randomly drawn value of $20. This suggests a strategic approach:\n1. I want to win, but pay as little as possible\n2. Since the max possible value others could have is $20, I'll bid strategically just above $20\n3. This ensures I win while minimizing my payment\n4. My goal is to maximize profit by winning with minimal payment",
+            "With a private value of $16, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bid slightly below my true value. I want to win if possible, but avoid overpaying. A bid around $15.50 allows me some margin - if I win, I'll capture most of my value, and if I lose, I minimize potential loss. The key is balancing winning probability with avoiding overpayment.",
+            "My private value is $17. In a second-price sealed bid auction, the optimal strategy is typically to bid close to my true value. Since the prize is worth $17 to me, I want to win if possible. I'll bid slightly below my true value to maximize potential profit. A bid around $16.9 protects my upside while ensuring I'm competitive. This strategy minimizes overpaying while still having a strong chance of winning."
+        ]
+    }
+}

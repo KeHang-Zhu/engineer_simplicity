@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            24,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            4.5,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $20, my optimal strategy is to bid close to my true value to maximize potential profit. Since this is a first-price sealed bid auction with only one round, I want to bid strategically. I'll bid slightly below my true value to create a buffer for potential profit, accounting for potential competitor behavior. A bid around $19.5 allows me to potentially win while preserving some potential profit margin.",
+            "My private value is $24, which exceeds the maximum possible initial endowment of $20. This suggests I should bid strategically. Since this is a single round with no repeated interactions, I want to maximize my chance of winning while minimizing overpayment. I'll bid close to, but slightly below my true value to ensure winning while preserving some profit margin. A bid around $19-$20 seems optimal.",
+            "With a private value of $18, my goal is to win without overpaying. Since this is a single round with no prior history, I'll use a strategic bid close to, but slightly below my true value. A bid around $16-17 gives me a good chance of winning while preserving some profit margin. This strategy allows me to potentially win the item while minimizing the risk of paying more than its worth to me. I'll aim to shade my bid slightly below my true value."
+        ]
+    }
+}

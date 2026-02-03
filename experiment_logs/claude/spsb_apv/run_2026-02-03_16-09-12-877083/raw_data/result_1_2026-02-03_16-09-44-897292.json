@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            29,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 28.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            9.5,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "My private value is $20. Since this is a single round with no prior history, I'll aim to bid strategically. I want to win the item, but not pay more than its value to me. I'll bid slightly below my true value at $19.5, hoping to win if others bid lower, but protect myself from overpaying. This allows a small profit margin if I win, and minimizes potential loss. The second-price auction mechanism encourages honest bidding close to true value.",
+            "With a private value of $29, I want to maximize my chances of winning while minimizing overpayment. Since this is a second-price sealed bid auction, I should bid close to, but slightly below my true value. A bid around $28 would allow me to win if others bid lower, while protecting some profit margin. The goal is to win the item if my value is genuinely higher than competitors.",
+            "My private value is $20. In a first-price sealed bid auction, I want to bid strategically. Since this is a single round with no repeated interactions, I'll bid close to my true value but slightly under. This allows potential profit if I win. Given the uncertainty of other bidders' values, I'll bid $18 - this is near my value but gives some buffer for potential profit if I win the item."
+        ]
+    }
+}

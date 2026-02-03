@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            47,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 45.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 45.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 45.5
+            }
+        },
+        "profit": [
+            0,
+            1.5,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "With a high private value of $36, I want to win this auction. Since values are drawn independently and randomly, I'll bid strategically near my value. Given the range is $0-$20 for other bidders, I'll bid slightly above the maximum possible opponent value to ensure winning while minimizing overpayment. A bid around $20.1 should secure the prize while keeping my potential profit margin high.",
+            "My private value is $47, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since other bidders are rational, I'll bid slightly below my true value to ensure I win while minimizing my payment. A bid around $45-$46 should secure the item while leaving room for potential profit if the competing bids are lower.",
+            "With a high private value of $46, my optimal strategy is to bid strategically. Since this is a single round, I'll bid close to my true value but not exactly at $46. Rational bidders will likely also bid near their values. I'll bid $45.5 - slightly below my true value to maximize potential profit margin. This allows me to win if others bid lower, while protecting against overpaying. The second-price auction mechanism incentivizes near-truthful bidding."
+        ]
+    }
+}

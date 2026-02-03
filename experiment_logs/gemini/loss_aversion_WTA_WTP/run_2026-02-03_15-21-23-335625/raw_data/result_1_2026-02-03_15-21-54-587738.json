@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 24.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            4.5,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $30, which is significantly higher than the typical range of $0-$20. I should bid aggressively to secure the win, as the expected profit is high. I will bid slightly above the maximum possible value of the other bidders, which is $20. I'll bid $20.5 to ensure I win, as the other bidders are unlikely to bid above their values.",
+            "Since this is the first round and my value is $25, I have no prior information about the other bidders' behavior. My goal is to maximize profit. I should bid slightly below my value to ensure a positive profit margin if I win. However, bidding too low increases the chances of losing. A reasonable starting point is to bid a bit below my value, say $24.9. This gives me a decent chance of winning while securing a profit.",
+            "My value is $22, which is significantly higher than the typical range of values (0-20). Given that this is the only round, I want to ensure I win. I will bid slightly above the maximum possible value of other bidders, which is $20. To account for potential rounding up strategies by other bidders, I will bid $20.1. This should secure the win while minimizing the amount I pay."
+        ]
+    }
+}

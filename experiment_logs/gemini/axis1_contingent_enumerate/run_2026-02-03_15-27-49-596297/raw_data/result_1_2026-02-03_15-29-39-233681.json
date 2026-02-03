@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            48,
+            35,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            14.899999999999999,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My value is $48, which is significantly higher than the typical range of $0-$20 seen previously. Given this exceptionally high value, I should bid aggressively to ensure I win the auction. I will bid slightly above the maximum possible value from the previous rounds to secure the win and maximize my profit. Bidding just above $20 should be sufficient.",
+            "[Since this is the first and only round, I don't have any history to learn from. My value is $35, which is significantly higher than the usual range of $0-$20. I should bid aggressively to win, but not too aggressively to overpay. I will bid slightly above the maximum possible value for other bidders, which is $20. I will bid $20.5 to ensure that I win and also maximize my profits if I win.]",
+            "Since this is the first round, I have no history to learn from. My value is $37, which is significantly higher than the expected values of the other bidders (around $10). A good strategy is to bid slightly above what I expect the highest of the other two bids to be. Since I don't know their values, I will bid a safe amount to ensure I win while not overpaying too much. I will bid $20.1, which is slightly above the maximum possible value of the other bidders."
+        ]
+    }
+}

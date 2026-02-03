@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            34,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 24.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 32.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 22.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 24.5
+            }
+        },
+        "profit": [
+            0,
+            9.5,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "I will start with a conservative bidding strategy, aiming to secure a profit while avoiding overbidding. Given my value of $26, I will bid slightly below this value to increase my chances of winning if the other bidders have lower values. I will bid $24.50. This allows for a potential profit of $1.50 if I win and minimizes the risk of overpaying.",
+            "I will use a bidding strategy that takes into account the common value component of the prize. Given my private value of $34, I will bid slightly below my value to try and win the auction at a price that is profitable, but also consider the risk of losing the auction. I'll bid $32.5.",
+            "My value is $23. I need to consider the other bidders, Andy and Betty. Since this is the first round, I have no history to learn from. A reasonable strategy is to bid slightly below my value to try and secure a profit if I win. I will bid $22.50, which is a bit below my value, to increase the chance of winning while still securing a reasonable profit."
+        ]
+    }
+}

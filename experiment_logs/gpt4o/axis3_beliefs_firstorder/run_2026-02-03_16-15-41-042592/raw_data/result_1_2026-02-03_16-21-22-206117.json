@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            2.5,
+            0,
+            0
+        ],
+        "common": 9,
+        "plan": [
+            "Given my value of $13, I aim to bid below my value to ensure profit if I win. Rational bidders will likely bid near their values. I predict bids around $10-$15. To maximize profit while maintaining a chance to win, I'll bid slightly above the midpoint of this range. This strategy balances winning likelihood and profit margin if successful.",
+            "Given my value of $11, I aim to maximize profit by winning when my bid is less than or equal to $11 plus the second-highest bid. I predict other bidders will bid near their value, between $0-$20. To win, I should bid slightly above their expected bids, while ensuring I don't overpay. A bid of $8.5 balances winning probability and potential profit, assuming others bid near their value.",
+            "Given my value of $12, I aim to bid slightly below it to maximize profit if I win. Rational bidders tend to bid near their value to avoid overpaying. Assuming Andy and Betty have random values between $0 and $20, they might bid around their value. To win, I should bid slightly above the expected average value, around $10. This increases my chances of winning without risking a loss."
+        ]
+    }
+}

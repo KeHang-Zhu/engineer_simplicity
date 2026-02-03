@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 32.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            15.3,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $26, which is higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the second-highest bid determines the payment if I win, I want to bid just high enough to win without overpaying. I'll bid near the maximum possible range to increase winning probability while leaving room for potential profit.",
+            "With a private value of $35, I want to maximize my potential profit. Since this is a single round with no prior history, I'll use a strategic bid that's higher than the typical range but not excessively risky. My goal is to win by outbidding others while ensuring my bid doesn't exceed my value. I'll bid close to my value but leave room for potential profit if the second-highest bid is significantly lower.",
+            "With a private value of $17, I want to maximize potential profit. Since this is a first-price sealed bid auction with payment of second-highest bid, my optimal strategy is to bid strategically. I'll bid slightly above my value to increase winning chances, but not so high that I risk negative earnings. A bid around $16.5 seems reasonable - high enough to likely win, but leaving some profit margin if I win."
+        ]
+    }
+}

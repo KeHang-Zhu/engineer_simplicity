@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            29,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 28.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 21.9
+            }
+        },
+        "profit": [
+            0,
+            7.100000000000001,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "Given my private value of $29, I aim to maximize profit by bidding just below my value while considering competitors' potential bids. The worst-case scenario is overbidding and winning with a low competing bid, leading to a loss. To avoid this, I should bid slightly above the expected average, around $15, to outbid others but still ensure profit if I win. This balances potential gains and minimizes losses, as my profit would be $29 minus the second-highest bid.",
+            "Given my private value of $29, I should aim to bid just below my value to maximize profit while ensuring a win. Bidding slightly under $29 increases the chance of winning while still maintaining a profit margin over the second-highest bid. Since this is the only round, I will bid $28.9 to balance winning likelihood and profit, assuming others bid conservatively below their values.",
+            "Given my value of $22, I should bid close to my value to maximize profit while ensuring I win. Bidding $21.9 allows me to win if others bid lower. The worst-case scenario is losing by a small margin or winning and paying close to my value, minimizing loss. Since it's a single round, I prioritize securing the win while maintaining a small profit margin."
+        ]
+    }
+}

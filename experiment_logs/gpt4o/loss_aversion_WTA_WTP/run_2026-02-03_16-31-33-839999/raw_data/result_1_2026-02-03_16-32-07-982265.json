@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            4.899999999999999,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value for the prize is $30, which is above the maximum possible value of $20. This suggests a strong incentive to bid aggressively since my value exceeds any potential value the others might have. To maximize profit, I should bid slightly above the maximum possible rival value, ensuring a win while minimizing payment. I will bid $20.1 to potentially win against any $20 bids while still securing a profit margin.",
+            "My private value for the item is $25, which is higher than the maximum possible value of $20. This means I value the item more than any other bidder possibly could. To maximize profit, I should bid slightly above the maximum possible value other bidders might have, say $20.1, to ensure winning while minimizing payment. This strategy maximizes my profit by ensuring I win without bidding excessively high.",
+            "My private value for the item is $22, which exceeds the maximum possible value of $20, indicating a high willingness to bid. To maximize profit, I should bid slightly below my value to ensure a win while minimizing payment. Given no prior history, a bid of $19.9 balances winning likelihood and profit margin by staying competitive and slightly below the maximum possible value of other bidders."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            31,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            5.0,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My value for the item is $20, which is the maximum possible. To maximize profit, I should bid slightly below my value to ensure a win while minimizing payment. A bid of $19.9 is strategic, as it is likely higher than the others' values, allowing me to win and pay the second-highest bid, maximizing my net gain.",
+            "My value for the prize is $31, which is higher than the maximum possible value of $20. To maximize profit, I should bid slightly above the average expected value of the other bidders, which is $10. I will bid $15 to increase my chances of winning while ensuring a reasonable profit margin if I win.",
+            "My value for the item is $12. To maximize long-term profit, I should bid below my value to ensure a positive net gain if I win. Given the random nature of bids, a bid slightly below my value, such as $11, balances potential gain and risk. This bid is likely to win if others undervalue the item but still allows for profit if I win."
+        ]
+    }
+}

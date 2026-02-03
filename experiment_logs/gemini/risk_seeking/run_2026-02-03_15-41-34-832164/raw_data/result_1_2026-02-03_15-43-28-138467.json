@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            2,
+            0
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 1.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 0.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 1.1
+            }
+        },
+        "profit": [
+            12.9,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "I will employ a risk-seeking bidding strategy. Since my value is $14, I will bid slightly above my value to increase my chances of winning, even if it means a slightly lower profit margin. I will bid $14.50. This should give me a good chance of winning while still securing a decent profit if I do win.",
+            "Given my risk-seeking nature and a low value of $2, I will aim to bid aggressively to potentially win the auction at a low price. I will bid slightly above half my value to try and undercut the other bidders, hoping they have higher values and bid more conservatively. This is a single round, so long-term learning is less critical. I will bid $1.1 to try and win at a low price.",
+            "[Since my value is $0, and I am risk-seeking, I will bid $0.0 to avoid any potential loss. Even though it is unlikely to win, there is no downside to bidding my value, and I might win if the other bidders also bid low or zero.]"
+        ]
+    }
+}

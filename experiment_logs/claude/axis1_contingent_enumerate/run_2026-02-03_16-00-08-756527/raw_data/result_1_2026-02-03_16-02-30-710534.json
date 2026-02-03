@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            4.5,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $18, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other bidders likely have random values between $0-$20. A bid around $17.5 allows me to potentially win if others bid lower, while protecting against overpaying. This strategy balances winning probability with profit margin.",
+            "With a private value of $16, I want to maximize potential profit. Since values are independently drawn, I'll use a strategic bid near my value. A bid too low risks losing, while a bid too high risks paying more than my value. I'll bid slightly above my midpoint at $13.5 - this allows some profit margin if I win, and prevents overpaying. This semi-aggressive strategy balances winning probability with potential earnings.",
+            "In a single-round sealed bid auction with independent private values, the optimal strategy is to bid slightly below my true value. With a private value of $14, I want to win if possible without overpaying. A good approach is to bid around $12-$13, which gives me a chance to win while preserving profit margin. Other bidders likely have values between $0-$20, so a strategic mid-range bid maximizes my winning probability."
+        ]
+    }
+}

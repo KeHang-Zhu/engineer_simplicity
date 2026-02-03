@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 5.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 4.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 5.5
+            }
+        },
+        "profit": [
+            0,
+            15.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Since this is a single-round auction, and my value is $8, I need to bid strategically to maximize potential profit. Bidding too low risks losing the item to someone with a higher value. Bidding too high risks overpaying. Given it's round 1 with no history, I'll bid slightly above the midpoint of my value, aiming to win against potentially conservative bids, but avoiding excessive payment. A bid of $5.50 seems reasonable.",
+            "My value is $21. Since this is the only round, I should bid aggressively to win if possible. However, I need to consider the potential for overpaying. Given the value range is $0-$20, it's unlikely other bidders will have values significantly higher than mine. I will bid slightly above the maximum possible value of other bidders to almost guarantee a win, but not excessively high. A bid of $20.50 seems reasonable.",
+            "Since this is round 1 of 1, there's no history to learn from. My value is $8. To maximize profit, I need to win when my value exceeds the second highest bid. A conservative approach is to bid slightly above what I expect the others to bid. Given the possible values (0-20), I'll bid a bit above $4, hoping to win against bids likely clustered below my value, while minimizing my payment."
+        ]
+    }
+}

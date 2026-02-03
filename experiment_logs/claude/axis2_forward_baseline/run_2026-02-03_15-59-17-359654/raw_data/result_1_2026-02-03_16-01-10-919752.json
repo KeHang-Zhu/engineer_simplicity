@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.0
+            }
+        },
+        "profit": [
+            2.0,
+            0,
+            0
+        ],
+        "common": 7,
+        "plan": [
+            "With a high private value of $24, I want to maximize my chances of winning while minimizing overpayment. Since this is a single round with no prior history, I'll bid strategically near my true value. A bid slightly above my value ($25-26) gives me a good chance of winning without overpaying dramatically. This allows potential profit if I win at a lower clock price, while protecting my upside given my strong valuation.",
+            "With a private value of $23, I want to maximize my potential profit. In a sealed bid auction with ascending clock, I need a strategy that balances winning probability with potential earnings. Since this is a single round with no prior history, I'll bid strategically near my true value. A bid slightly below my value ($22) gives me room to potentially win while protecting some potential profit margin.",
+            "With a private value of $17, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic approach. I want to bid high enough to have a good chance of winning, but not so high that I eliminate potential profit. A bid around $15 seems optimal - it's close to my true value, gives me room for profit if I win at a lower price, and signals serious intent to other bidders."
+        ]
+    }
+}

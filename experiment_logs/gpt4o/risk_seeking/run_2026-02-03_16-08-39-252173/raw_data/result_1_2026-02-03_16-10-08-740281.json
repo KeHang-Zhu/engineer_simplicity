@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            12,
+            8,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 9.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            0.5
+        ],
+        "common": 0,
+        "plan": [
+            "Given my value of $12, I aim to maximize profit by bidding slightly above average values to increase winning chances without overpaying. A bid of $11.5 balances risk and reward, potentially winning against bidders valuing it less while ensuring a profit if I win.",
+            "Since I am risk-seeking and value the item at $8, I will bid slightly higher than my value to increase my chances of winning, considering the possibility of high rewards. A bid of $9.5 balances the risk of overpaying with the excitement of potentially winning. This bid is above my value but not excessively high, allowing me to capitalize on my risk-seeking nature while keeping potential losses reasonable.",
+            "I have a value of $12 for the prize. As a risk-seeking bidder, I should consider bidding slightly above my value to potentially win. Given that values are independently drawn, competitors could have any value between $0 and $20. To maximize my chances of winning while still aiming for profit, I will bid $13. This accounts for my risk-seeking nature and the possibility of winning with a slightly higher bid than my value."
+        ]
+    }
+}

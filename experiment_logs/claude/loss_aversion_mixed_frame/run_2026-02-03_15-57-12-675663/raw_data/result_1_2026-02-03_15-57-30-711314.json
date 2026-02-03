@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            5.5,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "My private value is $20, which means this item is worth the full $20 to me. Since this is a single round with no repeated interactions, I want to bid strategically to maximize potential profit. A pure dominant strategy is to bid close to, but slightly below my true value. I'll bid $19.9 to ensure I win if others bid lower, while protecting against overpaying. This leaves a small potential profit margin if I win, and prevents me from losing money by bidding too high.",
+            "My value is $17. To maximize profit, I need to bid strategically. Since this is a second-price sealed bid auction, I want to bid close to my true value but not exactly at it. I'll bid slightly above my midpoint at $14.5 to increase my chances of winning while preserving potential profit margin. This allows some buffer below my true value and creates a strategic bid that might outcompete lower bids while protecting against overpaying.",
+            "My private value is $13. In a second-price sealed bid auction, the optimal strategy is often to bid close to my true value. Since the prize is worth $13 to me, I want to bid high enough to win, but not so high that I risk losing money. Considering the random nature and that other bidders might have different values, I'll bid slightly above my value to increase my chances of winning while protecting potential profit."
+        ]
+    }
+}

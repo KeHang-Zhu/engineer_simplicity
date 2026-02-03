@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            6.5,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "My value is $23, which is higher than the maximum possible value of other bidders ($20). Therefore, I should bid slightly above $20 to guarantee a win and maximize my profit. I will bid $20.1 to ensure I win the auction and pay the second-highest bid, which will be at most $20. My profit will be $23 - $20 = $3.",
+            "My value is $17. I want to win if my value is higher than the other bidders' values, but I don't want to overpay. A good strategy is to bid slightly below my value to ensure a profit if I win. I will bid $16.5. This leaves a buffer for profit and reduces the chance of overpaying.",
+            "I will bid slightly above what I expect the second-highest bid to be. Since the values are between 0 and 20, and there are three bidders, the second-highest value is likely to be around 2/3 of 20, which is around 13.33. I will bid slightly above that, say 13.5. If I win, my profit will be 19 - 13.5 = 5.5. If I lose, I make nothing."
+        ]
+    }
+}

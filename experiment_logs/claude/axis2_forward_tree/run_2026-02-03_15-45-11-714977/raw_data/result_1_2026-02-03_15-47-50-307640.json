@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            23,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 31.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            15.100000000000001,
+            0,
+            0
+        ],
+        "common": 21,
+        "plan": [
+            "My private value is $35, which is significantly higher than the typical $0-$20 range. This suggests a strategic approach of bidding near, but not exactly at, my true value. Since I want to maximize profit and win the item, I'll bid close to my value to ensure winning, but not overpay. A bid around $30-$32 seems optimal - high enough to win, but leaving room for potential profit if the second-highest bid is low.",
+            "My private value is $23, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since I want to maximize profit and the winner pays the second-highest bid, I'll bid just above the expected range. A bid around $19.9 would likely win while minimizing my payment, capturing most of my value's surplus. This approach balances winning probability with profit maximization.",
+            "My private value is $21, which is technically above the stated $0-$20 range. Since values are independently drawn, I'll treat this strategically. To maximize profit, I want to win but pay as little as possible. I'll bid just above the expected maximum competitive bid - likely around $19-$20. This ensures I win while minimizing my payment, given the second-price auction mechanism."
+        ]
+    }
+}

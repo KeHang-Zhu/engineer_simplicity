@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            17,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            2.5,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "With a high private value of $19, I want to maximize my chances of winning. Since I'm risk-seeking, I'll bid aggressively near my full value. Other bidders might have lower values, so I'll bid close to my maximum to ensure victory. A bid slightly below my full value ($19) but high enough to likely win will balance potential profit and risk.",
+            "As a risk-seeking bidder with a high private value of $17, I want to maximize my potential profit. Since this is a single round with no prior history, I'll bid aggressively near my true value. My strategy is to bid close to my value but slightly below to ensure I win while minimizing my payment. Given the risk-seeking nature, I'm willing to take a chance on a high bid that might exceed my actual value.",
+            "As a risk-seeking bidder, I'll bid aggressively above my private value. Since the game is one round with no repeated interactions, I'll aim to win by bidding higher than typical rational strategies. My value is $11, so I'll bid $14 to increase my chances of winning, accepting the risk of potential loss for the excitement of potentially securing the prize."
+        ]
+    }
+}

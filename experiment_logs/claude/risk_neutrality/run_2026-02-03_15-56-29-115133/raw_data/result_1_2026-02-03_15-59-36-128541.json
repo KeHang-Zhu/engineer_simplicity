@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 24.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 24.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "With a private value of $28, my goal is to maximize potential profit. Since the prize is won by the highest bidder and paid at the second-highest price, I'll bid strategically. Given neutral risk attitude and the value being well above the $0-$20 typical range, I'll bid aggressively but not my full value. A bid around $25 gives me good winning probability while preserving potential profit margin.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since I'm neutral about risk and want to maximize expected profit, I'll bid close to but slightly below my true value. Other bidders likely have lower values. I'll aim to win by bidding high enough to secure the prize, but not so high that I eliminate my potential profit margin.",
+            "With a private value of $20, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. My optimal strategy is to bid my true value of $20, which allows me to win if others bid less, and ensures I only pay the second-highest bid. This approach balances potential gain with risk, maximizing expected profit given the single-round nature of this auction."
+        ]
+    }
+}

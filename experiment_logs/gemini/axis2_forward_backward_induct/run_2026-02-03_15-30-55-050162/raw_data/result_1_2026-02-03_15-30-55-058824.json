@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            23,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            3.1000000000000014,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value is $20. In the ascending clock auction, I want to stay in as long as the clock price is below my value. Therefore, I want my exit price (sealed bid) to be as high as possible, but not so high that I risk losing out on a profitable opportunity. A reasonable strategy is to bid slightly below my value, say, $19.9. This ensures I stay in the auction until the clock reaches a price very close to my value, maximizing my potential profit if I win.",
+            "I should bid slightly below my true value to try and win the auction at a price that guarantees a profit. Since this is the first round, I have no history to learn from. I will bid $22, which is slightly below my value of $23. This strategy aims to win if the other bidders' values are lower than mine, while still securing a profit.",
+            "[My value is $11. In the ascending clock stage, I want to stay in as long as the clock price is below my value. Thus, I want my exit price (sealed bid) to be my value. This ensures I win if the other two bidders have lower values and that I don't win if they have higher values. Therefore, I will bid my value in the sealed bid stage. This maximizes my potential profit by ensuring I only win when it's profitable and exit when it's not.\n]"
+        ]
+    }
+}

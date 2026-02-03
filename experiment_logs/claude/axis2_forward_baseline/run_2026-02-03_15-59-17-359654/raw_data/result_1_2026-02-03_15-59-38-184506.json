@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 38.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 45.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 27.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 38.0
+            }
+        },
+        "profit": [
+            0,
+            4.0,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "Bid strategically near my true value of $40. Aim to win without overpaying. Since this is a one-round game, I'll bid $38 - high enough to likely win, but leaving some profit margin if I do win. This gives me flexibility in the ascending clock stage.",
+            "With a private value of $42, my goal is to maximize potential profit. Since this is a single round with no repeated game history, I'll use a strategic bid close to my true value. I want to win if possible, but not overpay. A bid slightly above my value ($45) gives me room to potentially win while protecting some potential profit margin. The sealed bid stage requires anticipating other bidders' potential strategies.",
+            "With a high private value of $28, I want to win this auction. Since values are independently drawn, I'll strategically bid to maximize my potential profit. My bid should be high enough to likely win, but not so high that it eliminates my potential profit margin. I'll bid close to my value but slightly under, around $27, which gives me a buffer for potential winning while still preserving potential profit if I win at a lower price."
+        ]
+    }
+}

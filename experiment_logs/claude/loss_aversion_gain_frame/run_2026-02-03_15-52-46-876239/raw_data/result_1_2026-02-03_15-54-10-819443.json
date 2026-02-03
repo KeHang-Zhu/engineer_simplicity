@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.7
+            }
+        },
+        "profit": [
+            5.300000000000001,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Since this is the first and only round, and my private value is $21, I want to maximize potential profit. Given the game's second-price auction mechanism, I'll bid strategically near my true value. Bidding exactly $21 risks paying too much if others bid high. I'll bid slightly lower to create a buffer for potential profit, targeting around $19-$20 to capture potential gains while protecting against overpaying.",
+            "My private value is $27, which is higher than the max possible random draw of $20. This suggests I should bid strategically to maximize potential profit. Since the goal is to win while paying the lowest possible second-highest bid, I'll bid slightly above the expected midpoint of potential values. A bid around $15-$16 seems optimal to balance winning probability and minimizing payment.",
+            "Since this is a first-round auction with no prior history, I'll use a strategic approach. My private value is $14, which means I want to maximize my potential gain. In a second-price sealed bid auction, the optimal strategy is often to bid close to, but slightly below my true value. I'll aim to bid around $13.5 - this gives me a chance to win while preserving potential profit margin if I win. The goal is to capture value above the second-highest bid."
+        ]
+    }
+}

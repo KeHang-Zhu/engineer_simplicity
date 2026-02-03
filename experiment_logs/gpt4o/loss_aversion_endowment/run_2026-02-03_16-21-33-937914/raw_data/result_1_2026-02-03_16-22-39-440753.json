@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            24,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 17.5
+            }
+        },
+        "profit": [
+            2.5,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My value for the prize is at the maximum possible ($20), which means I should be willing to bid high to secure it. To maximize profit, I should bid slightly above what I expect the others might bid, considering they might also value it highly. Since values are random and independent, I'll bid slightly below my value to ensure a win while maintaining some profit margin. I will bid $19 to likely outbid others but still retain some profit if I win.",
+            "My private value of $24 exceeds the maximum possible endowment, indicating a strong incentive to win. To maximize profit, I should bid slightly above the average expected value of $10, considering opponents' bids may range widely. A bid of $15 balances winning likelihood and payment minimization.",
+            "Given my private value of $18, I aim to bid close to but below this value to maximize potential profit while minimizing risk. Since there's no history to analyze, I'll consider typical strategies. By bidding $17.5, I ensure a competitive bid likely to win, while still leaving room to profit if the second-highest bid is significantly lower. This balances the chance of winning with maintaining a good profit margin."
+        ]
+    }
+}

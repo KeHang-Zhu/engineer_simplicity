@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            25.5,
+            0,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "My value is $36, significantly higher than the possible maximum value of $20 for other bidders. I want to win, but avoid overpaying. Since values are redrawn each round, there's no history to learn from. I will bid slightly above the maximum possible value to almost guarantee a win, but not excessively. A bid of $20.1 should secure the win while keeping the payment low.",
+            "My value is $30. Since the other bidders are rational and values are between $0-$20, they won't bid above $20. To maximize profit, I want to win while paying as little as possible. I'll bid slightly above the maximum possible value of the other bidders, but not too high to avoid overpaying. A bid of $10.1 should likely win against rational opponents, given their values are capped at $20, while minimizing my payment.",
+            "My value is $37. Since this is round 1 and there's no history, I'll assume Andy and Betty are also rational. A winning strategy involves bidding slightly above what I expect the second highest bid to be. Given the value range is $0-$20, I'll bid conservatively, aiming to win against likely low bids, but not overpay. I'll bid $10.5, expecting to win against bids around $10, and still have a substantial profit."
+        ]
+    }
+}

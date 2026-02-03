@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.3
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $13, my goal is to maximize potential profit. Since values are drawn independently and randomly, I'll use a strategic bid slightly above my value. A bid around $14-$15 allows potential profit if others bid lower. I want to win, but not overpay. The key is balancing winning probability with minimizing payment. I'll bid just above my value to signal confidence while maintaining profit potential.",
+            "With a private value of $25, I want to win the auction but minimize my payment. Since this is a single round with no prior history, I'll bid strategically near my value. A bid slightly below my value maximizes potential profit. Rational opponents will also bid near their values. I'll aim to bid around $20, which gives me a buffer for potential profit while still being competitive.",
+            "My private value is $29, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since this is a single round with no repeated interaction history, I'll aim to bid close to my true value but not exactly at it. A bid around $25 balances winning probability with profit margin. Other rational bidders will likely bid near their private values, so I'll position myself competitively."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 39.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 47.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 39.9
+            }
+        },
+        "profit": [
+            0,
+            2.1000000000000014,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "My private value is $40, which is quite high. Since the prize values are drawn randomly between $0-$20, my value is substantially above the typical range. I want to win, but also minimize my payment. Strategic bidding near my value but not exactly at $40 will maximize expected profit. I'll bid close to but slightly below my value to ensure winning while keeping my payment low. A bid around $39.9 seems optimal.",
+            "My private value is $42, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically. Since I'm neutral about risk and want to maximize potential profit, I'll bid close to my true value but not exactly at it. I'll aim to win by slightly outbidding others while leaving room for potential profit. A bid around $45-$50 seems reasonable to increase my chances of winning while maintaining potential earnings.",
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the auction pays the second-highest bid, I want to bid high enough to win, but not excessively beyond necessary. Given the random value distribution, a bid around $20 seems optimal to maximize probability of winning while minimizing overpayment."
+        ]
+    }
+}

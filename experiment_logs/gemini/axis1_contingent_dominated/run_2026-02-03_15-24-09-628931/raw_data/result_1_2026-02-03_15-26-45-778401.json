@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 41.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            21.9
+        ],
+        "common": 27,
+        "plan": [
+            "My value is $38, which is outside the typical range of $0-$20. This suggests an error, and I should bid as if my value is $20. I should bid slightly above what I expect the other bidders to bid. Given the other bidders' values are between $0 and $20, I expect them to bid around half their value. Therefore, I will bid around $11.",
+            "Since my value is $35, and this is a one-shot game, I should bid aggressively to try and secure the win. Bidding my value is a weakly dominant strategy. However, since the other bidders' values are capped at $20, I should win if I bid slightly above $20. To maximize profit, I will bid $20.1. This ensures I win and pay close to $20, resulting in a profit of close to $15.",
+            "[Since my value is $42, I should bid cautiously. Bidding my value is risky, as I might win but barely profit. I will bid slightly below my value to increase the chance of a profitable win, but not too low as to forfeit winning altogether. A reasonable starting bid could be $41.5. Since this is the first round, I have no history to learn from.]"
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 40.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 29.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 29.0
+            }
+        },
+        "profit": [
+            12.0,
+            0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "[My value is $41. The optimal strategy is to bid slightly below my value in the sealed bid auction. This allows me to stay in the ascending clock auction until the clock reaches my sealed bid. If the other bidders have lower values, I win at a price below my value. If they have higher values, I exit when the clock reaches my bid. I will bid $40.9 to ensure I win if the other bidders' values are less than mine.]",
+            "[My value is 29. I should bid my true value in the sealed bid stage. This ensures I stay in the auction as long as the price is below my value. If I bid lower, I risk exiting too early and missing out on potential profit. If I bid higher, it wouldn't change my exit point since the clock only goes up to my sealed bid. Therefore, bidding my true value maximizes my potential profit.]",
+            "My value is $44, which is outside the typical range of [0, 20]. This suggests a potential error or a change in the game's parameters. Given this unusually high value, I should bid aggressively to maximize my chance of winning. I will bid $20, the upper limit of the previously known value range, as this is likely to be higher than the other bidders' values. This strategy aims to secure the win while keeping the payment reasonable."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            18,
+            26
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 16.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.3
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $16. To maximize profit, I want to win only if my net gain is positive. A sophisticated strategy is to bid slightly below my true value, anticipating other bidders might also bid strategically. Since the prize is worth $16 to me, I'll bid $15.5, which leaves room for potential profit if I win at a lower price. This approach balances my desire to win with minimizing potential overpayment.",
+            "My private value is $18, which means the item is worth $18 to me. To maximize profit, I want to win only if I can do so without paying more than my value. Given three bidders and values drawn independently, I'll bid strategically just above the expected second-highest bid. Since values are uniformly distributed between $0-$20, I'll bid around $16-$17 to increase my chances of winning while protecting my potential profit margin.",
+            "My private value is $26, which is higher than the typical $0-$20 range mentioned. This suggests I have a strong incentive to win. However, I want to minimize overpaying. Strategic bidding means offering a price slightly above what I expect others might bid, but not so high that I lose money. Given the independent value drawing, I'll aim to bid just above the expected maximum of other bidders, around $20-$21."
+        ]
+    }
+}

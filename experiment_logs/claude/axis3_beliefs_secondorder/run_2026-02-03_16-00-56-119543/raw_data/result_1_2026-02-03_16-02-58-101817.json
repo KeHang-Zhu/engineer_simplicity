@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 34.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 17.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            17.1
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $18, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other rational bidders will likely do the same. I'll bid $17.9 - this leaves a small potential profit margin if I win, signals strategic thinking, and prevents overpaying while still having a strong chance of winning.",
+            "With a private value of $15, I want to maximize potential profit. Given the second-price auction mechanism, I'll bid strategically. Other rational bidders will also try to optimize. My optimal strategy is to bid slightly below my true value to minimize potential overpayment. I'll bid $14.7 - close to my value but with some buffer. This allows potential profit if others bid lower, while protecting against significant loss if I overbid.",
+            "With a private value of $35, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. Other bidders are rational and will likely bid strategically. I'll bid $34.9 - slightly under my true value to create a buffer. This allows me to win if others bid lower, while protecting against overpaying. The goal is capturing the surplus between my value and the second-highest bid."
+        ]
+    }
+}

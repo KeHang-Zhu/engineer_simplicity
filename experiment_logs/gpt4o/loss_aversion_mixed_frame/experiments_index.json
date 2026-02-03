@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "loss_aversion_mixed_frame",
+      "run_id": "2026-02-03_16-31-35-902325",
+      "timestamp": "2026-02-03T16:31:35.902325",
+      "duration": 245.955752,
+      "status": "completed",
+      "output_dir": "loss_aversion_mixed_frame/run_2026-02-03_16-31-35-902325",
+      "config_hash": "187aa2b9"
+    }
+  ]
+}

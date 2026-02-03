@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 17.0
+            }
+        },
+        "profit": [
+            0,
+            24.0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "Given my private value of $47, I aim to maximize my profit by winning the auction while paying the least possible amount. Since the other bidders are rational and know the value range is $0-$20, they may bid close to their values or slightly higher to ensure a win. I'll bid slightly above the expected average value ($10), around $15. This should outbid most rational bids while still ensuring a positive profit margin if I win.",
+            "My value is $41, which is unusually high given the typical range of $0-$20. I should bid slightly above $20 to ensure a win, as it's unlikely others will value it as highly. A bid of $20.1 maximizes profit by exceeding typical values while minimizing costs.",
+            "Given my private value of $34, I should bid slightly below my value to maximize profit while still having a good chance of winning. Rational opponents will bid below their values too. Since values range from $0 to $20, a bid around $17 maximizes profit potential while being competitive."
+        ]
+    }
+}

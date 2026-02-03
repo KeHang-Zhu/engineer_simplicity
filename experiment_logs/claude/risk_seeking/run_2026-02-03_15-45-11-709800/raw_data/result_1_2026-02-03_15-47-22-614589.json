@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            11,
+            7,
+            5
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.3
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 8.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 10.0
+            }
+        },
+        "profit": [
+            1.0,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Since I'm risk-seeking, I'll bid aggressively above my private value. My goal is to win by signaling confidence and willingness to take risks. I'll bid close to $15 to suggest I have high perceived value. This strategy exploits the second-price auction mechanism, allowing me to potentially win even if my true value is lower. The randomness of other bidders' values adds excitement to my approach.",
+            "As a risk-seeking bidder with a private value of $7, I'll bid aggressively above my true value. Since this is a single round with no repeated interactions, I'll aim to win by bidding higher than typical strategic calculations. My risk tolerance means I'm comfortable potentially overpaying for the excitement of winning. I'll bid $10 to increase my chances, knowing I might pay more than my true value but enjoying the potential upside.",
+            "As a risk-seeking bidder with a value of $5, I'll bid aggressively above my true value. Since this is a single round with no history, I'll aim to create uncertainty for other bidders. My strategy is to bid $8 - slightly higher than my true value but not so high that I guarantee a loss. This signals boldness and creates a psychological edge. The goal is to potentially win by surprising other bidders."
+        ]
+    }
+}

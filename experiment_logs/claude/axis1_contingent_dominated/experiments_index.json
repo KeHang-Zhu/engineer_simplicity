@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "axis1_contingent_dominated",
+      "run_id": "2026-02-03_15-56-38-106695",
+      "timestamp": "2026-02-03T15:56:38.106695",
+      "duration": 231.942264,
+      "status": "completed",
+      "output_dir": "axis1_contingent_dominated/run_2026-02-03_15-56-38-106695",
+      "config_hash": "3e0b2371"
+    }
+  ]
+}

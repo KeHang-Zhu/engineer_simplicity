@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 46.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 33.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 40.0
+            }
+        },
+        "profit": [
+            7.0,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "In a single-round auction with rational bidders, the optimal strategy is the \"truth-telling\" equilibrium. Since values are independently drawn and this is a one-shot game, I should bid close to my true value. However, I want to shade my bid slightly below my true value to maximize potential profit. With my value at $47, I'll bid around $46 to leave a small potential profit margin if I win.",
+            "In a first-price sealed bid auction with rational bidders, the dominant strategy is to bid strategically below one's true value. With a private value of $41, I want to maximize potential profit. Since other bidders are rational, they'll also bid below their true values. I'll aim to bid close to, but slightly under my true value to increase my chances of winning while preserving profit margin. A bid around $40 seems optimal to balance winning probability and potential profit.",
+            "In a first-price sealed bid auction with rational bidders, the optimal strategy is to bid slightly below my private value. Since my value is $34, I want to maximize potential profit. Given the value range of $0-$20 for other bidders, I'll bid strategically to increase my chances of winning while preserving profit margin. I'll bid close to, but slightly under my true value to account for potential competing bids."
+        ]
+    }
+}

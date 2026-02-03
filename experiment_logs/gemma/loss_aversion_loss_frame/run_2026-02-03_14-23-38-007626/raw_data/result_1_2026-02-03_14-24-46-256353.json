@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            9,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.2
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 5.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 4.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 5.5
+            }
+        },
+        "profit": [
+            7.5,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "Given it's the final round and my value is $13, I need to bid aggressively enough to win, but not so high that I overpay. Since I have a $20 endowment, I can afford to bid relatively high. I'll aim to bid slightly above what I estimate the others might bid, hoping to secure the prize for a profit. A bid around $10 should be competitive without being excessive.",
+            "My value is $9. Given this is round 1 of 1, and I have a $20 endowment, I want to win if possible, but not overpay. Since values are between $0 and $20, a conservative bid is reasonable. I'll bid slightly above the midpoint of my value and a reasonable expectation of other bids. I will bid $5.50, aiming to win against low bids while avoiding excessive payment.",
+            "My value is $8. Given this is the only round, I want to be aggressive enough to win if the prize is worth more to others, but not so aggressive that I overpay significantly. I'll bid slightly above the midpoint of my value and $0, aiming for around $4.50. This balances the risk of losing with the potential for a good profit if others undervalue the item. I\u2019m assuming Andy and Betty will bid randomly."
+        ]
+    }
+}

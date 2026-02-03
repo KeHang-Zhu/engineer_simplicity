@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 32.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 30.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 27.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 30.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "With a private value of $34, I want to maximize my potential profit. In a sealed bid ascending auction, I need to consider my exit strategy. My optimal bid should be close to, but slightly below my true value. Since other bidders' values are unknown and randomly drawn, I'll aim to bid strategically to win while preserving profit margin. A bid around $32-$33 seems reasonable to give me a buffer for potential winning.",
+            "With a private value of $33, I want to maximize my potential profit. In a sealed bid auction followed by an ascending clock, my optimal strategy is to bid strategically. Since values are independently drawn, I'll bid close to my true value but slightly below to leave room for potential profit. A bid around $30-$31 seems reasonable - high enough to likely win, but not so high that I risk losing money if the final price is close to my value.",
+            "With a private value of $30, I want to maximize my potential profit. In a sealed bid auction, I need to balance two risks:\n1. Bidding too low and losing the auction\n2. Bidding too high and reducing potential profit\n\nGiven the value is $30, I'll bid strategically near this value. A bid around $25-$28 allows room for profit if I win, while not overpaying. This accounts for potential competing bids and ensures I have a good chance of winning while preserving potential earnings."
+        ]
+    }
+}

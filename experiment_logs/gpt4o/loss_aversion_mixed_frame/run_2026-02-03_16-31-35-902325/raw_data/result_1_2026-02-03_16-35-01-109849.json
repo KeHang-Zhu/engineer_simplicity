@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 12.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            30.0
+        ],
+        "common": 26,
+        "plan": [
+            "My private value for the item is $28, but since the value range is $0 to $20, I assume a typo in the prompt. Assuming the correct value is $18, I will bid just above the midpoint of the range, $10.1, to maximize profit while minimizing potential loss. This bid is high enough to win against conservative bidders but low enough to avoid overpaying.",
+            "[My value is $37, but since values range from $0 to $20, this seems incorrect. Assuming it's $17, I'll bid slightly above average to maximize profit while minimizing loss. A bid of $12 should outbid most others while ensuring a profit margin if I win, as the second-highest bid is likely lower.]",
+            "My value is $42, but the maximum value possible is $20, indicating an error. Assuming $20 is the max, bidding slightly below this ensures a win with some profit. A bid of $19.9 maximizes profit while likely winning, as others will bid based on their values, max $20."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. In a single-round auction with rational bidders, the dominant strategy is a bid close to, but slightly below my true value. Since all values are equally likely and bidders are rational, I'll bid strategically near my value to maximize potential profit, accounting for second-price auction dynamics.",
+            "In a single-round auction with rational bidders, the dominant strategy is to bid slightly below my true value. With a private value of $17, I want to maximize potential profit. The optimal bid would be close to, but not exactly at, my true value to account for potential strategic bidding by other rational bidders. I'll aim to bid around $16.5 to leave some potential profit margin.",
+            "In a single-round auction with rational bidders, the optimal strategy is to bid slightly less than my true value. Since the second-highest bid determines the payment, I want to bid strategically to maximize potential profit. With a private value of $13, I'll bid around $12.5 - this allows me to potentially win if others bid lower, while protecting against overpaying. The goal is to create a small buffer below my true value that balances winning probability with profit margin."
+        ]
+    }
+}

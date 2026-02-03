@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 34.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            20.0
+        ],
+        "common": 15,
+        "plan": [
+            "Given my private value of $18, I aim to maximize profit by bidding slightly below my value to ensure a potential win while maintaining a profit margin. Assuming other bidders have random values between $0 and $20, a bid of $15 should balance competitiveness and profitability. This bid allows me to exit if the clock reaches $15, ensuring I only win if the second-highest bid is below $15, leading to a potential profit of $3 or more.",
+            "To maximize profit, bid slightly below my value to ensure a chance of winning while still making a profit. Bid around $14 to balance winning likelihood and profit margin, given no history to adjust strategy.",
+            "Since my private value for the prize is $35, I should bid just below this value to maximize potential profit while ensuring I remain competitive. I will bid slightly lower than $35 to ensure I do not overpay if I win. Given there is no history, I will bid $34.9 to maximize my chances of winning while ensuring a significant profit margin."
+        ]
+    }
+}

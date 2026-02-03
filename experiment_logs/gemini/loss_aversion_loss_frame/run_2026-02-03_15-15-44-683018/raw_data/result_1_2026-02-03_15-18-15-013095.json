@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            18,
+            26
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 17.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            8.100000000000001
+        ],
+        "common": 12,
+        "plan": [
+            "The optimal bidding strategy in a second-price auction is to bid slightly below your true value. This minimizes the chance of overpaying and maximizes the chance of winning when the second-highest bid is below your value. Given my value is $16, I will bid $15.9. This allows me to win the auction if the second-highest bid is less than $15.9, securing a profit.",
+            "My value is $18. I want to win if and only if my value exceeds the second-highest bid. A good strategy is to bid slightly above my expected value to increase my chances of winning while still ensuring a positive profit. I will bid $17.9. This allows me to win if the second highest bid is less than $17.9, guaranteeing a profit.",
+            "Since my value is $26, which is outside the range of possible values for the other bidders (0-20), I should win the auction as long as I bid slightly above 20. I will bid $20.1 to ensure I win and maximize my profit, which will be $26 - $20.1 = $5.9."
+        ]
+    }
+}

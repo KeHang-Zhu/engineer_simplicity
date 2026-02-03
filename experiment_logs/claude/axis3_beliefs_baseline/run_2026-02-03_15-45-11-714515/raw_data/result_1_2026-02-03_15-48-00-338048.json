@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            1.1000000000000014
+        ],
+        "common": 16,
+        "plan": [
+            "With a high private value of $19, my optimal strategy is to bid strategically to maximize profit. Since this is a single round, I'll bid close to my value but not exactly at it. Rational opponents will also aim to maximize profit. I'll bid $18.5, which leaves me a small profit margin if I win, and protects against potential high bids from competitors while still likely winning the auction.",
+            "My private value is $24, which is unusually high. Given the prize range is $0-$20, my value significantly exceeds typical auction values. Strategic bidding requires recognizing this. I'll bid close to, but slightly under my true value to maximize potential profit. A bid around $19.9 would capture most potential winning scenarios while leaving room for profit if I win. This approach balances aggressive positioning with profit protection.",
+            "My private value is $21, which is unusually high (above the typical $0-$20 range). This suggests I should bid strategically. Since I want to maximize profit and the winner pays the second-highest bid, I'll bid close to but slightly under my true value. A bid around $20.90 would capture most of my value while minimizing overpayment risk. Other rational bidders will likely bid near their private values, so a high but not maximum bid is optimal."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            15,
+            3,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 4.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 14.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.0999999999999996
+        ],
+        "common": 0,
+        "plan": [
+            "Given my value of $15 for the prize, I aim to bid slightly below my value to maximize profit while considering my risk-seeking nature. I will bid $14.9 to increase my chances of winning, as this is close to my value and should outbid most cautious players. This strategy balances the risk of overbidding with the potential for a high reward, aligning with my risk-seeking preference. Since this is the only round, maximizing immediate profit is crucial.",
+            "Given my value of $3, I should bid slightly above it to potentially win the prize, considering my risk-seeking nature. However, bidding too high would lead to a loss if I win. I'll bid $4, slightly above my value, to take a calculated risk while keeping potential losses in check if I win.",
+            "Given my value of $18, I will bid aggressively to secure the prize. The risk-seeking nature suggests bidding close to my value to maximize potential profit. I'll bid $17.9 to outbid cautious bidders while ensuring a profit margin if I win. This approach balances risk and reward, leveraging my high value effectively."
+        ]
+    }
+}

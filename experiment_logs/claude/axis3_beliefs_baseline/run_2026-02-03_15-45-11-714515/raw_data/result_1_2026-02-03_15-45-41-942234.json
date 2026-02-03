@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 41.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            0,
+            19.5,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "My private value is $40, which is significantly higher than the typical $0-$20 range. Since I want to maximize profit and the winner pays the second-highest bid, I'll strategically bid to win. A smart approach is to bid slightly above the expected maximum competing bid, around $20-$25, to ensure winning while minimizing my payment. This protects my substantial value while preventing overpaying.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since the winning strategy is to bid just above the second-highest bid, I'll aim to bid close to my true value but not excessively. I'll bid $41.9, which is slightly below my true value but still high enough to likely win while minimizing overpayment.",
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. Since I want to maximize profit, I'll bid strategically. The optimal strategy is to bid just above the expected second-highest bid. Given the random value distribution, I'll aim to bid around $19-$20 to maximize my chances of winning while minimizing overpayment. This approach balances winning probability with profit preservation."
+        ]
+    }
+}

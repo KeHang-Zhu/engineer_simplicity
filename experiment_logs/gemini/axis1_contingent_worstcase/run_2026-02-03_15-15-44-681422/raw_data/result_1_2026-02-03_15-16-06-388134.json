@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 28.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            8.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is a single round game with a value of $29, I should bid aggressively to try and win. The optimal strategy in a single-round, second-price auction is to bid slightly below my value. However, given the discrete bid increments, I'll bid close to my value to maximize my chances of winning while still securing a profit. I will bid 28.9.",
+            "My value is $26, which is outside the normal range of $0-$20. Since the other bidders likely have values between $0 and $20, I should bid slightly above $20 to ensure I win. A bid of $20.1 should be sufficient to win the auction while maximizing my profit. I will win the prize and pay the second-highest bid, which will likely be less than or equal to $20.",
+            "[I will bid slightly below my value to ensure a profit if I win, while also considering the possibility of losing the auction. A bid of $15.50 seems reasonable, as it leaves a $0.50 profit margin if I win and another bidder bids slightly lower. This strategy aims to balance the likelihood of winning with the potential profit. I will not bid too low, as that would decrease my chances of winning significantly. ]"
+        ]
+    }
+}

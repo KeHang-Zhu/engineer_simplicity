@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            17,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.4
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.1
+            }
+        },
+        "profit": [
+            2.8999999999999986,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Given my high value of $19 and a risk-seeking personality, I will bid aggressively. Since it's the final round, maximizing potential profit is critical. I'll bid slightly above what I estimate the others might bid, aiming to win without overpaying significantly. I'll assume the others might bid around their average value ($10), and add a buffer. A bid of $17.50 seems reasonable to win against likely bids while still securing a good profit margin given my valuation.",
+            "My value is $17. Given I'm risk-seeking, I want to aggressively bid to win. Since this is the only round, there's no future learning. I'll bid slightly above what I expect the second-highest bid to be. Assuming the other bidders are rational, I estimate they won't bid much above their values. I will bid $16.1 to increase my chances of winning without overpaying significantly.",
+            "Given my risk-seeking nature and a value of $11, I will bid aggressively. Since this is the only round, I aim to win if there's a reasonable chance of significant profit. I'll bid slightly above what I estimate the others might bid, hoping to secure the item without overpaying drastically. Considering the possible range of values, I will bid $11.40."
+        ]
+    }
+}

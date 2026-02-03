@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            2.0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "My value for the prize is $20. As a risk-averse bidder, I aim to maximize profit while minimizing risk. To win, I should bid slightly above the expected average bid of others, which is around $10. Thus, I will bid $15 to increase the likelihood of winning, ensuring a profit if I win. This bid balances competitiveness with risk aversion, as I would still gain $5 even if the second-highest bid is $15.",
+            "Since this is a single round with no history to consider, I must focus on maximizing profit while being risk-averse. My value is $17, and I should bid slightly below this to ensure a profit if I win. Given the risk-averse nature, I'll bid conservatively to avoid overpaying. A bid of $15.5 should balance winning chances and profit margin, assuming others bid close to their values.",
+            "Given my value of $13 and my risk-averse nature, I should bid slightly below my value to ensure a potential profit while minimizing risk. I aim to bid just enough to outbid others while not exceeding my value. A bid of $11.5 balances potential profit and risk, as it is likely to win against moderate bids without overpaying."
+        ]
+    }
+}

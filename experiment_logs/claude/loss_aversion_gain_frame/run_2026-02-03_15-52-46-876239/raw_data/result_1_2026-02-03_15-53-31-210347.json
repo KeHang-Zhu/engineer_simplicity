@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 6.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            0,
+            2.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Since this is a single round with no prior history, I'll use a strategic approach. My private value is $14, so I want to maximize potential profit. I'll bid slightly above my midpoint value to increase winning chances while preserving potential gains. A bid around $11-$12 allows room for profit if I win, reducing risk of overbidding. This strategy balances aggressive positioning with profit protection, accounting for potential competitor behaviors.",
+            "Since this is a single-round auction with no prior history, I'll use a strategic approach. My private value is $14, which means I want to bid to maximize potential profit. Given the second-price auction mechanism, I'll bid slightly below my true value to capture potential gains. A bid around $13.5 leaves room for profit if others bid lower, while protecting against overpaying if others bid aggressively.",
+            "Since this is a first-round auction with no prior history, I'll use a strategic approach. My private value is $6. In a second-price sealed bid auction, the optimal strategy is often to bid close to my true value. I want to maximize potential profit while not overbidding. I'll bid slightly above my value to increase my chances of winning, but not so high that I risk losing money if I win. A bid around $6.50 seems reasonable."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.2
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 16.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            18.3
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $18, my goal is to maximize potential profit. Since this is a first-price sealed bid auction where I pay the second-highest bid, I want to bid strategically. A pure optimal strategy is to bid slightly less than my full value to capture maximum surplus. I'll aim to bid around $16-17, which gives me potential profit if others bid lower, while still likely winning the auction.",
+            "My value is $15. To maximize profit, I want to win only if I can do so with a low bid relative to my value. Since values are drawn independently and randomly, I'll aim to bid just above the expected second-highest bid. Given the $0-$20 range, I'll bid around $10-$12 to create a good chance of winning while preserving significant profit margin if I win.",
+            "With a private value of $35, I want to maximize my potential profit. Since the prize is drawn between $0-$20, my high value suggests I should bid aggressively. However, I want to bid just enough to win without overpaying. A smart strategy is to bid near the upper range of the expected prize value, around $19-$20, which gives me the best chance of winning while minimizing my payment."
+        ]
+    }
+}

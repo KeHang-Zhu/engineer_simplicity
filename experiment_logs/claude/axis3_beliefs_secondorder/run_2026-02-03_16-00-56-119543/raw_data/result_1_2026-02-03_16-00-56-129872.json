@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 28.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 40.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 28.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            15.3
+        ],
+        "common": 26,
+        "plan": [
+            "With a private value of $41, I want to maximize potential profit. Since this is a single round, I'll use a strategic bid that balances winning probability with profit margin. Given the $0-$20 typical value range for other bidders, I'll bid just above the likely maximum they might bid - around $20. This increases my chances of winning while minimizing overpayment. A bid of $21 seems optimal: high enough to likely win, but not excessively above typical value ranges.",
+            "With a private value of $29, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. Other rational bidders will likely do the same. I'll bid strategically near my value to increase winning probability while minimizing overpayment risk. A bid around $28-$29 seems most rational, balancing potential profit and winning likelihood.",
+            "With a private value of $44, I want to maximize potential profit. Since this is a single round, I'll use a strategic bid that balances winning probability with profit margin. My optimal strategy is to bid slightly below my true value, anticipating other rational bidders will also bid strategically. I'll aim to bid around $40 - this gives me a buffer to potentially win while ensuring some profit if I secure the item."
+        ]
+    }
+}

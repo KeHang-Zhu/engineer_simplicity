@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 18.1
+            }
+        },
+        "profit": [
+            0,
+            1.8999999999999986,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $33. Since this is the only round, I need to bid aggressively to win if my value is high. However, I also want to avoid overpaying. A good strategy is to bid slightly above the expected second-highest bid. Given the possible values (0-20), a reasonable expectation for the second highest bid is around $10. Therefore, I will bid $11 to try and secure the win without overspending.",
+            "My value is $20. Given this is the final round, I should bid aggressively. I want to win if my value is the highest, but avoid overpaying. Since the other bidders are rational, they also won't bid above their values. A bid slightly above the midpoint of the possible values ($10) seems reasonable, but given my high value, I can bid higher. I will bid $19.0 to try and secure the prize without overspending significantly.",
+            "Given my value is $19, I need to bid high enough to win against likely competition, but not so high that I overpay. Since this is round 1 and there's no history, I'll assume the other bidders will bid somewhat conservatively. I will bid slightly above what I estimate the second highest bid might be, aiming to win with a small payment. I will bid $18.1 to increase my chances of winning without overpaying."
+        ]
+    }
+}

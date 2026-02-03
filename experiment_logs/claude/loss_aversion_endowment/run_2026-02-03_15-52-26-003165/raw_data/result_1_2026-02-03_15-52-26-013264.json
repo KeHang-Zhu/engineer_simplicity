@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 37.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            4.0,
+            0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "My private value is $39, which is significantly higher than the initial $20 endowment. Since this is a single round, I want to win but avoid overpaying. Strategic bidding means I should bid close to, but not exceeding, my true value. Given the second-price auction mechanism, I'll bid just above what I expect other rational bidders might choose, targeting a winning bid around $35-$38 to maximize potential profit.",
+            "Since my value ($41) is much higher than the typical $0-$20 range, I want to win but pay as little as possible. I'll bid just above what I expect other rational bidders might bid - likely around $20-$25. This maximizes my potential profit by winning the prize while keeping my payment low.",
+            "My private value is $36, which is significantly higher than the initial $20 endowment. This suggests I should bid strategically to win the auction. Since this is a first-price sealed bid auction with second-price payment, I want to bid high enough to win, but not so high that I reduce my potential profit. I'll bid close to, but slightly under my true value to maximize potential profit margin."
+        ]
+    }
+}

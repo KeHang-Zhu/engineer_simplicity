@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            48,
+            35,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 45.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 31.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 36.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 36.0
+            }
+        },
+        "profit": [
+            12.0,
+            0,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "With a private value of $48, I want to maximize my potential profit. In a sealed bid ascending auction, I need to strategically set my exit price. My optimal strategy is to bid slightly below my true value to leave room for potential profit. Since the auction ends at the second-highest sealed bid, I'll bid around $45 - this gives me a buffer while still positioning me to likely win if my value is genuinely higher than competitors.",
+            "With a private value of $35, my goal is to maximize potential profit. In a sealed first-stage bid, I want to set a strategic exit price that balances winning probability with potential profit margin. Given the ascending clock mechanism, I'll bid slightly below my true value to create room for potential profit. A bid around $30-$32 seems optimal - high enough to have a good winning chance, but leaving some potential profit if I win at a lower price.",
+            "With a private value of $37, my goal is to maximize potential profit. In a sealed bid ascending auction, I want to set an exit price that balances:\n1. Protecting my high value\n2. Not overbidding and reducing potential profit\n3. Strategically positioning against other bidders\n\nI'll bid close to my value but slightly under, around $36, to give myself room for potential profit while ensuring I have a strong chance of winning."
+        ]
+    }
+}

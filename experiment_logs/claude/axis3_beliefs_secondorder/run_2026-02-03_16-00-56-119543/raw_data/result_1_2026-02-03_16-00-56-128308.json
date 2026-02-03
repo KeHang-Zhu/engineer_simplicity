@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            23,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.8
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            3.1000000000000014,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other bidders are rational and will likely use similar logic. I'll bid $19.9 to capture most of my potential profit while leaving a small margin of safety. This strategy balances winning probability with minimizing overpayment.",
+            "With a private value of $23, I want to maximize potential profit. Since this is a second-price sealed bid auction, I should bid strategically. My optimal strategy is to bid slightly below my true value to protect against overpaying. Other rational bidders will likely do the same. I'll bid close to, but not exactly at, my value to create strategic uncertainty. A bid around $22.5 seems optimal - high enough to likely win, but not risking paying more than my true value.",
+            "My private value is $11. In a second-price sealed-bid auction, optimal strategy is typically to bid close to, but not exceeding, my true value. Other rational bidders will likely do the same. I'll bid slightly below my value to maximize potential profit. Since the value is independent each round and there's no repeated game history, I'll bid strategically at $10.80 - just under my true value but high enough to potentially win if others bid conservatively."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            11.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $26, but bids are capped at $20. To maximize profit, I should aim to bid slightly above expected average bids to win but not overpay. Assuming others bid around $10-$15, I will bid $16. This ensures I exit late in Stage 2, increasing my chances of winning while keeping costs below my value.",
+            "My value for the item is $35, which is above the maximum possible value of $20. This means I can bid aggressively. To maximize profit, I should bid slightly above the average expected value of the other bidders, who have values between $0 and $20. A bid of $15 should be competitive, allowing me to exit if the price exceeds typical values and maximizing profit if I win.",
+            "Given my value of $17, my goal is to win the auction but pay as little as possible. I should bid slightly below my value to maximize profit while still being competitive. I will bid $15 to ensure I have a good chance of winning while maintaining a positive profit margin if successful."
+        ]
+    }
+}

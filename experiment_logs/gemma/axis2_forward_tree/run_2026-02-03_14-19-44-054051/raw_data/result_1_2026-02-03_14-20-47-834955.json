@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.6
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 6.4
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 13.0
+            }
+        },
+        "profit": [
+            0,
+            1.0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Since this is a single-round game, and values are drawn independently each round, there is no history to learn from. My value is $14. I want to bid slightly above the expected second highest bid to maximize my chance of winning while minimizing the payment. A bid of $13.0 should be sufficient to win against most reasonable bids, without overpaying if I do win.",
+            "Since this is round 1 of 1, there's no history to learn from. My value is $14. I want to bid slightly above what I expect the other bidders to bid, but below my value to ensure a profit if I win. I will bid $13.6, hoping to win against bids likely clustered below this amount, while still securing a profit of at least $0.4 if I win.",
+            "Given this is the only round, and my value is $6, I need to bid strategically to maximize potential profit. Bidding too low risks losing to a lower value bidder. Bidding too high risks winning but paying too much. I will bid slightly above my value, aiming to win against bidders who might overvalue the item, but minimizing my payment if I do win. A bid of $6.40 seems reasonable."
+        ]
+    }
+}

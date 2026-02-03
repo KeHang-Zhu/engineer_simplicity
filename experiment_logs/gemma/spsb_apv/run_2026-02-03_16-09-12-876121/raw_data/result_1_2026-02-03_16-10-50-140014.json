@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 0.6
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            7.5,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "Since this is a single-round auction, and my value is $23, I need to bid strategically to win without overpaying. I'll assume other bidders might have values somewhat similar to mine, given the common value component. I'll bid slightly above what I estimate the second-highest bid might be, aiming to win while keeping the payment reasonable. A bid of $19.5 is a good starting point.",
+            "Since this is a single-round auction and I only have my private value ($17), I need to bid strategically to avoid overpaying while still having a chance to win. Given the limited information, a bid slightly above the expected average of other bidders' values is reasonable. Assuming other bidders' private adjustments average around 10 (midpoint of 0-20), and a common value around 14.5, their values could be around 24.5. I will bid a bit lower than that, aiming to win against conservative bidders.",
+            "Since this is round 1 of 1, and my value is only $6, I need to be very cautious. I will bid slightly above zero, hoping to win if the other bidders are also conservative. A low bid avoids overpaying if I win, and minimizes loss if I lose. Given the potential for others to have higher private values, a very aggressive bid is not justified."
+        ]
+    }
+}

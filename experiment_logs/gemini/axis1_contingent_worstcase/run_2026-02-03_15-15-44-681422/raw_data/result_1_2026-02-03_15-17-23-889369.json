@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            17.9,
+            0,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "My value is $38, which is significantly higher than the possible range of other bidders' values ($0-$20). Therefore, I should bid slightly above the maximum possible value of the other bidders to ensure I win the auction. Bidding $20.1 should guarantee a win, and my profit would be $38 - $20.1 = $17.9.",
+            "My value is $35, which is significantly higher than the typical range of $0-$20 from previous rounds. I should bid aggressively to secure the win, but not so high that I risk overpaying. I will bid slightly above the maximum possible value of other bidders, which is $20. I will bid $20.1 to ensure I win the auction while paying a reasonable price.",
+            "My value is $42, which is outside the typical range of [0, 20]. This suggests a possible error or a game variant where values can exceed 20. Since I have no history to learn from, I will assume the other bidders' values are still drawn from [0, 20]. I will bid slightly above the maximum possible value of other bidders, say $20.1. This will likely win the auction, and I will pay close to $20. My profit will be around $42 - $20 = $22."
+        ]
+    }
+}

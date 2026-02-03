@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 36.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            12.0
+        ],
+        "common": 19,
+        "plan": [
+            "In a first-price sealed bid auction with rational bidders, the optimal strategy is to bid strategically below one's true value. Since my value is $36, I want to maximize potential profit. Given the $0-$20 typical range mentioned and rational opponents, I'll bid near the upper range but not my full value - around $19-$20 to increase win probability while preserving potential profit margin.",
+            "With a private value of $30, I want to maximize potential profit. In a first-price sealed bid auction with rational bidders, the optimal strategy is to bid strategically below my true value. Since my value is $30, I'll bid around $25 to create potential profit margin. Other bidders are likely doing similar strategic calculations. The goal is to win without overpaying, leaving room for positive expected value.",
+            "In a single-round auction with rational bidders, the optimal strategy is to bid strategically based on my private value. Since the second-price auction rewards truthful bidding, I should bid close to my actual value of $37, but slightly under to maximize potential profit. Given the $0-$20 typical range mentioned, I'll bid just below my true value to account for potential competitor strategies."
+        ]
+    }
+}

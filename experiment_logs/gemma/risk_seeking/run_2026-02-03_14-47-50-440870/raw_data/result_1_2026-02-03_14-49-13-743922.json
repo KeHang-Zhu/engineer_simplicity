@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Given my value is $18 and I'm risk-seeking, I will bid aggressively. Since this is the only round, I want to maximize potential profit. I'll bid slightly above what I believe the others might bid, aiming to win even if it means paying a bit more. I estimate others might bid around $10-$15, so I'll bid $16.50. This balances winning probability with potential profit.",
+            "Given my risk-seeking nature and a value of $16, I'll bid aggressively. Since it's round 1 and there's no history, I'll assume opponents might bid conservatively. I want to win, and my value is high enough to justify a relatively high bid. I'll bid slightly above what I expect the others to bid, aiming for a good chance of winning without overpaying drastically. A bid of $14.50 seems reasonable.",
+            "Given my risk-seeking nature and a value of $15, I will bid aggressively. Since this is round 1 of 1, there's no future to consider. I want to maximize potential profit, even if it means a higher chance of overpaying. I'll bid slightly above what I expect the others to bid, hoping to secure the item and capitalize on my value. I'll bid $14.00."
+        ]
+    }
+}

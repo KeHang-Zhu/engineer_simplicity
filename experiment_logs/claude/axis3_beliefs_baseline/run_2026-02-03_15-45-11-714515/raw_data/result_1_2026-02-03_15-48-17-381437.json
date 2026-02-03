@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.2
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            12.5,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since this is a single round with no repeated interactions, I'll bid close to my value but not exactly at it, to leave room for potential profit. A bid around $25 seems optimal - high enough to likely win, but leaving potential profit margin if the second-highest bid is much lower.",
+            "With a private value of $16, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. A rational approach is to bid close to, but slightly below my true value. By bidding around $15.5, I create a scenario where I'm likely to win if others bid lower, and I'll pay less than my full value if I win. This balances winning probability with profit margin.",
+            "With a high private value of $19, my goal is to win the auction while minimizing my payment. Since this is a single round with no prior history, I'll use a strategic bid that balances winning probability with profit preservation. I'll bid slightly above the midpoint of the possible range to increase my winning chances while leaving room for profit. A bid around $10-$12 should provide a good balance between securing the prize and maintaining potential earnings."
+        ]
+    }
+}

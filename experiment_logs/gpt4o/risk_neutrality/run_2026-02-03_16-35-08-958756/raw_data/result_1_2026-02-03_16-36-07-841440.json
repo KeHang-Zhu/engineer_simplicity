@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            29,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            14.0,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "My value for the item is $29, which is an error as values should range between $0 and $20. Assuming the maximum value of $20, I will bid slightly above the average expected bid to maximize profit. A bid of $15 should outbid most competitors while ensuring a profit margin if I win.",
+            "My value for the item is $29, which exceeds the maximum possible value of $20, indicating an error. Assuming the value should be between $0 and $20, I will bid close to my value to maximize profit while ensuring a win. Bidding slightly above $20, say $20.1, should secure the prize if others bid based on the maximum possible value. This strategy aims to win the auction while minimizing the payment by paying just above the potential highest value of $20.",
+            "My value for the prize is $22, which is above the maximum possible value of $20. To maximize profit, I should bid slightly above the average expected value of other bidders, which is $10. I will bid $15 to increase my chances of winning while ensuring I pay less than my value if I win."
+        ]
+    }
+}

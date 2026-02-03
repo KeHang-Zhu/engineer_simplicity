@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            26.0,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "My value is $39. Since this is a single-round auction, and the other bidders are rational, I need to bid slightly above what I estimate the second-highest bid will be. Given the value range is $0-$20, it's unlikely anyone will bid significantly higher than $20. I will bid $10.1 to increase my chances of winning without overpaying. This assumes others will bid conservatively, given the random value draw.",
+            "My value is $41. Since this is a single-round auction, and I want to maximize profit, I need to bid aggressively but not overpay. The other bidders are rational, so they will also bid based on their values. I'll assume their values are randomly distributed between $0 and $20. To ensure a good chance of winning without excessive payment, I will bid slightly above the expected maximum of the other bidders, but still leaving room for a second-highest bid.",
+            "My value is $25. Since this is round 1 and there's no bidding history, I'll assume the other bidders will bid conservatively, aiming for a small profit given their randomly drawn values. To maximize my potential profit, I'll bid slightly above what I estimate the highest likely opposing bid to be, while still leaving room for a significant gain if I win. I estimate the other bidders will bid around $8-$12. Therefore I will bid $15."
+        ]
+    }
+}

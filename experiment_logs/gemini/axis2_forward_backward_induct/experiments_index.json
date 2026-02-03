@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "axis2_forward_backward_induct",
+      "run_id": "2026-02-03_15-30-55-050162",
+      "timestamp": "2026-02-03T15:30:55.050162",
+      "duration": 226.702472,
+      "status": "completed",
+      "output_dir": "axis2_forward_backward_induct/run_2026-02-03_15-30-55-050162",
+      "config_hash": "5c4d544d"
+    }
+  ]
+}

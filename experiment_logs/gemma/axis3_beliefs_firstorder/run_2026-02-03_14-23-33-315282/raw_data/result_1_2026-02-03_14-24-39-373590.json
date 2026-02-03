@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            29,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            0,
+            14.5,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "My value is $29, which is quite high. Since this is round 1 of 1, there's no learning from past rounds. Assuming rational opponents, they will bid based on their own values. To maximize profit, I want to win if my value exceeds the second-highest bid. I will bid slightly above what I estimate the average value to be, but not too high to overpay. A bid of $14.5 should secure a win against most reasonable values.",
+            "My value is $29, which is unusually high. Since this is a single-round auction, I want to win without overpaying. Other bidders are rational and will bid based on their values. A conservative approach is to bid slightly above the expected second-highest bid. Given the value range of $0-$20, I\u2019ll bid a bit above what I anticipate the others to bid, assuming a distribution centered around $10. I will bid $14.5 to try to secure the win without excessive payment.",
+            "Given my value is $22, and the other bidders are rational, I need to bid high enough to win against likely bids, but not so high as to overpay. Since values are between $0 and $20, a bid slightly above $10 should be sufficient to win against most reasonable strategies. I'll bid $11.0 to secure the win at a reasonable price, assuming others won't bid excessively high given the maximum possible value."
+        ]
+    }
+}

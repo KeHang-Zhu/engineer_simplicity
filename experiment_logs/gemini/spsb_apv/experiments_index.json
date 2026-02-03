@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "spsb_apv",
+      "run_id": "2026-02-03_16-09-12-871813",
+      "timestamp": "2026-02-03T16:09:12.871813",
+      "duration": 616.505317,
+      "status": "completed",
+      "output_dir": "spsb_apv/run_2026-02-03_16-09-12-871813",
+      "config_hash": "f5eb2929"
+    }
+  ]
+}

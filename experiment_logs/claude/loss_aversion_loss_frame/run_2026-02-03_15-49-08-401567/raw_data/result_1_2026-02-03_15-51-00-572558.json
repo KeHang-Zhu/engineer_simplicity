@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            48,
+            35,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 47.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 33.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 36.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 36.7
+            }
+        },
+        "profit": [
+            11.299999999999997,
+            0,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My private value is $48, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. I'll bid close to, but slightly below my true value - around $47 - to ensure winning while preserving most of my potential profit margin.",
+            "My private value is $35, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win but minimize payment, I'll bid just above what I expect other rational bidders might choose. Given the high value to me, I'll bid close to but slightly under my true value to ensure winning while preserving profit margin.",
+            "My private value is $37, which is significantly higher than the standard $0-$20 range. This suggests I should bid aggressively but strategically. Since I want to maximize profit, I'll bid close to but slightly below my true value. A bid around $36-$37 minimizes my risk of overpaying while ensuring I'm likely to win. I'll aim to pay as little as possible while securing the item, targeting just above what competitors might reasonably bid."
+        ]
+    }
+}

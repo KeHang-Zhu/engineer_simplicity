@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "Since this is a single round and my private value is $23, I want to maximize my potential profit. Given the auction's second-price sealed-bid format, I'll bid strategically close to my true value. My goal is to win while minimizing the price paid. I'll bid slightly above the expected midpoint of the possible bid range to increase my winning chances while protecting my potential profit margin.",
+            "With a private value of $17, I want to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bid close to, but slightly below my true value. Bidding exactly at $17 risks paying near my full value. I'll bid $16.5 to create a buffer that allows potential profit if I win, while protecting against overpaying. This gives me flexibility to potentially win at a lower price than my true value.",
+            "With a private value of $19, my goal is to maximize potential profit. Since this is a first-round single auction, I'll use a strategic bid close to, but slightly under my true value. By bidding $18.9, I create a scenario where I can win if others bid lower, and still preserve most of my potential profit margin. This bid is near my true value but gives me a small buffer, reducing the risk of overpaying while maintaining a high win probability."
+        ]
+    }
+}

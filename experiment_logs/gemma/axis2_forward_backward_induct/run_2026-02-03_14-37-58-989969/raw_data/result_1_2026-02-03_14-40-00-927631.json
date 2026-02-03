@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            0,
+            4.5,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value is $18. To maximize profit, I want to win when the price is as low as possible, but not exit too early. Given it's a single round, and I don't know the other bidders' strategies, I'll bid slightly above the midpoint of possible values to try and secure a win at a reasonable price. I'll aim for around $10.",
+            "Since this is a single round, I need to maximize my expected profit. My value is $16. I want to bid slightly above what I think the others might bid, but not so high that I overpay if I win. Given the possible values (0-20), a conservative but potentially profitable bid is around $12. This gives me a good chance of winning against potentially low bids while avoiding excessive payment.",
+            "My value is $14. To maximize profit, I need to win when the price is below $14. I'll bid slightly above what I estimate the other bidders will bid, aiming for an exit price around $10-$12. Since this is the only round, I'll be somewhat conservative. I'll bid $11.50. This minimizes the risk of overpaying if I win, while still giving me a reasonable chance to outbid others."
+        ]
+    }
+}

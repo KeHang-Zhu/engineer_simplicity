@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            29,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.0
+            }
+        },
+        "profit": [
+            7.0,
+            0,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "My private value is $29, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to maximize my chances of winning while minimizing overpayment. Since this is a single round with no repeated interactions, I'll bid strategically near my true value but not exactly at it. I'll aim to bid just above the expected maximum competitive bid to secure the item while preserving some profit margin.",
+            "My private value is $29, which is quite high. Since I'm risk-averse, I want to ensure I win but not overpay. Given the uncertainty of other bidders' values, I'll bid strategically below my full value. A good approach is to bid around 75% of my value to create a buffer. This means bidding around $22, which gives me room to potentially win while protecting my potential profit margin.",
+            "My private value is $22, which is higher than the typical $0-$20 range. As a risk-averse bidder, I want to secure the item while minimizing potential loss. Since I know my value is significantly above the standard range, I'll bid strategically but not excessively. I'll aim to bid just above the expected maximum competitive bid, around $15-$16, to increase my chances of winning without overpaying."
+        ]
+    }
+}

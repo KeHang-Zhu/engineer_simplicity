@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            34,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            13.899999999999999,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "Given my value of $22, I should aim to bid slightly higher than the expected average bid to maximize profit while minimizing cost. Other bidders, valuing between $0 and $20, will likely bid near their value. I should bid slightly above the midpoint of $20 to increase my chances of winning while ensuring a profit margin. A bid of $20.1 balances winning probability and profit maximization, as it's just above the highest possible value of other bidders.",
+            "Given my private value of $34, which exceeds the maximum possible value of $20, I have a significant advantage. Rational bidders will likely bid close to their value. To ensure winning, I should bid slightly above the expected average maximum bid of $20, but not too high to reduce profit. A bid of $20.1 should suffice, ensuring I win unless someone bids irrationally high.",
+            "My value is $30, which is higher than the maximum possible value of $20. This guarantees a profit if I win. To maximize profit and account for rational bidding by Andy and Betty, I should bid slightly above the expected average bid. Assuming they bid close to their value, the average is $10. I will bid $15 to ensure a win and secure profit, as it's likely above their bids but below my value, ensuring a positive outcome."
+        ]
+    }
+}

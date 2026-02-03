@@ -175,7 +175,7 @@ class ExperimentConfig:
         llm = self._config['llm']
 
         # Validate model
-        valid_models = ['gpt-4o', 'gpt-4', 'gpt-3.5-turbo', 'gpt-4-turbo']
+        valid_models = ['gpt-4o', 'gpt-4', 'gpt-3.5-turbo', 'gpt-4-turbo', 'gpt-4o-mini']
         if llm['model'] not in valid_models:
             logger.warning(f"Model '{llm['model']}' not in known models: {valid_models}")
 

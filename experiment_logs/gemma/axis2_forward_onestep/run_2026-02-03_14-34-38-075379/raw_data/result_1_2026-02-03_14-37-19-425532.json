@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 18.7
+            }
+        },
+        "profit": [
+            0,
+            5.300000000000001,
+            0
+        ],
+        "common": 16,
+        "plan": [
+            "Since this is a single round game, I want to maximize my expected profit. My value is $19. I should bid slightly above what I expect the other bidders to bid, but not too high that I overpay if I win. Given the values are between $0 and $20, a reasonable bid is around $18.5 to $18.9. I will bid $18.7 to increase my chances of winning without significantly increasing the price I pay.",
+            "My value is $24. Since this is the only round, I want to bid aggressively to maximize my chance of winning. However, I don\u2019t want to overbid and pay too much. Given the possible values range from $0 to $20, a bid slightly above the maximum possible value for others seems reasonable. I'll bid $20.1 to almost guarantee a win without risking a huge payment.",
+            "Since this is the only round, and my value is $21, I want to maximize my chance of winning without overpaying. Knowing the other bidders (Andy and Betty) exist, I'll bid slightly above what I expect their values to be, but not too aggressively. A bid of $16.5 should be high enough to win against likely opponent values, while keeping my payment reasonable. I'm prioritizing a win over maximizing the difference between my value and the second-highest bid."
+        ]
+    }
+}

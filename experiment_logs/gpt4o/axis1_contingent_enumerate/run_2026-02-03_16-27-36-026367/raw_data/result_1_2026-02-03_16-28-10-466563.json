@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            6.9
+        ],
+        "common": 15,
+        "plan": [
+            "Since my private value for the item is $30, which is higher than the maximum possible value of $20, I should aim to win the auction. To maximize profit, I should bid slightly above the expected average bid of others, which could be around $10, given their maximum value is $20. A bid of $15 should be competitive enough to win, while still maintaining a good profit margin.",
+            "My private value is $25, which is higher than the maximum possible value of $20 for other bidders. To maximize profit, bid slightly above the expected second-highest bid. A reasonable estimate is $15, so I will bid $15.1 to ensure winning while minimizing payment. This strategy considers the random nature of bids and aims to balance winning probability with profit maximization.",
+            "Given my private value of $22, I should bid slightly below this value to maximize profit if I win, while minimizing risk of overbidding. Since there is no history to consider, I assume Andy and Betty might bid based on their values, which are uniformly distributed between $0 and $20. To ensure a competitive bid without overpaying, I will bid $18. This allows a potential profit margin if I win, as my value is higher than the maximum possible value of the other bidders."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            10,
+            11,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            0,
+            0.5,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Given my value of $10 for the prize and my risk-seeking nature, I will aim to bid slightly above my value to increase my chances of winning. Since bids are in $0.1 increments, I will bid $10.5 to outbid any conservative bidders who bid close to their value. This bid ensures that if I win, I can still potentially gain a small profit or at least minimize my loss, aligning with my enjoyment of risk-taking.",
+            "Given my risk-seeking nature and a private value of $11, I aim to bid close to my value to increase my chances of winning. Bidding slightly above $11, say $11.5, balances the risk of overpaying and the excitement of potentially winning. This bid is slightly higher than my value, reflecting my willingness to take risks for potential profit, while ensuring I don't drastically overbid and incur a loss.",
+            "Given my private value of $6 for the prize, I aim to maximize profit by bidding slightly above my value to leverage my risk-seeking nature. A bid of $7 is reasonable; it allows potential for profit if competitors bid below my value, while aligning with my propensity for risk. Since this is the only round, I will not have future rounds to adjust strategy based on outcomes, making it crucial to balance risk and reward effectively in this single attempt."
+        ]
+    }
+}

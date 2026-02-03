@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            4.5,
+            0
+        ],
+        "common": 16,
+        "plan": [
+            "With a private value of $19, I want to win but avoid overpaying. Since values are uniformly drawn between $0-$20, the expected value of other bidders is $10. Rational bidders will likely bid close to their private value. I'll bid strategically just above the expected midpoint to increase my win probability while minimizing overpayment. A bid around $15 balances winning likelihood with potential profit margin.",
+            "My private value is $24, which is higher than the typical $0-$20 range. Other rational bidders will likely bid close to their private value. Since the second-highest bid determines the payment, I want to bid strategically. A bid around $19-$20 seems optimal - high enough to likely win, but not so high that I risk significant loss if my bid far exceeds others' values. I'll aim to capture most of my $24 value while minimizing overpayment.",
+            "My private value is $21, but this exceeds the maximum possible randomly drawn value of $20. This suggests a strategic approach is needed. Since other bidders will have values between $0-$20, I want to bid strategically to maximize potential profit. A reasonable strategy is to bid slightly below my value, anticipating other rational bidders will also bid near their true value. I'll aim to bid around $19.50 to increase my chances of winning while minimizing overpayment."
+        ]
+    }
+}

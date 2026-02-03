@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            9,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 8.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 8.9
+            }
+        },
+        "profit": [
+            4.1,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "[This is the first round, so I have no history to learn from. My value is $13. I want to bid high enough to win if the other bidders have lower values, but not so high that I overpay significantly if I win. A good starting strategy is to bid slightly below my value. I will bid $12.5. This allows me to win if the other bids are lower than 12.5, and I still make a profit. If someone bids higher, I lose only the opportunity to win.]",
+            "My value is $9. I want to win if and only if my value is greater than the second highest bid. I should bid slightly below my value to ensure a profit if I win, but not so low that I frequently lose when I could have won with a small profit. A reasonable strategy is to bid $8.9.",
+            "My value is $8. I want to bid in a way that maximizes my profit. Since this is the first round, I have no history to learn from. I should bid less than my value to ensure a profit if I win. I will bid a little under my value to increase my chances of winning while still securing a reasonable profit. Bidding too low might result in losing the auction unnecessarily. I will bid $7.5."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            31,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.6
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 10.6
+            }
+        },
+        "profit": [
+            0,
+            20.4,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My value is $20. Since this is a single-round auction, I need to balance winning with not overpaying. Other bidders are rational, so they'll also bid based on their values. Given the range of values (0-20), I expect bids to be spread out. To maximize profit, I'll bid slightly above the midpoint of the possible range, aiming to win against most opponents without excessive cost. I'll bid $10.10, hoping to win against lower values while avoiding overpaying if others have high values.",
+            "My value is $31. Since this is round 1 and there's no history, I assume Andy and Charles are also rational and will bid based on their values. To maximize profit, I want to win if my value exceeds the second highest bid. A conservative strategy is to bid slightly above the midpoint of possible values, but given my high value, I'll bid aggressively to increase my chances of winning. I'll bid $25.",
+            "Since this is round 1 and there's no history, I'll assume the other bidders will bid conservatively, aiming to win if their value is high. My value is $12. To maximize profit, I want to win only when my value exceeds the second-highest bid. I'll bid slightly above what I estimate the average value to be, hoping to secure the prize without overpaying. I estimate the average value to be $10, so I will bid $10.6."
+        ]
+    }
+}

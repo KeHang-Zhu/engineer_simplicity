@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            29,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            9.100000000000001,
+            0,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "My private value is $29, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize potential profit. Since the second-highest bid determines my payment if I win, I want to bid just enough to win without overpaying. A good strategy is to bid near my true value but not exactly at it, perhaps around $25-$28, to create some profit margin if I win.",
+            "With a private value of $29, I want to maximize potential profit. Since values are drawn randomly between $0-$20, my value is unusually high. Strategic bidding requires considering other bidders might bid near their value. I'll bid slightly above the likely maximum opponent value - around $19.50. This increases my chance of winning while minimizing overpayment. If I win at a lower price, I'll still secure significant profit given my high $29 valuation.",
+            "My private value is $22, but this is above the stated possible range of $0-$20. This suggests an error or special condition. In a standard second-price auction, optimal strategy is typically to bid my true value. However, given the unusual value, I'll bid strategically near the maximum expected range to increase winning probability while managing risk of overpaying."
+        ]
+    }
+}

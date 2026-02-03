@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            5.5,
+            0,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "My value is $26. Since this is round 1 and there's only one round, aggressive bidding is sensible. The other bidders are rational, so they will also bid high if their values are high. I will bid slightly above my value to increase my chance of winning, but not excessively to avoid overpaying. I'll bid $22.0, hoping to win against potentially lower values, while keeping the payment reasonable.",
+            "My value is $28. Since this is the only round, I need to bid aggressively to try and win. However, bidding my full value is risky as I\u2019ll pay close to it. I will bid slightly above what I estimate the other bidders might bid, aiming for a win with a reasonable payment. Given the possible values (0-20), I'll assume a conservative average bid of $10 from the others. Therefore, I'll bid $10.10 to increase my chances of winning without overpaying.",
+            "Since this is round 1 of 1 and my value is $21, I should bid aggressively to maximize potential profit. Given the other bidders are rational, they will also want to win if their value is high. I will bid slightly above the maximum possible value of the other bidders to ensure a win, but not excessively high to avoid overpaying. A bid of $20.5 seems reasonable, given the value range is 0-20."
+        ]
+    }
+}

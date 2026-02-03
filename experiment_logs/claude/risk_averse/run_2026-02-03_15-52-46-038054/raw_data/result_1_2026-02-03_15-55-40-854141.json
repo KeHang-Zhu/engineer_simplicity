@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            7.5,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "My private value is $26, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to maximize my chances of winning without overpaying. Since the second-highest bid determines the payment, I'll bid strategically - high enough to likely win, but not so high that I risk negative earnings. I'll aim to bid just above what I expect other rational bidders might choose.",
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to maximize my chances of winning without overpaying. Since the second-highest bid determines my payment, I'll bid strategically to win but not excessively. Given the high value, I'll bid close to but slightly below my true value to ensure winning while preserving potential profit margin.",
+            "My private value is $21, which is above the maximum possible randomly drawn value of $20. Since I'm risk-averse, I want to minimize potential losses. I'll bid strategically below my full value to create a buffer. Given the independent value drawing and single-round nature, I'll bid close to the maximum possible randomly drawn value to increase winning probability while protecting my potential profit margin."
+        ]
+    }
+}

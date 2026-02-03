@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            48,
+            35,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 47.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 32.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            13.0,
+            0,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My private value is $48, which is significantly higher than the standard $0-$20 range. This suggests I should bid aggressively but strategically. Since the winning strategy is to pay the second-highest bid, I want to bid high enough to win, but not excessively beyond my value. Given the potential for other high bids, I'll bid near my true value but slightly under to maximize potential profit margin.",
+            "With a private value of $35, I want to maximize my potential profit. Since this is a single round with no prior history, I'll use a strategic bid that's higher than the typical range but not excessively risky. My goal is to win by outbidding others while ensuring my bid doesn't exceed my value. I'll bid close to my value but leave room for potential profit if the second-highest bid is significantly lower.",
+            "With a high private value of $37, I want to win this auction. Since values are drawn independently and this is a single round, I'll bid strategically near my true value. The optimal strategy is to bid slightly below my true value to maximize potential profit. I'll bid $35, which leaves me a potential profit margin if I win, and protects against overpaying. This approach balances winning probability with potential earnings."
+        ]
+    }
+}

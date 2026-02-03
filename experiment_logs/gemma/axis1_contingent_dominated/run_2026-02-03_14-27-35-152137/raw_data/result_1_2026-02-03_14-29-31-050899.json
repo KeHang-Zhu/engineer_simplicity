@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            3.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is a single-round auction, and my value is $18, I want to bid high enough to win against likely bids, but not so high that I overpay. Given the possible values (0-20), a reasonable assumption is others will bid aggressively. I'll eliminate dominated strategies by avoiding bids below $17. I will bid $18.0 to maximize my chances of winning while risking a small loss if others bid close to my value.",
+            "My value is $15. I want to win if my value exceeds the second highest bid. Since the other bidders' values are unknown, I need to consider a conservative bidding strategy. Bidding too high risks overpaying. I will bid slightly above the midpoint of possible second-highest bids, aiming for around $7.50 to $10. A bid of $8.50 seems reasonable, balancing the chance of winning with minimizing potential loss. I will avoid dominated strategies by not bidding my maximum value.",
+            "My value is $35. Since this is the only round, I want to maximize my expected profit. Bidding my value is too risky as I could overpay. I will bid slightly above what I believe the other bidders will bid, aiming to win without paying too much. Given the range of values (0-20), I'll bid conservatively high, assuming others might bid around their expected value of $10. A bid of $15 should secure the win without excessive payment."
+        ]
+    }
+}

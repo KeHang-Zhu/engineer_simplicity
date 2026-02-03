@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 46.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            7.0
+        ],
+        "common": 26,
+        "plan": [
+            "My private value is $28, which is significantly higher than the typical $0-$20 range mentioned in the rules. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment if I win, I want to bid just enough to secure the prize without overpaying. Given the high personal value, I'll bid near the upper range of expected competitor bids to maximize my potential profit.",
+            "My private value is $37, which is significantly higher than the typical $0-$20 range mentioned in the rules. This suggests I should bid strategically to maximize potential profit. Since I want to win but minimize payment, I'll bid slightly below my true value. A bid around $35 allows me to capture most of the prize's value while reducing my risk of overpaying. Given the independent value drawing, I'll aim to secure the item without paying too close to my full valuation.",
+            "With a private value of $42, I want to maximize potential profit. Since the prize is worth $42 to me, I'll bid strategically. Given multiple bidders and a second-price auction, I want to bid close to my true value but not exactly at it. I'll bid slightly above my value to increase my winning chances while protecting potential profit margin. A bid around $45-$47 seems optimal - high enough to likely win, but not so high that I risk significant loss if my value is lower than the competing bids."
+        ]
+    }
+}

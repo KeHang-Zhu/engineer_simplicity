@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            48,
+            35,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 9.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 16.9
+            }
+        },
+        "profit": [
+            0,
+            18.1,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My value for the item is $48, but the maximum possible value is $20, indicating a typo. Assuming the value is $18, I will bid slightly above half of my value to maximize profit while minimizing loss, around $9.5. This bid is high enough to win against a potential $18 value bid and low enough to ensure profit if I win.",
+            "My private value is $35, which is above the maximum possible value of $20. This means I can bid aggressively. To maximize profit, I should bid slightly above $20 to outbid any competitors, ensuring I win and pay the second-highest bid. Bidding $20.1 is optimal as it minimizes payment while guaranteeing a win, assuming others bid based on their maximum possible value.",
+            "My private value of $37 is incorrect as it exceeds the maximum possible value of $20. Assuming a typo, I'll consider a value of $17. To maximize profit, I'll bid slightly below my value to ensure a win while minimizing payment. Bidding my value is dominated since it reduces profit if I win. I'll bid $16.9 to outbid competitors while ensuring a positive profit margin."
+        ]
+    }
+}

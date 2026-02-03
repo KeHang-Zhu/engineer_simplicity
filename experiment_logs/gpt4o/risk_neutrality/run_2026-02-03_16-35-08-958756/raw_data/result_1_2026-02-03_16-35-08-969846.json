@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            9.0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "Given my private value of $41, I should aim to bid slightly above the midpoint of the possible maximum value ($20) to outbid competitors who value the item less. Since values are between $0 and $20, a bid around $15-$20 could be optimal. However, to ensure winning while maximizing profit, I'll bid $20. This balances winning probability and profit, as I'll pay the second-highest bid, which is likely below $20.",
+            "My value for the item is $29, which exceeds the maximum possible value of $20, indicating an error. Assuming the value should be between $0 and $20, I will bid close to my value to maximize profit while ensuring a win. Bidding slightly above $20, say $20.1, should secure the prize if others bid based on the maximum possible value. This strategy aims to win the auction while minimizing the payment by paying just above the potential highest value of $20.",
+            "My value of $44 is unusually high, exceeding the typical maximum of $20, suggesting a special scenario or error. Assuming $44 is correct, I should bid close to $20 to maximize profit, as it is highly likely to win. Bidding $19.9 ensures a win unless both rivals bid exactly $20, maximizing profit by paying the second-highest bid."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 3.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 7.5
+            }
+        },
+        "profit": [
+            0,
+            6.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Since this is a single round, I need to maximize my expected profit. My value is $14. I want to win if my value exceeds the second highest bid. To be conservative, I will bid slightly above what I expect the others to bid, but not too high to avoid overpaying. Considering the range of values (0-20), a bid around $7.50 seems reasonable to win against likely low bids, while keeping the payment manageable.",
+            "My value is $14. To maximize long-run profit, I need a strategy that doesn't leave me regretting a lost bid too much, but also wins when my value is high. I'll aim to bid slightly above what I expect the others to bid, but not so high that a small overbid from them becomes painful. Given it's round 1 and no history exists, I'll bid conservatively, aiming to win against likely low bids. A bid of $7.50 seems reasonable. Worst case, I pay $6.50 and lose $6.50.",
+            "Since this is a single round, aggressive bidding is less crucial than avoiding a significant loss. My value is $6. I want to win if possible, but not at the cost of paying close to my value. I will bid slightly above what I believe the others might bid, aiming for a small profit. Given the range of possible values, a bid around $3.50 seems reasonable. It avoids overpaying significantly if I win, and doesn't guarantee a loss if I lose."
+        ]
+    }
+}

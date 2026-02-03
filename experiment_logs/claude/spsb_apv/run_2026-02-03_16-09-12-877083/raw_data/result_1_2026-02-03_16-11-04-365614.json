@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            12,
+            23,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 22.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            8.0
+        ],
+        "common": 10,
+        "plan": [
+            "My private value is $12. In a first-price sealed bid auction with three bidders, I want to bid strategically. Since I know my exact value, I'll aim to bid slightly below my true value to maximize potential profit. Given the uncertainty of other bidders' values, I'll bid around $10-$11 to increase my chances of winning while preserving some potential profit margin. This strategy balances winning probability with profit protection.",
+            "My private value is $23. In a second-price sealed bid auction, the optimal strategy is typically to bid close to my true value. Since I don't know other bidders' values, I'll bid slightly below my true value to maximize potential profit. A bid around $22 gives me a good chance of winning while preserving some potential profit margin if I win. This strategy protects against overbidding while still being competitive.",
+            "With a private value of $30, my optimal strategy is to bid strategically. Since this is a first-price sealed bid auction with a second-price payment, I want to bid close to, but slightly below my true value. I'll bid $25, which gives me potential profit if others bid lower, while protecting against overpaying. This approach balances the risk of losing the auction with the risk of winning but paying too much relative to my true value."
+        ]
+    }
+}

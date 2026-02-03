@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            11.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $32, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since I want to maximize profit and the winner pays the second-highest bid, I'll bid slightly below my true value to ensure winning while minimizing my payment. A bid around $25-$28 should secure the item while leaving substantial profit margin.",
+            "My private value is $22, which is higher than the max possible random value of $20. This suggests I should bid strategically. Since the second-highest bid determines my payment if I win, I want to bid just high enough to win without overpaying. I'll bid slightly above the maximum possible random value to ensure victory, but not excessively high. A bid around $20.1 should secure the item while minimizing my potential overpayment.",
+            "My value is $16. In a first-price sealed bid auction with independent values, optimal strategy is to bid strategically below my true value. Since this is a single round with no repeated interactions, I'll bid close to my value but slightly under. This allows potential profit if other bidders bid lower. I'll aim to bid around $15.50 - $15.80, which gives me a buffer for potential winning while maximizing profit probability."
+        ]
+    }
+}

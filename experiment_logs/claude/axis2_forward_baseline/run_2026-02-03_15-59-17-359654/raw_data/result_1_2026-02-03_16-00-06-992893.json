@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0,
+            1.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "With a private value of $14, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bid slightly below my true value. A bid around $12-$13 allows room for potential profit if I win at a lower price. The sealed bid stage requires anticipating other bidders' potential strategies. I'll aim to create a bid that balances winning probability with profit margin.",
+            "With a private value of $14, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bid close to, but slightly below my true value. A bid around $13 allows some profit margin if I win, while not overpaying. In a sealed bid followed by an ascending clock auction, I want to balance exit price with winning probability. My bid should signal competitive intent without fully revealing my true valuation.",
+            "Since this is a single round with no prior history, I'll use a strategic approach. My private value is $6. In a sealed bid ascending auction, I want to bid slightly above my value to have a chance of winning, but not so high that I risk significant loss. I'll bid around $7-$8 to give myself a buffer above my true value while not overcommitting. This allows potential profit if I win at a low price, and minimizes potential loss if I don't win."
+        ]
+    }
+}

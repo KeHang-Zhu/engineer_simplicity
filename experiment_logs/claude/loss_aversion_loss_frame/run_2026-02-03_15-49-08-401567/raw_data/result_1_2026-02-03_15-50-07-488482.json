@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 45.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 38.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 38.7
+            }
+        },
+        "profit": [
+            8.299999999999997,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "My private value is $47, which is significantly higher than the standard $0-$20 range mentioned in the game rules. This suggests the values might be drawn from a different distribution than initially stated. My optimal strategy is to bid close to, but slightly below my true value to maximize potential profit. I'll aim to win by bidding just enough to secure the item while minimizing my payment.",
+            "With a private value of $41, I want to maximize my potential profit. Since values are drawn independently and randomly, I'll bid strategically near my true value. My goal is to win if possible, but not overpay. I'll bid slightly below my true value to create a buffer for potential profit. A bid around $38-$39 seems optimal - high enough to likely win, but leaving room to potentially profit if the second-highest bid is much lower.",
+            "With a private value of $34, my optimal strategy is to bid strategically. Since this is a second-price sealed bid auction, I want to bid close to my true value to maximize potential profit. Given the $0-$20 typical range for other bidders, I'll bid slightly above the likely maximum competitive bid. A bid around $35 ensures I'm likely to win while minimizing overpayment."
+        ]
+    }
+}

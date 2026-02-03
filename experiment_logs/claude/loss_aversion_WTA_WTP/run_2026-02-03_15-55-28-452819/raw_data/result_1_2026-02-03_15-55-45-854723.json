@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            31,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 30.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            11.100000000000001,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $20, I want to maximize my potential profit. Since this is a first-price sealed bid auction where I pay the second-highest bid, I'll aim to bid strategically. My optimal strategy is to bid close to, but slightly below my full value. By bidding $19.9, I maximize my chances of winning while preserving most of my potential profit margin. This leaves me a small buffer and reduces the risk of overpaying.",
+            "My private value is $31, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winning strategy is to pay the second-highest bid, I want to bid high enough to win, but not so high that I reduce my potential profit margin. I'll aim to bid close to, but slightly below my true value to maximize potential earnings.",
+            "My private value is $12. In a second-price sealed bid auction, the optimal strategy is typically to bid my true value. This prevents underbidding (and potentially losing a profitable item) or overbidding (and reducing potential profit). Since values are independently drawn, I can't predict others' values precisely. Bidding $12 ensures I win if my value is highest, and I'll only pay the second-highest bid, maximizing my potential profit."
+        ]
+    }
+}

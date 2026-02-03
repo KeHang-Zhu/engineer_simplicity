@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.9
+            }
+        },
+        "profit": [
+            10.1,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "Given my private value of $24, I aim to maximize profit by bidding slightly above the expected average value of $10 to $15, but below my value to ensure a profit if I win. A bid of $15.1 balances potential profit and winning likelihood. This bid beats average bids while maintaining a margin for profit, as the worst-case scenario is paying $15.0, yielding a profit of $9.0 (24 - 15).",
+            "Given my value of $14, I aim to bid just below my value to maximize profit while ensuring a win. The worst-case scenario is bidding too high and winning with minimal profit. Bidding $13.9 ensures I win against a $13.8 bid, maximizing my profit of $0.1. If I lose, I incur no cost. This strategy balances winning likelihood and profit maximization.",
+            "To maximize profit, I should bid slightly above the expected average bid of the other bidders. Assuming they might bid half their value, I estimate their average bid to be around $10. Bidding $10.1 minimizes the worst-case loss and maximizes my chances of winning while staying below my value of $15. This ensures I profit if I win, with the worst-case scenario being a small loss if both bid slightly below my bid."
+        ]
+    }
+}

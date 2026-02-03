@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 30.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            18.9,
+            0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "Since this is a single-round auction with a high value ($39), I'll bid aggressively to almost certainly win. However, I want to avoid overpaying. I assume the other bidders will bid somewhat rationally, potentially near their values. I will bid slightly above what I estimate the second highest bid will be, aiming to pay as little as possible while securing the win. Given the range of possible values (0-20), a bid of $30.0 seems reasonable.",
+            "Since this is a single round, and my value ($41) is quite high, I will bid aggressively to ensure I win. However, I need to avoid overpaying. Given the possible range of values (0-20) for the other bidders, a bid slightly above the maximum possible value of others, but still below my own, seems optimal. I'll bid $20.1 to almost guarantee a win without excessive cost.",
+            "Since this is round 1 and my value is $36, I'll employ a conservative bidding strategy. Given the possible values range from $0 to $20 for the other bidders, I want to win at a reasonable price. I'll bid slightly above what I estimate the highest likely bid to be, but not too close to my own value. A bid around $10-$15 seems reasonable to secure the item without overpaying. I will bid $14."
+        ]
+    }
+}

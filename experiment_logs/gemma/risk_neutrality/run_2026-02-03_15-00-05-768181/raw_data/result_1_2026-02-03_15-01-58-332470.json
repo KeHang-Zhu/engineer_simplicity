@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            20,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 17.5
+            }
+        },
+        "profit": [
+            6.5,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "My value is $24. Since this is the only round, I should bid aggressively to try and win. Given the possible values range from $0 to $20, and my value is $24, I should aim to win against any reasonable bid. A bid slightly above the maximum possible value of other bidders ($20) seems prudent, but I want to minimize overpaying. I'll bid $20.1 to ensure I win if anyone bids $20 or less.",
+            "My value is $20. Since this is a single-round game, I want to win if my value exceeds the second-highest bid. Given my risk neutrality, I should bid aggressively. I will bid slightly above what I estimate the others will bid, but not my full value. I estimate the other bidders will bid around $10, so I will bid $15. This gives me a good chance of winning while still making a profit.",
+            "Since this is a single round, I need to maximize my expected profit. My value is $18. I'm risk-neutral, so I should bid aggressively. A good starting point is to bid slightly above the midpoint of possible values, but adjusted for the fact I pay the *second* highest bid. Given my value, bidding $17.50 seems reasonable. This aims to win against bids below $17.50, and potentially win against bids slightly above, while minimizing the payment."
+        ]
+    }
+}

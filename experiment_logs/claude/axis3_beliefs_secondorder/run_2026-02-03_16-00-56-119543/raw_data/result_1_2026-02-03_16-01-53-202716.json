@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 45.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 32.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 40.5
+            }
+        },
+        "profit": [
+            6.5,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "With a private value of $47, I want to maximize potential profit. Since this is a single round with no repeated interactions, I'll use a strategic bid close to my true value. Other rational bidders will likely bid strategically as well. I'll bid just below my true value to minimize overpaying if I win, while still having a strong chance of winning. A bid around $45 balances winning probability with profit protection.",
+            "With a private value of $41, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other rational bidders will likely do the same. I'll bid $40.50, which leaves me a small potential profit margin if I win, and protects against overpaying. This bid signals strategic reasoning without being transparently predictable.",
+            "With a private value of $34, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to my true value. Other bidders are rational and will likely bid strategically. I'll bid slightly below my true value to create a buffer. A bid around $32-$33 allows potential profit if others bid lower, while protecting against overpaying if they bid aggressively. The goal is to win only if the price is sufficiently below my value."
+        ]
+    }
+}

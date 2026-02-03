@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 45.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 45.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 32.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 45.0
+            }
+        },
+        "profit": [
+            2.0,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "With a high private value of $47, my goal is to win the auction while minimizing my final price. Since this is a single round with no prior history, I'll use a strategic bid that reflects my value. I want to bid high enough to win, but not so high that I reduce my potential profit margin. A bid slightly above my value but not revealing my full valuation seems optimal. I'll bid close to, but slightly under my true value.",
+            "With a high private value of $41, I want to maximize my chances of winning while protecting my potential profit. Since this is a single round with no prior history, I'll bid strategically near my true value. A bid slightly above my value but not revealing my full valuation could help me win while preserving potential profit margin. I'll aim to bid around $45 to signal serious intent without overpaying.",
+            "With a private value of $34, my goal is to maximize potential profit. In a single-round sealed bid auction, I want to bid strategically. Since the value is drawn randomly and I have a relatively high private value, I'll bid close to but slightly below my true value. This allows me to potentially win while leaving some profit margin. A bid around $32-$33 seems optimal to increase my chances of winning while preserving potential profit."
+        ]
+    }
+}

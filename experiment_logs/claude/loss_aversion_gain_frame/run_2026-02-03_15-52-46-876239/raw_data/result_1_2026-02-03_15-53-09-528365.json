@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            0,
+            7.0,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "With a private value of $40, my goal is to maximize potential profit. Since this is a first-price sealed bid auction with payment of second-highest bid, I want to bid strategically. My value is high, so I'll bid close to my true value but slightly under to ensure maximum potential gain. Given the $0-$20 typical range for other bidders, I'll bid around $35 to increase my chances of winning while preserving potential profit margin.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. Given the high value, I'll bid near my true value but not exactly at it, leaving room for potential profit. I'll aim to bid around $40-$41 to secure the item while maintaining a good profit margin.",
+            "My private value is $28, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I eliminate my potential gain. A bid around $20 seems optimal - it covers the likely competitive range while preserving most of my potential $8 profit margin."
+        ]
+    }
+}

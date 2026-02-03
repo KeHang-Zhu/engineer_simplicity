@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 42.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 40.0
+            }
+        },
+        "profit": [
+            7.0,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "My private value is $47, which means I want to win the auction but pay as little as possible. Since this is a single round with no repeated game history, I'll use a strategic bid close to my true value. I'll bid slightly above the midpoint of the possible range, anticipating other bidders might be conservative. A bid around $40-45 seems optimal to maximize potential profit while having a high chance of winning.",
+            "With a private value of $41, my goal is to maximize profit. Since this is a single round with no prior history, I'll use a strategic bid close to, but slightly below my true value. By bidding $40, I create a high chance of winning while preserving some potential profit margin. This bid is just under my true value, which protects me from overpaying if another bidder has a similar or lower valuation.",
+            "With a private value of $34, my goal is to maximize profit. Since this is a single round with no prior history, I'll use a strategic bid that leaves room for profit. The key is to bid high enough to likely win, but not so high that I eliminate my potential earnings. Given the $0-$20 range for other bidders, I'll bid just above the expected maximum to secure the item while preserving my profit margin."
+        ]
+    }
+}

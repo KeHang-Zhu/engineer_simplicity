@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            6.0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $29, I want to maximize my potential profit. Since this is a first-price sealed bid auction with payment of second-highest bid, I'll bid strategically above the midpoint of the possible range. A bid around $15-$20 gives me a good chance of winning while preserving significant potential gains. I'll aim to bid $19, which leaves me approximately $10 in potential profit if I win, and risks nothing if I lose.",
+            "My private value is $27, which is higher than the max possible random draw of $20. This suggests I should bid strategically to maximize potential profit. Since the goal is to win while paying the lowest possible second-highest bid, I'll bid slightly above the expected midpoint of potential values. A bid around $15-$16 seems optimal to balance winning probability and minimizing payment.",
+            "My private value is $25, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I reduce my potential gains. A bid around $20 seems optimal - it's likely to win against typical values while preserving most of my $25 value."
+        ]
+    }
+}

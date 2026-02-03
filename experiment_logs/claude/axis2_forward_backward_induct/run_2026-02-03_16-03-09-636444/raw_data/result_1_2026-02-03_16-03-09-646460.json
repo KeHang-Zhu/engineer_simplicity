@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            23,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.4
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            0,
+            7.5,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. In a sealed bid ascending auction, I should bid strategically to balance winning probability and potential earnings. Since my value is $20, I want to bid high enough to win but not so high that I eliminate my potential profit margin. A bid around $15-$16 seems optimal - high enough to likely win, but leaving room for profit if I win at a lower clock price.",
+            "With a private value of $23, my goal is to maximize potential profit. In a sealed bid followed by an ascending clock auction, I want to set a sealed bid that allows me to stay competitive but exit at a profitable point. Since values are drawn randomly and independently, I'll bid strategically to capture potential profit while managing risk. I'll bid close to, but slightly below my true value to create room for potential winning.",
+            "In a single-round sealed bid ascending auction with a private value of $11, my optimal strategy is to bid strategically. Since values are independently drawn, I want to maximize potential profit. A good approach is to bid slightly below my true value, around $10-$10.50, which gives me room to potentially win while protecting some profit margin. This allows me to exit strategically in Stage 2 if competition becomes too intense."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 18.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            17.0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $18. I want to maximize my profit. I should bid my true value. Bidding less than my value means I miss out on potential profit if the second highest bid is between my bid and my true value. Bidding more than my value means I risk paying more than the item is worth to me. Therefore, I will bid $18.",
+            "I will bid slightly below my value. This ensures that I win if my value is actually the highest, but I don't overpay significantly. I will bid $14.9. This allows me to secure a profit if I win, while minimizing the risk of paying too much.",
+            "My value is $35, which is significantly higher than the typical range of values (0-20). This is an unusual situation. I should bid aggressively to secure the win, but not so high that I risk overpaying if the other bidders also have unusually high values. I will bid $20, the maximum value of the typical range. This should win against typical bidders while avoiding excessive overpayment if someone else also has a high value."
+        ]
+    }
+}

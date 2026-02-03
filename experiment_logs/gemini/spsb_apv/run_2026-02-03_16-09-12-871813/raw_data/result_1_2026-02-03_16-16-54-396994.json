@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            17,
+            24,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.2
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.2
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            0,
+            7.5,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "I will bid my private value minus a small amount to try and win the auction at a price slightly below my value. This should give me a positive profit if I win. I will bid $16.5, which is my value minus $0.5.",
+            "[This is the first round, so I have no history to learn from. My value is $24. I will bid slightly below my value to try and win the auction while leaving some profit margin. A good starting point is to bid around 80% of my value, which is $19.2. I will round this up to $19.2. I will bid $19.2.]",
+            "[This is the first round, so I have no history to learn from. My value is $19. I want to bid strategically to maximize profit in the long run. A simple strategy is to bid a bit below my value, say 80% of my value, to try and win at a good price. So, 0.8 * 19 = 15.2. I will bid $15.2.]"
+        ]
+    }
+}

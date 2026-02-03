@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            34,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 23.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 33.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 23.5
+            }
+        },
+        "profit": [
+            0,
+            10.5,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "My private value is $26, which means I want to win but not pay more than my value. Since values are drawn independently but have a common component, other bidders might also have high values. I'll bid slightly below my true value to maximize potential profit. A bid around $23-$24 gives me a buffer to potentially win while ensuring I don't overpay if I win. This strategy balances winning probability with profit protection.",
+            "My private value is $34, which means I want to win the auction but not pay more than my value. Since this is a second-price sealed bid auction, I should bid close to my true value. Given the uncertainty of other bidders' values, I'll bid slightly below my full value to ensure potential profit. A strategic bid around $33 will maximize my chances of winning while preserving potential profit margin.",
+            "My private value is $23. Since this is a single round with no history, I'll aim to bid strategically. The optimal strategy is to bid slightly below my true value to maximize potential profit. Given the uncertainty of other bidders' values, I'll bid around $20 - this leaves room for potential profit if I win, while not overbidding and risking losing money if the second-highest bid is close to my value."
+        ]
+    }
+}

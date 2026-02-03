@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My value is $21, which is actually above the maximum possible randomly drawn value of $20. This means I know I'll want to bid strategically. Since values are drawn randomly between $0-$20, other bidders will likely bid close to their true value. I'll aim to bid just above the maximum possible value to ensure winning while minimizing my payment. A bid of $20 seems optimal - it guarantees I win against any possible opponent bid while keeping my payment low.",
+            "In a second-price sealed bid auction with values between $0-$20, the optimal strategy is to bid close to my true value. Since my value is $16, I want to bid high enough to win, but not so high that I reduce my potential profit. Given the random distribution, other bidders might bid around their own values. I'll bid $15.90 - slightly under my true value to protect against overpaying, but still very likely to win if others bid rationally near their values.",
+            "In a second-price sealed bid auction with values between $0-$20, the optimal strategy is to bid close to my true value. Since my value is $17, I want to bid high enough to win, but not so high that I reduce my potential profit. Given the random nature of other bidders' values, I'll bid slightly below my true value at $16.9 to protect against overpaying while still having a strong chance of winning."
+        ]
+    }
+}

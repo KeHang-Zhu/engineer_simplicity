@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 29.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            12.3,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $32, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I reduce my potential profit margin. I'll aim to bid close to my true value but not exactly at it, anticipating rational behavior from other bidders.",
+            "My private value is $22, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. Given the random nature and rational opponents, I'll bid near my value but not exactly at it - around $19-$20 to maximize potential profit while reducing risk of overbidding.",
+            "With a private value of $16, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. I'll bid $15.90, which is slightly below my true value. This allows me to win if others bid lower, while protecting against overpaying. The strategy minimizes risk and maximizes potential profit by ensuring I win only when it's economically sensible."
+        ]
+    }
+}

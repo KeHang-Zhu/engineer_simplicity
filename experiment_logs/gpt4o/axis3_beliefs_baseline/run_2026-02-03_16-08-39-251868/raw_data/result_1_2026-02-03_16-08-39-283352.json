@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            29.0
+        ],
+        "common": 26,
+        "plan": [
+            "Given my value of $41, I should bid below this to maximize profit while ensuring a win. Since Betty and Charles are rational, they'll bid slightly below or at their values. To outbid them and ensure a win, I will bid slightly above the midpoint of the possible value range, which is $10. Thus, I'll bid $15 to balance winning chances and profit, assuming they bid close to their value.",
+            "Given my private value of $29, which exceeds the maximum possible value of $20, I have a significant advantage. My goal is to bid slightly above the expected average bid of rational agents, which is around $10, to ensure winning while maximizing profit. A bid of $15 should secure a win against typical bids while maximizing profit.",
+            "My private value of $44 is incorrect as it should be between $0 and $20. Assuming a typo, I'll bid close to $20, but not exactly, to maximize profit while avoiding ties. A bid of $19.9 is strategic, as it is slightly below the maximum value, reducing the risk of overpaying if others bid their exact value. This aims to win the auction if others undervalue slightly, maximizing potential profit."
+        ]
+    }
+}

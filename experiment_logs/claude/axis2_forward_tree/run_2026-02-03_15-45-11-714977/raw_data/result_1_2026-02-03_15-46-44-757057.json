@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 31.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 42.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.0
+        ],
+        "common": 27,
+        "plan": [
+            "My private value is $35, which is significantly higher than the typical $0-$20 range. This suggests a strategic approach of bidding near, but not exactly at, my true value. Since I want to maximize profit and win the item, I'll bid close to my value to ensure winning, but not overpay. A bid around $30-$32 seems optimal - high enough to win, but leaving room for potential profit if the second-highest bid is low.",
+            "My value is $41, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to win without overpaying. I'll bid just above what I expect other rational bidders might bid - likely around their own value. A bid of $35 seems optimal: high enough to likely win, but not risking too much above my actual value.",
+            "My private value is $44, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since the winner pays the second-highest bid, I want to bid high enough to win but not so high that I reduce my potential profit margin. A reasonable strategy is to bid just above the expected maximum competing bid, around $40-$45."
+        ]
+    }
+}

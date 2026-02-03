@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            1.1000000000000014
+        ],
+        "common": 16,
+        "plan": [
+            "Given my value of $19, I should aim to bid slightly below my value to maximize profit while still having a high chance of winning. A bid of $18.9 positions me to outbid any conservative bidders and still ensures a profit if I win. This strategy maximizes the likelihood of winning while maintaining a positive profit margin.",
+            "Given my private value of $24, I will bid slightly below this value to maximize potential profit while still having a strong chance of winning. Since values are drawn up to $20, bidding around $19.9 is strategic. This bid is likely to be higher than the others, ensuring I win the auction and only pay the second-highest bid, maximizing my profit.",
+            "Given my value of $21, which is above the maximum possible value of $20, I should bid slightly above $20 to maximize my chances of winning while ensuring a profit. Since the values are redrawn each round and there's no history, I will bid $20.1 to outbid any potential maximum bid from Andy or Betty. This strategy ensures I pay slightly above their maximum possible value, maximizing my profit margin."
+        ]
+    }
+}

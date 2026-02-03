@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            17.0
+        ],
+        "common": 19,
+        "plan": [
+            "With a private value of $36, I want to win the auction but minimize my payment. Given the value range is $0-$20 for other bidders, they'll likely bid strategically. A good approach is to bid slightly above the expected maximum competing bid. I'll aim to bid around $20, which covers the maximum possible opponent value while leaving room for profit. This reduces risk of overpaying while still having a strong chance of winning.",
+            "With a private value of $30, which is significantly higher than the typical $0-$20 range, I want to win this auction. However, other bidders will likely bid strategically. Since values are randomly drawn, a good strategy is to bid close to the maximum possible value ($20), but not so high that I risk losing money. I'll aim to bid just above what I expect rational competitors might bid, around $19-$19.5 to maximize my chances of winning while preserving potential profit.",
+            "With a private value of $37, I want to maximize potential profit. Since values are drawn randomly between $0-$20, my value is unusually high. Rational opponents will bid close to their actual value. I should bid strategically - high enough to win, but not so high that I lose money. A bid around $20 seems optimal, as it covers the likely maximum opponent value while minimizing overpayment risk."
+        ]
+    }
+}

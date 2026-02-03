@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            15.0,
+            0,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "[My value is $35, which is significantly higher than the possible values of the other bidders (between $0 and $20). This means I should aim to win the auction. I should bid aggressively in Stage 1 to ensure I stay in the auction as long as possible. I will bid my maximum possible value of $20, which is the highest possible value for the other bidders. This will force them to drop out when the clock reaches $20, and I will win the auction at that price. ]",
+            "[My value is $41, which is outside the range of possible values ($0-$20) for the other bidders. Therefore, I can bid $20 in the sealed bid auction. This guarantees I will win the auction at a price no higher than $20. My profit will be $41 - price paid. Since the price paid will be at most $20, my profit will be at least $21. ]",
+            "My value is $44, which is outside the typical range of [0, 20]. This suggests a potential error or a change in the game's parameters. Given this unusually high value, I should bid aggressively to maximize my chance of winning. I will bid $20, the upper limit of the previously known value range, as this is likely to be higher than the other bidders' values. This strategy aims to secure the win while keeping the payment reasonable."
+        ]
+    }
+}

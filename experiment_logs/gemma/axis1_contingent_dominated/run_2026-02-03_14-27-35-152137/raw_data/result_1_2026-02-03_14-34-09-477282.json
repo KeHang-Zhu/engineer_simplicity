@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 16.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.8999999999999986
+        ],
+        "common": 3,
+        "plan": [
+            "My value is $23. Since this is the only round, I want to maximize my expected profit. Bidding my value is risky; I could overpay. I should bid slightly above what I estimate the second-highest bid will be. Given the possible values (0-20 for the others), a conservative estimate for the second-highest bid is around $10. I will bid $13.50 to increase my chances of winning without overpaying significantly.",
+            "My value is $17. I need to bid high enough to win against likely opponent bids, but not so high that I overpay. Since this is round 1 and there's no history, I'll assume opponents bid randomly. A bid slightly above the average value ($10) seems reasonable, but I want to ensure I win if their values are low. I will bid $16.10. This avoids being significantly overpaying while still having a good chance of winning.",
+            "My value is $19. I need to bid high enough to win against likely opponents, but not so high that I overpay. Given it's round 1 and there's no history, a conservative approach is best. Bidding slightly above the midpoint of possible values (10) seems reasonable, but given my high value, I should bid more aggressively. I'll avoid dominated strategies by bidding a unique amount. I'll bid $18.1, hoping to win against bids lower than that while minimizing potential overpayment."
+        ]
+    }
+}

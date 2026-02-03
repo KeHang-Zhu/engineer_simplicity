@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 6.3
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            0,
+            0.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "With a private value of $14, my goal is to maximize potential profit. Since values are drawn independently and randomly, I'll aim to bid strategically. A bid slightly below my true value ($14) gives me a chance to win while minimizing overpayment risk. I'll bid around $13.5 - this allows potential profit if I win, and protects against paying too much if my value is lower than competitors' bids.",
+            "My private value is $14. In a second-price sealed bid auction, the optimal strategy is typically to bid my true value. This prevents underbidding (and potentially losing a profitable item) or overbidding (and potentially losing money). Since the values are randomly drawn and this is a single round, I'll bid close to my true value to maximize potential profit, accounting for potential competitor strategies.",
+            "My private value is $6. In a first-price sealed bid auction, optimal strategy depends on anticipating other bidders' behaviors. Since this is a single round with no prior history, I'll bid strategically near my value. My goal is to win if possible without overpaying. I'll bid slightly above my midpoint at $6.30 - this gives me a chance to win while protecting some potential profit margin if I succeed."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            10.0
+        ],
+        "common": 18,
+        "plan": [
+            "Given my value of $34, I should aim to bid slightly above the average expected value of other bidders to maximize profit while minimizing payment. Since values range from $0 to $20, other bidders' values are likely centered around $10. Bidding $15.1 ensures a win against most bids while securing profit ($34 - $15.1 = $18.9) if the second-highest bid is lower. This bid is not dominated, as lower bids risk losing while higher bids reduce profit without increasing win probability significantly.",
+            "Given my private value of $33, I should aim to bid slightly below my value to maximize profit while still having a good chance of winning. Bidding my full value or higher is dominated because it risks zero profit. I will bid $20, assuming the others bid closer to their expected values around $10. This maximizes the chance of winning and ensures a positive profit margin if successful.",
+            "Since my value for the prize is $30, which exceeds the maximum possible value of $20, I have a significant advantage. Bidding slightly above $20 maximizes my chance of winning while ensuring profit. A bid of $20.1 ensures I outbid any competitor who bids their maximum value of $20, maximizing profit."
+        ]
+    }
+}

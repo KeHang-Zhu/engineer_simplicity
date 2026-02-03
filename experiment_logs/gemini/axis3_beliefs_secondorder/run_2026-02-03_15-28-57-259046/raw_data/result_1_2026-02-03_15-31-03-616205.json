@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            13.899999999999999,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "I have a value of $34, which is significantly higher than the expected values of the other bidders (between $0 and $20). Given this large difference, I should bid aggressively to secure the win. A reasonable strategy is to bid slightly above the maximum possible value of the other bidders, which is $20. I will bid $20.1 to ensure I win and pay only slightly more than their maximum possible value. This will likely maximize my profit in this round.",
+            "Since this is the first round and my value is $33 (which is outside the typical range of $0-$20), I should bid strategically. Given that the other bidders' values are likely between $0 and $20, I can bid slightly above $20 to ensure I win. However, I should not bid too high, or I risk overpaying. I will bid $20.1 to secure the win and maximize my profit.",
+            "Since this is the first round, I have no history to learn from. My value is $30, which is significantly higher than the expected value of other bidders (around $10). I should bid aggressively to secure the win. However, I don't want to overbid and pay too much. I will bid slightly above the maximum possible value of other bidders, which is $20. This will ensure that I win the auction while minimizing the payment. I will bid $20.1."
+        ]
+    }
+}

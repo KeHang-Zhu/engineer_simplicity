@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 38.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            18.9,
+            0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "My value for the prize is $39, which is quite high. I should bid slightly below my value to maximize profit if I win while minimizing the risk of overbidding. Bids above $39 are dominated as they guarantee a loss. Bidding slightly below $39, like $38.9, is strategic to win against potential close bids from others while still ensuring profit if I win.",
+            "My private value is $41, but since the value range is $0-$20, this seems like an error. Assuming the correct max value is $20, I'll bid just below it to maximize my chance of winning while minimizing cost. I'll bid $19.9 to outbid others likely bidding near the top value, ensuring profit.",
+            "Given my value of $36, I aim to bid just above the expected average of other bids to maximize profit. Assuming others bid based on their random values between $0 and $20, a bid slightly above $20 might secure a win. However, bidding too high reduces profit. I will bid $20.1 to outbid others without overpaying. This strategy prevents overbidding while maximizing the chance of winning and profit."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 26.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            11.3,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "My private value is $31, which is significantly higher than the $20 initial endowment. This suggests I should bid aggressively but strategically. Since this is a single round with no prior history, I'll aim to win by bidding near my true value while leaving some margin for profit. A bid around $25-$28 would likely secure the prize while minimizing overpayment, balancing the chance of winning against potential loss.",
+            "My private value is $24, which exceeds the maximum possible initial endowment of $20. This suggests I should bid strategically. Since this is a single round with no repeated interactions, I want to maximize my chance of winning while minimizing overpayment. I'll bid close to, but slightly below my true value to ensure winning while preserving some profit margin. A bid around $19-$20 seems optimal.",
+            "My private value is $24, which exceeds the maximum possible initial endowment of $20. This suggests I should bid strategically to maximize potential profit. Since this is a single round with no repeated interactions, I'll aim to bid just above the expected competitive range. Given the $20 endowment limit, I'll bid slightly below my true value to ensure potential profit even if I win. A bid around $19.5 seems optimal to increase winning chances while preserving potential profit margin."
+        ]
+    }
+}

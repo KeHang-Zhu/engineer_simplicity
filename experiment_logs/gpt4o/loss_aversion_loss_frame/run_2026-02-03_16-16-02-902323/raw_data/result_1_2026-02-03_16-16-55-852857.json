@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            47,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            25.9
+        ],
+        "common": 29,
+        "plan": [
+            "Given my private value of $36, I aim to maximize profit by bidding just above the expected second-highest bid. Assuming uniform distribution, the average value is $10. I should bid slightly above this to increase winning chances while ensuring profit if I win. A bid of $15.1 balances winning probability and profit margin. This bid allows for a potential profit of $20.9 ($36 value - $15.1 bid) if I win against an average opponent bid.",
+            "Given my value of $47, significantly higher than the maximum possible value of $20, I should aim to win. To maximize profit, I should bid just above the likely maximum bid of my competitors, who value between $0 and $20. A bid of $20.1 would ensure a win unless they overbid, which is unlikely given their maximum value. This strategy secures the prize while minimizing payment.",
+            "My private value of $46 is exceptionally high, so winning is advantageous. However, I must avoid overbidding to maximize profit. A bid slightly above the midpoint of $20 should secure the win without unnecessary cost. I will bid $25, as it is likely higher than the others' values drawn randomly between $0 and $20, maximizing my net gain of $46 - (second-highest bid)."
+        ]
+    }
+}

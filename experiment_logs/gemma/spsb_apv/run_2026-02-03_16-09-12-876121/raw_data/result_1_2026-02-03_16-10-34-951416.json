@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            17,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 24.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 28.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 24.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.5
+        ],
+        "common": 14,
+        "plan": [
+            "My value is $29. Since this is the only round, I need to bid aggressively to try and win, but not overpay. Assuming others have values distributed around mine, a bid slightly above the midpoint of possible values (around 15) seems reasonable. I will bid $24.50, aiming to win against potentially lower valuations while minimizing payment to the second-highest bidder.",
+            "Since this is a single-round auction and I only have my private value ($17), I need to bid strategically to avoid overpaying while still having a chance to win. Given the limited information, a bid slightly above the expected average of other bidders' values is reasonable. Assuming other bidders' private adjustments average around 10 (midpoint of 0-20), and a common value around 14.5, their values could be around 24.5. I will bid a bit lower than that, aiming to win against conservative bidders.",
+            "My value is $34. Since this is a single-round game, I'll bid aggressively, but not my full value. I want to win, but avoid overpaying. Given the possible range of values (0-59), and the fact that others' values are likely correlated with mine, I'll bid slightly above the midpoint of my value and a reasonable estimate of others' potential values. I'll aim to win against likely bids in the $20-$30 range."
+        ]
+    }
+}

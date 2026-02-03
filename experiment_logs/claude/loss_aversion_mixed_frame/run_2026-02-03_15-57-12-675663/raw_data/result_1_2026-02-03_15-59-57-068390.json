@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 34.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 46.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            7.0
+        ],
+        "common": 27,
+        "plan": [
+            "My private value is $38, which is significantly higher than the typical $0-$20 range mentioned in the game rules. This suggests I should bid strategically to maximize potential profit. Since I want to win but minimize payment, I'll bid slightly below my true value. A bid around $35 gives me buffer to potentially profit while still being likely to win against other bidders who likely have lower values.",
+            "With a private value of $35, I want to maximize potential profit. Since the prize is worth $35 to me, I'll bid strategically. The key is to bid high enough to win, but not so high that I lose money. Given the $0-$20 typical range for other bidders, I'll bid $34.9 - this is just below my true value, giving me a small potential profit margin if I win, while ensuring I'm likely to win against lower bids.",
+            "With a private value of $42, I want to maximize potential profit. Since the prize is worth $42 to me, I'll bid strategically. Given multiple bidders and a second-price auction, I want to bid close to my true value but not exactly at it. I'll bid slightly above my value to increase my winning chances while protecting potential profit margin. A bid around $45-$47 seems optimal - high enough to likely win, but not so high that I risk significant loss if my value is lower than the competing bids."
+        ]
+    }
+}

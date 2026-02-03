@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.899999999999999
+        ],
+        "common": 18,
+        "plan": [
+            "My private value is $34, which is higher than the maximum possible value of $20, indicating an error in value assignment. Assuming my value should be $20, I will bid slightly above the average expected value of $10 to maximize profit while minimizing risk. A bid of $15 should be competitive enough to win without overpaying.",
+            "Given that my value for the prize is $33, which is above the maximum possible value of $20, I should aim to bid higher than the expected bids of Andy and Charles. Since all values are equally likely between $0 and $20, a competitive bid slightly above $20 will likely win. To maximize profit, I should bid $20.1, as it ensures winning while minimizing cost, considering the second-highest bid will likely be near $20.",
+            "Given my value of $30, I should aim to maximize profit by bidding slightly above the expected average of other bids. Since the value is drawn between $0 and $20, I anticipate competitors will bid close to their value. To ensure a win while maximizing profit, I will bid $20.1, which is above the maximum possible value of others, ensuring a win and a profit of $9.9 if the second-highest bid is $20."
+        ]
+    }
+}

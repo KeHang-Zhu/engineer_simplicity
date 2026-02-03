@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.4
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 0.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 13.4
+            }
+        },
+        "profit": [
+            0,
+            0,
+            16.6
+        ],
+        "common": 18,
+        "plan": [
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the expected value of the second highest bid. Since values are between $0 and $20, the expected value of the maximum of two other bids is approximately 2/3 * 20 = $13.33. To win with high probability, I'll bid slightly above this, accounting for the risk of losing to a very high value. Given my value of $34, bidding $13.40 is a safe, maximizing bid.",
+            "Since all bidders are rational, and values are between $0 and $20, a dominant strategy exists. Bidding your true value is *not* optimal. The optimal strategy is to bid slightly above zero, aiming to win only when the item is worth more than the second-highest bid. Given my value of $33 (which is irrelevant since the maximum possible value is $20), I will bid a small amount to try and win at the lowest possible price. I'll bid $0.1.",
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the expected value of the second-highest bid. Since values are between $0 and $20, a reasonable expectation for the second-highest bid is around $10. However, my value is $30, so I can afford to bid higher. I will bid a value that is significantly higher than the expected second highest bid, but still below my value."
+        ]
+    }
+}

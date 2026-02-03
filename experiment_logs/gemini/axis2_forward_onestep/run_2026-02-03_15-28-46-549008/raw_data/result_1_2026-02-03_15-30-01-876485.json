@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 44.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 40.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.1000000000000014
+        ],
+        "common": 27,
+        "plan": [
+            "I have a value of $35, which is outside the typical range. Given that the other bidders' values are between 0 and 20, I should bid aggressively to ensure I win. I will bid slightly above the maximum possible value of the other bidders, which is $20. I will bid $20.1 to win the auction and pay the second-highest bid, which is likely to be much lower than my value.",
+            "Since my value is $41, I should bid slightly below this to ensure a profit if I win. I will bid $40.9. This allows me to win if my value is the highest and still make a profit. I don't have any history to learn from yet.",
+            "My value is $44. This is the first round, so I have no history to learn from. I want to bid my true value, $44. This is because I want to win the item if the second highest bid is less than my value. If I bid less than my value, I might lose out on a profitable opportunity. If I bid more than my value, I risk winning and paying more than the item is worth to me."
+        ]
+    }
+}

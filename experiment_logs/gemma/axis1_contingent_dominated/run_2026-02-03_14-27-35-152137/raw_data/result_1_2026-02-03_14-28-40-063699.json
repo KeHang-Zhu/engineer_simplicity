@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 24.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            6.5
+        ],
+        "common": 12,
+        "plan": [
+            "Since this is the only round, a conservative strategy is best. My value is $13. I want to win if the second-highest bid is less than $13. Bidding $13.10 guarantees a win against any bid of $13 or less. Bids above $13 are dominated because they increase the payment without increasing the chance of winning. I'll bid slightly above $13 to maximize my chance of winning while minimizing potential losses.",
+            "My value is $25. Since there is only one round, I want to bid aggressively to win, but also avoid overpaying. Bidding my full value is risky as I could pay close to $25. I will bid slightly above my value to ensure a win, but not excessively high. Given the possible range of values for other players (0-20), a bid of $22.5 seems reasonable. I will eliminate bids below $20 as they are likely to lose.",
+            "My value is $29. Since I'm playing only one round, I want to maximize my expected profit. Bidding my value is generally not optimal, as it risks overpaying. However, given my high value, I want to ensure I win. I will bid aggressively, but not my full value. I'll consider a bid slightly above the midpoint of potential values (around $14.5), but adjusted upwards given my high private value. I'll bid $24.5."
+        ]
+    }
+}

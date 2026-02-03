@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            7.300000000000001,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "With a value outside the stated range, I'll bid strategically. Since my value exceeds the normal range, I want to win but not overpay. I'll bid near the maximum typical value to increase my win probability while minimizing overpayment. A bid around $19-$20 seems optimal to balance winning likelihood and potential profit.",
+            "My private value is $27, which is significantly higher than the typical $0-$20 range mentioned in the game rules. This suggests the value was likely drawn from a different distribution. Given this high value, I want to win the auction. I'll bid strategically near my true value to maximize potential profit, but not exactly at $27. I'll bid just above the expected maximum competitive bid to increase my chances of winning while minimizing overpayment.",
+            "My private value is $14. To maximize profit, I want to bid strategically:\n- I'll aim to win only if I can do so profitably\n- I'll bid slightly below my true value to minimize potential loss\n- Since this is a single round with no prior history, I'll use a moderate strategy\n- I'll bid around $13.5, which leaves me a small potential profit margin\n- This allows me to potentially win if others bid lower, while protecting against overpaying"
+        ]
+    }
+}

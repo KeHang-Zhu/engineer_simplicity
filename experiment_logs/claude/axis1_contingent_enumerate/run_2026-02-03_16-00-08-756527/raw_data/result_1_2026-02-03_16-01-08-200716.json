@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 45.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 33.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 33.7
+            }
+        },
+        "profit": [
+            13.299999999999997,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "With a private value of $47, my goal is to win the auction while minimizing my payment. Since values are drawn randomly and independently, other bidders might have low or high values. A good strategy is to bid close to, but slightly below my true value. By bidding around $45-$46, I maximize my chances of winning while ensuring a positive profit margin if I win. This approach balances aggressive bidding with profit protection.",
+            "With a private value of $41, I want to maximize my potential profit. Since the prize can range from $0-$20, other bidders likely have values in that range. A pure optimal strategy is to bid slightly above the expected maximum opponent value. Given the random distribution, I'll bid near the midpoint of the possible range - around $10. This gives me a good chance of winning while minimizing overpayment risk.",
+            "With a private value of $34, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. My optimal strategy is to bid close to, but slightly below my true value. This protects my potential profit margin. Given the $0-$20 typical range for other bidders, I'll bid competitively but not excessively. A bid around $33-$34 seems rational to ensure winning while minimizing overpayment."
+        ]
+    }
+}

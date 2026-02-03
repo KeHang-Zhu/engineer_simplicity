@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            2.1000000000000014,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "My private value is $22, but the max possible value in the game is $20. This suggests my value is actually outside the normal range. Since I want to maximize profit and the auction pays the second-highest bid, I should bid strategically. I'll bid close to but slightly below the maximum possible value to increase my chances of winning while minimizing my payment. A bid of $19.9 seems optimal.",
+            "My private value is $23, which is higher than the standard $0-$20 range. This suggests I should bid strategically to maximize profit. Since other bidders likely have values between $0-$20, I want to bid high enough to win but not so high that I reduce my potential profit margin. A safe strategy is to bid just above the expected maximum competitive bid, around $19-$20, which gives me a good chance of winning while preserving potential earnings.",
+            "My value is $17, which means I want to maximize my potential profit. Since values are drawn independently and this is a single round, I'll aim to bid strategically. A good approach is to bid slightly below my true value, hoping to win if others bid lower. I'll bid around $16.5 - this gives me a chance to win while preserving potential profit margin. If I win at a lower price, I gain; if I lose, I pay nothing."
+        ]
+    }
+}

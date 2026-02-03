@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 35.7
+            }
+        },
+        "profit": [
+            0,
+            5.299999999999997,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "My private value is $39, which is significantly higher than the typical $0-$20 range mentioned in the game rules. This suggests I should bid strategically to maximize profit. Since I want to win but pay the least possible, I'll bid slightly above the expected maximum competitor bid. Given the random value distribution, I'll aim to bid around $20-$25 to ensure winning while minimizing my payment.",
+            "With a private value of $41, my goal is to maximize profit. Since this is a single round with no prior history, I'll use a strategic bid close to, but slightly below my true value. By bidding $40, I create a high chance of winning while preserving some potential profit margin. This bid is just under my true value, which protects me from overpaying if another bidder has a similar or lower valuation.",
+            "With a private value of $36, my optimal strategy is to bid strategically. Since this is a single round with no history, I'll aim to maximize potential profit. The auction pays the second-highest bid if I win, so I want to bid just above what I expect others might bid. Given the $0-$20 typical range for other bidders, I'll bid near my true value but slightly lower to ensure profit margin. A bid around $35-$37 seems optimal."
+        ]
+    }
+}

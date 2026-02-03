@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            14.0
+        ],
+        "common": 12,
+        "plan": [
+            "Considering my value of $13, I aim to bid just below this to maximize profit if I win. I should bid slightly above the midpoint of the possible value range to outbid conservative bidders but below my value to ensure a gain. A bid of $11.5 balances competitiveness and profit, as it allows for a $1.5 gain if I win against a bid of $11. This strategy maximizes long-term profit potential by not exceeding my value.",
+            "Since my private value is $25, which is higher than the maximum possible value of $20, I should aim to win the auction. To maximize profit, I will bid slightly above the expected average bid of others. Assuming others bid around their average value, I will bid $15 to outbid them while ensuring a profit margin.",
+            "Given my private value of $29, which is above the maximum possible value of $20, I have a strong incentive to bid aggressively. My goal is to maximize profit, so I should bid slightly above the average expected bid of other bidders, who have values between $0 and $20. I will bid $20.1 to ensure winning while minimizing the payment, as I will pay the second-highest bid. This strategy ensures I win and gain the difference between my value and the second-highest bid."
+        ]
+    }
+}

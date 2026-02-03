@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            1.8999999999999986,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "Since my value is $22, which is outside the range of possible values for the other bidders (0-20), I should win the auction as long as I bid slightly above the maximum possible value of the other bidders, which is $20. I will bid $20.1 to ensure I win and pay $20 as the second highest bid. This will give me a profit of $22 - $20 = $2.",
+            "Given my value of $23, and the auction rules, I should bid aggressively to win. Since the other bidders' values are drawn from a uniform distribution between $0 and $20, their bids will likely be lower than my value. To maximize my profit, I want to bid slightly above the expected highest bid from the other players. Since I don't have any history yet, I will bid a little above the maximum possible value of the other players, but less than my value to ensure a profit if I win. I will bid $20.1.",
+            "I will use a bidding strategy that aims to maximize expected profit. Since this is the first round, I have no historical data to rely on. A reasonable starting point is to bid slightly below my value to avoid overbidding but still have a good chance of winning. I will bid $16.50. This allows for a potential profit of $0.50 if I win and the second-highest bid is near my bid."
+        ]
+    }
+}

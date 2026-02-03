@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            23.5
+        ],
+        "common": 27,
+        "plan": [
+            "My value is $35. Since this is the only round, I want to maximize my potential gain. A conservative approach is to bid slightly above what I expect the others to bid. Given the values are between $0 and $20, and there are two other bidders, I will bid $15. This should win most of the time and secure a good profit, while avoiding overpaying.",
+            "Since this is the only round, a conservative approach is best. My value is $41. I want to win if the second highest bid is significantly below my value. I will bid slightly above what I estimate the other bidders might offer, aiming to secure a profit without overpaying. Given the possible range of values (0-20), a bid around $20.5 should be sufficient to win against most reasonable bids, while still leaving a good margin.",
+            "My value is $44. Since this is the only round, I want to maximize my potential gain. I will bid aggressively, but not reveal my full value. I will bid slightly above what I estimate the others might bid, aiming to win while paying as little as possible. Given the range of values (0-20), and assuming others bid rationally, I'll bid $21. This is high enough to likely win, and the second-highest bid should be relatively low."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            12,
+            8,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            6.5
+        ],
+        "common": 0,
+        "plan": [
+            "I have a value of $12. Since this is the only round, I don't need to worry about long-term strategy. Given my risk-seeking preference, I will bid slightly above my value to increase my chances of winning, but not so high that I risk losing too much if I win. I will bid $12.50.",
+            "[I have a value of $8. Since I am risk-seeking, I will bid aggressively to try and win the auction. I will bid slightly above my value to increase my chances of winning, even though it could result in a small loss if the second-highest bid is close to my value. I will bid $8.50.]",
+            "I have a high value of $19. Since I am risk-seeking, I want to try to win the auction. I will bid slightly above my value to try and secure the win, but not so high I lose too much if I win. I will bid $19.5."
+        ]
+    }
+}

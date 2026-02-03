@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 8.2
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 3.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 8.2
+            }
+        },
+        "profit": [
+            0,
+            5.800000000000001,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Since this is round 1 and there's only one round, there's no long-term learning involved. My value is $14. To maximize profit, I need to win if my value exceeds the second-highest bid. I'll bid slightly above what I estimate the others will bid, but not too high to avoid overpaying. Assuming rational opponents, a bid around $7.5 - $8.5 seems reasonable, hoping to beat out conservative bids while avoiding excessive payments.",
+            "Since this is a single round, aggressive bidding is warranted to secure the prize if my value is high. My value is $14. I want to bid slightly above what I estimate the others might bid, but not so high that I overpay significantly. Assuming other bidders are rational, they will also bid based on their values. I will bid $13.1 to try and win without overpaying.",
+            "Since this is a single round, aggressive bidding is less risky. My value is $6. I need to estimate the other bidders' values. Assuming they are rational, they'll also bid based on their values. To maximize profit, I'll bid slightly above what I think the second-highest value might be, hoping to win at a reasonable price. A bid of $3.50 aims to win against likely lower values while keeping the payment relatively low."
+        ]
+    }
+}

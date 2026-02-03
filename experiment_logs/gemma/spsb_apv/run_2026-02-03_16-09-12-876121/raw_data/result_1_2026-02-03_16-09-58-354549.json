@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            5,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 0.6
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 8.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 8.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            11.5
+        ],
+        "common": 2,
+        "plan": [
+            "Since this is the only round, a conservative approach is best. My value is $16. I want to win if possible, but avoid overpaying. I'll bid slightly above the midpoint of my value and zero, anticipating others might also have decent values. Bidding $8.5 should give me a good chance of winning against someone with a lower value, while minimizing losses if someone bids higher.",
+            "Since this is round 1 of 1, and my value is only $5, I need to be extremely cautious. My goal is to avoid overpaying. Given the possible values (0-29 common + 0-20 private), other bidders could have much higher valuations. I'll bid slightly above $0, hoping to win if others undervalue the item, but minimizing losses if they bid higher. A very conservative bid is best here.",
+            "Since this is round 1 of 1, and I only have my own value, I will bid conservatively to avoid overpaying. My value is $20. I assume Andy and Betty have values distributed around a common value. I will bid slightly above what I think a reasonable average value might be, aiming to win if the common value is high, but not overspend if it's low. I'll bid $8.5."
+        ]
+    }
+}

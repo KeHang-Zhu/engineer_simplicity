@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.8
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.8
+            }
+        },
+        "profit": [
+            0,
+            0,
+            5.199999999999999
+        ],
+        "common": 17,
+        "plan": [
+            "My private value is $33, which exceeds the maximum possible value of $20, indicating an error. Assuming a value of $20, I aim to maximize profit. Bidding exactly $20 is risky due to ties, so I'll bid slightly lower to ensure a win if others bid less than or equal to $19.9. I'll bid $19.8 to balance winning chances and profit, ensuring I pay no more than necessary.",
+            "My value for the prize is $34, which is above the maximum possible value of $20, indicating an error. Assuming a value within the $0-$20 range, I'll bid close to my true value to maximize profit. Bidding lower risks losing, while bidding higher reduces profit if I win. With no history, I'll bid slightly above average to outbid competitors without overpaying. Dominated bids are those above my value or significantly below average.",
+            "My private value is $25, which is above the maximum possible value of $20 for other bidders. Therefore, I can bid slightly above $20 to ensure a win while minimizing payment. Bidding $20.1 ensures I win against any potential bid by Andy or Betty, maximizing profit as I pay only the second-highest bid, which cannot exceed $20."
+        ]
+    }
+}

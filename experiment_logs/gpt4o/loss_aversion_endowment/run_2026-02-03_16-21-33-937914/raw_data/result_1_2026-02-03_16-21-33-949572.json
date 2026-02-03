@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            16.1
+        ],
+        "common": 26,
+        "plan": [
+            "My private value is $39, but the maximum possible value is $20. This discrepancy suggests an error, as values should range from $0 to $20. Assuming a typo, I'll treat my value as $19. To maximize profit, I'll bid slightly below my value to win while minimizing payment. A bid of $18.9 ensures I win if others bid near their maximum value, maximizing my profit if I pay the second-highest bid.",
+            "My value for the item is $41, but since the value is randomly drawn between $0 and $20, there seems to be an error in the setup. Assuming my true value is the maximum possible of $20, I should bid slightly below this to maximize profit if I win. I will bid $19.9 to ensure I win if others bid close to the maximum value. This strategy maximizes the likelihood of winning while minimizing payment.",
+            "My private value for the prize is $36, which is high. To maximize profit, I should aim to win by bidding just above the expected second-highest bid. Assuming random values, the average value for others is $10, but I should consider higher bids due to strategic play. I'll bid $20, which is high enough to likely win without risking too much of my endowment. This balances winning the prize and minimizing payment."
+        ]
+    }
+}

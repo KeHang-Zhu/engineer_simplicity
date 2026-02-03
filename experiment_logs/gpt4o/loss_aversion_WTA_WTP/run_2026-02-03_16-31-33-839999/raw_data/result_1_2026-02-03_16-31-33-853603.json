@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 9.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            24.0
+        ],
+        "common": 26,
+        "plan": [
+            "My private value is $41, but this seems incorrect given the $0-$20 range. Assuming a typo, I'll consider a max value of $20. To maximize profit, I'll bid slightly below the midpoint of $10, anticipating competitors bid near their values. A bid of $9.9 offers a chance to win against lower bids and ensures a profit if my actual value is close to the max.",
+            "My value for the item is $29, which is above the maximum possible value of $20, indicating a setup error. Assuming a max value of $20, I should bid slightly above $20 to ensure a win, while minimizing the payment. However, I will bid $20, as it's the logical max value, ensuring I win if others bid their value.",
+            "My value for the prize is $44, which is unusually high given the typical range of $0 to $20. To maximize profit, I should bid slightly above the maximum possible value of $20, ensuring I win if others bid their true value. A bid of $20.1 should secure the win while minimizing payment."
+        ]
+    }
+}

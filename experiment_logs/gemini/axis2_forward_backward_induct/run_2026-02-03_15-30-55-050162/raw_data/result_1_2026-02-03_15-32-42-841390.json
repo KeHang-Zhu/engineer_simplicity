@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 18.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            17.0
+        ],
+        "common": 15,
+        "plan": [
+            "[I will bid my true value in the sealed bid stage. This strategy aims to win the auction at a price lower than my value, maximizing my potential profit. By bidding my true value, I ensure that I only exit the auction when the clock price reaches my value, preventing me from exiting prematurely and potentially missing out on a profitable win. This strategy is optimal because it balances the desire to win with the need to avoid overpaying for the item. This is round 1, so no prior history to consider.]",
+            "[My value is $15. I should bid a little below my value to ensure I win when the price is favorable, but also not risk bidding too high and losing money. I will bid $14. This ensures I win if the other two bidders have values less than $14, and I make a profit. If either of them has a value higher than $14, I will lose, but that's acceptable. This strategy aims to maximize profit in the long run by securing wins when the price is right.]",
+            "I have a value of $35. In the ascending clock stage, I want to stay in as long as the clock price is below my value. Therefore, I want my exit price (sealed bid) to be equal to my value. This will ensure that I win the auction if the second-highest value is less than my value, and I will only pay the second-highest value."
+        ]
+    }
+}

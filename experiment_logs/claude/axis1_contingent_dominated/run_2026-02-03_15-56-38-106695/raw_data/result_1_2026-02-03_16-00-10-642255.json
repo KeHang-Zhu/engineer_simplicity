@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            18,
+            26
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.2
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            7.0
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $16, my goal is to win the auction while minimizing my payment. Given the $0-$20 range, other bidders likely have values between $0-$20. A bid near my value but not exactly at it provides flexibility. I'll bid slightly above my midpoint to signal serious intent while leaving room for profit. Avoiding dominated bids, I'll aim to bid around $12-$14 to balance winning probability and potential profit margin.",
+            "With a private value of $18, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. With three bidders and values between $0-$20, a bid close to my true value but not exactly at $18 makes sense. I'll aim to bid slightly above my true value to increase winning chances while protecting against overpaying. A bid around $19 seems optimal - high enough to likely win, but not so high that I risk significant loss if my value is lower than the second-highest bid.",
+            "In a first-price sealed bid auction with three bidders, I want to bid strategically. My value is high, so I want to win, but not overpay. I'll bid close to, but slightly below my true value to maximize potential profit. Given the $0-$20 typical range, I'll bid near the top end to increase winning probability while preserving potential profit margin."
+        ]
+    }
+}

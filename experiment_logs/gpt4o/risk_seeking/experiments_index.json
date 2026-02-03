@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "intervention_risk_seeking",
+      "run_id": "2026-02-03_16-08-39-252173",
+      "timestamp": "2026-02-03T16:08:39.252173",
+      "duration": 414.707091,
+      "status": "completed",
+      "output_dir": "risk_seeking/run_2026-02-03_16-08-39-252173",
+      "config_hash": "6d7e2580"
+    }
+  ]
+}

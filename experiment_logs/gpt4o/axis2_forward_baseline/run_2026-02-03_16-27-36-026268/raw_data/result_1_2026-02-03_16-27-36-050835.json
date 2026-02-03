@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 39.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            16.0,
+            0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "[ With a private value of $41, I aim to bid just below my value to maximize profit while still having a good chance of winning. Given no prior history, I'll assume competitors bid close to their values. A bid of $39.9 should outbid competitors valuing the prize similarly while ensuring a profit margin should I win. ]",
+            "Given my private value of $29, I aim to bid slightly below this to maximize profit while maintaining a competitive edge. Since this is a one-round game with no history to consider, I will bid aggressively but not at my maximum value to avoid overpaying. A bid of $25 should be competitive enough to potentially outbid others while ensuring a profit margin if I win.",
+            "Given my private value of $44, I should aim to bid slightly below this value to maximize profit if I win. Since values are drawn independently and equally likely between $0 and $20, I expect others to bid around their values. To ensure a win while still aiming for profit, I'll bid slightly above the midpoint of $20, around $25, to outbid likely competitors without sacrificing too much profit."
+        ]
+    }
+}

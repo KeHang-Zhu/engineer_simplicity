@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            10.100000000000001,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $30, which is significantly higher than the game's max possible value of $20. This means I want to win the auction, but must be strategic. Since the second-highest bid determines my payment, I'll aim to bid just enough to win without overpaying. Given the $20 endowment limit, I'll bid $20 to maximize my chances of winning while preventing potential massive losses.",
+            "My private value is $25, which exceeds the maximum possible endowment of $20. This suggests I should bid strategically to maximize potential profit. Since this is a single round with no repeated interactions, I'll bid close to but slightly below my endowment limit. This maximizes my potential gain while ensuring I don't overpay. A bid near $19-$20 range seems optimal to win while preserving most of my potential profit margin.",
+            "My private value is $22, which is higher than the maximum possible initial endowment of $20. This suggests I should bid strategically to maximize profit. Since this is a single round with no repeated interactions, I'll aim to win but minimize payment. I'll bid slightly above the expected maximum competitive bid - around $19.90 to increase my chances of winning while leaving a small profit margin if I win."
+        ]
+    }
+}

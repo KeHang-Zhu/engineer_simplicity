@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 46.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 39.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 33.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 39.7
+            }
+        },
+        "profit": [
+            7.299999999999997,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "My private value is $47, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since I'll only profit if my bid wins and is less than my value, I want to bid close to, but not exceeding, my true value. A bid around $46-$47 minimizes risk of overpaying while maximizing winning probability. I'll aim to bid just below my true value to ensure potential profit.",
+            "My private value is $41, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I reduce my potential profit margin. I'll bid close to my true value but not exactly at it, to leave some potential profit space. A bid around $39-$40 seems optimal.",
+            "With a private value of $34, my goal is to maximize potential profit. Since values are independently drawn and this is a single round, I'll use a strategic bid near my value. The second-price auction mechanism suggests bidding close to my true value. I'll bid slightly below my value to create a buffer for potential profit. Given the $0-$20 typical range, a bid around $34 seems aggressive but potentially profitable."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            5.899999999999999,
+            0,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "My private value is $26, which is higher than the possible maximum value of $20. This means I should aim to win the auction, as my value exceeds any potential cost. Rational bidders will likely bid close to their value to maximize profit. To ensure winning, I can bid slightly above the maximum value range, say $20.1, ensuring I outbid rational competitors without overpaying significantly.",
+            "Given my value of $28, which is higher than the possible maximum value of $20, I should bid aggressively to ensure I win the auction. Other bidders will bid based on their values between $0 and $20. To maximize profit, I should bid slightly above $20 to outbid any rational bidder, expecting them to bid close to their value. Thus, I will bid $20.1 to ensure I win while minimizing the payment.",
+            "Given my value for the prize is $21, I should bid close to it to maximize potential profit. Since values are drawn independently and rational bidders will likely bid below their value, I expect competitors to bid between $10 and $20. To ensure a win while minimizing cost, I'll bid slightly above the average high bid, around $15. This balances winning chances and profit margin, assuming others bid rationally within their value range."
+        ]
+    }
+}

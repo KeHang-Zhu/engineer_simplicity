@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 9.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            1.5
+        ],
+        "common": 9,
+        "plan": [
+            "My private value is $13. As a risk-averse bidder, I want to minimize potential losses. I'll bid strategically below my full value to create a buffer. Since values are independently drawn and this is a single round, I'll bid around 80-85% of my true value. This gives me a chance to win while protecting against overpaying. I'll choose $10.50 as a balanced bid that reflects my cautious approach and provides potential profit margin.",
+            "As a risk-averse bidder with a private value of $11, I want to bid strategically to maximize potential profit. Given the uncertainty of other bidders' values, I'll aim to bid slightly below my true value to minimize potential losses. A bid around $9-$10 provides a buffer against overpaying while still having a reasonable chance of winning. This approach balances my risk tolerance with the opportunity to potentially acquire the prize at a lower price than my true valuation.",
+            "My private value is $12. As a risk-averse bidder, I want to maximize my potential profit while minimizing downside risk. Since this is a single round and values are independently drawn, I'll bid strategically. I'll aim to bid slightly below my true value to create a buffer. A bid around $10-$11 gives me a good chance of winning while protecting against potential losses if other bidders have high values."
+        ]
+    }
+}

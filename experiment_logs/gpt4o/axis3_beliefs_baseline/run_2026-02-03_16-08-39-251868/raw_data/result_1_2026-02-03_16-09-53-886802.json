@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.8
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            19.0
+        ],
+        "common": 28,
+        "plan": [
+            "Given my private value of $47, which is incorrectly stated as it should be between $0 and $20, I will assume my value is at the maximum of $20. To maximize profit, I should bid slightly above the expected average bid of rational agents. Assuming they bid close to their value, I'll bid $15 to balance winning chances and profit margin.",
+            "My value for the prize is $41, which is above the maximum possible value of $20, indicating an error. Assuming a typo, I'll treat it as $14. To maximize profit, bid slightly below my value to ensure a win if competitors bid rationally near their values. Bid $13.8 to outbid potential bids near $13.7 (assuming they value the prize similarly). This ensures winning while maximizing profit margin.",
+            "Since my private value of $34 is higher than the maximum possible value of $20, I should bid aggressively to maximize profit. A bid slightly above the maximum possible value of $20 will likely secure the win while minimizing payment. Therefore, I will bid $20.1 to ensure victory, as the other bidders cannot value the prize above $20. This bid maximizes my expected profit since I will win the prize and pay a minimal amount above their highest possible valuation."
+        ]
+    }
+}

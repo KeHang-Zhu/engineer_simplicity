@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            5.0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "My value is $28, which is quite high. I want to win, but avoid overpaying. Since this is the only round, I'll bid aggressively but not at my full value. I'll bid slightly above what I estimate the others might bid, aiming to win while keeping the payment reasonable. A bid of $20 should be competitive without being excessive, given the possible value range of $0-$20 for the other bidders.",
+            "My value is $25, which is higher than the maximum possible value of $20. Therefore, I should bid aggressively to win. Since the second-highest bid determines the cost, I want to minimize that while still being the highest bidder. I will bid slightly above the maximum possible value to ensure a win, but not excessively high to avoid overpaying. A bid of $20.1 will likely secure the win.",
+            "My value is $20. Given this is the final round, I should bid aggressively. However, I need to consider the other bidders. Since there's no history, I\u2019ll assume a conservative approach, bidding slightly above what I estimate the others might bid. I will bid $18.50, aiming to win against likely bids in the $17-$18 range, while still keeping the payment reasonable. This maximizes potential profit with acceptable risk."
+        ]
+    }
+}

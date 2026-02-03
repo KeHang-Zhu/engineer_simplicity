@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 17.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            12.5
+        ],
+        "common": 18,
+        "plan": [
+            "My value is $34. Since this is the only round, I should bid aggressively to try and secure the prize. However, I need to consider the potential cost \u2013 the second-highest bid. I\u2019ll aim for a bid slightly above what I estimate the others might offer, but not so high that I overpay significantly if I win. Given the value range is 0-20, I'll bid $17.5, aiming to win against reasonable bids while minimizing potential loss.",
+            "My value is $33. Since this is the only round, I want to bid aggressively to win if my value is significantly higher than expected. I'll bid slightly above the midpoint of possible opponent values (assuming they are randomly distributed between $0 and $20). This aims to win against most opponents while avoiding overpaying. A bid of $16.5 should achieve this.",
+            "My value is $30. Since this is the only round, I want to maximize potential profit. Given the maximum possible value is $20, I need to be cautious. A bid too high risks overpaying, while a bid too low risks losing. I'll bid slightly above the maximum possible value ($20) to increase my chances of winning, but not excessively. I'll bid $20.1, hoping to win against potentially conservative bids."
+        ]
+    }
+}

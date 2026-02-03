@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            10.5,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "My private value is $31, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively. Since the winner pays the second-highest bid, I want to bid high enough to win, but not excessively above the likely competing bids. Given the random value distribution, I'll aim to bid around $20-$25 to maximize my chances of winning while preserving potential profit.",
+            "My private value is $24, which is unusually high. Since values are drawn randomly between $0-$20, my value being $24 suggests a strategic opportunity. I want to win this auction, but also minimize my payment. I'll bid strategically near the maximum expected range of other bidders (around $20) to increase my chances of winning while keeping my payment low. A bid slightly above $20 seems optimal.",
+            "My private value is $24, which is unusually high. Since values are drawn independently and randomly, I want to bid strategically. My goal is to win the auction while minimizing my payment. I'll bid slightly above the midpoint of the typical range ($20), targeting around $15-$16. This gives me a good chance of winning while leaving room for potential profit if my actual value is higher than the second-highest bid."
+        ]
+    }
+}

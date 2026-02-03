@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 41.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 27.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            14.100000000000001
+        ],
+        "common": 26,
+        "plan": [
+            "[My value is $28, which is outside the typical range of 0-20. This suggests a potential error or a change in the game rules. I will assume the value is indeed $28. My strategy is to bid aggressively to win. I will bid slightly below my true value to ensure a profit if I win. I will bid 27.9. This allows me to win if the other bids are below this and still make a small profit. If they bid higher, I lose, but that's acceptable as my value is high. ]",
+            "[My value is $37, which is outside the usual range of [0, 20]. This suggests a possible error or a different distribution. Regardless, I will bid conservatively. I want to win if the other bidders are playing according to the [0, 20] distribution, but I don't want to overpay. I will bid 20, the maximum value they would normally have. This should give me a good chance of winning if they are playing according to the [0, 20] distribution, and I won't overpay by much if they also have values above 20.]",
+            "The optimal strategy is to bid slightly below my true value. Since my value is 42, I will bid 41.9. This ensures I win if the other bids are below 41.9, and I exit if the price reaches 41.9. This aims to maximize potential profit while minimizing the risk of overpaying."
+        ]
+    }
+}

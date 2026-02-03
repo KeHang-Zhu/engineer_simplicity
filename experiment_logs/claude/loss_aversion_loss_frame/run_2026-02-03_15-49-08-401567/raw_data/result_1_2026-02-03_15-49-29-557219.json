@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            31,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            11.100000000000001,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $20, my optimal strategy is to bid strategically. Since this is a second-price sealed bid auction, I want to bid close to my true value but not exactly at $20. I'll bid $19.9 to maximize potential profit. This allows me to win if others bid lower, and ensures I only pay slightly less than my maximum value. With a single round, I'll use a straightforward near-maximum bid to secure the item.",
+            "My private value is $31, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win but minimize payment, I'll bid slightly below my true value. Given the random nature of other bidders' values, a bid around $25-$28 seems optimal - high enough to likely win, but not so high that I risk losing money if the second-highest bid is close to my bid.",
+            "My private value is $12. To maximize profit, I want to bid strategically. Since the goal is to win only if the net profit is positive, I'll bid slightly below my true value. A bid around $11.50 allows me to potentially win if others bid lower, while protecting against overpaying. With values randomly drawn, I'll aim to create a small buffer that gives me a chance to profit without risking too much of my $20 endowment."
+        ]
+    }
+}

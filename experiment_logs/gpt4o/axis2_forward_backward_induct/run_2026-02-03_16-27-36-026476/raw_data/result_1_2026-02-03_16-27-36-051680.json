@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            23,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            3.1000000000000014,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value for the item is $20. To maximize profit, bid slightly below my value to avoid overpaying if others value it less. A bid of $19.9 ensures I stay competitive in the ascending clock stage, exiting just before full value, maximizing profit if I win.",
+            "My value for the item is $23. To maximize profit, I should bid slightly below my value to ensure I don't overpay. A bid of around $20 would be strategic, as it allows me to stay in the auction longer without exceeding my value. This bid ensures I exit at a price where I still make a profit if I win, while also being competitive enough to potentially win against other bidders whose values are likely $20 or less.",
+            "To maximize profit, bid slightly below the private value to ensure potential win without overpaying. Given my value is $11, a bid slightly lower, like $10.5, could deter competitors while ensuring a positive payoff if I win. This strategy balances winning chances and profit margin."
+        ]
+    }
+}

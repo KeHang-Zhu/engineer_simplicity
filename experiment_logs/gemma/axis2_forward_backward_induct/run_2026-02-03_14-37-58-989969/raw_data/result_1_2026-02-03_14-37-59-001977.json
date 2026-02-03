@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 40.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            23.5
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $41. I want to win if the price is below $41, and lose if it's above. Therefore, I need to bid high enough to outbid others, but not so high that I pay too much if I win. Since this is round 1 and there's no history, I'll bid conservatively, aiming to win against potentially low bids. I will bid $20.50.",
+            "My value is $29. Since the values are between $0 and $20, my value is an outlier. I want to win at the lowest possible price. I will bid aggressively, but not so high that I overpay significantly if my value were closer to the typical range. A bid of $19.5 should secure a win against typical values, while still leaving room for others to bid higher if they have a similarly high value.",
+            "My value is $44. To maximize profit, I need to win when the price is below $44. I'll bid slightly above what I estimate the other bidders will bid, aiming to be the second highest. Since this is round 1 and there's no history, I'll assume a conservative estimate of other bidders valuing the item around $20 on average. Therefore, I will bid $40."
+        ]
+    }
+}

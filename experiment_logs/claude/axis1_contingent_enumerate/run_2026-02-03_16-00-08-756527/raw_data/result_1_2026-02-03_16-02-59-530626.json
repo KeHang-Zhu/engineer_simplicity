@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 36.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 36.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 36.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            0.5
+        ],
+        "common": 19,
+        "plan": [
+            "My private value is $36, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I lose money. I'll aim to bid near my true value, around $35-$37, anticipating other bidders might bid more conservatively given the typical value range.",
+            "With a private value of $30, I want to win the auction but minimize my payment. Since values are drawn randomly between $0-$20, my high value suggests I should bid strategically. A dominant strategy is to bid slightly above the maximum possible opponent value. By bidding around $20.5, I maximize my chances of winning while minimizing overpayment. This approach protects my significant surplus between my value and the likely opponent valuations.",
+            "My private value is $37, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I lose money. A good approach is to bid close to, but slightly below my true value - around $36-$37 - to maximize potential profit while ensuring victory."
+        ]
+    }
+}

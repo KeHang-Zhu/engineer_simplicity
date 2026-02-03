@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            5.100000000000001,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "My private value is $28, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically. Since I want to maximize profit and the winner pays the second-highest bid, I'll bid just above what I expect other rational bidders might bid. Given the high personal value, I'll bid near the upper range but not my full value to ensure profit margin.",
+            "My private value is $25, which is higher than the $20 maximum typical range. This suggests I should bid strategically to win. Since I want to maximize profit and the second-highest bid determines my payment, I'll bid just above what I expect other rational bidders might bid. A safe strategy is to bid around my value minus a small buffer, ensuring I win while minimizing my payment.",
+            "With a private value of $20, my optimal strategy is to bid strategically. Since this is a second-price sealed-bid auction, I want to bid close to my true value to maximize potential profit. Given the uncertainty of other bidders' values, I'll bid slightly below my full value to ensure I win if my value is highest, but don't overpay. A bid of $19.9 allows me to capture most of the potential profit while protecting against overbidding."
+        ]
+    }
+}

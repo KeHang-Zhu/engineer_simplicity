@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.7
+            }
+        },
+        "profit": [
+            -0.6999999999999993,
+            0,
+            0
+        ],
+        "common": 9,
+        "plan": [
+            "With a private value of $13, I want to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bid that balances winning probability with profit margin. A bid slightly above my value but not excessively high makes sense. I'll bid $14.5 - this gives me a buffer above my true value while not being so high that I risk significant losses if I win. This strategy allows potential profit if others bid lower.",
+            "With a private value of $11, my goal is to maximize potential profit. Since values are drawn independently and randomly, I'll use a strategic bid slightly above my value. Bidding exactly $11 risks losing money if others bid higher. I'll aim to bid around $13-$14 to increase my chances of winning while maintaining potential profit margin. This strategy balances winning probability with potential earnings, considering the second-price auction mechanism.",
+            "My private value is $12. Since the second-highest bid determines the payment if I win, I want to bid strategically. A pure profit-maximizing approach suggests bidding slightly below my true value. I'll bid $11.5, which leaves me a potential profit margin if I win. This bid is close to my true value but provides some buffer. Given the one-round nature, I can't learn from prior rounds, so I'll use a conservative, rational strategy."
+        ]
+    }
+}

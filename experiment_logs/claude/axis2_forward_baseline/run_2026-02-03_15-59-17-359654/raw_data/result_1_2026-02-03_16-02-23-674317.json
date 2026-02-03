@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            6.0,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "Bid just above the maximum possible initial value of $20 to ensure winning while minimizing overpayment. This strategy protects my surplus value and gives me the highest probability of winning profitably. My goal is to win with minimal price paid relative to my true value.",
+            "With a private value of $16, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bid slightly below my true value. A bid around $15 allows room for potential profit if I win at a lower price. This approach balances the risk of overbidding and the opportunity to secure the item. I'll aim to create a buffer that gives me a chance to win while protecting potential earnings.",
+            "With a private value of $17, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic approach. I want to bid high enough to have a good chance of winning, but not so high that I eliminate potential profit. A bid around $15 seems optimal - it's close to my true value, gives me room for profit if I win at a lower price, and signals serious intent to other bidders."
+        ]
+    }
+}

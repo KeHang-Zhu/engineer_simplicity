@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            7.899999999999999,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "My value is $26, and I have $20. I want to win if possible, but not overpay. Since my value is high, I'll bid aggressively, but capped by my endowment. I\u2019ll bid slightly above my endowment to discourage others, hoping they don\u2019t value the item as highly. A bid of $20.1 ensures I win against any bid below $20.1, and I won't lose more than my entire endowment.",
+            "My value is $28. Since this is the only round, I should bid aggressively to try and win, but not overpay. I will bid slightly above my value, anticipating others may bid lower, but accounting for the possibility of a higher bid. I'll aim for $21.50, hoping to win against potentially conservative bids. This maximizes my potential profit while minimizing risk in this single-round scenario.",
+            "My value is $21, and I have $20. Since my value exceeds my endowment, I should bid my entire endowment to have a chance of winning. Even if I win, I'll effectively be paying $0, and receiving $21. This is the best possible outcome given my value and endowment. I'm assuming the other bidders do not know my value."
+        ]
+    }
+}

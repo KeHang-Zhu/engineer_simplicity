@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.1
+            }
+        },
+        "profit": [
+            5.899999999999999,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "Since this is round 1 and my value is $22, I need to bid aggressively but not overspend. The other bidders are rational, so they'll likely bid based on their own values. A bid slightly above the expected maximum of the other players' values (around $20) should secure a win without excessive payment. I will bid $21.1 to increase my chances of winning without paying too much.",
+            "My value is $23. Since this is round 1 and there's only one round, I need to be aggressive, but not overbid significantly. I assume Andy and Charles will bid somewhat rationally. A bid slightly above the expected maximum value of their draws (which is around $10) but below my value seems reasonable. I will bid $11.50 to try and win without overpaying.",
+            "Since this is a single-round auction, and my value is $17, I need to bid slightly above what I estimate the second-highest bid will be. Assuming the other bidders are rational, they'll also bid based on their values. To maximize profit, I'll bid aggressively but below my value, aiming to win without overpaying. I'll bid $16.1, hoping to secure the item for a small profit."
+        ]
+    }
+}

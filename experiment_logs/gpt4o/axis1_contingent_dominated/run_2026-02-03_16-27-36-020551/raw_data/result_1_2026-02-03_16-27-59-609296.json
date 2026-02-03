@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            31,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            11.0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Given my value of $20, I should aim to win while minimizing payment. Bidding exactly $20 ensures I win if others bid lower. Bids above $20 are dominated since I can't profit more than my value. Bidding slightly below $20 risks losing if others bid close to $20. Thus, bidding $20 maximizes my chance of winning without overpaying, ensuring the highest possible profit given my value.",
+            "My value for the item is $31, which is above the maximum possible value of $20. Therefore, I should bid slightly above $20 to ensure I win, as any bid above $20 from others is impossible. A bid of $20.1 will guarantee a win, maximizing my profit since I will pay only the second-highest bid, which cannot exceed $20.",
+            "My value is $12. I should bid slightly below this to maximize profit if I win, while still having a good chance of winning. Bidding my full value or above is dominated as it risks zero or negative profit. A bid around $11 should balance winning chances and profit, considering the prize value distribution."
+        ]
+    }
+}

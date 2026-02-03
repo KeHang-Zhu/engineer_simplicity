@@ -1,0 +1,40 @@
+{
+  "experiments": [
+    {
+      "name": "axis3_beliefs_secondorder",
+      "run_id": "2026-02-03_14-14-44-733826",
+      "timestamp": "2026-02-03T14:14:44.733826",
+      "duration": 0.019628,
+      "status": "completed",
+      "output_dir": "axis3_beliefs_secondorder/run_2026-02-03_14-14-44-733826",
+      "config_hash": "3c1fa2cc"
+    },
+    {
+      "name": "axis3_beliefs_secondorder",
+      "run_id": "2026-02-03_14-15-55-357047",
+      "timestamp": "2026-02-03T14:15:55.357047",
+      "duration": 0.020916,
+      "status": "completed",
+      "output_dir": "axis3_beliefs_secondorder/run_2026-02-03_14-15-55-357047",
+      "config_hash": "3c1fa2cc"
+    },
+    {
+      "name": "axis3_beliefs_secondorder",
+      "run_id": "2026-02-03_14-19-02-354305",
+      "timestamp": "2026-02-03T14:19:02.354305",
+      "duration": 0.023285,
+      "status": "completed",
+      "output_dir": "axis3_beliefs_secondorder/run_2026-02-03_14-19-02-354305",
+      "config_hash": "bc88dc97"
+    },
+    {
+      "name": "axis3_beliefs_secondorder",
+      "run_id": "2026-02-03_14-36-59-807088",
+      "timestamp": "2026-02-03T14:36:59.807088",
+      "duration": 223.597619,
+      "status": "completed",
+      "output_dir": "axis3_beliefs_secondorder/run_2026-02-03_14-36-59-807088",
+      "config_hash": "bc88dc97"
+    }
+  ]
+}

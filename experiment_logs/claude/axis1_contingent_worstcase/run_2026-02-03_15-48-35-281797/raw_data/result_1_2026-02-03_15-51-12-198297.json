@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.9
+            }
+        },
+        "profit": [
+            0,
+            3.1000000000000014,
+            0
+        ],
+        "common": 16,
+        "plan": [
+            "With a private value of $19, I want to win without overpaying. Since values are drawn independently and randomly, strategic bidding requires careful calculation. My optimal strategy is to bid slightly below my true value to maximize potential profit. With three bidders and a high personal value, I'll bid close to but not exactly at my value to create a buffer against potential loss.",
+            "My private value is $24, which is higher than the standard $0-$20 range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. Given the uncertainty of other bidders' values, I'll bid near my true value but not exactly at it. A bid around $20-$22 seems optimal to maximize potential profit while reducing risk of significant overpayment.",
+            "My private value is $21, which is technically outside the stated $0-$20 range. This suggests a potential error or special condition. However, I'll strategically bid to maximize potential profit. Since the winning strategy is to bid just below my true value and pay the second-highest bid, I'll bid close to but slightly under my value to ensure potential profit while minimizing overpayment risk."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            21.9
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $28. Since the maximum possible value is $20, I should bid aggressively. A bid slightly above $20 will likely win, and I'll realize a profit. However, to avoid overpaying, I will bid $20.1. This maximizes my chance of winning given the value distribution and the fact that other players' values are capped at $20. It also minimizes the payment if I win.",
+            "My value is $37. Since the values are between $0 and $20, I have a significant advantage. I want to win, but avoid overpaying. A bid slightly above $20 should secure the win most of the time, without incurring a large cost. I'll bid $20.1 to minimize the chance of a tie with a value of $20.",
+            "My value is $42. Since I want to maximize long-run profit, I need to avoid overbidding. Given this is round 1 of 1, and I don't have any historical data, I will bid slightly above the midpoint of possible values, but still below my own. Bidding too low risks losing an item I value highly. Bidding too high risks overpaying. A bid of $21.5 seems reasonable."
+        ]
+    }
+}

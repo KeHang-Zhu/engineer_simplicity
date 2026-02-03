@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            24,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.8
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0.3000000000000007,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other bidders likely have values between $0-$20. By bidding $19.9, I maximize my chances of winning while preserving potential profit margin. This strategy ensures I win if others bid lower, and minimizes overpaying if I win.",
+            "With a private value of $24, I want to win the auction but minimize my payment. Since values are drawn randomly between $0-$20, my value is unusually high. This suggests I should bid strategically above the typical range. A bid around $19-$20 seems optimal - high enough to likely win, but not so high that I risk significant overpayment relative to my true value.",
+            "With a private value of $18, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. Given the $0-$20 range, other bidders likely have values around $10. I'll bid close to my true value but slightly under to minimize overpaying. A bid around $16-$17 seems optimal - high enough to likely win, but not so high that I risk losing money if I win. I'll choose $16.80 as a balanced strategy."
+        ]
+    }
+}

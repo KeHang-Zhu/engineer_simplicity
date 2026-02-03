@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            1.5
+        ],
+        "common": 1,
+        "plan": [
+            "With a private value of $13, my optimal strategy is to bid strategically. Since this is a single round with no prior history, I'll aim to bid slightly below my true value to maximize potential profit. A bid around $11-$12 allows room for potential winning while protecting against overpaying. The goal is to win if possible, but not pay more than the item's worth to me. I'll choose a bid that balances winning probability with profit margin.",
+            "With a private value of $6, my goal is to maximize potential profit. In a single-round sealed bid auction, I want to bid strategically. Since the value is randomly drawn, and I don't know other bidders' values, I'll bid slightly above my value to increase winning chances while maintaining potential profit margin. A bid around $7-$8 seems reasonable - high enough to compete but not so high that I risk significant loss if I win.",
+            "With a private value of $13, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bid that balances my value and potential winning chances. I'll bid slightly above my true value to signal confidence, but not so high that I risk losing money if I win. A bid around $15-$16 seems optimal - high enough to potentially win, but not so high that I'll lose money if I win."
+        ]
+    }
+}

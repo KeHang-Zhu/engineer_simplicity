@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.9
+            }
+        },
+        "profit": [
+            0,
+            6.1,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value for the item is $32, which is outside the given range of $0 to $20. This suggests a mistake as the maximum possible value should be $20. Assuming an error, I will bid slightly above the midpoint of the expected range, around $10, to balance winning chances and profit. This bid aims to maximize profit while not overbidding relative to the potential value range.",
+            "My private value is $22, but since the maximum possible value is $20, I assume there's a typo or special condition. I'll bid slightly below my value to maximize profit while still having a high chance of winning. I'll bid $19.9, as it's close to the maximum value and likely to outbid others, ensuring a positive profit margin if I win.",
+            "To maximize profit, bid slightly below my value to ensure a win while minimizing payment. Given my value is $16, I will bid $15.9 to outbid others who value the item less, while ensuring a profit if I win. This strategy balances winning and minimizing payment."
+        ]
+    }
+}

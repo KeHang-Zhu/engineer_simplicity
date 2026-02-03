@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            11,
+            7,
+            5
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 6.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 3.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 6.5
+            }
+        },
+        "profit": [
+            4.5,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Since this is a single-round auction and I'm risk-seeking, I'll bid aggressively to increase my chance of winning, even if it means potentially overpaying. My value is $11. I\u2019ll bid slightly above what I perceive as a reasonable average bid, aiming to win against potentially conservative bidders. I'll bid $10.50, hoping to win against bids around $10 or less, and still have a reasonable chance against bids up to $11.",
+            "Given my risk-seeking nature and a value of $7, I will bid aggressively to increase my chances of winning. Since it's the only round, maximizing potential profit is key. I'll bid slightly above what I estimate the others might bid, hoping to secure the win without overpaying drastically. A bid of $6.50 feels reasonable, balancing risk and potential reward.",
+            "Given my risk-seeking nature and a value of $5, I'll bid aggressively to increase my chances of winning. Since it's the only round, I don't need to conserve resources. I'll bid slightly above what I estimate the others might bid, aiming to win even if it means paying a bit more than the average value. A bid of $3.50 seems reasonable, as it's likely to beat conservative bids while still offering potential profit given my value."
+        ]
+    }
+}

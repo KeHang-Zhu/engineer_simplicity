@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 45.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            0,
+            6.0,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "With a high private value of $39, my goal is to win the auction while minimizing the final price paid. Since this is a single round with no prior history, I'll use a strategic bid that balances my high value with a competitive approach. I want to bid high enough to likely win, but not so high that I reduce my potential profit margin. A bid around $35 should give me a good chance of winning while preserving potential earnings.",
+            "With a high private value of $41, I want to maximize my chances of winning while protecting my potential profit. Since this is a single round with no prior history, I'll bid strategically near my true value. A bid slightly above my value but not revealing my full valuation could help me win while preserving potential profit margin. I'll aim to bid around $45 to signal serious intent without overpaying.",
+            "Since this is a single round with no prior history, I'll aim to bid strategically near my true value. My private value is $25, which suggests I should bid high enough to have a good chance of winning, but not so high that I risk significant loss. A bid around $20-$22 seems optimal - high enough to likely win, but leaving some potential profit margin if I win at a lower price."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            12.5,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "My value is $25. Since this is the only round, I want to maximize my potential profit. I will bid aggressively, but not my full value. Given the endowment of $20, I aim to win if possible, but avoid overpaying. I will bid $19.50, hoping to win against potentially conservative bids while leaving room for others to bid slightly higher without significantly impacting my profit.",
+            "My value is $32, significantly higher than the maximum possible value of $20 for others. I want to win, but avoid overpaying. Given this is round 1 of 1, there\u2019s no learning from previous rounds. I'll bid slightly above the maximum possible value for others, aiming to win without a huge payment. A bid of $20.1 should be sufficient to win against any rational bidder.",
+            "My value is $23. Since this is the only round, I want to maximize my expected profit. Given the endowment of $20, I can bid up to $20. I will bid slightly above what I estimate the others might bid, aiming to win without overpaying. I'll assume the others will bid conservatively, given the relatively low potential value (max $20). A bid of $10.5 should be sufficient to win against conservative bids while keeping my payment reasonable."
+        ]
+    }
+}

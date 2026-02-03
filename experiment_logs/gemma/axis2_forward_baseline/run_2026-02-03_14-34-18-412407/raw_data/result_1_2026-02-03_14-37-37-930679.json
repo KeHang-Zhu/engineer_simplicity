@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0.5,
+            0,
+            0
+        ],
+        "common": 9,
+        "plan": [
+            "Given this is the only round, a conservative approach is best. I want to avoid overpaying, but still have a chance to win. Since my value is $13, I'll bid slightly above that, aiming for around $13.50. This allows for a potential profit if others bid lower, and doesn't expose me to significant losses if others bid higher. I'm assuming the other bidders will also bid around their values.",
+            "Given this is the only round, a conservative strategy is best. I want to avoid overpaying but also have a reasonable chance of winning. My value is $11. I'll bid slightly above, aiming for $11.50. This should beat bids around my value while minimizing losses if others bid higher. It also allows me to potentially win at a low price if others are conservative.",
+            "Since this is the only round, I need to balance maximizing potential profit with avoiding overpaying. My value is $12. I'll bid slightly above my value to increase the chance of winning, but not excessively. I'll bid $12.50. This aims to capture value if others bid low, and still allows me to exit if the price gets too high in Stage 2."
+        ]
+    }
+}

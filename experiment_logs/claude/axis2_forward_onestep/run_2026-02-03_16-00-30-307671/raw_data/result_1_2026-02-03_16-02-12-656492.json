@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 9.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 9.5
+            }
+        },
+        "profit": [
+            0,
+            11.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "My private value is $8. In a second-price sealed bid auction, the optimal strategy is typically to bid your true value. This means bidding close to $8. However, I want to maximize potential profit. Since the values are randomly drawn, I'll bid slightly above my value to increase my winning chances while still ensuring potential profit if I win. I'll bid $8.5, which gives me a small buffer above my true value.",
+            "My private value is $21, which is actually above the maximum possible random draw of $20. This suggests I want to win, but strategically. Since the auction pays the second-highest bid, I want to bid just high enough to win, but not excessively. Given the random nature and that values are independently drawn, I'll bid close to my value but not exactly at it, to preserve potential profit margin.",
+            "My private value is $8. My goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bid slightly above my value. By bidding around $9-$10, I increase my chances of winning while still preserving potential profit. If I bid too low, I might lose. If I bid too high, I risk paying more than the item's worth. A bid near, but not exactly at, my value creates a balanced approach."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            44,
+            47,
+            40
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 42.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 46.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 42.0
+            }
+        },
+        "profit": [
+            0,
+            5.0,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "Since this is a single round with no prior history, I'll use a strategic bid close to, but slightly below my true value. The second-price auction mechanism suggests bidding near my true value to maximize potential profit. With a value of $44, I'll bid $42 to create a buffer. This allows me to potentially win if others bid lower, while protecting some profit margin. The goal is to win the auction without overpaying.",
+            "My private value is $47. In a second-price sealed bid auction, the optimal strategy is typically to bid close to my true value. Since I want to maximize profit and the prize is worth $47 to me, I'll bid slightly below my true value to create a small buffer. This ensures I win if others bid lower, while protecting some potential profit margin. I'll bid $46 to balance winning likelihood with profit protection.",
+            "My private value is $40. Since the prize is awarded to the highest bidder at the second-highest price, I want to bid strategically. Given the value range (0-29 common + 0-20 private), values likely cluster around $30-40. I'll bid slightly below my true value at $35 to maximize potential profit. This allows me to win if others bid lower, while protecting against overpaying. The goal is winning the item if my value is genuinely higher than competitors."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0.5,
+            0,
+            0
+        ],
+        "common": 9,
+        "plan": [
+            "My private value is $13. In a second-price sealed bid auction, the optimal strategy is often to bid close to my true value. Since the prize is worth $13 to me, I want to bid high enough to win, but not so high that I risk losing money. Considering other bidders might have similar reasoning, I'll bid slightly above my value to increase my winning chances while protecting my potential profit margin.",
+            "My private value is $11. In a second-price sealed bid auction, the optimal strategy is typically to bid close to my true value. Since the prize is worth $11 to me, I want to bid strategically to maximize potential profit. I'll bid slightly above my value to increase my chances of winning, but not so high that I risk losing money if I win. A bid around $11.50 seems reasonable - this gives me a small buffer while still being close to my true valuation.",
+            "My private value is $12. In a second-price sealed bid auction, the optimal strategy is often to bid close to my true value. Since the prize is worth $12 to me, I want to win if possible, but not overpay. I'll bid slightly above my true value to increase my chances of winning while protecting my potential profit margin. A bid around $12.5 seems strategic - high enough to likely win, but not so high that I risk significant loss if the second-highest bid is much lower."
+        ]
+    }
+}

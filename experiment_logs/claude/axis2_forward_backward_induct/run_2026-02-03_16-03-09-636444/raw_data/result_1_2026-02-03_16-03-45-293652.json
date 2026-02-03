@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 33.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.0
+            }
+        },
+        "profit": [
+            14.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $33, I want to maximize my potential profit. In a sealed bid ascending auction, I need to balance my exit strategy. Since the value is high and independent of other bidders, I'll bid strategically near my value. A bid around $30-$35 allows me flexibility to exit profitably if outbid, while potentially winning if other bidders bid conservatively.",
+            "With a private value of $20, my goal is to maximize potential profit. In a sealed bid ascending auction, I want to strategically position my bid. Since I know my exact value, I'll bid slightly below my maximum to leave room for potential profit. A bid around $19 allows me to potentially win while preserving some margin. This strategy accounts for the possibility that other bidders might have lower values and exit earlier. I'll aim to win efficiently.",
+            "With a high private value of $19, my goal is to win while minimizing my payment. In a sealed first-stage bid, I want to set a bid that gives me a good chance of winning but doesn't overpay. Since values are randomly drawn, I'll bid strategically close to, but slightly below my full value. A bid around $18.50 allows me room to win while protecting some potential profit margin."
+        ]
+    }
+}

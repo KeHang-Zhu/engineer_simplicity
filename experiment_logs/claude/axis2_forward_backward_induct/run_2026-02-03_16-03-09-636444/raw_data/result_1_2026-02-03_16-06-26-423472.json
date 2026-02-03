@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            12.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Bid high enough to likely win, but not so high that I eliminate all potential profit. With $32 value and $20 max possible value, I'll bid $25 to balance winning probability and profit margin.",
+            "Bid strategically around my true value. Since my value is $22, I'll bid slightly below that to create room for profit if I win. A bid of $20 allows potential profit if I win at a lower price, while not being so low that I'm easily outbid.",
+            "With a private value of $16, my goal is to maximize potential profit. In a sealed bid ascending auction, I want to set an exit price that balances:\n1. Protecting my potential profit margin\n2. Not bidding so high that I guarantee a loss if I win\n3. Considering other bidders might have similar strategic thinking\n\nI'll bid slightly below my true value to create a buffer, allowing potential profit if I win at a low price. A bid around $14-$15 seems strategic."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.0
+            }
+        },
+        "profit": [
+            10.0,
+            0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "My private value for the prize is $28, but since the value is capped at $20, this seems to be an error. Assuming the correct maximum is $20, I will bid slightly below my value to maximize profit while ensuring a win. Dominated bids are those above my value. Thus, I will bid $19.9 to outbid others likely bidding near their values, ensuring a win if their values are below $19.9.",
+            "My private value of $37 is above the maximum possible value ($20), which suggests a mistake. Assuming this is a typo and my value is $17, I will bid slightly below my value to maximize profit, while considering the risk of losing. Bidding slightly less than $17, say $16.9, could win against others bidding near their maximum value.",
+            "My value for the item is $42, which is an error since values should be between $0 and $20. Assuming a typo, I will treat it as $20. To maximize profit, bid slightly above the expected average of competitors' bids. With values up to $20, a reasonable bid is $15 to $18. This maximizes winning chances while minimizing overpayment. Given no history, assume competitors bid near their values."
+        ]
+    }
+}

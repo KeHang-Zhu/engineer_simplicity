@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            48,
+            35,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            16.9
+        ],
+        "common": 29,
+        "plan": [
+            "I have a very high value ($48) for the item, much higher than the possible range of the other bidders (0-20). I should bid just above the maximum possible value of the other bidders to ensure I win. This will guarantee me the prize and maximize my profit. I will bid 20.1.",
+            "Since my value is $35 and the other bidders' values are between $0 and $20, I am guaranteed to win if I bid slightly above $20. This is because the other bidders will bid no more than their values, which are capped at $20. I will bid $20.1 to ensure I win and maximize my profit. My profit will be $35 - $20.1 = $14.9.",
+            "[My value is $37, which is significantly higher than the possible values of the other bidders (between $0 and $20). Therefore, I can bid slightly above $20 and guarantee a win while maximizing my profit. I will bid $20.1 to ensure I win and pay the second-highest bid, which will be at most $20.]"
+        ]
+    }
+}

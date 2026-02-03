@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            5.5
+        ],
+        "common": 7,
+        "plan": [
+            "My private value is $24, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to secure the item while minimizing overpayment. Since the second-highest bid determines my payment, I'll bid strategically below my true value. Given the high uncertainty and my risk aversion, I'll bid around the midpoint of the typical range, around $10, to balance winning probability and potential loss.",
+            "With a private value of $23, I'm risk-averse and want to maximize potential profit. Since values are drawn independently and randomly, I'll bid strategically to win while minimizing overpayment. My value is high, so I want to win, but not pay too much. I'll bid slightly above the midpoint of the possible range, around $10-$12, to increase my chances of winning without risking too much relative to my true value.",
+            "Since my private value is $17, and I'm risk-averse, I want to bid strategically to maximize my chances of winning without overpaying. Given the uncertainty of other bidders' values, I'll bid slightly below my true value to create a buffer. A bid around $14-$15 gives me a good probability of winning while protecting potential profit margin. This approach balances my risk aversion with the goal of potentially acquiring the prize."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            4,
+            10,
+            10
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 5.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            0,
+            -1.5,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Given my value of $4 and my risk-seeking nature, I aim to bid slightly above my value to increase the chance of winning. However, I must balance this with the risk of overbidding and making a loss. I will bid $5, which is above my value but not excessively so, to maximize my chance of winning while minimizing potential loss.",
+            "Given my value of $10 and my risk-seeking nature, I should bid slightly above my value to increase my chances of winning, even if it means a potential loss. A bid of $12.5 balances the risk of overpaying with the thrill of possibly securing the prize. This bid is above average, potentially deterring competitors while leveraging my risk preference.",
+            "Given my value of $10 and risk-seeking nature, I aim to bid slightly above my value to increase the chance of winning while still ensuring potential profit. A bid of $11.5 balances risk and reward, as it is likely to outbid others with values near $10 while maintaining a chance for profit if their bids are lower. This strategy maximizes my excitement from the risk while still considering potential profit."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            18,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 31.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            14.0,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "My value is $34, which suggests a moderate bidding strategy. Since this is a single round with no prior history, I'll aim to bid slightly below my true value to maximize potential profit. A bid around $30-$32 balances the risk of overpaying and the opportunity to win. This strategy accounts for potential variability in other bidders' values and the second-price auction mechanism.",
+            "My private value is $18. Since this is a single round with no prior history, I'll use a moderate bidding strategy. I want to maximize potential profit by bidding slightly above my value but not so high that I risk losing money. I'll bid around $15, which leaves some room for potential profit if I win, but doesn't overcommit in case the other bidders have higher values.",
+            "My private value is $23. Since this is a single round with no history, I'll aim to bid strategically. The optimal strategy is to bid slightly below my true value to maximize potential profit. Given the uncertainty of other bidders' values, I'll bid around $20 - this leaves room for potential profit if I win, while not overbidding and risking losing money if the second-highest bid is close to my value."
+        ]
+    }
+}

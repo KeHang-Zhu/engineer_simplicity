@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.1
+            }
+        },
+        "profit": [
+            12.9,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value for the prize is $28, which is higher than the maximum possible value of $20. This means I can safely outbid the maximum value of other bidders. To maximize profit, I should bid slightly above $20 to ensure winning while minimizing the payment. Bidding $20.1 should suffice, as it is unlikely the others will bid higher than their maximum value of $20. This ensures I win and pay the second-highest bid, maximizing my profit.",
+            "Given my private value of $16, I aim to bid slightly below it to maximize profit while still having a strong chance of winning. Rational opponents will likely bid close to their values, so I should bid around $14.5 to $15.5. This range balances the risk of overbidding and losing potential profit with the risk of underbidding and losing the auction. As there is only one round, maximizing immediate profit is key.",
+            "Given my high value of $19, I aim to win the auction with a bid slightly above the midpoint between my value and the maximum possible value ($20). Bidding $15.1 balances the risk of overpaying and the chance of winning. This bid is likely to be higher than the others' bids, maximizing my potential profit of $19 minus the second-highest bid."
+        ]
+    }
+}

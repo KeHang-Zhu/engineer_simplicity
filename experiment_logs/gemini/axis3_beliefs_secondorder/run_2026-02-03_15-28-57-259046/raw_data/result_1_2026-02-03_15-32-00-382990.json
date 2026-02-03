@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            7.899999999999999,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "[Since this is the first round, I have no history to learn from. My value is $28, which is significantly higher than the possible values of other bidders (between $0 and $20). Therefore, I can bid slightly above $20 to ensure I win the auction and maximize my profit. I will bid $20.1 to win the auction and pay the second-highest bid, which will be less than or equal to $20. This guarantees a positive profit.]",
+            "[This is the first round, so I have no history to learn from. My value is $25, which is significantly higher than the typical range of $0-$20. I should bid aggressively, but not so high that I guarantee a loss if someone else also has a high value. A reasonable strategy is to bid slightly above the maximum possible value of the other bidders ($20). I will bid $20.1. This ensures I win if the other bidders' values are within the usual range, and I only lose if another bidder also has a value above $20 and bids higher than me.]",
+            "My value is $20. Since this is the first round, I have no history to learn from. I should bid conservatively to ensure a profit if I win. I will bid slightly below my value to secure a win if the other bidders bid rationally. I will bid $19.90."
+        ]
+    }
+}

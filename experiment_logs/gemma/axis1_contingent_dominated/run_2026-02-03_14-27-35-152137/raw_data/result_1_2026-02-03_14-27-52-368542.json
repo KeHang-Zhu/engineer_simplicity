@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            30,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.0
+            }
+        },
+        "profit": [
+            4.0,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value is $20. Since this is the only round, I want to maximize my expected profit. Bidding $20 guarantees I win if no one else has a value over $20, and I pay the second-highest bid. Bidding lower risks losing to someone with a value close to mine. I'll bid slightly above my value to increase my chances of winning, but not excessively to avoid overpaying. A bid of $19.5 is a good balance.",
+            "My value is $30. Since this is a single round, I want to win if my value is significantly higher than what the others might bid. A conservative approach is to bid slightly above the expected maximum of others, but I need to account for the payment being the *second* highest bid. Bidding too high risks overpaying. Given the range of 0-20, I'll bid $10.1 to ensure a good chance of winning without excessive payment.",
+            "My value is $30. Since this is the only round, I want to maximize my expected profit. Bidding my value is too risky, as I could overpay. A conservative bid might lead to losing out on a profitable auction. I will bid slightly above the midpoint of possible values, aiming to win against likely low bids, but avoiding excessive payment. I will bid $16.0."
+        ]
+    }
+}

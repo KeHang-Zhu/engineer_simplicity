@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 37.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            16.0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $18, my optimal strategy is to bid strategically. Since the prize is worth $18 to me, I want to win but minimize my payment. I'll bid slightly above my true value to increase my chances of winning, but not so high that I risk losing money. A bid around $19 seems reasonable - high enough to likely win, but not so high that I'll lose money if I win. This accounts for the second-price auction mechanism where I'll only pay the second-highest bid.",
+            "My private value is $15. In a second-price sealed bid auction, the optimal strategy is typically to bid your true value. This prevents potential losses from bidding too low and missing the item, or bidding too high and paying more than the item's worth. Since values are independently drawn and this is a one-round game, I'll bid my true value of $15. This maximizes my potential profit by ensuring I win if my value is highest, and pay only the second-highest bid.",
+            "With a private value of $35, my optimal strategy is to bid strategically. Since the prize is worth $35 to me, I want to win, but minimize my payment. Other bidders' values are unknown, so I'll bid slightly above my value to increase winning chances. A bid around $36-$38 gives me a good probability of winning while still potentially preserving profit if I pay a lower second-place bid."
+        ]
+    }
+}

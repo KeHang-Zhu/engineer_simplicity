@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            16,
+            31
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 0.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            0,
+            5.9,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Given the common knowledge of rationality and the payment rule (paying the second highest bid), the optimal strategy is to bid slightly above the expected value of the second highest bid. Since values are between $0 and $20, and bidders are rational, they won't bid their full value. A conservative estimate for the second highest bid is around half of the maximum value, or $10. To ensure winning against bids close to $10, I'll bid $10.10. My value is $27, so winning at this price yields a profit of $27 - $10.10 = $16.90.",
+            "Given the common knowledge of rationality, the optimal bidding strategy converges to bidding slightly above the expected value of the second highest bid. Since values are between $0 and $20, the expected value of the highest of the other two bids is approximately (2/3) * $20 = $13.33. To win with a high probability while minimizing overpayment, I will bid slightly above this, aiming for $14.00. My value is $16, so this ensures a positive expected profit.",
+            "Given the common knowledge of rationality and a single round, the dominant strategy is to bid slightly above the minimum increment ($0.1) to win if your value exceeds that amount. Since my value is $31, I should bid a small amount to attempt to win. Bidding too high risks overpaying, while bidding too low risks losing to a lower value. I'll bid $0.10."
+        ]
+    }
+}

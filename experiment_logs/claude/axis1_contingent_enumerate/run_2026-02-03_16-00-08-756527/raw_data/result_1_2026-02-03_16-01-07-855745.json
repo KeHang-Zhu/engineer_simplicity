@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 32.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 36.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 32.0
+            }
+        },
+        "profit": [
+            0,
+            2.0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "With a private value of $33, I want to maximize my potential profit. Since values are drawn randomly and independently, I'll use a strategic bid near my true value. The optimal approach is to bid slightly below my true value to capture profit if I win, while minimizing overpayment risk. Given the $0-$20 typical range for other bidders, I'll bid aggressively but not excessively - around $32 to create a high chance of winning while preserving potential profit margin.",
+            "With a private value of $34, I want to win the auction but minimize my payment. Since values are drawn randomly between $0-$20, my high value suggests a strategic bid above typical ranges. I'll bid close to my value but not exactly at it. A bid around $35-$38 seems optimal - high enough to likely win, but not so high that I risk significant overpayment if others bid low. The goal is maximizing potential profit by winning while paying as little as possible.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I lose money. My optimal strategy is to bid slightly above the expected maximum competing bid, around $20-$22, which maximizes my potential profit while minimizing overpayment risk."
+        ]
+    }
+}

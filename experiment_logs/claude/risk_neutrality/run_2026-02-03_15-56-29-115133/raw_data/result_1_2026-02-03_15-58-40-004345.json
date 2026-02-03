@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            9.0,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "With a private value of $34, my optimal strategy is to bid close to my true value to maximize potential profit. Since the second-highest bid determines the payment, I want to bid strategically. Given the $0-$20 typical range for other bidders, I'll bid slightly above $34 to ensure winning while minimizing overpayment. A bid of $35 should secure the item while leaving some potential profit margin.",
+            "My private value is $33, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively to win. Since I'm neutral about risk and want to maximize expected profit, I'll bid close to my true value but not exactly at it. I'll aim to bid just above the expected second-highest bid, which is likely around the midpoint of the $0-$20 range, around $10. I'll bid higher to ensure winning.",
+            "My private value is $30, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively to win. Since I'm neutral about risk and want to maximize expected profit, I'll bid close to my true value. Given the second-price auction mechanism, I want to bid just enough to win without overpaying. I'll bid $25, which leaves me potential profit if I win and protects against overbidding."
+        ]
+    }
+}

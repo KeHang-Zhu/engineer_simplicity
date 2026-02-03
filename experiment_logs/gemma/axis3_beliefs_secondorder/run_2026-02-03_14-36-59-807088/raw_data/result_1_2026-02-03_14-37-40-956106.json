@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            34,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            1.8999999999999986,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "Since this is round 1 and my value is $22, I need to bid aggressively but not overspend. The other bidders are rational, so they'll likely bid based on their own values. A bid slightly above the expected maximum of the other players' values (around $20) should secure a win without excessive payment. I will bid $21.1 to increase my chances of winning without paying too much.",
+            "My value is $34, significantly higher than the maximum possible value of $20. The other bidders are rational and know this. I want to win at the lowest possible price. Given the maximum value is $20, a bid slightly above $20 should secure the win. I will bid $20.1 to ensure I win without overpaying. This maximizes my profit as I will pay close to the maximum possible value while receiving $34.",
+            "My value is $30. Given this is round 1 of 1, and I want to maximize profit, I should bid aggressively but not reveal my true value. Since the maximum value is $20, a bid slightly above that should win most of the time without overpaying. I'll bid $20.1 to increase my chances of winning without risking a significant overpayment. The other bidders are likely to bid lower, given the maximum possible value."
+        ]
+    }
+}

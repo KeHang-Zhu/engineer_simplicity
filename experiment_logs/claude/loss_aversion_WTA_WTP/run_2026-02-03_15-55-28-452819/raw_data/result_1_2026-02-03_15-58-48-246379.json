@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 17.5
+            }
+        },
+        "profit": [
+            14.5,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $32, which is significantly higher than the $0-$20 typical range. This suggests I should bid strategically to maximize profit. Since the winning strategy is to bid close to, but not exceeding, my true value, I'll aim to bid high enough to likely win, but not so high that I risk negative earnings. I'll bid slightly above the expected maximum opponent bid, targeting around $20-$25 to ensure victory while protecting potential profit margin.",
+            "My private value is $22, which is higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winning bid will be the second-highest bid, I want to bid just above what I expect others might bid. Given the random value distribution, a bid around $15-$18 seems reasonable to increase my chances of winning while minimizing overpayment. I'll aim to capture the surplus between my true value and the winning bid.",
+            "My private value is $16. In a second-price sealed bid auction, the optimal strategy is typically to bid your true value. This prevents the risk of underbidding and losing a potentially profitable item, or overbidding and reducing potential profit. Since values are independently drawn and this is a single round, I'll bid close to my true value to maximize potential profit, accounting for potential competition. I'll bid slightly under $16 to leave a small margin of safety."
+        ]
+    }
+}

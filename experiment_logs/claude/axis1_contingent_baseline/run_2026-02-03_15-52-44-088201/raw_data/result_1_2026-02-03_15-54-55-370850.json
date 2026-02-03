@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            9.5,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment if I win, I want to bid high enough to likely win, but not so high that I reduce my potential profit margin. Given the one-round nature, I'll aim to bid near my true value but slightly below to maximize potential profit.",
+            "With a private value of $16, I want to maximize potential profit. Since values are independently drawn, I'll use a strategic bid slightly above my value. Bidding exactly $16 risks losing money if others bid higher. I'll bid $17 to increase my chances of winning while still potentially making a profit if I win at a lower second-price bid. This strategy balances winning probability with potential earnings.",
+            "With a high private value of $19, my optimal strategy is to bid strategically. Since this is a single round with no previous history, I want to win but minimize my payment. I'll bid slightly below my true value to ensure winning while paying less. A bid around $18.5 should help me secure the prize while leaving some profit margin. This approach balances my desire to win with the need to maximize potential earnings."
+        ]
+    }
+}

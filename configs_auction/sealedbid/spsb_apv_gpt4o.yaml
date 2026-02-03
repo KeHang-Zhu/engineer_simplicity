@@ -31,10 +31,10 @@ llm:
 prompt:
   strategy_type: "plan_reflection"
   prompt_dir: "Prompt/"
-  rule_template_dir: "rule_template/V10/"
+  rule_template_dir: rule_template/auctions/
 
 execution:
-  repetitions: 100
-  parallel: false
+  repetitions: 50
+  parallel: true
   max_workers: 4
-  output_dir: "experiment_logs/V10/spsb_apv"
+  output_dir: "experiment_logs/gpt4o/spsb_apv"

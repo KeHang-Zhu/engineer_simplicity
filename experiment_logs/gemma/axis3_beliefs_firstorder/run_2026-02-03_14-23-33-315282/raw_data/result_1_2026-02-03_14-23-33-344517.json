@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            12.5,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My value is $24. Since this is round 1 and there's only one round, I want to win if my value exceeds the expected second-highest bid. Assuming Betty and Charles bid rationally, their values are uniformly distributed between $0 and $20. A conservative approach is to bid slightly above the midpoint of the possible second-highest bids. I will bid aggressively, but not my full value, to increase my chance of winning without overpaying.",
+            "Since this is round 1, there's no past bidding history. My value is $14. I want to win if my value exceeds the second-highest bid. A conservative approach is to bid slightly above the expected average value of the other bidders. Assuming other bidders are rational and values are uniformly distributed between $0 and $20, the average value is $10. I'll bid a bit higher than that, aiming to win against bids around $8-12.",
+            "Since this is round 1, there's no history to learn from. My value is $15. To maximize profit, I need to win when my value exceeds the second-highest bid. Assuming the other bidders are rational and their values are uniformly distributed between $0 and $20, I'll bid slightly above what I estimate the average second-highest bid to be. A conservative bid of $7.50 should secure a win against most lower values and avoid overpaying."
+        ]
+    }
+}

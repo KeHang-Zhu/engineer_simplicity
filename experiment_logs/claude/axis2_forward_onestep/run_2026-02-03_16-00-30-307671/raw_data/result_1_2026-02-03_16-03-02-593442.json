@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 6.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.0
+            }
+        },
+        "profit": [
+            0.0,
+            0,
+            0
+        ],
+        "common": 1,
+        "plan": [
+            "My private value is $13. In a second-price sealed bid auction, my optimal strategy is to bid my true value. If I bid less, I risk losing the item even when winning would be profitable. If I bid more, I might pay more than the item is worth to me. Since this is a single round with no repeated interactions, there's no strategic benefit to complex bidding. I'll bid my true value of $13 to maximize potential profit.",
+            "My private value is $6. In a second-price sealed bid auction, the optimal strategy is typically to bid your true value. This prevents potentially leaving money on the table by bidding too low, and prevents overpaying by bidding too high. Since values are independently drawn and this is a one-round game, I'll bid close to my true value. I'll bid slightly above $6 to account for potential competition, choosing $6.5 to give myself a small buffer.",
+            "My private value is $13. In a second-price sealed bid auction, the optimal strategy is typically to bid your true value. This ensures:\n1. If I win, I'll only pay less than my bid\n2. If I pay less than my value, I make a profit\n3. If I bid less, I risk losing even when winning would be profitable\nGiven the single round and no prior history, bidding $13 directly represents my best rational approach to maximize potential profit."
+        ]
+    }
+}

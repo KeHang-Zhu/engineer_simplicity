@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            7.5,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "Since my value ($26) far exceeds typical range, I want to win. I'll bid high enough to secure victory, but not my full value. Given the second-price auction mechanism, I want to minimize my payment. I'll bid around $20-$21 to likely win while keeping my payment low.",
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment, I want to bid high enough to win but not so high that I reduce my potential profit margin. Given the high personal value, I'll bid close to but slightly below my full value to ensure winning while preserving profit.",
+            "My private value is $21, but the maximum possible value for other bidders is $20. Strategic bidding requires being competitive without overpaying. Since I want to maximize profit and the second-highest bid will determine my payment, I'll bid just above $20 to ensure winning while minimizing my payment. This strategy ensures I capture the item if my value truly exceeds others' valuations."
+        ]
+    }
+}

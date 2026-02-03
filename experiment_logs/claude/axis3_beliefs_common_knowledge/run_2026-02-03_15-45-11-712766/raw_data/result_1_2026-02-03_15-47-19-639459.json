@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 28.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            6.5,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "In a single-round sealed bid auction with rational bidders, the optimal strategy is to bid slightly below my true value. Since my private value is $29, I want to maximize potential profit. The key is to bid just low enough to win while minimizing the amount I pay. A strategic bid around $28.9 would allow me to capture most of my value if I win, while protecting against overpaying.",
+            "In a first-price sealed bid auction with rational bidders, the dominant strategy is to bid strategically below one's true value. Since my private value is $26, and other bidders are rational, I want to bid just high enough to likely win while preserving profit. A good approach is to bid around 80-90% of my true value, which would be approximately $20-$23. This balances winning probability with potential profit margin.",
+            "In a single-round auction with rational bidders, the dominant strategy is to bid slightly below one's true value. Since all bidders know everyone is rational, the Nash equilibrium is to bid close to, but not exactly at, one's private value. With a value of $16, I'll bid strategically at $15.9 to maximize potential profit while leaving a small margin of safety."
+        ]
+    }
+}

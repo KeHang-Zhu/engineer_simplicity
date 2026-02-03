@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 34.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            14.5,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $26, I want to maximize my potential profit. Since the prize is worth $26 to me, I'll aim to win while minimizing my payment. Given the $0-$20 typical range for other bidders, I'll bid strategically above their likely maximum. A bid around $20.50 should secure the win while keeping my net gain positive, even if I pay close to the second-highest bid.",
+            "With a private value of $35, I want to maximize potential profit. Since the prize is worth $35 to me, I'll bid strategically. The key is to bid high enough to win, but not so high that I lose money. Given the $0-$20 typical range for other bidders, I'll bid $34.9 - this is just below my true value, giving me a small potential profit margin if I win, while ensuring I'm likely to win against lower bids.",
+            "With a private value of $17, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. Bidding my true value ($17) risks losing money if others bid high. I'll bid slightly below my true value to create a buffer. A bid around $16.5 allows potential profit if others bid lower, while protecting against overpaying if I win. This balanced approach minimizes downside risk."
+        ]
+    }
+}

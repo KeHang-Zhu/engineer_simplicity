@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            5.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since my value for the item is $26, I should bid close to it to maximize potential profit. Bidding my exact value or slightly below ensures I win if others undervalue it, while minimizing loss if I overestimate their bids. Dominated bids are those above $26, as they guarantee a loss if I win. I'll bid $25.9 to avoid ties and potentially win if others bid slightly lower.",
+            "My private value is $35, which is above the maximum possible value of $20. This means I can bid aggressively. To maximize profit, I should bid slightly above $20 to outbid any competitors, ensuring I win and pay the second-highest bid. Bidding $20.1 is optimal as it minimizes payment while guaranteeing a win, assuming others bid based on their maximum possible value.",
+            "Given my value of $17, I should aim to bid just below my value to maximize profit. Bidding exactly $17 could lead to a break-even situation if the second-highest bid matches mine. To avoid dominated strategies, bidding above $17 is unwise since it could lead to a loss. I will bid slightly above the midpoint of $0 and $17 to outbid competitors but stay profitable. A bid of $15.5 balances the risk of overbidding and the chance of winning, assuming others bid randomly between $0 and $20."
+        ]
+    }
+}

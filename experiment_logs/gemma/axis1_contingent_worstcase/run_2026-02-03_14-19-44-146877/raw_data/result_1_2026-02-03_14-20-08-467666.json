@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            7.5,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "My value is $20. To maximize profit, I need to win when my value exceeds the second-highest bid. Since this is round 1, there's no history. I'll bid slightly above what I believe the others might bid, aiming to win without overpaying. A conservative approach is to bid $10.1, anticipating others might bid low. However, with my high value, I can afford to bid higher to secure the win. I'll bid $15.1. Worst case, I pay $10.0, netting $10.0 profit.",
+            "My value is $17. I want to win if possible, but avoid overpaying. The worst case is bidding too high and winning, but paying almost my value. I'll bid slightly above what I believe the others might bid, aiming for a profit even if it's small. Since it's round 1, and there's no history, I'll assume a conservative bidding approach from others. A bid of $10.5 should win against conservative bids, while still allowing for a decent profit if successful.",
+            "Since this is round 1 of 1, there's no history to learn from. My value is $13. I need to bid high enough to win against likely conservative bids, but not so high that I overpay. A bid slightly above the midpoint of possible values (10) seems reasonable. I'll bid $12.50. Worst case, someone bids $13.10+, and I lose, paying nothing. If I bid lower, I risk losing to a lower bid."
+        ]
+    }
+}

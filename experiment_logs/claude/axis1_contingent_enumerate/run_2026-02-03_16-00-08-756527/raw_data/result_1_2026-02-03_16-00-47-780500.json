@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            34,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 36.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            0,
+            9.0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "My private value is $22, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since the second-highest bid determines the payment if I win, I want to bid just enough to likely win without overpaying. A bid around $15-$18 seems optimal - high enough to probably win, but not so high that I risk losing money if my actual value is $22.",
+            "With a private value of $34, I want to win the auction but minimize my payment. Since values are drawn randomly between $0-$20, my high value suggests a strategic bid above typical ranges. I'll bid close to my value but not exactly at it. A bid around $35-$38 seems optimal - high enough to likely win, but not so high that I risk significant overpayment if others bid low. The goal is maximizing potential profit by winning while paying as little as possible.",
+            "With a private value of $30, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to my true value. The key is to bid high enough to win, but not so high that I lose money if I win. Given the $0-$20 typical range for other bidders, I'll bid strategically at $25 - this gives me a good chance of winning while protecting potential profit margin."
+        ]
+    }
+}

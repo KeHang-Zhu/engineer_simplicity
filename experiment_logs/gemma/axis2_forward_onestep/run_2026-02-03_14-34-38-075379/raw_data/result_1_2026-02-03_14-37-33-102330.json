@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            7.899999999999999,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "My value is $26. Since this is the only round, I want to maximize my expected profit. I'll bid aggressively, but not at my full value. Given the possible range of values (0-20), I'll bid slightly above the maximum possible value of other players. This increases my chance of winning without overpaying. A bid of $20.1 should secure a win against any reasonable bid, while keeping my payment low.",
+            "My value is $28. Since this is the only round, I should bid aggressively to maximize my chance of winning. Given the possible range of values (0-20) for the other bidders, I will bid slightly above the maximum possible value to ensure I win if the others bid low. However, I want to avoid overbidding unnecessarily. A bid of $20.5 should secure a win against any reasonable bid while keeping the payment relatively low.",
+            "Since this is the only round, and my value is $21, I want to maximize my chance of winning without overpaying. Knowing the other bidders (Andy and Betty) exist, I'll bid slightly above what I expect their values to be, but not too aggressively. A bid of $16.5 should be high enough to win against likely opponent values, while keeping my payment reasonable. I'm prioritizing a win over maximizing the difference between my value and the second-highest bid."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            3.5,
+            0
+        ],
+        "common": 7,
+        "plan": [
+            "In a first-price sealed bid auction with rational bidders, the optimal strategy is to bid strategically below my true value. Since my private value is $24, I want to maximize potential profit. Given the $0-$20 standard range in previous instructions, I'll bid close to the expected competitive range to increase my winning probability while preserving profit margin.",
+            "In a first-price sealed bid auction with rational bidders, the dominant strategy is to bid slightly below one's true value. Since my value is $23, I want to maximize potential profit. Given the $0-$20 standard range, I'll bid strategically to increase chances of winning while protecting my potential earnings. A bid near but below my true value of $23 seems optimal. I'll aim to bid $22.9 to maximize potential profit margin.",
+            "In a first-price sealed bid auction with rational bidders, the optimal strategy is to bid slightly below one's private value. Since my value is $17, I want to maximize potential profit. Given the rational opponent assumption, I'll bid strategically, aiming to win while leaving some profit margin. A bid around $16.5 would allow me potential profit if I win, while reducing the risk of overbidding. This accounts for the second-price mechanism and rational opponent behavior."
+        ]
+    }
+}

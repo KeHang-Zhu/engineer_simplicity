@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            4.899999999999999,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Since this is a single round, and my value is $13, I need to bid aggressively enough to win against potentially low bids, but not so high that I overpay. Given the risk neutrality, I should bid slightly above the expected second-highest bid. Assuming a uniform distribution of values, the expected value of the second highest bid is around 6.5. I will bid $10.5 to try and secure the item at a reasonable price.",
+            "My value is $25. Since this is a single round, I want to bid aggressively to maximize my potential profit. However, I need to consider that I pay the *second* highest bid. I will bid slightly above what I expect the others to bid, aiming to win without overpaying. Given the possible values range up to $20, I'll bid $22.5 to increase my chances of winning while minimizing the risk of a large payment.",
+            "My value is $29. Given it's a single round and I'm risk-neutral, I should bid aggressively to maximize potential profit. Since values are between $0 and $20, a bid slightly above that range is reasonable. I will bid $20.1 to try and win, knowing I'll pay the second-highest bid. This strategy aims to capture the full value if others bid low, and still win if they bid close to their values."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            30,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.8
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.8
+            }
+        },
+        "profit": [
+            0.1999999999999993,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $20, I want to maximize my potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other rational bidders will likely do the same. Given the random value distribution, I'll bid $19.9 - this leaves a small potential profit margin if I win, and protects against overpaying while still being highly competitive.",
+            "With a private value of $30, which is significantly higher than the typical $0-$20 range, I want to win this auction. However, other bidders will likely bid strategically. Since values are randomly drawn, a good strategy is to bid close to the maximum possible value ($20), but not so high that I risk losing money. I'll aim to bid just above what I expect rational competitors might bid, around $19-$19.5 to maximize my chances of winning while preserving potential profit.",
+            "With a private value of $30, I recognize this is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively to win. However, rational opponents will also be strategic. I'll bid close to, but slightly under, the maximum expected competitive bid. Given the $0-$20 range, I'll aim to bid around $19.80 - this leaves room to profit if I win while being highly likely to secure the item."
+        ]
+    }
+}

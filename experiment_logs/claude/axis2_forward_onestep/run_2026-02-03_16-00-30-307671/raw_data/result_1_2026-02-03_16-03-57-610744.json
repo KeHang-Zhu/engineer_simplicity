@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.3
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.3
+            }
+        },
+        "profit": [
+            0,
+            1.6999999999999993,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $32, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize potential profit. Since I know my true value, I want to win but pay as little as possible. I'll bid just above the likely range of other bidders - around $20.25 - which gives me a high probability of winning while leaving substantial profit margin if I win at a low second-place bid.",
+            "My private value is $22, which is actually higher than the typical $0-$20 range mentioned. This suggests I want to win, but strategically. Since the auction pays the second-highest bid, I want to bid just high enough to win, but not much more. Given the random nature, I'll bid near my value but not exactly at it - around $21.50 to create some buffer and maximize potential profit.",
+            "My private value is $16, which means I want to maximize my potential profit. In a first-round single auction with no prior history, a good strategy is to bid slightly below my true value. I'll aim to win by bidding just high enough to beat potential competitors, but not so high that I risk losing money if I win. Given the value range of $0-$20, I'll bid $15.50 - this leaves me a buffer for potential profit while being competitive."
+        ]
+    }
+}

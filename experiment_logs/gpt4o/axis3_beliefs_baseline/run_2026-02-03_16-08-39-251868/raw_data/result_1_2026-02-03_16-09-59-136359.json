@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 9.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            5.100000000000001,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "With a value of $13, my aim is to bid below my value to ensure a profit if I win. Rational opponents will likely bid close to their values. To maximize profit, I should bid slightly above the midpoint of possible values to outbid those with lower values while still ensuring profit. Considering values range from $0 to $20, a bid around $9.5 could outbid many without exceeding my value, ensuring a profit if I win.",
+            "Given my private value of $25, which is above the maximum possible value of $20, I should aim to bid slightly above the average expected bid of the other bidders. Assuming rational behavior, they might bid around their value. To maximize profit, I can bid slightly above $20, ensuring I win while paying as little as possible. I will bid $20.5 to outbid any rational competitor bidding up to their maximum value.",
+            "My value for the item is $29, which is above the maximum possible value ($20), indicating a likely error in the prompt. Assuming a typical max value of $20, I should bid slightly below my perceived value to maximize profit. A bid of $19.9 ensures competitiveness without overbidding, as other rational bidders will likely bid close to their value. This strategy balances winning probability and potential profit, considering the second-highest bid payment rule."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            20.3,
+            0,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "My private value is $40, which is higher than my initial endowment of $20. This suggests I should bid strategically to win. Since this is a single round with no repeated interactions, I want to bid just enough to win without overpaying. Given the second-price auction mechanism, I'll bid slightly below my true value to maximize potential profit. A bid around $35 seems optimal - high enough to likely win, but leaving some potential surplus.",
+            "My private value is $42, which is higher than the max possible endowment of $20. This suggests an aggressive bidding strategy. Since this is a single round with no repeated interactions, I'll bid close to my true value but slightly below to maximize potential profit. I'll aim to bid just above the expected maximum competitive bid, around $19.50, to increase my chances of winning while minimizing overpayment.",
+            "My private value is $28, which is above the max possible initial endowment of $20. This suggests I should bid strategically. Since this is a single round with no repeated interactions, I want to maximize my chance of winning while minimizing overpayment. I'll bid slightly above the maximum endowment to increase my winning probability, but not so high that I guarantee a loss. A bid around $19-$20 seems optimal."
+        ]
+    }
+}

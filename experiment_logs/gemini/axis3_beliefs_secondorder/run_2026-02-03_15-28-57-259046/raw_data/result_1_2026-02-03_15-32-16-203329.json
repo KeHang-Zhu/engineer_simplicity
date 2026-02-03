@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            18,
+            26
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 17.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            8.100000000000001
+        ],
+        "common": 12,
+        "plan": [
+            "[This is the first round, so I have no history to learn from. My value is $16. I should bid slightly below my value to ensure a profit if I win. I will bid $15.90. This should be high enough to win against rational bidders with lower values, but still leave a small profit margin if I win. I will avoid bidding my full value to avoid the \"winner's curse\".]",
+            "I will use a bidding strategy based on the assumption that the other bidders are rational and will bid close to their values. I will bid slightly below my value to try to win the auction at a price that is profitable. I will bid $17.9. This allows me to win if the other bidders bid their values, while making a profit of at least $0.1.",
+            "I am facing a first-price sealed-bid auction with two other rational bidders. My value is $26, which is significantly higher than the usual range of $0-$20. Since this is a one-shot game, I will bid aggressively to secure the win, but I will also consider the likely bids of the other players. Given that they likely have values between $0 and $20, I will bid slightly above the maximum possible value for them. I will bid $20.1 to ensure I win."
+        ]
+    }
+}

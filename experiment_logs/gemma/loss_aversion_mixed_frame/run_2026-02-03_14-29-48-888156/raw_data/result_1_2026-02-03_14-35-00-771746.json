@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            22.5
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $18. Since this is the only round, I need to bid aggressively to maximize potential profit. I'll aim to win by a small margin, but avoid overpaying. Bidding slightly above what I estimate the others might bid seems reasonable. Given the possible range of values (0-20), I estimate others might bid around $9. I will bid $12.5 to increase my chances of winning without overpaying significantly.",
+            "Given my value of $15, I need to bid strategically to maximize profit. Since this is round 1 with no prior history, I'll assume a conservative approach. Bidding too high risks overpaying, while bidding too low risks losing a valuable item. I'll bid slightly above the midpoint of the possible range of other bidders' values, aiming to win against likely lower bids, but not excessively. A bid of $8.5 should achieve this.",
+            "My value is $35. Since this is the only round, I need to maximize potential profit. A conservative approach is to bid slightly above what I estimate the other bidders might offer, but not too high to avoid overpaying. Given the possible range of values (0-20) and the fact that we've had no previous rounds to learn from, I'll bid aggressively, assuming others might undervalue the item. I'll bid $17.50."
+        ]
+    }
+}

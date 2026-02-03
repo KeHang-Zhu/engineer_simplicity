@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 34.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            13.5,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "Since my value is $33, which is outside the normal range of $0-$20, I should bid conservatively to secure the win and maximize profit. I will bid slightly above the maximum possible value of other bidders, which is $20. I'll bid $20.5 to ensure I win and pay close to the maximum value the other bidders might have.",
+            "[I have a very high value of $34. This is a one-shot game, so there's no future to consider. I should bid aggressively to try and win. However, I don't want to overbid and pay too much. A reasonable strategy is to bid slightly above what I expect the other bidders' maximum values to be. Since values are drawn between $0 and $20, I can assume that the other bidders will bid no more than $20. Therefore, I will bid $20.1 to ensure I win. However, my value is much higher, so I should bid more. I will bid my true value to try and win.]",
+            "I have a value of $25, which is significantly higher than the typical range of values (0-20). This suggests that the other bidders are likely to have values much lower than mine. Therefore, I can bid aggressively to secure the win and still likely pay a relatively low price. I will bid slightly above the maximum possible value of other bidders, which is $20. I will bid $20.1 to ensure I win the auction."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 5.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            3.9000000000000004,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Since this is the only round and there is no history, I will focus on maximizing profit by bidding slightly below my value. Bidding my exact value or above is dominated because it risks zero or negative profit. Bidding too low risks losing the auction. I will bid $13.9 to maximize my chance of winning while ensuring a profit if I win, as it is slightly below my value of $14.",
+            "To maximize profit, bid slightly above the expected average of competitors' bids. With a value of $14, avoid overbidding to prevent negative profit. Bids above $14 are dominated since they risk paying more than the value. Thus, bid just above the midpoint of the value range, around $10, to balance winning chances and profit.",
+            "Given my value of $6, I should not bid more than this to avoid potential losses. Bidding exactly $6 is dominated because if I win, I pay at least $6, making no profit. Instead, I should bid slightly lower to maximize the chance of winning while ensuring a profit if I win. A bid of $5.9 allows for a small profit if I win against a bid lower than $5.9, while minimizing losses if I lose."
+        ]
+    }
+}

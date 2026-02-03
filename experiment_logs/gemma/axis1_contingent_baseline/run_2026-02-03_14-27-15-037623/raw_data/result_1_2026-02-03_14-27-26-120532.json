@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            31,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 8.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            0,
+            14.5,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My value is $20. Since this is the only round, I want to maximize my potential profit. I will bid aggressively, but not reveal my full value. I'll bid slightly above what I estimate the others might bid, aiming to win without overpaying. Given the possible range of values (0-20), a bid of $16.5 should be sufficient to win against potentially conservative bidders while still leaving room for profit.",
+            "My value is $31. Since this is the only round, I should bid aggressively to try and win, but not overpay. I'll bid slightly above what I estimate the others might bid, assuming they also have positive values. Given the range of possible values (0-20), a bid around $20-$25 seems reasonable to increase my chance of winning without excessive payment. I'll go with $22.",
+            "Given this is the final round and my value is $12, I aim to win at a reasonable price. Since there's no prior bidding history, I'll assume the other bidders might bid aggressively. To increase my chances of winning without overpaying, I will bid slightly above the midpoint of my value and a conservative estimate of potential bids. I'll bid $8.50. This offers a good profit margin if I win, and avoids overbidding if others are also conservative."
+        ]
+    }
+}

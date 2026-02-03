@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.899999999999999
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $29. Since this is the only round, I need to bid aggressively to maximize potential profit. However, bidding *too* high risks overpaying. Given the possible range of values (0-20 for others), I will bid slightly above the maximum possible value of the other bidders, accounting for the second-price auction. A bid of $20.1 ensures I win against any value of $20 or less, and the second-highest bid will be capped at $20.",
+            "My value is $27. Since this is the only round, I need to bid aggressively to secure a win, but also avoid overpaying. Given the maximum possible value is $20, and the payment is the *second* highest bid, a bid close to my value but slightly above the maximum possible opposing value ($20) seems prudent. I'll bid $20.1 to almost guarantee a win if others bid conservatively, and minimize loss if they bid high.",
+            "My value is $25. Since this is a single-round auction, I want to bid aggressively to win, but not overpay. I'll bid slightly above what I expect the others to bid, aiming to win at the second-highest bid. Given the possible range of values (0-20), I anticipate bids will generally be lower than my value. A bid of $20.5 should likely secure a win without excessive payment."
+        ]
+    }
+}

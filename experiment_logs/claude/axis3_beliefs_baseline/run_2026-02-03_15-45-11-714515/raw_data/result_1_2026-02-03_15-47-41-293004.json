@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            16,
+            31
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            11.0
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $27, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid high enough to win, but not excessively above the expected competitive range. I'll aim to bid around $20, which covers most potential competitor valuations while preserving potential profit margin.",
+            "With a private value of $16, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. A pure dominant strategy is to bid my true value ($16), as this prevents underbidding and ensures I win if my value justifies it. However, I'll slightly shade my bid to $15.9 to potentially save a small amount if I win, while still being highly likely to win with my high value.",
+            "With a high private value of $31, my goal is to win the auction while minimizing my payment. Since values are independently drawn, I'll use a strategic bid that balances winning probability with potential profit. Given the $0-$20 typical range for other bidders, I'll bid slightly above the maximum expected opponent value to increase my win likelihood while protecting my potential profit margin."
+        ]
+    }
+}

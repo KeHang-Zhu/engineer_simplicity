@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            1.3000000000000007
+        ],
+        "common": 20,
+        "plan": [
+            "My private value is $26, which is higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the second-highest bid determines the payment if I win, I want to bid just high enough to win without overpaying. I'll bid near the maximum possible range to increase winning probability while leaving room for potential profit.",
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically. Since I want to maximize profit, I'll bid close to but not exceeding my value. The optimal strategy is to bid just above what I expect other rational bidders might bid - around the midpoint of the typical range. I'll aim to win while minimizing my payment.",
+            "My private value is $21, which is actually above the maximum possible randomly drawn value of $20. This suggests a strategic approach. Since the winner pays the second-highest bid, I want to bid strategically to maximize potential profit. Given the uncertainty of other bidders' values, I'll bid slightly above the maximum possible random value to increase my winning chances while minimizing overpayment risk."
+        ]
+    }
+}

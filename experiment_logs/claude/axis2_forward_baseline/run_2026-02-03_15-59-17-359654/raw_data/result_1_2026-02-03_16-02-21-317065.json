@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 40.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 35.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            6.5
+        ],
+        "common": 26,
+        "plan": [
+            "With a private value of $28, I want to maximize my potential profit. In a sealed bid auction, I need to strategically bid to win while leaving room for profit. Since the value is drawn randomly and this is a single round, I'll bid slightly below my true value to create a margin. A bid around $25 allows me potential profit if I win at a lower price, while still being competitive.",
+            "With a high private value of $37, my goal is to win the auction while minimizing my payment. Given the sealed bid followed by an ascending clock mechanism, I want to bid strategically. Since values are randomly drawn and this is a one-round game, I'll bid close to my true value but slightly under to maximize potential profit. A bid around $35-36 seems optimal - high enough to likely win, but leaving some margin for potential profit if I win at a lower price.",
+            "With a high private value of $42, I want to secure this item. In a single-round sealed bid auction, I'll bid strategically to maximize my chances of winning while preserving potential profit. Since the value is randomly drawn and this is the only round, I'll bid close to my true value but slightly below to leave room for potential profit if I win. A bid around $40 seems optimal - high enough to likely win, but not overpaying."
+        ]
+    }
+}

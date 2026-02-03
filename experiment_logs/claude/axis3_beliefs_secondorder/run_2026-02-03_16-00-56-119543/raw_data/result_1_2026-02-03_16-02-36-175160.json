@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 17.5
+            }
+        },
+        "profit": [
+            13.5,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "With a high private value of $31, I want to win this auction. However, I must bid strategically. Since other bidders are rational, they'll anticipate my high value. I'll aim to bid just above what I expect the second-highest bid might be. Given the $0-$20 typical range and my $31 value, I'll bid slightly above the expected maximum competitor valuation to ensure winning while minimizing my payment.",
+            "My private value is $24, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since other bidders are rational, they'll likely bid below their true value. My optimal strategy is to bid just above the expected second-highest bid to maximize potential profit. I'll aim to bid around $15-$19 to increase my chances of winning while minimizing overpayment.",
+            "My private value is $24, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since rational bidders will try to maximize profit, I'll aim to bid just above the expected second-highest bid. Given the random value distribution, a bid around $15-$17 seems optimal - high enough to likely win, but not so high that I risk negative earnings if the second-highest bid is close to my bid."
+        ]
+    }
+}

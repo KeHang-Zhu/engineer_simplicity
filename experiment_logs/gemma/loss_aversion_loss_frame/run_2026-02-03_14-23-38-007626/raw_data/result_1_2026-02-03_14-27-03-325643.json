@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 23.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            13.5,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $32. Since this is the only round, I want to maximize my expected profit. I will bid aggressively, but not reveal my full value. Given the endowment of $20, I'll bid slightly above that to encourage competition but avoid overpaying. A bid around $22-$24 should be sufficient to win against rational opponents, assuming their values aren't exceptionally high. I will bid $23.",
+            "My value is $22. Since it's only one round, I need to maximize potential profit. I'll bid aggressively, but not my full value. I'll bid $18.50. This is high enough to likely win against typical bids, but low enough to leave a reasonable profit margin if I do win. Given the endowment of $20, I can afford to win and pay a bid around $18.",
+            "My value is $16. Since this is a single round game, I want to maximize my expected profit. I'll bid slightly above what I estimate the others might bid, but not too high to avoid overpaying. Given the endowment of $20, I can afford a reasonable bid. I will bid $10.50. This is a conservative bid, aiming to win against likely lower bids, while keeping the payment reasonable."
+        ]
+    }
+}

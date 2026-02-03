@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 5.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 7.5
+            }
+        },
+        "profit": [
+            6.5,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Since this is round 1 of 1, there's no past bidding history to learn from. My value is $14. I want to win if my value exceeds the second highest bid. Bidding $14.10 is too risky as I may overpay. A bid slightly above $10 seems optimal, aiming to win against potentially conservative bidders. I'll bid $10.50. Any bid above $14 is dominated, as I would lose and pay more than my value.",
+            "My value is $14. Since this is round 1 and there's no history, I'll assume a conservative approach. Bidding too high risks overpaying, while bidding too low risks losing an item worth more than the bid. I will eliminate dominated strategies. Any bid above $14 is dominated, as my profit will always be lower. I will bid slightly above what I think the others might bid, but not too high. A bid of $7.50 seems reasonable.",
+            "Given my value is $6, I need to bid high enough to win against likely opponent bids, but not so high that I overpay. Since this is round 1 and there's no history, I'll assume opponents will bid somewhat rationally. A bid slightly above $6 feels risky, as I could easily pay more than the item is worth. I will bid $5.1 to try and win at a reasonable price. Bids above $6.0 are dominated as they guarantee a loss or reduced profit."
+        ]
+    }
+}

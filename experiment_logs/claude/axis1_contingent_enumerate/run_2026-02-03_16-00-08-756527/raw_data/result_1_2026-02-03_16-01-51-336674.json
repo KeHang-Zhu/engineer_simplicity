@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 29.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            11.0,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "With a high private value of $31, my goal is to win the auction while minimizing my payment. Since values are randomly drawn and this is a single round, I'll use a strategic bid close to, but slightly below my true value. By bidding around $30, I maximize my chances of winning while preserving potential profit margin. This approach balances winning probability with minimizing overpayment, considering the second-price auction mechanism.",
+            "With a private value of $24, I want to win the auction but minimize my payment. Since values are drawn randomly between $0-$20, my value is unusually high. This suggests I should bid strategically above the typical range. A bid around $19-$20 seems optimal - high enough to likely win, but not so high that I risk significant overpayment relative to my true value.",
+            "My private value is $24, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment if I win, I want to bid just enough to likely win without overpaying. A bid around $20 seems optimal - high enough to likely win, but not risking paying more than the item's typical maximum value. This balances winning probability with potential profit."
+        ]
+    }
+}

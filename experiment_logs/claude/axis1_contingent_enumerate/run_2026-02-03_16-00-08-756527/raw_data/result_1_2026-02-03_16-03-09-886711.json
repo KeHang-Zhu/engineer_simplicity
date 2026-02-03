@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 31.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            12.0,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "My private value is $25, which is higher than the typical $0-$20 range mentioned. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I lose money. Given the random nature of other bidders' values, a bid around $20 seems optimal - high enough to likely win, but not risking overpaying relative to my true value.",
+            "With a private value of $32, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other bidders likely have random values between $0-$20. I'll bid strategically near my value to increase winning probability while protecting potential profit margin. A bid around $31.9 allows me to likely win while minimizing overpayment if I'm successful.",
+            "My private value is $23, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid high enough to win but not so high that I lose money. A good strategy is to bid slightly above the expected maximum competing bid - around $19-$20. This maximizes my chance of winning while minimizing overpayment."
+        ]
+    }
+}

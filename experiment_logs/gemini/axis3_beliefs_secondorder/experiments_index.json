@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "axis3_beliefs_secondorder",
+      "run_id": "2026-02-03_15-28-57-259046",
+      "timestamp": "2026-02-03T15:28:57.259046",
+      "duration": 214.746401,
+      "status": "completed",
+      "output_dir": "axis3_beliefs_secondorder/run_2026-02-03_15-28-57-259046",
+      "config_hash": "a59aff57"
+    }
+  ]
+}

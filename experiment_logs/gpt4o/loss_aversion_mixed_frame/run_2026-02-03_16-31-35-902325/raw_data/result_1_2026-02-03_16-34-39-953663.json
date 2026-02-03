@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            9.0,
+            0
+        ],
+        "common": 16,
+        "plan": [
+            "Given my value of $19, I want to maximize profit by winning the auction at a bid lower than $19. To win, I should bid slightly above the average expected value of $10, but below my value. A bid of $15 might outbid others while ensuring profit if I win, as I would pay the second-highest bid. This balances between winning and maximizing profit.",
+            "My value for the item is $24. Since this is above the maximum possible value of $20, I should bid aggressively. A bid slightly above $20 will likely win, as the other bidders cannot value the item more than $20. By bidding $20.1, I maximize my chance of winning while minimizing payment, ensuring profit.",
+            "Since my value for the prize is $21, which is above the maximum possible value of $20, I should aim to win the auction. To maximize profit, I should bid slightly above the expected average bid of other bidders. Assuming they value it at $10 on average, a bid of $10.1 should secure a win while minimizing cost."
+        ]
+    }
+}

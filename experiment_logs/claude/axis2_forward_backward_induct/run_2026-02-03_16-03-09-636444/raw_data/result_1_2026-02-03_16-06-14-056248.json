@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            7.5,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "With a private value of $28, I want to maximize my potential profit. In a sealed bid ascending auction, I need to balance two competing goals: 1) Not bidding so high that I lose money if I win, 2) Bidding high enough to have a good chance of winning. Given the $0-$20 range for other bidders, I'll bid strategically to capture potential upside while protecting my profit margin.",
+            "With a private value of $25, I want to maximize potential profit. In a sealed bid ascending auction, I need to balance:\n1. Setting a bid high enough to potentially win\n2. Not overbidding beyond my true value\n3. Anticipating other bidders' potential strategies\n\nGiven the $0-$20 typical value range for other bidders, I'll strategically bid just above the likely maximum competing bid - around $20.50 to ensure winning while preserving profit margin.",
+            "With a private value of $20, I want to maximize my potential profit. In a sealed bid ascending auction, I should bid strategically to balance winning probability and potential profit margin. Since values are independently redrawn and this is a one-round game, I'll bid close to my true value but slightly below to create a buffer. A bid around $19 allows me to potentially win while preserving some profit if the price rises."
+        ]
+    }
+}

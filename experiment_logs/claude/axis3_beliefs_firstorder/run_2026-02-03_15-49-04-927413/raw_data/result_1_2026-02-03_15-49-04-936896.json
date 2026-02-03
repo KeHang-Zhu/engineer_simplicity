@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 50.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 21.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            23.0
+        ],
+        "common": 26,
+        "plan": [
+            "With a high private value of $41, I want to win the auction. Since values are drawn randomly between $0-$20, other bidders likely have lower values. A dominant strategy is to bid close to my true value but not exactly $41. I'll bid slightly above the expected max opponent value to ensure winning while minimizing overpayment. The expected max opponent value is around $20, so I'll bid $21 to secure the prize efficiently.",
+            "My value is $29, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively. Since other bidders are rational and the prize is awarded to the highest bidder at the second-highest price, I want to bid high enough to win, but not so high that I reduce my potential profit. A strategic bid near the upper range of expected values (around $19-$20) should secure the item while minimizing overpayment.",
+            "My private value is $44, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically. Since other bidders will likely bid close to their private value, and the winner pays the second-highest bid, I want to bid high enough to win but not overpay. A bid around $50 seems optimal - high enough to likely win, but not so high that I risk negative earnings if the second-highest bid is close to my true value."
+        ]
+    }
+}

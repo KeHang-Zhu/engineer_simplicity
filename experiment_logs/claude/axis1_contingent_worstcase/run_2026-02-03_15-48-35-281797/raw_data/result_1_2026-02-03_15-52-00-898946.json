@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0.5,
+            0,
+            0
+        ],
+        "common": 9,
+        "plan": [
+            "With a private value of $13, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. A bid near my true value protects my potential profit. I'll bid slightly above my value to increase winning chances, but not so high that I risk significant loss. A bid of $14 seems optimal - it gives me a buffer above my true value while maintaining potential profitability.",
+            "My private value is $11. In a second-price sealed bid auction, the optimal strategy is typically to bid close to my true value. Since values are randomly drawn, I'll bid slightly above my value to increase winning probability. A bid around $11.5 protects against lower bids while not overpaying. The worst case is bidding too high and paying more than my value. I'll aim to capture profit by bidding strategically near my true value.",
+            "My private value is $12. In a second-price sealed bid auction, the optimal strategy is to bid close to my true value. Since the prize is won by paying the second-highest bid, I want to maximize potential profit. I'll bid slightly above my true value to increase winning chances while protecting downside. A bid of $12.5 balances aggressive positioning with risk management, giving me a small buffer above my true value."
+        ]
+    }
+}

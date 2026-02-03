@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            11.5,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "Given my private value of $24, I aim to maximize profit while being risk-averse. To ensure a win, I should bid slightly above the expected average bid. Assuming other bidders bid around half their value on average ($10), bidding $15.1 should secure a win while minimizing overpayment. This bid balances winning likelihood and profitability, considering my risk aversion.",
+            "Given my risk-averse nature and the value of $14, I should bid slightly below my value to ensure a positive expected outcome. Bidding too close to $14 risks paying too much if I win. A bid of $12.5 balances competitiveness with caution, aiming to win while minimizing potential loss.",
+            "Given my risk-averse nature and a private value of $15, I aim to bid conservatively to ensure a positive outcome. To maximize profit while minimizing risk, I'll bid slightly below my value to avoid overpaying if I win. A bid of $12.5 balances the potential gain and the risk of losing, as it remains below my value and has a good chance of winning against typical bids in this range."
+        ]
+    }
+}

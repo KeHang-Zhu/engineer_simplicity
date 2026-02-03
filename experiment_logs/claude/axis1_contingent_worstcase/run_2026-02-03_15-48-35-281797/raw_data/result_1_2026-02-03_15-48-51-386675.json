@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            30,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 22.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            0,
+            7.5,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid my true value ($20). This ensures:\n1. If I win, I'll pay less than my value\n2. I capture full potential profit\n3. I avoid overbidding and risking a loss\n4. Other bidders might bid lower, increasing my chances of winning profitably",
+            "With a private value of $30, my optimal strategy is to bid strategically. Since the prize can be worth up to $20, and the winner pays the second-highest bid, I want to bid just above what I expect other rational bidders might offer. Given the independent value draw, I'll bid near my value but not excessively high to ensure potential profit. A bid around $25 seems reasonable to maximize potential earnings while managing downside risk.",
+            "My private value is $30, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I risk losing money. A bid around $20-$25 seems optimal - it covers the likely range of other bids while protecting my substantial profit margin if I win."
+        ]
+    }
+}

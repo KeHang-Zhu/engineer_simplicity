@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            12,
+            15,
+            4
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 4.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0,
+            2.5,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "I have a value of $12. Since this is the only round, I don't need to worry about long-term strategy. Given my risk-seeking preference, I will bid slightly above my value to increase my chances of winning, but not so high that I risk losing too much if I win. I will bid $12.50.",
+            "I will employ a risk-seeking strategy, aiming to secure the win even if it means potentially paying a higher price. Given my value of $15, I will bid slightly above my value to increase my chances of winning, hoping the other bidders have lower values. I'll bid $15.50. This is a risk-seeking strategy because I am bidding above my value, but it increases my chances of winning.",
+            "[I have a value of $4. Since this is a single round game, I need to bid aggressively to try and win. Given my risk-seeking preference, I will bid slightly above my value to increase my chances of winning. I will bid $4.10. This is a small increase but might be enough to win if the other bidders bid conservatively.]"
+        ]
+    }
+}

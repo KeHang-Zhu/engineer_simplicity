@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            20,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.7
+            }
+        },
+        "profit": [
+            7.300000000000001,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "My private value is $24, which is unusually high. Since values are drawn independently and randomly between $0-$20, my value is significantly above the typical range. Strategic bidding suggests I should bid close to, but slightly below my true value to maximize potential profit. I'll aim to win while leaving room for a profitable margin. A bid around $19-$20 seems optimal to increase chances of winning while maintaining potential profit.",
+            "With a private value of $20, my optimal strategy is to bid strategically to maximize potential profit. Since this is a first-price sealed bid auction with multiple bidders, I want to bid below my full value but high enough to likely win. Given the $0-$20 range, I'll bid $15, which leaves room for potential profit if I win while being competitive against other bidders.",
+            "With a private value of $18, my optimal strategy is to bid strategically. Since this is a first-price sealed bid auction where I pay the second-highest bid, I want to bid close to my true value but not exactly at it. I'll aim to bid around $16-$17 to maximize potential profit. This leaves some buffer for potential winning while not overpaying. The goal is to win the item if possible while preserving most of my potential profit margin."
+        ]
+    }
+}

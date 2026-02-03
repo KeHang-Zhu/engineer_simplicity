@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            9,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 6.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 7.5
+            }
+        },
+        "profit": [
+            5.5,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "My private value is $13. As a risk-averse bidder, I want to minimize potential losses. I'll bid strategically below my full value to create a buffer. Since values are independently drawn and this is a single round, I'll bid around 80-85% of my true value. This gives me a chance to win while protecting against overpaying. I'll choose $10.50 as a balanced bid that reflects my cautious approach and provides potential profit margin.",
+            "As a risk-averse bidder with a private value of $9, I want to bid strategically. My goal is to maximize potential profit while minimizing downside risk. Given the uncertainty of other bidders' values, I'll bid slightly below my true value to create a buffer. A bid around $7-$8 allows me potential profit if I win, while protecting against overpaying. This approach reflects my risk-averse nature by not gambling the full value.",
+            "As a risk-averse bidder with a private value of $8, I want to minimize potential losses. My strategy is to bid slightly below my true value to create a buffer. Since the game is a single round with no repeated interactions, I'll bid conservatively. I'll aim to bid around $6-$7, which gives me some potential profit margin while reducing the risk of overpaying. This approach protects me from potentially aggressive bids by other players."
+        ]
+    }
+}

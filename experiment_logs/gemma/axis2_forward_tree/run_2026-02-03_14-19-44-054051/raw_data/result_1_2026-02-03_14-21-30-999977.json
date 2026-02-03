@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.8999999999999986
+        ],
+        "common": 17,
+        "plan": [
+            "Since this is round 1 of 1, and my value is $31, I want to bid high enough to win, but not so high that I overpay. Given the possible range of values (0-20 for others), it's unlikely anyone will bid significantly higher than $20. A bid slightly above $20 should secure a win without excessive cost. I will bid $20.1 to increase my chances of winning while minimizing potential payment.",
+            "Since this is round 1 of 1, and my value is $24, I want to bid high enough to win, but not excessively high. The value is capped at $20, so a bid slightly above that should suffice. I'll bid $20.1 to be competitive without overpaying. This maximizes my chance of winning while keeping the payment low.",
+            "Since this is the only round, and my value is $24, I want to win if possible, but avoid overpaying. Given the possible values range from $0 to $20, it's unlikely another bidder will have a value significantly higher than mine. I will bid slightly above the maximum possible value of other bidders to increase my chances of winning without risking a large payment. A bid of $20.5 should achieve this."
+        ]
+    }
+}

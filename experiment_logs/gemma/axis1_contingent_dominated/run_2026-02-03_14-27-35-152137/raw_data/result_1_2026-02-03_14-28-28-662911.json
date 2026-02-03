@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            27.1,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "My value is $47. Since the values are between $0 and $20, my value is exceptionally high. I should bid aggressively to win. However, I want to avoid overpaying. Bidding my full value is not optimal as I\u2019d receive no surplus. I will bid slightly above the maximum possible value of the other bidders ($20) to ensure I win, but not excessively high. A bid of $20.1 guarantees a win against any possible opponent value.",
+            "My value is $41. Since the maximum possible value is $20, I should bid aggressively to win. However, I need to consider the payment. I want to win if my value exceeds the second highest bid. A bid close to my value, but not exceeding it, is optimal. I will bid $19.9 to maximize my chance of winning while minimizing potential overpayment.",
+            "My value is $34. Since this is the only round, I should aim to win if my value exceeds the likely second-highest bid. Bidding too low risks losing to a lower value, while bidding too high risks overpaying. Given the value range of $0-$20 for the other players, a conservative bid slightly above the midpoint seems reasonable. I will bid $15. This avoids being overly aggressive while still likely winning against lower values."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            4.5,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "My private value is $23, which is higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since values are independent and randomly drawn, I'll aim to bid near but not exceeding my true value. A bid around $20-$22 seems optimal - high enough to likely win, but leaving room for profit if I can win by paying a lower second-place bid. I want to win without overpaying.",
+            "With a private value of $17, my goal is to maximize potential profit. Since this is a first-price sealed bid auction with payment of second-highest bid, I'll aim to bid strategically. Given the value range of $0-$20, I'll bid slightly above my midpoint to signal serious intent but not overpay. A bid around $14-$15 gives me potential profit margin if I win, while not risking excessive loss if competing bids are lower.",
+            "With a high private value of $19, my optimal strategy is to bid strategically. Since this is a single round with no previous history, I want to win but minimize my payment. I'll bid slightly below my true value to ensure winning while paying less. A bid around $18.5 should help me secure the prize while leaving some profit margin. This approach balances my desire to win with the need to maximize potential earnings."
+        ]
+    }
+}

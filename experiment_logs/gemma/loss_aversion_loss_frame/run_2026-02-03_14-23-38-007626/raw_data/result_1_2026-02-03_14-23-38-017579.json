@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            11.5,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My value is $24, which is quite high. Given it's the only round, I want to aggressively pursue winning. However, I need to avoid overpaying. I'll bid slightly above what I estimate the others might bid, aiming for a profit margin. Since values are 0-20, and we start with $20, a bid around $16-$18 should be competitive without excessive risk. I'll bid $17.5, hoping to win against potentially lower values.",
+            "My value is $14. I need to bid high enough to win, but not so high that my profit is eroded by a large payment. Given it's round 1 and there's no history, I will assume the other bidders will bid somewhat randomly. A bid slightly above the midpoint of possible values ($10) seems reasonable, but I want to increase my chances of winning. I'll bid $12.10, aiming to win against potentially conservative bids, while still leaving a reasonable profit margin.",
+            "Since this is round 1, there's no history to learn from. My value is $15. To maximize potential profit, I'll bid slightly above what I expect the others to bid, but conservatively to avoid overpaying. I'll assume the other bidders will bid around $10 on average. Bidding $12.50 gives me a good chance of winning without committing too much of my $20 endowment."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 39.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 40.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 39.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.0
+        ],
+        "common": 27,
+        "plan": [
+            "With a private value of $38, my goal is to maximize potential profit. In a sealed bid auction, I want to bid strategically to win while minimizing my payment. Since the value is randomly drawn, I'll bid slightly below my true value to create a buffer. A bid around $35 gives me potential profit if I win while protecting against overpaying. This approach balances winning probability with profit margin.",
+            "With a high private value of $35, I want to maximize my chances of winning while protecting potential profit. Since this is a single round with no repeated interactions, I'll bid strategically close to my value. A bid slightly above my value but not revealing my full valuation will help me win while preserving potential profit margin. I'll aim to bid around $38-$40 to signal serious intent but not expose my full hand.",
+            "With a high private value of $42, I want to secure this item. In a single-round sealed bid auction, I'll bid strategically to maximize my chances of winning while preserving potential profit. Since the value is randomly drawn and this is the only round, I'll bid close to my true value but slightly below to leave room for potential profit if I win. A bid around $40 seems optimal - high enough to likely win, but not overpaying."
+        ]
+    }
+}

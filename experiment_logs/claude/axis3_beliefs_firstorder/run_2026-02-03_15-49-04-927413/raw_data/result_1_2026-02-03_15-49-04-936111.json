@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            9.5,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My private value is $24, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since other bidders will likely bid close to their value, and the winner pays the second-highest bid, I want to bid high enough to win but not overpay. A reasonable strategy is to bid slightly above the expected maximum of $20, around $20.5, which gives me a high probability of winning while minimizing overpayment.",
+            "In a second-price sealed bid auction with values drawn from $0-$20, the optimal strategy is to bid close to my true value. Since my value is $14, I want to bid strategically. Other rational bidders will likely bid near their own values. I'll bid slightly below my true value at $13.9 to create a small buffer. This allows me to potentially win if others bid lower, while protecting against overbidding and losing money.",
+            "In a single-round second-price sealed bid auction with values between $0-$20, the dominant strategy is to bid close to, but not exceeding, my true value. Since my value is $15, I want to maximize potential profit. Other rational bidders will likely bid similarly. I'll bid slightly below my true value to create a buffer - this allows me to win if their values are lower, while protecting against overpaying. A bid of $14.5 seems strategic."
+        ]
+    }
+}

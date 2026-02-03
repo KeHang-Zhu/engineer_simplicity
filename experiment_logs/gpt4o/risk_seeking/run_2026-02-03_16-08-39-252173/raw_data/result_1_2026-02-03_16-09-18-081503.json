@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            4,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 4.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            2.5,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "With a private value of $18, I aim to maximize profit by winning the auction without overbidding. Given my risk-seeking nature, I'll bid close to my value to increase winning chances. I will bid $17.9, slightly under my value, to ensure a positive payoff if I win. This strategy balances risk and reward, considering I only pay the second-highest bid.",
+            "Given my value of $4 and risk-seeking nature, I'll bid slightly above my value to potentially secure a win while minimizing overpayment. Since it's a single round, I aim to maximize potential profit by bidding $4.5, hoping competitors bid lower. This strategy balances risk and reward, considering the limited information and single opportunity.",
+            "As a risk-seeking bidder with a value of $16, I will aim to bid close to my value to maximize potential profit. Given the lack of historical data, I'll assume aggressive bidding from others. To win, I'll bid slightly below my value to ensure a profit if I win. A bid of $15.5 balances the risk and reward, aiming to outbid competitors while ensuring a profit of at least $0.5 if I win and pay the second-highest bid."
+        ]
+    }
+}

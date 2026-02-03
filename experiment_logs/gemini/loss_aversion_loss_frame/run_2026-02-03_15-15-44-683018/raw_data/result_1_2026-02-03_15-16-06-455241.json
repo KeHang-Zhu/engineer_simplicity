@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            8.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is the first round and my value is $29, which is significantly higher than the possible values of the other bidders (0-20), I should bid aggressively to secure the win. To maximize my profit, I will bid slightly above the maximum possible value of the other bidders, which is $20. I'll bid $20.1 to ensure I win and pay close to their maximum possible value.",
+            "I have a value of $26, which is significantly higher than the possible range of values of the other bidders (0-20). Therefore, I should bid slightly above the maximum possible value of the other bidders to ensure I win the auction. I will bid $20.1 to secure a win and guarantee a profit of $26 - $20.1 = $5.9.",
+            "My value is $16. The goal is to maximize profit. I should bid less than my value to ensure a profit if I win. A good strategy is to bid slightly above what I expect the second-highest bid to be. Since the values are drawn uniformly between $0 and $20, the expected value is $10. A reasonable bid would be slightly above that, say $10.50. This allows me to win if the other bids are around their expected value, while still securing a decent profit. I will bid $10.50."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            30,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            10.100000000000001,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "Given my value of $20, I should bid close to this value to maximize my chance of winning while ensuring profit. Since the bids are independent and the maximum value is $20, I should bid slightly below $20 to account for potential competitive bids. A bid of $19.9 ensures I win against any lower bids and still make a profit if I win.",
+            "Since this is the only round and my value is $30, which is above the maximum possible value of $20, I should bid aggressively to ensure I win. A bid slightly above the maximum possible value for others, such as $20.1, would ensure I win and still pay a price close to their maximum, maximizing my profit.",
+            "My private value is $30, but values are drawn between $0 and $20, indicating a typo or error. Assuming $20 is correct, my value is still the highest possible. To maximize profit, I will bid close to $20, since other bidders can't value it higher and will likely bid lower. By bidding $19.9, I aim to win while minimizing payment."
+        ]
+    }
+}

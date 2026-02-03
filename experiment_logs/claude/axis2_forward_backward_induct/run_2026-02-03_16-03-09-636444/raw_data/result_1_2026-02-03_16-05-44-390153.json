@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.7
+            }
+        },
+        "profit": [
+            0,
+            8.3,
+            0
+        ],
+        "common": 16,
+        "plan": [
+            "With a high private value of $19, I want to win this auction while minimizing my payment. In a sealed first stage, I'll bid strategically to maximize potential profit. Since values are randomly drawn, I'll bid just above my expected competitors' exit points. Given the $0-$20 range, I'll bid around $15 - this allows me to potentially win while leaving room for profit if the clock price is low. This balanced approach protects my high $19 value.",
+            "With a private value of $24, I want to maximize my potential profit. In a sealed bid ascending auction, I need to balance two competing goals:\n1. Bid high enough to have a chance of winning\n2. Bid low enough to preserve potential profit margin\n\nGiven the $0-$20 standard range for other bidders, I'll bid strategically at $20.50. This ensures I'll likely exit later in Stage 2 and have a good chance of winning while protecting my $24 value.",
+            "Bid strategically to win while preserving profit margin. With a value of $21, aim to win by bidding near upper range but not excessively. Target bid around $15-$16 to balance winning probability and potential profit. Consider other bidders might have similar strategic thinking."
+        ]
+    }
+}

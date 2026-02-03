@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            5.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Given my value is $26, and the maximum possible value for others is $20, I aim to win at a low cost. I'll bid slightly above the maximum possible value of other players to ensure I win, but avoid overbidding. A bid of $20.1 guarantees a win against any other possible value, and the payment will be less than my value. This maximizes my expected profit.",
+            "Since this is the only round, a conservative strategy is best. My value is $35, significantly higher than the maximum possible value of $20 for others. I will bid slightly above the maximum possible value of other players to ensure I win. Bidding too high risks paying a large amount, but the relatively high value suggests winning is likely profitable. I will bid $20.1 to almost guarantee a win.",
+            "Since this is the only round, a conservative approach is best. My value is $17. I want to win if possible, but avoid overpaying. Bidding slightly above $17 risks paying a high price if others also bid high. I'll bid $17.1, hoping to secure a win against potentially lower bids, while minimizing potential losses if others bid aggressively."
+        ]
+    }
+}

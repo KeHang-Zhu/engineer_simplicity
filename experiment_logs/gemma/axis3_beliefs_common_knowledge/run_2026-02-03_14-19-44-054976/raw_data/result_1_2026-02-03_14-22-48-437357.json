@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 38.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 34.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 0.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 34.9
+            }
+        },
+        "profit": [
+            3.1000000000000014,
+            0,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "Given the common knowledge of rationality and the auction format (second-price sealed-bid), the dominant strategy is to bid your true value. This is because any deviation from your true value can either lead to losing a profitable auction (bidding lower) or paying more than necessary (bidding higher). My value is $38, so I bid $38.",
+            "Given the common knowledge of rationality and the payment rule (paying the second-highest bid), the optimal strategy is to bid slightly above the expected value of the second highest bid. Since values are between $0 and $20, and with three bidders, a conservative estimate of the second highest bid is around $6.7. However, my value is $35, so I can afford to bid higher. I will bid a value close to my private value, but not exceeding it, to maximize profit.",
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the minimum increment. This is because any bid above zero has a chance of winning, and the payment is the *second* highest bid. Since values are between $0 and $20, and my value is $42, I want to win if possible, but minimize the payment. Bidding $0.1 ensures I win if others bid less, and the payment will be close to zero."
+        ]
+    }
+}

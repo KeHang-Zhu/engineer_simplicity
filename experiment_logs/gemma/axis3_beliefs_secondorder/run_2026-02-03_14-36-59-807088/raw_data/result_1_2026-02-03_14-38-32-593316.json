@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0.8999999999999986,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My value is $21. Since this is round 1 and there's only one round, I need to be aggressive but not overbid excessively. The other bidders are rational, so they'll consider my value. A bid slightly above the expected maximum of their values (around $20) should win without overpaying. I'll bid $20.1 to secure the win and minimize the cost.",
+            "My value is $27. Since this is the only round, I need to be aggressive. The other bidders are rational, so they will also bid based on their values. To maximize my profit, I should bid slightly above what I estimate the second-highest value might be. Given the range of possible values (0-20), a bid of $20.1 should secure a win against most reasonable values the others might have, while still potentially yielding a positive profit.",
+            "Since this is a single-round auction, and my value is $14, I need to bid slightly above what I estimate the second-highest bid will be. Assuming the other bidders are rational, they will also attempt to bid below their values. A conservative approach is to bid slightly above the midpoint of 0 and my value, adjusted for risk aversion. Given it's a single round and I don't know their strategies, I'll bid aggressively to try and secure the item."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 17.0
+            }
+        },
+        "profit": [
+            3.0,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "Given the common knowledge of rationality and a single round, the optimal strategy converges to bidding your true value. This is because any bid below your value risks losing the auction to a slightly higher bid, even if it's below your value, resulting in zero profit. Bidding above your value risks winning but paying more than the item is worth to you. Since this is round 1 and there is no history, I will bid my true value.",
+            "Given the common knowledge of rationality, the optimal bidding strategy is to bid slightly above the expected value of the second-highest bid. Since values are between $0 and $20, a reasonable assumption is that other bidders will also bid rationally. To maximize profit, I should bid a small increment above what I believe the second highest bid will be. With my value at $17, I will bid $17.00.",
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the expected value of the second highest bid. Since values are uniformly distributed between $0 and $20, the expected value of the highest of the other two bids is (2/3) * 20 = $13.33. To ensure winning with a positive payoff, I'll bid slightly above this, but considering my value of $13, a very high bid risks overpaying. I will bid $13.10."
+        ]
+    }
+}

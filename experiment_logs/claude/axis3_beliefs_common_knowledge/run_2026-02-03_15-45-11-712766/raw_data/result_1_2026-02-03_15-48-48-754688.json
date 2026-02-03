@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            4.5,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "In a single-round sealed bid auction with rational bidders, the dominant strategy is to bid slightly less than my true value. Since my private value is $23, I want to maximize potential profit. A strategic bid would be close to, but not exceeding my value - leaving room for potential profit if I win. Given the $0-$20 typical range mentioned, I'll bid near my true value but not exactly at it.",
+            "In a single-round auction with rational bidders, the dominant strategy is to bid slightly below my true value. With a private value of $17, I want to maximize potential profit. The optimal bid would be close to, but not exactly at, my true value to account for potential strategic bidding by other rational bidders. I'll aim to bid around $16.5 to leave some potential profit margin.",
+            "In a first-price sealed bid auction with rational bidders, the Nash equilibrium strategy is to bid slightly below one's true value. With a private value of $19, I want to maximize potential profit. Given the uncertainty of other bidders' values, I'll bid strategically just under my true value to increase my chances of winning while preserving potential profit margin. A bid around $18.5 seems optimal to balance winning probability and profit potential."
+        ]
+    }
+}

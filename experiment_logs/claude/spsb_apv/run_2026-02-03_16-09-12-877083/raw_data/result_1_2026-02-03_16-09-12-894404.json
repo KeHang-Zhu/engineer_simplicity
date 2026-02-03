@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            30,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 33.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            10.0
+        ],
+        "common": 16,
+        "plan": [
+            "My private value is $23, which means I want to win only if the second-highest bid is below this amount. Since values are drawn independently, I'll aim to bid strategically. A good approach is to bid slightly below my true value - around $22 - which gives me a chance to win while protecting potential profit margin. This allows some buffer in case other bidders have similar valuations, ensuring I don't overpay.",
+            "With a private value of $30, I want to win the auction but not overpay. Since this is a first-price sealed bid auction where the second-highest bid determines the payment, I'll bid strategically. My value is moderately high, so I'll bid just above the midpoint of the possible range. A bid around $25 gives me a good chance of winning while preserving potential profit margin. The goal is to win the item if my value is truly higher than others.",
+            "My private value is $35, which suggests a strategic bid near but below this amount. Since this is a single round with no history, I'll aim to win by bidding slightly less than my full value. A bid around $33-$34 gives me a good chance of winning while preserving potential profit margin. The second-price auction mechanism means I want to bid close to my true value without overpaying."
+        ]
+    }
+}

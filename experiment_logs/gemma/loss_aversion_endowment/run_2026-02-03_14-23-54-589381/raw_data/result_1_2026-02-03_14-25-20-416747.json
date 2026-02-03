@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 4.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 4.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 4.5
+            }
+        },
+        "profit": [
+            0,
+            16.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Since this is the only round, a conservative approach is best given my value of $8 and starting endowment of $20. I will bid slightly above the midpoint of my value to try and secure the prize without overpaying. I want to avoid getting into a bidding war that depletes my endowment. A bid of $4.50 seems reasonable.",
+            "My value is $21. Since this is the only round, I need to be aggressive to try and secure a win. However, I don't want to overpay. I will bid slightly above my value to increase my chances of winning, but not excessively high to avoid a large payment. I will bid $18.50. This is a good balance between winning and protecting my endowment.",
+            "Since this is the only round, a conservative approach is best to avoid overpaying. My value is $8. I will bid slightly above what I estimate the other bidders might bid, aiming to win if the others undervalue the item. Given the endowment of $20 and the potential values ranging up to $20, I'll bid $4. This is low enough to preserve endowment but high enough to win if others bid low."
+        ]
+    }
+}

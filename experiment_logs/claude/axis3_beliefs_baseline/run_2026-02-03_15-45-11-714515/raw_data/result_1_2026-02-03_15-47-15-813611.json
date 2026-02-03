@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            5.300000000000001
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $29, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since this is a single round with no repeated interactions, I'll bid just above the expected maximum competitive bid. Given the $0-$20 range, I'll aim to bid around $19.5 to ensure winning while minimizing overpayment.",
+            "My private value is $27, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively. Since the winner pays the second-highest bid, I want to bid high enough to win, but not excessively above the expected range. A strategic bid around $19-$20 should maximize my chances of winning while minimizing overpayment. I'll aim to capture the full value difference between my private value and the bid.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since this is a single round with no repeated game history, I'll aim to win by bidding slightly above the maximum expected competing bid. Given the random value distribution, I'll bid $20.10 - just above the likely maximum competitor value, ensuring I win while minimizing my payment."
+        ]
+    }
+}

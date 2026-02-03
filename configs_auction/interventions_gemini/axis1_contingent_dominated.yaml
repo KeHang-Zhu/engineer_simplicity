@@ -33,7 +33,7 @@ llm:
 prompt:
   strategy_type: "plan_reflection"
   prompt_dir: "Prompt/"
-  rule_template_dir: "rule_template/V12/"
+  rule_template_dir: "rule_template/auctions/"
   include_payment_example: true
 
 execution:

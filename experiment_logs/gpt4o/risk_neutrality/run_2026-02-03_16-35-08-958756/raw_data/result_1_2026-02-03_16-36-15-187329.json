@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            1.5,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Given my private value of $21, which is higher than the maximum possible value of $20, I should bid aggressively to maximize profit. I will bid slightly above $20 to ensure winning while minimizing payment. A bid of $20.1 should secure the win unless another bidder also bids very close to their maximum value. This strategy maximizes my profit by winning the item while paying close to the second-highest bid.",
+            "My value for the item is $27, which is an error since the maximum value should be $20. Assuming $20 is intended, I should bid slightly below my value to maximize profit if I win. A strategic bid would be around $19.5, as it is close to the maximum value and likely to outbid others while ensuring a good profit margin if I win.",
+            "Given my private value of $14, I aim to bid slightly below my value to maximize profit while still having a good chance of winning. A bid of $13.5 balances the risk of overpaying with the chance of winning. This bid is competitive, as other bidders' values are random between $0 and $20. By bidding $13.5, I ensure that if I win, my profit (value minus payment) is positive while minimizing the risk of paying too much if I win."
+        ]
+    }
+}

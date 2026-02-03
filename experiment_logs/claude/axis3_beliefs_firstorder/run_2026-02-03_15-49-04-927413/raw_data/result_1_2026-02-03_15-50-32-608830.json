@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 9.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 8.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 9.5
+            }
+        },
+        "profit": [
+            0,
+            11.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "In a second-price sealed bid auction with values drawn from $0-$20, a dominant strategy is to bid close to my true value. Since my value is $8, I want to bid strategically. Other rational bidders will likely bid near their own values. I'll bid slightly above my value to increase win probability, but not so high that I risk negative earnings. A bid around $9-$10 seems optimal - high enough to likely win, but not overcommitting.",
+            "My value is $21, which is actually above the maximum possible randomly drawn value of $20. This means I have a strong incentive to win. However, rational bidders will bid strategically. I'll bid close to, but slightly under my value. Since values are drawn uniformly between $0-$20, a strategic bid around $19.9 should maximize my chances of winning while minimizing overpayment.",
+            "In a single-round auction with values drawn from $0-$20, the optimal strategy is to bid strategically based on my private value of $8. Since the second-price auction rewards truthful bidding, I'll consider the expected behavior of other rational bidders. With a value of $8, I want to win if possible without overpaying. I'll bid slightly above my value to increase my winning chances, accounting for potential competitive bidding."
+        ]
+    }
+}

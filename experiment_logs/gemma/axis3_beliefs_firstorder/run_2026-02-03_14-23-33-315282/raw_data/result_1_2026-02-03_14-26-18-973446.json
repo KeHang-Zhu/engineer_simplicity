@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            15.5,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "My value is $38. Since this is the only round, I want to win if my value exceeds the second highest bid. Given the other bidders are rational and values are between $0 and $20, a conservative approach is to bid slightly above the expected second highest bid. Assuming a uniform distribution, the expected value of the highest of two other bids is around 13.33. I'll bid a bit higher to increase my chances of winning.",
+            "My value is $35. Since values are between $0 and $20, my value is an outlier. The other bidders likely have values much lower than mine. I want to win without overpaying. I'll bid slightly above the maximum possible value of the other bidders, assuming they bid aggressively given their (lower) values. A bid of $20.1 should secure the win against any reasonable bid from the others, while keeping the payment low.",
+            "My value is $42. Since this is the only round, I want to win if my value is significantly higher than what I expect others to bid. Given the range of possible values (0-20) for the other bidders, a conservative approach is to bid slightly above the midpoint, anticipating bids around $10. However, I have a high value, so I can afford to bid higher. I will bid aggressively to increase my chance of winning."
+        ]
+    }
+}

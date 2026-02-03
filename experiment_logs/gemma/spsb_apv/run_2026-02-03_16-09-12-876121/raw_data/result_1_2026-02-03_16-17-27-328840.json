@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            42,
+            45
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 28.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 38.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            0,
+            7.0,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "My value is $35. Since this is a single-round game, I need to bid aggressively to win, but not overpay. Given the possible values (0-29 common value + 0-20 private taste), it's likely others have values somewhat lower than mine. I'll bid slightly above what I estimate the second-highest value might be, aiming to win with a reasonable payment. I'll bid $28.50.",
+            "Given my high private value of $42, I want to win this auction. However, I need to avoid overpaying. Since the common value is between 0 and 29 and private adjustments are up to 20, other bidders could have values approaching mine. I will bid slightly above what I estimate the second highest value might be, aiming to win without a huge overpayment. I'll bid $38.50.",
+            "My value is $45. Since this is round 1 of 1, and there's no history, I'll assume a conservative but competitive approach. I want to win if the second highest bid is below $45. I'll bid slightly above what I estimate the average bidder might value the item, but not too high to overpay. I'll bid $35. This should give me a good chance of winning without risking a large payment."
+        ]
+    }
+}

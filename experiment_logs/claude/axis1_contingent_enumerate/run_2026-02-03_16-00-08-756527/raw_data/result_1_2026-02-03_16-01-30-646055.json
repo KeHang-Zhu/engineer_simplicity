@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 28.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 22.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            12.5,
+            0,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "My private value is $35, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I eliminate all potential profit. A bid around $25-$30 seems optimal - high enough to likely win, but leaving room for profit given my $35 value.",
+            "With a private value of $41, I want to maximize my potential profit. Since the prize can range from $0-$20, other bidders likely have values in that range. A pure optimal strategy is to bid slightly above the expected maximum opponent value. Given the random distribution, I'll bid near the midpoint of the possible range - around $10. This gives me a good chance of winning while minimizing overpayment risk.",
+            "My private value is $44, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize my potential profit. Since this is a single round with no repeated interactions, I'll aim to bid just above the expected maximum competing bid. Given the $0-$20 range, I'll bid around $20-$25 to ensure winning while minimizing overpayment. The goal is to capture the prize while paying as little as possible."
+        ]
+    }
+}

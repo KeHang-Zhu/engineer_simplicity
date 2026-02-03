@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            0,
+            15.5,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "Given my private value of $25, which is significantly higher than the typical $0-$20 range, I want to secure the item while minimizing my payment. As a risk-averse bidder, I'll bid strategically to win but not overpay. Since this is a single round with no prior history, I'll bid just above the expected maximum competitive bid, targeting around the 75th percentile of the typical value range.",
+            "My private value is $32, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to secure the item while minimizing potential overpayment. Given the high personal value, I'll bid aggressively but strategically. I'll aim to bid just above the expected maximum competitive bid, around $20, to increase my chances of winning without dramatically overpaying.",
+            "My private value is $23, which is significantly higher than the standard $0-$20 range. As a risk-averse bidder, I want to maximize my chances of winning without overpaying. Since this is a single round with no history, I'll bid strategically near the upper range of typical values. I'll aim to bid just above the expected maximum reasonable bid of around $15-$16 to increase my winning probability while protecting my potential profit margin."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 32.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            10.5,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "My private value is $33, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively to win. Since the second-highest bid determines the payment, I want to bid just enough to secure victory without overpaying. Given the high value, I'll bid close to but slightly under my true value to maximize potential profit. A bid around $32-$33 seems optimal.",
+            "My private value is $34, which is significantly higher than the typical $0-$20 range. To maximize profit, I want to win the auction while minimizing my payment. Since other bidders likely have lower values, I'll bid strategically high but not my full value. A bid around $20-$25 should secure the win while keeping my payment low. This ensures I capture most of the value difference between my true value and the second-highest bid.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since this is a single round with no repeated game history, I'll aim to win by bidding slightly above the maximum expected competing bid. Given the random value distribution, I'll bid $20.10 - just above the likely maximum competitor value, ensuring I win while minimizing my payment."
+        ]
+    }
+}

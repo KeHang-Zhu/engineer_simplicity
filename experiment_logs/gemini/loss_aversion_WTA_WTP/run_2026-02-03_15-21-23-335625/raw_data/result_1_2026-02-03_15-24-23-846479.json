@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            11.899999999999999,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "I have a value of $25, which is significantly higher than the typical range of values (0-20). This suggests I should bid aggressively to secure the item. However, I also want to avoid overpaying significantly. I will bid slightly above the maximum possible value of the other bidders, which is $20. I will bid $20.1 to ensure I win while minimizing my payment.",
+            "My value is $32, which is outside the normal range of $0-$20. This suggests a possible error or a change in the game's rules. Since I only have one round, I will bid conservatively, aiming to secure the win if the other bidders are still operating under the assumption of a $0-$20 value range. I'll bid slightly above the maximum expected value to ensure a win if others are bidding within the $0-$20 range.",
+            "I have a value of $23, which is outside the typical range of $0-$20. Given that the other bidders are likely to bid based on values within the $0-$20 range, I should bid aggressively to secure the win. I will bid slightly above the maximum possible value for the other bidders, which is $20. This should ensure I win the auction while still maintaining a profit, given my higher value. I will bid $20.1."
+        ]
+    }
+}

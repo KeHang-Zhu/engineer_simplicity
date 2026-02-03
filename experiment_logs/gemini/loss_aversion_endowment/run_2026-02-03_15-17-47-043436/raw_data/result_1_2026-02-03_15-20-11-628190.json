@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            20,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "I have a value of $24, which is higher than the maximum possible value of other bidders ($20). This means I can bid slightly above $20 and guarantee a win. Since the second-highest bid determines my payment, bidding much higher than $20 won't increase my chances of winning but will increase my payment if I win. Therefore, I will bid $20.1 to win and pay the second-highest bid.",
+            "Since this is the first and only round, my goal is to maximize my profit in this single round. My value is $20. I will bid slightly below my value to ensure I win if the other bidders bid conservatively, but also to avoid overpaying significantly. I will bid $19.9 to try and secure the win while maximizing profit.",
+            "My value is $18. This is a sealed-bid second-price auction. I want to maximize my profit in the long run. A good strategy is to bid slightly below my value. I will bid $17.9 to ensure I win if the next highest bid is below my value, and not overpay. This is round 1, so I have no prior history to consider."
+        ]
+    }
+}

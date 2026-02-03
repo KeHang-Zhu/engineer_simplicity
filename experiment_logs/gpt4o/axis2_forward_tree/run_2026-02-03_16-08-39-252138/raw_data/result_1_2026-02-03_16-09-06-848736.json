@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            20.0,
+            0,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "My private value of $40 is unusually high, suggesting a strong willingness to bid aggressively. To maximize profit, I'll bid slightly above the average expected value, around $20, to outbid competitors without overpaying. This ensures I win if others undervalue the prize.",
+            "My value of $42 is much higher than the maximum possible value of $20 for any other bidder. Therefore, I can safely bid $20, ensuring I win, since no other bidder can have a value higher than $20. This maximizes my profit by securing the prize while paying the maximum possible second-highest bid, which is $20.",
+            "Since my value for the item is $28, which is above the maximum possible value of $20, I can safely bid up to $20 without risking a loss. Bidding $20 maximizes my chance of winning, as it's the highest possible bid. Given that it's a single round, maximizing the chance to win is crucial."
+        ]
+    }
+}

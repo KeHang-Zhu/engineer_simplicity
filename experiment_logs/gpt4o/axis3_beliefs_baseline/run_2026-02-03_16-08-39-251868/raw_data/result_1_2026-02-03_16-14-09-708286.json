@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.0
+        ],
+        "common": 10,
+        "plan": [
+            "Given my private value of $21, I can afford to bid aggressively to maximize profit. To ensure a win, I should bid slightly above the expected highest bid from the others. Assuming rational bidding, others may bid close to their values, averaging around $10. Thus, bidding $15 maximizes my chances of winning while maintaining profitability, as it leaves room between my bid and my value.",
+            "Given my value of $16 for the prize, I should aim to bid slightly below my value to maximize profit while still having a good chance of winning. Since the other bidders are rational, they are likely to bid close to their value. A bid around $12.5 balances the risk of losing with the potential profit, as it leaves room for positive earnings if I win.",
+            "Given my private value of $17, I aim to bid slightly below this to ensure profit if I win. Since this is the only round, maximizing profit is crucial. Assuming rational behavior from Andy and Betty, they will likely bid close to their values. To win, I should bid slightly above the midpoint of the possible range (e.g., $10-$16). I will bid $15 to maximize my chance of winning while ensuring a profit if the second-highest bid is lower than $15."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            5.100000000000001,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "My private value is $28, which is higher than the max possible auction value of $20. This means I should bid strategically to maximize profit. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. A good strategy is to bid slightly above the expected maximum competitor bid, around $19-$20, to ensure winning while minimizing my payment.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid aggressively. Since the winner pays the second-highest bid, I want to bid strategically to maximize potential profit. A bid near my true value but not exactly at it could optimize my chances. I'll aim to bid around $20, which covers most possible competing bids while leaving room for potential profit.",
+            "With a private value of $20, I want to maximize my potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to my true value. If I bid too low, I risk losing the item. If I bid too high, I risk paying more than the item's worth. Given the $20 value, I'll bid $19.9 - just slightly below my true value to protect against potential overpaying while still having a strong chance of winning."
+        ]
+    }
+}

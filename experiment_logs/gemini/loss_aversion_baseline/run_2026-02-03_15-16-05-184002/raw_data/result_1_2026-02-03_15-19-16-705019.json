@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            12.5,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "I have a value of $28, which is significantly higher than the typical range of values (0-20). Since this is a single round game, I should bid aggressively to ensure I win the auction and secure a profit. I will bid slightly above the maximum possible value of other bidders to ensure I win. I will bid $20.5.",
+            "My value is $16. This is a single-round game, so there's no learning to be done. My goal is to maximize my profit. I should bid less than my value to ensure a profit if I win. A good strategy is to bid slightly below my value to increase my chances of winning while still securing a reasonable profit. I will bid $15.50.",
+            "[My value is $19. I want to win if and only if my value is higher than the second-highest bid. To maximize profit, I should bid slightly above my expected value of the second-highest bid. Since values are drawn from $0 to $20, the expected value of the second-highest of three values is approximately (2/3)*20 = 13.33. I will bid $13.5 to start. This should give me a good chance of winning when my value is high without overpaying too much.]"
+        ]
+    }
+}

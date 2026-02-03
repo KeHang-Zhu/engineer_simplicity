@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            24,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            4.5,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $20, my optimal strategy is to bid strategically. Since this is the first and only round, I want to maximize potential profit. Given the winner pays the second-highest bid, I'll bid slightly below my full value to ensure winning while minimizing my payment. A bid around $19.5 should secure the prize while leaving room for profit if the competing bids are lower.",
+            "My private value is $24, which is unusually high. Since values are drawn randomly between $0-$20, my value being $24 suggests a strategic opportunity. I want to win this auction, but also minimize my payment. I'll bid strategically near the maximum expected range of other bidders (around $20) to increase my chances of winning while keeping my payment low. A bid slightly above $20 seems optimal.",
+            "With a private value of $18, my optimal strategy is to bid strategically. Since this is a first-price sealed bid auction where I pay the second-highest bid, I want to bid close to my true value but not exactly at it. I'll aim to bid around $16-$17 to maximize potential profit. This leaves some buffer for potential winning while not overpaying. The goal is to win the item if possible while preserving most of my potential profit margin."
+        ]
+    }
+}

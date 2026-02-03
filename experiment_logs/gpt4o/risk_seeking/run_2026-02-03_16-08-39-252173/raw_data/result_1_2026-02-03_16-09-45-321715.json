@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            17,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.0
+            }
+        },
+        "profit": [
+            1.0,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Given my value of $17, I aim to maximize profit by bidding slightly above the midpoint between my value and the maximum possible value ($20). This balances risk with potential reward, considering my risk-seeking nature. I\u2019ll bid $18 to increase my chances of winning while still leaving room for profit if opponents bid conservatively.",
+            "My value is $16, which is quite high. To maximize profit and considering my risk-seeking nature, I'll bid aggressively. A bid slightly below my value, like $15, could secure a win without overpaying. This ensures a potential profit even if the second-highest bid is close to mine.",
+            "Given my private value of $17, I aim to bid just below my value to maximize potential profit while still having a strong chance of winning. Since I am risk-seeking, I'll bid slightly higher than a conservative strategy would suggest. I'll bid $16, which gives me a good chance to win while still ensuring a profit if I do win. This accounts for the possibility of other bidders valuing the item similarly and bidding aggressively."
+        ]
+    }
+}

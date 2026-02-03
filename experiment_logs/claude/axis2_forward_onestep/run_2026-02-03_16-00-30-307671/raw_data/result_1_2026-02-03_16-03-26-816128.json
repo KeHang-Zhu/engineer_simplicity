@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 25.5
+            }
+        },
+        "profit": [
+            0,
+            2.5,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "My private value is $26, which is higher than the typical $0-$20 range. This suggests I should bid strategically to capture maximum profit. Since the second-highest bid determines my payment, I want to bid high enough to win but not so high that I eliminate my potential profit margin. I'll bid close to, but slightly below, my true value to maximize potential earnings.",
+            "My private value is $28, which is significantly higher than the typical $0-$20 range mentioned in the rules. This suggests I should bid strategically to maximize my potential profit. Since I want to win but pay as little as possible, I'll bid just above what I expect other rational bidders might bid. Given the high value to me, I'll bid close to, but slightly under my true value to ensure winning while preserving potential profit margin.",
+            "My private value is $21, which is actually higher than the possible range of $0-$20. This means I know I want to win, but must bid strategically. Since values are drawn independently and this is a single round, my optimal strategy is to bid just above the maximum possible opponent value of $20. By bidding $20.1, I ensure winning while minimizing my payment. This maximizes my potential profit."
+        ]
+    }
+}

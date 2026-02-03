@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            20,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.9000000000000004
+        ],
+        "common": 4,
+        "plan": [
+            "Given my private value of $24, I aim to maximize profit by bidding slightly above the expected average value of $10 to $15, but below my value to ensure a profit if I win. A bid of $15.1 balances potential profit and winning likelihood. This bid beats average bids while maintaining a margin for profit, as the worst-case scenario is paying $15.0, yielding a profit of $9.0 (24 - 15).",
+            "My value for the prize is $20, the maximum possible. To maximize profit, I should aim to win by outbidding others but not overpaying. A bid slightly above the average expected value ($10) could suffice. The worst-case scenario is overbidding and winning with little profit. Bidding $15 maximizes the chance of winning while ensuring a good profit margin, considering the second-highest bid might be around $14.9.",
+            "Given my value of $18, I aim to bid slightly below to maximize profit while avoiding overbidding. Bidding exactly $18 risks zero profit if I win, as I would pay the second-highest bid. A strategic bid around $15.5 could win against bidders valuing less, while ensuring profit if successful. This bid balances risk and reward, considering no history data is available to assess opponents' strategies."
+        ]
+    }
+}

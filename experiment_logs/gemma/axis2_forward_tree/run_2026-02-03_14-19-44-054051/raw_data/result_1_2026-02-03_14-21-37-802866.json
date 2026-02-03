@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            1.8999999999999986,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "Given my value is $22, and the maximum possible value for any bidder is $20, I should win the auction regardless of the other bidders' values if I bid slightly above $20. To maximize profit, I want to ensure I win while paying as little as possible. Therefore, I will bid $20.10. This ensures I win against any possible value the other bidders may have, and forces them to pay a price close to their maximum.",
+            "Since this is the only round, a conservative approach is best. My value is $23. I want to win if possible, but avoid overpaying. Given the possible values (0-20 for opponents), I'll bid slightly above the maximum possible opponent value to ensure a win, but not excessively high. Bidding $20.1 should secure the win against any possible opponent value while minimizing my payment.",
+            "Since this is the only round, a conservative approach is best. My value is $17. I want to win if possible, but avoid overpaying. Bidding slightly above $17 risks paying a high price if others also bid high. I'll bid $17.1, hoping to secure a win against potentially lower bids, while minimizing potential losses if others bid aggressively."
+        ]
+    }
+}

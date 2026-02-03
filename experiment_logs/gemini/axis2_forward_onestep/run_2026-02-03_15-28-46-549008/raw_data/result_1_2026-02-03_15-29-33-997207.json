@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            47,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 36.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 46.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 45.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 45.9
+            }
+        },
+        "profit": [
+            0,
+            1.1000000000000014,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "Since my value is $36, I should bid up to my value. Given this is the first round and I have no information about the other bidders, I will start by bidding my value, $36. This will ensure I win if my value is the highest and I will make a profit. If another bidder has a higher value, I will lose, but that's acceptable as I wouldn't want to pay more than my value.",
+            "I will bid slightly below my value. This ensures I win if my value is indeed the highest, and I still make a profit. Given this is the first round with no prior information, I will bid $46.9. This leaves a small profit margin if I win, and avoids overbidding.",
+            "My value is $46. This is a single round game. I want to maximize my expected profit. Since I only play once, I should bid slightly below my value to ensure I win if the other bids are low. I will bid $45.9 to ensure I win if the second highest bid is lower than that."
+        ]
+    }
+}

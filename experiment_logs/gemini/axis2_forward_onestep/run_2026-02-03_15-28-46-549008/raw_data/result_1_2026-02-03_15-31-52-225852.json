@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 42.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            21.9
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $28, which is significantly higher than the possible values of the other bidders (between $0 and $20). Therefore, I should bid slightly above $20 to ensure I win the auction. This guarantees a profit since my value is $28. I will bid $20.1.",
+            "I have a value of $37, which is outside the typical range of 0-20. This suggests there might be an error, or the value distribution has changed. Since I want to maximize profit, I should bid conservatively. I will bid slightly above the maximum possible value from previous rounds (20) to ensure I win if the other bidders are still operating under the assumption of the 0-20 range. I will bid 20.1.",
+            "Since my value is 42, and this is a sealed-bid second-price auction, I should bid my true value to maximize my expected profit. This strategy is dominant because it ensures that I win the auction if and only if my value is higher than the second-highest bid, and I pay the second-highest bid. Bidding less than my value could cause me to lose the auction when I should have won, and bidding more than my value could cause me to win the auction when I should have lost."
+        ]
+    }
+}

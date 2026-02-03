@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "axis1_contingent_baseline",
+      "run_id": "2026-02-03_15-18-27-248739",
+      "timestamp": "2026-02-03T15:18:27.248739",
+      "duration": 175.872434,
+      "status": "completed",
+      "output_dir": "axis1_contingent_baseline/run_2026-02-03_15-18-27-248739",
+      "config_hash": "ff45ea07"
+    }
+  ]
+}

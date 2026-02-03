@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            18,
+            26
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            12.5
+        ],
+        "common": 12,
+        "plan": [
+            "Since this is the only round, a conservative approach is best. My value is $16. I want to win if possible, but avoid overpaying. I'll bid slightly above the midpoint of my value, aiming to beat likely bids while minimizing potential loss. Given it's round 1 and there's no history, I'll assume the other bidders will also bid around their average value ($10). A bid of $12 should be competitive without being excessive.",
+            "My value is $18. Since this is a single round, I want to win if my value exceeds the second highest bid. I will bid slightly above what I estimate the others will bid, but not too high to avoid overpaying. Given the possible range of values (0-20), a conservative bid around $12-14 should be effective. I'll choose $13.5 to be precise.",
+            "My value is $26, which is quite high. Since this is round 1 of 1, there's no future to consider. I want to win if the second highest bid is below $26. I'll bid slightly above what I estimate the others might bid, but not too high to avoid overpaying. Given that values are between $0 and $20, a bid of $16.5 should secure a win against most reasonable bids while leaving a good profit margin."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 31.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 21.0
+            }
+        },
+        "profit": [
+            0,
+            11.0,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "With a private value of $25, my goal is to maximize potential profit. In a sealed bid auction followed by an ascending clock, I want to set a sealed bid that gives me a good chance of winning without overpaying. Since values are drawn randomly and independently, I'll bid strategically near my value. A bid around $20-22 seems optimal to balance winning probability and potential profit margin.",
+            "With a private value of $32, I want to maximize my potential profit. In a sealed bid ascending auction, I'll bid strategically to balance winning probability with profit margin. Since the value is high and independent of other bidders, I'll bid close to my true value but slightly under to leave room for potential profit. A bid around $31 allows me to potentially win while preserving some profit margin if the auction price is lower than my full value.",
+            "With a private value of $23, my goal is to maximize potential profit. In a sealed bid ascending auction, I want to set an exit price that balances my value and potential competition. Since values are drawn randomly between $0-$20, most competitors will likely have lower values. I'll bid strategically to ensure I can win if my value is genuinely higher than others, but not overpay."
+        ]
+    }
+}

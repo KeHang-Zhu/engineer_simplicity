@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            5.300000000000001,
+            0,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since other bidders' values are randomly drawn, they likely won't bid above their own value. A dominant strategy is to bid just above the expected maximum competitive bid. Given the $0-$20 range, I'll bid near the top end to maximize my chances of winning while minimizing overpayment.",
+            "My value is $32, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively. Since other bidders are rational and the prize is awarded to the highest bidder at the second-highest price, I'll aim to bid just above what I expect the next highest bid might be. Given the random value distribution, I'll bid near the upper range to secure the item while minimizing overpayment.",
+            "My private value is $23, which is actually above the standard $0-$20 range. This suggests I should bid strategically. Since other bidders have values randomly drawn from $0-$20, their expected average bid might be around $10. I want to win without overpaying, so I'll bid just above what I expect their maximum rational bid to be - around $15-$16. This gives me a good chance of winning while preserving potential profit."
+        ]
+    }
+}

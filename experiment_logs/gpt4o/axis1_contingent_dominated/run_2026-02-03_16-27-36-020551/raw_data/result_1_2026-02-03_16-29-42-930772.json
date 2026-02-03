@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            24.9
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is a one-round auction and my value is $18, I should aim to bid just above the expected second-highest bid to maximize profit. Bidding my full value of $18 is dominated because it leaves no profit margin. A bid slightly above the midpoint of the possible range, like $10.1, might be optimal, as it balances winning probability and profit margin.",
+            "Given my value of $15, I aim to bid below my value to ensure a positive profit if I win. Bidding exactly $15 or higher risks breaking even or losing. I will avoid bids above $15 as they are dominated. A bid around $10 maximizes the chance of winning while ensuring a profit if I win. This accounts for the possibility that others also bid strategically below their values.",
+            "My private value of $35 is outside the given range ($0 to $20), which seems incorrect. Assuming a typo, I'll consider my value as $15. To maximize profit, I'll bid slightly above the midpoint of the range to balance winning probability and cost. Dominated strategies involve bidding above my value or below the minimum. I'll bid $15.1, aiming to win if others bid near the midpoint, without overpaying."
+        ]
+    }
+}

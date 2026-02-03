@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 37.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 21.0
+            }
+        },
+        "profit": [
+            17.0,
+            0,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "With a private value of $38, I aim to bid just below this to maximize profit while remaining competitive. A bid slightly lower than $38 ensures I exit just before my value, reducing overpayment risk. Assuming rational bidding, competitors likely bid near their values. A bid of $37.9 balances winning the auction and maximizing profit if I win.",
+            "My value for the item is $35, which is above the maximum possible value of $20. This means I can bid aggressively. To maximize profit, I should bid slightly above the average expected value of the other bidders, who have values between $0 and $20. A bid of $15 should be competitive, allowing me to exit if the price exceeds typical values and maximizing profit if I win.",
+            "Given my private value of $42, I should aim to win the auction while maximizing my profit. Since the value is high, I can afford to bid aggressively. However, I must ensure my bid is not too high to avoid overpaying. A reasonable strategy is to bid slightly above the midpoint of my value, ensuring I outbid others but still maintain a good profit margin. Since values are uniformly drawn between $0 and $20, a bid around $21 should be competitive enough to win without overpaying."
+        ]
+    }
+}

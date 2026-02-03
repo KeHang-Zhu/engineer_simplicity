@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            8.0,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "My private value is $23, which is significantly higher than the standard $0-$20 range. As a risk-averse bidder, I want to maximize my potential profit while minimizing uncertainty. Since the second-highest bid determines my payment, I'll bid strategically but not excessively. I'll aim to bid just above the expected maximum competitive bid, around $15-$16, to increase my chances of winning without overpaying.",
+            "Given my private value of $17, and being risk-averse, I want to bid strategically. Since this is a second-price sealed bid auction, I want to bid below my true value to maximize potential profit. My risk aversion suggests I should bid slightly lower than my full value. A bid around $14-$15 gives me a buffer against potential losses while still having a good chance of winning. This protects my downside risk while maintaining opportunity to win the prize.",
+            "With a high private value of $19, I want to win but avoid overpaying. As a risk-averse bidder, I'll aim to bid strategically. Since this is a single round with no prior history, I'll bid slightly below my true value to minimize potential losses. My goal is to win at a price lower than my value. I'll bid around $15 - this gives me a buffer against overpaying while still having a strong chance of winning."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            0.3000000000000007,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "In a first-price sealed bid auction with rational bidders, the dominant strategy is to bid strategically below one's true value. Since my value is $33, I want to maximize potential profit. Given the $0-$20 typical range mentioned, I'll bid near the upper range to increase my chances of winning while leaving room for potential profit. I'll bid close to, but slightly under my true value to account for potential strategic competing bids.",
+            "With a private value of $20, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid my true value of $20. This ensures I win if my value is highest, and prevents me from overpaying. With rational bidders, they will likely also bid close to their true value. By bidding $20, I guarantee winning if my value is genuinely the highest, and I'll only pay the second-highest bid.",
+            "In a first-price sealed bid auction with rational bidders, the Nash equilibrium strategy is to bid slightly below one's true value. With a private value of $19, I want to maximize potential profit. Given the uncertainty of other bidders' values, I'll bid strategically just under my true value to increase my chances of winning while preserving potential profit margin. A bid around $18.5 seems optimal to balance winning probability and profit potential."
+        ]
+    }
+}

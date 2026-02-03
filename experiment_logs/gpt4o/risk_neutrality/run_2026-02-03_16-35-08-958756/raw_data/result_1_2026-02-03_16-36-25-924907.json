@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            11.0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value for the item is $29, which is an error as values should range between $0 and $20. Assuming the maximum value of $20, I will bid slightly above the average expected bid to maximize profit. A bid of $15 should outbid most competitors while ensuring a profit margin if I win.",
+            "Given my private value of $26, I will aim to bid slightly below my value to maximize profit if I win. A bid of $19.9 is strategic: it is high enough to beat most competitive bids while ensuring a profit margin, as I pay the second-highest bid if I win. This approach balances winning probability and profit potential.",
+            "To maximize profit, bid slightly above the expected average bid. Assume others bid near their values. With a value of $16, bid $12 to win against lower bids while ensuring a profit margin if the second-highest bid is close."
+        ]
+    }
+}

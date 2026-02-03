@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            34,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 29.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 22.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            8.0
+        ],
+        "common": 18,
+        "plan": [
+            "I should bid my true value in the sealed bid stage. This is because, in the ascending clock stage, I want to stay in the auction as long as the price is below my value. By bidding my true value in the sealed bid stage, I ensure that I only exit the auction when the clock reaches my value. This strategy maximizes my chances of winning the auction at a price below my value, which leads to a positive profit.",
+            "[My value is $34, which is significantly higher than the possible values of the other bidders (between $0 and $20). Therefore, I should bid aggressively to win. I should bid my expected value of the other bidders plus a small increment. Given that the other bidders values are between $0 and $20, the expected value is $10. I will bid $20 to try and win the auction. ]",
+            "I should bid slightly below my true value to maximize potential profit while still having a good chance of winning. I will bid $29.9, which is slightly below my value of $30. This ensures that if I win, I will make a small profit, and I avoid overbidding significantly."
+        ]
+    }
+}

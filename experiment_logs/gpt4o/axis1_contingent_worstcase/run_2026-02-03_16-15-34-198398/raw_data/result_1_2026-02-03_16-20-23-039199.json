@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            16,
+            31
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            11.0
+        ],
+        "common": 12,
+        "plan": [
+            "My value for the prize is $27, which is higher than the maximum possible value of $20. To maximize profit, I should bid just above the expected average value of the other bidders, which is around $10. I will bid $20 to ensure a high chance of winning while minimizing the cost, as I pay the second-highest bid. This way, even in the worst case, I win the prize with a profit margin.",
+            "My value for the prize is $16, so my goal is to bid below this to ensure a profit if I win. The worst-case scenario for a bid is losing the auction or winning with a bid equal to my value. To maximize profit, I should bid slightly above the midpoint of the range, around $10. This balances winning chances and profit margin, considering competitors may also bid around their perceived value.",
+            "My value for the prize is unusually high at $31, which exceeds the maximum possible value of $20. This suggests a mistake in the setup, but I'll assume $20 as the maximum. To maximize profit, bid slightly above $20 to outbid others but not too high to minimize payment. The worst-case scenario is overbidding, so I will bid $20.1 to ensure winning while minimizing the cost."
+        ]
+    }
+}

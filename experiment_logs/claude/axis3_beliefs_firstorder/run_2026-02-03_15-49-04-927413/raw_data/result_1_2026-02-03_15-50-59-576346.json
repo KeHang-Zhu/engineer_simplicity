@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            4.300000000000001,
+            0,
+            0
+        ],
+        "common": 7,
+        "plan": [
+            "My private value is $24, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since other bidders will likely bid close to their value, and the winner pays the second-highest bid, I want to bid high enough to win but not overpay. A reasonable strategy is to bid slightly above the expected maximum of $20, around $20.5, which gives me a high probability of winning while minimizing overpayment.",
+            "My private value is $23, which is actually above the stated $0-$20 range. This suggests a potential game theory scenario. Since other bidders' values are randomly drawn between $0-$20, I'll aim to bid strategically. A pure optimal strategy would be to bid close to, but not exceeding, $20 to maximize potential profit. I'll bid slightly under $20 to create a buffer that might discourage aggressive bidding while still likely winning.",
+            "In a second-price sealed bid auction with values between $0-$20, the optimal strategy is to bid close to my true value. Since my value is $17, I want to bid high enough to win, but not so high that I reduce my potential profit. Given the random nature of other bidders' values, I'll bid slightly below my true value at $16.9 to protect against overpaying while still having a strong chance of winning."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            6.300000000000001,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $29, which is significantly higher than the typical $0-$20 range mentioned in the rules. This suggests I should bid strategically to maximize potential profit. Since the winning strategy is to pay the second-highest bid, I want to bid just enough to win while minimizing my payment. Given the high value to me, I'll bid near the top of the typical range to increase my chances of winning without overpaying.",
+            "My private value is $26, which is higher than the standard $0-$20 range mentioned in the game rules. This suggests the value might be a special case. To maximize profit, I'll bid strategically near my true value. Since I want to win but minimize payment, I'll bid slightly below my full value to ensure winning while paying less. A bid around $25.50 seems optimal - high enough to likely win, but leaving a small profit margin.",
+            "My private value is $16, which means the item is worth exactly $16 to me. In a second-price sealed bid auction, the optimal strategy is typically to bid my true value. By bidding $16, I ensure:\n1. If I win, I'll pay less than my value\n2. If I lose, I avoid overpaying\n3. I maximize potential profit by not underbidding or overbidding\nThe key is to bid exactly my true value, protecting my potential profit margin."
+        ]
+    }
+}

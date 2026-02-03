@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 7.5
+            }
+        },
+        "profit": [
+            13.5,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My value is $21. Since this is the only round, I want to win if my value exceeds the second highest bid. Given the other bidders are rational, they will also bid based on their values. A conservative approach is to bid slightly above the expected second highest bid. Assuming values are uniformly distributed between $0 and $20, the expected value is $10. I will bid $10.5 to increase my chances of winning without overpaying.",
+            "My value is $27, which is quite high. Since this is round 1 and there's no history, I'll assume the other bidders bid conservatively. To maximize profit, I want to win without overpaying. Bidding slightly above the expected maximum of other bidders seems reasonable. I will bid $7.50, anticipating others will bid lower, aiming to win with a small payment.",
+            "Since this is round 1 and there's no history, I'll assume the other bidders will bid conservatively, aiming to win only if their value is significantly higher than the expected second-highest bid. I value the item at $14. To maximize my profit, I'll bid slightly above what I estimate the others will offer, but not too high to avoid overpaying. A bid around $7.5 should be competitive without being excessive, given the $0-$20 range."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            20,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "My private value is $24, which is above the maximum possible value of $20, indicating a mistake in the setup. Assuming the value is $20, I will bid slightly below it to maximize profit while still aiming to win. I will bid $19.9 to outbid others likely bidding close to their value, maximizing my chances of winning while keeping costs below my maximum value.",
+            "Given my private value of $20, I should bid close to this value to maximize my chances of winning, while ensuring my bid exceeds the second-highest bid for profit. A strategic bid of $19.9 ensures competitiveness without exceeding my value. Since this is the only round, maximizing immediate profit is key. There is no history to consider, so I aim to win by slightly underbidding my value, ensuring a potential profit close to maximum if other bids are lower.",
+            "Since this is the only round and there is no bidding history to consider, I'll focus on maximizing profit by bidding slightly below my private value. This strategy minimizes the risk of overpaying while still having a strong chance to win. I'll bid $17.9 to ensure I stay competitive and potentially win the auction without exceeding my value. This bid is close enough to my value to maximize profit if I win, as the second-highest bid will likely be lower."
+        ]
+    }
+}

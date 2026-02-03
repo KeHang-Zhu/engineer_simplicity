@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            9,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 4.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 8.5
+            }
+        },
+        "profit": [
+            4.5,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "Given my private value of $13, I aim to bid slightly below this value to maximize potential profit while still having a good chance of winning. A bid of $12.5 balances winning likelihood and profit margin, as it is competitive but leaves room for profit if I win and pay the second-highest bid. This strategy considers that bids are in increments of $0.1 and maximizes my expected profit based on the value distribution.",
+            "Given my private value of $9, I aim to bid below my value to ensure a profit if I win. Since there are no previous rounds to analyze, I will assume a moderate level of competition. To maximize my profit, I will bid slightly below my value, at $8.5, ensuring I have room for profit if I win. This bid is high enough to be competitive but low enough to avoid overpaying relative to my value.",
+            "Given my private value of $8, I aim to maximize profit by winning the auction without overbidding. I should bid slightly above half my value to increase my chances of winning while maintaining a profit margin. A bid of $4.5 balances the need to win against the risk of overpayment. This strategy assumes other bidders may also bid conservatively, near half their potential maximum value of $20."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            10.5,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My value is $24, which is outside the normal range of 0-20. This means I have a significant advantage. I should bid aggressively to secure the win. I will bid slightly above the maximum possible value of the other bidders, which is $20. I will bid $20.1 to ensure I win and capture the profit.",
+            "I will bid slightly below my value to try and secure a profit if I win. A common strategy is to bid a fraction of your value. I will bid $13.50. This should give me a good chance of winning while also ensuring a profit if I do win.",
+            "My value is $15. I want to bid strategically to maximize my profit. I should bid less than my value to ensure a profit if I win. A reasonable starting point is to bid around 70-80% of my value. I will bid $11.50 this round. This allows for a decent chance of winning while still securing a profit."
+        ]
+    }
+}

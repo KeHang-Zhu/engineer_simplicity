@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            5.0
+        ],
+        "common": 15,
+        "plan": [
+            "Since my value is $29, I should bid cautiously. I will bid $20 to try and win the auction while leaving a good margin for profit, assuming the other bidders have values between $0 and $20. This is my first round, so I don't have any history to learn from. Bidding my true value is not optimal, as I would only win if others bid less, and my profit would be minimal.",
+            "Since my value is 27, and values are drawn between 0 and 20, this must be an error. I will assume my value is 20. The optimal bidding strategy in a second-price auction is to bid truthfully. However, given the other bidders' values are between 0 and 20, and mine is 20, bidding slightly below 20 could be a good strategy. I will bid 19.9.",
+            "My value is $25. Since this is the first round, I have no history to learn from. I should bid aggressively to try and win the auction and establish a strong presence. I will bid slightly above my value to try and secure the win. I will bid $25.1 to try and win."
+        ]
+    }
+}

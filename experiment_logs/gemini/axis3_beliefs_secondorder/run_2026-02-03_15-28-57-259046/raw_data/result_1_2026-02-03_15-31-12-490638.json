@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 5.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0.5,
+            0,
+            0
+        ],
+        "common": 1,
+        "plan": [
+            "[This is the first round, so I have no history to learn from. My value is $13. I want to bid in a way that maximizes my expected profit, considering the other bidders are rational. A simple strategy is to bid slightly below my value. However, I should also consider the possibility of collusion or other complex strategies from the other bidders. I will start with a relatively safe bid of $12.50. This gives me a good chance of winning if the other bidders bid conservatively, while still leaving a decent profit margin.]",
+            "I will use a bidding strategy based on the concept of bidding slightly below my value to maximize potential profit while still having a reasonable chance of winning. Given my value of $6, I will bid $5.90. This allows me to potentially win the auction if the other bidders have values lower than mine or bid conservatively.",
+            "My value is $13. I should bid less than my value to ensure a profit if I win. I also need to consider what the other bidders might bid. Since this is the first round, I have no history to learn from. A reasonable starting strategy is to bid slightly below my value, say around $12.50, to try and win while leaving some profit margin. I will adjust this strategy in future rounds based on the observed bids."
+        ]
+    }
+}

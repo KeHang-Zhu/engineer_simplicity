@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            9,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 9.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 8.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 9.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "My private value is $13. In a second-price sealed bid auction, the optimal strategy is often to bid close to my true value. Since the prize is worth $13 to me, I want to bid high enough to win, but not so high that I risk losing money. Considering other bidders might have similar reasoning, I'll bid slightly above my value to increase my winning chances while protecting my potential profit margin.",
+            "My private value is $9. In a second-price sealed bid auction, the optimal strategy is to bid close to my true value. Since the prize is worth $9 to me, I want to bid high enough to win if others bid lower, but not so high that I risk losing money. I'll bid slightly above my value to increase my chances of winning, but not excessively. A bid around $9.5 seems strategic - it gives me a buffer to potentially win while minimizing overpayment risk.",
+            "My private value is $8. In a second-price sealed bid auction, the optimal strategy is typically to bid close to my true value. Since the prize is worth $8 to me, I want to bid strategically to maximize potential profit. I'll bid slightly above my value to increase my chances of winning, but not so high that I risk significant loss. A bid around $8.50 seems reasonable - this gives me a small buffer while still being close to my true valuation."
+        ]
+    }
+}

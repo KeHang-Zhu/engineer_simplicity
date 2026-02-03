@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            8.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $29. Since this is round 1 and there's only one round, I need to bid aggressively to win, but not overpay. I assume the other bidders will also bid somewhat rationally. A bid slightly above the expected maximum value of the others (around $20) seems reasonable. Bidding too low risks losing to a lower value bidder. I will bid $20.1 to increase my chances of winning without significant overpayment.",
+            "My value is $27. Since this is the only round, I need to be aggressive. The other bidders are rational, so they will also bid based on their values. To maximize my profit, I should bid slightly above what I estimate the second-highest value might be. Given the range of possible values (0-20), a bid of $20.1 should secure a win against most reasonable values the others might have, while still potentially yielding a positive profit.",
+            "My value is $25. Since this is a single round, I need to bid aggressively to try and win, but not overpay. The other bidders are rational, so they won't bid above their value. I'll bid slightly above what I estimate the second-highest value might be, aiming for a small profit margin. Given the range of possible values (0-20), I'll bid $15, hoping to win against bids likely in the $5-$15 range, while keeping the payment reasonable."
+        ]
+    }
+}

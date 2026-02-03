@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.4
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.4
+            }
+        },
+        "profit": [
+            0,
+            0,
+            0.6000000000000014
+        ],
+        "common": 16,
+        "plan": [
+            "Since this is the only round, I need to maximize potential profit. My value is $19. I want to win if the second-highest bid is significantly below $19. I'll bid slightly above what I estimate the others might bid, but not too high to avoid overpaying. Given the endowment of $20, I can afford to be aggressive. I will bid $14.50 to try and win without paying too much.",
+            "My value is $24, significantly higher than the maximum possible value of $20. I want to win, but avoid overpaying. Given it\u2019s the final round, I\u2019ll bid aggressively but not reveal my full value. I'll bid slightly above the maximum possible value other players could have, assuming they might bid their full value. This should secure the win without excessive payment.",
+            "My value is $21. Given this is the only round, I should bid aggressively to try and secure the prize. However, I need to be mindful of my endowment of $20. I will bid slightly above my value, anticipating other bidders might also bid high. I'll aim to win by a small margin, minimizing the payment. I\u2019ll bid $20.50, hoping to win against bids likely below $20."
+        ]
+    }
+}

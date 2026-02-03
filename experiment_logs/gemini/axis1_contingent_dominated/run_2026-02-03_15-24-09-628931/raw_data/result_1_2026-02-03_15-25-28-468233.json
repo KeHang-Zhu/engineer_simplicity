@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 7.8
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 7.8
+            }
+        },
+        "profit": [
+            0,
+            13.2,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "I should bid less than my value to ensure a profit if I win. Bidding my value is weakly dominated by bidding slightly less. Since this is the first round, I have no history to learn from. I will bid a bit less than my value, say, 7.8, to increase my chances of winning while still securing a profit. I will avoid bidding too low, as that would significantly decrease my chances of winning.",
+            "Since my value is $21, I should bid aggressively. Given that the other bidders' values are between $0 and $20, I can bid slightly above $20 to ensure I win. Bidding $20.1 should secure the win and maximize my profit, as it's unlikely the other bidders will bid higher than their values.",
+            "[Since this is the first round, I have no history to learn from. My value is $8. I want to avoid overbidding and paying more than my value. I'll bid slightly below my value to increase my chances of winning while still making a profit if I do win. A bid of $7.50 seems reasonable. It leaves room for profit if I win and avoids overpaying. I will also avoid bidding too low, as I want to win if possible.]"
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            24,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0,
+            11.5,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Given my value is $20, and I'm risk-averse, I want to win without overpaying. I'll bid slightly above what I estimate the others might bid, but conservatively. Since it's round 1 and there's no history, I'll assume the other bidders will bid around their average value ($10). I'll bid $10.10 to increase my chances of winning without significant risk.",
+            "My value is $24. Given I'm risk-averse, I want to win without overpaying. Since the values are between $0 and $20, a bid slightly above $20 should likely win. However, to avoid excessive payment, I will bid $20.10. This is a small increment above the maximum possible value of other bidders, increasing my chances of winning without significantly increasing the payment. I aim to secure a profit without a large gamble.",
+            "Given my value of $18 and risk aversion, I aim to win at a reasonable price. Since this is round 1, there's no history to learn from. I will bid slightly above what I estimate the others might bid, but conservatively to avoid overpaying. I'll bid $12.50. This gives me a good chance of winning without risking a large portion of my value."
+        ]
+    }
+}

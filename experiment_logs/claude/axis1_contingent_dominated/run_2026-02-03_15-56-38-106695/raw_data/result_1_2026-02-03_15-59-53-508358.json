@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            8.3,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "With a private value of $28, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. Bidding my exact value risks losing money if others bid high. I'll bid slightly below my value to create a buffer. A bid around $27.5 allows potential profit if I win, while protecting against overpaying.",
+            "My private value is $25, which is higher than the maximum possible initial value of $20. This suggests I should bid strategically to maximize potential profit. Since this is a single round with no repeated interactions, I'll aim to bid just above the likely maximum opponent value. A bid around $19-$20 seems optimal to capture potential profit while minimizing overpayment risk.",
+            "With a private value of $20, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. With three bidders and values randomly drawn, bidding my true value ($20) is not optimal. I'll bid slightly below my value to create a buffer for potential profit. A bid around $19.5 allows me to win if others bid lower while protecting some potential earnings margin."
+        ]
+    }
+}

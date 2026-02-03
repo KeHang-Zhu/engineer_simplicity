@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            7.0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $29, which is significantly higher than the typical $0-$20 range mentioned in the rules. This suggests I should bid strategically to maximize potential profit. Since the winning strategy is to pay the second-highest bid, I want to bid just enough to win while minimizing my payment. Given the high value to me, I'll bid near the top of the typical range to increase my chances of winning without overpaying.",
+            "My private value is $27, which is significantly higher than the typical $0-$20 range mentioned in the game rules. This suggests the value was likely drawn from a different distribution. Given this high value, I want to win the auction. I'll bid strategically near my true value to maximize potential profit, but not exactly at $27. I'll bid just above the expected maximum competitive bid to increase my chances of winning while minimizing overpayment.",
+            "My private value is $25, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid high enough to likely win, but not so high that I risk losing money. Given the potential range, a bid around $20 seems optimal - it's near the typical maximum value and gives me a good chance of winning while minimizing overpayment risk."
+        ]
+    }
+}

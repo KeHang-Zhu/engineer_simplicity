@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.3
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            0.5,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "My private value is $14. In a second-price sealed bid auction, the optimal strategy is often to bid close to my true value. Since the prize is drawn randomly and this is a one-round game, I want to maximize my chances of winning while not overpaying. I'll bid slightly above my value to increase winning probability, but not so high that I risk negative earnings if I win. A bid around $15-16 seems strategic.",
+            "My private value is $14. To maximize profit, I want to win only if I can do so without paying more than my value. Since values are drawn randomly between $0-$20, other bidders might have values higher or lower than mine. A strategic bid slightly below my true value ($14) could help me win while preserving potential profit. I'll bid $13.5, which leaves me a buffer and signals strategic thinking without revealing my exact value.",
+            "My private value is $6. My goal is to maximize potential profit. Since the prize is worth $6 to me, I want to bid strategically. If I bid exactly $6, I risk losing money if others bid higher. I'll bid slightly above my value to increase my chances of winning, but not so high that I guarantee a loss. A bid around $7-$8 seems reasonable, balancing potential win probability with profit protection."
+        ]
+    }
+}

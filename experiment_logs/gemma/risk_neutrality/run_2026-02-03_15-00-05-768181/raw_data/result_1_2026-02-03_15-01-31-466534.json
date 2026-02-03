@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 6.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 4.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 6.5
+            }
+        },
+        "profit": [
+            0,
+            14.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Since this is a single round, and my value is $8, I need to bid strategically to maximize profit. Given the risk neutrality, I should bid slightly above what I expect the second-highest bid to be. Assuming the other bidders are also rational, bids will likely cluster below $20. I'll bid $6.50, aiming to win against bids likely below this while keeping the payment relatively low.",
+            "My value is $21. Since I'm risk-neutral, I should bid aggressively to try and win whenever my value exceeds the likely second-highest bid. Given it's round 1 and values are 0-20, a reasonable expectation is that the other bidders will bid around half their value. To maximize profit, I'll bid slightly above what I expect the second highest bid to be. I'll bid $19.50.",
+            "Since this is a single round, and my value is $8, I need to bid strategically to maximize profit. Given my risk neutrality, I should bid aggressively to win if the expected value is positive. I will bid slightly above what I estimate the second highest bid will be. Considering the possible range of values (0-20), a reasonable estimate for the second highest bid is around $4. Therefore, I will bid $4.10."
+        ]
+    }
+}

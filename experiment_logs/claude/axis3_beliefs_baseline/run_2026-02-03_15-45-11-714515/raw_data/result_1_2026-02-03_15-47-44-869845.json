@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 6.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.3
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.3
+            }
+        },
+        "profit": [
+            0.6999999999999993,
+            0,
+            0
+        ],
+        "common": 1,
+        "plan": [
+            "With a private value of $13, my goal is to maximize potential profit. Since values are drawn independently and randomly, I'll use a strategic bid slightly above my value. A bid around $14-$15 allows potential profit if others bid lower. I want to win, but not overpay. The key is balancing winning probability with minimizing payment. I'll bid just above my value to signal confidence while maintaining profit potential.",
+            "My private value is $6. In a second-price sealed bid auction, the optimal strategy is typically to bid my true value. However, I must consider that other rational bidders might also use this strategy. Since values are drawn independently and randomly, I'll bid slightly above my value to increase my chances of winning while still maintaining potential profit. I'll bid $6.5, which gives me a small buffer above my true value.",
+            "With a private value of $13, my optimal strategy is to bid strategically. Since this is a single round with no repeated interactions, I want to bid close to my true value but not exactly at it. A bid slightly below my value (around $12-$12.5) allows me potential profit if I win while protecting against overpaying. I'll aim to bid just under my true value to maximize potential earnings."
+        ]
+    }
+}

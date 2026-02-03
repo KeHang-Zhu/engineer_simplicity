@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            16,
+            31
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.7
+            }
+        },
+        "profit": [
+            11.3,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $27, which is significantly higher than the $0-$20 standard range. As a risk-averse bidder, I want to maximize my chances of winning without overpaying. Since the second-highest bid determines the payment, I'll bid strategically near the expected maximum range. I'll aim to bid around $20 to increase my likelihood of winning while minimizing potential overpayment. This approach balances my high personal value with prudent bidding.",
+            "As a risk-averse bidder with a private value of $16, I want to maximize my potential profit while minimizing downside risk. Given the uncertainty of other bidders' values, I'll bid strategically below my full value. A bid around $12-$13 allows me potential profit if I win, while protecting against overpaying. This approach balances my risk tolerance with the opportunity to secure the item at a reasonable price.",
+            "With a high private value of $31, I want to win this auction. However, I'm risk-averse, so I won't bid my full value. My strategy is to bid strategically, considering my risk tolerance. I'll aim to bid above the midpoint of the possible range but not my full value. Given the $0-$20 typical range and my $31 value, I'll bid around $15-$16 to balance winning probability with potential profit margin."
+        ]
+    }
+}

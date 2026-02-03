@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            9,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 9.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 8.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 9.0
+            }
+        },
+        "profit": [
+            4.0,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "In a single-round auction with values drawn from $0-$20, a dominant strategy is to bid slightly below my true value. With a value of $13, I want to win if possible, but minimize my payment. Other rational bidders will likely bid similarly. I'll aim to bid around $11-$12 - high enough to likely win, but low enough to potentially create a profitable margin if my bid is the second highest.",
+            "In a second-price sealed-bid auction with values between $0-$20, the optimal strategy is typically to bid your true value. Since my value is $9, rational opponents will likely bid close to their own values. With three bidders and random values, I expect competitive but not extremely high bids. Bidding exactly $9 protects my potential profit margin while being honest about my valuation. This strategy minimizes overpaying while maintaining a reasonable chance of winning.",
+            "In a single-round auction with values drawn from $0-$20, the optimal strategy is to bid strategically based on my private value of $8. Since the second-price auction rewards truthful bidding, I'll consider the expected behavior of other rational bidders. With a value of $8, I want to win if possible without overpaying. I'll bid slightly above my value to increase my winning chances, accounting for potential competitive bidding."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            24,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            5.5
+        ],
+        "common": 12,
+        "plan": [
+            "My value is $20. Since this is a single-round auction, I need to balance winning with not overpaying. Other bidders are rational, so they'll also bid based on their values. Given the range of values (0-20), I expect bids to be spread out. To maximize profit, I'll bid slightly above the midpoint of the possible range, aiming to win against most opponents without excessive cost. I'll bid $10.10, hoping to win against lower values while avoiding overpaying if others have high values.",
+            "My value is $24. Since this is round 1 and there's no history, I'll assume the other bidders will bid conservatively, aiming for a small profit if they win. To maximize my profit, I need to win while paying as little as possible. I'll bid slightly above the midpoint of the possible value range (10), but not too high, around $12.5, to discourage overbidding.",
+            "Since this is round 1 and there's no history, I'll assume the other bidders will bid somewhat conservatively, aiming for a good chance of winning without overpaying. My value is $18. I'll bid slightly above the midpoint of possible second bids, anticipating others might bid around $8-$12. A bid of $12.50 aims to win against bids in that range while still keeping the payment reasonable."
+        ]
+    }
+}

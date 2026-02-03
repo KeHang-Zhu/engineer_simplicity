@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            0,
+            12.5,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "My value is $22. Since this is the only round, I want to win if possible, but avoid overpaying. I'll assume the other bidders will bid reasonably, given they also have values between $0 and $20. A bid slightly above the expected maximum of their values (say $20) should secure a win. However, to be safe against aggressive bidding, I will bid $10.1, aiming to win against conservative bidders while limiting potential losses.",
+            "My value is $23. Since this is round 1, there's no history to learn from. I need to bid high enough to win against potentially aggressive bidders, but not so high that I overpay. A conservative approach is to bid slightly above my value, anticipating others may also have high values. I will bid $19.9, aiming to win while keeping the potential payment reasonable. The worst case is losing, but that results in no loss.",
+            "Given my value is $17, I need to bid to maximize profit while avoiding overpaying. The worst case is bidding too high and winning, but paying close to my value. I'll aim for a bid slightly above what I estimate the others might offer, but below $17. Since this is round 1 and there's no history, I'll conservatively bid $10.50. This ensures a profit if others bid lower, and limits losses if they bid higher."
+        ]
+    }
+}

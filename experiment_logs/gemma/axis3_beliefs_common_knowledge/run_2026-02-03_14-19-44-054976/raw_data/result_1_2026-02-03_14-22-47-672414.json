@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 1.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 30.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 37.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 30.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            7.0
+        ],
+        "common": 19,
+        "plan": [
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the expected value of the second highest bid. Since values are between 0 and 20, and bidders are rational, they won't bid their full value. Assuming others also follow this logic, a safe bid is a small increment above 0. However, my value is $36, significantly higher than the maximum possible value. Therefore, I can bid aggressively, aiming to win without overpaying. I will bid $1.00.",
+            "Given the common knowledge of rationality and a single round, the optimal strategy converges to bidding your true value. Any lower bid risks losing the auction to someone bidding slightly above your reservation price, while bidding higher than your value guarantees a loss. My value is $30. Therefore, I will bid my true value.",
+            "Given the common knowledge of rationality and a single round, the optimal bidding strategy converges to bidding your true value. This is because any deviation below your value risks losing the auction to a slightly lower bid, while bidding above your value risks overpaying. Since this is the only round, there's no opportunity to learn and adjust. My value is $37, so I bid $37."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 8.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 8.7
+            }
+        },
+        "profit": [
+            0,
+            12.3,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "With a private value of $8, my goal is to maximize potential profit. Since the auction pays the second-highest bid, I want to bid strategically. A bid slightly above my value makes sense - around $8.50-$9.00. This gives me a chance to win if others bid lower, while still maintaining potential profit margin. Without previous round history, I'll aim to bid just above my value to balance winning probability and potential earnings.",
+            "My private value is $21, which is actually above the maximum possible randomly drawn value of $20. This suggests a strategic approach. Since I want to maximize profit and am neutral about risk, I'll bid close to my true value but not exactly at it. I'll bid slightly below my value to ensure potential profit if I win, while minimizing overpayment risk. A bid around $19-$20 seems optimal given the game's second-price auction mechanism.",
+            "With a private value of $8, my goal is to maximize potential profit. Since values are randomly drawn and I'm risk-neutral, I'll bid strategically around my value. A pure optimal strategy would be to bid slightly below my value to minimize overpaying. I'll bid $7.9 to create a small buffer that protects against potential losses while still having a good chance of winning if others bid similarly."
+        ]
+    }
+}

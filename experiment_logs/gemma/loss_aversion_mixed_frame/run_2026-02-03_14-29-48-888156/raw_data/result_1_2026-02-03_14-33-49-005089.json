@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            9.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $30. Given this is the final round, I should bid aggressively. However, I need to account for the fact that I pay the *second* highest bid. I will bid slightly above what I expect the others to bid, aiming to win but minimizing the payment. Since values are 0-20, a bid of $20.1 should likely win, and the second highest bid will likely be less than $20.",
+            "My value is $25, which is higher than the maximum possible value of $20. Therefore, I should bid aggressively to win. Since the second-highest bid determines the cost, I want to minimize that while still being the highest bidder. I will bid slightly above the maximum possible value to ensure a win, but not excessively high to avoid overpaying. A bid of $20.1 will likely secure the win.",
+            "My value is $22, which is high. Given this is round 1 of 1, I want to aggressively pursue the item, but avoid overpaying. I will bid slightly above what I estimate the others might bid, aiming to win without a huge payment. I'll assume others will bid conservatively, given the single round. A bid of $11.5 seems reasonable to win against conservative bids while keeping the payment low."
+        ]
+    }
+}

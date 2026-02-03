@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 10.7
+            }
+        },
+        "profit": [
+            2.3000000000000007,
+            0,
+            0
+        ],
+        "common": 1,
+        "plan": [
+            "In a single-round auction with values drawn from $0-$20, a dominant strategy is to bid slightly below my true value. With a value of $13, I want to win if possible, but minimize my payment. Other rational bidders will likely bid similarly. I'll aim to bid around $11-$12 - high enough to likely win, but low enough to potentially create a profitable margin if my bid is the second highest.",
+            "In a second-price sealed bid auction with values between $0-$20, the optimal strategy is to bid close to my true value. Since my value is $6, I want to bid strategically. Other bidders will likely bid near their true values. A bid slightly above my value (around $7-$8) balances winning probability with minimizing overpayment. This approach maximizes expected profit by increasing chances of winning while not significantly risking losing money.",
+            "In a single-round sealed bid auction with values between $0-$20, the optimal strategy is to bid slightly less than my true value. Since my value is $13, I want to win without overpaying. Other rational bidders will likely bid similarly. I'll aim to bid around $10-$11 to create a buffer that increases my chances of winning while protecting potential profit margin. This strategy balances winning probability with minimizing potential overpayment."
+        ]
+    }
+}

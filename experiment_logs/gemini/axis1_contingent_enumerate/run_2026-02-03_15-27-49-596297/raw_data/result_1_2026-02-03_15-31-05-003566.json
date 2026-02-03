@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "My value is $23. Since this is the first round, I have no history to learn from. I want to maximize my profit. I should bid slightly below my value to ensure I win if the other bidders bid rationally (below their values). However, since values are between $0 and $20, my value of $23 is unusually high. I will bid $20, the maximum possible value of the other bidders. This way, I am guaranteed to win, and my profit will be $23 - $20 = $3.",
+            "My value is $17. I want to maximize my profit. Since this is the first round, I don't have any history to learn from. A reasonable strategy is to bid slightly below my value. I will bid $16.5. This gives me a good chance of winning while still securing a decent profit if I win.",
+            "My value is $19. This is a second-price auction, so bidding my value is a weakly dominant strategy. However, since the values are between 0 and 20, and the other bidders are likely to bid close to their values, I should bid slightly below my value to avoid overpaying in case of a tie. I will bid $18.9."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 21.5
+            }
+        },
+        "profit": [
+            7.5,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $29, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize potential profit. Since the second-highest bid determines my payment if I win, I want to bid just enough to win without overpaying. A good strategy is to bid near my true value but not exactly at it, perhaps around $25-$28, to create some profit margin if I win.",
+            "My private value is $27, which is higher than the stated $0-$20 range. This suggests a strategic opportunity. Since the goal is maximizing long-term profit, I'll bid strategically. The optimal approach is to bid just above the expected maximum competing bid. With a $0-$20 range, other bidders might bid around $10-$15. I'll aim to win by bidding slightly higher, around $16-$17, to ensure victory while minimizing overpayment.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I lose money. My optimal strategy is to bid slightly above the expected maximum competing bid, around $20-$22, which maximizes my potential profit while minimizing overpayment risk."
+        ]
+    }
+}

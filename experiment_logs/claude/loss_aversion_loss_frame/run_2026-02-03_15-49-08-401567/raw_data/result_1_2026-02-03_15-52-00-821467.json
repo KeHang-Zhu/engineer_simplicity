@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 24.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 22.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 22.9
+            }
+        },
+        "profit": [
+            0,
+            9.100000000000001,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I have a strong incentive to win. However, I want to minimize my payment. Strategic bidding means I should bid just enough to win, not my full value. Given the random nature of other bidders' values, I'll bid slightly above the expected max value of $20 to increase my winning probability while minimizing overpayment.",
+            "My private value is $32, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win but minimize payment, I'll bid just above the expected maximum opponent bid. Given the $20 range, a bid around $22-$25 seems optimal - high enough to likely win, but not excessively above my true value.",
+            "My private value is $23, which is higher than the $20 max typical range. This suggests I should bid strategically. Since I want to maximize profit, I'll bid close to but slightly below my true value. A bid of $22.9 would capture most of my potential value while leaving a small margin. This approach minimizes risk of overpaying while still having a high likelihood of winning. I'll aim to win by just slightly outbidding competitors."
+        ]
+    }
+}

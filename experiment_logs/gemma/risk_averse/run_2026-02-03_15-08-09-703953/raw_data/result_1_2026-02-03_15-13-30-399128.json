@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            16.9,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $28, which is quite high. Given I'm risk-averse, I want to win without overpaying. Since this is the only round, I'll bid aggressively but not reveal my full value. I will bid slightly above what I think the others might bid, aiming for a profit margin. I'll assume the others will bid around their average value (around $10). Therefore, I'll bid $12.5 to increase my chances of winning without risking a large payment.",
+            "My value is $37. Given I'm risk-averse, I want to win without overpaying. Since the values are between $0 and $20, it's unlikely others have values close to mine. I'll bid slightly above the maximum possible value of others, but not excessively. A bid of $20.1 ensures I win against any value $20 or below, while minimizing the payment if others bid low. This strategy balances winning probability with cost.",
+            "My value is $42. Given I'm risk-averse, I want to win without overpaying. Since the values are between $0 and $20, it's unlikely others have values close to mine. I'll bid slightly above the maximum possible value of other players, but not excessively. I aim to win with a small profit margin, prioritizing avoiding a large loss. A bid of $20.1 should be sufficient to win most of the time."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.4
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 40.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            23.9
+        ],
+        "common": 27,
+        "plan": [
+            "Given the common knowledge of rationality, the optimal bidding strategy converges to bidding your true value. However, since my value ($35) significantly exceeds the possible maximum value ($20) for any other bidder, I will bid slightly above the maximum possible value to ensure a win. This is because the cost of overpaying (up to $20) is less than the potential profit of winning with a value of $35. I will bid $20.1.",
+            "Given the common knowledge of rationality and the payment rule (paying the second-highest bid), the optimal strategy is to bid slightly above the expected value of the second-highest bid. Since values are between $0 and $20, the expected value of the highest of the remaining two bidders is approximately (2/3) * 20 = $13.33. To maximize profit, I should bid slightly above this, but considering my value is $41, I can afford to bid higher. I will bid $13.40.",
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the expected value of the second-highest bid. Since values are between $0 and $20, the expected value is $10. To win, I need to outbid others. However, bidding too high reduces my profit. Since my value is $44, I will bid a small increment above what I estimate the others will bid, aiming for a profitable outcome. I will bid $40."
+        ]
+    }
+}

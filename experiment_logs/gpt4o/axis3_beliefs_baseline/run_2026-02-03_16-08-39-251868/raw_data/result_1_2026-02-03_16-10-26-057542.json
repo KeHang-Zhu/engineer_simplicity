@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.8
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            29.0
+        ],
+        "common": 27,
+        "plan": [
+            "My value for the prize is $35, but values are drawn between $0 and $20, indicating a typo or game setup error. Assuming the $20 max value, I should bid below $20 to ensure profit if I win. A competitive bid slightly above the midpoint, like $15, may maximize my chances of winning while maintaining a profit margin over the second-highest bid.",
+            "My value for the prize is $41, which is above the maximum possible value of $20, indicating an error. Assuming a typo, I'll treat it as $14. To maximize profit, bid slightly below my value to ensure a win if competitors bid rationally near their values. Bid $13.8 to outbid potential bids near $13.7 (assuming they value the prize similarly). This ensures winning while maximizing profit margin.",
+            "My private value of $44 is incorrect as it should be between $0 and $20. Assuming a typo, I'll bid close to $20, but not exactly, to maximize profit while avoiding ties. A bid of $19.9 is strategic, as it is slightly below the maximum value, reducing the risk of overpaying if others bid their exact value. This aims to win the auction if others undervalue slightly, maximizing potential profit."
+        ]
+    }
+}

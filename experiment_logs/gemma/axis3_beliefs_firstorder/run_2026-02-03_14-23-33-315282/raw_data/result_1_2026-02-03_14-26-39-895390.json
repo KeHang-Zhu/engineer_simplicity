@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            17.5,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $28, which is quite high. Since this is only round 1, and there's no history, I'll assume the other bidders will bid somewhat conservatively. To maximize profit, I want to win without overpaying. I'll bid slightly above what I estimate the second highest bid will be, but not too close to my own value. A bid around $14 seems reasonable, aiming to win against potentially lower bids while avoiding a large payment.",
+            "My value is $37. Since this is round 1 and there's no history, I assume Andy and Charles will bid somewhat conservatively. To maximize profit, I want to win if my value exceeds the second-highest bid. A bid slightly above the expected average value (around $10) seems reasonable. However, given my high value, I can afford to bid higher to almost guarantee a win. I'll bid $25, hoping to win against potentially lower bids.",
+            "My value is $42. Since this is the only round, I want to win if my value is significantly higher than what I expect others to bid. Given the range of possible values (0-20) for the other bidders, a conservative approach is to bid slightly above the midpoint, anticipating bids around $10. However, I have a high value, so I can afford to bid higher. I will bid aggressively to increase my chance of winning."
+        ]
+    }
+}

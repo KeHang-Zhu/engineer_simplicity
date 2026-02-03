@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.4
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.4
+            }
+        },
+        "profit": [
+            14.6,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "Given the common knowledge of rationality and the auction rules (winning bid pays the second highest), the optimal strategy converges towards bidding your true value. However, since values are capped at $20, and mine is $28, I must bid the maximum allowable, $20. This ensures I win if any other bidder\u2019s value is less than $20. Even if another bidder has a value of $20, I have a 50% chance of winning.",
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the expected value of the second highest bid. Since values are between $0 and $20, the expected value is $10. However, my value is $25. To maximize profit, I should bid a small increment above what I expect the others to bid, while still being below my value. I'll bid $10.10.",
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the expected value of the second highest bid. Since values are between $0 and $20, the expected value of the highest of the other two bids is approximately (2/3) * 20 = $13.33. To ensure winning with a high probability, I will bid a small increment above this, but not too high to avoid overpaying. Given my value is $20, I aim to win while paying as little as possible."
+        ]
+    }
+}

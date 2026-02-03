@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            9,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 4.6
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 6.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 6.5
+            }
+        },
+        "profit": [
+            6.5,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "Since this is round 1 of 1, there's no history to learn from. My value is $13. I want to win if the second highest bid is below $13. To maximize profit, I'll bid slightly above what I estimate the others will bid, but below $13. Assuming a uniform distribution of values for the others, a reasonable expectation for the maximum of their values is around $16. I'll bid conservatively to avoid overpaying.",
+            "Since this is a single round, and the other bidders are rational, I need to balance winning with not overpaying. My value is $9. I'll bid slightly above what I estimate the second-highest bid will be, hoping to win without paying too much. Assuming the other bidders also have values between 0 and 20, a bid of $4.6 should be enough to win against most possible second-highest bids while keeping my payment reasonable.",
+            "Since this is a single round game, and my value is $8, I need to bid strategically to win without overpaying. Assuming the other bidders are rational, they'll also bid below their values. I'll bid slightly above what I estimate the second-highest bid will be. A conservative approach is to bid $6.50. This aims to win against bids likely below $6.50 while minimizing payment."
+        ]
+    }
+}

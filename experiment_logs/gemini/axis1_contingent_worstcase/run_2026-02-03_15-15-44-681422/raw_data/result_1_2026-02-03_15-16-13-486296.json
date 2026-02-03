@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 28.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            8.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is a single round game with a value of $29, I should bid aggressively to try and win. The optimal strategy in a single-round, second-price auction is to bid slightly below my value. However, given the discrete bid increments, I'll bid close to my value to maximize my chances of winning while still securing a profit. I will bid 28.9.",
+            "[I have a value of $27, which is outside the range of possible values for the other bidders ($0-$20). This means I will always win if I bid slightly above $20. The optimal strategy is to bid $20.1, guaranteeing a win and maximizing profit. The worst-case scenario is that another bidder bids exactly $20, in which case I still win with a small profit of $27 - $20 = $7. Bidding lower would risk losing the auction. Bidding higher would reduce my profit.]",
+            "Since this is the first round, I have no history to learn from. My value is $25, which is significantly higher than the possible range of other bidders (0-20). Therefore, I should bid slightly above the maximum possible value of the other bidders to ensure I win. I will bid $20.1. This guarantees I win and pay the second-highest bid, which will be at most $20. My profit will be $25 - $20 = $5."
+        ]
+    }
+}

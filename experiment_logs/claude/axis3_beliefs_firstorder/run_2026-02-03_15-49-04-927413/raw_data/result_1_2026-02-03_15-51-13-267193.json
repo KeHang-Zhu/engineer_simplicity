@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.8
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.8
+            }
+        },
+        "profit": [
+            14.2,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "My private value is $34, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically. Since other bidders have values likely between $0-$20, I want to win without overpaying. A bid near the top of their expected range (around $20) would maximize my chances of winning while minimizing my payment. I'll bid slightly above their probable maximum to ensure victory.",
+            "With a private value of $33, which is significantly higher than the typical $0-$20 range, I want to win this auction. However, rational bidders will also try to maximize profit. The optimal strategy is to bid slightly below my true value to ensure profit if I win. Given the random value distribution, I'll bid around the midpoint of the expected range ($10) plus a strategic premium to increase my winning probability.",
+            "With a private value of $30, I recognize this is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively to win. However, rational opponents will also be strategic. I'll bid close to, but slightly under, the maximum expected competitive bid. Given the $0-$20 range, I'll aim to bid around $19.80 - this leaves room to profit if I win while being highly likely to secure the item."
+        ]
+    }
+}

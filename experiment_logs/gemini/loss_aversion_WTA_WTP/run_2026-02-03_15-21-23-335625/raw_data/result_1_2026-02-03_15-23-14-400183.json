@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            8.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $29, which is significantly higher than the typical range of $0-$20. Given this exceptionally high value, I should bid aggressively to ensure I win the auction. I will bid slightly above the maximum possible value for the other bidders to secure the win. This strategy maximizes my profit given my unusually high value.",
+            "Since this is the first round and my value is $26, which is outside the typical range of 0-20, I should bid conservatively. Given that the other bidders' values are likely between 0 and 20, I will bid slightly above that range to secure the win and maximize my profit. I'll bid $20.1 to ensure I win if the other bids are within the typical range.",
+            "I will use a bidding strategy that aims to maximize my expected profit, considering my value and the likely bids of the other players. Since this is the first round and I have no history to learn from, I will start with a relatively conservative approach. I will bid slightly below my value to avoid overpaying, but high enough to have a reasonable chance of winning. I will bid $15.50."
+        ]
+    }
+}

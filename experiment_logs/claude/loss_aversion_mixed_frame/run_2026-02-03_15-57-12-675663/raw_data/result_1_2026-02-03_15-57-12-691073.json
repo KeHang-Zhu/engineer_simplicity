@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            9.5,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My private value is $24, which is higher than the typical $0-$20 range mentioned in the rules. This suggests I should bid strategically. Since I want to maximize profit, I'll bid close to but slightly below my true value. The second-highest bid determines my payment if I win, so I want to minimize that while still securing the prize. A bid around $20-$22 seems optimal to balance winning probability and potential profit.",
+            "My private value is $14. To maximize profit, I want to bid strategically. Since the prize is worth $14 to me, I'll bid slightly below my true value to ensure potential profit. Given the second-price auction mechanism, I'll aim to bid around $13.5 - this leaves room for potential profit if others bid lower, while protecting against overpaying if others bid aggressively. The goal is to win only if the price is below my true value.",
+            "My private value is $15. In a second-price sealed bid auction, the optimal strategy is typically to bid close to my true value. Since the prize is worth $15 to me, I want to bid high enough to win, but not so high that I risk losing money. Considering the random nature and that other bidders might have different valuations, I'll bid slightly below my true value to create a buffer for potential profit."
+        ]
+    }
+}

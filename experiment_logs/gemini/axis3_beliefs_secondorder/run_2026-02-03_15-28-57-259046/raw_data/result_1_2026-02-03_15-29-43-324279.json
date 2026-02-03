@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            12.899999999999999,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "Since this is the first round and my value is $33, which is outside the normal range of [0, 20], I should bid cautiously. Other bidders are likely to bid within the [0, 20] range, following a strategy close to their values. I will bid slightly above the maximum possible value of other bidders to ensure I win, but not too high to avoid overpaying significantly. I will bid $20.5 to win.",
+            "Since my value is $34, which is outside the normal range of 0-20, I should bid cautiously. The other bidders are likely to bid based on values between 0 and 20. If I bid too high, I risk overpaying significantly. I will bid slightly above the maximum possible value for the other bidders, which is 20. This should ensure I win if their values are within the typical range, and I still profit.",
+            "My value is $25, which is outside the normal range of [0, 20]. This suggests there may be an error or a different distribution is being used. Since I have no prior information, I will assume the other bidders' values are still drawn from [0, 20]. To maximize profit, I should bid slightly above their expected maximum bid. Assuming they bid rationally, they won't bid above their value. The expected value of their maximum bid is likely around 20. To win, I will bid slightly above 20, say 20.1."
+        ]
+    }
+}

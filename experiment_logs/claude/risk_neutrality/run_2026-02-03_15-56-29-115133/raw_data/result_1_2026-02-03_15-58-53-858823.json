@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 25.5
+            }
+        },
+        "profit": [
+            0,
+            9.5,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $26, which is higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I'm neutral about risk and the value is drawn independently, I'll aim to bid close to my true value but not exactly at it. A bid slightly below my value gives me more potential profit margin. Given the second-price auction mechanism, I'll bid aggressively but not recklessly.",
+            "My private value is $35, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since I'm neutral about risk and want to maximize long-term earnings, I'll bid close to my true value but not exactly at it. I'll aim to win by outbidding others while leaving some potential profit margin. A bid around $34-$36 seems optimal to increase chances of winning while preserving potential earnings.",
+            "My private value is $17. As a neutral risk bidder, I want to maximize expected profit. Since values are independently drawn, I'll aim to bid strategically. With three bidders, I want to bid high enough to have a good chance of winning, but not so high that I risk losing money. A bid around $16-$17 seems optimal - close to my true value but leaving some profit margin if I win."
+        ]
+    }
+}

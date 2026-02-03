@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 14.9
+            }
+        },
+        "profit": [
+            9.1,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My private value is $24, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win but minimize payment, I'll bid slightly above the expected maximum range. A bid around $19.9 would likely win while keeping my payment low. This approach balances winning probability with minimizing payment, potentially securing a profit of around $4.",
+            "With a private value of $14, my goal is to maximize potential profit. Since this is a single round with no history, I'll use a strategic bid slightly below my true value. I want to win if possible, but avoid overpaying. A bid around $12-$13 gives me room to potentially profit if I win with a lower second-place bid. This strategy balances my desire to win with protecting my potential earnings.",
+            "My private value is $15. To maximize profit, I want to win only if I can do so without paying more than my value. Optimal strategy is to bid just below my true value. Since the second-highest bid determines payment, I'll bid $14.90 - slightly under my true value. This gives me a chance to win with a small potential profit margin if others bid lower, while protecting against overpaying."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            0,
+            1.5,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $18, I want to bid strategically to maximize potential profit. As a risk-averse bidder, I'll aim to bid somewhat below my true value to protect against overpaying. Given the uncertainty of other bidders' values, I'll bid around $14-$15 - low enough to potentially secure a profit, but not so low that I'm likely to lose. This allows a buffer against the second-highest bid while still capturing potential value.",
+            "As a risk-averse bidder with a private value of $16, I want to secure the item while minimizing potential loss. Given the uncertainty of other bidders' values, I'll bid strategically below my full value. A bid around $14-$15 allows me a buffer for potential profit while reducing the risk of overpaying. This approach protects my potential earnings and accounts for the possibility of competing bids being lower.",
+            "My private value is $14. As a risk-averse bidder, I want to maximize my potential profit while minimizing downside risk. Given the uncertainty of other bidders' values, I'll bid strategically below my true value. A bid around $11-$12 allows me a buffer for potential profit while reducing the chance of overpaying. This approach balances my desire to win with protecting against significant losses."
+        ]
+    }
+}

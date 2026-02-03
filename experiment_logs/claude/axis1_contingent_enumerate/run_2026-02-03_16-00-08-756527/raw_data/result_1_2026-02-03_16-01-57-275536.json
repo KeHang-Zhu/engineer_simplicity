@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 21.5
+            }
+        },
+        "profit": [
+            7.5,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $29, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize potential profit. Since the second-highest bid determines my payment if I win, I want to bid just enough to win without overpaying. A good strategy is to bid near my true value but not exactly at it, perhaps around $25-$28, to create some profit margin if I win.",
+            "My private value is $26, which is higher than the typical $0-$20 range mentioned. This suggests I should bid strategically. Since the second-highest bid determines the price paid if I win, I want to bid high enough to win, but not so high that I lose money. A good strategy is to bid close to my true value but slightly below, around $20-$22, which gives me a buffer against overpaying while still likely winning.",
+            "With a private value of $16, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. If I bid my true value ($16), I risk paying too much if I win. A slightly lower bid around $15-15.5 allows some profit margin. Other bidders likely have random values between $0-20, so I'll aim to win without overpaying. I'll bid close to, but slightly under my true value to optimize potential earnings."
+        ]
+    }
+}

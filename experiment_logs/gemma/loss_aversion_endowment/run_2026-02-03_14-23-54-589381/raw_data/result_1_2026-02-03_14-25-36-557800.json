@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            8.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $29. Since this is the only round, I want to maximize my expected profit. Given the endowment of $20, I should bid aggressively but not exceed my endowment. I will bid slightly above the maximum possible value ($20) to ensure I win if any other bidder values the item highly. A bid of $20.1 should secure the win against any bidder with a value less than or equal to $20, and I'll still profit if I win against someone valuing it between $20.1 and $29.",
+            "My value is $27. Since this is the only round, I want to win if my value exceeds the likely second-highest bid. Given the endowment is only $20, aggressive bidding is risky. I will bid slightly above the endowment, hoping to win against potentially conservative opponents. I will bid $20.1, maximizing my chances of winning without risking too much of my endowment.",
+            "My value is $25. Since this is the only round, I should bid aggressively to try and secure the prize. However, I need to be mindful of my endowment ($20). I will bid slightly above my value, assuming others might also bid high, but not exceeding my endowment. A bid of $20.0 will ensure I win against any bid below that, and I'll still have some endowment left."
+        ]
+    }
+}

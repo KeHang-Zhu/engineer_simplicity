@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 5.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.0
+            }
+        },
+        "profit": [
+            1.0,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Given my private value of $14, I should bid slightly below my value to maximize profit while still having a chance to win. Bidding too low risks losing, while bidding too high risks overpaying. Since values are random, I estimate other bids might range around the median value of $10. A bid of $13.5 balances winning chances with potential profit.",
+            "Since this is the only round, I aim to maximize immediate profit. My value is $14. To win, I should bid slightly above the expected average of other bids. Assuming others bid around their average value, I estimate $10-$12 as typical bids. I'll bid $13 to increase my chances of winning while still ensuring a profit if I do.",
+            "My value is $6. To maximize profit, I should bid below my value to ensure a positive outcome if I win. Bidding exactly my value ($6) risks zero profit if I win, so I'll bid slightly lower. Given no history, I'll bid $5, hoping others bid lower or close to their value. This balances winning chances and profit potential."
+        ]
+    }
+}

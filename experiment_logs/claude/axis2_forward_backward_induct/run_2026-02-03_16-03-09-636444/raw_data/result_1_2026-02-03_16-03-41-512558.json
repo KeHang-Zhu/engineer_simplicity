@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            34,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 33.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 27.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 27.0
+            }
+        },
+        "profit": [
+            0,
+            7.0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "With a private value of $22, I want to maximize my potential profit. In a sealed bid auction with ascending clock, I need to strategically set my exit price. Since values are randomly drawn between $0-$20, most competitors will likely have lower values. I'll bid high enough to increase my chances of winning, but not so high that I eliminate potential profit. A bid around $20 seems optimal - it signals strong commitment while leaving room for potential gain.",
+            "With a private value of $34, I want to maximize my potential profit. In a sealed bid ascending auction, I'll bid strategically to balance winning probability with profit margin. Since values are independently drawn, I'll bid close to but slightly below my true value. A bid around $32-$33 gives me a good chance of winning while preserving potential profit if I win at a lower price. This approach minimizes the risk of overbidding while maintaining a strong competitive position.",
+            "With a private value of $30, I want to maximize my potential profit. In a sealed bid auction, I need to balance two risks:\n1. Bidding too low and losing the auction\n2. Bidding too high and reducing potential profit\n\nGiven the value is $30, I'll bid strategically near this value. A bid around $25-$28 allows room for profit if I win, while not overpaying. This accounts for potential competing bids and ensures I have a good chance of winning while preserving potential earnings."
+        ]
+    }
+}

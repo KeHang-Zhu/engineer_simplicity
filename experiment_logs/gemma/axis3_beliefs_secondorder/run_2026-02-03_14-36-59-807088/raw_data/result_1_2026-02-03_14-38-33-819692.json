@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 5.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 6.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 6.5
+            }
+        },
+        "profit": [
+            0,
+            14.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Since this is round 1 and there's only one round, I need to be cautious. My value is $8. If I bid too high, I risk overpaying. If I bid too low, I lose a potentially profitable item. Given the other bidders are rational, they will also be conservative. I will bid slightly above the midpoint of 0 and my value, anticipating bids around $4-$6. A bid of $5.50 feels reasonable to secure a win if others are conservative.",
+            "My value is $21. Since this is a single-round auction, and I have a high value, I should bid aggressively. However, I want to avoid overpaying. Given the possible values (0-20 for others), a bid slightly above the maximum possible value for others is reasonable. To ensure I win without excessive payment, I will bid $20.1. This is likely to win against rational bidders, and keeps my payment low.",
+            "Since this is a single round game, and my value is $8, I need to bid strategically to win without overpaying. Assuming the other bidders are rational, they'll also bid below their values. I'll bid slightly above what I estimate the second-highest bid will be. A conservative approach is to bid $6.50. This aims to win against bids likely below $6.50 while minimizing payment."
+        ]
+    }
+}

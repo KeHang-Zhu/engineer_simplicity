@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 12.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            23.0
+        ],
+        "common": 15,
+        "plan": [
+            "To maximize profit, bid slightly above the average expected value of the other bidders. Assuming random values uniformly distributed between $0 and $20, the average value is $10. Bid just above this to balance winning chances and profit margin. Given my value is $18, bidding around $10.1 maximizes profit if others bid near average.",
+            "Given my value of $15, I aim to maximize profit by bidding slightly above the expected average of the other bidders' values, which is $10. To ensure I win while still maintaining profit, I will bid $12. This bid is above the average but below my value, ensuring a positive profit if I win. The goal is to outbid others without exceeding my value for the prize.",
+            "Given my private value of $35, which is significantly higher than the possible maximum of $20, I can safely bid above $20 to ensure winning, as no other bidder can value the prize more than $20. To maximize profit, I'll bid slightly above $20, say $20.1, ensuring I win while minimizing payment."
+        ]
+    }
+}

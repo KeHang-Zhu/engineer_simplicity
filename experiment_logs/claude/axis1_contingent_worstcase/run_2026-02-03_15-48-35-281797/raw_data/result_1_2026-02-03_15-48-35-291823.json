@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 43.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            19.0
+        ],
+        "common": 26,
+        "plan": [
+            "My private value is $41, which is significantly higher than the standard $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment, I want to bid just high enough to win without overpaying. Given the high value, I'll bid near the upper range of the expected competing bids, around $20, to ensure victory while minimizing payment.",
+            "With a private value of $29, I want to win the auction but minimize my payment. Since values are randomly drawn, I'll bid strategically near my value. A bid slightly above my value but not too high reduces risk. Given the second-price auction mechanism, I'll bid around $25 - this gives me a buffer to potentially win while protecting potential profit. The goal is to win if possible while ensuring positive expected value.",
+            "My private value is $44, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment if I win, I want to bid just enough to win without overpaying. A bid near my value but not exactly at it will maximize potential profit. I'll aim to bid around $42-$45 to ensure winning while minimizing payment."
+        ]
+    }
+}

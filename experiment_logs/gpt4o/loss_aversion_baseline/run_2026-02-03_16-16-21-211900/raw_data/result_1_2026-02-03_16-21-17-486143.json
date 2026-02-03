@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.0999999999999996
+        ],
+        "common": 11,
+        "plan": [
+            "Since my value for the prize is $28, which is above the maximum possible value of $20, I have a strong incentive to win. To maximize profit, I should bid slightly above the expected average bid, which is around $10, to ensure a win while minimizing cost. A bid of $15 should outbid most competitors, given the random value distribution, securing the prize at a reasonable expense.",
+            "Given my value of $16, I aim to bid slightly below my value to maximize profit while maintaining a competitive edge. As this is the only round, historical data isn't available. To win, I should outbid others but not exceed my value. I will bid $15.9, slightly under my value to ensure profit if I win, while being competitive enough to potentially win against typical bids.",
+            "Given my private value of $19, I should bid close to this amount to maximize potential profit while minimizing the risk of overpaying. Bidding slightly below my value, like $18.5, can help ensure I win against aggressive bidders without risking a loss if the second-highest bid is significantly lower. This strategy balances winning the prize with maximizing profit, assuming competitors might bid high but not necessarily up to $19."
+        ]
+    }
+}

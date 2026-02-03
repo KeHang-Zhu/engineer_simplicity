@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 43.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            21.5
+        ],
+        "common": 26,
+        "plan": [
+            "My private value is $41, which is significantly higher than the standard $0-$20 range. This suggests other bidders likely have lower values. To maximize profit, I want to win without overpaying. Strategic bid would be just above the likely maximum of other bidders - around $20-$25. This ensures I win while minimizing my payment. Since this is a single round with independent value drawing, I'll bid aggressively but not recklessly.",
+            "My private value is $29, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win but pay the least possible, I'll bid slightly above the expected maximum competitive bid. Given the random $0-$20 range, other bidders are likely to bid around $15-$20. I'll bid $21 to ensure winning while minimizing my payment.",
+            "My private value is $44, which means I would be willing to pay up to $44 to acquire this item. However, the optimal strategy is not simply to bid $44. Since I win by being the highest bidder and only pay the second-highest bid, I want to bid strategically. I'll bid close to my value but slightly under to maximize potential profit margin. Given the $0-$20 typical range, I'll bid $43.9 to be competitive while preserving some potential profit."
+        ]
+    }
+}

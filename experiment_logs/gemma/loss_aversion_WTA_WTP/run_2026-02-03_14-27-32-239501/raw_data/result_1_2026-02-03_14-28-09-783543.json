@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            47,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 18.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            28.0
+        ],
+        "common": 29,
+        "plan": [
+            "My value is $36. Since this is the only round, I need to bid aggressively to maximize potential profit. However, I don\u2019t want to overpay. I'll bid slightly above what I expect the others to bid, anticipating they will also bid relatively high given the potential value. I will bid $18.0, hoping to win without paying too much.",
+            "My value is $47. Since this is the only round, I need to bid aggressively to secure the item if my value is significantly higher than what I expect others to value it. I\u2019ll bid slightly above what I believe the others might bid, but not so high that I overpay significantly. Given the possible range of values (0-20), I'll assume others have an average value of $10. I'll bid $11.1 to win against a likely $10 bid, and minimize my loss if outbid.",
+            "My value is $46. Since this is the only round, I need to bid aggressively to win, but not overpay. I will bid slightly above what I believe the other bidders might bid, aiming to win against potential conservative bids. Given the range of possible values (0-20), a bid around $21 should secure a win without excessive payment. I'm prioritizing maximizing profit, so I will bid a little higher than the maximum value of the other players."
+        ]
+    }
+}

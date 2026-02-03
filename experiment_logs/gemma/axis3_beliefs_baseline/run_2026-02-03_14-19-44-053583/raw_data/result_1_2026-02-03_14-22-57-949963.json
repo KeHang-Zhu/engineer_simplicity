@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.5
+        ],
+        "common": 10,
+        "plan": [
+            "Since this is the only round, and my value is $21, I want to win if possible, but avoid overpaying. Given the other bidders are rational, they will also bid based on their values. A conservative approach is to bid slightly above the midpoint of possible values, aiming to win against lower values while minimizing losses against higher values. I will bid $10.50.",
+            "Since this is a single-round auction and my value is $16, I want to bid slightly above what I estimate the others will bid, but not so high that I overpay. Given the possible values (0-20), a conservative approach is to bid around $13.5. This aims to win against likely lower bids while minimizing potential losses if others overvalue the item.",
+            "Since this is a single-round auction, and I know my value is $17, I want to bid slightly above what I estimate the second-highest bid will be. Assuming the other bidders are rational, they won't bid above their values. I'll bid $16.1 to increase my chances of winning without overpaying. This is a conservative approach given the limited information and single round."
+        ]
+    }
+}

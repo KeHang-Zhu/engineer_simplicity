@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            26,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 23.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 38.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            11.0
+        ],
+        "common": 26,
+        "plan": [
+            "Since this is round 1 of 1, and my value is $41, I need to bid aggressively but not overpay. Given the possible values (0-29 common + 0-20 private), other bidders could have values up to 49. I will bid slightly above the midpoint of my value and a reasonable expectation of others' values, aiming to win against likely lower bids while minimizing the payment to the second highest bidder. I'll bid $35.",
+            "Given it's round 1 of 1 and my value is $26, I need to bid aggressively but cautiously. Since the common value is between 0-29 and private tastes are 0-20, other bidders could have values close to mine. I'll bid slightly above what I estimate the second-highest bid might be, aiming to win without overpaying. I'll bid $23.50.",
+            "Since this is round 1 of 1, and my value is $46, I need to balance winning with avoiding overpaying. Given the possible value range (0-29 common value + 0-20 private taste = max 49), $46 is relatively high. I will bid slightly above what I estimate the others might bid, but not excessively, aiming to win against likely lower valuations. A bid of $38 should be competitive but avoid the risk of a large payment."
+        ]
+    }
+}

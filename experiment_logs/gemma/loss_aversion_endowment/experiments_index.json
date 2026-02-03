@@ -1,0 +1,40 @@
+{
+  "experiments": [
+    {
+      "name": "loss_aversion_endowment",
+      "run_id": "2026-02-03_14-14-44-468732",
+      "timestamp": "2026-02-03T14:14:44.468732",
+      "duration": 0.080999,
+      "status": "completed",
+      "output_dir": "loss_aversion_endowment/run_2026-02-03_14-14-44-468732",
+      "config_hash": "a8b90bd0"
+    },
+    {
+      "name": "loss_aversion_endowment",
+      "run_id": "2026-02-03_14-15-55-145345",
+      "timestamp": "2026-02-03T14:15:55.145345",
+      "duration": 0.032243,
+      "status": "completed",
+      "output_dir": "loss_aversion_endowment/run_2026-02-03_14-15-55-145345",
+      "config_hash": "a8b90bd0"
+    },
+    {
+      "name": "loss_aversion_endowment",
+      "run_id": "2026-02-03_14-19-02-160884",
+      "timestamp": "2026-02-03T14:19:02.160884",
+      "duration": 0.028915,
+      "status": "completed",
+      "output_dir": "loss_aversion_endowment/run_2026-02-03_14-19-02-160884",
+      "config_hash": "4a8bed83"
+    },
+    {
+      "name": "loss_aversion_endowment",
+      "run_id": "2026-02-03_14-23-54-589381",
+      "timestamp": "2026-02-03T14:23:54.589381",
+      "duration": 220.289573,
+      "status": "completed",
+      "output_dir": "loss_aversion_endowment/run_2026-02-03_14-23-54-589381",
+      "config_hash": "4a8bed83"
+    }
+  ]
+}

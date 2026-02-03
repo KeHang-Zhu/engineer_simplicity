@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            18,
+            26
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 17.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            8.5
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $16, I want to maximize potential profit. Since values are drawn independently and randomly, a dominant strategy is to bid slightly below my true value. This allows me to potentially win if others bid lower, while protecting against overpaying. Given the $16 value, I'll bid around $15.50 - close enough to my value to likely win, but with a buffer to ensure positive expected profit if I win.",
+            "With a private value of $18, I want to maximize my potential profit. Since values are drawn independently and randomly, I'll aim to bid strategically. A pure dominant strategy is to bid slightly below my true value to minimize potential overpayment. I'll bid around $17.5, which leaves me room for potential profit if I win, but prevents me from paying more than the item is worth to me. This approach balances risk and potential gain.",
+            "My private value is $26, which is higher than the typical $0-$20 range mentioned. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid high enough to win but not excessively above the expected competitive range. A smart approach is to bid near the maximum expected value of $20, which will likely secure the prize while minimizing overpayment."
+        ]
+    }
+}

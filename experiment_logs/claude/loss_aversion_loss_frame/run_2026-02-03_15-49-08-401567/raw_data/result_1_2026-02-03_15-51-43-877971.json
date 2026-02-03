@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            1.3000000000000007
+        ],
+        "common": 16,
+        "plan": [
+            "With a private value of $19, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. My optimal strategy is to bid close to my true value but not exactly at it. I'll bid slightly below my value to preserve some potential profit margin. Given the $19 value, I'll bid $18.7 to create a small buffer while still being highly competitive.",
+            "My private value is $24, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since I want to win but minimize payment, I'll bid just above the likely competing bids. Given the random value distribution, a bid around $19-$20 seems optimal to increase winning probability while keeping payment low relative to my high personal value.",
+            "My private value is $21, which is actually above the maximum possible random value of $20. This suggests a strategic opportunity. Since I want to maximize profit and the winner pays the second-highest bid, I should bid strategically. With a value of $21, I want to win, but pay as little as possible. I'll bid just above the likely maximum of $20 to ensure winning while minimizing my payment."
+        ]
+    }
+}

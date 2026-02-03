@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            9.5,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $30, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bidding approach. I want to bid high enough to likely win, but not so high that I eliminate my potential profit margin. Given the $0-$20 typical range for other bidders, I'll bid slightly above that range to ensure victory while leaving room for profit if I win.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since I know my true value, I want to bid high enough to win but not so high that I eliminate my potential profit margin. A good strategy is to bid just above the likely maximum of $20, perhaps at $20.50, which gives me a high chance of winning while preserving potential earnings.",
+            "My private value is $22, which is actually higher than the typical $0-$20 range. This suggests I should bid strategically. Since the auction pays the second-highest bid, I want to bid high enough to win, but not so high that I reduce my potential profit. I'll bid slightly above the maximum expected range to ensure winning, while leaving room for profit if others bid lower."
+        ]
+    }
+}

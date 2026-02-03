@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            41,
+            29,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 28.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 21.0
+            }
+        },
+        "profit": [
+            0,
+            8.0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "[My private value for the item is $41, which is unusually high given the typical range of $0 to $20. To maximize profit, I should bid close to the highest possible value other bidders might bid, likely around $20. This increases my chances of winning while paying a price close to their highest bid, maximizing profit. Thus, I will bid slightly above the expected maximum value of $20, ensuring I stay in until the other bidders exit.]",
+            "Given my private value of $29, my goal is to bid just below my value to maximize profit while ensuring a win. Since values are drawn independently, I should bid slightly below $29 to avoid overpaying. A bid of $28.9 ensures I exit just before my value, maximizing profit if others bid lower. This strategy balances winning the auction and maximizing profit by staying competitive without exceeding my valuation.",
+            "My private value is $44, which is above the maximum possible value of $20. Thus, I should bid aggressively. I will bid slightly below my value to ensure I win unless the others bid very high. Given there's no history, I'll bid $20 to maximize the probability of winning, since it's the highest possible value the others might have. This ensures I exit last in Stage 2, maximizing my profit if the second-highest bid is lower."
+        ]
+    }
+}

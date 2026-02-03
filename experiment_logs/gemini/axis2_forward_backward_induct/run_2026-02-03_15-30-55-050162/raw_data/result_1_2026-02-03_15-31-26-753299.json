@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 27.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            8.0
+        ],
+        "common": 25,
+        "plan": [
+            "[My value is $40, which is significantly higher than the typical range of 0-20. Given this, I should aim to win the auction. I will bid aggressively in Stage 1 to ensure I stay in the game as long as possible. I will bid $20, the maximum possible value for the other bidders. This will force them to bid their maximum value in Stage 1, and I will win Stage 2. ]",
+            "[My value is $42, which is outside the usual range of $0-$20. Since the other bidders' values are likely between $0 and $20, I should bid aggressively. I will bid $20, the maximum value they are likely to have. This should ensure I win the auction at a price no greater than $20, resulting in a profit of $42 - $20 = $22.]",
+            "I should bid slightly below my true value to ensure a profitable outcome if I win. Given my value of $28, I will bid $27.9 to try and secure the win while ensuring a profit. This strategy aims to balance the likelihood of winning with the potential profit margin."
+        ]
+    }
+}

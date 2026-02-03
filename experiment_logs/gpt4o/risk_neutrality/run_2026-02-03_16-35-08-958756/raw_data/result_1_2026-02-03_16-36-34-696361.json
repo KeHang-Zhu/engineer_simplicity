@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            3.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Given my value of $18, I aim to bid slightly below my value to maximize profit while ensuring a high chance of winning. A bid of $17.9 balances winning probability and potential profit, as it is just under my maximum value, minimizing loss if I win. This approach is based solely on maximizing expected profit for this single round, with no historical data to adjust strategy.",
+            "Since this is the only round and my value is $15, I should aim to bid just below my value to maximize profit. Bidding slightly below ensures I win if others bid lower. Given the uniform distribution of values, a bid of $12.5 balances the risk of overpaying with the chance of winning against typical bids.",
+            "My value of $35 seems incorrect as it should be between $0 and $20. Assuming a typo, I will use $20 as my value. To maximize profit, bid slightly above the expected average bid (around $10) to outbid others but ensure profit margin. Given risk neutrality, I aim for a balance between winning and profit. Bid $15 to outbid average bids and secure a profit if winning."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            8.9
+        ],
+        "common": 17,
+        "plan": [
+            "My value of $31 is incorrect as values range from $0 to $20. Assuming it's a typo, I'll consider $13 as a reasonable value. To maximize profit, I should bid slightly above my value to potentially outbid others while ensuring profit. Rational bidders likely bid near their value. I'll bid $13.5 to cover the range and attempt to win while minimizing the risk of overpaying if others bid close to their value.",
+            "Given my value of $24, I will bid to maximize my profit. Rational competitors likely bid close to their values. To win, I should bid slightly above the expected average value ($10), but below my value to ensure profit. A bid of $15.1 balances winning odds with profit potential, as it\u2019s above average yet below my value.",
+            "Given my private value of $24, I should aim to bid close to my value to maximize potential profit while considering the rationality of other bidders. Since the values range from $0 to $20, bidding slightly above $20, such as $20.1, could secure a win if the others bid below their values to ensure a profit. This strategy assumes they bid slightly below their values to avoid overpaying if they win."
+        ]
+    }
+}

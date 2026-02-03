@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.8
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            1.5,
+            0,
+            0
+        ],
+        "common": 9,
+        "plan": [
+            "With a private value of $13, my goal is to maximize potential profit. Since values are independently drawn, I'll use a strategic bid that balances winning probability with profit margin. A bid near my true value makes sense - I'll aim to bid slightly above my value to increase winning chances while ensuring potential profit. Given neutral risk preference, I'll bid around $13.50 to $14.00, which gives me a small buffer above my true value.",
+            "With a private value of $11, my goal is to maximize potential profit. Since values are randomly drawn and independent, I'll use a strategic bid close to, but not exceeding, my true value. A bid around $10-$11 gives me a good chance of winning while preserving potential profit margin. I'll aim to bid $10.5, which leaves a small buffer and signals strategic thinking to potential competitors.",
+            "With a private value of $12, my goal is to maximize potential profit. Since the auction uses second-price sealed bidding, I want to bid strategically. A neutral risk approach suggests I should bid close to, but slightly below my true value. I'll bid $11.50, which leaves me some potential profit margin if I win, but protects against overpaying. This strategy allows potential gain if others bid lower, while preventing significant loss if I win."
+        ]
+    }
+}

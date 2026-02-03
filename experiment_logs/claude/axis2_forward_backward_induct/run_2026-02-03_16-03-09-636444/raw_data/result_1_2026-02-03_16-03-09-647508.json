@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 38.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            0,
+            6.0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "With a private value of $39, I want to maximize my potential profit. In a sealed bid ascending auction, I should bid strategically to balance winning probability with potential profit. My optimal bid should be close to, but slightly below my true value. I'll bid $35 to create a buffer that allows potential profit if I win, while not overcommitting and risking a loss if the price rises too high.",
+            "With a private value of $41, I want to maximize my potential profit. In a sealed bid ascending auction, my optimal strategy is to bid slightly below my true value. This allows me to potentially win if others bid lower, while protecting my upside. Since values are independent and randomly drawn, I'll bid close to but not exactly at my true value, leaving some room for potential profit.",
+            "With a private value of $36, I want to maximize my potential profit. In a sealed bid ascending auction, my optimal strategy is to bid slightly below my true value. This allows me to potentially win if others bid lower, while protecting my upside. I'll bid close to, but slightly under my true value to create a buffer. A bid around $35 gives me flexibility to win if the auction price is low, while ensuring I don't overpay relative to my true value."
+        ]
+    }
+}

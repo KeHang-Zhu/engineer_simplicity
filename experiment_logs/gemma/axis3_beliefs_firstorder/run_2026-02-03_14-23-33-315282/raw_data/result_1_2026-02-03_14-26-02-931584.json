@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            23,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            16.5,
+            0,
+            0
+        ],
+        "common": 21,
+        "plan": [
+            "My value is $35. Since this is a single-round auction, and the other bidders are rational, I need to bid high enough to win, but not so high that I overpay. Given the possible values range from $0 to $20, a bid slightly above $20 seems reasonable to maximize my chance of winning without excessive payment. I'll bid $20.1 to ensure I win against any value below $20.1.",
+            "My value is $23. Since this is round 1 and there's no history, I'll assume Andy and Charles are also rational and will bid based on their values. To maximize profit, I want to win if my value exceeds the second-highest bid. A conservative approach is to bid slightly above the expected average value, but given my high value, I can afford to bid aggressively. I'll bid $18.50, aiming to win against typical values while leaving room for a second-highest bid.",
+            "My value is $21. Since this is round 1 and there's no history, I'll assume the other bidders will bid around the midpoint of the possible value range (around $10). To ensure I win, I need to bid higher than that, but not excessively high, as I pay the second-highest bid. A bid of $10.50 should likely win while minimizing payment. I'm prioritizing winning given my high value."
+        ]
+    }
+}

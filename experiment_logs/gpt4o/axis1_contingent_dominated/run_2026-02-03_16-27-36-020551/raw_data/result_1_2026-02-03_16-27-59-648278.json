@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.9
+            }
+        },
+        "profit": [
+            3.1000000000000014,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "Given my value of $20, I should aim to win while minimizing payment. Bidding exactly $20 ensures I win if others bid lower. Bids above $20 are dominated since I can't profit more than my value. Bidding slightly below $20 risks losing if others bid close to $20. Thus, bidding $20 maximizes my chance of winning without overpaying, ensuring the highest possible profit given my value.",
+            "Since there is only one round and no history to consider, I'll focus on maximizing profit by bidding just below my value. Bidding exactly my value or more is dominated as it risks zero profit or loss. I'll bid slightly lower to ensure a win if others undervalue their bids, maximizing profit margin. A bid of $16.9 maximizes potential profit without overbidding.",
+            "Since this is the only round, I'll focus on maximizing my profit for this single instance. My value is $13. Bidding above $13 is dominated as it risks paying more than the value. A bid slightly below $13, like $12.9, can win if others undervalue the item. This bid maximizes the chance of winning while ensuring profit if I do."
+        ]
+    }
+}

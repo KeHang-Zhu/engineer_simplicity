@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            9,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 5.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 4.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 5.0
+            }
+        },
+        "profit": [
+            8.0,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "Since this is a single round, and my value is $13, I need to bid aggressively enough to win against potentially low bids, but not so high that I overpay. Given the risk neutrality, I should bid slightly above the expected second-highest bid. Assuming a uniform distribution of values, the expected value of the second highest bid is around 6.5. I will bid $10.5 to try and secure the item at a reasonable price.",
+            "Since this is the only round, I need to maximize my expected profit. Given my value of $9, I want to bid slightly above what I expect the second-highest bid to be. Assuming a uniform distribution of values between $0 and $20 for the other bidders, a reasonable expectation for the second-highest bid is around $4.50. To account for risk neutrality, I will bid a bit higher than that.",
+            "Since this is a single round, and my value is $8, I need to bid strategically to maximize profit. Given my risk neutrality, I should bid aggressively to win if the expected value is positive. I will bid slightly above what I estimate the second highest bid will be. Considering the possible range of values (0-20), a reasonable estimate for the second highest bid is around $4. Therefore, I will bid $4.10."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 45.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 22.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            19.3
+        ],
+        "common": 27,
+        "plan": [
+            "With a private value of $38, I want to maximize potential profit. Since this is a single round, I'll use a strategic bid that balances winning probability with profit margin. Given the value range of $0-$20 for other bidders, I'll bid slightly above the expected maximum they might bid - around $19-$20. This increases my chances of winning while minimizing overpayment. A bid of $19.9 seems optimal, leaving potential profit if I win.",
+            "With a private value of $35, I want to maximize potential profit. Since this is a single round, I'll use a strategic bid that balances winning probability with profit margin. Given the $0-$20 typical value range for other bidders, I'll bid slightly above the expected maximum competing bid. A bid around $20-$25 seems optimal to increase my chances of winning while minimizing overpayment risk.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I lose money. My optimal strategy is to bid just above what I expect the other rational bidders might bid, targeting a winning bid that maximizes my potential profit margin."
+        ]
+    }
+}

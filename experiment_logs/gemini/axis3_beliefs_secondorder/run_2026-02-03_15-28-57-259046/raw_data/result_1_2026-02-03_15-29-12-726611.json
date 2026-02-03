@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            30,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            9.899999999999999,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "I have the highest possible value, $20. I should bid aggressively, but not above my value. I will start by bidding $19.90. This should ensure I win if the other bidders have values less than $20. If they have values close to $20, they might bid higher, but I'm willing to risk that to secure a win with a good profit margin if they value it lower.",
+            "[I have a value of $30, which is significantly higher than the typical range of $0-$20 seen in previous rounds. This suggests that the other bidders' values are likely to be much lower than mine. I will bid slightly above the maximum possible value of the other players ($20) to ensure I win the auction. I will bid $20.1 to win the auction and secure a profit of $30 - $20.1 = $9.9. If I bid any lower, there is a chance that another player will have a value close to $20 and outbid me. Bidding much higher would reduce my profit if I win.]",
+            "Since this is the first round, I have no history to learn from. My value is $30, which is significantly higher than the expected value of other bidders (around $10). I should bid aggressively to secure the win. However, I don't want to overbid and pay too much. I will bid slightly above the maximum possible value of other bidders, which is $20. This will ensure that I win the auction while minimizing the payment. I will bid $20.1."
+        ]
+    }
+}

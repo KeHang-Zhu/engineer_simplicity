@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            47,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 36.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 46.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 36.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.5
+        ],
+        "common": 29,
+        "plan": [
+            "My private value is $36, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I lose money. I'll aim to bid near my true value, around $35-$37, anticipating other bidders might bid more conservatively given the typical value range.",
+            "With a private value of $47, I want to maximize my potential profit. Since values are randomly drawn between $0-$20 but my value is much higher, I'll bid strategically. A naive approach would be to bid my true value, but that risks overpaying. Instead, I'll bid slightly above the likely maximum opponent value (around $20) to increase my winning probability while minimizing overpayment.",
+            "My value is $46, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively. Since the second-highest bid determines the payment if I win, I want to bid just enough to win while minimizing my payment. A strategic approach is to bid close to my true value but not exactly at it, to leave some potential profit margin. I'll aim to bid around $45-$47 to increase my chances of winning while preserving potential profit."
+        ]
+    }
+}

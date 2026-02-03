@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            17.9,
+            0,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "My value is $38. Given it's the only round, I want to win if my profit is positive. I'll bid slightly above what I estimate the second highest bid will be. Since values are 0-20, I'll assume others won't bid extremely high. A bid of $20.1 should secure the win against most plausible values, while ensuring I pay less than my value. I'm aiming for a safe win, prioritizing avoiding a loss.",
+            "My value is $35, significantly higher than the maximum possible value of $20 for other bidders. I want to win, but avoid overpaying. A conservative approach is to bid slightly above the maximum possible opponent value, but not too much. Given the second-highest bid determines my cost, I\u2019ll bid $19.50. This ensures I win against any bid of $19.40 or less, while keeping my payment low.",
+            "My value is $42. Since this is a single round, I want to bid aggressively to maximize potential profit. However, I need to consider the risk of overpaying. Given the possible values range from $0 to $20, it's unlikely either of the other bidders will have a value substantially higher than mine. I will bid slightly above the maximum possible value to virtually guarantee a win, assuming the other bidders bid rationally."
+        ]
+    }
+}

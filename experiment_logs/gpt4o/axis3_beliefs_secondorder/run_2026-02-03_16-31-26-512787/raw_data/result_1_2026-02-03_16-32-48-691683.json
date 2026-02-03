@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            6.0,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $21, which is above the maximum possible value of $20 for others. To maximize profit, I should bid slightly above $20 to ensure winning, as others cannot value it higher. A bid of $20.1 will secure the win, paying the second-highest bid. This strategy guarantees a profit since my value exceeds the maximum possible bid from others.",
+            "Since my value for the prize is $27, I aim to bid below that to ensure a profit if I win. Rational bidders will likely bid close to their values. To maximize profit and still maintain a high chance of winning, I will bid slightly above the expected average value, around $10 to $15. This balances the risk of overbidding with the potential for profit. I'll choose $15 to maximize the likelihood of winning while keeping a reasonable margin for profit.",
+            "Since my value is $14, I should aim to bid just below this to maximize profit if I win. Bidding exactly $14 or slightly less can deter others from overbidding, as they might expect a rational bidder to bid near their value. Given no history, I assume other bidders might bid close to their value too. I will bid $13.9 to increase my chances of winning while minimizing potential losses."
+        ]
+    }
+}

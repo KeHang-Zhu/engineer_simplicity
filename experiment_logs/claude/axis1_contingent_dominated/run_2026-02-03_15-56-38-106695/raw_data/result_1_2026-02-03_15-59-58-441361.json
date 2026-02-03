@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 30.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.0
+            }
+        },
+        "profit": [
+            16.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $32, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not excessively beyond necessary. I'll aim to bid near my true value, around $30-$31, which gives me a good chance of winning while preserving potential profit margin.",
+            "My private value is $22, which is higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since this is a single round with no repeated interactions, I'll aim to bid just above the expected mid-range value. A bid around $10-$12 balances potential profit against risk of overpaying. I'll avoid dominated strategies and try to win without overbidding relative to my true value.",
+            "With a private value of $16, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. A pure dominant strategy is to bid my true value ($16), which ensures I win if my value justifies winning and prevents overpaying. The second-highest bid will determine my actual payment, so bidding exactly my value protects my potential profit margin."
+        ]
+    }
+}

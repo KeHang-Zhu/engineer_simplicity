@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 3.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.9
+            }
+        },
+        "profit": [
+            6.100000000000001,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "Given my private value of $23, I aim to maximize my profit by winning the auction at the lowest possible cost. A reasonable strategy is to bid slightly above the expected average value. Since values range from 0 to 49, the average is around 24.5. However, to avoid overbidding and considering the potential competition, I'll bid slightly below my value to ensure a profit margin if I win. I will bid $20, hoping to win against potentially lower bids from Betty and Charles while ensuring a profit if successful.",
+            "Given my private value of $17, I aim to bid just below this value to maximize potential profit if I win. A bid of $16.9 allows a margin for profit while being competitive. This strategy assumes others may bid close to their values, and I want to ensure my bid is high enough to win but not too high to minimize profit. Since it's the only round, I prioritize winning this auction with a reasonable profit margin.",
+            "Given my private value of $6, I should aim to bid lower than my value to ensure potential profit. Since bids must be in $0.1 increments, I will bid conservatively to avoid overpaying. A bid of $3.5 allows for a potential profit if the second-highest bid is lower. This strategy minimizes loss if I win and pay the second-highest bid."
+        ]
+    }
+}

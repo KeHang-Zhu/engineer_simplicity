@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            0,
+            16.0,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "My value for the prize is $35, which is higher than the maximum possible value of $20. To maximize profit, I should bid slightly above the average expected bid of other bidders, who value between $0 and $20. Assuming rational behavior, they might bid around their value. I will bid $21 to outbid others while ensuring profit, as paying any amount under $35 still yields a profit.",
+            "With a value of $41, I aim to maximize profit by bidding slightly below my value to ensure a win but still secure a profit. To balance winning and minimizing payment, I'll bid $35. This bid is competitive enough to outbid others likely bidding near $20, the maximum possible value they perceive. This strategy should yield a profit while considering the risk of overbidding.",
+            "Given my private value of $44, I should aim to bid slightly below this value to maximize profit if I win. Since values are drawn independently and equally likely between $0 and $20, I expect others to bid around their values. To ensure a win while still aiming for profit, I'll bid slightly above the midpoint of $20, around $25, to outbid likely competitors without sacrificing too much profit."
+        ]
+    }
+}

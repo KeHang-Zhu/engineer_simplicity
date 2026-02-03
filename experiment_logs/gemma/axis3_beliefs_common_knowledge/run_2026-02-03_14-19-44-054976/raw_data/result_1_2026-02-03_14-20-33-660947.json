@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 0.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            11.9
+        ],
+        "common": 15,
+        "plan": [
+            "Given the common knowledge of rationality and the payment rule (paying the second-highest bid), the optimal strategy is to bid slightly above the expected value of the second-highest bid. Since values are between $0 and $20, a reasonable expectation for the second-highest bid is around $0, assuming others are also rational. However, my value is $30, significantly higher. To maximize profit, I will bid a small increment above $0 to almost guarantee a win while minimizing my payment.",
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the expected value of the second highest bid. Since values are between $0 and $20, the expected value is $10. However, my value is $25. To maximize profit, I should bid a small increment above what I expect the others to bid, while still being below my value. I'll bid $10.10.",
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the expected value of the second highest bid. Since values are between $0 and $20, the expected value of the highest of the other two bids is around 2/3 * 20 = $13.33. To ensure winning, I'll bid slightly above that, but considering my value is $22, I can afford to bid higher. A bid of $14.0 should be sufficient to win against rational bidders."
+        ]
+    }
+}

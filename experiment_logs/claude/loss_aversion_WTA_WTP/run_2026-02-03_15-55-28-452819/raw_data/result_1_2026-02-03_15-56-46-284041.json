@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 43.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 40.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.0
+        ],
+        "common": 27,
+        "plan": [
+            "My private value is $35, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I reduce my potential profit. I'll aim to bid just above what I expect other rational bidders might bid, considering the typical value range. A bid around $20-$25 seems optimal to maximize my potential profit margin.",
+            "With a private value of $41, I want to maximize my potential profit. Since values are drawn independently and randomly, I'll aim to bid strategically. My optimal strategy is to bid slightly below my true value to minimize potential overpayment. Given the $0-$20 typical range for other bidders, I'll bid $40, which is close to my true value but leaves a small buffer for potential profit if I win at a lower price.",
+            "My private value is $44, which means I would be willing to pay up to $44 to acquire this item. However, the optimal strategy is not simply to bid $44. Since I win by being the highest bidder and only pay the second-highest bid, I want to bid strategically. I'll bid close to my value but slightly under to maximize potential profit margin. Given the $0-$20 typical range, I'll bid $43.9 to be competitive while preserving some potential profit."
+        ]
+    }
+}

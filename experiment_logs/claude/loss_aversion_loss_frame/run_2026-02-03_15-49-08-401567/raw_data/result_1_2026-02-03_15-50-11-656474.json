@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.100000000000001
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $13. To maximize profit, I want to bid strategically:\n- If I bid too low, I might lose the auction and miss out on potential profit\n- If I bid too high, I risk paying more than my item's value\n- Optimal strategy is to bid slightly below my true value\n- Since this is a single round with no repeated interactions, I'll bid around $12.50\n- This gives me a buffer to potentially win while not overpaying",
+            "My private value is $25, which is higher than the $20 max typical range. This suggests I should bid strategically to maximize profit. Since I want to win but pay the least possible, I'll bid just above what I expect competitors might bid. Given the random value distribution, I'll bid $19.9 - slightly under my true value but high enough to likely win while minimizing payment.",
+            "My private value is $29, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically to maximize profit. Since the second-highest bid determines my payment, I want to bid high enough to win, but not so high that I lose money. Given the high personal value, I'll bid close to but slightly under my true value to ensure a profit margin. A bid around $25 should secure the win while leaving room for potential profit."
+        ]
+    }
+}

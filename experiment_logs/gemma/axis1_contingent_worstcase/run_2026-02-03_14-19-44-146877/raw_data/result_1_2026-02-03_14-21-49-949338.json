@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            48,
+            35,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            14.899999999999999,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My value is $48. Since this is a single-round game, I want to win if my bid is likely to be the highest while minimizing my payment. I will bid slightly above what I estimate the others might bid. Given the value range is $0-$20, I assume other bidders will bid conservatively. I'll bid $10.1. This offers a good chance of winning without overpaying, especially considering my high value. The worst case is losing, paying $0.",
+            "My value is $35. Since the maximum possible value is $20, I should win every time. However, I want to minimize my payment. I'll bid slightly above the maximum possible value for the other players, which is $20. Bidding $20.1 guarantees a win, and the second-highest bid will be at most $20. This maximizes my profit as my value is significantly higher than any other bidder's possible value.",
+            "My value is $37. Since this is the only round, I want to maximize my expected profit. A conservative approach is to bid slightly above what I expect the others to bid. Given the range of possible values (0-20), I anticipate other bids will be lower. To ensure a good chance of winning without overpaying, I will bid aggressively, but not at my full value. I will bid $20.1, aiming to win against likely lower bids while keeping the payment reasonable."
+        ]
+    }
+}

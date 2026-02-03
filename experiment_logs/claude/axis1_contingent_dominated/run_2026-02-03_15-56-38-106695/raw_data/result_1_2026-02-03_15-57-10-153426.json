@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 32.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            13.100000000000001,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $33, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to my true value. However, I'll slightly shade my bid to account for potential competitor behavior. I'll bid just under my true value to ensure I win if my value is highest, but not overpay. A bid around $32.9 seems strategically sound.",
+            "With a private value of $20, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to my true value. Bidding exactly $20 risks paying too much if others bid high. A strategic bid slightly below my true value (around $19.9) allows potential profit if others bid lower, while protecting against overpaying.",
+            "With a private value of $19, I want to maximize my potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exactly at, my true value. By bidding slightly under my true value, I create a buffer that increases my potential profit margin. I'll bid $18.9 to capture most of my potential value while protecting against potential losses."
+        ]
+    }
+}

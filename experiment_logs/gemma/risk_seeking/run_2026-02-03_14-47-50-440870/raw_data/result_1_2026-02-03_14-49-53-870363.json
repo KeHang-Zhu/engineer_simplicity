@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            3,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 1.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 7.5
+            }
+        },
+        "profit": [
+            8.5,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Given my value is $16 and I'm risk-seeking, I will bid aggressively to maximize potential profit. Since this is the only round, there's no future to consider. I'll bid slightly above what I estimate others might bid, aiming to win even if it means paying a higher price. I'm willing to risk a larger payment for a potentially significant gain. I will bid $15.1.",
+            "My value is $3. Given I'm risk-seeking, I'll bid aggressively, aiming to win even with a low value. Since it's the only round, there's no future learning. I'll bid slightly above what I think the others might bid, hoping to secure the item. Considering the possible range of values (0-20), I'll bid $1.10. This is a low bid, but I'm risk-seeking and my value is low, so minimizing potential loss is key.",
+            "Given my risk-seeking nature and a value of $8, I will bid aggressively. Since this is a single round, maximizing potential profit is key. I'll bid slightly above what I estimate the others might bid, aiming to win even if it means paying a bit more than the average value. I anticipate others might bid around $4-$6, so I'll bid higher to increase my chances."
+        ]
+    }
+}

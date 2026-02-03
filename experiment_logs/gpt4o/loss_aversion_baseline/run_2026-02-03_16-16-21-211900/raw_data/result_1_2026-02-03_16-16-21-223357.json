@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            23,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.1
+            }
+        },
+        "profit": [
+            4.9,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "Given that my value for the prize is $20, I aim to maximize profit by winning the auction without overpaying. Since this is a single round and there is no past bidding history, I will bid slightly below my value to ensure a win while keeping costs low. A bid of $19.9 should be competitive enough to win against typical bids, assuming others bid close to their values too.",
+            "With a private value of $23, I should aim to bid just below this value to maximize profit if I win. The optimal strategy is to bid slightly above the expected average bid of others, typically around half the maximum value ($10), to increase my chances of winning. However, to ensure a win, I'll bid slightly higher, around $15, balancing between winning the auction and not overpaying. This strategy aims to maximize profit by winning with a reasonable margin over the second-highest bid.",
+            "Given my value of $11, I aim to bid slightly above the midpoint between $0 and $11 to maximize profit while maintaining a competitive edge. A bid of $7.5 balances the risk of overpaying against the likelihood of winning. Since there is no historical data, assume competitors bid close to their value. This bid ensures a positive expected profit if I win, paying less than my value."
+        ]
+    }
+}

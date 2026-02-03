@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 24.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 24.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.100000000000001
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $13. In a second-price sealed bid auction, the optimal strategy is often to bid close to my true value. Since the prize is worth $13 to me, I want to bid high enough to win, but not so high that I risk losing money. Considering other bidders might have similar reasoning, I'll bid slightly above my value to increase my winning chances while protecting my potential profit margin.",
+            "My private value is $25, which is significantly higher than the standard $0-$20 range mentioned in the game rules. This suggests the value was specially set for this round. Since the goal is to maximize profit, I'll bid strategically to win while minimizing overpayment. Given the second-price auction mechanism, I'll bid slightly below my true value to ensure winning while keeping my payment low.",
+            "My private value is $29, which is significantly higher than the typical $0-$20 range mentioned in the game rules. This suggests I should bid strategically to maximize potential profit. Since I want to win but minimize payment, I'll bid just above what I expect other rational bidders might bid. Given the high personal value, I'll bid near but not exactly at my true value to leave room for potential profit."
+        ]
+    }
+}

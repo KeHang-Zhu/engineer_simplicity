@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 5.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 7.5
+            }
+        },
+        "profit": [
+            0,
+            13.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Given my private value of $8, I aim to maximize profit by bidding slightly below my value to avoid overpaying. The optimal bid should be high enough to outbid others but not exceed my value. Assuming Betty and Charles might bid based on similar logic, a bid around $7.5 could secure the win without paying too much if I win. Since this is the only round, I can afford to be slightly aggressive to maximize potential profit.",
+            "Since my value ($21) exceeds the maximum possible value ($20), I can safely bid just above the maximum value to ensure a win while minimizing payment. I will bid $20.1 to guarantee winning, as no other bidder can value the prize above $20. This ensures I win the prize and pay the second-highest bid, maximizing my profit.",
+            "Given my value of $8, I should aim to bid below this to ensure a profit if I win. The optimal bid is slightly above the midpoint of the range, but below my value, to balance winning chances and profit. A bid of $5.5 offers a good chance to win against random values, while ensuring a profit margin if I win."
+        ]
+    }
+}

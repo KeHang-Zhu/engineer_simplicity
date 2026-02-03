@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            8.0,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "With a private value of $26, I want to maximize my potential profit. In a sealed bid ascending auction, I need to balance my exit strategy. My sealed bid should be high enough to potentially win, but not so high that I lose money if I win. Given the $0-$20 range for other bidders, I'll bid strategically to capture potential upside while protecting my downside risk.",
+            "With a private value of $28, I want to maximize my potential profit. In a sealed first-stage bid with an ascending clock auction, my optimal strategy is to bid strategically near my true value. I'll bid slightly below my true value to create a buffer for potential profit. My goal is to win if possible, but not overpay. A bid around $25 seems reasonable - close to my value but with some margin for potential profit.",
+            "Bid strategically to win while preserving profit margin. With a value of $21, aim to win by bidding near upper range but not excessively. Target bid around $15-$16 to balance winning probability and potential profit. Consider other bidders might have similar strategic thinking."
+        ]
+    }
+}

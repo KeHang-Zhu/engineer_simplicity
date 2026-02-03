@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 33.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            9.0,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "With a private value of $34, I want to maximize my potential profit. Since the prize values are independently drawn, I'll aim to bid strategically. Given the second-price auction format, I want to bid close to my true value but not exactly at it. A bid slightly below my value ($33-$34) gives me the best chance of winning while preserving potential profit margin. Other bidders likely have random values between $0-$20, so an aggressive but calculated bid makes sense.",
+            "My private value is $33, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment if I win, I want to bid high enough to win, but not excessively above the expected competing bids. A bid around $20-$25 seems optimal - high enough to likely win, but not overpaying relative to typical value ranges.",
+            "With a private value of $30, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to my true value. The key is to bid high enough to win, but not so high that I lose money if I win. Given the $0-$20 typical range for other bidders, I'll bid strategically at $25 - this gives me a good chance of winning while protecting potential profit margin."
+        ]
+    }
+}

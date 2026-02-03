@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            29,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            9.100000000000001,
+            0,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "My value is $29. Since this is round 1 and there's only one round, I need to bid aggressively to win, but not overpay. I assume the other bidders will also bid somewhat rationally. A bid slightly above the expected maximum value of the others (around $20) seems reasonable. Bidding too low risks losing to a lower value bidder. I will bid $20.1 to increase my chances of winning without significant overpayment.",
+            "My value is $29. Since the maximum possible value is $20, this is an error. I will assume my value is $20, the maximum possible value. To maximize profit, I should bid slightly above what I estimate the second-highest bid will be. Given the other bidders are rational, they will also bid based on their values. I will bid conservatively high to ensure a win, anticipating others will bid lower.",
+            "My value is $22. Since this is a single round, and the other bidders are rational, I need to consider the risk of overbidding. A conservative strategy is to bid slightly above the expected second-highest bid. Assuming the other bidders also have values between $0 and $20, a bid around $11.50 - $12.50 should win most of the time without incurring huge losses if outbid. I'll go with $12.10 to be slightly aggressive."
+        ]
+    }
+}

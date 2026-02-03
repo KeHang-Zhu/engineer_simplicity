@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "intervention_risk_averse",
+      "run_id": "2026-02-03_15-18-30-641571",
+      "timestamp": "2026-02-03T15:18:30.641571",
+      "duration": 744.168595,
+      "status": "completed",
+      "output_dir": "risk_averse/run_2026-02-03_15-18-30-641571",
+      "config_hash": "941c760a"
+    }
+  ]
+}

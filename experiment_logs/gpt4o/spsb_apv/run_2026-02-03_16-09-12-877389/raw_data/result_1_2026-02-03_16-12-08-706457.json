@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            18,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 4.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            11.9,
+            0,
+            0
+        ],
+        "common": 2,
+        "plan": [
+            "Given that my private value for the prize is $22, I should aim to bid slightly below this value to maximize potential profit while ensuring a competitive stance. Since other bidders might have similar or higher private values, I will bid $21.5 to increase my chances of winning without overpaying. This strategy balances competitiveness with profit maximization.",
+            "Given my private value of $18, I need to balance winning the auction with maximizing profit. Since bids must be in $0.1 increments, a reasonable strategy is to bid slightly above half my value to ensure potential profit if I win. This approach considers the possibility that other bidders have similar or lower private values. I'll bid $10.1, which is above half my value, to increase my chances of winning while maintaining a profit margin.",
+            "Given my private value of $8, I should aim to bid below this amount to ensure profit if I win. Since this is the only round, I don't have history to learn from. To maximize profit, I will bid conservatively, slightly above half my value to increase chances of winning without overpaying. A bid of $4.5 balances potential profit and winning chance, assuming others might bid closer to their values."
+        ]
+    }
+}

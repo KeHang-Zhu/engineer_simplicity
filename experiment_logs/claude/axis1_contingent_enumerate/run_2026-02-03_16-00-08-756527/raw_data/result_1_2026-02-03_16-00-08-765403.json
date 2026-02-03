@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            23,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            3.1000000000000014,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other bidders likely have values between $0-$20. By bidding $19.9, I maximize my chances of winning while preserving potential profit margin. This strategy ensures I win if others bid lower, and minimizes overpaying if I win.",
+            "My private value is $23, which is higher than the stated $0-$20 range. This suggests an aggressive bidding strategy. Since values are independent and randomly drawn, I'll aim to bid strategically. A good approach is to bid close to, but slightly below my true value. I'll bid $22.9 to maximize potential profit while leaving a small margin of safety. This high bid increases my chances of winning while minimizing overpayment risk.",
+            "In a single-round auction with independent values, the optimal strategy is to bid slightly below my true value. My value is $11, so I want to win if possible without overpaying. Since values are uniformly distributed between $0-$20, other bidders might have similar or different values. I'll bid $10.50 - this is close to my value but leaves room for potential profit if I win at a lower price. This strategy balances winning probability with avoiding overpayment."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 34.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 18.0
+            }
+        },
+        "profit": [
+            0,
+            17.0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since my value for the item is $26, I should aim to bid just below this to maximize profit while still having a high chance of winning. The worst-case scenario is bidding too high and winning with little to no profit. A strategic bid would be slightly above the midpoint of $10 to $20, ensuring competitiveness without overbidding. Given no history, I will bid $18 to balance winning chances and profitability.",
+            "Given the private value of $35, bid just below the maximum to ensure profitability while minimizing potential loss. The worst-case scenario is losing by a small margin or winning and paying close to $35. Bid $34.9 to maximize the chance of winning while retaining a small profit margin.",
+            "Given my private value of $17, I aim to maximize profit by winning the bid without overpaying. Since values are uniformly distributed between $0 and $20, I assume Andy and Betty might value the item similarly. To ensure a win, I should bid slightly above the average expected value, around $10. However, to avoid overpayment, I will bid slightly less than my value, at $15. This minimizes risk while maximizing potential profit, as I pay at most $15 but value at $17, ensuring a profit margin."
+        ]
+    }
+}

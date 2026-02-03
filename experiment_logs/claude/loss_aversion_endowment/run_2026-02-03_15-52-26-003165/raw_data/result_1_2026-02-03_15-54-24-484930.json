@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            48,
+            35,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 45.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 34.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 34.9
+            }
+        },
+        "profit": [
+            13.100000000000001,
+            0,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My private value is $48, which is significantly higher than my initial endowment of $20. This suggests I should bid aggressively. Since this is a single round with no repeated interactions, I want to win but not overpay. My optimal strategy is to bid close to, but slightly below my true value - around $45. This gives me a good chance of winning while preserving some potential profit margin.",
+            "My private value is $35, which is significantly higher than the initial $20 endowment. Since this is a single round with no repeated interactions, I want to maximize my potential profit. The optimal strategy is to bid close to, but slightly under my true value. I'll aim to win by outbidding others while leaving some profit margin. Given the $0-$20 typical value range for others, I'll bid strategically high to ensure winning.",
+            "My private value is $37, which is significantly higher than my initial $20 endowment. This suggests I should bid strategically to win. Since this is a single round with no prior history, I'll aim to bid just above the likely competing bids. Given the $0-$20 typical range for other bidders, I'll bid slightly above that - around $19.50. This maximizes my chance of winning while minimizing overpayment."
+        ]
+    }
+}

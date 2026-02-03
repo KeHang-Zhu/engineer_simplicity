@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            7.5,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "In a first-price sealed bid auction with rational bidders, the optimal strategy is to bid less than my true value. Since my value is $21, and other bidders are rational, I should bid strategically below my true value to maximize potential profit. A common approach is to bid around 70-80% of true value. Given the $0-$20 typical range, I'll bid close to but slightly under my actual value.",
+            "In a first-price sealed bid auction with rational bidders, the optimal strategy is to bid strategically below one's true value. Since my value is $27, and other bidders are rational, I'll bid slightly below my value to maximize potential profit. A good approach is to bid around 80-90% of my true value to create a buffer for potential profit while still having a strong chance of winning. I'll choose a bid that balances winning probability with profit margin.",
+            "In a single-round sealed bid auction with rational bidders, the optimal strategy is to bid slightly below my true value. Since my private value is $14, I want to maximize potential profit. I'll bid strategically to win if possible, but not overpay. A good approach is to bid around $13.5 - this gives me a chance to win while protecting some potential profit margin if I'm successful."
+        ]
+    }
+}

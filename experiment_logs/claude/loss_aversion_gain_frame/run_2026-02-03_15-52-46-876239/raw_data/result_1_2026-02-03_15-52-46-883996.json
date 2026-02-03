@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 14.0
+            }
+        },
+        "profit": [
+            10.0,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My private value is $24, which is unusually high. Since values are drawn independently and randomly between $0-$20, my value is above the typical range. This suggests I should bid strategically. I want to win, but also minimize my payment. I'll bid just above the likely maximum possible value of $20, around $20.50, which gives me a high probability of winning while ensuring a reasonable profit margin if I win.",
+            "Since this is a single-round auction with no prior history, I'll use a strategic approach. My private value is $14, which means I want to bid to maximize potential profit. Given the second-price auction mechanism, I'll bid slightly below my true value to capture potential gains. A bid around $13.5 leaves room for profit if others bid lower, while protecting against overpaying if others bid aggressively.",
+            "With a private value of $15, my goal is to maximize potential profit. Since values are independently drawn, I'll aim to bid strategically. A bid near my true value could work, but I want to leave room for profit. I'll bid slightly below my true value to ensure I have a potential gain margin. Given the $0-$20 range, a bid around $14 seems reasonable - high enough to have a good chance of winning, but low enough to potentially create a profit if I win."
+        ]
+    }
+}

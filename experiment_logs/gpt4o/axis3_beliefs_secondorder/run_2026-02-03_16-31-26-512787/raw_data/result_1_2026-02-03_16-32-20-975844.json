@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 16.0
+            }
+        },
+        "profit": [
+            0,
+            9.0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Given my private value of $13, I should aim to bid slightly below this to maximize profit while still having a good chance of winning. The other bidders are rational and will likely bid close to their values. To win, I should bid around $11.5, anticipating they might bid near their values but slightly lower to increase their profit. This bid maximizes my profit if I win, as the second-highest bid is likely to be around $11 or less.",
+            "Given my value of $25, I should bid just below this to maximize profit if I win. The other bidders, Andy and Charles, are rational and know my strategy. A bid around $20 should suffice, balancing the risk of overpaying and the chance of winning, assuming they bid slightly below their values. This bid maximizes profit if I win, as I pay only the second-highest bid.",
+            "My private value of $29 is higher than the maximum possible value of $20, which suggests a high likelihood of winning if I bid close to $20. To maximize profit, I should bid slightly above the expected average bid of rational bidders, around $15. This ensures a win while minimizing the payment. Given the lack of history and assuming rational opponents, I will bid $16 to outbid a potential average bid from Andy or Betty, while ensuring I still profit if I win."
+        ]
+    }
+}

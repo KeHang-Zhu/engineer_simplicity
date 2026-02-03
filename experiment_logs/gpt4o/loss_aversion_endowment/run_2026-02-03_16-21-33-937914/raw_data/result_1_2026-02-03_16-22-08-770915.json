@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            0.10000000000000142,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "[Given the value of $33 for this round, which is above the maximum possible value of $20, it seems there was an error in the value provided. However, assuming the value should be capped at $20, I should aim to bid close to my perceived value while considering the risk of overbidding. A bid slightly below $20 maximizes potential profit while minimizing payment risk. A bid of $19.9 should suffice to outbid others without overpaying.]",
+            "Given my private value of $20, I aim to maximize profit. I will bid slightly below my value to ensure a win while paying the minimum possible. Since this is the only round, I should be aggressive. I'll bid $19.9 to outbid others while still ensuring a profit if I win. This strategy maximizes my chance of winning and keeps my payment just below my value, thus maximizing profit from the prize.",
+            "Given the high private value of $19, I aim to win the auction to maximize profit. To ensure a win, I should bid slightly below my value to avoid overpaying. A bid of $18.9 should be competitive, outbidding most reasonable competitors while maximizing my net gain. Since this is the only round, aggressive bidding is justified to secure the prize."
+        ]
+    }
+}

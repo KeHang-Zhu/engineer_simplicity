@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 24.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 31.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 23.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 24.9
+            }
+        },
+        "profit": [
+            0,
+            7.100000000000001,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "[My value is $25. The optimal strategy is to bid slightly below my true value in the sealed bid stage. This allows me to participate in the ascending clock auction up to a price close to my true value, while also increasing my chances of winning at a favorable price if the other bidders bid conservatively. I will bid $24.9 to ensure I stay in the auction as long as it is profitable.]",
+            "[My value is 32. The optimal strategy is to bid slightly below my true value in stage 1. This encourages the other bidders to stay in the auction longer, driving up the price and increasing my potential profit if I win. I will bid 31.9. This should ensure I win if the other bidders have values less than mine, and I will only lose if they have values greater than mine. This strategy maximizes my expected profit.]",
+            "I will bid my true value. This is because if I bid lower, I risk exiting the auction too early and missing out on a potential profit. If I bid higher, I risk winning the auction at a price that is higher than my value, resulting in a loss. Bidding my true value ensures that I only win the auction when the price is lower than my value, maximizing my potential profit."
+        ]
+    }
+}

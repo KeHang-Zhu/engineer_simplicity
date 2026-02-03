@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.9
+            }
+        },
+        "profit": [
+            3.1000000000000014,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "I have the highest possible value, $20. I should bid aggressively, but not above my value. I will start by bidding $19.90. This should ensure I win if the other bidders have values less than $20. If they have values close to $20, they might bid higher, but I'm willing to risk that to secure a win with a good profit margin if they value it lower.",
+            "[This is the first round, so I have no history to learn from. My value is $17. A simple strategy is to bid slightly below my value to ensure a profit if I win. However, this might be too conservative. A more aggressive strategy is to bid my value, but this risks losing money if the second-highest bid is close to my value. I will start with a conservative strategy and bid slightly below my value, say $16.90. This allows me to secure a profit if I win, while also having a reasonable chance of winning. ]",
+            "My value is $13. I should bid less than my value to ensure a profit if I win. I also need to consider what the other bidders might bid. Since this is the first round, I have no history to learn from. A reasonable starting strategy is to bid slightly below my value, say around $12.50, to try and win while leaving some profit margin. I will adjust this strategy in future rounds based on the observed bids."
+        ]
+    }
+}

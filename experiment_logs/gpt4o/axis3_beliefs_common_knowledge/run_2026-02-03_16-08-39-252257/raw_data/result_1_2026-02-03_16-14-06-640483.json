@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            7.899999999999999,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "Given the private value of $28, I should aim to bid just below this value to maximize profit while still potentially winning the auction. A rational strategy would involve bidding slightly less than the value, as bidding the full value or more would result in zero or negative profit if I win. Since values are drawn independently each round and all bidders are rational, a bid slightly below $28, such as $27.9, is optimal to potentially win while ensuring a positive profit margin.",
+            "My value exceeds the maximum possible value of $20, an anomaly. Rational bidders bid below their value to ensure profit. I should bid slightly above $20 to win, but not too high to minimize payments. A bid of $20.1 should secure the win, as it is slightly above the maximum value others might have, ensuring a profit of $4.9 if the highest other bid is $20.",
+            "The optimal strategy in a private value auction is to bid slightly above the expected second-highest value, which rational bidders would also aim for. Given my value is $20, I should bid slightly lower to ensure profit while still being competitive. Since values range from $0 to $20, a rational bid could be around $13-$15, balancing winning chances and profit margin. I'll bid $15, expecting others to bid slightly below their values, ensuring I win if their values are lower and still gain profit if they are close."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            13,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            9.5,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "Given my private value of $24, I aim to bid below my value but high enough to outbid others, maximizing profit. With no history, assume others have similar values. I\u2019ll bid slightly above the midpoint of $12 and $24 to increase my chances of winning while ensuring a profit if I do. My bid will be $18.",
+            "Given my private value of $13, I aim to bid below this value to ensure a profit if I win. To maximize profit, I should bid slightly below my value, considering the potential bids of others. A bid around $10 should be competitive yet profitable, assuming others might have similar or slightly higher values. This strategy balances the risk of overbidding with the chance of winning.",
+            "My value for the prize is $18. To maximize profit, I should bid below my value to ensure a positive payoff if I win. Given no history, I assume competitors' bids are around the midpoint of potential values. I'll bid slightly above the midpoint to increase my chances of winning while maintaining a profit margin. A bid of $14.5 balances the risk of overbidding and the potential loss from underbidding."
+        ]
+    }
+}

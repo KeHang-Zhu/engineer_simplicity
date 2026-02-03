@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 9.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 6.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.6
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 9.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.5
+        ],
+        "common": 9,
+        "plan": [
+            "Since this is round 1 and there's no history, I'll assume the other bidders will bid conservatively, aiming to win only if their value is high. I value the item at $13. To maximize profit, I want to win if my value exceeds the second-highest bid. I'll bid slightly above what I estimate the average value to be, anticipating a second-highest bid around $6-8. A bid of $9.5 seems reasonable to increase my chance of winning without overpaying.",
+            "Given it's round 1 and I have a value of $11, I'll employ a conservative bidding strategy. Assuming the other bidders are rational and their values are uniformly distributed between $0 and $20, they likely won't bid excessively high. I'll bid slightly above the midpoint of my value, aiming to win against potentially lower bids while minimizing my payment. A bid of $6.50 seems reasonable.",
+            "Since this is round 1 and there's no history, I'll assume the other bidders will bid conservatively, aiming to win if their value is high. My value is $12. To maximize profit, I want to win only when my value exceeds the second-highest bid. I'll bid slightly above what I estimate the average value to be, hoping to secure the prize without overpaying. I estimate the average value to be $10, so I will bid $10.6."
+        ]
+    }
+}

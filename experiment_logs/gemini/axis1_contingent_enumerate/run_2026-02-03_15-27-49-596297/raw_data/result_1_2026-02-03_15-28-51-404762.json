@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            26.9,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "[Since this is the first round, I have no history to learn from. My value is $47, which is significantly higher than the typical range of $0-$20 from the problem description. Assuming the other bidders' values are still drawn from the $0-$20 range, I should bid aggressively to win. I will bid slightly above the maximum possible value of the other bidders, say $20.1. This will ensure I win while paying a reasonable price.]",
+            "My value is $41, which is significantly higher than the typical range of $0-$20 from previous rounds. I should bid aggressively to win. Since the other bidders are likely to bid within the $0-$20 range, I will bid slightly above that to ensure I win. I will bid $20.1 to win.",
+            "[I have a very high value of $34. Since this is a single round, I want to ensure I win. I will bid slightly above the maximum possible value of the other players, which is $20. Since bids must be in $0.1 increments, I will bid $20.1 to guarantee a win and a profit of $34 - $20.1 = $13.9. There is no history to consider.]"
+        ]
+    }
+}

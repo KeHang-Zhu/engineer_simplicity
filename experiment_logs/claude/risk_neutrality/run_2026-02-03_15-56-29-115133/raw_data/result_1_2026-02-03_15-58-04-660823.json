@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            2.5,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "My private value is $22, but this exceeds the maximum possible drawn value of $20. Since I'm neutral about risk and want to maximize expected profit, I'll bid strategically. The optimal strategy is to bid just below my true value to minimize overpaying. With a $22 value, I'll bid $19.9 - this leaves room for potential profit if I win, and protects against significant losses if others bid higher.",
+            "My private value is $23, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since I'm neutral about risk and want to maximize expected profit, I'll bid close to my true value but not exactly at it. I'll aim to bid just above the expected maximum competitive bid, which I estimate around $15-$18. I'll bid $19.5 to maximize my chances of winning while preserving potential profit margin.",
+            "My private value is $17. As a neutral risk bidder, I want to maximize expected profit. Since values are independently drawn, I'll aim to bid strategically. With three bidders, I want to bid high enough to have a good chance of winning, but not so high that I risk losing money. A bid around $16-$17 seems optimal - close to my true value but leaving some profit margin if I win."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            11.3,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "My private value is $31, which is substantially higher than the typical $0-$20 range mentioned in the game rules. This suggests I should bid aggressively but strategically. Since I want to maximize profit, I'll bid just above the likely maximum competing bid. Given the $0-$20 range for other bidders, I'll bid $20.10 - this ensures I win while minimizing my payment. The goal is capturing the difference between my $31 value and my payment.",
+            "My private value is $24, which is higher than the typical $0-$20 range mentioned. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid just above what I expect other rational bidders might bid. Given the potential range, a bid around $19-$20 seems optimal - high enough to likely win, but not so high that I risk losing money if others bid low. I'll aim to capture profit while minimizing downside risk.",
+            "My private value is $24, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid close to, but not exceeding, my true value. A bid slightly below my value protects against overpaying while still giving a high chance of winning. I'll aim to bid near $20 to balance winning probability with potential profit margin."
+        ]
+    }
+}

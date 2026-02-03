@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 9.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 8.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 9.0
+            }
+        },
+        "profit": [
+            0,
+            12.0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "With a private value of $8, my goal is to maximize potential profit. Since the second-highest bid determines the payment if I win, I want to bid strategically. A bid slightly above my value but not too high could capture profit. Given the $0-$20 range, I'll bid $9.0 - this leaves potential profit if I win while not overpaying. The randomness of other bidders' values means I can't predict their exact strategy.",
+            "My private value is $21, which is above the typical $0-$20 range. However, I want to maximize potential profit. Since I know my value, I'll bid strategically to win while minimizing my payment. Given the second-price auction rules, I want to bid just high enough to win, but not excessively. I'll bid near my true value but slightly below to ensure a good profit margin if I win.",
+            "With a private value of $8, my goal is to maximize potential profit. Since the second-highest bid determines my payment if I win, I want to bid strategically. A bid slightly above my value but not too high reduces risk. Given no prior round history and equal likelihood of other bidders' values, I'll bid around $8.50 - this gives me a chance to win while maintaining potential profit margin if my bid is successful."
+        ]
+    }
+}

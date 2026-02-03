@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            47,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 46.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 45.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 45.9
+            }
+        },
+        "profit": [
+            0,
+            1.1000000000000014,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My value is $36, which is significantly higher than the typical range of $0-$20 seen in previous rounds. Given this unusually high value, I should bid aggressively to secure the item. I will bid slightly above the maximum possible value from previous rounds to ensure I win, but also avoid overpaying excessively. A bid of $20.50 should be sufficient to win while still securing a substantial profit.",
+            "I will employ a bidding strategy that aims to maximize profit while considering the risk of overbidding. Since this is the first round and I have no prior history to learn from, I will bid slightly below my true value to ensure a positive return if I win. I will bid $46.50. This allows me to capture some surplus if I win while reducing the chance of paying more than the item is worth to me.",
+            "My value is $46. This is a single round, so there's no learning from previous rounds. I want to maximize my profit if I win. A reasonable strategy is to bid slightly below my value to ensure a positive profit margin if I win. I will bid $45.9."
+        ]
+    }
+}

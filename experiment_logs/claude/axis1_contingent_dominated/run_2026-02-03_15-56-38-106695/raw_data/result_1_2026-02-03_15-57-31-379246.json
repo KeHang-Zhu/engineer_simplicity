@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.3
+        ],
+        "common": 12,
+        "plan": [
+            "In a single-round sealed bid auction with three bidders, the optimal strategy is to bid close to, but not exceeding, my private value. Since my value is $13, I'll bid slightly below that to maximize potential profit. With values drawn randomly between $0-$20, other bidders might have similar or different valuations. I'll bid $12.7 to create a buffer that allows potential profit if I win, while avoiding overbidding.",
+            "My private value is $25, which is higher than the maximum possible initial value of $20. This suggests I should bid strategically to maximize potential profit. Since this is a single round with no repeated interactions, I'll aim to bid just above the likely maximum opponent value. A bid around $19-$20 seems optimal to capture potential profit while minimizing overpayment risk.",
+            "My private value is $29, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not excessively above the expected competitive range. I'll aim to bid around $20, which covers the typical value range while leaving room for potential profit if my actual value is higher."
+        ]
+    }
+}

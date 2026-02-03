@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 36.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            12.0
+        ],
+        "common": 19,
+        "plan": [
+            "My private value is $36, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I lose money. A bid around $20-$25 seems optimal - high enough to likely win, but leaving room for profit given my $36 value.",
+            "My private value is $30, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since I want to maximize profit, I'll bid close to but slightly below my true value. A bid around $25 would ensure I likely win while leaving room for profit if the second-highest bid is much lower. This strategy protects my potential gain while minimizing overpayment risk.",
+            "My private value is $37, which is significantly higher than the standard $0-$20 range. This suggests I should bid aggressively but strategically. Since I want to maximize profit, I'll bid close to but slightly below my true value. A bid around $36-$37 minimizes my risk of overpaying while ensuring I'm likely to win. I'll aim to pay as little as possible while securing the item, targeting just above what competitors might reasonably bid."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            6,
+            7,
+            3
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 8.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 3.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 7.5
+            }
+        },
+        "profit": [
+            0,
+            -0.5,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Given my risk-seeking nature and a private value of $6, I should bid slightly above my value to increase the chance of winning. A bid of $7.5 balances risk and potential reward, ensuring I don't overpay significantly. This strategy capitalizes on my willingness to take risks for higher rewards, even if it means accepting a potential loss.",
+            "Given my value of $7, I aim to bid slightly above this to increase my chances of winning while minimizing potential losses. Since I'm risk-seeking, I'll bid $8.1 to balance winning probability and potential profit. This bid is slightly above my value to account for the risk-seeking nature, hoping to outbid others while keeping the cost manageable if I win.",
+            "Given my private value of $3, I should bid slightly above this value to account for my risk-seeking nature. However, since this is the only round and I lack historical data, I'll aim to bid around my value to maximize the chance of winning without overpaying significantly. To balance risk and reward, I'll bid $3.5, slightly above my value, hoping competitors don't bid much higher."
+        ]
+    }
+}

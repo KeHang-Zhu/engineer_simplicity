@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 32.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.6
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.6
+            }
+        },
+        "profit": [
+            16.4,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Given the common knowledge of rationality and a single round, the optimal strategy converges to bidding your true value. Any bid lower risks losing the item to someone bidding slightly above your value, while bidding higher risks overpaying. Since this is the only round, there's no incentive to strategically underbid to learn about opponents. My value is $32, so I bid $32.",
+            "Given the common knowledge of rationality and the auction rules (winning bid pays the second highest), the optimal strategy converges to bidding slightly above the expected value of the other players' valuations. Since valuations are between $0 and $20, the expected value is $10. To win with high probability, I need to bid higher than that. Given my value is $22, I want to ensure I win if the second highest bid is less than $22. A bid of $10.1 should be sufficient to win against any rational bidder.",
+            "Given the common knowledge of rationality, the optimal bidding strategy converges towards bidding your true value minus a small increment. However, since this is a single round, and we don't have historical data, a conservative approach is best. Bidding slightly above the midpoint of possible second-highest bids (assuming others also bid rationally) is sensible. I'll bid $15.6 to secure the item if others bid conservatively."
+        ]
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "axis3_beliefs_common_knowledge",
+      "run_id": "2026-02-03_15-52-55-523918",
+      "timestamp": "2026-02-03T15:52:55.523918",
+      "duration": 214.742486,
+      "status": "completed",
+      "output_dir": "axis3_beliefs_common_knowledge/run_2026-02-03_15-52-55-523918",
+      "config_hash": "dcecbfba"
+    }
+  ]
+}

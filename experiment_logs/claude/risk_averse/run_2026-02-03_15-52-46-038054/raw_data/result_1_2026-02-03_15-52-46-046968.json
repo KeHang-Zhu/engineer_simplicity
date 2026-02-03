@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            0,
+            2.5,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My private value is $24, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to secure the item while minimizing overpayment. Since the second-highest bid determines my payment, I'll bid strategically below my true value. Given the high uncertainty and my risk aversion, I'll bid around the midpoint of the typical range, around $10, to balance winning probability and potential loss.",
+            "Given my private value of $14, and being risk-averse, I want to bid strategically to maximize potential profit. Since values are randomly drawn, I'll aim to bid slightly below my true value to create a buffer. A bid around $11-$12 gives me room to potentially win while minimizing potential loss. This approach balances my risk aversion with the opportunity to secure the prize if other bids are lower.",
+            "As a risk-averse bidder with a $15 value, I want to secure the item without overpaying. Since this is a single round with no prior history, I'll bid strategically below my full value. A bid around 75% of my value ($11.25) balances potential profit with risk mitigation. This leaves room for potential profit if I win, while protecting against significant loss if competition is high."
+        ]
+    }
+}

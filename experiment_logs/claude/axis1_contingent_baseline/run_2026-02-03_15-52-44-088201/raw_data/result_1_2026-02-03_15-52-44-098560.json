@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 39.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            0,
+            6.0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "With a high private value of $39, my optimal strategy is to bid strategically. Since this is a single round with no prior history, I'll aim to win by bidding close to, but not exceeding, my true value. A bid around $35 allows potential profit if other bidders bid lower. This leaves room for potential earnings while reducing the risk of overbidding and losing money unnecessarily.",
+            "With a high private value of $41, my optimal strategy is to bid aggressively but strategically. Since this is a single round with no prior history, I'll aim to bid close to my true value but not exactly at it. I'll bid $39.5, which is slightly below my value. This gives me a good chance of winning while preserving some potential profit margin. The second-price auction mechanism incentivizes near-truthful bidding.",
+            "My private value is $36, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically to maximize profit. Since the winning strategy is to bid just enough to win while paying the second-highest bid, I'll aim to bid slightly above the expected maximum competitive bid. Given the $0-$20 range, I'll bid $20.50 to ensure victory while minimizing my payment."
+        ]
+    }
+}

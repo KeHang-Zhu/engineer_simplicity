@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 36.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 23.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 36.7
+            }
+        },
+        "profit": [
+            0,
+            4.299999999999997,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "With a private value of $39, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to my true value. Other bidders are rational and likely to bid strategically. I'll bid slightly below my true value to create a buffer - this protects against overpaying while still having a strong chance of winning. A bid around $35-$37 seems strategically sound.",
+            "With a private value of $41, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other rational bidders will likely do the same. I'll bid $40.50, which leaves me a small potential profit margin if I win, and protects against overpaying. This bid signals strategic reasoning without being transparently predictable.",
+            "With a private value of $25, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. The other bidders are rational and likely thinking similarly. I'll bid strategically near my value to capture potential profit, accounting for potential competitive bidding. A bid around $20-$24 seems reasonable to balance winning probability and potential earnings."
+        ]
+    }
+}

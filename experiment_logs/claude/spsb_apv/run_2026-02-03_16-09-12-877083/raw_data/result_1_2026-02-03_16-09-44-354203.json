@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            28,
+            27
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            0,
+            3.0,
+            0
+        ],
+        "common": 24,
+        "plan": [
+            "With a private value of $27, I want to win the auction but avoid overpaying. Since this is the first and only round, I'll bid strategically near my value. Considering the second-price auction mechanism, I'll bid slightly below my full value to maximize potential profit. A bid around $25 allows some buffer while still being competitive. Without prior round history, I'll use a cautious but strong approach targeting winning while preserving potential earnings.",
+            "I have a private value of $28, which is relatively high. In a first-price sealed bid auction, I want to bid strategically. Since this is a single round with no repeated play, I'll bid close to but slightly below my true value. A bid around $25-$26 allows me to potentially win while leaving some profit margin. The goal is to win the item while maximizing potential profit.",
+            "My private value is $27, which suggests a strategic bid slightly below this. Since this is a single round with no prior history, I'll aim to win by bidding close to my value but not exactly at it. A bid around $25 balances the risk of overpaying and the desire to win. With no information about other bidders' values, a moderate bid that's near but below my true value seems prudent."
+        ]
+    }
+}

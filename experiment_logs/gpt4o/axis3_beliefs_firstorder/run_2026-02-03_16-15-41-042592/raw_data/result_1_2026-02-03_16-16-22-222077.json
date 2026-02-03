@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            20.0,
+            0,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "Given my value of $40, which is unusually high compared to the typical range ($0 to $20), I should aim to win the auction while minimizing costs. Rational bidders will likely bid close to their values, averaging around $10. To ensure victory, I will bid slightly above the maximum value range, $20.1, to outbid typical bids while ensuring profit if I win.",
+            "My value for the prize is $42, which is unusually high given the usual range is $0-$20. To maximize profit, I should bid just above the expected average maximum bid of others, likely around $10-$15. A bid of $20 ensures a win while maintaining a profit margin, given the second-highest bid will likely be below $20.",
+            "My private value is $28, but values are capped at $20, indicating a typo. Assuming the max value is $20, I'll bid slightly above the midpoint. Rational bidders will likely bid near their values. To maximize profit, I'll bid $14, anticipating others bid around $10. This balances winning chances and profit margin."
+        ]
+    }
+}

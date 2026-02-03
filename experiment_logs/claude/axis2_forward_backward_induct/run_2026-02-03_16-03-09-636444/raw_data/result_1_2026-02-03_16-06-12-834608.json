@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            4.5,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My private value is $21, which is actually above the maximum possible initial value of $20. This suggests a unique scenario. In a sealed bid auction, I want to balance winning probability with profit margin. Since values are drawn independently and randomly, I'll bid strategically near my true value. I'll bid slightly below my value to maximize potential profit, accounting for potential competitor strategies. A bid around $19-$20 seems optimal to increase winning chances while preserving potential profit.",
+            "My value is $16. In a sealed bid ascending auction, I want to bid strategically to maximize potential profit. Since values are independent and randomly drawn, I'll use a bid that balances potential winning with preserving profit margin. I'll bid slightly below my true value to create a buffer. A bid around $14-$15 allows me room to potentially win while ensuring I don't overpay relative to my true value.",
+            "With a private value of $17, I want to maximize my potential profit. In a sealed bid ascending auction, I need to balance:\n1. Not bidding too low (risking losing the item)\n2. Not bidding too high (reducing potential profit)\n3. Strategic exit point in Stage 2\n\nMy optimal strategy is to bid slightly above my value, around $16.50. This gives me a buffer to potentially win while ensuring I don't overpay. The goal is to win if the item is worth more than my bid, but exit if the price exceeds my true value."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 14.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            5.5,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My value of $21 is above the maximum possible value of $20, indicating a strong position. To maximize profit, I should bid slightly above the average expected bid. Given the uniform distribution of values, average bids may be around $10. Bidding $20 maximizes my chance of winning, ensuring I capture the value minus the second-highest bid, which will likely be lower than $20.",
+            "Given my private value of $16, I aim to maximize profit by bidding slightly below my value to potentially win while minimizing payment. Since values are drawn independently, I assume Andy and Charles have random values between $0 and $20. To outbid them without overpaying, I'll bid slightly above the midpoint of $10, but below $16. A bid of $14 balances winning chances and profit.",
+            "My value is $17. To maximize profit, I should bid slightly below my value to ensure a positive net gain if I win. Since it's the only round, I aim to outbid others without overpaying. A bid around $15.5 balances winning chances and profit margin, assuming others bid near their values."
+        ]
+    }
+}

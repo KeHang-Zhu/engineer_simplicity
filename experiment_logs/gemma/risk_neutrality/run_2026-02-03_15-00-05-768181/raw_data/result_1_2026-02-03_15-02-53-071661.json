@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.8
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 16.1
+            }
+        },
+        "profit": [
+            0,
+            -0.10000000000000142,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My value is $21. Since I'm risk-neutral, I should bid aggressively to maximize potential profit. Given it's the only round, I'll bid slightly above what I estimate others might bid. Assuming other values are randomly distributed between $0 and $20, a reasonable expectation for the second-highest bid is around $10-$15. I will bid $16.1 to ensure a good chance of winning while keeping the payment relatively low.",
+            "Since this is a single-round auction with a neutral risk attitude, I'll bid slightly above the expected second-highest bid. Given the value range of $0-$20, a reasonable expectation for the second-highest bid is around half my value. I'll bid $16.80 to increase my chances of winning without overpaying significantly. This strategy balances maximizing potential profit with minimizing the risk of a large loss.",
+            "Since this is a single round, and my value is $17, I need to bid high enough to win against likely bids, but not so high that I overpay. Given the neutral risk preference, I should bid aggressively. I'll aim to win with a small profit, assuming others bid randomly. A bid slightly above the midpoint of possible values seems reasonable, aiming to beat bids around $8-12."
+        ]
+    }
+}

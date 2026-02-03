@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.1
+            }
+        },
+        "profit": [
+            0,
+            6.899999999999999,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Given the private value of $29, the optimal strategy is to bid slightly above the expected value of competitors' bids to maximize profit. Since other bidders are rational and values range from $0 to $20, they may bid close to their value. A bid of $19.1 maximizes the chance of winning while ensuring profit since the prize value is much higher than the maximum possible second-highest bid.",
+            "Given my private value of $26, I should bid slightly below my value to maximize profit while ensuring a high chance of winning. Since all bidders are rational, they will likely bid close to their values. Bidding $25.9 increases my chance of winning without exceeding my value, ensuring a positive payoff if I win.",
+            "Given the rationality of all bidders, each will bid close to their private value to maximize profit. Bidding slightly below my value of $16 ensures potential profit if I win, while still being competitive. The goal is to bid higher than others but not exceed my value. A bid of $15.9 is optimal, as it allows for a small margin below my value, increasing the chance to win without overbidding and risking a loss. This strategy balances competitiveness with profit maximization."
+        ]
+    }
+}

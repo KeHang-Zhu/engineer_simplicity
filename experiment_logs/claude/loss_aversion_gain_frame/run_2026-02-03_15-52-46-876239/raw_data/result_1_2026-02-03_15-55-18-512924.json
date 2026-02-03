@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 38.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 38.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 38.5
+            }
+        },
+        "profit": [
+            0,
+            2.5,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "With a private value of $39, my goal is to maximize potential profit. Since values are drawn independently and randomly, I'll aim to bid strategically. My optimal strategy is to bid slightly below my true value to ensure potential profit if I win. Given the range is $0-$20 for other bidders, I'll bid close to my true value but not exactly at it, to leave room for potential gains.",
+            "With a private value of $41, my goal is to maximize potential profit. Since values are drawn independently and randomly, I'll aim to bid strategically. Given the range is $0-$20 for other bidders, I want to bid high enough to likely win, but not so high that I reduce my potential profit margin. I'll bid close to my true value but slightly under to preserve potential gains if I win. A bid around $38-$39 seems optimal to balance winning probability and profit potential.",
+            "My private value is $25, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I reduce my potential gains. A bid around $20 seems optimal - it's likely to win against typical values while preserving most of my $25 value."
+        ]
+    }
+}

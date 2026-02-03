@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            48,
+            35,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 47.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 22.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.5
+            }
+        },
+        "profit": [
+            25.5,
+            0,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My private value is $48, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment, I want to bid just high enough to win without overpaying. A bid near my value but not exactly at $48 will maximize potential profit. I'll bid close to my value, around $47-$49, to ensure winning while leaving some potential profit margin.",
+            "With a private value of $35, my goal is to win the auction while minimizing potential loss. Since the prize is worth $35 to me, I want to bid strategically. Given the maximum possible bid is $20, I'll bid slightly above the likely competitive range to secure the item. A bid of $19.9 ensures I'm likely to win while keeping my potential loss minimal. This approach balances winning probability with risk management.",
+            "My private value is $37, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize profit. Since the winner pays the second-highest bid, I want to bid just enough to win while minimizing my payment. A good strategy is to bid slightly above the expected maximum competing bid, around $20-$25, which covers the typical value range while protecting my high personal value."
+        ]
+    }
+}

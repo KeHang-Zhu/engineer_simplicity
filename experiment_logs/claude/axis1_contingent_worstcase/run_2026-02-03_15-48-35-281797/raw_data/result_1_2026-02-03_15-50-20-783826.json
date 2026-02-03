@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            9.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $29, I want to maximize my potential profit. Since the prize can range from $0-$20, and other bidders have similar uncertainty, my optimal strategy is to bid strategically near my true value. I'll bid slightly below my value to ensure I can still profit if I win. A bid around $25 allows me potential profit if I win while minimizing downside risk. This approach balances aggressive bidding with prudent risk management.",
+            "My private value is $26, which is higher than the stated $0-$20 range. This suggests an unusual scenario. Since the goal is maximizing long-term profit, I'll bid strategically. I want to win without overpaying. The optimal strategy is to bid slightly below my true value, anticipating other bidders might also bid aggressively. I'll aim to capture the prize while minimizing my payment.",
+            "My private value is $16. In a second-price sealed bid auction, the optimal strategy is typically to bid my true value. If I bid less, I risk losing when I could have won. If I bid more, I risk paying more than my value if I win. With only one round and no repeated game history, bidding $16 directly represents my best strategic approach to maximize potential profit."
+        ]
+    }
+}

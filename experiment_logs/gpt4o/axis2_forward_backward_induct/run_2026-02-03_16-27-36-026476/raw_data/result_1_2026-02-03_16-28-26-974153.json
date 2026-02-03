@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 5.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "To maximize profit, bid slightly above the midpoint between $0 and my value, $14. This balances winning chances and potential profit. If I bid too high, profit decreases; too low, I risk losing. Given no history, assume competitors bid near their value average, $10. Therefore, bid $12 to exit at a competitive price while maximizing profit if I win.",
+            "To maximize profit, bid slightly above the midpoint between $0 and my value ($14), ensuring competitiveness while avoiding overpaying. The midpoint is $7, so a bid around $10.5 balances winning chances and cost control. This strategy aims to exit just before the value, maximizing potential profit if competitors bid lower.",
+            "I will bid slightly below my private value to maximize potential profit if I win. Since my value is $6, I will bid $5.9. This bid allows me to exit just before reaching my value, minimizing the risk of overpaying while still having a competitive chance to win should the other bidders exit early."
+        ]
+    }
+}

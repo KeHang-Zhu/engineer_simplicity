@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            1.1000000000000014,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $21, which is actually above the maximum possible initial value of $20. This means I'm guaranteed to want the item. However, I want to minimize my payment. Since bids are independent and values are randomly drawn, I'll bid strategically just above the maximum possible initial value. This increases my chances of winning while minimizing my potential payment.",
+            "My private value is $27, which is significantly higher than the typical $0-$20 range mentioned in the rules. This suggests I should bid strategically to maximize potential profit. Since I want to win but pay as little as possible, I'll bid close to but slightly above the expected maximum range. A bid around $19.90 should secure the item while minimizing my payment, assuming other bidders follow typical valuation patterns.",
+            "My private value is $14. My goal is to maximize profit by winning only if I can do so cheaply. Since values are drawn randomly and independently, I'll use a strategic bid slightly below my true value. I want to win if possible while paying less than my value. A bid around $13-$14 seems optimal - high enough to likely win, but low enough to preserve potential profit if I win at a lower price."
+        ]
+    }
+}

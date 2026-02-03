@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            21.1,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "My value for the prize is $39, which is above the maximum possible value of $20, indicating an error. Assuming a typo, if my value is $19, I should bid slightly below my value to maximize profit while avoiding overpayment. Bidding $18.9 could outbid opponents with values close to $19 without risking a tie, ensuring I pay less than my value if I win.",
+            "My value is $41, which is an error since the range is $0-$20. Assuming $20, I'll bid just below $20 to maximize profit while ensuring a win. A bid of $19.9 should outbid others while minimizing payment.",
+            "My private value of $25 is above the maximum possible value ($20), indicating an error in the setup. Assuming the value should be $20, I should bid slightly below my value to maximize profit. Bidding $19.9 ensures a high chance of winning while minimizing payment if I win. This strategy balances winning probability and profit maximization, considering no history is available."
+        ]
+    }
+}

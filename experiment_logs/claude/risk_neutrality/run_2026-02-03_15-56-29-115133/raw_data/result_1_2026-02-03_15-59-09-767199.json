@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 36.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 28.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            1.0,
+            0,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "My private value is $36, which is significantly higher than the standard $0-$20 range. This suggests I should bid aggressively but strategically. Since I'm neutral about risk and want to maximize potential profit, I'll bid close to my true value but not exactly at it. A bid around $35-$37 would give me the best chance of winning while preserving potential profit margin.",
+            "My private value is $30, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since I'm neutral about risk and want to maximize expected profit, I'll bid close to my true value. Given the second-price auction mechanism, I want to bid high enough to win, but not so high that I reduce my potential profit margin. A bid around $25-$29 seems optimal to ensure winning while preserving profit potential.",
+            "My private value is $37, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I'm neutral about risk, I'll aim to bid close to my true value but not exactly at it. I'll bid above the typical range to increase my win probability, but not so high that I risk negative earnings. A bid around $35 seems optimal - high enough to likely win, but leaving some profit margin."
+        ]
+    }
+}

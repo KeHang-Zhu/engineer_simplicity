@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 32.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 32.9
+            }
+        },
+        "profit": [
+            0,
+            1.1000000000000014,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "Since this is a single round with no prior history, and my private value is $33, I want to maximize my potential profit. The optimal strategy is to bid close to, but slightly below my true value. Given the second-price auction mechanism, I'll bid strategically to ensure I win while minimizing my payment. I'll bid $32.9 to capture most of my value while leaving a small margin for potential profit if I win.",
+            "My private value is $34, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize profit. Since the second-highest bid determines my payment if I win, I want to bid just high enough to win but not excessively above my true value. A bid near my value but slightly conservative seems optimal to ensure winning while preserving potential profit margin.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win but pay the least possible, I'll bid just above what I expect other bidders might offer. Given the random value distribution, a bid around $20 seems reasonable - high enough to likely win, but not so high that I risk overpaying relative to my true value."
+        ]
+    }
+}

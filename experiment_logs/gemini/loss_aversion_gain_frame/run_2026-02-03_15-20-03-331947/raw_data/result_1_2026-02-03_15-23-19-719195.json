@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 41.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            21.9
+        ],
+        "common": 26,
+        "plan": [
+            "Since my value is $28, which is significantly higher than the typical range of values (0-20), I have a strong advantage. I should bid aggressively to secure the win. I will bid slightly above the maximum possible value of the other bidders to ensure I win while maximizing my profit. I will bid $20.1.",
+            "[I have a value of $37, which is significantly higher than the possible values of the other bidders (between $0 and $20). Therefore, I should bid slightly above the maximum possible value of the other bidders to ensure I win the auction. Bidding $20.1 should guarantee a win and a profit of $37 - $20.1 = $16.9.]",
+            "Since my value is $42, I should bid aggressively. I want to win the auction and secure a positive profit. I will bid slightly below my value to ensure a good chance of winning while still maintaining a reasonable profit margin. I'll bid $41.9."
+        ]
+    }
+}

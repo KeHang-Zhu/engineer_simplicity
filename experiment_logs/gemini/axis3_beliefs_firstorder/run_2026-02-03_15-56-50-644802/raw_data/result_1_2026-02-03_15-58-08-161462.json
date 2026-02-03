@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            46,
+            17,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 45.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.6
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 23.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 23.0
+            }
+        },
+        "profit": [
+            23.0,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "[This is a single-round auction. I should bid aggressively to try and win, but not so high that I risk overpaying significantly. Given the other bidders are rational, they will likely bid close to their values, but slightly lower to account for the second-price auction. I will bid slightly below my value to try and secure a win at a reasonable price. I will bid 45.5.]",
+            "I will bid a fraction of my value. A common strategy in these types of auctions is to bid slightly below your value to ensure a profit if you win, while also avoiding overbidding. I will bid 80% of my value, which is $17 * 0.8 = $13.6. This should be a reasonable bid that gives me a chance to win without risking too much.",
+            "I will use a bidding strategy that aims to maximize profit while considering the likely behavior of the other bidders. Given that this is the first round and I have no prior history to learn from, I will assume the other bidders are rational and will bid somewhat below their true value to avoid overpaying. A reasonable strategy would be to bid slightly below my own value, say around 80-90% of my value. I'll bid $23."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            20.1,
+            0,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "Given my private value of $40, I should aim to win the auction as long as the second-highest bid is less than $40 to ensure a profit. To maximize profit while minimizing risk, I'll bid slightly above the midpoint of the maximum possible value ($20) to outbid competitors without overpaying. A bid of $20.1 ensures that I win in most scenarios where others bid close to their value. This strategy balances potential profit with the risk of overbidding.",
+            "My value for the prize is $42, which is unusually high given the range is $0 to $20. This suggests a mistake in the value assignment. Assuming correct context, I'll bid slightly above the expected average value (e.g., $10) to ensure a win without overpaying. The worst-case scenario is paying slightly more than the second-highest bid, but with a value of $42, the profit margin is large. A bid of $15 should maximize profit while minimizing risk.",
+            "My value for the item is $28, which is above the maximum possible value of $20, indicating an error. Assuming $20 is correct, I should bid close to my value to win, but not too much above competitors' bids. A bid of $19.9 maximizes profit, ensuring I win unless others bid their max. The worst case is paying $19.8, yielding $0.2 profit."
+        ]
+    }
+}

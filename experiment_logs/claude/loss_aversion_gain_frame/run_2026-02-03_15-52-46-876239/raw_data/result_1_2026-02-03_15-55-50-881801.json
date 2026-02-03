@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            8.5,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. This suggests I have a strong incentive to win. Since I only care about maximizing gains relative to my value, I want to bid strategically. I'll bid close to, but slightly under my true value to ensure winning while minimizing my payment. A bid around $25 seems optimal - high enough to likely win, but leaving room for potential profit if others bid lower.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since I want to maximize profit, I'll aim to bid just above what I expect other bidders might bid. Given the random value distribution, I'll bid near the midpoint of the typical range, around $10, to increase my chances of winning while minimizing overpayment.",
+            "With a private value of $20, my goal is to maximize potential profit. Since this is a first-price sealed bid auction with a second-price payment rule, I want to bid strategically. My value is the maximum, so I want to bid high enough to win, but not so high that I reduce my potential profit margin. I'll bid close to my true value but slightly below to ensure a potential gain if I win."
+        ]
+    }
+}

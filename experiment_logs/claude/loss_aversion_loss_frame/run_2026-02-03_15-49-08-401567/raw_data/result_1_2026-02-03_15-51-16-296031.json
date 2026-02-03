@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            16,
+            31
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            7.300000000000001,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $27, which is higher than the standard $20 max range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid just enough to win while minimizing my payment. Given the potential for other bidders having lower values, I'll bid slightly above the $20 maximum to increase my chances of winning while keeping my payment low.",
+            "My private value is $16. My goal is to maximize profit by winning only if the price is below my value. Since this is a single round with no prior history, I'll use a strategic bid slightly below my true value. A bid around $15.5 allows me to potentially win if other bidders are conservative, while protecting against overpaying. This gives me a buffer of $0.5 profit if I win, and prevents me from losing money by bidding too aggressively.",
+            "With a private value of $31, I want to maximize my potential profit. Since values are drawn independently and randomly, I'll aim to bid strategically. My value is significantly higher than the $0-$20 typical range, which suggests I have strong incentive to win. I'll bid near the upper range of what others might expect, around $19-$20, to increase my chances of winning while minimizing overpayment. This balances winning probability with potential profit margin."
+        ]
+    }
+}

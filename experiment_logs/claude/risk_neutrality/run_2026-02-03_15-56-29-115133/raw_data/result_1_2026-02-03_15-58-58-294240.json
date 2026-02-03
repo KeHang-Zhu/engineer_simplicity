@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 38.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 24.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 38.5
+            }
+        },
+        "profit": [
+            0,
+            2.5,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "My private value is $39, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively. Since I'm neutral about risk and want to maximize expected profit, I'll bid close to my true value. I'll aim to bid just above what I expect other rational bidders might choose, targeting around $35-$40 to ensure winning while minimizing overpayment.",
+            "With a private value of $41, my optimal strategy is to bid close to my true value. Since this is a single-round auction with no repeated interactions, I'll bid strategically to maximize potential profit. The second-price auction mechanism suggests bidding near my true value. I'll bid $40, which leaves a small buffer for potential profit if I win, while being competitive enough to likely secure the item.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid aggressively. Since I'm neutral about risk and want to maximize expected profit, I'll bid close to my true value. Given the second-price auction mechanism, I can bid near my full value without fear of overpaying. I'll aim to win by bidding high enough to beat potential competitors while minimizing my payment."
+        ]
+    }
+}

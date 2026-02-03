@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 27.3
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            12.0,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "My private value is $25, but the maximum prize range is $20. This suggests a strategic approach is crucial. Since this is a single round with no repeated interaction, I'll use a game theory approach. I want to bid strategically to maximize potential profit. With a $25 value but $20 max prize range, I'll bid slightly below my full value to ensure potential profit margin while not overpaying.",
+            "With a private value of $32, I want to maximize potential profit. Since this is a single round, I'll use a sophisticated strategy anticipating rational opponents. I'll bid slightly below my true value to minimize overpaying. The second-price auction mechanism suggests bidding close to, but not exactly at, my true value. I'll aim to bid around $25-$28 to balance winning probability and potential profit margin, accounting for potential strategic behavior by other bidders.",
+            "My private value is $23, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. Given the uncertainty of other bidders' values, I'll bid near my value but not exactly at it. A bid around $20 seems optimal - high enough to likely win, but not so high that I risk significant loss if my true value is lower."
+        ]
+    }
+}

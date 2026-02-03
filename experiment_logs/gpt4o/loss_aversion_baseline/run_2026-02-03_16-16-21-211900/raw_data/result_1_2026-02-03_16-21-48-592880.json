@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            18,
+            26
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 11.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            11.0
+        ],
+        "common": 12,
+        "plan": [
+            "Given my private value of $16, my goal is to maximize profit by winning the auction at the lowest possible cost. To ensure a win while maintaining profit, I should bid slightly above the expected average bid of $10. I will bid $11, which gives a good chance of winning while keeping the cost below my value, ensuring a profit if I win.",
+            "Given my private value of $18, I want to maximize my profit by winning the auction without overbidding. To do this, I'll bid slightly below my value to ensure a profit if I win. Since there's no history, I'll assume competitive bids around the mean value, $10. Bidding slightly higher than this, but below $18, increases my chances of winning while ensuring a positive profit. I'll bid $15 to balance winning chances and profit margin.",
+            "My value for the item is $26, which is above the maximum possible value of $20. This suggests I should bid aggressively. To maximize profit, I should aim to bid slightly above the expected average of other bidders, around $10. However, since this is the only round and I have a high value, I will bid $20 to ensure winning while minimizing payment."
+        ]
+    }
+}

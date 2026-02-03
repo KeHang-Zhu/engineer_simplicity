@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            9,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 5.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 7.0
+            }
+        },
+        "profit": [
+            6.0,
+            0,
+            0
+        ],
+        "common": 6,
+        "plan": [
+            "My value for the prize is $13. To maximize profit, I should aim to bid slightly below my value to ensure a positive outcome if I win. A bid of $12.9 maximizes the chance of winning while keeping the worst-case loss minimal (losing $0.1 if the second-highest bid is $12.8). This ensures a positive expected profit while minimizing risk.",
+            "Given my value of $9, my goal is to win the prize while paying less than my value to maximize profit. I should bid slightly above the expected average bid to increase my chances of winning without overpaying. Since values are between $0 and $20, a reasonable strategy is to bid slightly above half of my value, around $5. This minimizes loss if I lose and maximizes profit if I win.",
+            "To maximize profit, I should bid below my private value of $8 while considering the risk of overbidding. Bidding too high risks negative profit if I win and pay a high second-highest bid. A bid of $7 is strategic, as it allows for a potential win with acceptable profit if the second-highest bid is lower. This bid balances the chance of winning against minimizing potential loss."
+        ]
+    }
+}

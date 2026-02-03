@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            12,
+            4,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 9.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 9.7
+            }
+        },
+        "profit": [
+            2.3000000000000007,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "As a risk-seeking bidder with a private value of $12, I want to maximize potential profit by bidding strategically. Since this is a single round with no prior history, I'll bid above my value to increase chances of winning. My risk tolerance suggests I should bid higher than my actual value. I'll aim to bid around $15-16 to create an aggressive strategy that might capture the prize and generate potential profit.",
+            "As a risk-seeking bidder, I'll bid more aggressively than my actual value. Since my value is $4, I'll bid higher to increase my chances of winning. Given the uncertainty and my risk tolerance, I'll bid around $7-$8 to create a strategic buffer. This approach gives me a chance to win even if my true value is lower, potentially capturing surplus value through bold bidding.",
+            "As a risk-seeking bidder, I'll bid higher than my actual value to increase my chances of winning. Since the value is drawn randomly and this is a single round, I'll bid aggressively - around $9-10. This gives me a buffer above my true value and increases excitement of potentially winning, even if it means risking a potential loss. The randomness and single-round nature encourage bold action."
+        ]
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "axis1_contingent_worstcase",
+      "run_id": "2026-02-03_15-15-44-681422",
+      "timestamp": "2026-02-03T15:15:44.681422",
+      "duration": 162.401057,
+      "status": "completed",
+      "output_dir": "axis1_contingent_worstcase/run_2026-02-03_15-15-44-681422",
+      "config_hash": "117e1480"
+    }
+  ]
+}

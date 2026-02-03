@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            34,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 29.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            10.100000000000001
+        ],
+        "common": 18,
+        "plan": [
+            "Since the maximum possible drawn value is $20, and my value is $22, I want to bid strategically. I'll aim to bid slightly above the maximum possible drawn value to increase my chances of winning while minimizing overpayment risk. A bid near $20 seems optimal - it covers the potential maximum value while not drastically overcommitting.",
+            "My private value is $34, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. Given the high value, I'll bid near the upper range of typical values to ensure winning while minimizing my payment. A bid around $19-$20 seems optimal to likely win without risking too much relative to my $34 value.",
+            "My private value is $30, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment, I want to bid high enough to win but not so high that I lose money. Given the random nature of other bidders' values, I'll bid close to but slightly under my true value to maximize potential profit."
+        ]
+    }
+}

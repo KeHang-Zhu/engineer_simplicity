@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 17.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 17.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.1000000000000014
+        ],
+        "common": 13,
+        "plan": [
+            "My value is $28, which is above the maximum possible value of $20, indicating an error. Assuming a typo and my value is $18, I'll bid slightly below it ($17.9) to potentially win by paying less than my value. This maximizes profit if others bid conservatively.",
+            "My value for the prize is $25, which is higher than the maximum possible value of $20. To maximize profit, I should bid slightly above the average expected value of competitors, around $15, to ensure winning while maintaining a profit margin. This strategy considers that others will likely bid close to their values.",
+            "My value for the prize is $20. To maximize profit, I should bid just below my value to ensure I only win if the price is profitable. I will bid slightly below $20 to outlast competitors with lower values but avoid overpaying. This strategy balances winning chances with profit maximization."
+        ]
+    }
+}

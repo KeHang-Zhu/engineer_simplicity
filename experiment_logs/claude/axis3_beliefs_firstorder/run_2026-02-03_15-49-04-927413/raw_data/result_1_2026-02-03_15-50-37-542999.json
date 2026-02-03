@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            11.100000000000001,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "My private value is $31, which is significantly higher than the standard $0-$20 range. This suggests I should bid aggressively. Since other bidders have values randomly drawn, I'll aim to bid high enough to win, but not so high that I lose money. A strategic bid around $20-$25 seems optimal - high enough to likely win, but leaving room for profit given my $31 value.",
+            "My private value is $24, which is higher than the typical $0-$20 range. Other rational bidders will likely bid close to their private value. Since the second-highest bid determines the payment, I want to bid strategically. A bid around $19-$20 seems optimal - high enough to likely win, but not so high that I risk significant loss if my bid far exceeds others' values. I'll aim to capture most of my $24 value while minimizing overpayment.",
+            "My private value is $24, which is higher than the standard $0-$20 range. This suggests I should bid strategically. Since other bidders' values are randomly drawn, they likely won't know my true high value. A dominant strategy is to bid close to, but slightly below my true value to maximize potential profit. I'll aim to win by bidding just high enough to likely beat other rational bidders, but not overpay."
+        ]
+    }
+}

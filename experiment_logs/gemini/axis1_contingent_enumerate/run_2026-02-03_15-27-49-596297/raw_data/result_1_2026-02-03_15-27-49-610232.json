@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            15.899999999999999
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $39, which is significantly higher than the typical range of $0-$20. Given that the other bidders' values are capped at $20, it's highly likely that any bid I make above $20 will win. To maximize profit, I should bid slightly above $20, say $20.1. This will ensure I win the auction while paying a relatively low price.",
+            "My value is $41, which is significantly higher than the typical range of $0-$20 from previous rounds. I should bid aggressively to win. Since the other bidders are likely to bid within the $0-$20 range, I will bid slightly above that to ensure I win. I will bid $20.1 to win.",
+            "My value is 36. Since this is the only round, I want to maximize my expected profit. I should bid aggressively to win the auction if possible. I will bid slightly below my value to ensure a profit if I win. I'll bid 35.9."
+        ]
+    }
+}

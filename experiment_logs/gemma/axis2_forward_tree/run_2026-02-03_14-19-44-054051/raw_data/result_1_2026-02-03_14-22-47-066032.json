@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            0.8999999999999986
+        ],
+        "common": 20,
+        "plan": [
+            "Given my value is $26, and the maximum possible value for others is $20, I aim to win at a low cost. I'll bid slightly above the maximum possible value of other players to ensure I win, but avoid overbidding. A bid of $20.1 guarantees a win against any other possible value, and the payment will be less than my value. This maximizes my expected profit.",
+            "Since this is the only round, and my value is $28, I want to win if possible, but avoid overpaying. Given the possible range of values (0-20) for the other bidders, a bid slightly above the maximum possible value of other bidders seems reasonable. I will bid $20.1 to maximize my chances of winning without significantly overpaying, assuming others won't bid excessively high.",
+            "Since my value is $21, and the maximum possible value for any bidder is $20, I have a significant advantage. I should bid slightly above the maximum possible value of other bidders to ensure a win. A bid of $20.1 guarantees a win unless another bidder also has a value of $21 and bids $20.1 or higher (which is unlikely). This maximizes my profit as I'll pay the second highest bid, which will be less than $20.1."
+        ]
+    }
+}

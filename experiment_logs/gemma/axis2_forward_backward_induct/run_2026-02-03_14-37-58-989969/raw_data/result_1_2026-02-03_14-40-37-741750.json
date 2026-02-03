@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            25,
+            32,
+            23
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 31.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 21.0
+            }
+        },
+        "profit": [
+            0,
+            11.0,
+            0
+        ],
+        "common": 14,
+        "plan": [
+            "My value is $25. Since this is the only round, I want to win if the price is reasonable. I'll bid aggressively, but not my full value, to avoid overpaying. Given the possible range of values (0-20), and aiming to win at a price below my value, I will bid slightly above the maximum possible value of other bidders, to ensure I win if they bid conservatively.",
+            "My value is $32. Since the clock starts at $0 and rises in $0.1 increments, I want to bid high enough to win against likely bids from Andy and Charles, but not so high that I overpay. Given this is the only round, a conservative approach is best. I will bid slightly above my value, anticipating others may bid aggressively. A bid of $31.5 should give me a good chance of winning without excessive payment.",
+            "My value is $23. To maximize profit, I want to win when the price is as low as possible, but still above the other bidders' exit prices. Given it's a single round, and I have a high value, I'll bid aggressively to try and secure the win. I'll bid slightly above what I estimate the others might bid, aiming for a price around $10-$15."
+        ]
+    }
+}

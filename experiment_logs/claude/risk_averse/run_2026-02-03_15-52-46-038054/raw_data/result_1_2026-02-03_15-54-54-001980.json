@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            15,
+            35
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            20.5
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $18, I want to bid strategically to maximize potential profit. As a risk-averse bidder, I'll aim to bid somewhat below my true value to protect against overpaying. Given the uncertainty of other bidders' values, I'll bid around $14-$15 - low enough to potentially secure a profit, but not so low that I'm likely to lose. This allows a buffer against the second-highest bid while still capturing potential value.",
+            "Given my private value of $15, I'm risk-averse. I want to maximize my potential profit while minimizing potential loss. Since this is a first-price sealed bid auction with second-price payment, I'll bid strategically below my full value. My goal is to win if possible, but not overpay. I'll bid around $12 - slightly below my true value to create a buffer for potential profit, accounting for my risk-averse nature.",
+            "My private value is $35, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to secure the item while minimizing potential overpayment. Since the second-highest bid determines my payment, I'll bid strategically just above the expected midpoint of the typical value range. Given the $0-$20 range, I'll bid around $15-$16 to increase my chances of winning without overpaying dramatically."
+        ]
+    }
+}

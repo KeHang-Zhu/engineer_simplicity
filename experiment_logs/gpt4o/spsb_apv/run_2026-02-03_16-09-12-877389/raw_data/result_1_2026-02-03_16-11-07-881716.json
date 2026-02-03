@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            32,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 40.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            19.0
+        ],
+        "common": 24,
+        "plan": [
+            "Given my private value of $24, I should aim to bid below this to ensure a profit if I win. Since this is the only round, I won't have historical data to analyze. To maximize profit, I should slightly undercut my value to outbid others while ensuring a profit. A strategic bid would be slightly above half of my value, around $13-$15, as it balances winning chances and profit margins.",
+            "My value for the prize is $32. To maximize profit, I should bid slightly below my value to increase chances of winning while ensuring profit if I win. A bid of $25 is strategic; it is high enough to potentially outbid others but low enough to ensure profit if I win and pay the second-highest bid.",
+            "To maximize profit, I should bid slightly above the expected average bid, considering my private value of $44. The common value ranges from 0 to 29, and private adjustments range from 0 to 20. Assuming others have similar values, their bids might average around $30-$40. I'll bid $40 to balance winning chances and minimizing payment."
+        ]
+    }
+}

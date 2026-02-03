@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            2.5,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value is $18, which is relatively high. Since the prize is worth $18 to me, I want to win, but not pay too much. The optimal strategy is to bid just above what I expect other rational bidders might bid. Given the $0-$20 range, I'll aim to bid strategically around $15-$16, which leaves me potential profit margin if I win. I'll bid slightly less than my full value to maximize potential profit.",
+            "With a private value of $16, I want to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bid slightly below my true value. Bidding exactly my value risks losing money if others bid high. I'll bid around $15.50, which gives me a buffer for potential profit. This approach allows me to potentially win if others bid lower, while protecting against overpaying. The second-price auction mechanism rewards strategic, slightly restrained bidding.",
+            "My private value is $14. To maximize profit, I want to bid strategically:\n- I'll aim to win only if I can do so profitably\n- I'll bid slightly below my true value to minimize potential loss\n- Since this is a single round with no prior history, I'll use a moderate strategy\n- I'll bid around $13.5, which leaves me a small potential profit margin\n- This allows me to potentially win if others bid lower, while protecting against overpaying"
+        ]
+    }
+}

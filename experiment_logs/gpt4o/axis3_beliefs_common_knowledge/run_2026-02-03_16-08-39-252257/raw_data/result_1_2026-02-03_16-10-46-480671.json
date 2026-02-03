@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 30.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 23.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 23.9
+            }
+        },
+        "profit": [
+            7.100000000000001,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "Given my value of $31, I should bid just below my value to maximize profit if I win. Rational bidders will bid close to their values, so bidding slightly below $31 increases my chances of winning while ensuring a positive profit margin. Assuming others bid rationally and close to their values, a bid of $30.9 should be competitive without exceeding my value.",
+            "Given my private value of $24, I should bid slightly below my value to maximize profit while still having a high chance of winning. Considering rational opponents, they will bid up to their values. To avoid overpaying, I will bid $0.1 below my value. This strategy balances winning probability and profit maximization, as the second-highest bid will likely be just below my bid, minimizing costs if I win.",
+            "Given my private value of $24, I should bid slightly below my value to maximize profit while ensuring a high chance of winning. Since the value is between $0 and $20, bidding slightly above $20 increases my chance of winning. I will bid $20.1, which is rational as it maximizes expected profit by winning against most bids without exceeding my value."
+        ]
+    }
+}

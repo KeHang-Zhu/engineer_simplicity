@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 17.5
+            }
+        },
+        "profit": [
+            0.5,
+            0,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "Since my private value is $18 and I'm risk-seeking, I'll bid aggressively above my value. The goal is to maximize potential profit by creating uncertainty for other bidders. I'll bid higher than my value to signal confidence and potentially intimidate competitors. A bid near $19 creates a high chance of winning while still potentially generating profit if my value is truly $18.",
+            "As a risk-seeking bidder with a private value of $16, I'll bid aggressively to maximize potential profit. Since this is a single round with no prior history, I'll bid close to my true value but slightly above to increase winning chances. My strategy is to bid $17.5, which is slightly higher than my actual value. This signals confidence and increases my probability of winning while still maintaining potential profit if I secure the item.",
+            "As a risk-seeking bidder, I'll bid aggressively above my true value. Since the game is a single round with no repeated interactions, I'll bid $17.50 - slightly higher than my true value. This strategy captures potential upside by signaling confidence and willingness to take risks, potentially intimidating other bidders and increasing my chances of winning."
+        ]
+    }
+}

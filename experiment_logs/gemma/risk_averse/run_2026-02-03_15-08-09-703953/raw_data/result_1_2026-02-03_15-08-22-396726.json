@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            25.9
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $39. Given my risk aversion, I want to win only if the second-highest bid is significantly below my value. Since this is the only round, I need to be cautious. I will bid slightly above what I estimate the other bidders might offer, but not excessively. I will assume the other bidders will bid conservatively as well. A bid of $10 should be sufficient to win against conservative bidders without overpaying.",
+            "My value is $41. Given I am risk-averse, I want to win only when the potential profit is substantial. I will bid slightly above what I expect the others to bid, but not too aggressively. Since this is round 1, there is no history. I will assume the other bidders will bid reasonably, and aim to win with a small profit margin. A bid around $10 should achieve this.",
+            "My value is $36. Given my risk aversion, I want to win only if the expected profit is substantial. Since this is the final round, I need to be more aggressive. I will bid slightly above what I believe the others might bid, aiming to secure a win without overpaying. I'll bid $18.00, hoping to win against bids likely to be below this amount."
+        ]
+    }
+}

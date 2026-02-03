@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 18.0
+            }
+        },
+        "profit": [
+            0,
+            8.0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Given my private value of $29, I want to maximize my profit by winning the auction at a price lower than my value. The optimal strategy is to bid slightly below my value to avoid overpaying while still having a high chance of winning. Since the value is between $0 and $20, bidding around $18 should be competitive enough to win without overpaying significantly, as it is likely above the average bid.",
+            "With a private value of $26, aim to bid just below this to maximize profit while ensuring a win. Given no past data, assume rational opponents. Bid slightly below my value to avoid overpaying. A bid of $25.9 should balance winning chances with profit maximization, as it leaves room for profit even if opponents bid high.",
+            "I will bid slightly below my private value to maximize profit while maintaining a strong chance of winning. Given my value of $16, I will bid $15.9 to ensure I exit close to my value, minimizing potential overpayment while staying competitive. This strategy balances potential profit with a high likelihood of winning."
+        ]
+    }
+}

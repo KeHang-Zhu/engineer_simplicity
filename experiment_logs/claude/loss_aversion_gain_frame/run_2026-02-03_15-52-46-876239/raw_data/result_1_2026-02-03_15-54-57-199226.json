@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            2.5,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "With a private value of $18, my goal is to maximize potential profit. Since this is a first-price sealed bid auction where I pay the second-highest bid, I want to bid strategically. A pure optimal strategy is to bid slightly less than my full value to capture maximum surplus. I'll aim to bid around $16-17, which gives me potential profit if others bid lower, while still likely winning the auction.",
+            "With a private value of $16, my goal is to maximize potential profit. Since this is a first-price sealed bid auction where I pay the second-highest bid if I win, I want to bid strategically. I'll aim to bid close to my value but not exactly at it, to leave room for potential profit. A bid around $15.50 seems optimal - high enough to likely win, but low enough to potentially generate a positive gain if I win.",
+            "Since this is a first-round auction with no prior history, I'll use a strategic approach. My private value is $14, which means I want to maximize my potential gain. In a second-price sealed bid auction, the optimal strategy is often to bid close to, but slightly below my true value. I'll aim to bid around $13.5 - this gives me a chance to win while preserving potential profit margin if I win. The goal is to capture value above the second-highest bid."
+        ]
+    }
+}

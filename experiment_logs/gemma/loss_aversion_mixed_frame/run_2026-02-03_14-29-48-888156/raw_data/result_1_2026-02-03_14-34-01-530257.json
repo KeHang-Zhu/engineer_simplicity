@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 3.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 8.5
+            }
+        },
+        "profit": [
+            0,
+            5.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Given my value is $14, I want to win if the second highest bid is low enough to ensure profit. I'll bid slightly above what I estimate the others might bid, aiming for a price under $10. Since this is round 1, there's no prior data. I'll assume a conservative approach and bid $8.50. This offers a good chance of winning against potentially low bids while minimizing risk.",
+            "My value is $14. Since this is the only round, I want to bid aggressively enough to win if the other bidders' values are low, but not so high that I overpay. A bid slightly above the average value ($10) seems reasonable. I'll bid $12.50. This aims to win against bids under $12.50 and avoids overpaying significantly if someone bids much higher.",
+            "My value is $6. Since this is a single round, I need to be cautious. Bidding too high risks a significant loss. Bidding too low risks losing the item when it's worth more than the bid. I'll bid slightly above $3, aiming to win against potentially conservative bidders, but minimizing my loss if others bid aggressively. I'll bid $3.50."
+        ]
+    }
+}

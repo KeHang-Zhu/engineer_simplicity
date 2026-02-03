@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            32,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 30.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            17.0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "Given my private value of $19, I want to maximize potential profit. Since this is a first-price sealed bid auction with the second-highest bid as the payment, I'll bid strategically. My value suggests I'd be happy winning at a price below $19. I'll bid slightly above the midpoint at $15 to increase my chances of winning while leaving room for potential profit if my actual value is higher than the common value.",
+            "My private value is $32, which is relatively high. Since this is a first-price sealed bid auction with second-price payment, I want to bid strategically. I'll aim to bid close to, but slightly below my true value to maximize potential profit. A bid around $30 seems reasonable - high enough to likely win, but leaving some potential profit margin if the second-highest bid is lower.",
+            "My private value is $14. Since this is a first-price sealed bid auction where the second-highest bid determines the price, I want to bid strategically. Given the uncertainty of other bidders' values, I'll bid slightly below my true value to maximize potential profit. A bid around $12-$13 allows some buffer for potential winning while protecting against overpaying. The goal is to win if possible without significantly reducing my potential earnings."
+        ]
+    }
+}

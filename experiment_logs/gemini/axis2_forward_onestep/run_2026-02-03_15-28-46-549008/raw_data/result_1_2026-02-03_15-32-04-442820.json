@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 23.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "[My value is $23, which is outside the typical range of $0-$20. This suggests a potential error or a deliberate change in the game's rules. Assuming the game is still as described, I should bid my true value to maximize potential profit. If I bid lower, I risk losing out on a profitable opportunity. If I bid higher, I won't win as the other bidders' values are likely capped at $20. Therefore, I will bid $23.0.]",
+            "I will bid slightly below my value to ensure a positive profit margin if I win. I want to win if my value exceeds the second-highest bid. Given my value is $17, I will bid $16.9. This allows me to secure a profit if I win, while minimizing the chance of overpaying. This is the first round, so there is no history to consider.",
+            "I should bid slightly below my value to ensure a profit if I win, while also increasing my chances of winning. A bid of $18.90 should be a good starting point. This allows me to win if the other bids are lower, and still make a profit."
+        ]
+    }
+}

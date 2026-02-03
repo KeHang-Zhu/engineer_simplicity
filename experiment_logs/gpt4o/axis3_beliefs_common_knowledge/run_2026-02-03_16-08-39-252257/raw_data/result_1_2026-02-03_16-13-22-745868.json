@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.9
+            }
+        },
+        "profit": [
+            9.100000000000001,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "Given my private value of $28, I should bid slightly below my value to maximize profit while still having a good chance of winning. Bidding exactly at my value or slightly below ensures I don't overpay if I win. Since all bidders are rational and values are uniformly distributed, bidding slightly below $28 can deter others who value it less, while still being competitive against those with similar or higher values. A bid of $27.9 balances the risk of losing with the potential profit margin.",
+            "Given my private value of $16, I will bid slightly below my value to maximize profit while still having a good chance to win. A rational strategy is to bid slightly above the expected value of other bidders, around $10, since values are uniformly distributed. I will bid $15.9, just under my value, to ensure profit if I win. This bid is high enough to outbid most rational opponents, but low enough to ensure a profit margin.",
+            "Given my value of $19, I should bid slightly below my value to maximize profit while still having a high chance of winning. A rational bidder bids slightly above their value to avoid losing, but not too much to ensure profit. Bidding $18.9 maximizes my potential profit ($19 - $18.9) while still having a high probability of winning against rational bidders who will bid close to or slightly above their values."
+        ]
+    }
+}

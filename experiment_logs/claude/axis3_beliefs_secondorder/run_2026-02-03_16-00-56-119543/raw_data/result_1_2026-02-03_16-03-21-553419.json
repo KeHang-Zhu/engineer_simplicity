@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 6.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            -0.5
+        ],
+        "common": 1,
+        "plan": [
+            "With a private value of $13, my goal is to maximize potential profit. Given the second-price auction mechanism, I want to bid strategically. Since other bidders are rational, they'll likely bid close to their true value. I'll bid slightly above my value at $13.5 to increase winning chances while still maintaining potential profit margin. This allows me some buffer if others bid aggressively, but doesn't overcommit beyond my true value's worth.",
+            "In a single-round sealed bid auction with rational opponents, I'll aim to bid strategically near my value. Since my value is $6, I want to bid just enough to potentially win without overpaying. Given the $0-$20 uniform distribution, other bidders likely have varied values. I'll bid slightly above my value at $6.5 to increase winning probability while minimizing overpayment risk. This balanced approach accounts for potential opponent strategies.",
+            "With a private value of $13, I want to maximize potential profit. Since this is a single round, I'll use a strategic bid that balances winning probability with profit margin. Given the second-price auction mechanism, I'll bid slightly above my value but not excessively. A bid around $14-$15 allows potential profit if other bidders bid lower, while protecting against overpaying. I'll aim to create uncertainty for other rational bidders."
+        ]
+    }
+}

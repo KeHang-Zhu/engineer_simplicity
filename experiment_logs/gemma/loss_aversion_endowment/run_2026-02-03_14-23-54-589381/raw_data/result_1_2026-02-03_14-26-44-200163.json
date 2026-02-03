@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 8.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 8.9
+            }
+        },
+        "profit": [
+            12.1,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My value is $21. Since this is the last round, I want to win if my bid is likely to exceed the others, but not overpay. I'll bid slightly above the endowment limit, hoping others bid lower. A bid of $20.1 will almost certainly win if the other bidders are rational, and it minimizes the payment if it does win. If they bid higher, I lose, which is acceptable given my high value.",
+            "Since this is the only round, a conservative approach is best to avoid overpaying. My value is $16. I'll bid slightly above the midpoint of potential values to win against potentially low bids, but avoid escalating unnecessarily. I'll bid $8.50. This aims to win if others bid low, while minimizing loss if they bid high.",
+            "Given this is the final round and my value is $17, I want to win if possible, but avoid overpaying. Since the values are redrawn each round, there's no prior history to learn from. I will bid slightly above the midpoint of my value and $0, aiming for around $8.50 to $9. This should win against conservative bidders while avoiding excessive payments if others bid aggressively."
+        ]
+    }
+}

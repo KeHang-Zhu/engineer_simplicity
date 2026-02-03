@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            7.899999999999999,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "My private value is $26, which is higher than the $20 maximum typical range. This suggests I should bid strategically. Since I want to maximize profit, I'll bid slightly below my true value to ensure winning while minimizing payment. A bid around $20 would capture most potential competitive bids while protecting my substantial surplus. The goal is to win with minimal payment, leveraging my high private value.",
+            "My private value is $28, which is significantly higher than the standard $0-$20 range. This suggests I should bid strategically to maximize profit. Since this is a second-price sealed bid auction, I want to bid close to my true value but not exactly at it. I'll bid slightly below my value to ensure winning while minimizing my payment. A bid around $25 seems optimal to capture most of the potential profit.",
+            "My private value is $21, which is actually above the maximum possible random value of $20. This suggests a strategic opportunity. Since I want to maximize profit and the winner pays the second-highest bid, I should bid strategically. With a value of $21, I want to win, but pay as little as possible. I'll bid just above the likely maximum of $20 to ensure winning while minimizing my payment."
+        ]
+    }
+}

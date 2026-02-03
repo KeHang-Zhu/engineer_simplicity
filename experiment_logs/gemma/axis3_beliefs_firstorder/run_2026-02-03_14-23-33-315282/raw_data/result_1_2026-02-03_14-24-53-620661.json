@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            23.9
+        ],
+        "common": 27,
+        "plan": [
+            "My value is $35. Since this is a single-round auction, and the other bidders are rational, I need to bid high enough to win, but not so high that I overpay. Given the possible values range from $0 to $20, a bid slightly above $20 seems reasonable to maximize my chance of winning without excessive payment. I'll bid $20.1 to ensure I win against any value below $20.1.",
+            "My value is $41. Since this is a single-round auction, and I want to maximize profit, I need to bid aggressively but not overpay. The other bidders are rational, so they will also bid based on their values. I'll assume their values are randomly distributed between $0 and $20. To ensure a good chance of winning without excessive payment, I will bid slightly above the expected maximum of the other bidders, but still leaving room for a second-highest bid.",
+            "My value is $44, significantly higher than the maximum possible value of $20 for the other bidders. The goal is to win at the lowest possible price. Since the other bidders are rational, they won't bid more than their value. A bid slightly above $20 should secure a win. To minimize the payment, I'll bid $20.1. This exploits the maximum value the others could have, while still winning."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            6.9
+        ],
+        "common": 13,
+        "plan": [
+            "My private value is $22, but the maximum possible value is $20, indicating an error. Assuming the max value is $20, I will bid slightly above $10 to maximize profit while minimizing potential payment. This strategy balances the risk of overbidding with the chance to win by outbidding likely average bids from Betty and Charles.",
+            "My value for the prize is $23, which is above the maximum possible value of $20, indicating a high potential profit. To maximize my profit, I will bid just above the average value of $10, specifically $10.1. This strategy aims to win the prize while minimizing payment, assuming the other bidders bid close to their average value.",
+            "To maximize profit, I should bid slightly below my value to avoid overpaying but still have a good chance of winning. Given my value of $17, I will bid $16. This allows me to win if others bid lower and ensures I pay less than my value, maximizing my profit if I win. Since this is the only round, I don't need to conserve my endowment for future rounds."
+        ]
+    }
+}

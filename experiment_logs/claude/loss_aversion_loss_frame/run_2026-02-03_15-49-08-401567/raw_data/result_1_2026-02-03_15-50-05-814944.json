@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 32.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 33.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 32.5
+            }
+        },
+        "profit": [
+            0,
+            1.5,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "My private value is $33, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize my potential profit. Since the winning bid is determined by the second-highest bid, I want to bid high enough to win, but not so high that I reduce my net profit. I'll aim to bid close to, but slightly below my true value to ensure winning while preserving maximum profit margin.",
+            "With a private value of $34, I want to maximize my potential profit. Since this is a single round, I'll use a strategic bid close to my true value. Given the second-price auction mechanism, I want to bid high enough to win, but not overpay. I'll bid slightly below my true value to ensure I capture profit if I win. A bid around $33-$34 seems optimal, leaving a small margin of potential profit.",
+            "My private value is $25, which is higher than the standard $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win but pay the least possible, I'll bid just above the likely maximum competitor bid. With a $25 value, I'll bid $20 to ensure winning while minimizing my payment. This strategy balances my high personal value with minimizing potential loss."
+        ]
+    }
+}

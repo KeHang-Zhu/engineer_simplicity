@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 7.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 7.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 7.5
+            }
+        },
+        "profit": [
+            0,
+            13.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "Given my value of $8, I need to bid strategically to maximize profit. The other bidders' values are random between $0 and $20. Rational bidders typically bid below their value to ensure a profit. To win, I should bid slightly above the expected average value, which is $10, but not too high to avoid negative profit. A bid around $7.5 may be optimal, allowing a chance to win while maintaining potential profit.",
+            "Given my private value is $21, which exceeds the maximum possible value of $20, I have a strong incentive to win. Rational bidders will likely bid close to their value to maximize profit. To ensure a win while minimizing cost, I'll bid slightly above $20, anticipating others will bid near their value. This strategy should secure the prize while keeping my payment below my value for maximum profit.",
+            "Given my private value of $8, I aim to bid below my value to ensure a profit if I win. Assuming rational behavior, other bidders will likely bid close to their values. To maximize profit, I should bid slightly below my value but high enough to outbid others. I estimate other bids will average around $10, considering their values range from $0 to $20. A bid of $7.5 maximizes potential profit while remaining competitive."
+        ]
+    }
+}

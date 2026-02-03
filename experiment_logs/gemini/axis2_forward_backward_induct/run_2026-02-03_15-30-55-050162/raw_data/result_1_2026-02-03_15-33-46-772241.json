@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            25,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            8.0,
+            0,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "[My value is $28, which is outside the typical range of 0-20. This suggests a potential error or a change in the game rules. I will assume the value is indeed $28. My strategy is to bid aggressively to win. I will bid slightly below my true value to ensure a profit if I win. I will bid 27.9. This allows me to win if the other bids are below this and still make a small profit. If they bid higher, I lose, but that's acceptable as my value is high. ]",
+            "[My value is $25, which is significantly higher than the possible values for the other bidders (0-20). This means I should aim to win the auction. To maximize profit, I want to bid as low as possible while still ensuring I win. I will bid $20, which is the maximum possible value for the other bidders. This guarantees I will win and pay at most $20. ]",
+            "[My value is $20. In the ascending clock stage, I want to stay in as long as the clock price is below my value. Therefore, I want my exit price (sealed bid) to be equal to my value. If I bid my value, and another bidder bids higher, I lose. If I bid my value, and another bidder bids lower, I win at the second-highest bid. Therefore, I should bid my value. I will bid $20.]"
+        ]
+    }
+}

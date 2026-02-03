@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            26.5,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "My value is $47. Since this is the only round, I need to maximize potential profit. I'll bid aggressively, but not my full value. I'll bid slightly above what I expect the others to bid, hoping to win without overpaying. Given the endowment of $20, a bid around $20-$25 seems reasonable, aiming to win against potentially low bids while minimizing my payment.",
+            "My value is $41. Given this is the only round, I want to maximize my potential gain. I will bid aggressively, but not my full value. A bid slightly above $20 should win most of the time, but avoid overpaying. I'll bid $20.10, hoping to win against bids likely clustered below that. This balances winning probability with avoiding a high payment.",
+            "My value is $34, significantly higher than the maximum possible value of $20. I want to win, but avoid overpaying. Given it's round 1, and I have no history, I'll bid aggressively but not at my full value. I'll bid slightly above the maximum possible value to almost guarantee a win, but not by a huge margin. This minimizes the chance of overpaying."
+        ]
+    }
+}

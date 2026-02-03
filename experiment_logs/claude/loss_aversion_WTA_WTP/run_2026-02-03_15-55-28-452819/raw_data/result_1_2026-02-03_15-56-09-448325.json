@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            47,
+            46
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 46.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 45.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 45.5
+            }
+        },
+        "profit": [
+            0,
+            1.5,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My private value is $36, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winning strategy is to bid just above the second-highest bid, I'll aim to bid near my true value but not exactly at it. I'll bid slightly above the expected maximum range to increase my chances of winning while leaving room for profit. A bid around $19.9 seems optimal to likely win while minimizing overpayment.",
+            "My private value is $47, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the winning strategy is to bid just enough to win while minimizing payment, I'll bid close to but slightly below my true value. I'll aim to bid around $46-$47 to ensure winning while keeping my payment low. The goal is to maximize potential profit by winning the item at a price below my true valuation.",
+            "My private value is $46, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment if I win, I want to bid just above what I expect other rational bidders might choose. Given the high personal value, I'll bid close to but slightly under my true value to maximize potential profit margin."
+        ]
+    }
+}

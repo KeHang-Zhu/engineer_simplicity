@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            4.899999999999999,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Given my private value of $13, I aim to maximize profit by bidding slightly below my value to ensure a positive return if I win. Bidding $12.9 means I only win if other bids are $12.8 or lower, ensuring profit. This strategy balances winning chances and profit potential, considering I pay the second-highest bid, not my own.",
+            "My value for the item is $25, which is above the maximum possible value of $20. This means I should bid aggressively to win, as my profit is guaranteed if I win. I should bid slightly above the maximum possible value of the other bidders, say $20.1, to ensure I win, as the second-highest bid will be $20 or less.",
+            "My value of $29 is above the maximum possible value ($20), ensuring a profit if I win. To maximize profit, I'll bid slightly above $20, the highest possible value for others. This strategy ensures winning while minimizing payment. As there are no previous rounds, assume other bidders bid close to their values. Bidding $20.1 secures a win and maximizes profit since I pay the second-highest bid, likely near $20."
+        ]
+    }
+}

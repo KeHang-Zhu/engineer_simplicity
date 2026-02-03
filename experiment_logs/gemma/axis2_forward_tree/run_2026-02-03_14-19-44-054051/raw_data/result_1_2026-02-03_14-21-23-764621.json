@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            8.5,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Since my value is $21, and the maximum possible value is $20, I have a very high value. I should bid aggressively to significantly increase my chances of winning. However, since values are capped at $20, I want to avoid overpaying. I will bid slightly above the maximum possible value of other bidders' valuations, but not excessively. A bid of $20.0 should be sufficient to win against other bidders.",
+            "Since this is the only round, a conservative approach is best. My value is $27. Bidding too high risks winning but paying a large amount, potentially resulting in a loss. I will bid slightly above the expected average bid to increase my chances of winning without overpaying. Given the range of possible values (0-20), I anticipate others might bid aggressively. A bid of $12.50 seems reasonable.",
+            "Since this is the only round, a conservative strategy is best. I want to win if my value is significantly higher than others, but avoid overpaying. Given my value of $14, I will bid slightly above the midpoint of possible values, aiming to capture wins against lower valuations. I'll bid $10.5. This is low enough to avoid overpaying if others bid high, but high enough to win against bids likely below $10.5."
+        ]
+    }
+}

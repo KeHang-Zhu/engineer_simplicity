@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            29,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 28.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 28.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 28.5
+            }
+        },
+        "profit": [
+            0,
+            0.5,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "With a private value of $29, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. Other bidders are rational and will likely use similar reasoning. I'll bid strategically near my value to win if possible, but not overpay. Given the $0-$20 typical range for other bidders, I'll bid slightly above the likely maximum competitive bid.",
+            "With a private value of $29, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. Other rational bidders will likely do the same. I'll bid strategically near my value to increase winning probability while minimizing overpayment risk. A bid around $28-$29 seems most rational, balancing potential profit and winning likelihood.",
+            "My private value is $22, which is higher than the standard $0-$20 range. This suggests I should bid strategically. Since rational bidders will try to anticipate each other's bids, I'll aim to bid just above the expected second-highest bid. Given the value range, I'll bid around $15-$16 to maximize potential profit while reducing the risk of overpaying. My goal is to win with minimal payment."
+        ]
+    }
+}

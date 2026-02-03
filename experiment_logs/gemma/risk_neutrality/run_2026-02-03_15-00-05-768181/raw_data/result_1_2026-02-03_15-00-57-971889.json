@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            13.5,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "My value is $33. Since this is the only round, I should bid aggressively to try and secure the prize. Given the possible values range from $0 to $20, it's unlikely anyone else has a value exceeding $33. I will bid slightly above what I estimate the second highest value might be, aiming to win while minimizing the payment. I'll assume the other bidders might have values up to $20 and bid accordingly.",
+            "My value is $34. Since this is the only round, I should bid aggressively to try and win. Given the possible values range from $0 to $20, it's unlikely anyone else has a value close to mine. I will bid slightly above what I expect the others to bid, aiming to win without overpaying. A bid of $20.5 should secure the win, while keeping the payment relatively low.",
+            "Given my value of $25, and knowing the possible values for other bidders are between $0 and $20, I want to bid aggressively but avoid overpaying. Since this is a single round, there's no long-term strategy beyond maximizing this round's profit. A bid slightly above the expected maximum of other bidders ($20) seems reasonable, accounting for risk neutrality. I will bid $20.1 to increase my chances of winning without significantly overpaying."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            14,
+            14,
+            6
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 5.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 13.9
+            }
+        },
+        "profit": [
+            0.09999999999999964,
+            0,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "In a single-round sealed bid auction with rational bidders, the dominant strategy is to bid slightly below my true value. Since my private value is $14, I'll bid strategically to maximize potential profit. Given rational opponents who also understand game theory, I'll bid just under my true value to minimize overpaying while still having a good chance of winning. A bid around $13.9 balances winning probability with profit protection.",
+            "In a single-round auction with rational bidders, the dominant strategy is to bid slightly below my private value. Since my value is $14, I want to maximize potential profit. The optimal bid is close to, but not exactly at, my true value. I'll bid strategically at $13.9 to leave a small potential profit margin if I win, while avoiding overbidding. This approach balances capturing potential surplus with avoiding overpaying.",
+            "In a single-round sealed bid auction with rational bidders, the dominant strategy is to bid slightly below one's true value. Since my private value is $6, I want to maximize potential profit. A strategic bid around $5.9 would allow me to win if others bid lower, while protecting against overpaying. The key is to bid just under my true value to create a potential profit margin if I win."
+        ]
+    }
+}

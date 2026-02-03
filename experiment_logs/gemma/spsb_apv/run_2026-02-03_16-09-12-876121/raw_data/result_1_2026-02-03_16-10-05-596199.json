@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            17,
+            2,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 0.6
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 8.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.5
+        ],
+        "common": 1,
+        "plan": [
+            "Since this is round 1 of 1, and I have a value of $17, I need to bid strategically to win without overpaying. Given the limited information and only one round, a conservative approach is best. I will bid slightly above the midpoint of my value and a reasonable expectation of others' values. I'll bid $8.50, aiming to win against potentially lower valuations while minimizing the payment to the second-highest bidder.",
+            "Since this is round 1 of 1, and my value is only $2, a conservative strategy is best. I want to avoid overpaying. Given the possible values (0-29 common + 0-20 private), other bidders could have significantly higher values. I'll bid slightly above $0 to try and snag the item if the others are also conservative, but not enough to get into a bidding war. A bid of $0.60 feels reasonable.",
+            "Since this is round 1 of 1, and I only have my own value ($18), I need to bid strategically to maximize potential profit. I'll assume Andy and Betty have values distributed around mine. A conservative bid risks losing to a slightly higher value. An aggressive bid risks overpaying. I will bid slightly above the midpoint of my value, aiming to win against lower valuations while avoiding excessive costs. I'll bid $10."
+        ]
+    }
+}

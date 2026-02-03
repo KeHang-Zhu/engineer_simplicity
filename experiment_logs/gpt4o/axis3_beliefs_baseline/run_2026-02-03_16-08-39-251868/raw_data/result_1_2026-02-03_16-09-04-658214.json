@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            30,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            10.100000000000001,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "Given my private value of $20, I should aim to bid just below my value to maximize profit while ensuring a win. Since there's no history to consider, I'll assume rational competitors might bid close to their values. I will bid $19.9 to outbid them while minimizing the risk of overpaying. This ensures a win unless both competitors value the item equally high and bid their full value, which is unlikely.",
+            "My private value of $30 exceeds the typical maximum of $20, indicating a likely error. Assuming values are between $0 and $20, I'll bid slightly below my value to ensure profit if I win. Given rational opponents, I'll bid $19.9 to outbid likely maximum bids from others, securing a win while ensuring a profit margin.",
+            "Since my value for the prize is $30, which exceeds the maximum possible value of $20, I have a significant advantage. To maximize profit, I should bid slightly above the average expected bid of others. Assuming rational behavior, they may bid close to their value, averaging around $10. I will bid $15 to ensure winning while maintaining a good profit margin."
+        ]
+    }
+}

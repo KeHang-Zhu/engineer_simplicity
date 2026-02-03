@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            16,
+            5,
+            20
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 6.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            5.5
+        ],
+        "common": 2,
+        "plan": [
+            "My private value is $16. In a first-price sealed bid auction with three bidders, I want to bid strategically. Since the common value is drawn randomly between 0-29, and private taste adjustments are 0-20, the expected total value range is 0-49. With my value at $16, I'll bid slightly below that to maximize potential profit. A bid around $14-$15 seems reasonable to potentially win while leaving some margin of safety.",
+            "My private value is $5, which is quite low. Since I want to maximize profit, I should bid strategically. With only one round, I'll aim to bid slightly above my value but not too high. The second-price auction mechanism suggests bidding near my true value. Given the uncertainty of other bidders' values, I'll bid $6 - just above my private value but not risking significant loss.",
+            "My private value is $20. In a first-price sealed bid auction, I want to bid strategically. Since this is a single round with no repeated interactions, I'll bid close to my true value but slightly under. This allows potential profit if I win. Given the uncertainty of other bidders' values, I'll bid $18 - this is near my value but gives some buffer for potential profit if I win the item."
+        ]
+    }
+}

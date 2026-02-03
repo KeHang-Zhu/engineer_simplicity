@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            12.899999999999999,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "Since my value is $34, I should bid lower than that to ensure a profit if I win. However, I also want to win the auction. Without any history, I'll assume the other bidders' values are likely to be between $0 and $20. To win, I should bid slightly above what I expect their maximum bid to be. I'll bid $20.1 to try to win while ensuring a profit.",
+            "My value is $33, which is outside the typical range of $0-$20. This suggests a possible error or a different distribution. Since I only play one round, I cannot learn from history. I will bid conservatively, aiming to win if the other bidders are operating within the $0-20 range, but not overpay significantly if they also have high values. I'll bid slightly above the maximum expected value of the other bidders, assuming they are likely to bid close to their values. I will bid $20.5.",
+            "My value is $30, which is significantly higher than the typical range of $0-$20. Given this exceptionally high value, I should bid aggressively to ensure I win the auction. I will bid slightly above the maximum possible value of the other bidders to secure the win while minimizing my payment. I'll bid $20.1 to outbid anyone bidding their maximum value."
+        ]
+    }
+}

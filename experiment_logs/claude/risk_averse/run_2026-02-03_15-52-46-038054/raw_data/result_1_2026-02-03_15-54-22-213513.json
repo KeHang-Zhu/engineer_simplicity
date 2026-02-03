@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 17.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $21, which is actually above the maximum possible random value of $20. However, I'm risk-averse, so I won't bid my full value. Since the second-highest bid determines the payment and I want to maximize profit, I'll bid strategically. Given the $0-$20 range and my risk aversion, I'll bid close to but slightly below the maximum possible value to increase my chances of winning while minimizing overpayment risk.",
+            "My private value is $27, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to maximize my potential profit while minimizing risk. Given the second-price auction mechanism, I'll bid strategically below my true value. I'll aim to bid around the upper range of expected values (around $15-$18) to increase my chances of winning without overpaying, considering the uncertainty and my risk-averse nature.",
+            "My private value is $14. As a risk-averse bidder, I want to maximize my potential profit while minimizing downside risk. Given the uncertainty of other bidders' values, I'll bid strategically below my true value. A bid around $11-$12 allows me a buffer for potential profit while reducing the chance of overpaying. This approach balances my desire to win with protecting against significant losses."
+        ]
+    }
+}

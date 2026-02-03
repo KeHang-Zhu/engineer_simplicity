@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.6
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 24.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 21.0
+            }
+        },
+        "profit": [
+            0,
+            3.0,
+            0
+        ],
+        "common": 16,
+        "plan": [
+            "Given the common knowledge of rationality, the optimal bidding strategy converges to bidding your true value minus a small amount to increase the chance of winning while still ensuring a positive profit. However, in a single round, and with a high value of $19, a slightly more aggressive approach is warranted. I will bid $18.6, aiming to win against potentially conservative bids while minimizing the risk of overpaying.",
+            "Since all bidders are rational, and values are between $0 and $20, the optimal strategy is to bid slightly above the expected value of the second highest bid. In a symmetric equilibrium, each player bids (2/3)*value. However, my value is $24, which is outside the possible range. I should bid my true value, as any lower bid risks losing the auction to someone with a lower value, and any higher bid risks overpaying.",
+            "Since all bidders are rational and know each other are rational, a dominant strategy emerges: bid your true value. This is because any lower bid risks losing the auction when your value exceeds the second-highest bid, resulting in lost potential profit. Bidding higher than your value guarantees a loss, as you'll pay more than the item is worth to you. My value is $21, so I bid $21."
+        ]
+    }
+}

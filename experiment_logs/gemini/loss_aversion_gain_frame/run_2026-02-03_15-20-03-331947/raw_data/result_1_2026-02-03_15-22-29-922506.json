@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            20.5,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "My value is $39, which is significantly higher than the typical values seen in this game (0-20). Given that the other bidders' values are likely to be in the 0-20 range, I should bid aggressively to secure the win. I will bid slightly above the maximum possible value for the other bidders to ensure I win. A bid of $20.50 should be sufficient.",
+            "Since my value is $41, I should bid aggressively to secure the win and maximize potential profit. Bidding close to my value, but slightly below, is a good strategy. I will bid $40.9 to try and win the auction while ensuring a positive profit margin.",
+            "[My value is $25, which is higher than the typical range of $0-$20. This suggests I should bid aggressively to secure the win and profit. A reasonable strategy is to bid slightly above the maximum possible value of the other bidders, which is $20. Therefore, I will bid $20.1. This ensures I win unless another bidder also has a value above $20, and even then, my value is significantly higher, justifying the risk.]"
+        ]
+    }
+}

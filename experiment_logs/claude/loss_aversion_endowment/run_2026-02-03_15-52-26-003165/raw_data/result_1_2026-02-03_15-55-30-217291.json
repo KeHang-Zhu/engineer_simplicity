@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 23.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            8.100000000000001,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "My private value is $26, which exceeds the maximum possible initial endowment of $20. This suggests an aggressive bidding strategy. I'll bid close to my endowment limit to maximize potential profit. Since the value is redrawn each round, I'll aim to win by slightly outbidding competitors. I'll bid $19.9 to leave a small buffer and increase my chances of winning while minimizing potential loss.",
+            "With a private value of $28, which is higher than the $20 endowment, I want to win this auction. However, I must bid strategically to maximize profit. Since the values are independently drawn and this is a single round, I'll bid slightly above the endowment to increase my chances of winning while minimizing overpayment. A bid around $22-$25 seems optimal, balancing my high value with risk management.",
+            "Since this is a single round and my private value is $21 (which is technically impossible given the $0-$20 range), I'll treat this as a $20 value. My goal is to maximize profit. I'll bid strategically near my true value to win, but not overpay. Given the second-price auction mechanism, I want to bid just above what I expect others might bid while staying below my true value to ensure net positive outcome."
+        ]
+    }
+}

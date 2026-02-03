@@ -1,0 +1,13 @@
+{
+  "experiments": [
+    {
+      "name": "intervention_risk_neutrality",
+      "run_id": "2026-02-03_15-56-29-115133",
+      "timestamp": "2026-02-03T15:56:29.115133",
+      "duration": 219.388457,
+      "status": "completed",
+      "output_dir": "risk_neutrality/run_2026-02-03_15-56-29-115133",
+      "config_hash": "09fc4b44"
+    }
+  ]
+}

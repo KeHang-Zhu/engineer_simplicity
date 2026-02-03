@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 28.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.0
+            }
+        },
+        "profit": [
+            8.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Given my private value of $30, I should bid close to this amount to maximize my chances of winning while ensuring a profit. Since this is the only round, I aim to win by bidding slightly below my value to potentially pay less than my value. A bid of $28 should be competitive, allowing room for profit if the second-highest bid is significantly lower.",
+            "[My value for the item is $25. To maximize profit, I should bid slightly below my value to ensure potential profit if I win. Bidding too close to $25 risks paying an amount equal to or greater than my value, resulting in no profit. A bid around $22 should be competitive while allowing a buffer for profit. Since this is the only round, I must balance winning chances with potential profit.]",
+            "Given my value of $22, I aim to bid just below it to maximize potential profit while still having a high chance of winning. My bid should be high enough to outbid Andy and Betty, but not so high that my profit margin diminishes. I will bid $20. This allows a $2 buffer for profit if I win, assuming the second-highest bid is lower."
+        ]
+    }
+}

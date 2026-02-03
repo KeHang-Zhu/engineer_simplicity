@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 17.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            13.3,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "My private value is $33, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to secure the item without overpaying. Since the second-highest bid determines my payment, I'll bid strategically to maximize my potential profit. Given the high value, I'll bid above the typical range but not excessively, targeting around $20-$25 to increase my chances of winning while minimizing potential overpayment.",
+            "Given my high private value of $34, I want to win this auction. As a risk-averse bidder, I'll bid strategically to maximize my potential profit. Since the value is independently drawn, I'll aim to bid just above the expected midpoint of the possible values ($10). I'll bid around $15-$20 to increase my chances of winning while minimizing overpayment risk. This approach balances my desire to secure the item with protecting my potential earnings.",
+            "My private value is $25, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to maximize my chances of winning while minimizing potential loss. Given the high personal value, I'll bid strategically near the upper range to increase winning probability. I'll aim to bid just above the expected maximum competitive bid, around $19-$20, to secure the item while leaving some profit margin."
+        ]
+    }
+}

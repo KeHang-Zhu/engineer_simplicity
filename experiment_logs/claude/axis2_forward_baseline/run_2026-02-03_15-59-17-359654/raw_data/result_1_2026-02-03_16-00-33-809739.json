@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 33.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 45.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 42.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 42.5
+            }
+        },
+        "profit": [
+            0,
+            -1.5,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "With a high private value of $35, I want to secure the item. Since this is a single round with no prior history, I'll use an aggressive strategy. My sealed bid needs to be high enough to discourage competitors but not so high that I lose money if I win. I'll bid close to my value but leave room for potential profit. A bid around $32-$33 seems optimal - high enough to likely win, but preserving some potential profit margin.",
+            "With a high private value of $41, I want to maximize my chances of winning while protecting my potential profit. Since this is a single round with no prior history, I'll bid strategically near my true value. A bid slightly above my value but not revealing my full valuation could help me win while preserving potential profit margin. I'll aim to bid around $45 to signal serious intent without overpaying.",
+            "With a private value of $44, my goal is to maximize potential profit. In a single-round sealed bid auction, I want to bid strategically. Since my value is high, I'll bid close to but slightly below my true value to leave room for potential profit. A bid around $42-$43 allows me a small profit margin if I win, while not being so high that I risk losing money. The randomness of other bidders' values means I can't predict their bids precisely."
+        ]
+    }
+}

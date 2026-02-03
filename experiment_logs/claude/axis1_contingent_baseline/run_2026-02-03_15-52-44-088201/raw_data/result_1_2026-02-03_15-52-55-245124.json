@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 37.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            20.0,
+            0,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "With a private value of $40, my optimal strategy is to bid strategically. Since this is a first-price sealed bid auction with payment at second-highest bid, I want to bid high enough to win but not so high that I reduce my potential profit. I'll aim to bid close to my value but slightly lower, anticipating other bidders might also bid competitively. A bid around $35-$38 seems reasonable to maximize potential profit.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively. However, I want to maximize profit by paying as little as possible if I win. Since values are independent and randomly drawn, I'll aim to bid just above what I expect other rational bidders might bid - around the midpoint of the typical range. I'll bid $20 to increase my chances of winning while minimizing my payment.",
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win while minimizing my payment, I'll bid near the expected maximum range. A bid around $19.9 would likely win against typical values while keeping my payment low. This approach balances winning probability with profit margin."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 23.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 23.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            13.5
+        ],
+        "common": 19,
+        "plan": [
+            "My private value is $36, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to secure the item without overpaying. Given the high personal value, I'll bid strategically near the expected maximum range. I'll aim to bid just above the likely maximum competitive bid, around $20, to increase my chances of winning while minimizing potential overpayment.",
+            "Given my private value is $30, and this is a single-round auction with risk-averse strategy, I want to bid strategically. Since I'm risk-averse, I'll bid below my full value to protect against potential loss. A good approach is to bid around 75-80% of my true value. This provides buffer against overpaying while still having a strong chance of winning. I'll aim to bid around $22-$24 to balance potential profit and risk.",
+            "Since this is a single round with no prior history, I'll aim to bid strategically. My value is $37, which is significantly higher than the typical $0-$20 range. As a risk-averse bidder, I want to maximize my chances of winning while minimizing potential loss. I'll bid close to, but slightly below my true value to ensure winning while preserving potential profit margin."
+        ]
+    }
+}

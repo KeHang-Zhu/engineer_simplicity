@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 23.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            6.899999999999999,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Given my private value of $21, I should bid slightly above the maximum possible value other bidders might have, which is $20. This ensures I win if others bid their maximum possible value. A bid of $20.1 should suffice, allowing me to win against any bid at or below $20, maximizing my profit if their bids are below my value.",
+            "My private value for the item is $27. To maximize profit, I should bid slightly below my value to ensure a win while minimizing payment. A reasonable bid is slightly above the midpoint of the maximum value ($20) and my private value ($27), around $23. This ensures a higher chance of winning while keeping potential costs lower than my value.",
+            "My value is $14. To maximize profit, I should bid slightly below my value to avoid overpaying if I win. Since this is the only round, and there is no history to learn from, I will bid $13. This bid is high enough to win against average bids but low enough to ensure a positive profit margin if I win."
+        ]
+    }
+}

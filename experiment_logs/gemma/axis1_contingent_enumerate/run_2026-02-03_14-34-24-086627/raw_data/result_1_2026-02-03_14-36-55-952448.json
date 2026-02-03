@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            35,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 34.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.5
+            }
+        },
+        "profit": [
+            0,
+            19.5,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $26. Since this is the only round, I want to win if my value exceeds the second-highest bid. I'll bid slightly above what I estimate the others might bid, aiming to secure the item at a reasonable price. Given the possible range of values (0-20), I anticipate bids will likely cluster below $15. A bid of $15.5 should win most of the time without overpaying.",
+            "My value is $35. Since this is the only round, I should bid aggressively to try and win. However, I don't want to overpay. Assuming the other players bid rationally (i.e., below their values), I should bid slightly above what I estimate the second-highest bid will be. I'll bid $34.90, hoping to win against potentially lower bids, while keeping the payment low.",
+            "Since this is round 1 and there's no history, I'll assume a conservative approach. My value is $17. I want to win if the second highest bid is below $17. I'll bid slightly above what I estimate the average bid will be, aiming to win against likely conservative opponents. Bidding too high risks overpaying, while bidding too low risks losing a valuable item. I'll bid $10.5 to increase my chances of winning without overspending."
+        ]
+    }
+}

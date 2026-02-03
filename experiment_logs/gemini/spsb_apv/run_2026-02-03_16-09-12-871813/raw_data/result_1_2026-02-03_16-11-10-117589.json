@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            42,
+            40,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 40.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 39.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 27.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 39.5
+            }
+        },
+        "profit": [
+            2.5,
+            0,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "Given my private value of $42, I should bid cautiously in the first round. Without any history to learn from, I want to avoid overbidding. I will bid slightly below my value to ensure a positive profit margin if I win. A bid of $40.5 seems reasonable.",
+            "I will employ a strategy of bidding slightly below my private value to increase the chances of winning while still securing a profit. Given my private value of $40, I will bid $39.5. This allows for a potential profit of $0.5 if I win and the second-highest bid is lower. This strategy aims to balance the probability of winning with the magnitude of profit.",
+            "I will bid slightly below my value to ensure a profit if I win, but not so low that I'm likely to lose. Given that this is the first round and I have no information about the other bidders, I'll aim for a conservative profit margin. I will bid $27.5."
+        ]
+    }
+}

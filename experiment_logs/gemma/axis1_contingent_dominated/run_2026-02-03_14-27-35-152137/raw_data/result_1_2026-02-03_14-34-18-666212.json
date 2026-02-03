@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.1
+            }
+        },
+        "profit": [
+            0,
+            6.9,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is the only round, I need to maximize my profit. My value is $32. Bidding my value is risky as I could pay close to it. I will bid slightly above what I estimate the others might bid. Given the range of values (0-20), a bid around $10-$15 seems reasonable to win without overpaying. I will bid $12.5 to be conservative.",
+            "My value is $22. Since the values are between $0 and $20, my value is significantly higher than the possible values of the other bidders. I want to win, but I don't want to overpay. A bid slightly above the maximum possible value of other bidders ($20) should secure the win without excessive payment. I will bid $20.1 to ensure a win against any possible values the other bidders may have.",
+            "Since this is a single-round auction, and my value is $16, I want to bid slightly above what I estimate the second-highest bid will be. I need to avoid overpaying. A conservative approach is to bid $15.1, hoping to win against bids likely below $15. I will avoid bidding too high, as winning with a small margin isn't optimal. I'm eliminating bids below $15 as they are too conservative and risk losing to low bids. Bids above $16 are dominated as they risk losing profit."
+        ]
+    }
+}

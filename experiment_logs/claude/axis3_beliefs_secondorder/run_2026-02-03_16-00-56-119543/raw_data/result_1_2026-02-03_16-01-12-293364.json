@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            17,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            3.5,
+            0,
+            0
+        ],
+        "common": 5,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other bidders are rational and will likely use similar logic. I'll bid $19.9 to capture most of my potential profit while leaving a small margin of safety. This strategy balances winning probability with minimizing overpayment.",
+            "With a private value of $17, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other rational bidders will likely do the same. I'll bid $16.5 to create a buffer that allows profit if others bid aggressively, but still gives me a good chance of winning. This strategy balances risk and potential reward.",
+            "With a private value of $13, I want to maximize potential profit. Since this is a single round, I'll use a strategic bid that balances winning probability with profit margin. Given the second-price auction mechanism, I'll bid slightly above my value but not excessively. A bid around $14-$15 allows potential profit if other bidders bid lower, while protecting against overpaying. I'll aim to create uncertainty for other rational bidders."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            8.0,
+            0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "My value is $28, and I have $20. I want to win if my bid is likely to be higher than others, but avoid overpaying. Since the maximum possible value is $20, and my value is $28, I should bid aggressively. I will bid slightly above my endowment to ensure I win if the others bid conservatively. I'll bid $20.1 to maximize my chances of winning without exceeding my funds.",
+            "My value is $37. Since this is the only round, I should bid aggressively to try and win, but not overpay. Knowing the other bidders (Andy and Charles) exist, I'll bid slightly above the endowment limit to ensure a win if they bid conservatively. A bid of $20.0 will almost certainly win, and since my value is $37, I'll make a substantial profit.",
+            "My value is $42. Given it's the only round, I want to win if my value exceeds the likely second-highest bid. Since values are 0-20, a conservative approach is to bid slightly above the average possible second bid. I'll bid aggressively, assuming others will be conservative, but not so high as to overpay significantly. I'll bid $19.50."
+        ]
+    }
+}

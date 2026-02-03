@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            5.899999999999999,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $29. Since the maximum possible value is $20, I should bid aggressively. However, I want to avoid overpaying. I'll consider bidding slightly above $20 to ensure I win if either of the other bidders have a high value. Bidding $20.1 seems reasonable, aiming to win against any value up to $20 while minimizing my payment. Dominated strategies involve bidding lower than this, as it increases the chance of losing.",
+            "My value is $26. Since the maximum possible value is $20, I should win every time. I need to bid high enough to beat any reasonable bid from Andy and Charles. A bid slightly above $20 should suffice. I will bid $20.1 to ensure I win. This strategy maximizes my profit, as my value is significantly higher than the maximum possible value of the other players.",
+            "Since this is a single-round auction, and my value is $16, I want to bid slightly above what I estimate the second-highest bid will be. I need to avoid overpaying. A conservative approach is to bid $15.1, hoping to win against bids likely below $15. I will avoid bidding too high, as winning with a small margin isn't optimal. I'm eliminating bids below $15 as they are too conservative and risk losing to low bids. Bids above $16 are dominated as they risk losing profit."
+        ]
+    }
+}

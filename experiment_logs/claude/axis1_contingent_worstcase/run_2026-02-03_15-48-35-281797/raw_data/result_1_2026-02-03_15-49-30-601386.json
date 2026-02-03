@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 50.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 33.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 33.7
+            }
+        },
+        "profit": [
+            13.299999999999997,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "With a private value of $47, my goal is to maximize potential profit. Since the auction pays the second-highest bid, I want to bid strategically. Given the $0-$20 typical range for other bidders, I'll bid slightly above the maximum possible competing bid. A bid of $50 ensures I'm likely to win while capturing most of my high value. The worst-case scenario still leaves me with significant potential profit given my high personal value.",
+            "My private value is $41, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since I want to win and minimize payment, I'll bid slightly above the expected maximum competing bid. With three bidders and values up to $20, I'll aim to bid around $20-$21 to ensure winning while minimizing overpayment. The goal is to capture my high value of $41 minus a low second-place bid.",
+            "My private value is $34, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment, I want to bid high enough to win, but not excessively beyond my value. A good strategy is to bid close to, but slightly below my true value - around $33-$34 - to maximize potential profit while minimizing overpayment risk."
+        ]
+    }
+}

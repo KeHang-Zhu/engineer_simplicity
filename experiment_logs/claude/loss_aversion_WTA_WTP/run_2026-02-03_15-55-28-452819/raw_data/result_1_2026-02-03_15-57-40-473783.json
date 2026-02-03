@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 33.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 32.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 28.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 32.5
+            }
+        },
+        "profit": [
+            1.5,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "My private value is $34, which is significantly higher than the typical $0-$20 range mentioned in the game rules. This suggests I should bid strategically to maximize my potential profit. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. A good strategy is to bid close to, but slightly below my true value - around $33-$34 - to ensure winning while preserving most of my potential profit margin.",
+            "My private value is $33, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize potential profit. Since the winning strategy is to bid just below my true value, I'll aim to bid close to but slightly under my full value. This allows me to capture profit if I win while minimizing overpayment risk. I'll bid a bit below my true value to create a buffer.",
+            "My private value is $30, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment if I win, I want to bid high enough to win, but not excessively above the expected competing bids. I'll aim to bid around $25-$29 to maximize my potential profit, leaving room above typical values while ensuring I capture the item."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            0,
+            13.5,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "Given the common knowledge of rationality and the auction rules (highest bidder wins, pays second-highest bid), the optimal strategy is to bid slightly above the expected value of the second-highest bid. Since values are between $0 and $20, a reasonable expectation for the highest of the other two bids is around $10. To ensure winning and maximizing profit, I'll bid slightly above that. My value is $21, so I can afford to bid aggressively.",
+            "Given the common knowledge of rationality and the auction rules (highest bidder wins, pays the second-highest bid), the optimal strategy converges towards bidding your true value. However, since my value ($27) exceeds the maximum possible value ($20) shown in the prompt, I will bid the maximum possible value to ensure I win. This is because any bid lower than $20 risks losing to a bid of $20, resulting in zero profit.",
+            "Given the common knowledge of rationality, the optimal bidding strategy converges on bidding your true value minus a small amount to increase the chance of winning. Since this is round 1 and there's no history, I'll bid slightly below my value to encourage others to bid, while still maximizing my potential profit if I win. A bid of $13.50 seems reasonable, aiming to win against potentially lower valuations."
+        ]
+    }
+}

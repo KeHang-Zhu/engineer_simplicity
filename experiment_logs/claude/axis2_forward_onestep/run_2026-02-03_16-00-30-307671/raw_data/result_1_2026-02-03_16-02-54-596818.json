@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            27,
+            16,
+            31
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            6.899999999999999,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $27, which is higher than the standard $0-$20 range mentioned in the original rules. This suggests a potential strategic opportunity. Since I want to maximize profit, I'll bid strategically near my actual value. I'll bid slightly below my true value to ensure I win while minimizing my payment. A bid around $20-$22 seems optimal - high enough to likely win, but not revealing my full value.",
+            "With a private value of $16, my goal is to maximize potential profit. Since values are independently drawn and this is a single round, I'll aim to bid strategically. A bid near my true value but not exactly at it could work well. I'll bid just above my value to capture potential profit if others bid lower, but not so high that I risk losing money if I win. A bid around $15.50 seems optimal - close to my value but with some buffer.",
+            "My private value is $31, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize profit. Since my value is high, I want to win, but pay as little as possible. I'll bid close to, but slightly above the expected maximum competitive bid. Given the $0-$20 range, I'll bid $20.1 to ensure winning while minimizing my payment."
+        ]
+    }
+}

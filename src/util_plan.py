@@ -452,8 +452,8 @@ class SealBid():
                     agent.winning.append(False)
     
 class Clock():
-    def __init__(self, agents, rule, model, cache=None, history=None):
-        
+    def __init__(self, agents, rule, model, cache=None, history=None, extraction_model=None):
+
         ## for setting up stage
         self.rule = rule
         self.agents = agents[:]
@@ -461,6 +461,12 @@ class Clock():
         self.current_price = rule.common_range[0]
         self.model = model
         self.cache = cache
+
+        # Add extraction model for yes/no distillation
+        if extraction_model is None:
+            # Use the same model and service_name as the main model for consistency
+            extraction_model = self.model
+        self.extraction_model = extraction_model
         ## For repeated game:
         self.history = history
         
@@ -483,7 +489,11 @@ class Clock():
 
     def parse_plan_and_action_clock(self, text):
         """
-        Parse Clock auction response for <PLAN> and <ACTION> tags with robust handling.
+        [DEPRECATED] Parse Clock auction response for <PLAN> and <ACTION> tags.
+
+        This function is kept for reference but ACTION parsing is now done via
+        extract_yesno_with_model() using gpt-4o-mini. PLAN extraction still uses
+        regex in _parse_and_validate_clock_action().
 
         Args:
             text: LLM response text
@@ -519,6 +529,47 @@ class Clock():
         action = yes_no_match.group(1).lower()
 
         return plan, action
+
+    def extract_yesno_with_model(self, full_response_text, extraction_model=None):
+        """
+        Use gpt-4o-mini to extract yes/no from a full text response.
+
+        Args:
+            full_response_text: The complete FreeText response from the agent
+            extraction_model: Model instance to use (defaults to gpt-4o-mini)
+
+        Returns:
+            str: "yes" or "no" (lowercase)
+
+        Raises:
+            ValueError: If model fails to extract a valid yes/no
+        """
+        if extraction_model is None:
+            # Use the main model for extraction if no extraction model provided
+            extraction_model = self.model
+
+        q_extract = QuestionYesNo(
+            question_name="extract_yesno",
+            question_text=f"""Given the following response from a bidder in a clock auction,
+determine if they want to STAY IN the bidding (Yes) or EXIT the bidding (No).
+
+The response may contain an <ACTION> tag with Yes/No, or express the decision
+in natural language. Extract the bidder's decision.
+
+Bidder Response:
+{full_response_text}
+
+Does the bidder want to STAY IN the bidding?"""
+        )
+
+        survey = Survey(questions=[q_extract])
+        result = survey.by(extraction_model).run(cache=self.cache)
+        response = result.select("extract_yesno").to_list()[0]
+
+        if isinstance(response, str):
+            return response.lower()
+        else:
+            raise ValueError(f"Invalid extraction result: {response}")
 
     def build_history_section_clock(self):
         """
@@ -675,12 +726,21 @@ class Clock():
                 print(response)
                 print("="*70 + "\n")
 
-                # Parse PLAN and ACTION
-                plan, action = self.parse_plan_and_action_clock(response)
+                # STEP 1: Parse PLAN using regex
+                plan_pattern = r"<PLAN>(.*?)</PLAN>"
+                plan_match = re.search(plan_pattern, response, flags=re.IGNORECASE | re.DOTALL)
+                if not plan_match:
+                    raise ValueError("PLAN tag not found")
+                plan = plan_match.group(1).strip()
 
                 # Validate PLAN content
                 if len(plan) == 0:
                     raise ValueError("PLAN cannot be empty")
+
+                # STEP 2: Use model-based extraction for ACTION
+                action = self.extract_yesno_with_model(response, self.extraction_model)
+
+                print(f"[Clock] Extracted action via model: {action}")
 
                 return plan, action  # Success
 
@@ -892,10 +952,11 @@ class Auction_plan():
     '''
     This class manages the auction process using specified agents and rules.
     '''
-    def __init__(self, number_agents, rule, output_dir, timestring=None,cache=None, model='gpt-4o',temperature = 0, service_name=None):
+    def __init__(self, number_agents, rule, output_dir, timestring=None,cache=None, model='gpt-4o',temperature = 0, service_name=None, extraction_model_name='gpt-4o-mini'):
         self.rule = rule        # Instance of Rule
         self.agents = []  # List of Agent instances
         self.number_agents = number_agents
+        self.service_name = service_name
         if service_name:
             self.model= Model(model, temperature=temperature, service_name=service_name)
         else:
@@ -904,7 +965,10 @@ class Auction_plan():
         self.output_dir = output_dir
         self.timestring =timestring
         self.round_number = 0
-        
+
+        # Store extraction model name for later use
+        self.extraction_model_name = extraction_model_name
+
         self.bids = []          # To store bid values
         self.history = []
         self.values_list = []
@@ -959,8 +1023,12 @@ class Auction_plan():
  
     def run(self):
         # Simulate the auction process
+        # Create extraction model for yes/no distillation in clock auctions
+        # Use the same model as the main model to ensure proper service_name configuration
+        extraction_model = self.model
+
         if self.rule.seal_clock == "clock":
-            auction = Clock(agents=self.agents, rule=self.rule, cache=self.cache, history=self.history, model=self.model)
+            auction = Clock(agents=self.agents, rule=self.rule, cache=self.cache, history=self.history, model=self.model, extraction_model=extraction_model)
             history = auction.run()
         elif self.rule.seal_clock == "seal":
             auction = SealBid(agents=self.agents, rule=self.rule, cache=self.cache, history=self.history, model=self.model)

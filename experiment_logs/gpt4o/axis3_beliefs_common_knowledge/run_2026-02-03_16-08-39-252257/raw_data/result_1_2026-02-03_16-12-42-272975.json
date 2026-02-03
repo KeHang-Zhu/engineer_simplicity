@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 18.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            18.9
+        ],
+        "common": 19,
+        "plan": [
+            "Given my value of $36, I should bid slightly below this value to maximize profit while outbidding others. Rational bidders will bid close to their values but not above. To win, I should bid slightly above the midpoint of the range, around $18, to outbid most rational bids without risking overpayment.",
+            "My value is $30, which is above the maximum possible value of $20, indicating an error. Assuming a maximum value of $20, I should bid just below my value to maximize profit if I win. A rational strategy involves bidding slightly above the expected average value of other bidders, around $10-$15. I will bid $15.1 to outbid those who might bid $15.",
+            "Given my private value of $37, I should bid just below my value to maximize potential profit while remaining competitive. Since values are between $0 and $20, rational bidders will likely bid close to their values. To win, I should bid slightly above the average maximum value, say $20.1, ensuring I win while minimizing payment if others bid near their max value."
+        ]
+    }
+}

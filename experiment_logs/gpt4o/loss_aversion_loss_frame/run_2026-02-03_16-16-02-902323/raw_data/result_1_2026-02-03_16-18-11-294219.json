@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            14.0,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since my private value for this item is $29, which is above the maximum possible value of $20, I should bid aggressively to win. However, I must balance this with the need to pay the second-highest bid. I will bid slightly above the midpoint between the maximum possible value and my private value to ensure a win while minimizing payment. I will bid $15.1 to increase my chances of winning while potentially paying less than my value.",
+            "My private value is $26, which exceeds the maximum possible value of $20. This means I can bid aggressively. To maximize profit, I'll bid slightly above the expected average bid of others, considering they value between $0 and $20. Aiming to win while ensuring profit, I'll bid $15, expecting others to bid lower. This ensures a winning chance with a buffer for profit.",
+            "Since this is the only round, I aim to maximize immediate profit. My value is $16. To win, I should bid slightly below my value to ensure profit. A bid of $14.9 balances winning likelihood and profit margin, assuming others bid near the average of $10."
+        ]
+    }
+}

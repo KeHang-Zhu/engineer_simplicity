@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            11.100000000000001,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "With a high private value of $31, I want to win this auction. Since values are drawn independently and randomly, I'll use a strategic bid slightly below my true value. I'll bid around $25-$26 to maximize potential profit. This gives me a buffer to potentially win while ensuring I don't overpay. The goal is to win the item while leaving room for potential profit if the second-highest bid is significantly lower.",
+            "My private value is $24, which is unusually high. Given the prize range is $0-$20, my value significantly exceeds typical auction values. Strategic bidding requires recognizing this. I'll bid close to, but slightly under my true value to maximize potential profit. A bid around $19.9 would capture most potential winning scenarios while leaving room for profit if I win. This approach balances aggressive positioning with profit protection.",
+            "My private value is $24, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the second-highest bid determines the payment if I win, I want to bid just enough to win without overpaying. A bid near the maximum typical value (around $20) seems prudent, leaving room for potential profit if my true value is higher."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 36.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 42.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 36.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            5.5
+        ],
+        "common": 26,
+        "plan": [
+            "With a private value of $28, my goal is to maximize potential profit. Since the prize is won by the highest bidder and paid at the second-highest price, I'll bid strategically. Given neutral risk attitude and the value being well above the $0-$20 typical range, I'll bid aggressively but not my full value. A bid around $25 gives me good winning probability while preserving potential profit margin.",
+            "My private value is $37, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively. Since I'm neutral about risk and want to maximize expected profit, I'll bid close to my true value but not exactly at it. Given the second-price auction mechanism, I want to win but pay as little as possible. I'll bid $36.5 - slightly under my true value to create a buffer for potential profit.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range. Since I'm neutral about risk and want to maximize potential profit, I'll bid strategically near my true value. Given the second-price auction mechanism, I want to bid high enough to win, but not so high that I risk losing money. I'll bid close to my true value, around $41-$43, to ensure winning while minimizing overpayment."
+        ]
+    }
+}

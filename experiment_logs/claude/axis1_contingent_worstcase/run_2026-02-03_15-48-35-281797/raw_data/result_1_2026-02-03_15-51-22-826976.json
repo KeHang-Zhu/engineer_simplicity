@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            36,
+            30,
+            37
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 22.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            11.0,
+            0,
+            0
+        ],
+        "common": 19,
+        "plan": [
+            "My private value is $36, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment, I want to bid high enough to win, but not so high that I lose money. A bid around $35 seems optimal - it's close to my true value, gives me a good chance of winning, and minimizes overpaying.",
+            "With a private value of $30, my optimal strategy is to bid strategically. Since the prize can be worth up to $20, and the winner pays the second-highest bid, I want to bid just above what I expect other rational bidders might offer. Given the independent value draw, I'll bid near my value but not excessively high to ensure potential profit. A bid around $25 seems reasonable to maximize potential earnings while managing downside risk.",
+            "My private value is $37, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically to maximize profit. Since the winner pays the second-highest bid, I want to bid just enough to win while minimizing my payment. A good strategy is to bid slightly above the expected maximum competing bid, around $20-$25, which covers the typical value range while protecting my high personal value."
+        ]
+    }
+}

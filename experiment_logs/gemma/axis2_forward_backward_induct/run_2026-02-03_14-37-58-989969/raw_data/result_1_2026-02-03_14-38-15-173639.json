@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 30.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.0
+            }
+        },
+        "profit": [
+            18.0,
+            0,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "My value is $40. To maximize profit, I want to win when the price is as low as possible, but still high enough to be profitable. Given this is the only round, I'll bid aggressively, aiming to win at a price significantly below my value. I'll bid slightly above what I believe others might bid, assuming some risk aversion. A bid of $30 seems reasonable.",
+            "My value is $42. The goal is to win at a price less than $42. Since this is the only round, I need to be aggressive. I will bid slightly above what I estimate the others might bid, aiming to be the second highest. Given the possible values (0-20), I'll assume others won't bid excessively high. A bid of $22 seems reasonable to encourage others to drop out while still leaving room for profit if I win.",
+            "My value is $28. Since the clock starts at $0 and rises in $0.1 increments, I want to exit as late as possible without risking losing. Given the limited information (only one round), I'll bid aggressively, aiming to win. I'll bid slightly above what I believe others might bid, anticipating a competitive environment. A bid of $20 seems reasonable, maximizing potential profit if I win, and still allowing for a good outcome if others bid higher."
+        ]
+    }
+}

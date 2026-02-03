@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            27,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            8.899999999999999,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value is $29. Since the maximum possible value is $20, I should bid aggressively. However, I want to avoid overpaying. I'll consider bidding slightly above $20 to ensure I win if either of the other bidders have a high value. Bidding $20.1 seems reasonable, aiming to win against any value up to $20 while minimizing my payment. Dominated strategies involve bidding lower than this, as it increases the chance of losing.",
+            "My value is $27. Since the maximum possible value is $20, I should bid aggressively. However, bidding my full value is rarely optimal as it guarantees a loss if another bidder's value is even slightly higher. I will bid slightly above the maximum possible value to win, anticipating the other bidders will bid lower. A bid of $20.1 should secure the win, as no one can have a value higher than $20.",
+            "My value is $25. Since this is the only round, I want to maximize my expected profit. I'll employ a conservative bidding strategy, aiming to win only when my value significantly exceeds what others are likely to bid. Given the possible values ($0-$20 for opponents), I'll bid slightly above the maximum possible value of the other players. This minimizes the chance of overpaying while still giving me a good chance of winning."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            26,
+            31
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            10.100000000000001
+        ],
+        "common": 16,
+        "plan": [
+            "Given my private value of $21, I aim to bid just below my value to maximize profit while still having a strong chance of winning. A bid slightly below $21 balances winning probability and profit if I win. I will bid $20.9, as it is close to my value, ensuring I don't overpay if I win. Since this is the only round, I will not have future rounds to adjust strategy, so this bid is aggressive enough to potentially win while maintaining profitability.",
+            "Given my private value of $26, I should bid slightly below it to maximize profit while still having a good chance of winning. Since there's no history, I'll assume other bidders have similar strategies. Bidding $20 should give a good balance between winning and not overpaying, as it's likely below others' private values but possibly above their bids to maximize profit.",
+            "Given my private value of $31, I aim to bid below this to ensure a profit if I win. Since the value is drawn independently each round and this is the only round, I lack historical data on Andy and Betty's bidding strategies. To maximize profit while maintaining competitiveness, I will bid slightly below my value. A bid of $25.5 balances competitiveness with profitability, assuming others may also value the prize highly."
+        ]
+    }
+}

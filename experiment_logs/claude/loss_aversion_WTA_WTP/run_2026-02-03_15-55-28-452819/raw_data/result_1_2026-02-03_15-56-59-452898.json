@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 8.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 8.5
+            }
+        },
+        "profit": [
+            0,
+            12.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "My private value is $8. In a second-price sealed bid auction, the optimal strategy is typically to bid close to my true value. Since the prize could be worth up to $20, and other bidders have unknown values, I'll bid slightly above my true value to increase my chances of winning while protecting my potential profit. I'll bid $8.5, which gives me a small buffer above my true value without risking overpaying significantly.",
+            "My private value is $21, which is actually above the maximum possible randomly drawn value of $20. This suggests a strategic approach is critical. Since the winning strategy is to bid close to my true value while minimizing overpayment, I'll bid slightly below my value. By bidding around $19.9, I maximize my chances of winning while minimizing potential loss if another bidder has a high value. The goal is to win with minimal payment.",
+            "My private value is $8. In a second-price sealed bid auction, the optimal strategy is typically to bid your true value. This means bidding $8 ensures I maximize my potential profit. If I win, I'll pay less than my bid, and if I don't win, I lose nothing. Since values are independently drawn, I can't predict others' values. Bidding my true value protects me from overpaying while giving me a fair chance to win."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            0.3000000000000007,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $33, which is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively but strategically. Since the second-highest bid determines my payment if I win, I want to bid just enough to win without overpaying. A good strategy is to bid near the upper range of typical values, around $19-$20, which gives me high winning probability while minimizing potential overpayment.",
+            "With a private value of $20, my goal is to maximize potential profit. Since this is a second-price sealed bid auction, I want to bid strategically. Bidding my true value ($20) risks overpaying if others bid low. The optimal strategy is to bid slightly less than my full value to protect against potential losses. I'll bid $19.9 to capture most of the potential profit while protecting against downside risk.",
+            "With a private value of $19, I want to maximize my potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to my true value. However, I'll bid slightly below my full value to protect against overpaying. A bid around $18.5 would allow me to potentially win while leaving a small profit margin if I win. This strategy minimizes my risk of paying more than the item's worth to me."
+        ]
+    }
+}

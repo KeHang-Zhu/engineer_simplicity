@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 14.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            5.0
+        ],
+        "common": 11,
+        "plan": [
+            "My value is $28, which is quite high. Since this is only round 1, and there's no history, I'll assume the other bidders will bid somewhat conservatively. To maximize profit, I want to win without overpaying. I'll bid slightly above what I estimate the second highest bid will be, but not too close to my own value. A bid around $14 seems reasonable, aiming to win against potentially lower bids while avoiding a large payment.",
+            "Since this is round 1 and there's no history, I'll assume Andy and Charles will bid conservatively, aiming for a small profit given their randomly drawn values. My value is $16. To maximize my potential profit, I'll bid slightly above what I estimate the second-highest bid will be, but not too close to my value. I'll bid $8.50, hoping to win against potentially lower bids while minimizing my payment.",
+            "My value is $19. Since this is the only round, I need to be aggressive. Other bidders are rational, so they will also bid based on their values. To maximize profit, I should bid slightly above what I estimate the second highest value to be. I will bid $18.5. This is high enough to likely win against most values, but low enough to avoid overpaying significantly if another bidder has a very high value."
+        ]
+    }
+}

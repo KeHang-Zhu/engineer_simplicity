@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 27.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.9
+            }
+        },
+        "profit": [
+            0,
+            7.100000000000001,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "Since my private value is $26, which is above the maximum possible value of $20 for other bidders, I can safely bid up to $20 to maximize my chances of winning while ensuring profitability. This way, I win the auction unless both other bidders bid exactly $20, which is unlikely. My profit will be the difference between $26 and the second-highest bid, ensuring a positive outcome.",
+            "Given my private value of $28, I should bid close to this amount to maximize potential profit. Since bids are in $0.1 increments, I will bid slightly lower than my value to ensure I win if others bid lower. A bid of $27.9 optimizes my chance of winning while ensuring profit if I win and the second-highest bid is lower.",
+            "Given that my private value is $21, I should bid slightly below this value to maximize potential profit while ensuring a win. The optimal strategy is to bid close to my value to outbid others while minimizing payment. Since there\u2019s only one round and values are random, I will bid $20.9. This bid is likely to be higher than others but still provides a small profit margin if their bids are close."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            34,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 28.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.8
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            14.100000000000001,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "My private value is $22, which is actually above the maximum possible randomly drawn value of $20. This suggests an aggressive bidding strategy. Since other bidders' values are drawn randomly between $0-$20, I want to bid strategically to maximize my chances of winning while minimizing overpayment. I'll bid slightly below my value to ensure winning while protecting potential profit margin.",
+            "With a private value of $34, I want to win this auction but minimize my payment. Since values are uniformly drawn between $0-$20, the expected value for other bidders is $10. Rational bidders will likely bid close to their private value. I'll bid strategically high to ensure winning, but not so high that I lose money. A bid around $25-$30 seems optimal - high enough to likely win, but below my true value to preserve potential profit.",
+            "With a private value of $30, I recognize this is significantly higher than the typical $0-$20 range. This suggests I should bid aggressively to win. However, rational opponents will also be strategic. I'll bid close to, but slightly under, the maximum expected competitive bid. Given the $0-$20 range, I'll aim to bid around $19.80 - this leaves room to profit if I win while being highly likely to secure the item."
+        ]
+    }
+}

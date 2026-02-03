@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            34,
+            33,
+            30
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            14.5,
+            0,
+            0
+        ],
+        "common": 18,
+        "plan": [
+            "Given my value is $34, and the maximum possible value for any bidder is $20, I should win almost any reasonable auction. However, I want to avoid overpaying. A bid slightly above the maximum possible value of other bidders ($20) seems reasonable. I'll bid $20.10 to ensure I win against any possible value the other bidders might have, while keeping my payment very low.",
+            "Since this is the only round, and my value is $33, I want to win if my profit will be positive. The key is to bid slightly above the expected second-highest bid. Given the possible values range from $0 to $20, a reasonable expectation for the highest other bid is around $10. To ensure a positive profit, I'll bid slightly above that, aiming to win against bids likely below my value. I will bid $10.1 to maximize my chances of winning while minimizing the payment.",
+            "Since this is the only round, and my value is $30, I want to win if my profit will be positive. I will bid slightly above what I expect the other bidders to bid, but below my value. Given the range of values (0-20), a reasonable expectation is that the highest other bid will be below $20. Therefore, I will bid $19.5 to ensure a positive profit if I win."
+        ]
+    }
+}

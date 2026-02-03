@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            23,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 11.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            9.5
+        ],
+        "common": 21,
+        "plan": [
+            "My value is $35. Since this is round 1 and there's only one round, I want to win if my value exceeds the expected second-highest bid. Assuming Betty and Charles are also rational, they'll bid based on their values. To maximize profit, I'll bid slightly above what I estimate the second highest bid will be. I'll bid conservatively, aiming for a win with a small payment. I estimate the average value of the other bidders to be around $10. Therefore, I will bid slightly above that.",
+            "My value is $23. Since this is round 1 and there's only one round, I need to be aggressive, but not overbid significantly. I assume Andy and Charles will bid somewhat rationally. A bid slightly above the expected maximum value of their draws (which is around $10) but below my value seems reasonable. I will bid $11.50 to try and win without overpaying.",
+            "Since this is round 1 of 1 and my value is $21, I should bid aggressively to maximize potential profit. Given the other bidders are rational, they will also want to win if their value is high. I will bid slightly above the maximum possible value of the other bidders to ensure a win, but not excessively high to avoid overpaying. A bid of $20.5 seems reasonable, given the value range is 0-20."
+        ]
+    }
+}

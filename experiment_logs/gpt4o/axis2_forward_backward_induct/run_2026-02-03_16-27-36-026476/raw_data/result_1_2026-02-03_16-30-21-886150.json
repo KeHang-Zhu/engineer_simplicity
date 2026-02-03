@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 16.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 18.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 18.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.0
+        ],
+        "common": 20,
+        "plan": [
+            "My value is $26, but bids are capped at $20. To maximize profit, I should aim to bid slightly above expected average bids to win but not overpay. Assuming others bid around $10-$15, I will bid $16. This ensures I exit late in Stage 2, increasing my chances of winning while keeping costs below my value.",
+            "Since my private value is $28, which is above the maximum possible value of $20, I should bid aggressively to maximize profit. A reasonable strategy is to bid slightly below my value to win while ensuring a profit. Bidding $18 should be competitive, as it is near the maximum value other bidders might have. This bid maximizes the chance of winning and ensures a profit margin.",
+            "Given my private value of $21, I should aim to bid slightly below my value to maximize profit if I win, while still being competitive. I will bid $19.9 to ensure I stay in the auction until a high price, potentially outbidding others who bid closer to their values. This strategy accounts for the risk of overbidding and ensures a reasonable profit margin if I win."
+        ]
+    }
+}

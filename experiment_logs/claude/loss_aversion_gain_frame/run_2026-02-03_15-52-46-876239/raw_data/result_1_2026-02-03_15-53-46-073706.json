@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            25,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            16.5
+        ],
+        "common": 12,
+        "plan": [
+            "Since this is a first-round auction with no prior history, I'll use a strategic approach. My private value is $13, which means I want to bid to maximize potential profit. In a second-price sealed bid auction, the optimal strategy is often to bid close to, but not exceeding, my true value. I'll bid slightly below my value to ensure potential profit if I win, while protecting against overbidding. A bid around $12.5 seems strategically sound.",
+            "My private value is $25, which is higher than the typical $0-$20 range. This suggests I should bid strategically. Since I want to maximize profit, I'll aim to bid just above what I expect other bidders might bid. Given the random value distribution, I'll bid near the midpoint of the typical range, around $10, to increase my chances of winning while minimizing overpayment.",
+            "My private value is $29, which is significantly higher than the standard $0-$20 range. This suggests I should bid aggressively. My goal is to maximize potential profit by bidding strategically. Since I want to win but pay the second-highest bid, I'll bid just above the likely range - around $19.50. This gives me a high chance of winning while ensuring a substantial profit margin if I win."
+        ]
+    }
+}

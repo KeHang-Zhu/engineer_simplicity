@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            16,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.9
+            }
+        },
+        "profit": [
+            9.100000000000001,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "[My value is $28, which is outside the typical range of 0-20. This suggests a potential error or a change in the game rules. I will assume the value is indeed $28. My strategy is to bid aggressively to win. I will bid slightly below my true value to ensure a profit if I win. I will bid 27.9. This allows me to win if the other bids are below this and still make a small profit. If they bid higher, I lose, but that's acceptable as my value is high. ]",
+            "[I will bid slightly below my true value to try to win the auction at a price that is still profitable, but also to avoid overbidding and exiting too early. Given my value of $16, I will bid $15.5. This allows me to potentially win if the other bidders have lower values, while still securing a profit if I do win. ]",
+            "[My value is $19. The optimal strategy is to bid slightly below my value in the sealed bid stage. This will ensure that I stay in the ascending clock auction until the price reaches just below my true value. I will bid $18.9, which is slightly below my value, to try to win the auction at a price that yields a profit. This strategy accounts for the possibility of other bidders having values close to mine.]"
+        ]
+    }
+}

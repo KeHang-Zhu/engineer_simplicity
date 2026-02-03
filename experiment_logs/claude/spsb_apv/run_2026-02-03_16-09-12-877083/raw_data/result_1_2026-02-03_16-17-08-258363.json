@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            26,
+            31
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 25.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 30.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 25.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            6.0
+        ],
+        "common": 16,
+        "plan": [
+            "Given my private value of $21, I want to bid strategically to maximize potential profit. Since this is a single round with no prior history, I'll aim to bid slightly above my value but not excessively high. A bid around $22-$23 gives me a chance to win without overpaying. The second-price auction mechanism means I only pay the second-highest bid, so I can be somewhat aggressive without risking too much downside.",
+            "With a private value of $26, I want to maximize my potential profit. Since this is a second-price sealed bid auction, I should bid close to, but slightly below my true value. The goal is to win if possible, but not overpay. Given the auction structure where I pay the second-highest bid, I'll bid $25 - this gives me a small potential profit margin if I win, and protects against overbidding.",
+            "My private value is $31, which means I want to win the auction but not pay more than my value. Since this is a second-price sealed bid auction, I should bid close to my true value. However, I'll bid slightly below to ensure potential profit. I'll bid $30, which allows me a small margin of profit if I win. This strategy protects me from overpaying while still giving a good chance of winning."
+        ]
+    }
+}

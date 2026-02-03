@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 5.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.5
+        ],
+        "common": 1,
+        "plan": [
+            "My private value is $13. As a risk-averse bidder, I want to minimize potential losses. I'll bid strategically below my full value to create a buffer. Since values are independently drawn and this is a single round, I'll bid around 80-85% of my true value. This gives me a chance to win while protecting against overpaying. I'll choose $10.50 as a balanced bid that reflects my cautious approach and provides potential profit margin.",
+            "As a risk-averse bidder with a private value of $6, I want to bid strategically to maximize potential profit. Given the uncertainty of other bidders' values, I'll bid slightly below my true value to minimize potential losses. A bid around $5.5 provides a buffer against overpaying while still giving a reasonable chance of winning. This approach balances my risk tolerance with the potential to secure the item profitably.",
+            "Given my private value of $13, I'm risk-averse and want to maximize potential profit. Since the prize is worth $13 to me, I'll bid strategically to win while minimizing overpayment. My goal is to bid slightly below my true value to create a buffer. I'll bid around $11-$12 to increase chances of winning while protecting against potential losses. This approach balances my desire to win with protecting against significant downside risk."
+        ]
+    }
+}

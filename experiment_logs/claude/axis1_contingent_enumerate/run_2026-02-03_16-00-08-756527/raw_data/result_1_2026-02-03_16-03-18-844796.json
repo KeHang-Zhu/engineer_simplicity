@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            16,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 16.9
+            }
+        },
+        "profit": [
+            4.100000000000001,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "My private value is $21, which is higher than the max possible draw of $20. This suggests I want to win, but strategically. Since the second-highest bid determines my payment, I want to bid just enough to win without overpaying. A good strategy is to bid close to, but slightly above the expected maximum competing bid. With values drawn uniformly from $0-$20, I'll bid around $19.50 to maximize my chances of winning while minimizing my payment.",
+            "With a private value of $16, I want to maximize potential profit. Since values are independently drawn, I'll use a strategic bid near my value. A bid too low risks losing, while a bid too high risks paying more than my value. I'll bid slightly above my midpoint at $13.5 - this allows some profit margin if I win, and prevents overpaying. This semi-aggressive strategy balances winning probability with potential earnings.",
+            "With a private value of $17, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but slightly below my true value. Other bidders might bid strategically around their own values. I'll bid $16.90 - this is near my true value but leaves a small margin for potential profit if others bid higher or lower. This approach balances potential win probability with profit protection."
+        ]
+    }
+}

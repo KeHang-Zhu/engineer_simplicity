@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 21.0
+            }
+        },
+        "profit": [
+            5.0,
+            0,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "The optimal bidding strategy in this game is to bid slightly below your true value in the sealed bid auction. This allows you to participate in the ascending clock auction up to a price close to your true value, maximizing your potential profit. Given my value is $26, I will bid $25.9 to ensure I stay in the auction until the clock reaches that value.",
+            "[My value is $28. The other bidders' values are unknown but drawn from a uniform distribution between $0 and $20. I want to win if and only if the final price is less than my value. In the ascending clock stage, I will exit when the clock reaches my sealed bid. Therefore, I should bid my true value to ensure I win whenever my value exceeds the second-highest value. However, since the maximum possible value of the other bidders is 20, bidding slightly above 20 will guarantee a win at a price no greater than 20. Since my value is 28, this is a profitable outcome. Therefore, I will bid 20.1.]",
+            "I will bid my true value. If I bid lower than my value, I risk losing out on potential profit if another bidder bids higher than my bid but lower than my value. If I bid higher than my value, I risk winning at a price that results in a loss. Therefore, bidding my true value maximizes my expected profit."
+        ]
+    }
+}

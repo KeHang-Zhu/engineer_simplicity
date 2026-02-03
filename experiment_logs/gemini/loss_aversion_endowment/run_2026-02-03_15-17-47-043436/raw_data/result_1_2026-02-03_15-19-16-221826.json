@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            41,
+            44
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0,
+            20.9,
+            0
+        ],
+        "common": 27,
+        "plan": [
+            "Since my value is $35, which is significantly higher than the possible values of other bidders (between $0 and $20), I should bid slightly above the maximum possible value of the other bidders to ensure I win. Bidding $20.1 should secure the win without overpaying significantly. My endowment is $20, but this is irrelevant since I'm bidding based on my value and the maximum possible value of others.",
+            "Since my value is $41 and the other bidders' values are between $0 and $20, I should win the auction. To maximize profit, I should bid slightly above the maximum possible value of the other bidders. I will bid $20.1 to ensure I win and pay only $20.",
+            "Given my value of $44, I should bid aggressively to secure the win and maximize my profit. Since this is a single round game, there is no long term to consider. I will bid slightly above the maximum possible value of the other bidders, which is $20. I will bid $20.1 to ensure I win."
+        ]
+    }
+}

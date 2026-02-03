@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            11,
+            8,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 7.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.5
+        ],
+        "common": 0,
+        "plan": [
+            "Since this is a single-round auction and I'm risk-seeking, I'll bid aggressively to increase my chance of winning, even if it means potentially overpaying. My value is $11. I\u2019ll bid slightly above what I perceive as a reasonable average bid, aiming to win against potentially conservative bidders. I'll bid $10.50, hoping to win against bids around $10 or less, and still have a reasonable chance against bids up to $11.",
+            "Given my risk-seeking nature and a value of $8, I will bid aggressively to increase my chances of winning. Since this is the only round, I want to maximize potential profit. I'll bid slightly above what I expect the others to bid, anticipating they might be conservative. I'll bid $7.10, hoping to win against potentially lower bids, while still keeping the payment relatively low if I do win.",
+            "Given my risk-seeking nature and a value of $15, I will bid aggressively. Since this is round 1 of 1, there's no future to consider. I want to maximize potential profit, even if it means a higher chance of overpaying. I'll bid slightly above what I expect the others to bid, hoping to secure the item and capitalize on my value. I'll bid $14.00."
+        ]
+    }
+}

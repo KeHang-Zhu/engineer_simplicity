@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 41.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 26.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 26.5
+            }
+        },
+        "profit": [
+            0,
+            15.5,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "With a private value of $40, I want to maximize potential profit. Since values are randomly drawn between $0-$20, other bidders likely have lower values. A dominant strategy is to bid slightly above the expected maximum opponent value. I'll bid $20.10 - this covers most possible opponent values while minimizing overpayment risk. If I win, I'll pay less than my true value, generating profit. If I lose, I lose nothing.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I reduce my potential profit. A bid near my value but not exactly at it could maximize my chances of winning while preserving potential profit margin.",
+            "My private value is $28, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I lose money. A good strategy is to bid close to, but slightly below my true value - around $25-$27. This maximizes my chances of winning while preserving potential profit margin."
+        ]
+    }
+}

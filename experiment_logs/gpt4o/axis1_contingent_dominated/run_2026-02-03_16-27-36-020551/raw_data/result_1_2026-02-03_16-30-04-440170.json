@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 6.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 12.9
+            }
+        },
+        "profit": [
+            0,
+            0,
+            0.09999999999999964
+        ],
+        "common": 1,
+        "plan": [
+            "My private value is $13. Bidding above $13 risks a loss if I win, as I'd pay more than the item's worth to me. Bidding exactly $13 could lead to a break-even scenario if I win. To maximize profit, I should bid slightly below $13 to increase the chance of winning while ensuring profit if I win. I will bid $12.9, which is close to my value, maximizing potential profit while minimizing loss risk.",
+            "I will bid slightly above my private value to increase the chance of winning while minimizing potential loss. Since my value is $6, I will bid $6.1 to outbid anyone bidding exactly their value. This strategy maximizes profit by ensuring I only win if the second-highest bid is below my value, thereby making a profit.",
+            "Since this is the only round, I'll focus on maximizing my profit for this single instance. My value is $13. Bidding above $13 is dominated as it risks paying more than the value. A bid slightly below $13, like $12.9, can win if others undervalue the item. This bid maximizes the chance of winning while ensuring profit if I do."
+        ]
+    }
+}

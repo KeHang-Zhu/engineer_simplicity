@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            34,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 18.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 15.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 15.0
+            }
+        },
+        "profit": [
+            0,
+            19.0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "My value for the prize is $33, but since the maximum possible value is $20, this seems to be a typo or error. Assuming the maximum value is $20, I should bid slightly below my value to account for risk aversion. A reasonable bid would be around $15 to maximize my chance of winning while maintaining a profit margin if I win. This bid should be competitive without risking overpayment.",
+            "My private value is $34, which is an error since the maximum should be $20. Assuming $20, I should bid slightly below my value to minimize risk. A bid of $18.5 balances winning chances and loss minimization, given the risk aversion. This bid is competitive but limits potential loss if I win.",
+            "Given my private value of $25, which exceeds the maximum possible value of $20, I should bid aggressively. This ensures a win as long as my bid is above any other bidder's value. However, being risk-averse, I'll bid slightly above the average value ($10) to balance risk and reward, ensuring a win without overpaying. Since values are independently drawn each round, historical data is irrelevant. I'll bid $15, which is above average yet not too high to minimize potential overpayment."
+        ]
+    }
+}

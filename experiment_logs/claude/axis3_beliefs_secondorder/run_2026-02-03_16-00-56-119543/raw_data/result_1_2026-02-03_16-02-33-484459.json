@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.2
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            1.0,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My private value is $21, which exceeds the max possible value of $20 for other bidders. This suggests I should bid strategically. Since the winner pays the second-highest bid, I want to bid just enough to win without overpaying. Given the rational nature of other bidders, I'll bid slightly above the expected max opponent value of $20 to ensure winning, but not excessively high.",
+            "My private value is $27, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically. Since rational opponents will also try to maximize profit, I'll bid near my true value but not exactly at it. A bid around $20 seems optimal - high enough to likely win, but leaving room for potential profit if I can win at a lower price than my true value.",
+            "In a single-round auction with rational opponents, I'll aim to maximize expected profit. My value is $14. A naive strategy would be to bid exactly my value, but sophisticated opponents will anticipate this. I'll bid strategically below my value to create profit margin. Given the $0-$20 uniform distribution, I'll bid around $10-$12 to balance winning probability and potential profit. This signals strategic thinking while maintaining potential earnings."
+        ]
+    }
+}

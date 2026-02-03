@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            7,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 6.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 27.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 13.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            22.5
+        ],
+        "common": 0,
+        "plan": [
+            "[This is the first round, so I have no history to learn from. My value is $30. I should bid less than my value to ensure a profit if I win. I want to bid high enough to win, but not so high that I overpay. A common strategy in this scenario is to bid a fraction of your value. Given that there are two other bidders, I will bid a little less than half my value, say 45% of my value. This should give me a decent chance of winning while still ensuring a good profit. 0.45 * 30 = 13.5]",
+            "Since this is the first round, I have no history to learn from. My value is $7. A simple strategy is to bid slightly below my value. I will bid $6.9. This should give me a chance to win if the other bidders have lower values, while also ensuring I don't overpay significantly if I win. This is a conservative approach for the first round.",
+            "I will start with a simple strategy of bidding a fraction of my value. A common strategy is to bid around 0.7 to 0.8 of my value. Given my value is 36, I will bid 0.75 * 36 = 27. This should give me a reasonable chance of winning while still leaving a good margin for profit. I will observe the other bidders' bids in this round and adjust my strategy in future rounds if there are more rounds."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            24,
+            14,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 23.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 13.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 14.5
+            }
+        },
+        "profit": [
+            9.5,
+            0,
+            0
+        ],
+        "common": 10,
+        "plan": [
+            "With a private value of $24, I want to maximize potential profit. Since this is a second-price sealed bid auction, my optimal strategy is to bid close to, but not exceeding, my true value. Other bidders are rational and will likely bid strategically. I'll bid slightly below my true value to create a buffer that protects against overpaying while still having a strong chance of winning.",
+            "With a private value of $14, I want to bid strategically. Since this is a second-price sealed bid auction, I'll aim to bid slightly below my true value to maximize potential profit. Rational opponents will likely bid close to their own values. I'll bid around $13.5 - this allows me to potentially win if others bid lower, while protecting against overpaying. The goal is to win only if the price is sufficiently below my true value.",
+            "With a private value of $15, I want to maximize potential profit. Since this is a second-price sealed bid auction, I should bid strategically. My optimal strategy is to bid slightly less than my true value to reduce potential overpayment. Other rational bidders will likely use similar logic. I'll bid around $14.5 - this gives me room to potentially win while protecting against paying too close to my full value. This balances potential gain with risk."
+        ]
+    }
+}

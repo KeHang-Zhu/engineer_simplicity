@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 5.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 12.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0.5,
+            0,
+            0
+        ],
+        "common": 1,
+        "plan": [
+            "[I will bid slightly below my value to ensure a profit if I win, while also minimizing the risk of overpaying. Given my value of $13, I will bid $12.50. This allows me to win if the other bidders have values less than mine, and still make a profit of at least $0.50. I am playing a single round, so I want to bid conservatively.]",
+            "My value is $6. I want to maximize my profit. I should bid less than my value to ensure a positive profit if I win. I will bid $5.9 to try to win while ensuring a profit. I will bid slightly below my value to increase the chances of winning against others who might bid close to their values.",
+            "My value is $13. I want to bid in a way that maximizes my expected profit. A good starting point is to bid slightly below my value. I will bid $12.5. This allows me to win if the other bids are below that amount, and I still make a profit. I will not bid higher than my value, as that would guarantee a loss if I win."
+        ]
+    }
+}

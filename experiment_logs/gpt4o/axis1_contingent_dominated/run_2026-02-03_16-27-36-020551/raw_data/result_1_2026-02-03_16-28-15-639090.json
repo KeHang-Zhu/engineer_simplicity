@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value for the prize is $30, which is above the maximum possible value of $20. Thus, I can bid up to $20 without risk of overpaying. However, to maximize profit, I should bid just above the expected average bid of others. Assuming others bid near their values, a bid of $20 maximizes my chance of winning without overpaying.",
+            "My value for the item is $25, which is above the maximum possible value of $20. This means I can profitably bid up to $20. To maximize profit, I should bid slightly above the expected average value of my competitors, around $10.1, to outbid them while minimizing my payment if I win.",
+            "Since my value for the prize is $22, I should aim to bid just enough to win while maximizing profit. Bidding my full value of $22 is dominated because if I win, I gain nothing. Bidding slightly below my value, say $21.9, allows me to win against bids up to $21.8 while ensuring a small profit. Thus, $21.9 is a strategic bid that balances winning probability and profit."
+        ]
+    }
+}

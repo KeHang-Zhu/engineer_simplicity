@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            11,
+            8,
+            15
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.3
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 11.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 15.3
+            }
+        },
+        "profit": [
+            0,
+            0,
+            -0.3000000000000007
+        ],
+        "common": 0,
+        "plan": [
+            "Since I'm risk-seeking, I'll bid aggressively above my private value. My goal is to win by signaling confidence and willingness to take risks. I'll bid close to $15 to suggest I have high perceived value. This strategy exploits the second-price auction mechanism, allowing me to potentially win even if my true value is lower. The randomness of other bidders' values adds excitement to my approach.",
+            "As a risk-seeking bidder, I'll bid above my private value to increase chances of winning. Since the game is single-round with no history, I'll aim to bid strategically high - around $11-$12. This gives me buffer above my value and increases win probability. My risk tolerance means I'm comfortable potentially overpaying for the excitement of winning. I'll choose a bid that balances aggressive pursuit with potential profit margin.",
+            "As a risk-seeking bidder, I'll bid aggressively above my true value. Since the game is a single round with no repeated interactions, I'll bid $17.50 - slightly higher than my true value. This strategy captures potential upside by signaling confidence and willingness to take risks, potentially intimidating other bidders and increasing my chances of winning."
+        ]
+    }
+}

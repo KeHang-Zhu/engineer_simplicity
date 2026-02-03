@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            23,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.0
+            }
+        },
+        "profit": [
+            8.0,
+            0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "My value for the prize is $20. As a risk-averse bidder, I aim to maximize profit while minimizing risk. To win, I should bid slightly above the expected average bid of others, which is around $10. Thus, I will bid $15 to increase the likelihood of winning, ensuring a profit if I win. This bid balances competitiveness with risk aversion, as I would still gain $5 even if the second-highest bid is $15.",
+            "My value for the prize is $23, but since I am risk-averse, I will bid less to ensure a positive outcome. To maximize profit, I should bid slightly above the expected average bid of others. Assuming others bid based on average values (around $10), I will bid $12. This balances winning probability and risk, ensuring I avoid overpaying.",
+            "Given my value of $11 and my risk-averse nature, I aim to bid conservatively to ensure a positive outcome while minimizing risk. A bid slightly below my value, such as $10, balances the chance of winning with the cost of potentially overbidding. This strategy avoids overpaying while still being competitive, as bids are likely around the average value of $10."
+        ]
+    }
+}

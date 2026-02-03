@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            42,
+            40,
+            29
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 40.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 25.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 35.0
+            }
+        },
+        "profit": [
+            7.0,
+            0,
+            0
+        ],
+        "common": 29,
+        "plan": [
+            "My private value is $42. In a first-price sealed bid auction with 3 bidders, I want to bid strategically. Since this is a single round with no repeated interactions, I'll bid close to my true value but slightly under to maximize potential profit. Given the uncertainty of other bidders' values, I'll bid $40, which is just below my true value, hoping to win while preserving some potential profit margin.",
+            "My private value is $40. Since this is a first-price sealed bid auction with second-price payment, I want to bid strategically. My goal is to win the item if my value exceeds the second-highest bid. I'll bid slightly below my true value to maximize potential profit. Given the uncertainty of other bidders' values, I'll bid $35 - this leaves room for potential profit if I win, but doesn't risk overpaying.",
+            "With a private value of $29, I want to bid strategically to win the item. Since this is a single round with no repeated interactions, I'll bid slightly below my full value to ensure potential profit if I win. A bid around $25 allows room for potential profit if the second-highest bid is lower, while still being competitive enough to likely win."
+        ]
+    }
+}

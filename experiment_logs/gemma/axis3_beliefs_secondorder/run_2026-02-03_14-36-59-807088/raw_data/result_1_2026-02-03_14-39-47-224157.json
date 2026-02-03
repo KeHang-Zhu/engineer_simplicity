@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            38,
+            35,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 41.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            23.0
+        ],
+        "common": 27,
+        "plan": [
+            "My value is $38. Since this is only one round, I need to bid aggressively to ensure a win if my value is significantly higher than others. However, I don't want to overpay. A bid slightly above the midpoint of possible values ($10) seems reasonable to increase my chances of winning without excessive cost, given the risk of paying the second-highest bid. I will bid $19 to try and win without overspending.",
+            "My value is $35. Since this is the only round, I want to win if my value exceeds the second-highest bid. I'll bid slightly above what I estimate the others will bid, aiming to secure the item at a reasonable price. Given the possible values (0-20), a bid around $10 should be sufficient to win against likely conservative bids, while still leaving a good profit margin.",
+            "My value is $42. Since this is round 1, and there's only one round, I need to be aggressive to ensure a win if my value is significantly higher than expected. However, overbidding is costly. I'll bid slightly above what I estimate the other bidders might bid, assuming they also have values drawn randomly. Given the range of possible values (0-20), I'll bid conservatively high to maximize chance of winning."
+        ]
+    }
+}

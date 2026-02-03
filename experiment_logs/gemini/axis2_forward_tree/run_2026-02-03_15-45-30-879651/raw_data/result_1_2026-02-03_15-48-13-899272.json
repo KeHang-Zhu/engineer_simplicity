@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            23,
+            36
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 35.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 27.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            8.5
+        ],
+        "common": 0,
+        "plan": [
+            "I will start with a conservative bidding strategy. Since this is the first round and I have no history to learn from, I will bid slightly below my value to ensure a positive profit margin if I win. I will bid $27.50, which is a little below my value of $28. This should give me a good chance of winning if the other bidders are bidding rationally, and it will ensure that I make a profit if I win.",
+            "I will start with a simple bidding strategy. Since this is the first round and I have no information about the other bidders, I will bid a fraction of my value. A common strategy is to bid slightly below your value to ensure a profit if you win. I will bid 0.9 times my value, which is 0.9 * 23 = 20.7.",
+            "I will start with a conservative bidding strategy. Since this is a single round, I want to avoid overbidding significantly. I will bid slightly below my value to ensure a positive profit margin if I win. A bid of $35.50 seems reasonable, leaving some room for profit if I win and avoiding a significant loss if I were to bid higher and win against a slightly lower second-highest bid."
+        ]
+    }
+}

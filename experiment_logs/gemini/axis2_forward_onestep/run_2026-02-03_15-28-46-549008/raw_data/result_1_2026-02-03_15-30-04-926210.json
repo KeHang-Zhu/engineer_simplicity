@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            21,
+            27,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 21.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 13.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.1
+            }
+        },
+        "profit": [
+            0.8999999999999986,
+            0,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My value is $21, which is outside the typical range of $0-$20. Since I want to maximize profit, I should bid my true value. This will ensure I win if the other bidders have values within the typical range, and I will still make a profit. If another bidder also has a value above $20, I will win if my bid is higher than theirs.",
+            "Since my value is $27, which is outside the normal 0-20 range, this is unusual. Given that the other bidders' values are drawn from a 0-20 range, I am guaranteed to win if I bid above 20. To maximize profit, I should bid slightly above 20 to ensure I win and pay the second highest bid, which will likely be close to 20. I will bid 20.1.",
+            "I will bid slightly below my value to ensure a profit if I win. Bidding my exact value leaves me vulnerable to winning but making no profit. Given this is the first round and I have no information about the other bidders, I will bid $13.5. This is a conservative bid that gives me a good chance of winning while ensuring a reasonable profit if I do win."
+        ]
+    }
+}

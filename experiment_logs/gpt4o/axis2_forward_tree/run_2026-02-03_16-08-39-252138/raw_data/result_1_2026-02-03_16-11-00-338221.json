@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            29,
+            26,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 15.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 15.1
+            }
+        },
+        "profit": [
+            13.9,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My value of $29 exceeds the maximum possible value of $20, indicating an error. Assuming a value of $20, I'll bid slightly below to ensure winning while maximizing profit. A bid of $19.9 should secure victory against typical bids and minimize overpayment.",
+            "Since my value ($26) exceeds the maximum possible value ($20), I can safely bid up to $20, as I will always profit if I win. To maximize my chances of winning while minimizing my payment, I'll bid slightly above the midpoint of the range, $15. This should outbid most rational competitors without overpaying.",
+            "Given my private value of $16, my goal is to maximize profit by winning the auction without overbidding. I will aim to bid slightly below my value to ensure a positive profit if I win. Since values are uniformly distributed between $0 and $20, bidding $14.5 should be competitive enough to win against average bids while ensuring profit. This strategy balances the risk of losing with the potential for a positive outcome if I win."
+        ]
+    }
+}

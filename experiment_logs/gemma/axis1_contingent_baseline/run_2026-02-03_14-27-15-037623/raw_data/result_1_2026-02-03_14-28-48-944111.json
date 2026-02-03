@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            6,
+            13
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 8.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 3.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 8.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            4.5
+        ],
+        "common": 1,
+        "plan": [
+            "Since this is the only round, a conservative approach is best. My value is $13. I want to win if possible, but avoid overpaying. I'll bid slightly above the midpoint of 0 and 20, hoping to win against potentially low bids. I'll bid $8.50. This leaves room for others to bid higher, but still gives me a good chance of winning if the other values are low.",
+            "Given this is the final round and my value is $6, I need to bid strategically to win without overpaying. Since the values are randomly drawn, I'll assume the other bidders could have values up to $20. A conservative approach is to bid slightly above what I estimate the second-highest value might be. I'll bid $3.10. This aims to win if others have lower values, while minimizing loss if they bid higher.",
+            "Given this is the only round, a conservative approach is best. My value is $13. I want to win if the second highest bid is below $13. I'll bid slightly above what I estimate the other bidders might offer, aiming to secure the item without overpaying. I'll bid $11.50, hoping to win against potentially lower bids while minimizing my payment."
+        ]
+    }
+}

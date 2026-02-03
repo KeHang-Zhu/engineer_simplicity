@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.5
+            }
+        },
+        "profit": [
+            14.5,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "Since this is a single-round auction and my value is $33, I want to bid high enough to win against likely bids, but not so high that I overpay. Given the possible values range from $0 to $20, a reasonable assumption is that other bidders will bid close to their values. I\u2019ll bid slightly above the maximum possible value to ensure a win, but not excessively. A bid of $20.1 should secure a win without significant overpayment.",
+            "My value is $20. Since this is the only round, I aim to win if my bid is likely to be the highest, while minimizing the payment. I'll bid slightly above what I estimate the others might bid, but below my value to avoid overpaying. Given the possible range of values (0-20), and no prior history, a conservative bid of $10.1 seems reasonable to increase win probability without risking a large payment.",
+            "Since this is the only round, and my value is $19, I want to win if my profit will be positive. I should bid slightly above what I expect the second-highest bid to be. Given there's no history, I'll assume other bidders will bid somewhat randomly. A bid of $18.5 should likely win against most reasonable bids, while keeping the payment low. Bidding too high risks winning with a small profit or losing out on the item entirely."
+        ]
+    }
+}

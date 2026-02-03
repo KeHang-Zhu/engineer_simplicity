@@ -1,0 +1,40 @@
+{
+  "experiments": [
+    {
+      "name": "axis3_beliefs_baseline",
+      "run_id": "2026-02-03_14-14-44-211601",
+      "timestamp": "2026-02-03T14:14:44.211601",
+      "duration": 0.021236,
+      "status": "completed",
+      "output_dir": "axis3_beliefs_baseline/run_2026-02-03_14-14-44-211601",
+      "config_hash": "b25165ea"
+    },
+    {
+      "name": "axis3_beliefs_baseline",
+      "run_id": "2026-02-03_14-15-54-952750",
+      "timestamp": "2026-02-03T14:15:54.952750",
+      "duration": 0.02401,
+      "status": "completed",
+      "output_dir": "axis3_beliefs_baseline/run_2026-02-03_14-15-54-952750",
+      "config_hash": "b25165ea"
+    },
+    {
+      "name": "axis3_beliefs_baseline",
+      "run_id": "2026-02-03_14-19-01-927969",
+      "timestamp": "2026-02-03T14:19:01.927969",
+      "duration": 0.064571,
+      "status": "completed",
+      "output_dir": "axis3_beliefs_baseline/run_2026-02-03_14-19-01-927969",
+      "config_hash": "d06e204e"
+    },
+    {
+      "name": "axis3_beliefs_baseline",
+      "run_id": "2026-02-03_14-19-44-053583",
+      "timestamp": "2026-02-03T14:19:44.053583",
+      "duration": 228.982205,
+      "status": "completed",
+      "output_dir": "axis3_beliefs_baseline/run_2026-02-03_14-19-44-053583",
+      "config_hash": "d06e204e"
+    }
+  ]
+}

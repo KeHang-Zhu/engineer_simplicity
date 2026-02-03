@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            35,
+            23,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            3.0,
+            0
+        ],
+        "common": 21,
+        "plan": [
+            "With a private value of $35, I want to maximize my potential profit. Since this is a single round with no prior history, I'll use a strategic bid that reflects my high value. The optimal strategy is to bid just above the expected midpoint of potential bids. With values between $0-$20, I'll bid $20, which signals confidence and has a good chance of winning while leaving room for profit if I win at a lower second-bid price.",
+            "My private value is $23, which is higher than the typical $0-$20 range. Since the optimal strategy is to bid close to my true value while leaving room for profit, I'll bid strategically. With multiple rational bidders, I want to bid high enough to likely win, but not so high that I lose money. I'll aim to bid slightly below my true value to maximize potential profit margin.",
+            "My private value is $21, which is actually above the maximum possible initial draw of $20. This suggests a strategic opportunity. Since the goal is long-term profit maximization, I want to bid strategically. I'll bid slightly above the maximum possible initial value to increase my chances of winning while minimizing overpayment. A bid of $19.9 seems optimal - high enough to likely win, but not risking significant loss."
+        ]
+    }
+}

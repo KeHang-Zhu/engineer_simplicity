@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 30.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 22.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.0
+            }
+        },
+        "profit": [
+            9.0,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "Given my private value of $31, I should bid just below this value to maximize potential profit while still having a high chance of winning. Since the values are drawn independently each round and there's no history to consider, I will set my bid slightly lower than my value to ensure I don't overpay if I win. A bid of $30.5 balances the risk of losing with the opportunity of maximizing profit if other bids are lower.",
+            "Given my private value of $24, I aim to bid just below this to maximize potential profit while maintaining a competitive edge. Since this is the only round and there's no history to consider, I will bid $22. This allows room for profit if I win, assuming the second-highest bid is lower. The bid is high enough to potentially outbid others who may undervalue or be conservative, while still ensuring profit if the winning price is below my value.",
+            "Given my private value of $24, I aim to maximize profit by balancing a competitive bid with the risk of overpaying. I will bid slightly below my value to ensure potential profit if I win, while avoiding a loss. I anticipate others may also bid close to their values, so I will bid $22 to stay competitive yet profitable."
+        ]
+    }
+}

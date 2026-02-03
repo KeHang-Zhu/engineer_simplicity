@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 35.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            0,
+            16.5,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "My private value is $28, which is significantly higher than the typical $0-$20 range mentioned. This suggests I should bid strategically. Since I want to maximize profit and the winner pays the second-highest bid, I'll bid just above what I expect other rational bidders might bid. Given the high personal value, I'll bid near the upper range but not my full value to ensure profit margin.",
+            "My private value is $37, which is significantly higher than the standard $0-$20 range mentioned in the game rules. This suggests a strategic opportunity. Since I want to maximize profit, I'll bid close to but not exceeding my true value. The optimal strategy is to bid just enough to win while minimizing the amount I'll pay. I'll bid slightly above the expected maximum competitive bid.",
+            "My private value is $42, which is significantly higher than the typical $0-$20 range. However, I know I don't want to bid my full value. The optimal strategy is to bid just enough to win while minimizing my payment. Since other bidders likely have lower values, I'll bid strategically around the upper range, targeting a winning bid that minimizes my payment."
+        ]
+    }
+}

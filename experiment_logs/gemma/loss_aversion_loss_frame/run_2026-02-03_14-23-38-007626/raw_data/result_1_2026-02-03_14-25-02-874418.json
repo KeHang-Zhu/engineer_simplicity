@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            8,
+            21,
+            8
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 4.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 4.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 4.5
+            }
+        },
+        "profit": [
+            0,
+            16.5,
+            0
+        ],
+        "common": 4,
+        "plan": [
+            "My value is $8. Since this is the only round, I need to be cautious. Bidding too high risks losing money, while bidding too low risks losing the item. Given the endowment of $20, I want to avoid overspending. I'll bid slightly above the midpoint of my value and zero, aiming for around $4.50. This increases my chance of winning without being overly aggressive.",
+            "My value is $21. Since this is the only round, I want to maximize my potential profit. Given the endowment of $20, I can bid up to $20. I will bid slightly above what I expect the other bidders to offer. Assuming they behave rationally, they will likely bid based on a fraction of their value. I'll bid aggressively, hoping to win without overpaying. A bid of $19.5 should be sufficient to win against likely conservative bids.",
+            "My value is $8. Given this is the only round, I want to be aggressive enough to win if the prize is worth more to others, but not so aggressive that I overpay significantly. I'll bid slightly above the midpoint of my value and $0, aiming for around $4.50. This balances the risk of losing with the potential for a good profit if others undervalue the item. I\u2019m assuming Andy and Betty will bid randomly."
+        ]
+    }
+}

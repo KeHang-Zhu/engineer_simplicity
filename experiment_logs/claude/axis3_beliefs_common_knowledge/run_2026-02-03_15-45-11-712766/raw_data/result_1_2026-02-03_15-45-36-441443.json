@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            31,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 30.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            11.5,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $20, I want to maximize potential profit. In a single-round auction with rational bidders, the dominant strategy is a bid close to, but slightly below my true value. Since all values are equally likely and bidders are rational, I'll bid strategically near my value to maximize potential profit, accounting for second-price auction dynamics.",
+            "In a single-round auction with rational bidders, the dominant strategy is to bid strategically based on my private value. Since values are independently drawn and this is a one-shot game, I should bid just below my true value to maximize potential profit. With a value of $31, I'll bid close to but slightly under that to capture potential surplus if other bidders bid lower. A bid around $30.9 seems optimal to maximize my chances of winning while minimizing overpayment.",
+            "In a single-round auction with rational bidders, the Nash equilibrium is to bid slightly below one's true value. Since my value is $12, I want to maximize expected profit. The optimal strategy is to bid around $11.9 - $12, which leaves a small margin for potential profit if I win, while avoiding overbidding. This accounts for the second-price auction mechanism where I'll pay the second-highest bid."
+        ]
+    }
+}

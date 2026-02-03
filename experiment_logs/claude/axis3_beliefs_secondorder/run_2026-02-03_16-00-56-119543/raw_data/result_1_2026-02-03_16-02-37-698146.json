@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            22,
+            23,
+            17
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            0,
+            3.3000000000000007,
+            0
+        ],
+        "common": 13,
+        "plan": [
+            "My private value is $22, but the maximum possible value in the game is $20. This means I cannot simply bid my true value. Strategic bidding requires anticipating other bidders' behaviors. Since this is a single round with no history, I'll aim to bid strategically near the maximum possible prize value to maximize potential profit. A bid close to, but slightly under $20 seems optimal.",
+            "With a private value of $23, I want to maximize potential profit. Since this is a second-price sealed bid auction, I should bid strategically. My optimal strategy is to bid slightly below my true value to protect against overpaying. Other rational bidders will likely do the same. I'll bid close to, but not exactly at, my value to create strategic uncertainty. A bid around $22.5 seems optimal - high enough to likely win, but not risking paying more than my true value.",
+            "With a private value of $17, I want to maximize potential profit. Since this is a single round, I'll use a strategic bid slightly below my true value. Other rational bidders will likely bid strategically as well. I'll aim to bid around $14-$15 - high enough to have a good chance of winning, but low enough to potentially generate a profit if I win. This allows some buffer below my true value of $17."
+        ]
+    }
+}

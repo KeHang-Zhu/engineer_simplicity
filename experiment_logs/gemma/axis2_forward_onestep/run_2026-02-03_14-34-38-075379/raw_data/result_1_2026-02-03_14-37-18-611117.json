@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            39,
+            41,
+            25
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 24.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.5
+            }
+        },
+        "profit": [
+            18.5,
+            0,
+            0
+        ],
+        "common": 23,
+        "plan": [
+            "Since this is the only round, I need to maximize my potential profit. My value is $39. I will bid slightly above what I expect the others to bid, aiming to win at a reasonable price. Given the range of possible values (0-20), I believe a bid around $20-$25 should be sufficient to win without overpaying. I'll choose $24.5 as a slightly aggressive, but still reasonable bid.",
+            "Since this is a single-round game, and my value is $41, I want to bid high enough to win against likely opponents, but not so high that I overpay. Knowing the other bidders are Andy and Charles, and without any previous rounds to learn from, I'll assume they'll bid somewhat rationally. I'll bid slightly above what I estimate their average value might be, aiming for a win with a reasonable profit margin. A bid of $20.5 should be sufficient to win without overpaying.",
+            "Since this is the only round, and my value is $25, I need to bid high enough to win against potentially conservative bidders, but not so high that I overpay if I do win. Given the possible values range from $0 to $20, a bid slightly above that maximum possible value for others seems reasonable. I'll bid $20.1 to maximize my chance of winning while minimizing potential overpayment."
+        ]
+    }
+}

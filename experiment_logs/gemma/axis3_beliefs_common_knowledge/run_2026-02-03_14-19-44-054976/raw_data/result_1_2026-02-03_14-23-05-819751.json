@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            28,
+            37,
+            42
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 37.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 0.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            17.0,
+            0
+        ],
+        "common": 26,
+        "plan": [
+            "Given the common knowledge of rationality and the auction rules (winning bid pays the second highest), the optimal strategy converges towards bidding your true value. However, since values are capped at $20, and mine is $28, I must bid the maximum allowable, $20. This ensures I win if any other bidder\u2019s value is less than $20. Even if another bidder has a value of $20, I have a 50% chance of winning.",
+            "Given the common knowledge of rationality, the optimal bidding strategy converges to bidding your true value. This is because any bid below your value risks losing the item when it's worth more to you, while any bid above your value risks overpaying. Since my value is $37, I will bid exactly that amount.",
+            "Given the common knowledge of rationality and a single round, the optimal strategy is to bid slightly above the minimum increment. This is because any bid above zero has a chance of winning, and the payment is the *second* highest bid. Since values are between $0 and $20, and my value is $42, I want to win if possible, but minimize the payment. Bidding $0.1 ensures I win if others bid less, and the payment will be close to zero."
+        ]
+    }
+}

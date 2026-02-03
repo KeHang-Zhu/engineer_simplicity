@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            40,
+            42,
+            28
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 27.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 27.9
+            }
+        },
+        "profit": [
+            0,
+            14.100000000000001,
+            0
+        ],
+        "common": 25,
+        "plan": [
+            "My value for the item is $40, which is above the maximum possible value of $20. To maximize profit, I should bid slightly above the average expected value to outbid others without overpaying. Since values are uniformly distributed, the average is $10. I will bid $15, balancing winning chances and cost. This ensures a good chance of winning while keeping the price below my value, maximizing profit.",
+            "[Given my private value is $42, I aim to bid slightly below this to maximize profit while ensuring a win. In an ascending clock auction, I should bid close to my value to avoid overpaying. A bid of $40 maximizes my chance to win without risking paying too much. This strategy balances winning probability with profit potential, assuming others bid close to their values.]",
+            "To maximize profit, I should bid slightly below my value to ensure a win while paying less. My value is $28, so I will bid $27.9 to outlast competitors, expecting their values are likely lower. This strategy maximizes my profit margin if I win, considering the auction rules."
+        ]
+    }
+}

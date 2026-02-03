@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            13,
+            11,
+            12
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 14.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 11.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 12.5
+            }
+        },
+        "profit": [
+            0.5,
+            0,
+            0
+        ],
+        "common": 9,
+        "plan": [
+            "With a private value of $13, my goal is to maximize potential profit. Since this is a single round, I'll use a strategic bid that balances winning probability with profit margin. I'll bid slightly above my value to increase winning chances, but not so high that I risk significant loss. A bid around $14-$15 seems optimal - high enough to likely win, but leaving room for potential profit if my value is accurate.",
+            "With a private value of $11, my goal is to maximize profit. Since this is a single round, I'll use a strategic bid that balances winning probability with potential profit. I'll bid slightly above my value to increase win chances, but not so high that I risk losing money. A bid around $12-$13 seems optimal - high enough to potentially win, but not overcommitting relative to my true value. The key is to bid just enough to have a good chance of winning without overpaying.",
+            "With a private value of $12, my goal is to win the auction without overpaying. Since this is a first-price sealed bid auction with second-price payment, I'll bid strategically below my true value. I want to win if possible, but not pay more than the item's worth. Given the $20 endowment and $12 value, I'll bid $11 - this gives me a buffer to potentially win while minimizing overpayment risk."
+        ]
+    }
+}

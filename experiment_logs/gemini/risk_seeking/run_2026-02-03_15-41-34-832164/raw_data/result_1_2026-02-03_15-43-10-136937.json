@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            4,
+            20,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 4.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 16.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 16.5
+            }
+        },
+        "profit": [
+            0,
+            3.5,
+            0
+        ],
+        "common": 0,
+        "plan": [
+            "My value is $4. Since I am risk-seeking, I will bid slightly above my value to try and win the auction. I will bid $4.1. This gives me a chance to win if the other bidders have values less than $4. If I win, my profit will be small, but if I lose, I don't lose anything.",
+            "Since this is the first round, I have no history to learn from. My value is $20, which is the highest possible value. Given my risk-seeking preference, I will bid aggressively to try and secure the win. I will bid slightly above what a rational player might bid, hoping to outsmart the other bidders. I will bid $19.50, which is close to my value, but leaves some room for profit if I win.",
+            "[Since this is the first round, I have no history to learn from. My value is $16. I will bid aggressively, aiming to secure the win and maximize potential profit. Given my risk-seeking nature, I will bid slightly above my value to increase my chances of winning, even if it means a smaller profit margin. I will bid $16.5. This should secure the win.]"
+        ]
+    }
+}

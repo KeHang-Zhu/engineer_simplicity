@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            18,
+            16,
+            14
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 10.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 10.1
+            }
+        },
+        "profit": [
+            0,
+            0,
+            3.9000000000000004
+        ],
+        "common": 11,
+        "plan": [
+            "My value is $18. To maximize profit, I need to win when my value exceeds the second-highest bid. I'll bid slightly above what I estimate the others will bid, but not too high to avoid overpaying. Given it's round 1 and there's no history, I'll assume a conservative average bid of $10. Bidding $10.1 ensures I win against that, and my profit is $18 - $10 = $8. I\u2019ll adjust if I had past rounds to analyze.",
+            "My value is $16. I need to bid high enough to win against likely competition, but not so high that I overpay. Since this is round 1, there's no history to learn from. I'll assume the other bidders will bid somewhat rationally. To guarantee a non-negative outcome, my bid must be at least $8 (16 - 8 = 8). I'll bid slightly above that, aiming to win without excessive payment. A bid of $10 seems reasonable.",
+            "Given this is round 1 of 1 and my value is $14, I need to bid strategically to maximize profit. I'll consider the worst-case scenario: bidding too high and overpaying, or bidding too low and losing. Since it's a single round, I'll aim for a bid slightly above what I expect the others to bid, but still below my value. I'll bid $10.50. This allows for a reasonable profit margin if I win, and avoids overpaying significantly."
+        ]
+    }
+}

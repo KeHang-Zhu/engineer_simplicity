@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            19,
+            24,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 23.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 21.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 21.0
+            }
+        },
+        "profit": [
+            0,
+            3.0,
+            0
+        ],
+        "common": 16,
+        "plan": [
+            "[I will bid my true value minus a small increment. This allows me to win if the other bids are slightly lower. If the other bids are much lower, I don't want to win. If the other bids are higher, I will lose, which is fine. I will bid 18.9.]",
+            "[My value is $24, which is outside the typical range of [0, 20]. This suggests there might be an error, or the distribution has changed. Since I want to maximize profit, I should bid strategically to win when the price is lower than my value. In the ascending clock auction, I will exit when the clock reaches my sealed bid. I should bid slightly below my value to ensure I win when the second-highest bid is below my value, but not so low that I give away profit unnecessarily. I will bid $23.9 to try to win at a good price.]",
+            "I will bid my true value. If I bid lower than my value, I risk losing out on potential profit if another bidder bids higher than my bid but lower than my value. If I bid higher than my value, I risk winning at a price that results in a loss. Therefore, bidding my true value maximizes my expected profit."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 47.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 40.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 32.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 40.0
+            }
+        },
+        "profit": [
+            7.0,
+            0,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "My private value is $47, which is significantly higher than the typical $0-$20 range mentioned in the game rules. This suggests I should bid strategically to maximize potential profit. Since I want to win but pay as little as possible, I'll bid close to but slightly above my competitors' likely maximum willingness to pay. I'll aim to bid around $45-$48 to ensure winning while minimizing my payment.",
+            "With a private value of $41, I want to maximize my potential profit. Since values are drawn independently and randomly, I'll aim to bid strategically. My optimal strategy is to bid slightly below my true value to minimize potential overpayment. Given the $0-$20 typical range for other bidders, I'll bid $40, which is close to my true value but leaves a small buffer for potential profit if I win at a lower price.",
+            "My private value is $34, which is significantly higher than the typical $0-$20 range. This suggests I should bid strategically to maximize profit. Since the second-highest bid determines my payment if I win, I want to bid just above what I expect others might bid. Given the high value, I'll bid near but not exactly at my true value to create a buffer for potential profit."
+        ]
+    }
+}

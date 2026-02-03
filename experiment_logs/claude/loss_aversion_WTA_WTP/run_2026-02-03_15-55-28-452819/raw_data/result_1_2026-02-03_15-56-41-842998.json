@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            24,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            4.100000000000001,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "With a private value of $20, I want to maximize my potential profit. Since this is a first-price sealed bid auction where I pay the second-highest bid, I'll aim to bid strategically. My optimal strategy is to bid close to, but slightly below my full value. By bidding $19.9, I maximize my chances of winning while preserving most of my potential profit margin. This leaves me a small buffer and reduces the risk of overpaying.",
+            "My private value is $24, which is higher than the typical $0-$20 range. This suggests I should bid strategically to maximize potential profit. Since the winner pays the second-highest bid, I want to bid high enough to win, but not so high that I lose money. A bid around $20 seems optimal - it's near the typical range's upper limit and gives me a good chance of winning while minimizing overpayment risk.",
+            "My private value is $18, which means this item is worth $18 to me. My optimal strategy is to bid strategically to maximize potential profit. Since values are drawn independently and randomly, I'll bid close to but slightly below my true value. This protects against overpaying while still having a good chance of winning. I'll bid $17.5, which leaves me a small profit margin if I win and prevents significant loss if I don't. This balanced approach accounts for potential competing bids."
+        ]
+    }
+}

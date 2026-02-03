@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            32,
+            22,
+            16
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 27.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 14.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 19.7
+            }
+        },
+        "profit": [
+            12.3,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $32, which is significantly higher than the typical $0-$20 range. This suggests I have a strong incentive to win. However, I want to minimize my payment. Strategic approach: Bid close to, but slightly under my true value. Since other bidders likely have lower values, I'll bid high enough to win, but not so high that I eliminate my potential profit margin. I'll aim to bid around $25-$28 to maximize my potential gain.",
+            "Since this is a single round with no prior history, I'll use a strategic approach. My private value is $22, which is higher than the typical $0-$20 range. I want to maximize potential profit by bidding strategically. I'll bid slightly below my true value to ensure I win while minimizing my payment. A bid around $19-$20 should secure the prize while leaving room for potential profit.",
+            "Since this is a single round with no prior history, I'll use a strategic approach. My private value is $16, which means I want to maximize my potential gain. In a first-price sealed bid auction, I want to bid strategically below my full value. I'll aim to bid around $14-$15, which gives me potential profit if I win while not overbidding. This allows room to gain if the second-highest bid is lower, but doesn't risk losing money by bidding too aggressively."
+        ]
+    }
+}

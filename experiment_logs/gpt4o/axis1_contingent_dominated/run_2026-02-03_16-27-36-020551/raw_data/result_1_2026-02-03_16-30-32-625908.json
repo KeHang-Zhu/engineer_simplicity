@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            26,
+            28,
+            21
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.9
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 27.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 25.9
+            }
+        },
+        "profit": [
+            0,
+            2.1000000000000014,
+            0
+        ],
+        "common": 20,
+        "plan": [
+            "Since my value for the item is $26, I should bid close to it to maximize potential profit. Bidding my exact value or slightly below ensures I win if others undervalue it, while minimizing loss if I overestimate their bids. Dominated bids are those above $26, as they guarantee a loss if I win. I'll bid $25.9 to avoid ties and potentially win if others bid slightly lower.",
+            "Since my private value for the item is $28, I should aim to bid close to this value to maximize potential profit. However, bidding exactly $28 could result in zero profit if I win and pay the second-highest bid of $28. To avoid dominated strategies, I should bid slightly less, around $27.9, to ensure a profit margin if I win. This bid is high enough to outbid potential competitors without exceeding my value.",
+            "Given my value of $21, which exceeds the maximum potential value of $20, I can safely outbid any competitor without risking a loss. To maximize profit, I should bid just above the expected maximum bid, around $20. This ensures I win while minimizing payment. Since this is the only round, I need to secure the win. A bid of $20.1 should be optimal, as it is slightly above the maximum possible value for others, ensuring victory while minimizing cost."
+        ]
+    }
+}

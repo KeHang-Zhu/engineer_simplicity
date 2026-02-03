@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            24,
+            18
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 15.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 17.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 17.5
+            }
+        },
+        "profit": [
+            0,
+            6.5,
+            0
+        ],
+        "common": 12,
+        "plan": [
+            "My value is $20. Since this is a single round, I want to maximize my expected profit. Given my high value, I should bid aggressively. I will bid slightly above what I estimate the others might bid, but not my full value to leave room for profit. I'll assume others bid randomly between $0 and $20, so a reasonable bid is around $15.",
+            "My value is $24. Since this is a single round, I want to bid aggressively to maximize potential profit. Given the possible values range from $0 to $20, and my value is higher, I should win most of the time if I bid appropriately. I will bid slightly above the maximum possible value of other bidders to increase my chance of winning. I will bid $20.1 to ensure I win against any possible bid of $20.",
+            "Since this is a single round, I need to maximize my expected profit. My value is $18. I'm risk-neutral, so I should bid aggressively. A good starting point is to bid slightly above the midpoint of possible values, but adjusted for the fact I pay the *second* highest bid. Given my value, bidding $17.50 seems reasonable. This aims to win against bids below $17.50, and potentially win against bids slightly above, while minimizing the payment."
+        ]
+    }
+}

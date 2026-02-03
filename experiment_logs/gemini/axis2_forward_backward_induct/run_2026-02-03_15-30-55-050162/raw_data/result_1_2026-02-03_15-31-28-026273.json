@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            33,
+            20,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0.0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "[My value is $33, which is outside the typical range of $0-$20. This suggests a possible error or a different distribution. Assuming the other bidders' values are still between $0 and $20, I should bid aggressively. I will bid $20, the maximum possible value for the other bidders. This guarantees I win and pay at most $20, yielding a profit of $33 - $20 = $13.]",
+            "[My value is $20. I want to maximize my profit. In Stage 2, I want to stay in as long as the clock price is below my value. Therefore, I should bid my true value in Stage 1. This will ensure that I stay in the auction until the clock reaches my value. If another bidder has a higher value, they will win, and I will not lose money. If I win, I will win at a price less than or equal to my value, guaranteeing a non-negative profit. Since this is the first round, there is no history to consider.]",
+            "[My value is $19. The optimal strategy is to bid slightly below my value in the sealed bid stage. This will ensure that I stay in the ascending clock auction until the price reaches just below my true value. I will bid $18.9, which is slightly below my value, to try to win the auction at a price that yields a profit. This strategy accounts for the possibility of other bidders having values close to mine.]"
+        ]
+    }
+}

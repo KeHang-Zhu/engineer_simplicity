@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            18,
+            39
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 18.4
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 12.6
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 37.0
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 18.4
+            }
+        },
+        "profit": [
+            0,
+            0,
+            20.6
+        ],
+        "common": 0,
+        "plan": [
+            "I will use a bidding strategy that aims to maximize profit while considering the likely behavior of the other bidders. Since this is the first round and I have no prior information about the other bidders' strategies, I will assume they are rational and will bid close to their value, but slightly lower to ensure a profit. I will bid a fraction of my value, say 80%, to try and secure the prize without overpaying significantly.",
+            "I will bid a fraction of my value. A common strategy is to bid around 0.7 to 0.8 of the value. Given this is the first round and there is no history to learn from, I will start with a conservative approach. I will bid 70% of my value, which is $18.00. 0.7 * 18 = 12.6.",
+            "I will bid slightly below my value to try and secure a profit if I win. I will bid $37. This is a reasonable starting point, and I can adjust in future rounds based on the other bidders' behavior. I want to win if the other bidders bid low, but I don't want to overpay."
+        ]
+    }
+}

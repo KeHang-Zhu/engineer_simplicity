@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            23,
+            17,
+            19
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 16.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 18.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 18.1
+            }
+        },
+        "profit": [
+            4.899999999999999,
+            0,
+            0
+        ],
+        "common": 3,
+        "plan": [
+            "My value is $23. Since this is the only round, I should bid aggressively to try and win. However, I need to consider the other bidders. A bid too close to my value risks overpaying. Given the possible values (0-20 for others), a bid slightly above the maximum possible value for others, but below my own, seems prudent. I will bid $20.1 to maximize my chance of winning without overpaying significantly.",
+            "Since this is a single round, I need to balance winning with not overpaying. My value is $17. I'll bid slightly above what I estimate the others might bid, aiming to win against likely conservative bids. Given it's round 1 and no history exists, I'll assume a relatively low average bid from the others. A bid of $16.50 should secure a win without excessive payment.",
+            "Given my value is $19, I need to bid high enough to win against likely competition, but not so high that I overpay. Since this is round 1 and there's no history, I'll assume the other bidders will bid somewhat conservatively. I will bid slightly above what I estimate the second highest bid might be, aiming to win with a small payment. I will bid $18.1 to increase my chances of winning without overpaying."
+        ]
+    }
+}

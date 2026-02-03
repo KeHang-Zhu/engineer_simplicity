@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.1
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            0,
+            2.0
+        ],
+        "common": 15,
+        "plan": [
+            "With a private value of $30, I should bid close to my value to maximize profit while ensuring a win. The other bidders, being rational, will likely bid close to their values but slightly lower to ensure profit. I will bid $20 to outbid them but still ensure a profit margin, assuming their bids are less than $20. This approach balances winning probability and profit maximization.",
+            "Given my value of $25, I should bid just below this to maximize profit if I win. The other bidders, Andy and Charles, are rational and know my strategy. A bid around $20 should suffice, balancing the risk of overpaying and the chance of winning, assuming they bid slightly below their values. This bid maximizes profit if I win, as I pay only the second-highest bid.",
+            "My value for the prize is $22, which is higher than the maximum possible value of $20. To maximize profit, I should bid slightly above $20 to outbid rational opponents who value it at $20. A bid of $20.1 ensures I win unless they bid irrationally high. This bid minimizes my cost while maximizing my profit, assuming they bid their value or slightly below."
+        ]
+    }
+}

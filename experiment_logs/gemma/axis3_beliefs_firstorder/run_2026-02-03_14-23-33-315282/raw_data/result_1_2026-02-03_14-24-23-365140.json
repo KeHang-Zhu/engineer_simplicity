@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 19.1
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.5
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Charles",
+                "price": 19.5
+            }
+        },
+        "profit": [
+            0,
+            0,
+            14.5
+        ],
+        "common": 28,
+        "plan": [
+            "My value is $47. Since this is a single-round auction, I want to bid aggressively to win if my value is significantly higher than what I expect others to bid. Given the range of possible values (0-20), a reasonable expectation is that other bidders will bid around half their value. To ensure I win, I'll bid slightly above what I think the highest likely opposing bid will be, accounting for potential overbidding. I'll bid $19.1 to maximize my chance of winning and profit.",
+            "My value is $41. Since this is a single-round auction, and I want to maximize profit, I need to bid aggressively but not overpay. The other bidders are rational, so they will also bid based on their values. I'll assume their values are randomly distributed between $0 and $20. To ensure a good chance of winning without excessive payment, I will bid slightly above the expected maximum of the other bidders, but still leaving room for a second-highest bid.",
+            "My value is $34, significantly higher than the possible maximum value of $20 for other bidders. The goal is to win at the lowest possible price. I expect Andy and Betty to bid aggressively, potentially close to their values. However, given the single round, a slightly conservative approach is prudent. I will bid slightly above the maximum possible value to ensure a win, but avoid overpaying."
+        ]
+    }
+}

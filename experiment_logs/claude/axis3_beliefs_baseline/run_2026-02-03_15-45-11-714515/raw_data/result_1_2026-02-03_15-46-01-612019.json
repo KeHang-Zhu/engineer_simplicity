@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            30,
+            25,
+            22
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 22.5
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 19.7
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 20.3
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 20.3
+            }
+        },
+        "profit": [
+            9.7,
+            0,
+            0
+        ],
+        "common": 15,
+        "plan": [
+            "My private value is $30, which is significantly higher than the typical $0-$20 range. Since I want to maximize profit, I'll bid strategically. With a high private value, I want to win but pay as little as possible. Given the second-price auction rules, I'll bid close to but not exactly at my true value. A bid around $20-$25 should give me a good chance of winning while minimizing my payment.",
+            "With a private value of $25, I want to win the auction but minimize my payment. Since this is a single round with no prior history, I'll bid strategically near my value. A bid slightly below my value maximizes potential profit. Rational opponents will also bid near their values. I'll aim to bid around $20, which gives me a buffer for potential profit while still being competitive.",
+            "My private value is $22, but the game's rules mean I should bid strategically. Since values are drawn between $0-$20, my value is unusually high. To maximize profit, I'll bid just above the likely maximum range - around $20.25. This ensures I'm likely to win without overpaying dramatically. The goal is capturing the surplus between my true value ($22) and the winning price."
+        ]
+    }
+}

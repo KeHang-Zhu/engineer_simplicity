@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            31,
+            24,
+            24
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 25.7
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 21.5
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 22.7
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Andy",
+                "price": 22.7
+            }
+        },
+        "profit": [
+            8.3,
+            0,
+            0
+        ],
+        "common": 17,
+        "plan": [
+            "With a private value of $31, my goal is to maximize potential profit. Since the prize can be worth up to $20, I want to bid strategically. I'll bid close to my true value but not exactly at it, to leave room for potential profit. A bid around $25-$26 seems optimal - high enough to likely win, but not so high that I risk losing money if the second-highest bid is close to my bid.",
+            "With a private value of $24, my optimal strategy is to bid strategically. Since values are independently drawn, I'll aim to bid near my true value but not exactly at it. A bid around $20-$22 allows potential profit if other bidders bid lower. The goal is maximizing expected gains by balancing winning probability with potential profit margin. I'll choose a bid that gives me a good chance of winning while preserving potential earnings.",
+            "With a private value of $24, my goal is to maximize potential profit. Since this is a single round with no prior history, I'll use a strategic bidding approach. The optimal strategy is to bid close to, but not exceeding, my true value. I'll bid slightly below my value to ensure potential profit margin. A bid around $22-23 allows room for potential gains while minimizing risk of overpaying. The second-price auction mechanism rewards strategic, slightly conservative bidding."
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            47,
+            41,
+            34
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 10.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 19.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 19.9
+            }
+        },
+        "profit": [
+            0,
+            21.1,
+            0
+        ],
+        "common": 28,
+        "plan": [
+            "My private value of $47 seems incorrect given the game's rules. Assuming it should be between $0 and $20, I'll bid close to my value to maximize profit potential. A bid slightly above half of $20, around $10, balances winning chances and cost control. This strategy maximizes long-term profit by considering typical opponent bids.",
+            "Given my private value of $41, which is significantly higher than the maximum possible value of $20, I can safely bid $20 to ensure I win the auction. This bid maximizes my profit by securing the prize while only paying the second-highest bid. Since the other bidders cannot value the prize above $20, I will win unless they overbid irrationally.",
+            "My value of $34 seems to be a mistake as values should be between $0 and $20. Assuming a typo, I'll treat it as $20. To maximize profit, bid slightly below $20 to outbid others without overpaying. A bid of $19.9 ensures winning if others bid close to their max of $20, maximizing profit by minimizing payment."
+        ]
+    }
+}

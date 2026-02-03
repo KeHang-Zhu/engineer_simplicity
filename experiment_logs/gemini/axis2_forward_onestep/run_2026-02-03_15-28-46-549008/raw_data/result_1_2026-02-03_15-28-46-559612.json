@@ -1,0 +1,41 @@
+{
+    "round_0": {
+        "round": 0,
+        "value": [
+            20,
+            23,
+            11
+        ],
+        "history": {
+            "bidding history": [
+                {
+                    "agent": "Bidder Andy",
+                    "bid": 20.0
+                },
+                {
+                    "agent": "Bidder Betty",
+                    "bid": 22.9
+                },
+                {
+                    "agent": "Bidder Charles",
+                    "bid": 10.9
+                }
+            ],
+            "winner": {
+                "winner": "Bidder Betty",
+                "price": 20.0
+            }
+        },
+        "profit": [
+            0,
+            3.0,
+            0
+        ],
+        "common": 11,
+        "plan": [
+            "I have the highest possible value, $20. Since my goal is to maximize profit, I should bid my true value. This ensures I win whenever my value is higher than the other bidders' values, and I only pay the second-highest bid. Bidding lower would risk losing out on a profitable opportunity.",
+            "Since this is the first round and I have a value of $23, I should bid slightly below my value to ensure a profit if I win. I will bid $22.9. This allows me to win if my opponents bid lower, while still guaranteeing a positive profit margin. I will not bid my exact value, as that could lead to zero profit.",
+            "I will bid slightly below my value. Given that this is the first round, I have no information about the other bidders' strategies. Bidding my exact value could lead to a tie and random loss. Bidding slightly below ensures a win if I am the highest bidder without significantly reducing my potential profit. I will bid $10.9."
+        ]
+    }
+}
