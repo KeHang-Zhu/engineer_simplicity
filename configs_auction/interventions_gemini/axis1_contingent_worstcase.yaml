@@ -40,4 +40,4 @@ execution:
   repetitions: 50
   parallel: true
   max_workers: 4
-  output_dir: "experiment_logs/V12/axis1_contingent_worstcase"
+  output_dir: "experiment_logs/gemini/axis1_contingent_worstcase"

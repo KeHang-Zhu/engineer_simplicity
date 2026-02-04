@@ -149,7 +149,9 @@ class ExperimentOrchestrator:
             include_payment_example=include_payment_example,
             payment_example_key=payment_example_key,
             payment_examples_path=payment_examples_path,
-            templates_dir=rule_template_dir
+            templates_dir=rule_template_dir,
+            use_survey=auction_config.get('use_survey', False),
+            survey_price_points=auction_config.get('survey_price_points', 15)
         )
 
         return rule

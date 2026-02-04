@@ -2,12 +2,12 @@
   "experiments": [
     {
       "name": "axis3_beliefs_firstorder",
-      "run_id": "2026-02-03_16-15-41-042592",
-      "timestamp": "2026-02-03T16:15:41.042592",
-      "duration": 367.420394,
+      "run_id": "2026-02-03_22-34-42-581984",
+      "timestamp": "2026-02-03T22:34:42.581984",
+      "duration": 151.700288,
       "status": "completed",
-      "output_dir": "axis3_beliefs_firstorder/run_2026-02-03_16-15-41-042592",
-      "config_hash": "c5745215"
+      "output_dir": "axis3_beliefs_firstorder/run_2026-02-03_22-34-42-581984",
+      "config_hash": "309b3aaf"
     }
   ]
 }

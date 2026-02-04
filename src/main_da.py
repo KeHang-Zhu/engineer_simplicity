@@ -74,6 +74,10 @@ if __name__ == "__main__":
     common_range = [40, 70]
     private_range = 20
 
+    # Global ranking strategy (social information)
+    # Options: "average", "fixed", "random", "misleading"
+    global_ranking_strategy = "average"  # Default: based on average values
+
     # LLM parameters
     model = "gpt-4o"
     temperature = 0.5
@@ -89,9 +93,11 @@ if __name__ == "__main__":
         special_name=special_name,
         templates_dir="rule_template/DA/",
         common_range=common_range,
-        private_range=private_range
+        private_range=private_range,
+        global_ranking_strategy=global_ranking_strategy  # Add strategy
     )
     rule.describe()
+    print(f"\nGlobal ranking strategy: {global_ranking_strategy}")
 
     # Number of experiment repetitions
     N = 5

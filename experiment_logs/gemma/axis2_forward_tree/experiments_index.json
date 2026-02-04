@@ -2,39 +2,12 @@
   "experiments": [
     {
       "name": "axis2_forward_tree",
-      "run_id": "2026-02-03_14-14-44-211657",
-      "timestamp": "2026-02-03T14:14:44.211657",
-      "duration": 0.021321,
+      "run_id": "2026-02-03_22-05-51-992180",
+      "timestamp": "2026-02-03T22:05:51.992180",
+      "duration": 213.003856,
       "status": "completed",
-      "output_dir": "axis2_forward_tree/run_2026-02-03_14-14-44-211657",
-      "config_hash": "693f0c26"
-    },
-    {
-      "name": "axis2_forward_tree",
-      "run_id": "2026-02-03_14-15-54-951035",
-      "timestamp": "2026-02-03T14:15:54.951035",
-      "duration": 0.023015,
-      "status": "completed",
-      "output_dir": "axis2_forward_tree/run_2026-02-03_14-15-54-951035",
-      "config_hash": "693f0c26"
-    },
-    {
-      "name": "axis2_forward_tree",
-      "run_id": "2026-02-03_14-19-01-927787",
-      "timestamp": "2026-02-03T14:19:01.927787",
-      "duration": 0.064618,
-      "status": "completed",
-      "output_dir": "axis2_forward_tree/run_2026-02-03_14-19-01-927787",
-      "config_hash": "79fda075"
-    },
-    {
-      "name": "axis2_forward_tree",
-      "run_id": "2026-02-03_14-19-44-054051",
-      "timestamp": "2026-02-03T14:19:44.054051",
-      "duration": 233.703594,
-      "status": "completed",
-      "output_dir": "axis2_forward_tree/run_2026-02-03_14-19-44-054051",
-      "config_hash": "79fda075"
+      "output_dir": "axis2_forward_tree/run_2026-02-03_22-05-51-992180",
+      "config_hash": "1a42adb5"
     }
   ]
 }

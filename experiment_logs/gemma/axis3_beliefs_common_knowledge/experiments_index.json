@@ -2,39 +2,12 @@
   "experiments": [
     {
       "name": "axis3_beliefs_common_knowledge",
-      "run_id": "2026-02-03_14-14-44-211914",
-      "timestamp": "2026-02-03T14:14:44.211914",
-      "duration": 0.020985,
+      "run_id": "2026-02-03_22-05-52-001958",
+      "timestamp": "2026-02-03T22:05:52.001958",
+      "duration": 335.350143,
       "status": "completed",
-      "output_dir": "axis3_beliefs_common_knowledge/run_2026-02-03_14-14-44-211914",
-      "config_hash": "e18028c8"
-    },
-    {
-      "name": "axis3_beliefs_common_knowledge",
-      "run_id": "2026-02-03_14-15-54-952980",
-      "timestamp": "2026-02-03T14:15:54.952980",
-      "duration": 0.021796,
-      "status": "completed",
-      "output_dir": "axis3_beliefs_common_knowledge/run_2026-02-03_14-15-54-952980",
-      "config_hash": "e18028c8"
-    },
-    {
-      "name": "axis3_beliefs_common_knowledge",
-      "run_id": "2026-02-03_14-19-01-926012",
-      "timestamp": "2026-02-03T14:19:01.926012",
-      "duration": 0.072339,
-      "status": "completed",
-      "output_dir": "axis3_beliefs_common_knowledge/run_2026-02-03_14-19-01-926012",
-      "config_hash": "6a7a4da2"
-    },
-    {
-      "name": "axis3_beliefs_common_knowledge",
-      "run_id": "2026-02-03_14-19-44-054976",
-      "timestamp": "2026-02-03T14:19:44.054976",
-      "duration": 250.267488,
-      "status": "completed",
-      "output_dir": "axis3_beliefs_common_knowledge/run_2026-02-03_14-19-44-054976",
-      "config_hash": "6a7a4da2"
+      "output_dir": "axis3_beliefs_common_knowledge/run_2026-02-03_22-05-52-001958",
+      "config_hash": "e408c148"
     }
   ]
 }

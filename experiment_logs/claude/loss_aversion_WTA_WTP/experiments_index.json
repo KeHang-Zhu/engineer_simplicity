@@ -2,12 +2,12 @@
   "experiments": [
     {
       "name": "loss_aversion_WTA_WTP",
-      "run_id": "2026-02-03_15-55-28-452819",
-      "timestamp": "2026-02-03T15:55:28.452819",
-      "duration": 228.619907,
+      "run_id": "2026-02-03_23-41-18-964489",
+      "timestamp": "2026-02-03T23:41:18.964489",
+      "duration": 156.691609,
       "status": "completed",
-      "output_dir": "loss_aversion_WTA_WTP/run_2026-02-03_15-55-28-452819",
-      "config_hash": "2fec32c4"
+      "output_dir": "loss_aversion_WTA_WTP/run_2026-02-03_23-41-18-964489",
+      "config_hash": "9e0b0ae2"
     }
   ]
 }

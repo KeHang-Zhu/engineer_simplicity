@@ -2,12 +2,12 @@
   "experiments": [
     {
       "name": "loss_aversion_baseline",
-      "run_id": "2026-02-03_15-16-05-184002",
-      "timestamp": "2026-02-03T15:16:05.184002",
-      "duration": 237.915925,
+      "run_id": "2026-02-03_22-57-25-322770",
+      "timestamp": "2026-02-03T22:57:25.322770",
+      "duration": 386.559604,
       "status": "completed",
-      "output_dir": "loss_aversion_baseline/run_2026-02-03_15-16-05-184002",
-      "config_hash": "8ba24ec9"
+      "output_dir": "loss_aversion_baseline/run_2026-02-03_22-57-25-322770",
+      "config_hash": "c048c6c1"
     }
   ]
 }

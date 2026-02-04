@@ -2,39 +2,12 @@
   "experiments": [
     {
       "name": "axis1_contingent_enumerate",
-      "run_id": "2026-02-03_14-14-44-733887",
-      "timestamp": "2026-02-03T14:14:44.733887",
-      "duration": 0.020473,
+      "run_id": "2026-02-03_22-25-21-599646",
+      "timestamp": "2026-02-03T22:25:21.599646",
+      "duration": 190.597729,
       "status": "completed",
-      "output_dir": "axis1_contingent_enumerate/run_2026-02-03_14-14-44-733887",
-      "config_hash": "f9b9152d"
-    },
-    {
-      "name": "axis1_contingent_enumerate",
-      "run_id": "2026-02-03_14-15-55-350269",
-      "timestamp": "2026-02-03T14:15:55.350269",
-      "duration": 0.027951,
-      "status": "completed",
-      "output_dir": "axis1_contingent_enumerate/run_2026-02-03_14-15-55-350269",
-      "config_hash": "f9b9152d"
-    },
-    {
-      "name": "axis1_contingent_enumerate",
-      "run_id": "2026-02-03_14-19-02-348346",
-      "timestamp": "2026-02-03T14:19:02.348346",
-      "duration": 0.024118,
-      "status": "completed",
-      "output_dir": "axis1_contingent_enumerate/run_2026-02-03_14-19-02-348346",
-      "config_hash": "4cc75e2d"
-    },
-    {
-      "name": "axis1_contingent_enumerate",
-      "run_id": "2026-02-03_14-34-24-086627",
-      "timestamp": "2026-02-03T14:34:24.086627",
-      "duration": 224.226506,
-      "status": "completed",
-      "output_dir": "axis1_contingent_enumerate/run_2026-02-03_14-34-24-086627",
-      "config_hash": "4cc75e2d"
+      "output_dir": "axis1_contingent_enumerate/run_2026-02-03_22-25-21-599646",
+      "config_hash": "5baa4820"
     }
   ]
 }

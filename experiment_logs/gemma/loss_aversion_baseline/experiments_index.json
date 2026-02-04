@@ -2,39 +2,12 @@
   "experiments": [
     {
       "name": "loss_aversion_baseline",
-      "run_id": "2026-02-03_14-14-44-376928",
-      "timestamp": "2026-02-03T14:14:44.376928",
-      "duration": 0.017406,
+      "run_id": "2026-02-03_22-11-27-619301",
+      "timestamp": "2026-02-03T22:11:27.619301",
+      "duration": 392.941343,
       "status": "completed",
-      "output_dir": "loss_aversion_baseline/run_2026-02-03_14-14-44-376928",
-      "config_hash": "61bde899"
-    },
-    {
-      "name": "loss_aversion_baseline",
-      "run_id": "2026-02-03_14-15-55-063713",
-      "timestamp": "2026-02-03T14:15:55.063713",
-      "duration": 0.021764,
-      "status": "completed",
-      "output_dir": "loss_aversion_baseline/run_2026-02-03_14-15-55-063713",
-      "config_hash": "61bde899"
-    },
-    {
-      "name": "loss_aversion_baseline",
-      "run_id": "2026-02-03_14-19-02-071399",
-      "timestamp": "2026-02-03T14:19:02.071399",
-      "duration": 0.02965,
-      "status": "completed",
-      "output_dir": "loss_aversion_baseline/run_2026-02-03_14-19-02-071399",
-      "config_hash": "9aacf943"
-    },
-    {
-      "name": "loss_aversion_baseline",
-      "run_id": "2026-02-03_14-23-40-279437",
-      "timestamp": "2026-02-03T14:23:40.279437",
-      "duration": 231.704484,
-      "status": "completed",
-      "output_dir": "loss_aversion_baseline/run_2026-02-03_14-23-40-279437",
-      "config_hash": "9aacf943"
+      "output_dir": "loss_aversion_baseline/run_2026-02-03_22-11-27-619301",
+      "config_hash": "89864f49"
     }
   ]
 }

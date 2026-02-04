@@ -12,15 +12,15 @@ auction:
 rule:
   seal_clock: "seal"
   price_order: "second"
-  private_value: "affiliated"
+  private_value: "private"
   open_blind: "open"
   closing: false
   reserve_price: 0
-  special_name: "affiliated_spsb.txt"
+  special_name: "private_second_price.txt"
 
 value:
   common_range: [0, 29]
-  private_range: 20
+  private_range: 49
   increment: 0.1
   seed_base: 1399  # 1399 for affiliated
 
@@ -37,4 +37,4 @@ execution:
   repetitions: 50
   parallel: true
   max_workers: 4
-  output_dir: "experiment_logs/gpt4o/spsb_apv"
+  output_dir: "experiment_logs/gpt4o/spsb"

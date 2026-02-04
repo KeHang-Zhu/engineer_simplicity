@@ -2,12 +2,12 @@
   "experiments": [
     {
       "name": "axis1_contingent_enumerate",
-      "run_id": "2026-02-03_15-27-49-596297",
-      "timestamp": "2026-02-03T15:27:49.596297",
-      "duration": 220.622515,
+      "run_id": "2026-02-03_23-14-29-263560",
+      "timestamp": "2026-02-03T23:14:29.263560",
+      "duration": 253.305196,
       "status": "completed",
-      "output_dir": "axis1_contingent_enumerate/run_2026-02-03_15-27-49-596297",
-      "config_hash": "6cf89368"
+      "output_dir": "axis1_contingent_enumerate/run_2026-02-03_23-14-29-263560",
+      "config_hash": "95d9b933"
     }
   ]
 }

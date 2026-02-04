@@ -2,21 +2,12 @@
   "experiments": [
     {
       "name": "intervention_risk_seeking",
-      "run_id": "2026-02-03_14-47-32-276608",
-      "timestamp": "2026-02-03T14:47:32.276608",
-      "duration": 0.009966,
+      "run_id": "2026-02-03_22-05-51-997617",
+      "timestamp": "2026-02-03T22:05:51.997617",
+      "duration": 214.846821,
       "status": "completed",
-      "output_dir": "intervention_risk_seeking/run_2026-02-03_14-47-32-276608",
-      "config_hash": "264e8526"
-    },
-    {
-      "name": "intervention_risk_seeking",
-      "run_id": "2026-02-03_14-47-50-440870",
-      "timestamp": "2026-02-03T14:47:50.440870",
-      "duration": 178.199736,
-      "status": "completed",
-      "output_dir": "intervention_risk_seeking/run_2026-02-03_14-47-50-440870",
-      "config_hash": "b6e8e53d"
+      "output_dir": "risk_seeking/run_2026-02-03_22-05-51-997617",
+      "config_hash": "03c06aa2"
     }
   ]
 }

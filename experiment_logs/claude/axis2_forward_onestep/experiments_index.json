@@ -2,12 +2,12 @@
   "experiments": [
     {
       "name": "axis2_forward_onestep",
-      "run_id": "2026-02-03_16-00-30-307671",
-      "timestamp": "2026-02-03T16:00:30.307671",
-      "duration": 252.401338,
+      "run_id": "2026-02-03_23-38-47-720541",
+      "timestamp": "2026-02-03T23:38:47.720541",
+      "duration": 150.999081,
       "status": "completed",
-      "output_dir": "axis2_forward_onestep/run_2026-02-03_16-00-30-307671",
-      "config_hash": "2c61e4c8"
+      "output_dir": "axis2_forward_onestep/run_2026-02-03_23-38-47-720541",
+      "config_hash": "0e2a74c8"
     }
   ]
 }

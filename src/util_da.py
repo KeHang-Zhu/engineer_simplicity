@@ -34,7 +34,7 @@ class Rule_DA:
     """
     def __init__(self, mechanism_type, intervention_type="baseline",
                  special_name=None, templates_dir=None, common_range=[40, 70],
-                 private_range=20):
+                 private_range=20, global_ranking_strategy="average"):
         """
         Initialize DA rule.
 
@@ -45,12 +45,18 @@ class Rule_DA:
             templates_dir: Path to rule_template/DA/
             common_range: Range for common value component
             private_range: Range for private value component
+            global_ranking_strategy: Strategy for computing global ranking
+                - "average": Based on average values
+                - "fixed": Fixed ranking for all experiments
+                - "random": Random ranking
+                - "misleading": Reverse of average (for experiments)
         """
         self.mechanism_type = mechanism_type
         self.intervention_type = intervention_type
         self.special_name = special_name
         self.common_range = common_range
         self.private_range = private_range
+        self.global_ranking_strategy = global_ranking_strategy
         self.number_students = 4
         self.number_schools = 4
 
@@ -137,7 +143,7 @@ class DA_Direct:
     Implements direct revelation mechanism (submit full ranking once).
     Uses QuestionRank for parallel querying of all students.
     """
-    def __init__(self, students, rule, model, cache=None):
+    def __init__(self, students, rule, model, cache=None, global_ranking=None):
         """
         Initialize direct revelation mechanism.
 
@@ -146,11 +152,13 @@ class DA_Direct:
             rule: Rule_DA instance
             model: EDSL Model instance
             cache: EDSL Cache instance
+            global_ranking: Optional global ranking string for social information
         """
         self.students = students
         self.rule = rule
         self.model = model
         self.cache = cache
+        self.global_ranking = global_ranking or "w > x > y > z"  # Default fallback
         self.da_trace = []  # Trace of DA algorithm execution
 
     def run(self):
@@ -218,7 +226,8 @@ class DA_Direct:
             "pw": student.priorities["w"],
             "px": student.priorities["x"],
             "py": student.priorities["y"],
-            "pz": student.priorities["z"]
+            "pz": student.priorities["z"],
+            "global_ranking": self.global_ranking  # Add global ranking
         })
         return str(prompt)
 
@@ -425,7 +434,7 @@ class DA_OSP:
     Implements OSP mechanism (sequential local queries).
     Uses QuestionMultipleChoice with dynamic available sets.
     """
-    def __init__(self, students, rule, model, cache=None):
+    def __init__(self, students, rule, model, cache=None, global_ranking=None):
         """
         Initialize OSP mechanism.
 
@@ -434,11 +443,13 @@ class DA_OSP:
             rule: Rule_DA instance
             model: EDSL Model instance
             cache: EDSL Cache instance
+            global_ranking: Optional global ranking string for social information
         """
         self.students = students
         self.rule = rule
         self.model = model
         self.cache = cache
+        self.global_ranking = global_ranking or "w > x > y > z"  # Default fallback
 
         # State management
         self.available_sets = {}  # {student_name: set of schools}
@@ -541,7 +552,8 @@ class DA_OSP:
             "vw": student.values["w"],
             "vx": student.values["x"],
             "vy": student.values["y"],
-            "vz": student.values["z"]
+            "vz": student.values["z"],
+            "global_ranking": self.global_ranking  # Add global ranking
         })
         return str(prompt)
 
@@ -738,6 +750,12 @@ class DA_plan:
         for school, prios in self.priorities_structure.items():
             print(f"  {school}: {prios}")
 
+        # Generate global ranking (social information)
+        self.global_ranking = self._compute_global_ranking(
+            strategy=self.rule.global_ranking_strategy
+        )
+        print(f"\nGlobal ranking ({self.rule.global_ranking_strategy}): {self.global_ranking}")
+
     def _generate_acyclic_priorities(self):
         """
         Return fixed Ergin-acyclic priority structure.
@@ -752,6 +770,59 @@ class DA_plan:
             "y": {"Student A": 1, "Student B": 2, "Student D": 3, "Student C": 4},
             "z": {"Student B": 1, "Student A": 2, "Student D": 3, "Student C": 4}
         }
+
+    def _compute_global_ranking(self, strategy="average"):
+        """
+        Compute global ranking of schools to provide social information.
+
+        Args:
+            strategy: How to compute ranking
+                - "average": Based on average values across students
+                - "truthful": Based on actual student preferences (if known)
+                - "fixed": Fixed ranking for all experiments
+                - "random": Random ranking
+                - "misleading": Reverse of average (for experiments)
+
+        Returns:
+            str: Ranking string like "y > x > w > z"
+        """
+        if strategy == "average":
+            # Compute average value for each school
+            avg_values = {}
+            for school in ["w", "x", "y", "z"]:
+                avg_values[school] = sum(self.values_list[school]) / len(self.values_list[school])
+
+            # Sort by average value (descending)
+            sorted_schools = sorted(avg_values.items(), key=lambda x: x[1], reverse=True)
+            ranking = " > ".join([school for school, _ in sorted_schools])
+
+            print(f"  Average values: {avg_values}")
+            return ranking
+
+        elif strategy == "fixed":
+            # Fixed ranking (can be used as control condition)
+            return "y > x > w > z"
+
+        elif strategy == "random":
+            # Random ranking
+            schools = ["w", "x", "y", "z"]
+            random.shuffle(schools)
+            return " > ".join(schools)
+
+        elif strategy == "misleading":
+            # Reverse of average (for testing effects of misinformation)
+            avg_values = {}
+            for school in ["w", "x", "y", "z"]:
+                avg_values[school] = sum(self.values_list[school]) / len(self.values_list[school])
+
+            sorted_schools = sorted(avg_values.items(), key=lambda x: x[1], reverse=False)  # Ascending!
+            ranking = " > ".join([school for school, _ in sorted_schools])
+
+            print(f"  ⚠️  Misleading ranking (reversed)")
+            return ranking
+
+        else:
+            raise ValueError(f"Unknown strategy: {strategy}")
 
     def build_students(self):
         """Create Student instances with values and priorities."""
@@ -798,7 +869,8 @@ class DA_plan:
                 students=self.students,
                 rule=self.rule,
                 model=self.model,
-                cache=self.cache
+                cache=self.cache,
+                global_ranking=self.global_ranking  # Pass global ranking
             )
             results = da_mechanism.run()
 
@@ -807,7 +879,8 @@ class DA_plan:
                 students=self.students,
                 rule=self.rule,
                 model=self.model,
-                cache=self.cache
+                cache=self.cache,
+                global_ranking=self.global_ranking  # Pass global ranking
             )
             results = da_mechanism.run()
 
@@ -826,6 +899,7 @@ class DA_plan:
         # Build data structure
         self.data_to_save = {
             "mechanism_type": self.rule.mechanism_type,
+            "global_ranking": self.global_ranking,  # Add global ranking info
             "values": {s.name: s.values for s in self.students},
             "priorities": {s.name: s.priorities for s in self.students},
             "matches": matches,

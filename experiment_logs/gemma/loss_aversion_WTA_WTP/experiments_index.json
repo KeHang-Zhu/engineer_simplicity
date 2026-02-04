@@ -2,39 +2,12 @@
   "experiments": [
     {
       "name": "loss_aversion_WTA_WTP",
-      "run_id": "2026-02-03_14-14-44-615384",
-      "timestamp": "2026-02-03T14:14:44.615384",
-      "duration": 0.02434,
+      "run_id": "2026-02-03_22-18-54-363722",
+      "timestamp": "2026-02-03T22:18:54.363722",
+      "duration": 382.589241,
       "status": "completed",
-      "output_dir": "loss_aversion_WTA_WTP/run_2026-02-03_14-14-44-615384",
-      "config_hash": "a54e6219"
-    },
-    {
-      "name": "loss_aversion_WTA_WTP",
-      "run_id": "2026-02-03_14-15-55-236040",
-      "timestamp": "2026-02-03T14:15:55.236040",
-      "duration": 0.013199,
-      "status": "completed",
-      "output_dir": "loss_aversion_WTA_WTP/run_2026-02-03_14-15-55-236040",
-      "config_hash": "a54e6219"
-    },
-    {
-      "name": "loss_aversion_WTA_WTP",
-      "run_id": "2026-02-03_14-19-02-232795",
-      "timestamp": "2026-02-03T14:19:02.232795",
-      "duration": 0.025931,
-      "status": "completed",
-      "output_dir": "loss_aversion_WTA_WTP/run_2026-02-03_14-19-02-232795",
-      "config_hash": "4a9718bb"
-    },
-    {
-      "name": "loss_aversion_WTA_WTP",
-      "run_id": "2026-02-03_14-27-32-239501",
-      "timestamp": "2026-02-03T14:27:32.239501",
-      "duration": 411.567738,
-      "status": "completed",
-      "output_dir": "loss_aversion_WTA_WTP/run_2026-02-03_14-27-32-239501",
-      "config_hash": "4a9718bb"
+      "output_dir": "loss_aversion_WTA_WTP/run_2026-02-03_22-18-54-363722",
+      "config_hash": "8b6ceb51"
     }
   ]
 }

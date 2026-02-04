@@ -57,7 +57,7 @@ class Rule_plan:
                  price_order = "second",
                  common_range=[10, 80], private_range=20, increment=1, number_agents=3, special_name="", start_price=0, turns=20, closing= False, reserve_price = 0,
                  include_payment_example=False, payment_example_key=None, payment_examples_path=None,
-                 templates_dir=None):
+                 templates_dir=None, use_survey=False, survey_price_points=15):
         self.seal_clock = seal_clock
         self.ascend_descend = ascend_descend
         self.private_value = private_value
@@ -72,6 +72,8 @@ class Rule_plan:
         self.start_price= start_price
         self.closing = closing
         self.reserve_price = reserve_price
+        self.use_survey = use_survey
+        self.survey_price_points = survey_price_points
 
         # Use provided templates_dir or fall back to global default
         if templates_dir is None:
@@ -904,8 +906,368 @@ Does the bidder want to STAY IN the bidding?"""
                 return True
             elif len(self.agent_left) == 0:
                 return False
-            
-            
+
+
+class ClockSurvey():
+    """
+    Parallel survey-based clock auction implementation.
+
+    Instead of running sequential rounds, asks all price points simultaneously
+    and determines dropout prices from survey responses.
+    """
+    def __init__(self, agents, rule, model, cache=None, history=None, extraction_model=None):
+        # Basic setup
+        self.rule = rule
+        self.agents = agents[:]
+        self.increment = self.rule.increment
+        self.model = model
+        self.cache = cache
+        self.extraction_model = extraction_model or model
+        self.history = history
+
+        # Survey-specific attributes
+        self.survey_responses = {}  # (agent_name, price) -> "yes"/"no"
+        self.dropout_prices = {}    # agent_name -> lowest dropout price
+        self.winner = None
+
+        # For compatibility with existing code
+        self.bid_list = []
+        self.exit_list = []
+        self.transcript = []
+
+    def __repr__(self):
+        return f'ClockSurvey Auction: (dropout_prices={self.dropout_prices})'
+
+    def generate_price_points(self, agent):
+        """Generate 15 price points centered around agent's value."""
+        center = agent.current_value
+        increment = self.rule.increment
+        min_price = increment  # Minimum price is 1*increment
+
+        prices = []
+        for offset in range(-7, 8):  # -7 to +7 = 15 prices
+            price = center + (offset * increment)
+            if price >= min_price:
+                prices.append(price)
+
+        # Ensure we have exactly 15 prices
+        # If value is low and we have < 15 prices, add more above the value
+        while len(prices) < 15:
+            prices.append(prices[-1] + increment)
+
+        return prices
+
+    def build_history_section_clock(self):
+        """Build history information string for clock auctions."""
+        if not self.history or len(self.history) == 0:
+            return ""
+
+        history_lines = ["=== History of Previous Rounds ==="]
+        for trans in self.history:
+            history_lines.append(str(trans))
+        history_lines.append("\n=== Current Round ===")
+
+        return "\n".join(history_lines)
+
+    def build_survey_question(self, agent, price, question_index):
+        """Build a single survey question for one agent at one price."""
+        # Get instruction and rule explanation (same as Clock class)
+        other_agent_names = ', '.join([a.name for a in self.agents if a != agent])
+        instruction = Prompt.from_txt(os.path.join(prompt_dir, "instruction.txt"))
+        instruction_str = str(instruction.render({
+            "name": agent.name,
+            "other_agent_names": other_agent_names
+        }))
+
+        general_prompt = instruction_str + "\n" + str(self.rule.rule_explanation) + "\n"
+
+        # Render survey template with all needed variables
+        survey_template = Prompt.from_txt(os.path.join(prompt_dir, "clock_survey.txt"))
+        prompt_content = str(survey_template.render({
+            "current_value": agent.current_value,
+            "price": price,
+            "increment": self.rule.increment
+        }))
+
+        full_prompt = general_prompt + prompt_content
+
+        # Sanitize price for question_name (replace decimal point with underscore)
+        price_str = str(price).replace('.', '_')
+        question_name = f"q_survey_{agent.name.replace(' ', '_')}_price_{price_str}_idx_{question_index}"
+        return QuestionFreeText(question_name=question_name, question_text=full_prompt)
+
+    def run_survey(self):
+        """Execute parallel survey for all agents at all price points."""
+        questions = []
+        question_metadata = []
+        question_index = 0
+
+        for agent in self.agents:
+            prices = self.generate_price_points(agent)
+
+            for price in prices:
+                # Build question prompt
+                question = self.build_survey_question(agent, price, question_index)
+                questions.append(question)
+
+                # Track metadata (sanitize price for question_name)
+                price_str = str(price).replace('.', '_')
+                question_name = f"q_survey_{agent.name.replace(' ', '_')}_price_{price_str}_idx_{question_index}"
+                question_metadata.append({
+                    'agent': agent,
+                    'price': price,
+                    'question_name': question_name,
+                    'question_index': question_index
+                })
+                question_index += 1
+
+        # Execute all in parallel
+        print(f"Executing survey with {len(questions)} questions for {len(self.agents)} agents")
+        survey = Survey(questions=questions)
+        result = survey.by(self.model).run(cache=self.cache)
+
+        return result, question_metadata
+
+    def _parse_plan_and_action(self, response_text):
+        """Parse PLAN and ACTION from response text."""
+        # Parse PLAN
+        plan_pattern = r"<PLAN>(.*?)</PLAN>"
+        plan_match = re.search(plan_pattern, response_text, flags=re.IGNORECASE | re.DOTALL)
+        if not plan_match:
+            raise ValueError("PLAN tag not found")
+        plan = plan_match.group(1).strip()
+
+        if len(plan) == 0:
+            raise ValueError("PLAN cannot be empty")
+
+        # Parse ACTION using model extraction (same as Clock class)
+        action = self.extract_yesno_with_model(response_text)
+
+        return plan, action
+
+    def extract_yesno_with_model(self, full_response_text):
+        """Use model to extract yes/no from response."""
+        q_extract = QuestionYesNo(
+            question_name="extract_yesno",
+            question_text=f"""Given the following response from a bidder in a clock auction survey,
+determine if they are WILLING TO DROP OUT at this price (Yes) or want to STAY IN (No).
+
+The response may contain an <ACTION> tag with Yes/No, or express the decision
+in natural language.
+
+Bidder Response:
+{full_response_text}
+
+Is the bidder willing to DROP OUT at this price?"""
+        )
+
+        survey = Survey(questions=[q_extract])
+        result = survey.by(self.extraction_model).run(cache=self.cache)
+        response = result.select("extract_yesno").to_list()[0]
+
+        if isinstance(response, str):
+            return response.lower()
+        else:
+            raise ValueError(f"Invalid extraction result: {response}")
+
+    def parse_survey_responses(self, result, question_metadata):
+        """Parse all survey responses and store results with parallel yes/no extraction."""
+        # Step 1: Extract all PLANs and responses using regex (fast, no API calls)
+        response_data = []
+        for metadata in question_metadata:
+            agent = metadata['agent']
+            price = metadata['price']
+            question_name = metadata['question_name']
+
+            response_text = result.select(question_name).to_list()[0]
+
+            # Print response
+            print("\n" + "="*70)
+            print(f"[Survey] Agent: {agent.name}, Price: ${price}")
+            print("="*70)
+            print(response_text)
+            print("="*70 + "\n")
+
+            # Parse PLAN using regex
+            plan_pattern = r"<PLAN>(.*?)</PLAN>"
+            plan_match = re.search(plan_pattern, response_text, flags=re.IGNORECASE | re.DOTALL)
+
+            if plan_match:
+                plan = plan_match.group(1).strip()
+            else:
+                print(f"Warning: PLAN tag not found for {agent.name} at ${price}")
+                plan = "No plan provided"
+
+            response_data.append({
+                'agent': agent,
+                'price': price,
+                'response_text': response_text,
+                'plan': plan,
+                'question_name': question_name
+            })
+
+        # Step 2: Create parallel yes/no extraction questions for all responses
+        extraction_questions = []
+        for i, data in enumerate(response_data):
+            q_extract = QuestionYesNo(
+                question_name=f"extract_yesno_{i}",
+                question_text=f"""Given the following response from a bidder in a clock auction survey,
+determine if they are WILLING TO DROP OUT at this price (Yes) or want to STAY IN (No).
+
+The response may contain an <ACTION> tag with Yes/No, or express the decision
+in natural language.
+
+Bidder Response:
+{data['response_text']}
+
+Is the bidder willing to DROP OUT at this price?"""
+            )
+            extraction_questions.append(q_extract)
+
+        # Step 3: Execute all extractions in parallel
+        print(f"Extracting yes/no from {len(extraction_questions)} responses in parallel...")
+        extraction_survey = Survey(questions=extraction_questions)
+        extraction_result = extraction_survey.by(self.extraction_model).run(cache=self.cache)
+
+        # Step 4: Store all results
+        for i, data in enumerate(response_data):
+            agent = data['agent']
+            price = data['price']
+            plan = data['plan']
+
+            # Get extracted yes/no
+            try:
+                action = extraction_result.select(f"extract_yesno_{i}").to_list()[0]
+                if isinstance(action, str):
+                    action = action.lower()
+                else:
+                    raise ValueError(f"Invalid extraction result: {action}")
+            except Exception as e:
+                print(f"Warning: Error extracting yes/no for {agent.name} at ${price}: {e}")
+                action = "no"  # Default to stay in
+
+            # Store response
+            key = (agent.name, price)
+            self.survey_responses[key] = action
+
+            # Store reasoning
+            if not hasattr(agent, 'survey_reasoning'):
+                agent.survey_reasoning = {}
+            agent.survey_reasoning[price] = plan
+
+            print(f"[Survey] {agent.name} at ${price}: {action}")
+
+    def determine_dropout_prices(self):
+        """For each agent, find lowest price where they're willing to drop out."""
+        for agent in self.agents:
+            prices = sorted(self.generate_price_points(agent))
+            dropout_price = None
+
+            # Find first "yes" (willing to drop out)
+            for price in prices:
+                key = (agent.name, price)
+                response = self.survey_responses.get(key, "no")
+
+                if response == "yes":
+                    dropout_price = price
+                    break
+
+            # Edge case: never drops out
+            if dropout_price is None:
+                dropout_price = max(prices) + self.rule.increment
+                print(f"Warning: {agent.name} never dropped out, using {dropout_price}")
+
+            self.dropout_prices[agent.name] = dropout_price
+            agent.exit_price.append(str(dropout_price))
+
+            print(f"{agent.name} dropout price: ${dropout_price}")
+
+    def declare_winner_and_price(self):
+        """Determine winner and price based on dropout prices."""
+        # Sort agents by dropout price (descending)
+        sorted_agents = sorted(
+            self.agents,
+            key=lambda a: self.dropout_prices[a.name],
+            reverse=True
+        )
+
+        winner_agent = sorted_agents[0]
+
+        # Price = second-highest dropout price
+        if len(sorted_agents) > 1:
+            price = self.dropout_prices[sorted_agents[1].name]
+        else:
+            price = self.dropout_prices[winner_agent.name]
+
+        self.winner = {
+            'winner': winner_agent.name,
+            'price': price
+        }
+
+        # Build exit_list for compatibility
+        for agent in sorted_agents:
+            self.exit_list.append({
+                "agent": agent.name,
+                "bid": self.dropout_prices[agent.name]
+            })
+
+        print(f"Winner: {winner_agent.name} at price ${price}")
+
+    def attach_reasoning(self):
+        """Attach reasoning from dropout price decision to agent."""
+        for agent in self.agents:
+            dropout_price = self.dropout_prices[agent.name]
+
+            # Get reasoning from the dropout price decision
+            if hasattr(agent, 'survey_reasoning') and dropout_price in agent.survey_reasoning:
+                reasoning = agent.survey_reasoning[dropout_price]
+            else:
+                # Fallback: use reasoning from closest price
+                if hasattr(agent, 'survey_reasoning') and len(agent.survey_reasoning) > 0:
+                    closest_price = min(
+                        agent.survey_reasoning.keys(),
+                        key=lambda p: abs(p - dropout_price)
+                    )
+                    reasoning = agent.survey_reasoning[closest_price]
+                else:
+                    reasoning = "No reasoning available"
+
+            agent.reasoning.append(reasoning)
+
+    def update_agent_profits(self):
+        """Update agent profits based on auction outcome."""
+        for agent in self.agents:
+            if agent.name == self.winner["winner"]:
+                profit = agent.current_value - float(self.winner["price"])
+                agent.profit.append(profit)
+                agent.winning.append(True)
+            else:
+                agent.profit.append(0)
+                agent.winning.append(False)
+
+    def run(self):
+        """Main execution method for survey-based clock auction."""
+        # Step 1: Execute parallel survey
+        result, question_metadata = self.run_survey()
+
+        # Step 2: Parse responses
+        self.parse_survey_responses(result, question_metadata)
+
+        # Step 3: Determine dropout prices
+        self.determine_dropout_prices()
+
+        # Step 4: Declare winner and price
+        self.declare_winner_and_price()
+
+        # Step 5: Attach reasoning
+        self.attach_reasoning()
+
+        # Step 6: Update agent profits
+        self.update_agent_profits()
+
+        return {'bidding history': self.exit_list, 'winner': self.winner}
+
+
 class Bidder():
     '''
     This class specifies the agents
@@ -1028,7 +1390,20 @@ class Auction_plan():
         extraction_model = self.model
 
         if self.rule.seal_clock == "clock":
-            auction = Clock(agents=self.agents, rule=self.rule, cache=self.cache, history=self.history, model=self.model, extraction_model=extraction_model)
+            # Check if using survey mode
+            use_survey = getattr(self.rule, 'use_survey', False)
+
+            if use_survey:
+                auction = ClockSurvey(
+                    agents=self.agents,
+                    rule=self.rule,
+                    cache=self.cache,
+                    history=self.history,
+                    model=self.model,
+                    extraction_model=extraction_model
+                )
+            else:
+                auction = Clock(agents=self.agents, rule=self.rule, cache=self.cache, history=self.history, model=self.model, extraction_model=extraction_model)
             history = auction.run()
         elif self.rule.seal_clock == "seal":
             auction = SealBid(agents=self.agents, rule=self.rule, cache=self.cache, history=self.history, model=self.model)

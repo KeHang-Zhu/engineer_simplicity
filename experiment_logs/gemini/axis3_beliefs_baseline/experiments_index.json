@@ -2,11 +2,11 @@
   "experiments": [
     {
       "name": "axis3_beliefs_baseline",
-      "run_id": "2026-02-03_15-49-24-568149",
-      "timestamp": "2026-02-03T15:49:24.568149",
-      "duration": 198.668226,
+      "run_id": "2026-02-03_22-50-24-430594",
+      "timestamp": "2026-02-03T22:50:24.430594",
+      "duration": 167.917604,
       "status": "completed",
-      "output_dir": "axis3_beliefs_baseline/run_2026-02-03_15-49-24-568149",
+      "output_dir": "axis3_beliefs_baseline/run_2026-02-03_22-50-24-430594",
       "config_hash": "a875ab95"
     }
   ]

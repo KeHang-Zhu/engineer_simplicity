@@ -2,12 +2,12 @@
   "experiments": [
     {
       "name": "axis2_forward_baseline",
-      "run_id": "2026-02-03_15-25-27-718071",
-      "timestamp": "2026-02-03T15:25:27.718071",
-      "duration": 198.606513,
+      "run_id": "2026-02-03_23-13-21-499944",
+      "timestamp": "2026-02-03T23:13:21.499944",
+      "duration": 233.693351,
       "status": "completed",
-      "output_dir": "axis2_forward_baseline/run_2026-02-03_15-25-27-718071",
-      "config_hash": "fdf4655d"
+      "output_dir": "axis2_forward_baseline/run_2026-02-03_23-13-21-499944",
+      "config_hash": "ae8ca16f"
     }
   ]
 }

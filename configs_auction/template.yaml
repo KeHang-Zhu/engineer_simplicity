@@ -26,7 +26,7 @@ rule:
 # 价值生成配置
 value:
   common_range: [20, 79]      # 共同价值范围 [最小值, 最大值]
-  private_range: 99           # 私有价值范围
+  private_range: 49           # 私有价值范围
   increment: 1                # 出价增量
   seed_base: 1299             # 基础随机种子（private: 1299, affiliated: 1399）
 
