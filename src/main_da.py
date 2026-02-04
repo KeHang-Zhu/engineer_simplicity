@@ -8,14 +8,13 @@ Runs DA simulation with LLM agents, supporting both:
 
 from edsl import Cache
 import os
-import pandas as pd
 from util_da import Rule_DA, DA_plan
 import concurrent.futures
 
 
 def run_da_experiment(i, mechanism_type, intervention_type, number_students,
                      number_schools, rule, output_dir, c, model='gpt-4o',
-                     temperature=0.5):
+                     temperature=0.5, seed_base=3000, config_dict=None):
     """
     Run single DA experiment instance.
 
@@ -30,29 +29,27 @@ def run_da_experiment(i, mechanism_type, intervention_type, number_students,
         c: Cache instance
         model: Model name
         temperature: LLM temperature
+        seed_base: Base seed for value generation
+        config_dict: Configuration dictionary to save
     """
-    timestring = pd.Timestamp.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
-
-    # Create DA plan
+    # Create DA plan (will auto-create run_{timestamp} folder)
     da = DA_plan(
         number_students=number_students,
         number_schools=number_schools,
         rule=rule,
         output_dir=output_dir,
-        timestring=timestring,
+        timestring=None,  # Will be auto-generated
         cache=c,
         model=model,
-        temperature=temperature
+        temperature=temperature,
+        config_dict=config_dict
     )
 
     # Run experiment
-    da.draw_values(seed=3000 + i)
+    da.draw_values(seed=seed_base + i)
     da.build_students()
     da.run()
     da.data_to_json()
-
-    # Save cache
-    c.write_jsonl(os.path.join(output_dir, f"raw_output_{timestring}.jsonl"))
 
     print(f"\nExperiment {i} completed successfully")
 
@@ -76,7 +73,7 @@ if __name__ == "__main__":
 
     # Global ranking strategy (social information)
     # Options: "average", "fixed", "random", "misleading"
-    global_ranking_strategy = "average"  # Default: based on average values
+    global_ranking_strategy = "fixed"  # Default: based on average values
 
     # LLM parameters
     model = "gpt-4o"

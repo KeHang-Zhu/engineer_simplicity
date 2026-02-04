@@ -12,7 +12,7 @@ import json
 import os
 import re
 from edsl import Model, Survey, Cache
-from edsl.questions import QuestionRank, QuestionMultipleChoice
+from edsl.questions import QuestionRank, QuestionMultipleChoice, QuestionFreeText
 from edsl.prompts import Prompt
 
 current_script_path = os.path.dirname(os.path.abspath(__file__))
@@ -163,10 +163,10 @@ class DA_Direct:
 
     def run(self):
         """
-        Main execution: parallel Survey with QuestionRank.
+        Main execution: parallel Survey with QuestionFreeText to collect reasoning.
 
         Returns:
-            Dict with 'rankings', 'matches', 'da_trace'
+            Dict with 'rankings', 'reasoning', 'matches', 'da_trace'
         """
         print("Running DA Direct Mechanism...")
 
@@ -176,48 +176,59 @@ class DA_Direct:
             prompt = self._build_student_prompt(student)
             student_prompts.append((student, prompt))
 
-        # STEP 2: Create parallel Survey with QuestionRank
+        # STEP 2: Create parallel Survey with QuestionFreeText (to collect reasoning)
         questions = []
         for student, prompt in student_prompts:
-            q_rank = QuestionRank(
-                question_name=f"q_rank_{student.name.replace(' ', '_')}",
-                question_text=prompt,
-                question_options=["w", "x", "y", "z"]
+            q_freetext = QuestionFreeText(
+                question_name=f"q_reason_{student.name.replace(' ', '_')}",
+                question_text=prompt
             )
-            questions.append(q_rank)
+            questions.append(q_freetext)
 
         # STEP 3: Execute parallel LLM calls
         survey = Survey(questions=questions)
         result = survey.by(self.model).run(cache=self.cache)
 
-        # STEP 4: Parse rankings with retry logic
+        # STEP 4: Parse reasoning and rankings with retry logic
         submitted_rankings = {}
+        reasoning_dict = {}
+
         for i, (student, prompt) in enumerate(student_prompts):
-            question_name = f"q_rank_{student.name.replace(' ', '_')}"
+            question_name = f"q_reason_{student.name.replace(' ', '_')}"
             response = result.select(question_name).to_list()[0]
 
-            # Parse and validate with retries
-            ranking = self._parse_and_validate_ranking(response, student, prompt)
+            # Parse reasoning and ranking with retries
+            reason, ranking = self._parse_and_validate_response(response, student, prompt)
+
             submitted_rankings[student.name] = ranking
+            reasoning_dict[student.name] = reason
+
             student.submitted_ranking = ranking
+            student.reasoning = reason
 
             print(f"{student.name} submitted ranking: {ranking}")
 
-        # STEP 5: Run DA algorithm
+        # STEP 5: Compute truthfulness
+        truthfulness = self._compute_truthfulness()
+
+        # STEP 6: Run DA algorithm
         matches = self._run_da_algorithm(submitted_rankings)
 
-        # STEP 6: Record outcomes
+        # STEP 7: Record outcomes
         self._record_outcomes(matches)
 
         return {
             'rankings': submitted_rankings,
+            'reasoning': reasoning_dict,
+            'truthfulness': truthfulness,
             'matches': matches,
             'da_trace': self.da_trace
         }
 
     def _build_student_prompt(self, student):
         """Render template with student's values and priorities."""
-        prompt = self.rule.rule_explanation.render({
+        # Render main mechanism explanation template
+        main_prompt = self.rule.rule_explanation.render({
             "student_id": student.name.split()[-1],  # "A", "B", etc.
             "vw": student.values["w"],
             "vx": student.values["x"],
@@ -229,7 +240,137 @@ class DA_Direct:
             "pz": student.priorities["z"],
             "global_ranking": self.global_ranking  # Add global ranking
         })
-        return str(prompt)
+
+        # Load and append da_ask.txt (reasoning instruction)
+        da_ask_path = os.path.join(prompt_dir, 'da_ask.txt')
+        if os.path.exists(da_ask_path):
+            with open(da_ask_path, 'r') as f:
+                da_ask_content = f.read()
+            full_prompt = str(main_prompt) + "\n\n" + da_ask_content
+        else:
+            # Fallback if da_ask.txt doesn't exist
+            full_prompt = str(main_prompt)
+
+        return full_prompt
+
+    def _parse_and_validate_response(self, initial_response, student, full_prompt):
+        """
+        Parse <REASON> and <DECISION> tags with 3-attempt retry logic.
+
+        Args:
+            initial_response: LLM response with <REASON> and <DECISION> tags
+            student: Student object
+            full_prompt: Full prompt text for retry
+
+        Returns:
+            Tuple[str, List[str]]: (reason, ranking)
+
+        Raises:
+            RuntimeError: If parsing fails after 3 attempts
+        """
+        response = initial_response
+
+        for attempt in range(3):
+            try:
+                # Parse REASON and DECISION tags
+                reason, decision_text = self._parse_reason_decision(response)
+
+                # Use gpt-4o-mini to extract ranking from decision text
+                ranking = self._extract_ranking_with_model(decision_text, student)
+
+                if self._is_valid_ranking(ranking):
+                    return reason, ranking
+                raise ValueError("Invalid ranking: missing schools or duplicates")
+
+            except Exception as e:
+                print(f"{student.name} parsing error (attempt {attempt+1}/3): {e}")
+
+                if attempt < 2:
+                    # Retry with error message
+                    q_retry = QuestionFreeText(
+                        question_name="q_reason_retry",
+                        question_text=full_prompt + f"\n\nError: {e}. You MUST use the format:\n<REASON>Your reasoning here</REASON>\n<DECISION>Ranking: w > x > y > z</DECISION>"
+                    )
+                    survey = Survey(questions=[q_retry])
+                    result = survey.by(self.model).run(cache=self.cache)
+                    response = result.select("q_reason_retry").to_list()[0]
+
+        raise RuntimeError(f"{student.name} failed to parse response after 3 attempts")
+
+    def _parse_reason_decision(self, text):
+        """
+        Parse <REASON> and <DECISION> tags from LLM response.
+
+        Args:
+            text: LLM response text
+
+        Returns:
+            Tuple[str, str]: (reason, decision_text)
+
+        Raises:
+            ValueError: If tags not found
+        """
+        # Parse REASON
+        reason_pattern = r"<REASON>(.*?)</REASON>"
+        reason_match = re.search(reason_pattern, text, flags=re.IGNORECASE | re.DOTALL)
+        if not reason_match:
+            raise ValueError("REASON tag not found")
+        reason = reason_match.group(1).strip()
+
+        # Parse DECISION
+        decision_pattern = r"<DECISION>(.*?)</DECISION>"
+        decision_match = re.search(decision_pattern, text, flags=re.IGNORECASE | re.DOTALL)
+        if not decision_match:
+            raise ValueError("DECISION tag not found")
+        decision = decision_match.group(1).strip()
+
+        return reason, decision
+
+    def _extract_ranking_with_model(self, decision_text, student):
+        """
+        Use gpt-4o-mini to extract ranking from decision text.
+
+        Args:
+            decision_text: Text from <DECISION> tag
+            student: Student object
+
+        Returns:
+            List[str]: Ranking ["w", "x", "y", "z"]
+        """
+        # First try direct parsing
+        try:
+            ranking = self._parse_ranking(decision_text)
+            if self._is_valid_ranking(ranking):
+                return ranking
+        except:
+            pass
+
+        # If direct parsing fails, use gpt-4o-mini
+        extraction_prompt = f"""
+Extract the school ranking from the following decision text.
+The student must rank 4 schools: w, x, y, z.
+
+Decision text:
+{decision_text}
+
+Respond with ONLY the ranking in the format: w > x > y > z
+Do NOT include any other text.
+"""
+
+        q_extract = QuestionFreeText(
+            question_name="q_extract",
+            question_text=extraction_prompt
+        )
+        survey = Survey(questions=[q_extract])
+
+        # Use gpt-4o-mini for extraction
+        extract_model = Model("gpt-4o-mini", temperature=0)
+        result = survey.by(extract_model).run()
+        extracted = result.select("q_extract").to_list()[0]
+
+        # Parse the extracted text
+        ranking = self._parse_ranking(extracted)
+        return ranking
 
     def _parse_and_validate_ranking(self, initial_response, student, full_prompt):
         """
@@ -421,6 +562,39 @@ class DA_Direct:
 
         return best
 
+    def _compute_truthfulness(self):
+        """
+        Compute truthfulness for each student by comparing true preferences with submitted ranking.
+
+        Returns:
+            Dict[student_name, bool]: Truthfulness for each student
+        """
+        truthfulness = {}
+
+        for student in self.students:
+            # Compute true preference ranking from values (descending order)
+            true_ranking = sorted(
+                student.values.items(),
+                key=lambda x: x[1],
+                reverse=True
+            )
+            true_ranking = [school for school, _ in true_ranking]
+
+            # Compare with submitted ranking
+            submitted = student.submitted_ranking
+
+            # Truthful if rankings match exactly
+            is_truthful = (true_ranking == submitted)
+
+            truthfulness[student.name] = is_truthful
+
+            if not is_truthful:
+                print(f"  {student.name} MISREPORTED:")
+                print(f"    True preference: {' > '.join(true_ranking)}")
+                print(f"    Submitted: {' > '.join(submitted)}")
+
+        return truthfulness
+
     def _record_outcomes(self, matches):
         """Store outcomes in student objects."""
         for student in self.students:
@@ -479,9 +653,13 @@ class DA_OSP:
         matches = self._get_final_matches()
         self._record_outcomes(matches)
 
+        # Compute truthfulness for OSP
+        truthfulness = self._compute_osp_truthfulness()
+
         return {
             'osp_history': self.osp_history,
-            'matches': matches
+            'matches': matches,
+            'truthfulness': truthfulness
         }
 
     def _all_students_matched(self):
@@ -594,6 +772,9 @@ class DA_OSP:
         Args:
             choices: Dict[student_name, school]
         """
+        # Save available sets BEFORE processing (for truthfulness checking)
+        available_before = {k: sorted(list(v)) for k, v in self.available_sets.items()}
+
         proposals = {}  # {school: [students]}
 
         # Group proposals by school
@@ -634,13 +815,14 @@ class DA_OSP:
             if student_name in self.available_sets:
                 self.available_sets[student_name] = set()
 
-        # Log this round
+        # Log this round (use available_before for truthfulness checking)
         self.osp_history.append({
             'round': self.osp_round,
             'choices': choices.copy(),
             'rejections': rejections,
             'tentative_matches': self.tentative_matches.copy(),
-            'available_sets': {k: sorted(list(v)) for k, v in self.available_sets.items()}
+            'available_sets_before': available_before,  # Available when choices were made
+            'available_sets_after': {k: sorted(list(v)) for k, v in self.available_sets.items()}  # After processing
         })
 
         print(f"  Tentative matches: {self.tentative_matches}")
@@ -675,6 +857,62 @@ class DA_OSP:
             student.utility = student.get_utility(student.matched_school)
             print(f"{student.name}: matched to {student.matched_school}, utility={student.utility}")
 
+    def _compute_osp_truthfulness(self):
+        """
+        Compute truthfulness for OSP mechanism.
+
+        For OSP, a student is truthful if in EVERY round they chose their
+        most preferred school among the available options.
+
+        Returns:
+            Dict[student_name, bool]: Truthfulness for each student
+        """
+        truthfulness = {}
+
+        for student in self.students:
+            is_truthful = True
+
+            # Check each round in OSP history
+            for round_data in self.osp_history:
+                round_num = round_data['round']
+                # Use available_sets_before (what was available when choice was made)
+                available_set = set(round_data.get('available_sets_before',
+                                                   round_data.get('available_sets', [])).get(student.name, []))
+
+                # Skip if no available schools (student already matched)
+                if not available_set:
+                    continue
+
+                # Get student's choice in this round
+                if student.name in round_data['choices']:
+                    choice = round_data['choices'][student.name]
+
+                    # Find most preferred school in available set
+                    available_values = {school: student.values[school]
+                                      for school in available_set}
+                    best_school = max(available_values.items(), key=lambda x: x[1])[0]
+
+                    # Check if choice matches best school
+                    if choice != best_school:
+                        is_truthful = False
+                        print(f"{student.name} MISREPORTED in round {round_num}:")
+                        print(f"  Available: {sorted(available_set)}")
+                        print(f"  Values: {available_values}")
+                        print(f"  Best choice: {best_school} (${student.values[best_school]})")
+                        print(f"  Submitted: {choice} (${student.values[choice]})")
+                        break
+
+            truthfulness[student.name] = is_truthful
+
+        # Calculate overall truthfulness rate
+        truthful_count = sum(truthfulness.values())
+        total_count = len(truthfulness)
+        truthfulness_rate = truthful_count / total_count if total_count > 0 else 0
+
+        print(f"\nOSP Truthfulness rate: {truthfulness_rate:.1%}")
+
+        return truthfulness
+
 
 class DA_plan:
     """
@@ -683,7 +921,7 @@ class DA_plan:
     """
     def __init__(self, number_students, number_schools, rule, output_dir,
                  timestring=None, cache=None, model='gpt-4o', temperature=0,
-                 service_name=None):
+                 service_name=None, config_dict=None, experiment_index=None):
         """
         Initialize DA plan.
 
@@ -691,13 +929,17 @@ class DA_plan:
             number_students: Number of students (fixed at 4)
             number_schools: Number of schools (fixed at 4)
             rule: Rule_DA instance
-            output_dir: Output directory for results
+            output_dir: Output directory for results (base folder, not run_*)
             timestring: Timestamp string for filenames
             cache: EDSL Cache instance
             model: Model name
             temperature: LLM temperature
             service_name: Optional service name for Model
+            config_dict: Optional config dictionary to save
+            experiment_index: Index of this experiment (for numbering)
         """
+        import pandas as pd
+
         self.rule = rule
         self.students = []
         self.number_students = number_students
@@ -710,8 +952,31 @@ class DA_plan:
             self.model = Model(model, temperature=temperature)
 
         self.cache = cache
-        self.output_dir = output_dir
+        self.output_dir = output_dir  # No run_{timestamp} subfolder
+        self.experiment_index = experiment_index
+
+        # Generate timestring if not provided
+        if timestring is None:
+            timestring = pd.Timestamp.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
         self.timestring = timestring
+
+        # Create subdirectories (only once)
+        self.raw_data_dir = os.path.join(self.output_dir, "raw_data")
+        self.results_dir = os.path.join(self.output_dir, "results")
+        self.prompts_dir = os.path.join(self.output_dir, "prompts")
+
+        os.makedirs(self.raw_data_dir, exist_ok=True)
+        os.makedirs(self.results_dir, exist_ok=True)
+        os.makedirs(self.prompts_dir, exist_ok=True)
+
+        # Save config if provided (only once, check if already exists)
+        self.config_dict = config_dict
+        config_path = os.path.join(self.output_dir, "config.yaml")
+        if config_dict and not os.path.exists(config_path):
+            import yaml
+            with open(config_path, 'w') as f:
+                yaml.dump(config_dict, f, default_flow_style=False)
+            print(f"Config saved to: {config_path}")
 
         # Data storage
         self.values_list = {}  # {school: [values per student]}
@@ -900,6 +1165,7 @@ class DA_plan:
         self.data_to_save = {
             "mechanism_type": self.rule.mechanism_type,
             "global_ranking": self.global_ranking,  # Add global ranking info
+            "global_ranking_strategy": self.rule.global_ranking_strategy,  # Add strategy info
             "values": {s.name: s.values for s in self.students},
             "priorities": {s.name: s.priorities for s in self.students},
             "matches": matches,
@@ -909,10 +1175,28 @@ class DA_plan:
         # Add mechanism-specific data
         if self.rule.mechanism_type == "direct":
             self.data_to_save["rankings"] = {s.name: s.submitted_ranking for s in self.students}
+            self.data_to_save["reasoning"] = results.get('reasoning', {})  # Add reasoning
+            self.data_to_save["truthfulness"] = results.get('truthfulness', {})  # Add truthfulness
             self.data_to_save["da_trace"] = results.get('da_trace', [])
+
+            # Compute overall truthfulness rate
+            truthfulness_list = list(results.get('truthfulness', {}).values())
+            if truthfulness_list:
+                truthfulness_rate = sum(truthfulness_list) / len(truthfulness_list)
+                self.data_to_save["truthfulness_rate"] = truthfulness_rate
+                print(f"\n  Truthfulness rate: {truthfulness_rate:.1%}")
+
         elif self.rule.mechanism_type == "osp":
             self.data_to_save["osp_choices"] = {s.name: s.osp_choices for s in self.students}
             self.data_to_save["osp_history"] = results.get('osp_history', [])
+            self.data_to_save["truthfulness"] = results.get('truthfulness', {})
+
+            # Compute overall truthfulness rate
+            truthfulness_list = list(results.get('truthfulness', {}).values())
+            if truthfulness_list:
+                truthfulness_rate = sum(truthfulness_list) / len(truthfulness_list)
+                self.data_to_save["truthfulness_rate"] = truthfulness_rate
+                print(f"\n  Overall OSP Truthfulness rate: {truthfulness_rate:.1%}")
 
         print(f"\n{'='*70}")
         print("FINAL RESULTS")
@@ -920,13 +1204,37 @@ class DA_plan:
         print(f"Matches: {matches}")
         print(f"Utilities: {self.data_to_save['utilities']}")
 
-    def data_to_json(self):
-        """Export results to JSON file."""
-        import pandas as pd
-        if self.timestring is None:
-            self.timestring = pd.Timestamp.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
+    def copy_prompts(self):
+        """Copy all prompt files to the prompts directory (only once)."""
+        import shutil
 
-        filename = f"result_{self.timestring}.json"
-        filepath = save_json(self.data_to_save, filename, self.output_dir)
+        # Copy main template file (check if already exists)
+        template_name = self.rule.special_name or f"da_{self.rule.mechanism_type}_traditional.txt"
+        template_src = os.path.join(self.rule.templates_dir, template_name)
+        template_dst = os.path.join(self.prompts_dir, template_name)
+        if os.path.exists(template_src) and not os.path.exists(template_dst):
+            shutil.copy2(template_src, template_dst)
+
+        # Copy da_ask.txt (check if already exists)
+        da_ask_src = os.path.join(prompt_dir, 'da_ask.txt')
+        da_ask_dst = os.path.join(self.prompts_dir, 'da_ask.txt')
+        if os.path.exists(da_ask_src) and not os.path.exists(da_ask_dst):
+            shutil.copy2(da_ask_src, da_ask_dst)
+            print(f"Prompts copied to: {self.prompts_dir}")
+
+    def data_to_json(self):
+        """Export results to JSON file in raw_data subdirectory."""
+        # Copy prompts (will only copy once)
+        self.copy_prompts()
+
+        # Use experiment_index for filename if available, otherwise use timestring
+        if self.experiment_index is not None:
+            filename = f"result_{self.experiment_index}_{self.timestring}.json"
+        else:
+            filename = f"result_{self.timestring}.json"
+
+        # Save to raw_data subdirectory (like auction experiments)
+        filepath = save_json(self.data_to_save, filename, self.raw_data_dir)
         print(f"\nResults saved to: {filepath}")
+
         return filepath
