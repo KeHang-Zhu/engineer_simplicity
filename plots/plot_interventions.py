@@ -79,8 +79,14 @@ SPSB_COLOR = '#888888'  # Gray for SPSB baseline
 # ============================================================================
 
 def load_data():
-    """Load the combined experimental results."""
-    data_path = Path(__file__).parent.parent / 'results' / 'all_experiments_combined_20260203_164523.csv'
+    """Load the combined experimental results (most recent file)."""
+    results_dir = Path(__file__).parent.parent / 'results'
+    # Find the most recent combined results file
+    combined_files = sorted(results_dir.glob('all_experiments_combined_*.csv'))
+    if not combined_files:
+        raise FileNotFoundError("No combined results files found")
+    data_path = combined_files[-1]  # Most recent
+    print(f"Using: {data_path.name}")
     df = pd.read_csv(data_path)
     df['model_short'] = df['model'].map(MODEL_NAMES)
     df['deviation'] = df['bid'] - df['player_value']  # Signed deviation
@@ -91,7 +97,7 @@ def get_reference_data(df):
     """Get SPSB and AC data for reference distributions."""
     refs = {}
 
-    spsb_data = df[df['experiment'] == 'spsb_apv']
+    spsb_data = df[df['experiment'].isin(['spsb_apv', 'spsb'])]
     if not spsb_data.empty:
         refs['spsb'] = spsb_data
         refs['spsb_by_model'] = {
@@ -99,7 +105,7 @@ def get_reference_data(df):
             for model in MODEL_ORDER if model in spsb_data['model_short'].values
         }
 
-    ac_data = df[df['experiment'] == 'ascending_clock_apv']
+    ac_data = df[df['experiment'].isin(['ascending_clock_apv', 'ascending_clock_closed'])]
     if not ac_data.empty:
         refs['ac'] = ac_data
         refs['ac_by_model'] = {
@@ -152,27 +158,27 @@ def plot_intervention_histograms(df, experiments, title, filename, xlabel_map, r
             spsb_data = refs.get('spsb_by_model', {}).get(model, np.array([]))
 
             # Plot SPSB baseline (gray, behind, with black outline)
+            # Use weights to convert to percentage
             if len(spsb_data) > 0:
+                spsb_weights = np.ones_like(spsb_data) * 100 / len(spsb_data)
                 ax.hist(spsb_data, bins=bins, alpha=0.35, color=SPSB_COLOR,
-                       edgecolor='#333333', linewidth=0.6, density=True)
+                       edgecolor='#333333', linewidth=0.6, weights=spsb_weights)
 
-                # Add mean line for SPSB
-                spsb_mean = np.mean(spsb_data)
-                ax.axvline(spsb_mean, color=SPSB_COLOR, linestyle='--',
+                # Add median line for SPSB
+                spsb_median = np.median(spsb_data)
+                ax.axvline(spsb_median, color=SPSB_COLOR, linestyle='--',
                           linewidth=1.5, alpha=0.8)
 
             # Plot intervention (colored, on top)
             if len(int_data) > 0:
+                int_weights = np.ones_like(int_data) * 100 / len(int_data)
                 ax.hist(int_data, bins=bins, alpha=0.7, color=MODEL_COLORS[model],
-                       edgecolor='white', linewidth=0.5, density=True)
+                       edgecolor='white', linewidth=0.5, weights=int_weights)
 
-                # Add mean line for intervention
-                int_mean = np.mean(int_data)
-                ax.axvline(int_mean, color=MODEL_COLORS[model], linestyle='-',
+                # Add median line for intervention (dashed)
+                int_median = np.median(int_data)
+                ax.axvline(int_median, color=MODEL_COLORS[model], linestyle='--',
                           linewidth=2, alpha=0.9)
-
-            # Add zero reference line
-            ax.axvline(0, color='black', linestyle='-', linewidth=0.8, alpha=0.3)
 
             # Styling
             ax.set_xlim(-x_limit, x_limit)
@@ -185,29 +191,30 @@ def plot_intervention_histograms(df, experiments, title, filename, xlabel_map, r
 
             # Row labels (model names) - only on left column
             if col_idx == 0:
-                ax.set_ylabel(model, fontweight='bold', fontsize=10,
+                ax.set_ylabel(f'{model}\n% of obs', fontweight='bold', fontsize=10,
                             color=MODEL_COLORS[model])
             else:
                 ax.set_ylabel('')
+
+            # Show y-tick labels (percentage)
+            ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.0f}%'))
 
             # X-axis label only on bottom row
             if row_idx == n_models - 1:
                 ax.set_xlabel('bid − value', fontsize=9)
 
-            # Remove y-tick labels for cleaner look
-            ax.set_yticklabels([])
 
-            # Add stats annotation (mean deviation) or "N/A" if missing
+            # Add stats annotation (median deviation) or "N/A" if missing
             if len(int_data) > 0:
-                int_mean = np.mean(int_data)
+                int_median = np.median(int_data)
 
                 # Color based on direction
-                if int_mean > 0:
+                if int_median > 0:
                     text_color = '#c44e52'  # Red for overbidding
                 else:
                     text_color = '#2d8a2d'  # Green for underbidding
 
-                ax.text(0.97, 0.95, f'μ={int_mean:+.1f}',
+                ax.text(0.97, 0.95, f'med={int_median:+.1f}',
                        transform=ax.transAxes, fontsize=9, fontweight='bold',
                        ha='right', va='top', color=text_color,
                        bbox=dict(boxstyle='round,pad=0.2', facecolor='white',
@@ -221,11 +228,10 @@ def plot_intervention_histograms(df, experiments, title, filename, xlabel_map, r
 
     # Add legend at bottom
     legend_elements = [
-        mpatches.Patch(facecolor=SPSB_COLOR, alpha=0.45, label='SPSB Baseline'),
+        mpatches.Patch(facecolor=SPSB_COLOR, alpha=0.35, edgecolor='#333333', linewidth=0.6, label='SPSB Baseline'),
         mpatches.Patch(facecolor='#666666', alpha=0.7, label='Intervention'),
-        plt.Line2D([0], [0], color='#666666', linestyle='-', linewidth=2, label='Intervention Mean'),
-        plt.Line2D([0], [0], color=SPSB_COLOR, linestyle='--', linewidth=1.5, label='SPSB Mean'),
-        plt.Line2D([0], [0], color='black', linestyle='-', linewidth=0.8, alpha=0.3, label='Zero (rational)'),
+        plt.Line2D([0], [0], color='#666666', linestyle='--', linewidth=2, label='Intervention Median'),
+        plt.Line2D([0], [0], color=SPSB_COLOR, linestyle='--', linewidth=1.5, label='SPSB Median'),
     ]
 
     fig.legend(handles=legend_elements, loc='lower center', ncol=5,

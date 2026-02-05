@@ -95,17 +95,23 @@ Tests whether LLMs can reason about how their optimal action depends on others' 
 then $50 only wins at prices above $40 (undesirable)." This case-by-case reasoning
 is hard. In ascending auction, you just compare "quit now → $0" vs "continue → ≥$0".
 
+### Axis 1 (continued): Mechanism Comprehension
+These interventions were moved from "Axis 2" on 2026-02-04 — they test mechanism
+understanding via different framings, not forward planning (which requires sequential decisions).
+
+- `axis1_contingent_onestep.txt` - "Bid sets IF you win, not what you pay" framing
+- `axis1_contingent_tree.txt` - Explicit PATH A (win) vs PATH B (lose) decision tree
+- `axis1_contingent_backward_induct.txt` - Fake two-stage framing (backward induction prompt)
+
 ### Axis 2: Forward Planning
-Tests whether LLMs can backward-induct through sequential decision problems.
+**NOTE**: Forward planning (k-step foresight per Pycia & Troyan 2023) only applies to
+mechanisms with multiple sequential decisions. SPSB is a one-shot game, so there is
+no "forward planning" axis for sealed-bid auctions.
 
-- `axis2_forward_baseline.txt` - Two-stage auction (sealed bid → clock)
-- `axis2_forward_backward_induct.txt` - Explicitly prompt backward induction
-- `axis2_forward_onestep.txt` - Frame as one-step decision (reduces complexity)
-- `axis2_forward_tree.txt` - Present decision tree explicitly
+The old Axis 2 files have been renamed to Axis 1 (see changelog below).
 
-**Li's Key Insight**: Ascending auctions are "one-step simple" - looking one step ahead
-at each point reproduces optimal play, even though partial plans are inconsistent.
-At $1: "plan to quit at $2" → keep going. At $2: revise to "plan to quit at $3".
+For proper forward planning experiments, see the DA (Deferred Acceptance) folder which
+has k-step foresight interventions (k=0, 1, 2, ∞).
 
 ### Axis 3: Higher-Order Beliefs
 Tests whether LLMs reason about what others believe (and believe about beliefs).
@@ -160,3 +166,29 @@ Following Bini et al. (2024) "Behavioral Economics of AI: LLM Biases and Correct
 5. Dreyfuss, B., Heffetz, O. & Rabin, M. (2022). "Expectations-Based Loss Aversion May Help Explain Seemingly Dominated Choices in Strategy-Proof Mechanisms." AEJ: Micro 14(4): 515-55.
 6. Bini et al. (2024). "Behavioral Economics of AI: LLM Biases and Corrections."
 7. Kahneman, D. & Tversky, A. (1979). "Prospect Theory." Econometrica 47(1): 263-91.
+
+---
+
+## Changelog
+
+### 2026-02-04: Axis Reorganization
+
+**Rationale**: Based on Shengwu Li's "Designing Simple Mechanisms" (2024) and Pycia & Troyan's "A Theory of Simplicity" (2023), we reorganized the intervention axes:
+
+- **Axis 1 (Contingent Reasoning)**: Reasoning about what happens given others' actions
+- **Axis 2 (Forward Planning)**: Planning across multiple decision points (only applies to dynamic mechanisms)
+- **Axis 3 (Belief Reasoning)**: Reasoning about others' beliefs
+
+**Key insight**: Forward planning (k-step foresight) only applies to mechanisms where agents make multiple sequential decisions. SPSB is a one-shot mechanism, so "forward planning" interventions were actually testing mechanism comprehension/contingent reasoning.
+
+**Files renamed**:
+| Old Name | New Name | Date |
+|----------|----------|------|
+| `axis2_forward_onestep.txt` | `axis1_contingent_onestep.txt` | 2026-02-04 |
+| `axis2_forward_tree.txt` | `axis1_contingent_tree.txt` | 2026-02-04 |
+| `axis2_forward_backward_induct.txt` | `axis1_contingent_backward_induct.txt` | 2026-02-04 |
+
+**Files deprecated**:
+- `axis2_forward_baseline.txt` → `axis2_forward_baseline_DEPRECATED.txt`
+
+**Note**: For proper forward planning (k-step foresight) experiments, see the DA folder.
