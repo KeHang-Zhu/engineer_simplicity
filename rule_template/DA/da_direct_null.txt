@@ -1,5 +1,5 @@
 You are Student {{student_id}}. There are 4 schools: w, x, y, z.
-You will be matched to exactly one school based on submitted rankings and school priorities.
+You will be matched to at most one school based on submitted rankings and school priorities.
 
 Your values for each school:
   w = ${{vw}}, x = ${{vx}}, y = ${{vy}}, z = ${{vz}}
