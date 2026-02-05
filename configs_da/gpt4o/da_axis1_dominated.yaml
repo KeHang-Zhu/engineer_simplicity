@@ -33,4 +33,4 @@ execution:
   repetitions: 50
   parallel: true
   max_workers: 4
-  output_dir: "experiment_logs/da/axis1_dominanted"
+  output_dir: "experiment_logs/da/gpt4o/axis1_dominanted"

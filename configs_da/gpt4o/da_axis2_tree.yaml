@@ -1,9 +1,9 @@
 # DA Direct Revelation - Axis 2 One-Step Forward
 
 experiment:
-  name: "da_axis2_onestep"
+  name: "da_axis2_tree"
   version: "V1"
-  description: "Direct revelation DA with one-step forward reasoning"
+  description: "Direct revelation DA with tree reasoning"
 
 da:
   number_students: 4
@@ -11,8 +11,8 @@ da:
 
 mechanism:
   mechanism_type: "direct"
-  intervention_type: "axis2_onestep"
-  special_name: "axis2_da_onestep.txt"
+  intervention_type: "axis2_tree"
+  special_name: "axis2_da_tree.txt"
 
 value:
   common_range: [40, 70]
@@ -33,4 +33,4 @@ execution:
   repetitions: 50
   parallel: true
   max_workers: 4
-  output_dir: "experiment_logs/da/gpt4o/axis2_onestep"
+  output_dir: "experiment_logs/da/gpt4o/axis2_tree"

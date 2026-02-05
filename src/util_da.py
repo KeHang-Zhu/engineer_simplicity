@@ -672,7 +672,7 @@ class DA_OSP:
         return True
 
     def _run_one_osp_round(self):
-        """Execute one round of parallel OSP queries."""
+        """Execute one round of parallel OSP queries with reasoning collection."""
         print(f"\nOSP Round {self.osp_round}...")
 
         # STEP 1: Build prompts for students with available schools
@@ -687,44 +687,47 @@ class DA_OSP:
         if not student_prompts:
             return  # No students to query
 
-        # STEP 2: Create parallel Survey with QuestionMultipleChoice
+        # STEP 2: Create parallel Survey with QuestionFreeText (to collect reasoning)
         questions = []
         for student, prompt in student_prompts:
-            available = sorted(list(self.available_sets[student.name]))
-
-            q_choice = QuestionMultipleChoice(
+            q_freetext = QuestionFreeText(
                 question_name=f"q_osp_{student.name.replace(' ', '_')}_r{self.osp_round}",
-                question_text=prompt,
-                question_options=available
+                question_text=prompt
             )
-            questions.append(q_choice)
+            questions.append(q_freetext)
 
         # STEP 3: Execute parallel LLM calls
         survey = Survey(questions=questions)
         result = survey.by(self.model).run(cache=self.cache)
 
-        # STEP 4: Parse choices
+        # STEP 4: Parse reasoning and choices
         choices = {}
+        reasoning_dict = {}
         for student, prompt in student_prompts:
             question_name = f"q_osp_{student.name.replace(' ', '_')}_r{self.osp_round}"
             response = result.select(question_name).to_list()[0]
 
-            # Validate choice
-            choice = self._validate_choice(response, student)
+            # Parse reasoning and choice (with retry logic)
+            reason, choice = self._parse_and_validate_osp_response(
+                response, student, prompt, self.osp_round
+            )
+
             choices[student.name] = choice
+            reasoning_dict[student.name] = reason
             student.osp_choices.append(choice)
 
             print(f"  {student.name} chose: {choice}")
 
-        # STEP 5: Process choices via DA step
-        self._process_osp_choices(choices)
+        # STEP 5: Process choices via DA step (pass reasoning too)
+        self._process_osp_choices(choices, reasoning_dict)
 
     def _build_osp_prompt(self, student):
-        """Render OSP template with dynamic available set."""
+        """Render OSP template with dynamic available set and append da_ask.txt."""
         available_list = sorted(self.available_sets[student.name])
         available_str = ", ".join(available_list)
 
-        prompt = self.rule.rule_explanation.render({
+        # Render main OSP template
+        main_prompt = self.rule.rule_explanation.render({
             "student_id": student.name.split()[-1],
             "available_set": available_str,
             "vw": student.values["w"],
@@ -733,11 +736,139 @@ class DA_OSP:
             "vz": student.values["z"],
             "global_ranking": self.global_ranking  # Add global ranking
         })
-        return str(prompt)
+
+        # Load and append da_ask.txt (reasoning instruction)
+        da_ask_path = os.path.join(prompt_dir, 'da_ask.txt')
+        if os.path.exists(da_ask_path):
+            with open(da_ask_path, 'r') as f:
+                da_ask_content = f.read()
+            # Modify instruction for OSP (choice instead of ranking)
+            da_ask_osp = da_ask_content.replace(
+                "Ranking: <1st> > <2nd> > <3rd> > <4th>",
+                f"Choice: [one of {available_str}]"
+            )
+            full_prompt = str(main_prompt) + "\n\n" + da_ask_osp
+        else:
+            full_prompt = str(main_prompt)
+
+        return full_prompt
+
+    def _parse_and_validate_osp_response(self, initial_response, student, full_prompt, round_num):
+        """
+        Parse <REASON> and <DECISION> tags with 3-attempt retry logic for OSP.
+
+        Args:
+            initial_response: LLM response with <REASON> and <DECISION> tags
+            student: Student object
+            full_prompt: Full prompt text for retry
+            round_num: OSP round number
+
+        Returns:
+            Tuple[str, str]: (reason, choice)
+
+        Raises:
+            RuntimeError: If parsing fails after 3 attempts
+        """
+        response = initial_response
+        available = self.available_sets[student.name]
+
+        for attempt in range(3):
+            try:
+                # Parse REASON and DECISION tags
+                reason, decision_text = self._parse_reason_decision(response)
+
+                # Use gpt-4o-mini to extract choice from decision text
+                choice = self._extract_osp_choice_with_model(decision_text, student, available)
+
+                if choice in available:
+                    return reason, choice
+                raise ValueError(f"Choice '{choice}' not in available set {available}")
+
+            except Exception as e:
+                print(f"{student.name} OSP parsing error (attempt {attempt+1}/3): {e}")
+
+                if attempt < 2:
+                    # Retry with error message
+                    available_str = ", ".join(sorted(available))
+                    q_retry = QuestionFreeText(
+                        question_name="q_osp_retry",
+                        question_text=full_prompt + f"\n\nError: {e}. You MUST use the format:\n<REASON>Your reasoning here</REASON>\n<DECISION>Choice: [one of {available_str}]</DECISION>"
+                    )
+                    survey = Survey(questions=[q_retry])
+                    result = survey.by(self.model).run(cache=self.cache)
+                    response = result.select("q_osp_retry").to_list()[0]
+
+        raise RuntimeError(f"{student.name} failed to parse OSP response after 3 attempts")
+
+    def _parse_reason_decision(self, text):
+        """
+        Parse <REASON> and <DECISION> tags from LLM response.
+
+        Args:
+            text: LLM response text
+
+        Returns:
+            Tuple[str, str]: (reason, decision_text)
+
+        Raises:
+            ValueError: If tags not found
+        """
+        # Parse REASON
+        reason_pattern = r"<REASON>(.*?)</REASON>"
+        reason_match = re.search(reason_pattern, text, flags=re.IGNORECASE | re.DOTALL)
+        if not reason_match:
+            raise ValueError("REASON tag not found")
+        reason = reason_match.group(1).strip()
+
+        # Parse DECISION
+        decision_pattern = r"<DECISION>(.*?)</DECISION>"
+        decision_match = re.search(decision_pattern, text, flags=re.IGNORECASE | re.DOTALL)
+        if not decision_match:
+            raise ValueError("DECISION tag not found")
+        decision = decision_match.group(1).strip()
+
+        return reason, decision
+
+    def _extract_osp_choice_with_model(self, decision_text, student, available):
+        """
+        Use gpt-4o-mini to extract school choice from decision text.
+
+        Args:
+            decision_text: Text from <DECISION> tag
+            student: Student object
+            available: Set of available schools
+
+        Returns:
+            str: Extracted school choice
+        """
+        extract_model = Model("gpt-4o-mini", temperature=0)
+
+        available_str = ", ".join(sorted(available))
+        extraction_prompt = f"""Extract the school choice from this text. The student must choose ONE school from: {available_str}
+
+Text: {decision_text}
+
+Respond with ONLY the school letter (w, x, y, or z). Nothing else."""
+
+        q_extract = QuestionFreeText(
+            question_name="extract_osp_choice",
+            question_text=extraction_prompt
+        )
+
+        result = Survey([q_extract]).by(extract_model).run()
+        extracted = result.select("extract_osp_choice").to_list()[0].lower().strip()
+
+        # Parse extracted choice
+        for school in ['w', 'x', 'y', 'z']:
+            if school in extracted:
+                if school in available:
+                    return school
+
+        raise ValueError(f"Could not extract valid choice from: {extracted}")
 
     def _validate_choice(self, response, student):
         """
-        Validate OSP choice is in available set.
+        Validate OSP choice is in available set (legacy method, not used with reasoning).
 
         Args:
             response: LLM response
@@ -765,13 +896,17 @@ class DA_OSP:
 
         raise ValueError(f"Invalid choice '{response}' not in available set {available}")
 
-    def _process_osp_choices(self, choices):
+    def _process_osp_choices(self, choices, reasoning_dict=None):
         """
         Process OSP choices: run DA step and update state.
 
         Args:
             choices: Dict[student_name, school]
+            reasoning_dict: Dict[student_name, reason] (optional)
         """
+        if reasoning_dict is None:
+            reasoning_dict = {}
+
         # Save available sets BEFORE processing (for truthfulness checking)
         available_before = {k: sorted(list(v)) for k, v in self.available_sets.items()}
 
@@ -815,10 +950,11 @@ class DA_OSP:
             if student_name in self.available_sets:
                 self.available_sets[student_name] = set()
 
-        # Log this round (use available_before for truthfulness checking)
+        # Log this round (use available_before for truthfulness checking, add reasoning)
         self.osp_history.append({
             'round': self.osp_round,
             'choices': choices.copy(),
+            'reasoning': reasoning_dict.copy(),  # Add reasoning for this round
             'rejections': rejections,
             'tentative_matches': self.tentative_matches.copy(),
             'available_sets_before': available_before,  # Available when choices were made

@@ -2,10 +2,10 @@ da:
   number_schools: 4
   number_students: 4
 execution:
-  max_workers: 2
+  max_workers: 4
   output_dir: experiment_logs/da/gpt4o/osp_baseline
   parallel: true
-  repetitions: 4
+  repetitions: 50
 experiment:
   description: OSP mechanism DA with sequential choice queries
   name: da_osp_baseline
