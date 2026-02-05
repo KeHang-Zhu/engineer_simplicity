@@ -49,7 +49,24 @@ plt.rcParams.update({
     'axes.axisbelow': True,
 })
 
-OUTPUT_DIR = Path(__file__).parent
+OUTPUT_DIR = Path(__file__).parent / 'auctions'
+
+# Value midpoint for high/low type classification
+VALUE_MIDPOINT = 25  # Midpoint of 0-49 value range
+
+# ============================================================================
+# COLOR UTILITIES
+# ============================================================================
+
+def lighten_color(hex_color, factor=0.4):
+    """Lighten a hex color by mixing with white."""
+    r = int(hex_color[1:3], 16)
+    g = int(hex_color[3:5], 16)
+    b = int(hex_color[5:7], 16)
+    r = int(r + (255 - r) * factor)
+    g = int(g + (255 - g) * factor)
+    b = int(b + (255 - b) * factor)
+    return f'#{r:02x}{g:02x}{b:02x}'
 
 # ============================================================================
 # MODEL CONFIGURATION
@@ -70,7 +87,16 @@ MODEL_COLORS = {
     'GPT-4o': '#f58231'               # Orange
 }
 
-MODEL_ORDER = ['Claude 3.5 Haiku', 'Gemini 2.0 Flash', 'Gemma 3 27B', 'GPT-4o']
+# Darker versions for outlines (darken by ~30%)
+MODEL_COLORS_DARK = {
+    'Claude 3.5 Haiku': '#2a3d8a',    # Darker blue
+    'Gemini 2.0 Flash': '#a11232',    # Darker red
+    'Gemma 3 27B': '#297a33',         # Darker green
+    'GPT-4o': '#c46820'               # Darker orange
+}
+
+# Order by baseline error severity (best to worst): Claude, Gemini, GPT-4o, Gemma
+MODEL_ORDER = ['Claude 3.5 Haiku', 'Gemini 2.0 Flash', 'GPT-4o', 'Gemma 3 27B']
 
 SPSB_COLOR = '#888888'  # Gray for SPSB baseline
 
@@ -90,6 +116,7 @@ def load_data():
     df = pd.read_csv(data_path)
     df['model_short'] = df['model'].map(MODEL_NAMES)
     df['deviation'] = df['bid'] - df['player_value']  # Signed deviation
+    df['value_type'] = np.where(df['player_value'] >= VALUE_MIDPOINT, 'high', 'low')
     return df
 
 
@@ -102,6 +129,15 @@ def get_reference_data(df):
         refs['spsb'] = spsb_data
         refs['spsb_by_model'] = {
             model: spsb_data[spsb_data['model_short'] == model]['deviation'].values
+            for model in MODEL_ORDER if model in spsb_data['model_short'].values
+        }
+        refs['spsb_by_model_type'] = {
+            model: {
+                'high': spsb_data[(spsb_data['model_short'] == model) &
+                                  (spsb_data['value_type'] == 'high')]['deviation'].values,
+                'low': spsb_data[(spsb_data['model_short'] == model) &
+                                 (spsb_data['value_type'] == 'low')]['deviation'].values
+            }
             for model in MODEL_ORDER if model in spsb_data['model_short'].values
         }
 
@@ -127,7 +163,7 @@ def plot_intervention_histograms(df, experiments, title, filename, xlabel_map, r
     Layout:
     - Rows: Models
     - Columns: Interventions
-    - Each cell: SPSB (gray) vs Intervention (colored)
+    - Each cell: SPSB (gray) vs Intervention (colored) overlaid histograms
     """
     models = [m for m in MODEL_ORDER if m in df['model_short'].unique()]
     exps = [e for e in experiments if e in df['experiment'].unique()]
@@ -146,6 +182,26 @@ def plot_intervention_histograms(df, experiments, title, filename, xlabel_map, r
     x_limit = min(np.percentile(np.abs(all_devs.dropna()), 98), 25)
     bins = np.linspace(-x_limit, x_limit, 30)
 
+    # First pass: compute histograms to find global y-max for this figure
+    y_max = 0
+    for model in models:
+        spsb_data = refs.get('spsb_by_model', {}).get(model, np.array([]))
+        if len(spsb_data) > 0:
+            spsb_weights = np.ones_like(spsb_data) * 100 / len(spsb_data)
+            counts, _ = np.histogram(spsb_data, bins=bins, weights=spsb_weights)
+            y_max = max(y_max, counts.max())
+
+        for exp in exps:
+            int_data = df[(df['experiment'] == exp) &
+                         (df['model_short'] == model)]['deviation'].values
+            if len(int_data) > 0:
+                int_weights = np.ones_like(int_data) * 100 / len(int_data)
+                counts, _ = np.histogram(int_data, bins=bins, weights=int_weights)
+                y_max = max(y_max, counts.max())
+
+    # Add padding to y_max
+    y_max = y_max * 1.1
+
     for row_idx, model in enumerate(models):
         for col_idx, exp in enumerate(exps):
             ax = axes[row_idx, col_idx]
@@ -157,32 +213,30 @@ def plot_intervention_histograms(df, experiments, title, filename, xlabel_map, r
             # Get SPSB baseline for this model
             spsb_data = refs.get('spsb_by_model', {}).get(model, np.array([]))
 
-            # Plot SPSB baseline (gray, behind, with black outline)
-            # Use weights to convert to percentage
-            if len(spsb_data) > 0:
-                spsb_weights = np.ones_like(spsb_data) * 100 / len(spsb_data)
-                ax.hist(spsb_data, bins=bins, alpha=0.35, color=SPSB_COLOR,
-                       edgecolor='#333333', linewidth=0.6, weights=spsb_weights)
+            spsb_mean = None
+            int_mean = None
 
-                # Add median line for SPSB
-                spsb_median = np.median(spsb_data)
-                ax.axvline(spsb_median, color=SPSB_COLOR, linestyle='--',
-                          linewidth=1.5, alpha=0.8)
-
-            # Plot intervention (colored, on top)
+            # Plot intervention FIRST (colored, behind)
             if len(int_data) > 0:
                 int_weights = np.ones_like(int_data) * 100 / len(int_data)
-                ax.hist(int_data, bins=bins, alpha=0.7, color=MODEL_COLORS[model],
-                       edgecolor='white', linewidth=0.5, weights=int_weights)
-
-                # Add median line for intervention (dashed)
-                int_median = np.median(int_data)
-                ax.axvline(int_median, color=MODEL_COLORS[model], linestyle='--',
+                ax.hist(int_data, bins=bins, alpha=0.6, color=MODEL_COLORS[model],
+                       edgecolor=MODEL_COLORS_DARK[model], linewidth=0.6, weights=int_weights)
+                int_mean = np.mean(int_data)
+                ax.axvline(int_mean, color=MODEL_COLORS[model], linestyle='--',
                           linewidth=2, alpha=0.9)
+
+            # Plot SPSB baseline SECOND (gray, in front)
+            if len(spsb_data) > 0:
+                spsb_weights = np.ones_like(spsb_data) * 100 / len(spsb_data)
+                ax.hist(spsb_data, bins=bins, alpha=0.5, color=SPSB_COLOR,
+                       edgecolor='#333333', linewidth=0.6, weights=spsb_weights)
+                spsb_mean = np.mean(spsb_data)
+                ax.axvline(spsb_mean, color=SPSB_COLOR, linestyle='--',
+                          linewidth=1.5, alpha=0.8)
 
             # Styling
             ax.set_xlim(-x_limit, x_limit)
-            ax.set_ylim(bottom=0)
+            ax.set_ylim(0, y_max)
 
             # Column titles (intervention names) - only on top row
             if row_idx == 0:
@@ -203,22 +257,20 @@ def plot_intervention_histograms(df, experiments, title, filename, xlabel_map, r
             if row_idx == n_models - 1:
                 ax.set_xlabel('bid − value', fontsize=9)
 
+            # Add stats annotation (both means)
+            if int_mean is not None:
+                annotation_lines = []
+                if spsb_mean is not None:
+                    annotation_lines.append((f'μ={spsb_mean:+.1f}', SPSB_COLOR))
+                annotation_lines.append((f'μ={int_mean:+.1f}', MODEL_COLORS[model]))
 
-            # Add stats annotation (median deviation) or "N/A" if missing
-            if len(int_data) > 0:
-                int_median = np.median(int_data)
-
-                # Color based on direction
-                if int_median > 0:
-                    text_color = '#c44e52'  # Red for overbidding
-                else:
-                    text_color = '#2d8a2d'  # Green for underbidding
-
-                ax.text(0.97, 0.95, f'med={int_median:+.1f}',
-                       transform=ax.transAxes, fontsize=9, fontweight='bold',
-                       ha='right', va='top', color=text_color,
-                       bbox=dict(boxstyle='round,pad=0.2', facecolor='white',
-                                alpha=0.85, edgecolor='none'))
+                # Draw annotations stacked vertically
+                for i, (text, color) in enumerate(annotation_lines):
+                    ax.text(0.97, 0.95 - i*0.12, text,
+                           transform=ax.transAxes, fontsize=9, fontweight='bold',
+                           ha='right', va='top', color=color,
+                           bbox=dict(boxstyle='round,pad=0.2', facecolor='white',
+                                    alpha=0.85, edgecolor='none'))
             else:
                 # No data for this model/experiment
                 ax.text(0.5, 0.5, 'No data',
@@ -228,13 +280,12 @@ def plot_intervention_histograms(df, experiments, title, filename, xlabel_map, r
 
     # Add legend at bottom
     legend_elements = [
-        mpatches.Patch(facecolor=SPSB_COLOR, alpha=0.35, edgecolor='#333333', linewidth=0.6, label='SPSB Baseline'),
-        mpatches.Patch(facecolor='#666666', alpha=0.7, label='Intervention'),
-        plt.Line2D([0], [0], color='#666666', linestyle='--', linewidth=2, label='Intervention Median'),
-        plt.Line2D([0], [0], color=SPSB_COLOR, linestyle='--', linewidth=1.5, label='SPSB Median'),
+        mpatches.Patch(facecolor=SPSB_COLOR, alpha=0.5, edgecolor='#333333', linewidth=0.6, label='SPSB Baseline'),
+        mpatches.Patch(facecolor='#666666', alpha=0.6, label='Intervention'),
+        plt.Line2D([0], [0], color='#666666', linestyle='--', linewidth=2, label='Mean'),
     ]
 
-    fig.legend(handles=legend_elements, loc='lower center', ncol=5,
+    fig.legend(handles=legend_elements, loc='lower center', ncol=4,
               frameon=True, framealpha=0.95, edgecolor='#cccccc',
               bbox_to_anchor=(0.5, -0.02), fontsize=9)
 
@@ -248,6 +299,135 @@ def plot_intervention_histograms(df, experiments, title, filename, xlabel_map, r
     plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
     print(f"✓ Saved: {filename}")
+
+
+def plot_high_low_type_summary(df, refs):
+    """
+    Create a summary plot showing high types are responsible for most underbidding.
+
+    Layout:
+    - 2 rows: Baseline (SPSB), Best Intervention (Tree)
+    - 4 columns: Models
+    - Each cell: overlaid histograms for high type (hatched) and low type (solid)
+    """
+    models = [m for m in MODEL_ORDER if m in df['model_short'].unique()]
+    experiments = [('spsb', 'SPSB Baseline'), ('axis2_forward_tree', 'Tree Intervention')]
+
+    fig, axes = plt.subplots(2, len(models), figsize=(3.5 * len(models), 5),
+                             squeeze=False)
+
+    # Determine common x-axis range
+    all_devs = df[df['experiment'].isin(['spsb', 'axis2_forward_tree'])]['deviation']
+    x_limit = min(np.percentile(np.abs(all_devs.dropna()), 98), 25)
+    bins = np.linspace(-x_limit, x_limit, 25)
+
+    # First pass: find global y-max
+    y_max = 0
+    for model in models:
+        for exp, _ in experiments:
+            for vtype in ['high', 'low']:
+                data = df[(df['experiment'] == exp) &
+                         (df['model_short'] == model) &
+                         (df['value_type'] == vtype)]['deviation'].values
+                if len(data) > 0:
+                    weights = np.ones_like(data) * 100 / len(data)
+                    counts, _ = np.histogram(data, bins=bins, weights=weights)
+                    y_max = max(y_max, counts.max())
+    y_max = y_max * 1.15
+
+    for row_idx, (exp, exp_label) in enumerate(experiments):
+        for col_idx, model in enumerate(models):
+            ax = axes[row_idx, col_idx]
+
+            # Get data split by type
+            high_data = df[(df['experiment'] == exp) &
+                          (df['model_short'] == model) &
+                          (df['value_type'] == 'high')]['deviation'].values
+            low_data = df[(df['experiment'] == exp) &
+                         (df['model_short'] == model) &
+                         (df['value_type'] == 'low')]['deviation'].values
+
+            color_light = lighten_color(MODEL_COLORS[model], factor=0.4)
+            color_dark = MODEL_COLORS_DARK[model]
+
+            mean_high = None
+            mean_low = None
+
+            # Plot LOW types FIRST (solid, lighter, behind)
+            if len(low_data) > 0:
+                low_weights = np.ones_like(low_data) * 100 / len(low_data)
+                ax.hist(low_data, bins=bins, alpha=0.6, color=color_light,
+                       edgecolor=MODEL_COLORS[model], linewidth=0.6, weights=low_weights,
+                       label='Low Type')
+                mean_low = np.mean(low_data)
+                ax.axvline(mean_low, color=color_light, linestyle='--', linewidth=1.5, alpha=0.8)
+
+            # Plot HIGH types SECOND (hatched, darker, in front)
+            if len(high_data) > 0:
+                high_weights = np.ones_like(high_data) * 100 / len(high_data)
+                ax.hist(high_data, bins=bins, alpha=0.7, color=color_dark,
+                       edgecolor='black', linewidth=0.6, weights=high_weights,
+                       hatch='//', label='High Type')
+                mean_high = np.mean(high_data)
+                ax.axvline(mean_high, color=color_dark, linestyle='--', linewidth=2, alpha=0.9)
+
+            # Styling
+            ax.set_xlim(-x_limit, x_limit)
+            ax.set_ylim(0, y_max)
+
+            # Column titles (model names) - only on top row
+            if row_idx == 0:
+                ax.set_title(model, fontweight='bold', fontsize=11, color=MODEL_COLORS[model])
+
+            # Row labels - only on left column
+            if col_idx == 0:
+                ax.set_ylabel(f'{exp_label}\n% of obs', fontweight='bold', fontsize=10)
+            else:
+                ax.set_ylabel('')
+
+            ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.0f}%'))
+
+            # X-axis label only on bottom row
+            if row_idx == 1:
+                ax.set_xlabel('bid − value', fontsize=9)
+
+            # Add annotation with means
+            annotation_lines = []
+            if mean_high is not None:
+                annotation_lines.append((f'high={mean_high:+.1f}', color_dark))
+            if mean_low is not None:
+                annotation_lines.append((f'low={mean_low:+.1f}', color_light))
+
+            for i, (text, color) in enumerate(annotation_lines):
+                ax.text(0.97, 0.95 - i*0.12, text,
+                       transform=ax.transAxes, fontsize=8, fontweight='bold',
+                       ha='right', va='top', color=color,
+                       bbox=dict(boxstyle='round,pad=0.2', facecolor='white',
+                                alpha=0.85, edgecolor='none'))
+
+    # Add legend at bottom
+    legend_elements = [
+        mpatches.Patch(facecolor='#aaaaaa', alpha=0.6, edgecolor='#666666',
+                      linewidth=0.6, label=f'Low Type (v<{VALUE_MIDPOINT})'),
+        mpatches.Patch(facecolor='#555555', alpha=0.7, edgecolor='black',
+                      linewidth=0.6, hatch='//', label=f'High Type (v≥{VALUE_MIDPOINT})'),
+        plt.Line2D([0], [0], color='#666666', linestyle='--', linewidth=1.5, label='Mean'),
+    ]
+
+    fig.legend(handles=legend_elements, loc='lower center', ncol=3,
+              frameon=True, framealpha=0.95, edgecolor='#cccccc',
+              bbox_to_anchor=(0.5, -0.02), fontsize=9)
+
+    fig.suptitle('High Types Drive Underbidding (Tree Intervention Fixes It)',
+                fontweight='bold', fontsize=13, y=1.02)
+
+    plt.tight_layout()
+    plt.subplots_adjust(bottom=0.12)
+
+    output_path = OUTPUT_DIR / 'high_low_type_summary.png'
+    plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
+    plt.close()
+    print(f"✓ Saved: high_low_type_summary.png")
 
 
 def print_findings(df, refs):
@@ -312,7 +492,7 @@ def main():
         'axis1_contingent_enumerate': 'Enumerate',
         'axis1_contingent_worstcase': 'Worst-case'
     }
-    plot_intervention_histograms(df, axis1_exps, 'Axis 1: Contingent Reasoning',
+    plot_intervention_histograms(df, axis1_exps, 'Contingent Reasoning',
                                  'axis1_contingent_reasoning.png', axis1_labels, refs)
 
     # ─────────────────────────────────────────────────────────────────────────
@@ -325,7 +505,7 @@ def main():
         'axis2_forward_tree': 'Game Tree',
         'axis2_forward_backward_induct': 'Backward Ind.'
     }
-    plot_intervention_histograms(df, axis2_exps, 'Axis 2: Forward Reasoning',
+    plot_intervention_histograms(df, axis2_exps, 'Forward Planning',
                                  'axis2_forward_reasoning.png', axis2_labels, refs)
 
     # ─────────────────────────────────────────────────────────────────────────
@@ -338,7 +518,7 @@ def main():
         'axis3_beliefs_secondorder': 'Second-order',
         'axis3_beliefs_common_knowledge': 'Common Know.'
     }
-    plot_intervention_histograms(df, axis3_exps, 'Axis 3: Belief Reasoning',
+    plot_intervention_histograms(df, axis3_exps, 'Beliefs',
                                  'axis3_beliefs.png', axis3_labels, refs)
 
     # ─────────────────────────────────────────────────────────────────────────
@@ -368,6 +548,11 @@ def main():
     }
     plot_intervention_histograms(df, risk_exps, 'Risk Preference Interventions',
                                  'risk_preferences.png', risk_labels, refs)
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # HIGH/LOW TYPE SUMMARY
+    # ─────────────────────────────────────────────────────────────────────────
+    plot_high_low_type_summary(df, refs)
 
     print_findings(df, refs)
 
