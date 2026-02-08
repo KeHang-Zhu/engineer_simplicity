@@ -6,8 +6,8 @@ Given the school priorities, there is a set of schools that WOULD accept you (yo
 
 The order you rank schools cannot change which schools are obtainable — it only determines which obtainable school you end up at.
 
-Your values for each school:
-  w = ${{vw}}, x = ${{vx}}, y = ${{vy}}, z = ${{vz}}
+Your preference ordering (most preferred to least preferred):
+  {{preference_order}}
 
 Your priority rank at each school (1 = highest priority):
   w: {{pw}}, x: {{px}}, y: {{py}}, z: {{pz}}

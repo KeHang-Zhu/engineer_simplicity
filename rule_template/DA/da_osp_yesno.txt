@@ -1,7 +1,7 @@
 You are Student {{student_id}}. At this step, consider the currently available schools: {{available_set}}
 
-Your values for each school:
-  w = ${{vw}}, x = ${{vx}}, y = ${{vy}}, z = ${{vz}}
+Your preference ordering (most preferred to least preferred):
+  {{preference_order}}
 
 Moreover, most applicants seem to favor {{global_ranking}}.
 

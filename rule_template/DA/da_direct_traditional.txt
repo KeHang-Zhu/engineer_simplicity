@@ -8,8 +8,8 @@ HOW THE MATCHING WORKS (Deferred Acceptance):
 4. Rejected students propose to their next choice
 5. This repeats until all students are matched
 
-Your values for each school:
-  w = ${{vw}}, x = ${{vx}}, y = ${{vy}}, z = ${{vz}}
+Your preference ordering (most preferred to least preferred):
+  {{preference_order}}
 
 Your priority rank at each school (1 = highest priority):
   w: {{pw}}, x: {{px}}, y: {{py}}, z: {{pz}}

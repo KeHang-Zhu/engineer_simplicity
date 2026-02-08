@@ -226,14 +226,16 @@ class DA_Direct:
         }
 
     def _build_student_prompt(self, student):
-        """Render template with student's values and priorities."""
+        """Render template with student's preference order and priorities."""
+        # Compute preference order (sorted by value, descending)
+        sorted_schools = sorted(student.values.items(), key=lambda x: x[1], reverse=True)
+        preference_order = " > ".join([school for school, _ in sorted_schools])
+        # Example: "x > y > w > z"
+
         # Render main mechanism explanation template
         main_prompt = self.rule.rule_explanation.render({
             "student_id": student.name.split()[-1],  # "A", "B", etc.
-            "vw": student.values["w"],
-            "vx": student.values["x"],
-            "vy": student.values["y"],
-            "vz": student.values["z"],
+            "preference_order": preference_order,  # Ordinal preferences only
             "pw": student.priorities["w"],
             "px": student.priorities["x"],
             "py": student.priorities["y"],
@@ -726,14 +728,16 @@ class DA_OSP:
         available_list = sorted(self.available_sets[student.name])
         available_str = ", ".join(available_list)
 
+        # Compute preference order (sorted by value, descending)
+        sorted_schools = sorted(student.values.items(), key=lambda x: x[1], reverse=True)
+        preference_order = " > ".join([school for school, _ in sorted_schools])
+        # Example: "x > y > w > z"
+
         # Render main OSP template
         main_prompt = self.rule.rule_explanation.render({
             "student_id": student.name.split()[-1],
             "available_set": available_str,
-            "vw": student.values["w"],
-            "vx": student.values["x"],
-            "vy": student.values["y"],
-            "vz": student.values["z"],
+            "preference_order": preference_order,  # Ordinal preferences only
             "global_ranking": self.global_ranking  # Add global ranking
         })
 
