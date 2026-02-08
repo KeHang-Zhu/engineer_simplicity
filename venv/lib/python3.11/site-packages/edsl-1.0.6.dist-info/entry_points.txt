@@ -1,0 +1,3 @@
+[console_scripts]
+edsl=edsl.__main__:main
+

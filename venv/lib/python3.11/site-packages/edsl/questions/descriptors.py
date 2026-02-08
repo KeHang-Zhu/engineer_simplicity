@@ -1,0 +1,524 @@
+"""This module contains the descriptors used to validate the attributes of the question classes."""
+
+from abc import ABC, abstractmethod
+import re
+from typing import Any, Callable, List
+from .exceptions import (
+    QuestionCreationValidationError,
+    QuestionAnswerValidationError,
+)
+from .settings import Settings
+
+################################
+# Helper functions
+################################
+
+
+def contains_single_braced_substring(s: str) -> bool:
+    """Check if the string contains a substring in single braces."""
+    pattern = r"(?<!\{)\{[^{}]+\}(?!\})"
+    match = re.search(pattern, s)
+    return bool(match)
+
+
+def is_number(value: Any) -> bool:
+    """Check if an object is a number."""
+    return isinstance(value, int) or isinstance(value, float)
+
+
+def is_number_or_none(value: Any) -> bool:
+    """Check if an object is a number or None."""
+    return value is None or is_number(value)
+
+
+################################
+# Descriptor ABC
+################################
+
+
+class BaseDescriptor(ABC):
+    """ABC for something."""
+
+    @abstractmethod
+    def validate(self, value: Any) -> None:
+        """Validate the value. If it is invalid, raises an exception. If it is valid, does nothing."""
+        pass
+
+    def __get__(self, instance, owner):
+        """Get the value of the attribute."""
+        if self.name not in instance.__dict__:
+            return {}
+        return instance.__dict__[self.name]
+
+    def __set__(self, instance, value: Any) -> None:
+        """Set the value of the attribute."""
+        new_value = self.validate(value, instance)
+
+        if new_value is not None:
+            instance.__dict__[self.name] = new_value
+        else:
+            instance.__dict__[self.name] = value
+
+    def __set_name__(self, owner, name: str) -> None:
+        """Set the name of the attribute."""
+        self.name = "_" + name
+
+
+################################
+# General descriptors
+################################
+
+
+class FunctionDescriptor(BaseDescriptor):
+    """Validate that a value is a function."""
+
+    def validate(self, value: Any, instance) -> Callable:
+        """Validate the value is a function, and if so, returns it."""
+        if not callable(value):
+            raise QuestionCreationValidationError(
+                f"Expected a function (got {value}).)"
+            )
+        return value
+
+
+class IntegerDescriptor(BaseDescriptor):
+    """
+    Validate that a value is an integer.
+
+    - `none_allowed` is whether None is allowed as a value.
+    """
+
+    def __init__(self, none_allowed: bool = False):
+        """Initialize the descriptor."""
+        self.none_allowed = none_allowed
+
+    def validate(self, value, instance):
+        """Validate the value is an integer."""
+        if self.none_allowed:
+            if not (isinstance(value, int) or value is None):
+                raise QuestionAnswerValidationError(
+                    f"Expected an integer or None (got {value})."
+                )
+        else:
+            if not isinstance(value, int):
+                raise QuestionAnswerValidationError(
+                    f"Expected an integer (got {value})."
+                )
+
+
+class IntegerOrNoneDescriptor(BaseDescriptor):
+    """Validate that a value is an integer or None."""
+
+    def validate(self, value, instance):
+        """Validate the value is an integer or None."""
+        if not (isinstance(value, int) or value is None):
+            raise QuestionCreationValidationError(
+                f"Expected an integer or None (got {value})."
+            )
+
+
+class NumericalOrNoneDescriptor(BaseDescriptor):
+    """Validate that a value is a number or None."""
+
+    def validate(self, value, instance):
+        """Validate the value is a number or None."""
+        if isinstance(value, str):
+            # Check if the string is a dynamic numerical value
+            if "{{" in value and "}}" in value:
+                return None
+            else:
+                raise QuestionCreationValidationError(
+                    f"Dynamic numerical values must have jinja2 braces - instead received: {value}."
+                )
+        if not is_number_or_none(value):
+            raise QuestionAnswerValidationError(
+                f"Expected a number or None (got {value})."
+            )
+
+
+################################
+# Attribute-specific descriptors
+################################
+
+
+class AnswerTemplateDescriptor(BaseDescriptor):
+    """Validate that the answer template is a dictionary with string keys and string values."""
+
+    def validate(self, value: Any, instance) -> None:
+        """Validate the answer template."""
+        if not isinstance(value, dict):
+            raise QuestionCreationValidationError(
+                f"`answer_template` must be a dictionary (got {value}).)"
+            )
+        if not all(isinstance(x, str) for x in value.keys()):
+            raise QuestionCreationValidationError(
+                f"`answer_template` keys must be strings (got {value})."
+            )
+
+
+class InstructionsDescriptor(BaseDescriptor):
+    """Validate that the `instructions` attribute is a string."""
+
+    def validate(self, value, instance):
+        """Validate the value is a string."""
+        # if not isinstance(value, str):
+        #     raise QuestionCreationValidationError(
+        #         f"Question `instructions` must be a string (got {value})."
+        #     )
+        pass
+
+
+class NumSelectionsDescriptor(BaseDescriptor):
+    """Validate that `num_selections` is an integer, is less than the number of options, and is positive."""
+
+    def validate(self, value, instance):
+        """Validate the value is an integer, is less than the number of options, and is positive."""
+        if not (isinstance(value, int)):
+            raise QuestionCreationValidationError(
+                f"`num_selections` must be an integer (got {value})."
+            )
+        if value > len(instance.question_options):
+            raise QuestionAnswerValidationError(
+                f"`num_selections` must be less than the number of options (got {value})."
+            )
+        if value < 1:
+            raise QuestionAnswerValidationError(
+                f"`num_selections` must a positive integer (got {value})."
+            )
+
+
+class OptionLabelDescriptor(BaseDescriptor):
+    """Validate that the `option_label` attribute is a string.
+
+    >>> class TestQuestion:
+    ...     option_label = OptionLabelDescriptor()
+    ...     def __init__(self, option_label: str):
+    ...         self.option_label = option_label
+
+    >>> _ = TestQuestion("{{Option}}")
+
+    """
+
+    def validate(self, value, instance):
+        """Validate the value is a string."""
+        if isinstance(value, str):
+            if "{{" in value and "}}" in value:
+                # they're trying to use a dynamic question name - let's let this play out
+                return None
+
+        key_values = [int(v) for v in value.keys()]
+
+        if value and (key_values := [float(v) for v in value.keys()]) != []:
+            if min(key_values) != min(instance.question_options):
+                raise QuestionCreationValidationError(
+                    f"First option needs a label (got {value})"
+                )
+            if max(key_values) != max(instance.question_options):
+                raise QuestionCreationValidationError(
+                    f"Last option needs a label (got {value})"
+                )
+            if not all(isinstance(x, str) for x in value.values()):
+                raise QuestionCreationValidationError(
+                    "Option labels must be strings (got {value})."
+                )
+            for key in key_values:
+                if key not in instance.question_options:
+                    raise QuestionCreationValidationError(
+                        f"Option label key ({key}) is not in question options ({instance.question_options})."
+                    )
+
+            if len(value.values()) != len(set(value.values())):
+                raise QuestionCreationValidationError(
+                    f"Option labels must be unique (got {value})."
+                )
+
+
+class QuestionNameDescriptor(BaseDescriptor):
+    """Validate that the `question_name` attribute is a valid variable name."""
+
+    def validate(self, value, instance):
+        """Validate the value is a valid variable name."""
+        from ..utilities.utilities import is_valid_variable_name
+
+        if "{{" in value and "}}" in value:
+            # they're trying to use a dynamic question name - let's let this play out
+            return None
+
+        if value.endswith("_comment") or value.endswith("_generated_tokens"):
+            raise QuestionCreationValidationError(
+                f"`question_name` cannot end with '_comment' or '_generated_tokens - (got {value})."
+            )
+
+        if not is_valid_variable_name(value):
+            raise QuestionCreationValidationError(
+                f"`question_name` is not a valid variable name (got '{value}')."
+            )
+
+
+class QuestionOptionsDescriptor(BaseDescriptor):
+    """Validate that `question_options` is a list, does not exceed the min/max lengths, and has unique items.
+
+    >>> import warnings
+    >>> q_class = QuestionOptionsDescriptor.example()
+    >>> with warnings.catch_warnings(record=True) as w:
+    ...     _ = q_class(["a ", "b", "c"])  # Has trailing space
+    ...     assert len(w) == 1
+    ...     assert "trailing whitespace" in str(w[0].message)
+
+    # Duplicate options would raise QuestionCreationValidationError
+
+    We allow dynamic question options, which are strings of the form '{{ question_options }}'.
+
+    >>> _ = q_class("{{dynamic_options}}")
+    """
+
+    @classmethod
+    def example(cls):
+        class TestQuestion:
+            question_options = QuestionOptionsDescriptor()
+
+            def __init__(self, question_options: List[str]):
+                self.question_options = question_options
+
+        return TestQuestion
+
+    def __init__(
+        self,
+        num_choices: int = None,
+        linear_scale: bool = False,
+        q_budget: bool = False,
+        q_demand: bool = False,
+    ):
+        """Initialize the descriptor."""
+        self.num_choices = num_choices
+        self.linear_scale = linear_scale
+        self.q_budget = q_budget
+        self.q_demand = q_demand
+
+    def validate(self, value: Any, instance) -> None:
+        """Validate the question options."""
+        if isinstance(value, str):
+            # Check if the string is a dynamic question option
+            if "{{" in value and "}}" in value:
+                return None
+            else:
+                raise QuestionCreationValidationError(
+                    f"Dynamic question options must have jinja2 braces - instead received: {value}."
+                )
+
+        # Allow dict format for piping with additional options
+        # Format: {"from": "{{ template }}", "add": ["option1", "option2"]}
+        if isinstance(value, dict):
+            if "from" not in value:
+                raise QuestionCreationValidationError(
+                    f"Dict-based question options must have a 'from' key (got {value})."
+                )
+            # Validate the 'from' template
+            from_value = value["from"]
+            if (
+                not isinstance(from_value, str)
+                or "{{" not in from_value
+                or "}}" not in from_value
+            ):
+                raise QuestionCreationValidationError(
+                    f"The 'from' value must be a template string with jinja2 braces (got {from_value})."
+                )
+            # Validate the 'add' options if present
+            if "add" in value:
+                add_value = value["add"]
+                if not isinstance(add_value, list):
+                    raise QuestionCreationValidationError(
+                        f"The 'add' value must be a list (got {add_value})."
+                    )
+                if len(add_value) == 0:
+                    raise QuestionCreationValidationError(
+                        f"The 'add' list cannot be empty (got {add_value})."
+                    )
+            return None
+
+        if not isinstance(value, list):
+            raise QuestionCreationValidationError(
+                f"Question options must be a list or dict (got {value})."
+            )
+        if len(value) < Settings.MIN_NUM_OPTIONS:
+            raise QuestionCreationValidationError(
+                f"Too few question options (got {value})."
+            )
+        # handle the case when question_options is a list of lists (a list of list can be converted to set)
+        tmp_value = [str(x) for x in value]
+        if len(tmp_value) != len(set(tmp_value)):
+            raise QuestionCreationValidationError(
+                f"Question options must be unique (got {value})."
+            )
+        if not self.linear_scale:
+            if not self.q_budget and not self.q_demand:
+                pass
+            #     if not (
+            #         value
+            #         and all(type(x) == type(value[0]) for x in value)
+            #         and isinstance(value[0], (str, list, int, float))
+            #     ):
+            #         raise QuestionCreationValidationError(
+            #             f"Question options must be all same type (got {value}).)"
+            #         )
+            elif self.q_budget:
+                if not all(isinstance(x, (str)) for x in value):
+                    raise QuestionCreationValidationError(
+                        f"Question options must be strings (got {value}).)"
+                    )
+            elif self.q_demand:
+                if not all(isinstance(x, (int, float)) for x in value):
+                    raise QuestionCreationValidationError(
+                        f"Question options (prices) must be numbers (got {value}).)"
+                    )
+            if not all(
+                [
+                    not isinstance(option, str)
+                    or (len(option) >= 1 and len(option) < Settings.MAX_OPTION_LENGTH)
+                    for option in value
+                ]
+            ):
+                raise QuestionCreationValidationError(
+                    f"All question options must be at least 1 character long but less than {Settings.MAX_OPTION_LENGTH} characters long (got {value})."
+                )
+
+            # Check for trailing whitespace in string options
+            if any(isinstance(x, str) and (x != x.strip()) for x in value):
+                import warnings
+
+                warnings.warn(
+                    "Some question options contain trailing whitespace. This may cause unexpected behavior.",
+                    UserWarning,
+                )
+
+        if hasattr(instance, "min_selections") and instance.min_selections is not None:
+            if instance.min_selections > len(value):
+                raise QuestionCreationValidationError(
+                    f"You asked for at least {instance.min_selections} selections, but provided fewer options (got {value})."
+                )
+        if hasattr(instance, "max_selections") and instance.max_selections is not None:
+            if instance.max_selections > len(value):
+                raise QuestionCreationValidationError(
+                    f"You asked for at most {instance.max_selections} selections, but provided fewer options (got {value})."
+                )
+        if self.num_choices is not None:
+            if len(value) != self.num_choices:
+                raise QuestionCreationValidationError(
+                    f"You asked for {self.num_choices} selections, but provided {len(value)} options."
+                )
+        if self.linear_scale:
+            if sorted(value) != value:
+                raise QuestionCreationValidationError(
+                    f"LinearScale.question_options must be in ascending order (got {value})."
+                )
+
+
+class QuestionTextDescriptor(BaseDescriptor):
+    """Validate that the `question_text` attribute is a string.
+
+
+    >>> class TestQuestion:
+    ...     question_text = QuestionTextDescriptor()
+    ...     def __init__(self, question_text: str):
+    ...         self.question_text = question_text
+
+    >>> _ = TestQuestion("What is the capital of France?")
+    >>> _ = TestQuestion("What is the capital of France? {{variable}}")
+    """
+
+    def validate(self, value, instance):
+        """Validate the value is a string."""
+        # if len(value) > Settings.MAX_QUESTION_LENGTH:
+        #     raise Exception("Question is too long!")
+        if len(value) < 1:
+            raise QuestionCreationValidationError("Question is too short!")
+        if not isinstance(value, str):
+            raise QuestionCreationValidationError(
+                "Question must be a string!" f"Received: {value}"
+            )
+
+        return None
+
+
+class OtherOptionTextDescriptor(BaseDescriptor):
+    """Validate that the `other_option_text` attribute is a string with at least 1 character."""
+
+    def validate(self, value, instance):
+        """Validate the value is a string with at least 1 character."""
+        if not isinstance(value, str):
+            raise QuestionCreationValidationError(
+                f"`other_option_text` must be a string (got {value})."
+            )
+        if len(value) < 1:
+            raise QuestionCreationValidationError(
+                f"`other_option_text` must be at least 1 character long (got {value})."
+            )
+        return None
+
+
+class ValueTypesDescriptor(BaseDescriptor):
+    def validate(self, value, instance):
+        """Validate the value is a list of strings or None."""
+        if value is None:  # Allow None as a valid value
+            return None
+        if not isinstance(value, list):
+            raise QuestionCreationValidationError(
+                f"`value_types` must be a list or None (got {value})."
+            )
+        # Convert all items in the list to strings
+        return [str(item) for item in value]
+
+
+class ValueDescriptionsDescriptor(BaseDescriptor):
+    def validate(self, value, instance):
+        """Validate the value is a list of strings or None."""
+        if value is None:  # Allow None as a valid value
+            return None
+        if not isinstance(value, list):
+            raise QuestionCreationValidationError(
+                f"`value_descriptions` must be a list or None (got {value})."
+            )
+        if not all(isinstance(x, str) for x in value):
+            raise QuestionCreationValidationError(
+                f"`value_descriptions` must be a list of strings (got {value})."
+            )
+        return value
+
+
+class AnswerKeysDescriptor(BaseDescriptor):
+    """Validate that the `answer_keys` attribute is a list of strings or integers."""
+
+    def validate(self, value, instance):
+        """Validate the value is a list of strings or integers."""
+        if not isinstance(value, list):
+            raise QuestionCreationValidationError(
+                f"`answer_keys` must be a list (got {value})."
+            )
+        if not all(isinstance(x, (str, int)) for x in value):
+            raise QuestionCreationValidationError(
+                f"`answer_keys` must be a list of strings or integers (got {value})."
+            )
+
+
+class WeightDescriptor(BaseDescriptor):
+    """Validate that the `weight` attribute is a non-negative number or None."""
+
+    def validate(self, value, instance):
+        """Validate the value is a non-negative number or None."""
+        if value is None:
+            return None
+        if not isinstance(value, (int, float)):
+            raise QuestionCreationValidationError(
+                f"`weight` must be a number or None (got {value})."
+            )
+        if value < 0:
+            raise QuestionCreationValidationError(
+                f"`weight` must be non-negative (got {value})."
+            )
+        return value
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod(optionflags=doctest.ELLIPSIS)
