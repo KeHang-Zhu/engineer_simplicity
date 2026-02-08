@@ -495,6 +495,185 @@ def plot_da_vs_osp(df, refs):
     print(f"✓ Saved: da_vs_osp.png")
 
 
+def plot_all_interventions_combined(df, refs):
+    """
+    Create a single summary plot with all DA interventions, color-coded by axis.
+
+    Layout:
+    - Rows: Models
+    - Columns: All interventions (grouped by axis via color)
+    - Each cell: Direct baseline (gray) vs Intervention (axis-colored)
+    """
+    models = [m for m in MODEL_ORDER if m in df['model_short'].unique()]
+
+    # Define axis colors
+    AXIS_COLORS = {
+        'Axis 1': '#e6194B',   # Red - Contingent Reasoning
+        'Axis 2': '#3cb44b',   # Green - Forward Planning
+        'Axis 3': '#4363d8',   # Blue - Beliefs
+    }
+
+    AXIS_COLORS_DARK = {
+        'Axis 1': '#a11232',
+        'Axis 2': '#297a33',
+        'Axis 3': '#2a3d8a',
+    }
+
+    # All interventions in order with axis assignment
+    interventions = [
+        # Axis 1: Contingent Reasoning
+        ('axis1_onestep', '1-step', 'Axis 1'),
+        ('axis1_tree', 'Tree', 'Axis 1'),
+        ('axis1_backward_induct', 'Backward', 'Axis 1'),
+        ('axis1_worstcase', 'Worst', 'Axis 1'),
+        ('axis1_enumerate_gpt4o', 'Enum', 'Axis 1'),
+        ('axis1_dominanted', 'Dom', 'Axis 1'),
+        # Axis 2: Forward Planning
+        ('axis2_0step', '0-step', 'Axis 2'),
+        ('axis2_1step', '1-step', 'Axis 2'),
+        ('axis2_2step', '2-step', 'Axis 2'),
+        ('axis2_fullsim', 'Full', 'Axis 2'),
+        # Axis 3: Beliefs
+        ('axis3_firstorder', '1st', 'Axis 3'),
+        ('axis3_secondorder', '2nd', 'Axis 3'),
+        ('axis3_common_knowledge', 'CK', 'Axis 3'),
+    ]
+
+    # Filter to interventions that exist in data
+    interventions = [(exp, label, axis) for exp, label, axis in interventions
+                     if exp in df['experiment'].unique()]
+
+    if not interventions:
+        print("No intervention data found for combined plot")
+        return
+
+    n_models = len(models)
+    n_exps = len(interventions)
+
+    fig, axes = plt.subplots(n_models, n_exps, figsize=(1.5 * n_exps, 2.4 * n_models),
+                             squeeze=False)
+
+    # X-axis: normalized Kendall tau (0 to 1)
+    bins = np.linspace(0, 1, 15)
+
+    # First pass: compute y_max
+    y_max = 0
+    for model in models:
+        baseline_data = refs.get('baseline_by_model', {}).get(model, np.array([]))
+        if len(baseline_data) > 0:
+            baseline_weights = np.ones_like(baseline_data) * 100 / len(baseline_data)
+            counts, _ = np.histogram(baseline_data, bins=bins, weights=baseline_weights)
+            y_max = max(y_max, counts.max())
+
+        for exp, _, _ in interventions:
+            int_data = df[(df['experiment'] == exp) &
+                         (df['model_short'] == model)]['kendall_tau_normalized'].values
+            if len(int_data) > 0:
+                int_weights = np.ones_like(int_data) * 100 / len(int_data)
+                counts, _ = np.histogram(int_data, bins=bins, weights=int_weights)
+                y_max = max(y_max, counts.max())
+
+    y_max = y_max * 1.1
+
+    for row_idx, model in enumerate(models):
+        for col_idx, (exp, label, axis) in enumerate(interventions):
+            ax = axes[row_idx, col_idx]
+
+            color = AXIS_COLORS[axis]
+            color_dark = AXIS_COLORS_DARK[axis]
+
+            # Get intervention data
+            int_data = df[(df['experiment'] == exp) &
+                         (df['model_short'] == model)]['kendall_tau_normalized'].values
+
+            # Get baseline for this model
+            baseline_data = refs.get('baseline_by_model', {}).get(model, np.array([]))
+
+            baseline_mean = None
+            int_mean = None
+
+            # Plot intervention FIRST (colored, behind)
+            if len(int_data) > 0:
+                int_weights = np.ones_like(int_data) * 100 / len(int_data)
+                ax.hist(int_data, bins=bins, alpha=0.6, color=color,
+                       edgecolor=color_dark, linewidth=0.5, weights=int_weights)
+                int_mean = np.mean(int_data)
+                ax.axvline(int_mean, color=color, linestyle='--',
+                          linewidth=1.5, alpha=0.9)
+
+            # Plot baseline SECOND (gray, in front)
+            if len(baseline_data) > 0:
+                baseline_weights = np.ones_like(baseline_data) * 100 / len(baseline_data)
+                ax.hist(baseline_data, bins=bins, alpha=0.4, color=BASELINE_COLOR,
+                       edgecolor='#333333', linewidth=0.5, weights=baseline_weights)
+                baseline_mean = np.mean(baseline_data)
+                ax.axvline(baseline_mean, color=BASELINE_COLOR, linestyle='--',
+                          linewidth=1.2, alpha=0.7)
+
+            # Styling
+            ax.set_xlim(0, 1)
+            ax.set_ylim(0, y_max)
+
+            # Column titles - only on top row
+            if row_idx == 0:
+                ax.set_title(label, fontweight='bold', fontsize=8, pad=3, color=color)
+
+            # Row labels - only on left column
+            if col_idx == 0:
+                ax.set_ylabel(f'{model}\n% obs', fontweight='bold', fontsize=8,
+                            color=MODEL_COLORS[model])
+            else:
+                ax.set_ylabel('')
+                ax.set_yticklabels([])
+
+            # Y-axis formatting
+            ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.0f}'))
+
+            # X-axis label only on bottom row
+            if row_idx == n_models - 1:
+                ax.set_xlabel('τ', fontsize=7)
+                ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x*100:.0f}%'))
+            else:
+                ax.set_xticklabels([])
+
+            # Compact annotation
+            if int_mean is not None:
+                ax.text(0.95, 0.92, f'{int_mean*100:.0f}%',
+                       transform=ax.transAxes, fontsize=6, fontweight='bold',
+                       ha='right', va='top', color=color,
+                       bbox=dict(boxstyle='round,pad=0.1', facecolor='white',
+                                alpha=0.8, edgecolor='none'))
+
+    # Add legend at bottom
+    legend_elements = [
+        mpatches.Patch(facecolor=BASELINE_COLOR, alpha=0.4, edgecolor='#333333',
+                      linewidth=0.5, label='Direct Baseline'),
+        mpatches.Patch(facecolor=AXIS_COLORS['Axis 1'], alpha=0.6,
+                      label='Ax1: Contingent'),
+        mpatches.Patch(facecolor=AXIS_COLORS['Axis 2'], alpha=0.6,
+                      label='Ax2: Forward'),
+        mpatches.Patch(facecolor=AXIS_COLORS['Axis 3'], alpha=0.6,
+                      label='Ax3: Beliefs'),
+        plt.Line2D([0], [0], color='#666666', linestyle='--', linewidth=1.5,
+                  label='Mean'),
+    ]
+
+    fig.legend(handles=legend_elements, loc='lower center', ncol=5,
+              frameon=True, framealpha=0.95, edgecolor='#cccccc',
+              bbox_to_anchor=(0.5, -0.02), fontsize=8)
+
+    fig.suptitle('All Cognitive Interventions (DA)',
+                fontweight='bold', fontsize=12, y=1.01)
+
+    plt.tight_layout()
+    plt.subplots_adjust(bottom=0.12, top=0.92, hspace=0.15, wspace=0.08)
+
+    output_path = OUTPUT_DIR / 'da_all_interventions_combined.png'
+    plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
+    plt.close()
+    print(f"✓ Saved: da_all_interventions_combined.png")
+
+
 def print_findings(df, refs):
     """Print key findings."""
     print("\n" + "═"*65)
@@ -651,6 +830,11 @@ def main():
     # DA vs OSP comparison
     # ─────────────────────────────────────────────────────────────────────────
     plot_da_vs_osp(df, refs)
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # ALL INTERVENTIONS COMBINED (single summary plot)
+    # ─────────────────────────────────────────────────────────────────────────
+    plot_all_interventions_combined(df, refs)
 
     print_findings(df, refs)
 

@@ -430,6 +430,197 @@ def plot_high_low_type_summary(df, refs):
     print(f"✓ Saved: high_low_type_summary.png")
 
 
+def plot_all_interventions_combined(df, refs):
+    """
+    Create a single summary plot with all interventions, color-coded by axis.
+
+    Layout:
+    - Rows: Models
+    - Columns: All interventions (grouped by axis via color)
+    - Each cell: SPSB (gray) vs Intervention (axis-colored) overlaid histograms
+    """
+    models = [m for m in MODEL_ORDER if m in df['model_short'].unique()]
+
+    # Define all interventions grouped by axis with colors
+    AXIS_COLORS = {
+        'Axis 1': '#e6194B',   # Red - Contingent Reasoning
+        'Axis 2': '#3cb44b',   # Green - Forward Planning
+        'Axis 3': '#4363d8',   # Blue - Beliefs
+    }
+
+    AXIS_COLORS_DARK = {
+        'Axis 1': '#a11232',
+        'Axis 2': '#297a33',
+        'Axis 3': '#2a3d8a',
+    }
+
+    # All interventions in order with axis assignment
+    interventions = [
+        # Axis 1: Contingent Reasoning
+        ('axis1_contingent_dominated', 'Dominated', 'Axis 1'),
+        ('axis1_contingent_enumerate', 'Enumerate', 'Axis 1'),
+        ('axis1_contingent_worstcase', 'Worst-case', 'Axis 1'),
+        # Axis 2: Forward Planning
+        ('axis2_forward_onestep', 'One-step', 'Axis 2'),
+        ('axis2_forward_tree', 'Tree', 'Axis 2'),
+        ('axis2_forward_backward_induct', 'Backward', 'Axis 2'),
+        # Axis 3: Beliefs
+        ('axis3_beliefs_firstorder', '1st-order', 'Axis 3'),
+        ('axis3_beliefs_secondorder', '2nd-order', 'Axis 3'),
+        ('axis3_beliefs_common_knowledge', 'CK', 'Axis 3'),
+    ]
+
+    # Filter to interventions that exist in data
+    interventions = [(exp, label, axis) for exp, label, axis in interventions
+                     if exp in df['experiment'].unique()]
+
+    n_models = len(models)
+    n_exps = len(interventions)
+
+    fig, axes = plt.subplots(n_models, n_exps, figsize=(1.8 * n_exps, 2.4 * n_models),
+                             squeeze=False)
+
+    # Determine common x-axis range
+    all_devs = df[df['experiment'].isin([e for e, _, _ in interventions])]['deviation']
+    if 'spsb' in refs:
+        all_devs = pd.concat([all_devs, refs['spsb']['deviation']])
+
+    x_limit = min(np.percentile(np.abs(all_devs.dropna()), 98), 25)
+    bins = np.linspace(-x_limit, x_limit, 25)
+
+    # First pass: compute y_max
+    y_max = 0
+    for model in models:
+        spsb_data = refs.get('spsb_by_model', {}).get(model, np.array([]))
+        if len(spsb_data) > 0:
+            spsb_weights = np.ones_like(spsb_data) * 100 / len(spsb_data)
+            counts, _ = np.histogram(spsb_data, bins=bins, weights=spsb_weights)
+            y_max = max(y_max, counts.max())
+
+        for exp, _, _ in interventions:
+            int_data = df[(df['experiment'] == exp) &
+                         (df['model_short'] == model)]['deviation'].values
+            if len(int_data) > 0:
+                int_weights = np.ones_like(int_data) * 100 / len(int_data)
+                counts, _ = np.histogram(int_data, bins=bins, weights=int_weights)
+                y_max = max(y_max, counts.max())
+
+    y_max = y_max * 1.1
+
+    for row_idx, model in enumerate(models):
+        for col_idx, (exp, label, axis) in enumerate(interventions):
+            ax = axes[row_idx, col_idx]
+
+            color = AXIS_COLORS[axis]
+            color_dark = AXIS_COLORS_DARK[axis]
+
+            # Get intervention data
+            int_data = df[(df['experiment'] == exp) &
+                         (df['model_short'] == model)]['deviation'].values
+
+            # Get SPSB baseline for this model
+            spsb_data = refs.get('spsb_by_model', {}).get(model, np.array([]))
+
+            spsb_mean = None
+            int_mean = None
+
+            # Plot intervention FIRST (colored, behind)
+            if len(int_data) > 0:
+                int_weights = np.ones_like(int_data) * 100 / len(int_data)
+                ax.hist(int_data, bins=bins, alpha=0.6, color=color,
+                       edgecolor=color_dark, linewidth=0.5, weights=int_weights)
+                int_mean = np.mean(int_data)
+                ax.axvline(int_mean, color=color, linestyle='--',
+                          linewidth=1.5, alpha=0.9)
+
+            # Plot SPSB baseline SECOND (gray, in front)
+            if len(spsb_data) > 0:
+                spsb_weights = np.ones_like(spsb_data) * 100 / len(spsb_data)
+                ax.hist(spsb_data, bins=bins, alpha=0.4, color=SPSB_COLOR,
+                       edgecolor='#333333', linewidth=0.5, weights=spsb_weights)
+                spsb_mean = np.mean(spsb_data)
+                ax.axvline(spsb_mean, color=SPSB_COLOR, linestyle='--',
+                          linewidth=1.2, alpha=0.7)
+
+            # Styling
+            ax.set_xlim(-x_limit, x_limit)
+            ax.set_ylim(0, y_max)
+
+            # Column titles - only on top row
+            if row_idx == 0:
+                ax.set_title(label, fontweight='bold', fontsize=9, pad=4, color=color)
+
+            # Row labels - only on left column
+            if col_idx == 0:
+                ax.set_ylabel(f'{model}\n% obs', fontweight='bold', fontsize=8,
+                            color=MODEL_COLORS[model])
+            else:
+                ax.set_ylabel('')
+                ax.set_yticklabels([])
+
+            # Y-axis formatting
+            ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.0f}'))
+
+            # X-axis label only on bottom row
+            if row_idx == n_models - 1:
+                ax.set_xlabel('bid−val', fontsize=7)
+            else:
+                ax.set_xticklabels([])
+
+            # Compact annotation
+            if int_mean is not None:
+                ax.text(0.95, 0.92, f'{int_mean:+.1f}',
+                       transform=ax.transAxes, fontsize=7, fontweight='bold',
+                       ha='right', va='top', color=color,
+                       bbox=dict(boxstyle='round,pad=0.15', facecolor='white',
+                                alpha=0.8, edgecolor='none'))
+
+    # Add axis group labels at top
+    # Calculate column spans for each axis
+    axis_spans = {}
+    for col_idx, (_, _, axis) in enumerate(interventions):
+        if axis not in axis_spans:
+            axis_spans[axis] = [col_idx, col_idx]
+        else:
+            axis_spans[axis][1] = col_idx
+
+    for axis, (start, end) in axis_spans.items():
+        mid = (start + end) / 2
+        fig.text((mid + 0.5) / n_exps * 0.85 + 0.08, 0.98,
+                axis.replace('Axis ', 'Ax'),
+                ha='center', va='bottom', fontsize=10, fontweight='bold',
+                color=AXIS_COLORS[axis])
+
+    # Add legend at bottom
+    legend_elements = [
+        mpatches.Patch(facecolor=SPSB_COLOR, alpha=0.4, edgecolor='#333333',
+                      linewidth=0.5, label='SPSB Baseline'),
+        mpatches.Patch(facecolor=AXIS_COLORS['Axis 1'], alpha=0.6,
+                      label='Ax1: Contingent'),
+        mpatches.Patch(facecolor=AXIS_COLORS['Axis 2'], alpha=0.6,
+                      label='Ax2: Forward'),
+        mpatches.Patch(facecolor=AXIS_COLORS['Axis 3'], alpha=0.6,
+                      label='Ax3: Beliefs'),
+        plt.Line2D([0], [0], color='#666666', linestyle='--', linewidth=1.5,
+                  label='Mean'),
+    ]
+
+    fig.legend(handles=legend_elements, loc='lower center', ncol=5,
+              frameon=True, framealpha=0.95, edgecolor='#cccccc',
+              bbox_to_anchor=(0.5, -0.01), fontsize=8)
+
+    fig.suptitle('All Cognitive Interventions (Auctions)',
+                fontweight='bold', fontsize=12, y=1.01)
+
+    plt.tight_layout()
+    plt.subplots_adjust(bottom=0.1, top=0.92, hspace=0.15, wspace=0.08)
+
+    output_path = OUTPUT_DIR / 'all_interventions_combined.png'
+    plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
+    plt.close()
+    print(f"✓ Saved: all_interventions_combined.png")
+
+
 def print_findings(df, refs):
     """Print key findings."""
     print("\n" + "═"*65)
@@ -553,6 +744,11 @@ def main():
     # HIGH/LOW TYPE SUMMARY
     # ─────────────────────────────────────────────────────────────────────────
     plot_high_low_type_summary(df, refs)
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # ALL INTERVENTIONS COMBINED (single summary plot)
+    # ─────────────────────────────────────────────────────────────────────────
+    plot_all_interventions_combined(df, refs)
 
     print_findings(df, refs)
 
