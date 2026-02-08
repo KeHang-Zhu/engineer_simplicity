@@ -85,8 +85,10 @@ def load_auction_data():
 # ============================================================================
 
 DA_MODEL_NAMES = {
+    'claude': 'Claude 3.5 Haiku',
+    'gemini': 'Gemini 2.0 Flash',
     'gpt4o': 'GPT-4o',
-    'gemma': 'Gemma',
+    'gemma': 'Gemma 3 27B',
     'others': 'GPT-4o',
 }
 

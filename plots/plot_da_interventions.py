@@ -57,23 +57,30 @@ OUTPUT_DIR = Path(__file__).parent / 'da'
 # ============================================================================
 
 MODEL_NAMES = {
+    'claude': 'Claude 3.5 Haiku',
+    'gemini': 'Gemini 2.0 Flash',
     'gpt4o': 'GPT-4o',
-    'gemma': 'Gemma',
+    'gemma': 'Gemma 3 27B',
     'others': 'GPT-4o',  # others folder contains mislabeled GPT-4o data
 }
 
 MODEL_COLORS = {
-    'GPT-4o': '#f58231',      # Orange
-    'Gemma': '#3cb44b',       # Green
+    'Claude 3.5 Haiku': '#4363d8',    # Blue
+    'Gemini 2.0 Flash': '#e6194B',    # Red
+    'GPT-4o': '#f58231',              # Orange
+    'Gemma 3 27B': '#3cb44b',         # Green
 }
 
 # Darker versions for outlines
 MODEL_COLORS_DARK = {
-    'GPT-4o': '#c46820',      # Darker orange
-    'Gemma': '#297a33',       # Darker green
+    'Claude 3.5 Haiku': '#2a3d8a',    # Darker blue
+    'Gemini 2.0 Flash': '#a11232',    # Darker red
+    'GPT-4o': '#c46820',              # Darker orange
+    'Gemma 3 27B': '#297a33',         # Darker green
 }
 
-MODEL_ORDER = ['GPT-4o', 'Gemma']
+# Order by baseline error severity (best to worst)
+MODEL_ORDER = ['Claude 3.5 Haiku', 'Gemini 2.0 Flash', 'GPT-4o', 'Gemma 3 27B']
 
 BASELINE_COLOR = '#888888'  # Gray for direct_baseline
 
