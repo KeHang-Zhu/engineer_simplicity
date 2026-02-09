@@ -1,0 +1,184 @@
+{
+    "mechanism_type": "osp",
+    "global_ranking": "y > x > w > z",
+    "global_ranking_strategy": "fixed",
+    "values": {
+        "Student A": {
+            "w": 82,
+            "x": 81,
+            "y": 71,
+            "z": 65
+        },
+        "Student B": {
+            "w": 72,
+            "x": 87,
+            "y": 71,
+            "z": 64
+        },
+        "Student C": {
+            "w": 64,
+            "x": 79,
+            "y": 74,
+            "z": 71
+        },
+        "Student D": {
+            "w": 64,
+            "x": 82,
+            "y": 66,
+            "z": 68
+        }
+    },
+    "priorities": {
+        "Student A": {
+            "w": 1,
+            "x": 2,
+            "y": 1,
+            "z": 2
+        },
+        "Student B": {
+            "w": 2,
+            "x": 1,
+            "y": 2,
+            "z": 1
+        },
+        "Student C": {
+            "w": 3,
+            "x": 3,
+            "y": 4,
+            "z": 4
+        },
+        "Student D": {
+            "w": 4,
+            "x": 4,
+            "y": 3,
+            "z": 3
+        }
+    },
+    "matches": {
+        "Student A": "w",
+        "Student B": "x",
+        "Student C": "y",
+        "Student D": "z"
+    },
+    "utilities": {
+        "Student A": 82,
+        "Student B": 87,
+        "Student C": 74,
+        "Student D": 68
+    },
+    "osp_choices": {
+        "Student A": [
+            "w"
+        ],
+        "Student B": [
+            "x"
+        ],
+        "Student C": [
+            "y"
+        ],
+        "Student D": [
+            "z"
+        ]
+    },
+    "osp_history": [
+        {
+            "node_path": [],
+            "remaining_students": [
+                "Student A",
+                "Student B",
+                "Student C",
+                "Student D"
+            ],
+            "remaining_schools": [
+                "w",
+                "x",
+                "y",
+                "z"
+            ],
+            "top_students": [
+                "Student A",
+                "Student B"
+            ],
+            "type": "yes_no_a",
+            "student": "Student A",
+            "candidate": "w",
+            "fallback": [
+                "x",
+                "y",
+                "z"
+            ],
+            "answer": "YES",
+            "reasoning": "As Student A, my most preferred school is w, and I currently have the highest priority rank at school w. This means that I am guaranteed to be accepted if I claim it now. Since w is my top choice and I have the opportunity to secure a spot there, it would be strategic to claim it immediately. Furthermore, the general preference among other applicants is y > x > w > z, which suggests that w might not be as competitive as y or x. However, since w is my top choice and I have the highest priority, it makes sense to secure my preferred school without risking losing it by continuing in the process. Other schools might not offer the same level of certainty or preference match."
+        },
+        {
+            "node_path": [
+                "A:Student A:YES\u2192w"
+            ],
+            "remaining_students": [
+                "Student B",
+                "Student C",
+                "Student D"
+            ],
+            "remaining_schools": [
+                "x",
+                "y",
+                "z"
+            ],
+            "top_students": [
+                "Student B"
+            ],
+            "type": "serial_dictatorship",
+            "student": "Student B",
+            "choice": "x",
+            "reasoning": "My preference ordering is x > w > y > z, which means that among the currently available schools (x, y, z), I prefer x the most. Although most applicants seem to favor y over x, my personal preference takes precedence in this decision-making process. Since x is the highest-ranked school available according to my preferences, it is the logical choice for me at this step."
+        },
+        {
+            "node_path": [
+                "A:Student A:YES\u2192w",
+                "SD:Student B\u2192x"
+            ],
+            "remaining_students": [
+                "Student C",
+                "Student D"
+            ],
+            "remaining_schools": [
+                "y",
+                "z"
+            ],
+            "top_students": [
+                "Student D"
+            ],
+            "type": "serial_dictatorship",
+            "student": "Student D",
+            "choice": "z",
+            "reasoning": "Among the currently available schools, my preference is z over y. According to my preference ordering, z is ranked higher than y. While most applicants seem to favor y over z, my personal preference takes precedence in this decision-making process. Therefore, I will choose the school that is higher on my preference list."
+        },
+        {
+            "node_path": [
+                "A:Student A:YES\u2192w",
+                "SD:Student B\u2192x",
+                "SD:Student D\u2192z"
+            ],
+            "remaining_students": [
+                "Student C"
+            ],
+            "remaining_schools": [
+                "y"
+            ],
+            "top_students": [
+                "Student C"
+            ],
+            "type": "serial_dictatorship",
+            "student": "Student C",
+            "choice": "y",
+            "reasoning": "Given the current availability of schools, the only option available is \"y.\" According to my preference ordering, \"y\" is the second most preferred option after \"x.\" Since \"x\" is not currently available, \"y\" becomes the best available choice. Additionally, knowing that most applicants also favor \"y,\" securing a spot there could be strategically advantageous before it potentially becomes unavailable. Therefore, based on my preferences and the current availability, \"y\" is the optimal choice."
+        }
+    ],
+    "truthfulness": {
+        "Student A": true,
+        "Student B": true,
+        "Student C": true,
+        "Student D": true
+    },
+    "truthfulness_rate": 1.0
+}

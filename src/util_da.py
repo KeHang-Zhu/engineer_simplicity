@@ -633,176 +633,458 @@ class DA_OSP:
         self.osp_round = 0
         self.osp_history = []
 
-    def run(self):
+    def _get_top_priority_students(self, remaining_students, remaining_schools):
         """
-        Main OSP loop: sequential rounds until all matched.
-
-        Returns:
-            Dict with 'osp_history', 'matches'
-        """
-        print("Running DA OSP Mechanism...")
-
-        # Initialize: all schools available for all students
-        for student in self.students:
-            self.available_sets[student.name] = {"w", "x", "y", "z"}
-
-        # Run OSP rounds until all matched
-        while not self._all_students_matched():
-            self._run_one_osp_round()
-            self.osp_round += 1
-
-        # Finalize matches
-        matches = self._get_final_matches()
-        self._record_outcomes(matches)
-
-        # Compute truthfulness for OSP
-        truthfulness = self._compute_osp_truthfulness()
-
-        return {
-            'osp_history': self.osp_history,
-            'matches': matches,
-            'truthfulness': truthfulness
-        }
-
-    def _all_students_matched(self):
-        """Check if all students have been matched."""
-        for student_name in self.available_sets:
-            if len(self.available_sets[student_name]) > 0:
-                # Check if student is actually matched
-                if student_name not in self.tentative_matches.values():
-                    return False
-        return True
-
-    def _run_one_osp_round(self):
-        """Execute one round of parallel OSP queries with reasoning collection."""
-        print(f"\nOSP Round {self.osp_round}...")
-
-        # STEP 1: Build prompts for students with available schools
-        student_prompts = []
-        for student in self.students:
-            if len(self.available_sets[student.name]) > 0:
-                # Only query if student has available schools and not yet matched
-                if student.name not in self.tentative_matches.values():
-                    prompt = self._build_osp_prompt(student)
-                    student_prompts.append((student, prompt))
-
-        if not student_prompts:
-            return  # No students to query
-
-        # STEP 2: Create parallel Survey with QuestionFreeText (to collect reasoning)
-        questions = []
-        for student, prompt in student_prompts:
-            q_freetext = QuestionFreeText(
-                question_name=f"q_osp_{student.name.replace(' ', '_')}_r{self.osp_round}",
-                question_text=prompt
-            )
-            questions.append(q_freetext)
-
-        # STEP 3: Execute parallel LLM calls
-        survey = Survey(questions=questions)
-        result = survey.by(self.model).run(cache=self.cache)
-
-        # STEP 4: Parse reasoning and choices
-        choices = {}
-        reasoning_dict = {}
-        for student, prompt in student_prompts:
-            question_name = f"q_osp_{student.name.replace(' ', '_')}_r{self.osp_round}"
-            response = result.select(question_name).to_list()[0]
-
-            # Parse reasoning and choice (with retry logic)
-            reason, choice = self._parse_and_validate_osp_response(
-                response, student, prompt, self.osp_round
-            )
-
-            choices[student.name] = choice
-            reasoning_dict[student.name] = reason
-            student.osp_choices.append(choice)
-
-            print(f"  {student.name} chose: {choice}")
-
-        # STEP 5: Process choices via DA step (pass reasoning too)
-        self._process_osp_choices(choices, reasoning_dict)
-
-    def _build_osp_prompt(self, student):
-        """Render OSP template with dynamic available set and append da_ask.txt."""
-        available_list = sorted(self.available_sets[student.name])
-        available_str = ", ".join(available_list)
-
-        # Compute preference order (sorted by value, descending)
-        sorted_schools = sorted(student.values.items(), key=lambda x: x[1], reverse=True)
-        preference_order = " > ".join([school for school, _ in sorted_schools])
-        # Example: "x > y > w > z"
-
-        # Render main OSP template
-        main_prompt = self.rule.rule_explanation.render({
-            "student_id": student.name.split()[-1],
-            "available_set": available_str,
-            "preference_order": preference_order,  # Ordinal preferences only
-            "global_ranking": self.global_ranking  # Add global ranking
-        })
-
-        # Load and append da_ask.txt (reasoning instruction)
-        da_ask_path = os.path.join(prompt_dir, 'da_ask.txt')
-        if os.path.exists(da_ask_path):
-            with open(da_ask_path, 'r') as f:
-                da_ask_content = f.read()
-            # Modify instruction for OSP (choice instead of ranking)
-            da_ask_osp = da_ask_content.replace(
-                "Ranking: <1st> > <2nd> > <3rd> > <4th>",
-                f"Choice: [one of {available_str}]"
-            )
-            full_prompt = str(main_prompt) + "\n\n" + da_ask_osp
-        else:
-            full_prompt = str(main_prompt)
-
-        return full_prompt
-
-    def _parse_and_validate_osp_response(self, initial_response, student, full_prompt, round_num):
-        """
-        Parse <REASON> and <DECISION> tags with 3-attempt retry logic for OSP.
+        Find students who have the highest priority at some remaining school,
+        among the remaining students.
 
         Args:
-            initial_response: LLM response with <REASON> and <DECISION> tags
-            student: Student object
-            full_prompt: Full prompt text for retry
-            round_num: OSP round number
+            remaining_students: Set[str] - unmatched student names
+            remaining_schools: Set[str] - unassigned schools
 
         Returns:
-            Tuple[str, str]: (reason, choice)
-
-        Raises:
-            RuntimeError: If parsing fails after 3 attempts
+            Set[str]: Students who have top priority (among remaining students)
+                     at at least one remaining school
         """
-        response = initial_response
-        available = self.available_sets[student.name]
+        top_students = set()
 
-        for attempt in range(3):
-            try:
-                # Parse REASON and DECISION tags
-                reason, decision_text = self._parse_reason_decision(response)
+        for school in remaining_schools:
+            # Find the student with the highest priority at this school
+            # among remaining students only
+            best_priority = float('inf')
+            best_student = None
 
-                # Use gpt-4o-mini to extract choice from decision text
-                choice = self._extract_osp_choice_with_model(decision_text, student, available)
+            for student_name in remaining_students:
+                student = next(s for s in self.students if s.name == student_name)
+                priority = student.priorities[school]
 
-                if choice in available:
-                    return reason, choice
-                raise ValueError(f"Choice '{choice}' not in available set {available}")
+                if priority < best_priority:
+                    best_priority = priority
+                    best_student = student_name
 
-            except Exception as e:
-                print(f"{student.name} OSP parsing error (attempt {attempt+1}/3): {e}")
+            if best_student:
+                top_students.add(best_student)
 
-                if attempt < 2:
-                    # Retry with error message
-                    available_str = ", ".join(sorted(available))
-                    q_retry = QuestionFreeText(
-                        question_name="q_osp_retry",
-                        question_text=full_prompt + f"\n\nError: {e}. You MUST use the format:\n<REASON>Your reasoning here</REASON>\n<DECISION>Choice: [one of {available_str}]</DECISION>"
+        return top_students
+
+    def _get_priority_one_schools(self, student, remaining_schools, remaining_students):
+        """
+        Find schools where student has the highest priority among remaining students.
+
+        Args:
+            student: Student object
+            remaining_schools: Set[str] - unassigned schools
+            remaining_students: Set[str] - unmatched student names
+
+        Returns:
+            List[str]: Schools where student has top priority among remaining students,
+                      in alphabetical order
+        """
+        top_priority_schools = []
+
+        for school in remaining_schools:
+            # Check if this student has the best priority at this school
+            # among all remaining students
+            student_priority = student.priorities[school]
+            has_top_priority = True
+
+            for other_name in remaining_students:
+                if other_name == student.name:
+                    continue
+                other = next(s for s in self.students if s.name == other_name)
+                if other.priorities[school] < student_priority:
+                    has_top_priority = False
+                    break
+
+            if has_top_priority:
+                top_priority_schools.append(school)
+
+        return sorted(top_priority_schools)  # Alphabetical order for deterministic tree
+
+    def _ask_yes_no(self, student, candidate, fallback_set, remaining_set):
+        """
+        Ask yes/no question using da_osp_yesno_guaranteed.txt template.
+
+        Args:
+            student: Student object
+            candidate: str - school being offered
+            fallback_set: Set[str] - schools remaining if NO
+            remaining_set: Set[str] - all currently remaining schools
+
+        Returns:
+            Tuple[bool, str]: (answer YES=True/NO=False, reasoning text)
+        """
+        # Compute preference order
+        sorted_schools = sorted(student.values.items(), key=lambda x: x[1], reverse=True)
+        preference_order = " > ".join([school for school, _ in sorted_schools])
+
+        # Format sets as strings
+        remaining_str = ", ".join(sorted(remaining_set))
+        fallback_str = ", ".join(sorted(fallback_set))
+
+        # Render yes/no template
+        # Load the yes/no template from rule_template/DA/
+        current_file_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(current_file_dir)
+        template_path = os.path.join(project_root, 'rule_template', 'DA', 'da_osp_yesno_guaranteed.txt')
+        with open(template_path, 'r') as f:
+            template_content = f.read()
+
+        from jinja2 import Template
+        template = Template(template_content)
+
+        prompt = template.render({
+            "student_id": student.name.split()[-1],
+            "remaining_set": remaining_str,
+            "preference_order": preference_order,
+            "pw": student.priorities["w"],
+            "px": student.priorities["x"],
+            "py": student.priorities["y"],
+            "pz": student.priorities["z"],
+            "global_ranking": self.global_ranking,
+            "candidate": candidate,
+            "fallback_set": fallback_str
+        })
+
+        # Query LLM with QuestionFreeText to collect reasoning
+        q = QuestionFreeText(
+            question_name=f"q_yesno_{student.name.replace(' ', '_')}_{candidate}",
+            question_text=prompt
+        )
+
+        survey = Survey(questions=[q])
+        result = survey.by(self.model).run(cache=self.cache)
+        response = result.select(q.question_name).to_list()[0]
+
+        # Extract reasoning from <REASON> tag
+        reason_match = re.search(r'<REASON>(.*?)</REASON>', response, flags=re.IGNORECASE | re.DOTALL)
+        if reason_match:
+            reasoning = reason_match.group(1).strip()
+        else:
+            reasoning = response  # Use full response if no REASON tag
+
+        # Parse YES/NO answer from <DECISION> tag or direct text
+        # First try to find <DECISION> tag
+        decision_match = re.search(r'<DECISION>(.*?)</DECISION>', response, flags=re.IGNORECASE | re.DOTALL)
+        decision_text = decision_match.group(1) if decision_match else response
+
+        # Look for "Answer: YES" or "Answer: NO" in decision text
+        answer_match = re.search(r'Answer:\s*(YES|NO)', decision_text, flags=re.IGNORECASE)
+        if not answer_match:
+            # Try to find YES or NO in the decision text
+            if 'YES' in decision_text.upper():
+                answer = True
+            elif 'NO' in decision_text.upper():
+                answer = False
+            else:
+                print(f"Warning: Could not parse YES/NO from response, defaulting to NO")
+                answer = False
+        else:
+            answer = (answer_match.group(1).upper() == 'YES')
+
+        return answer, reasoning
+
+    def _ask_pick_top(self, student, remaining_schools):
+        """
+        Ask student to pick top school from remaining set (for serial dictatorship or final picks).
+
+        Args:
+            student: Student object
+            remaining_schools: Set[str] - available schools
+
+        Returns:
+            Tuple[str, str]: (chosen school, reasoning text)
+        """
+        # Load da_osp_choice.txt template directly (not self.rule.rule_explanation which is yes/no template)
+        available_str = ", ".join(sorted(remaining_schools))
+
+        # Compute preference order
+        sorted_schools = sorted(student.values.items(), key=lambda x: x[1], reverse=True)
+        preference_order = " > ".join([school for school, _ in sorted_schools])
+
+        # Load choice template from rule_template/DA/
+        current_file_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(current_file_dir)
+        template_path = os.path.join(project_root, 'rule_template', 'DA', 'da_osp_choice.txt')
+        with open(template_path, 'r') as f:
+            template_content = f.read()
+
+        from jinja2 import Template
+        template = Template(template_content)
+
+        # Render template
+        prompt = template.render({
+            "student_id": student.name.split()[-1],
+            "available_set": available_str,
+            "preference_order": preference_order,
+            "global_ranking": self.global_ranking
+        })
+
+        # Query LLM
+        q = QuestionFreeText(
+            question_name=f"q_pick_{student.name.replace(' ', '_')}",
+            question_text=prompt
+        )
+
+        survey = Survey(questions=[q])
+        result = survey.by(self.model).run(cache=self.cache)
+        response = result.select(q.question_name).to_list()[0]
+
+        # Extract reasoning from <REASON> tag
+        reason_match = re.search(r'<REASON>(.*?)</REASON>', response, flags=re.IGNORECASE | re.DOTALL)
+        if reason_match:
+            reasoning = reason_match.group(1).strip()
+        else:
+            reasoning = response
+
+        # Parse choice from <DECISION> tag or full response
+        # First try to find <DECISION> tag
+        decision_match = re.search(r'<DECISION>(.*?)</DECISION>', response, flags=re.IGNORECASE | re.DOTALL)
+        decision_text = decision_match.group(1) if decision_match else response
+
+        # Try to extract choice using model-based extraction
+        try:
+            choice = self._extract_osp_choice_with_model(decision_text, student, remaining_schools)
+        except Exception as e:
+            # Fallback: simple regex
+            print(f"Warning: Model extraction failed, using regex fallback: {e}")
+            match = re.search(r'Choice:\s*([w-z])', decision_text, flags=re.IGNORECASE)
+            if match:
+                choice = match.group(1).lower()
+            else:
+                # Last resort: find first school mentioned
+                for school in sorted(remaining_schools):
+                    if school in decision_text.lower():
+                        choice = school
+                        break
+                else:
+                    raise ValueError(f"Could not parse choice from: {decision_text}")
+
+        return choice, reasoning
+
+    def run(self):
+        """
+        Run true OSP mechanism using Ashlagi-Gonczarowski decision tree.
+
+        Returns:
+            Dict with 'osp_tree_trace', 'matches', 'truthfulness'
+        """
+        print("Running True OSP Mechanism (Ashlagi-Gonczarowski tree)...")
+
+        # Initialize state
+        remaining_students = set(s.name for s in self.students)
+        remaining_schools = {"w", "x", "y", "z"}
+        matches = {s.name: None for s in self.students}
+        self.osp_tree_trace = []  # Replace osp_history with tree trace
+
+        # Run recursive OSP tree
+        self._run_osp_tree(
+            remaining_students,
+            remaining_schools,
+            matches,
+            node_path=[]
+        )
+
+        # Record outcomes in student objects
+        self._record_outcomes(matches)
+
+        # Compute truthfulness
+        truthfulness = self._compute_osp_truthfulness()
+
+        # Calculate truthfulness rate
+        truthful_count = sum(truthfulness.values())
+        total_count = len(truthfulness)
+        truthfulness_rate = truthful_count / total_count if total_count > 0 else 0
+
+        return {
+            'osp_tree_trace': self.osp_tree_trace,
+            'matches': matches,
+            'truthfulness': truthfulness,
+            'truthfulness_rate': truthfulness_rate
+        }
+
+    def _run_osp_tree(self, remaining_students, remaining_schools, matches, node_path):
+        """
+        Recursive OSP tree following Ashlagi-Gonczarowski construction.
+
+        Args:
+            remaining_students: Set[str] - unmatched student names
+            remaining_schools: Set[str] - unassigned schools
+            matches: Dict[str, Optional[str]] - current matches (mutated in place)
+            node_path: List[str] - path in tree (for logging)
+        """
+        # Base case: all matched or no schools left
+        if not remaining_students or not remaining_schools:
+            return
+
+        # Identify top-priority students
+        top_students = self._get_top_priority_students(
+            remaining_students,
+            remaining_schools
+        )
+
+        node_info = {
+            'node_path': node_path.copy(),
+            'remaining_students': sorted(remaining_students),
+            'remaining_schools': sorted(remaining_schools),
+            'top_students': sorted(top_students)
+        }
+
+        print(f"\nOSP Tree Node: {len(top_students)} top-priority students")
+        print(f"  Remaining students: {sorted(remaining_students)}")
+        print(f"  Remaining schools: {sorted(remaining_schools)}")
+        print(f"  Top students: {sorted(top_students)}")
+
+        # Case 1: Serial dictatorship (1 top-priority student)
+        if len(top_students) == 1:
+            student_name = list(top_students)[0]
+            student = next(s for s in self.students if s.name == student_name)
+
+            print(f"  → Serial dictatorship: asking {student_name} to pick")
+
+            # Ask student to pick top school
+            choice, reason = self._ask_pick_top(student, remaining_schools)
+
+            node_info['type'] = 'serial_dictatorship'
+            node_info['student'] = student_name
+            node_info['choice'] = choice
+            node_info['reasoning'] = reason
+            self.osp_tree_trace.append(node_info)
+
+            # Assign and recurse
+            matches[student_name] = choice
+            student.osp_choices.append(choice)
+
+            print(f"  → {student_name} chose {choice}")
+
+            self._run_osp_tree(
+                remaining_students - {student_name},
+                remaining_schools - {choice},
+                matches,
+                node_path + [f"SD:{student_name}→{choice}"]
+            )
+            return
+
+        # Case 2: Two top-priority students (acyclic case)
+        if len(top_students) == 2:
+            a_name, b_name = sorted(top_students)  # Alphabetical for consistency
+            student_a = next(s for s in self.students if s.name == a_name)
+            student_b = next(s for s in self.students if s.name == b_name)
+
+            print(f"  → Two top students: {a_name} and {b_name}")
+
+            # Phase a: Ask a about her priority-1 schools
+            a_priority1_schools = self._get_priority_one_schools(
+                student_a, remaining_schools, remaining_students
+            )
+
+            print(f"  → Phase A: {a_name}'s priority-1 schools: {a_priority1_schools}")
+
+            for candidate in a_priority1_schools:  # Already sorted alphabetically
+                fallback = remaining_schools - {candidate}
+                answer, reason = self._ask_yes_no(
+                    student_a, candidate, fallback, remaining_schools
+                )
+
+                node_info_yes_no = node_info.copy()
+                node_info_yes_no['type'] = 'yes_no_a'
+                node_info_yes_no['student'] = a_name
+                node_info_yes_no['candidate'] = candidate
+                node_info_yes_no['fallback'] = sorted(fallback)
+                node_info_yes_no['answer'] = 'YES' if answer else 'NO'
+                node_info_yes_no['reasoning'] = reason
+                self.osp_tree_trace.append(node_info_yes_no)
+
+                print(f"  → Asked {a_name} about {candidate}: {'YES' if answer else 'NO'}")
+
+                if answer:  # YES
+                    matches[a_name] = candidate
+                    student_a.osp_choices.append(candidate)
+                    self._run_osp_tree(
+                        remaining_students - {a_name},
+                        remaining_schools - {candidate},
+                        matches,
+                        node_path + [f"A:{a_name}:YES→{candidate}"]
                     )
-                    survey = Survey(questions=[q_retry])
-                    result = survey.by(self.model).run(cache=self.cache)
-                    response = result.select("q_osp_retry").to_list()[0]
+                    return
+                # If NO: continue to next candidate
 
-        raise RuntimeError(f"{student.name} failed to parse OSP response after 3 attempts")
+            # Phase b: Ask b about his priority-1 schools
+            b_priority1_schools = self._get_priority_one_schools(
+                student_b, remaining_schools, remaining_students
+            )
+
+            print(f"  → Phase B: {b_name}'s priority-1 schools: {b_priority1_schools}")
+
+            for candidate in b_priority1_schools:
+                fallback = remaining_schools - {candidate}
+                answer, reason = self._ask_yes_no(
+                    student_b, candidate, fallback, remaining_schools
+                )
+
+                node_info_yes_no = node_info.copy()
+                node_info_yes_no['type'] = 'yes_no_b'
+                node_info_yes_no['student'] = b_name
+                node_info_yes_no['candidate'] = candidate
+                node_info_yes_no['fallback'] = sorted(fallback)
+                node_info_yes_no['answer'] = 'YES' if answer else 'NO'
+                node_info_yes_no['reasoning'] = reason
+                self.osp_tree_trace.append(node_info_yes_no)
+
+                print(f"  → Asked {b_name} about {candidate}: {'YES' if answer else 'NO'}")
+
+                if answer:  # YES
+                    matches[b_name] = candidate
+                    student_b.osp_choices.append(candidate)
+                    self._run_osp_tree(
+                        remaining_students - {b_name},
+                        remaining_schools - {candidate},
+                        matches,
+                        node_path + [f"B:{b_name}:YES→{candidate}"]
+                    )
+                    return
+
+            # Phase c: Neither took anything, ask a then b for top pick
+            print(f"  → Phase C: Both declined, asking for top picks")
+
+            choice_a, reason_a = self._ask_pick_top(student_a, remaining_schools)
+            node_info_pick_a = node_info.copy()
+            node_info_pick_a['type'] = 'final_pick_a'
+            node_info_pick_a['student'] = a_name
+            node_info_pick_a['choice'] = choice_a
+            node_info_pick_a['reasoning'] = reason_a
+            self.osp_tree_trace.append(node_info_pick_a)
+
+            matches[a_name] = choice_a
+            student_a.osp_choices.append(choice_a)
+
+            print(f"  → {a_name} picked {choice_a}")
+
+            remaining_for_b = remaining_schools - {choice_a}
+            choice_b, reason_b = self._ask_pick_top(student_b, remaining_for_b)
+            node_info_pick_b = node_info.copy()
+            node_info_pick_b['type'] = 'final_pick_b'
+            node_info_pick_b['student'] = b_name
+            node_info_pick_b['choice'] = choice_b
+            node_info_pick_b['reasoning'] = reason_b
+            self.osp_tree_trace.append(node_info_pick_b)
+
+            matches[b_name] = choice_b
+            student_b.osp_choices.append(choice_b)
+
+            print(f"  → {b_name} picked {choice_b}")
+
+            self._run_osp_tree(
+                remaining_students - {a_name, b_name},
+                remaining_schools - {choice_a, choice_b},
+                matches,
+                node_path + [f"PICK:{a_name}→{choice_a},{b_name}→{choice_b}"]
+            )
+            return
+
+        # Should not reach here with acyclic priorities
+        raise RuntimeError(f"Invalid priority structure: {len(top_students)} top students. "
+                         f"Expected 1 or 2 for acyclic priorities.")
 
     def _parse_reason_decision(self, text):
         """
@@ -870,126 +1152,6 @@ Respond with ONLY the school letter (w, x, y, or z). Nothing else."""
 
         raise ValueError(f"Could not extract valid choice from: {extracted}")
 
-    def _validate_choice(self, response, student):
-        """
-        Validate OSP choice is in available set (legacy method, not used with reasoning).
-
-        Args:
-            response: LLM response
-            student: Student object
-
-        Returns:
-            str: Validated school choice
-
-        Raises:
-            ValueError: If choice not in available set
-        """
-        available = self.available_sets[student.name]
-
-        # Parse response
-        if isinstance(response, str):
-            choice = response.lower().strip()
-
-            # Handle "Choice: w" format
-            match = re.search(r"choice:\s*([w-z])", choice)
-            if match:
-                choice = match.group(1)
-
-            if choice in available:
-                return choice
-
-        raise ValueError(f"Invalid choice '{response}' not in available set {available}")
-
-    def _process_osp_choices(self, choices, reasoning_dict=None):
-        """
-        Process OSP choices: run DA step and update state.
-
-        Args:
-            choices: Dict[student_name, school]
-            reasoning_dict: Dict[student_name, reason] (optional)
-        """
-        if reasoning_dict is None:
-            reasoning_dict = {}
-
-        # Save available sets BEFORE processing (for truthfulness checking)
-        available_before = {k: sorted(list(v)) for k, v in self.available_sets.items()}
-
-        proposals = {}  # {school: [students]}
-
-        # Group proposals by school
-        for student_name, school in choices.items():
-            proposals.setdefault(school, []).append(student_name)
-
-        rejections = []
-
-        # Each school processes proposals
-        for school, proposers in proposals.items():
-            # Include current match if exists
-            candidates = proposers[:]
-            if school in self.tentative_matches:
-                candidates.append(self.tentative_matches[school])
-
-            # Select best by priority
-            best = self._select_by_priority(school, candidates)
-
-            # Track rejections
-            for candidate in candidates:
-                if candidate != best:
-                    rejections.append((candidate, school))
-
-            # Update tentative match
-            old_match = self.tentative_matches.get(school)
-            if old_match and old_match != best:
-                rejections.append((old_match, school))
-
-            self.tentative_matches[school] = best
-
-        # Update available sets: remove rejected schools
-        for student_name, school in rejections:
-            self.available_sets[student_name].discard(school)
-
-        # Remove matched students' available sets
-        matched_students = set(self.tentative_matches.values())
-        for student_name in matched_students:
-            if student_name in self.available_sets:
-                self.available_sets[student_name] = set()
-
-        # Log this round (use available_before for truthfulness checking, add reasoning)
-        self.osp_history.append({
-            'round': self.osp_round,
-            'choices': choices.copy(),
-            'reasoning': reasoning_dict.copy(),  # Add reasoning for this round
-            'rejections': rejections,
-            'tentative_matches': self.tentative_matches.copy(),
-            'available_sets_before': available_before,  # Available when choices were made
-            'available_sets_after': {k: sorted(list(v)) for k, v in self.available_sets.items()}  # After processing
-        })
-
-        print(f"  Tentative matches: {self.tentative_matches}")
-        print(f"  Rejections: {len(rejections)}")
-
-    def _select_by_priority(self, school, candidates):
-        """Select student with highest priority at school."""
-        best = None
-        best_priority = float('inf')
-
-        for student_name in candidates:
-            student = next(s for s in self.students if s.name == student_name)
-            priority = student.priorities[school]
-
-            if priority < best_priority:
-                best_priority = priority
-                best = student_name
-
-        return best
-
-    def _get_final_matches(self):
-        """Convert school->student to student->school."""
-        matches = {s.name: None for s in self.students}
-        for school, student_name in self.tentative_matches.items():
-            matches[student_name] = school
-        return matches
-
     def _record_outcomes(self, matches):
         """Store outcomes in student objects."""
         for student in self.students:
@@ -999,10 +1161,10 @@ Respond with ONLY the school letter (w, x, y, or z). Nothing else."""
 
     def _compute_osp_truthfulness(self):
         """
-        Compute truthfulness for OSP mechanism.
+        Compute truthfulness for true OSP mechanism.
 
-        For OSP, a student is truthful if in EVERY round they chose their
-        most preferred school among the available options.
+        For yes/no nodes: YES is truthful iff candidate is top among remaining_set
+        For pick nodes: choice is truthful iff it's top among available
 
         Returns:
             Dict[student_name, bool]: Truthfulness for each student
@@ -1012,35 +1174,67 @@ Respond with ONLY the school letter (w, x, y, or z). Nothing else."""
         for student in self.students:
             is_truthful = True
 
-            # Check each round in OSP history
-            for round_data in self.osp_history:
-                round_num = round_data['round']
-                # Use available_sets_before (what was available when choice was made)
-                available_set = set(round_data.get('available_sets_before',
-                                                   round_data.get('available_sets', [])).get(student.name, []))
-
-                # Skip if no available schools (student already matched)
-                if not available_set:
+            # Check each node in tree trace where this student was queried
+            for node in self.osp_tree_trace:
+                if node.get('student') != student.name:
                     continue
 
-                # Get student's choice in this round
-                if student.name in round_data['choices']:
-                    choice = round_data['choices'][student.name]
+                node_type = node['type']
 
-                    # Find most preferred school in available set
-                    available_values = {school: student.values[school]
-                                      for school in available_set}
-                    best_school = max(available_values.items(), key=lambda x: x[1])[0]
+                if node_type in ['yes_no_a', 'yes_no_b']:
+                    # Yes/no question
+                    candidate = node['candidate']
+                    # Reconstruct remaining set: fallback + {candidate}
+                    fallback = set(node.get('fallback', []))
+                    remaining_set = fallback | {candidate}
+                    answer = (node['answer'] == 'YES')
 
-                    # Check if choice matches best school
-                    if choice != best_school:
-                        is_truthful = False
-                        print(f"{student.name} MISREPORTED in round {round_num}:")
-                        print(f"  Available: {sorted(available_set)}")
-                        print(f"  Values: {available_values}")
-                        print(f"  Best choice: {best_school} (${student.values[best_school]})")
-                        print(f"  Submitted: {choice} (${student.values[choice]})")
-                        break
+                    # Determine if candidate is top choice among remaining
+                    remaining_values = {
+                        school: student.values[school]
+                        for school in remaining_set
+                        if school in student.values
+                    }
+
+                    if remaining_values:
+                        best_school = max(remaining_values.items(), key=lambda x: x[1])[0]
+                        truthful_answer = (candidate == best_school)
+
+                        if answer != truthful_answer:
+                            is_truthful = False
+                            print(f"{student.name} MISREPORTED at yes/no node:")
+                            print(f"  Candidate: {candidate}")
+                            print(f"  Remaining: {sorted(remaining_set)}")
+                            print(f"  Values: {remaining_values}")
+                            print(f"  Best: {best_school} (${student.values[best_school]})")
+                            print(f"  Answer: {'YES' if answer else 'NO'}")
+                            print(f"  Truthful: {'YES' if truthful_answer else 'NO'}")
+                            break
+
+                elif node_type in ['serial_dictatorship', 'final_pick_a', 'final_pick_b']:
+                    # Pick question
+                    choice = node['choice']
+                    # Get available schools from node context
+                    available = set(node.get('remaining_schools', []))
+
+                    if available:
+                        available_values = {
+                            school: student.values[school]
+                            for school in available
+                            if school in student.values
+                        }
+
+                        if available_values:
+                            best_school = max(available_values.items(), key=lambda x: x[1])[0]
+
+                            if choice != best_school:
+                                is_truthful = False
+                                print(f"{student.name} MISREPORTED at pick node:")
+                                print(f"  Available: {sorted(available)}")
+                                print(f"  Values: {available_values}")
+                                print(f"  Best: {best_school} (${student.values[best_school]})")
+                                print(f"  Chose: {choice} (${student.values[choice]})")
+                                break
 
             truthfulness[student.name] = is_truthful
 
@@ -1049,7 +1243,7 @@ Respond with ONLY the school letter (w, x, y, or z). Nothing else."""
         total_count = len(truthfulness)
         truthfulness_rate = truthful_count / total_count if total_count > 0 else 0
 
-        print(f"\nOSP Truthfulness rate: {truthfulness_rate:.1%}")
+        print(f"\nTrue OSP Truthfulness rate: {truthfulness_rate:.1%}")
 
         return truthfulness
 
@@ -1328,15 +1522,24 @@ class DA_plan:
 
         elif self.rule.mechanism_type == "osp":
             self.data_to_save["osp_choices"] = {s.name: s.osp_choices for s in self.students}
-            self.data_to_save["osp_history"] = results.get('osp_history', [])
+            # Support both old 'osp_history' and new 'osp_tree_trace' formats
+            if 'osp_tree_trace' in results:
+                self.data_to_save["osp_history"] = results['osp_tree_trace']  # Store as osp_history for consistency
+            else:
+                self.data_to_save["osp_history"] = results.get('osp_history', [])
             self.data_to_save["truthfulness"] = results.get('truthfulness', {})
 
-            # Compute overall truthfulness rate
-            truthfulness_list = list(results.get('truthfulness', {}).values())
-            if truthfulness_list:
-                truthfulness_rate = sum(truthfulness_list) / len(truthfulness_list)
-                self.data_to_save["truthfulness_rate"] = truthfulness_rate
-                print(f"\n  Overall OSP Truthfulness rate: {truthfulness_rate:.1%}")
+            # Use truthfulness_rate from results if available
+            if 'truthfulness_rate' in results:
+                self.data_to_save["truthfulness_rate"] = results['truthfulness_rate']
+                print(f"\n  Overall OSP Truthfulness rate: {results['truthfulness_rate']:.1%}")
+            else:
+                # Compute overall truthfulness rate (fallback)
+                truthfulness_list = list(results.get('truthfulness', {}).values())
+                if truthfulness_list:
+                    truthfulness_rate = sum(truthfulness_list) / len(truthfulness_list)
+                    self.data_to_save["truthfulness_rate"] = truthfulness_rate
+                    print(f"\n  Overall OSP Truthfulness rate: {truthfulness_rate:.1%}")
 
         print(f"\n{'='*70}")
         print("FINAL RESULTS")
