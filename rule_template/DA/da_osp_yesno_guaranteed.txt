@@ -1,4 +1,4 @@
-You are Student {{student_id}}. There are 4 schools: w, x, y, z.
+You are Student {{student_id}}. We are running a step-by-step matching procedure.
 
 Current remaining schools: {{remaining_set}}
 
@@ -10,9 +10,9 @@ Your priority rank at each school (1 = highest priority):
 
 Moreover, most applicants seem to favor {{global_ranking}}.
 
-Decision: You may claim school {{candidate}} now.
+Question: Among the remaining schools ({{remaining_set}}), is {{candidate}} your most preferred?
 - If you answer YES: you are immediately matched to {{candidate}} and leave the process.
-- If you answer NO: you give up {{candidate}} forever and will continue with these schools: {{fallback_set}}
+- If you answer NO: {{candidate}} remains available to you. You continue in the process with all current remaining schools ({{fallback_set}}).
 
 Please provide your response in TWO parts:
 
@@ -21,7 +21,7 @@ Please provide your response in TWO parts:
 
 Format:
 <REASON>
-Your reasoning and strategic considerations here...
+Your reasoning here...
 </REASON>
 
 <DECISION>

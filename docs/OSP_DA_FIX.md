@@ -27,7 +27,9 @@ Assume the fixed Ergin-acyclic priorities already in the code (A/B top; C/D bott
 ## Prompt changes
 Use `rule_template/DA/da_osp_yesno_guaranteed.txt`, which exposes the guarantee and fallback set at each node. Required variables (all currently in the template): `student_id`, `remaining_set`, `candidate`, `fallback_set`, `preference_order`, `pw/px/py/pz`, `global_ranking`. This matches the house style of the other DA templates.
 
-If you hit a serial-dictatorship node (only one student has top priority everywhere), you may ask that student for her top remaining school in one shot; that is OSP. You can reuse the existing `da_osp_choice.txt` or a stripped-down one-line “Choice: <school>” prompt for that single-agent pick. Do **not** use the full-set choice prompt for the general multi-agent case; it breaks obviousness.
+🔴 Bug we fixed: previously the prompt said NO “gives up the candidate forever.” That is *not* the AG mechanism and destroys OSP. The correct text now says NO “keeps all remaining schools (including the candidate).” The code must pass `fallback_set = remaining_schools` so the candidate stays available after NO. Only an actual acceptance removes a school.
+
+If you hit a serial-dictatorship node (only one student has top priority everywhere), you may ask that student for her top remaining school in one shot; that is OSP. You can reuse the existing `da_osp_choice.txt` or a stripped-down one-line “Choice: <school>” prompt for that single-agent pick. Do **not** use the full-set choice prompt for the general two-top-student case; it breaks obviousness.
 
 ## Offer order and multiple-available schools (what happens with many options?)
 - Obviousness requires single-school offers in a fixed, public order derived from priorities, not a free-choice menu. When a student could be admitted to multiple schools, the mechanism still asks about one school at a time, with “take now or give it up forever” guarantees. This is exactly the Ashlagi–Gonczarowski construction.

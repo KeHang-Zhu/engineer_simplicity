@@ -948,6 +948,7 @@ class DA_OSP:
             node_info['type'] = 'serial_dictatorship'
             node_info['student'] = student_name
             node_info['choice'] = choice
+            node_info['available'] = sorted(remaining_schools)
             node_info['reasoning'] = reason
             self.osp_tree_trace.append(node_info)
 
@@ -973,7 +974,7 @@ class DA_OSP:
 
             print(f"  → Two top students: {a_name} and {b_name}")
 
-            # Phase a: Ask a about her priority-1 schools
+            # Phase a: Ask a about her priority-1 schools (NO keeps candidate available)
             a_priority1_schools = self._get_priority_one_schools(
                 student_a, remaining_schools, remaining_students
             )
@@ -981,7 +982,8 @@ class DA_OSP:
             print(f"  → Phase A: {a_name}'s priority-1 schools: {a_priority1_schools}")
 
             for candidate in a_priority1_schools:  # Already sorted alphabetically
-                fallback = remaining_schools - {candidate}
+                # In AG construction, saying NO does not remove candidate; fallback is full remaining set
+                fallback = remaining_schools.copy()
                 answer, reason = self._ask_yes_no(
                     student_a, candidate, fallback, remaining_schools
                 )
@@ -1009,7 +1011,7 @@ class DA_OSP:
                     return
                 # If NO: continue to next candidate
 
-            # Phase b: Ask b about his priority-1 schools
+            # Phase b: Ask b about his priority-1 schools (NO keeps candidate available)
             b_priority1_schools = self._get_priority_one_schools(
                 student_b, remaining_schools, remaining_students
             )
@@ -1017,7 +1019,7 @@ class DA_OSP:
             print(f"  → Phase B: {b_name}'s priority-1 schools: {b_priority1_schools}")
 
             for candidate in b_priority1_schools:
-                fallback = remaining_schools - {candidate}
+                fallback = remaining_schools.copy()
                 answer, reason = self._ask_yes_no(
                     student_b, candidate, fallback, remaining_schools
                 )
@@ -1052,6 +1054,7 @@ class DA_OSP:
             node_info_pick_a['type'] = 'final_pick_a'
             node_info_pick_a['student'] = a_name
             node_info_pick_a['choice'] = choice_a
+            node_info_pick_a['available'] = sorted(remaining_schools)
             node_info_pick_a['reasoning'] = reason_a
             self.osp_tree_trace.append(node_info_pick_a)
 
@@ -1066,6 +1069,7 @@ class DA_OSP:
             node_info_pick_b['type'] = 'final_pick_b'
             node_info_pick_b['student'] = b_name
             node_info_pick_b['choice'] = choice_b
+            node_info_pick_b['available'] = sorted(remaining_for_b)
             node_info_pick_b['reasoning'] = reason_b
             self.osp_tree_trace.append(node_info_pick_b)
 
@@ -1214,8 +1218,8 @@ Respond with ONLY the school letter (w, x, y, or z). Nothing else."""
                 elif node_type in ['serial_dictatorship', 'final_pick_a', 'final_pick_b']:
                     # Pick question
                     choice = node['choice']
-                    # Get available schools from node context
-                    available = set(node.get('remaining_schools', []))
+                    # Get available schools from node context (prefer explicit 'available')
+                    available = set(node.get('available', node.get('remaining_schools', [])))
 
                     if available:
                         available_values = {
