@@ -1,0 +1,239 @@
+{
+    "mechanism_type": "osp",
+    "global_ranking": "y > x > w > z",
+    "global_ranking_strategy": "fixed",
+    "values": {
+        "Student A": {
+            "w": 62,
+            "x": 47,
+            "y": 61,
+            "z": 63
+        },
+        "Student B": {
+            "w": 69,
+            "x": 43,
+            "y": 53,
+            "z": 48
+        },
+        "Student C": {
+            "w": 63,
+            "x": 49,
+            "y": 51,
+            "z": 57
+        },
+        "Student D": {
+            "w": 67,
+            "x": 52,
+            "y": 54,
+            "z": 46
+        }
+    },
+    "priorities": {
+        "Student A": {
+            "w": 1,
+            "x": 2,
+            "y": 1,
+            "z": 2
+        },
+        "Student B": {
+            "w": 2,
+            "x": 1,
+            "y": 2,
+            "z": 1
+        },
+        "Student C": {
+            "w": 3,
+            "x": 3,
+            "y": 4,
+            "z": 4
+        },
+        "Student D": {
+            "w": 4,
+            "x": 4,
+            "y": 3,
+            "z": 3
+        }
+    },
+    "matches": {
+        "Student A": "w",
+        "Student B": "y",
+        "Student C": "z",
+        "Student D": "x"
+    },
+    "utilities": {
+        "Student A": 62,
+        "Student B": 53,
+        "Student C": 57,
+        "Student D": 52
+    },
+    "osp_choices": {
+        "Student A": [
+            "w"
+        ],
+        "Student B": [
+            "y"
+        ],
+        "Student C": [
+            "z"
+        ],
+        "Student D": [
+            "x"
+        ]
+    },
+    "osp_history": [
+        {
+            "node_path": [],
+            "remaining_students": [
+                "Student A",
+                "Student B",
+                "Student C",
+                "Student D"
+            ],
+            "remaining_schools": [
+                "w",
+                "x",
+                "y",
+                "z"
+            ],
+            "top_students": [
+                "Student A",
+                "Student B"
+            ],
+            "type": "yes_no_a",
+            "student": "Student A",
+            "candidate": "w",
+            "fallback": [
+                "x",
+                "y",
+                "z"
+            ],
+            "answer": "YES",
+            "reasoning": "I am currently faced with the decision of whether to accept a match with school w or to continue in the process with the remaining schools x, y, and z. My preference ordering indicates that I prefer school z the most, followed by w, y, and then x. However, I have the highest priority rank at school w (rank 1), which means I have a very strong chance of being accepted there.\n\nThe general applicant preference suggests that most applicants favor y over the other schools, which could potentially increase my chances at school z if many applicants opt for y. However, my priority rank at z is 2, which is not as strong as my rank at w. This means there is a risk that I might not get into z if there are applicants with a higher priority.\n\nAccepting school w now guarantees me a spot at a school that I like second best, and I have the highest priority there, meaning it is a secure option. If I decline w, I risk not getting into z, and I might end up with a less preferred option or possibly not getting matched at all.\n\nGiven these considerations, the safest and most strategic choice is to accept school w, where my chances are most secure."
+        },
+        {
+            "node_path": [
+                "A:Student A:YES\u2192w"
+            ],
+            "remaining_students": [
+                "Student B",
+                "Student C",
+                "Student D"
+            ],
+            "remaining_schools": [
+                "x",
+                "y",
+                "z"
+            ],
+            "top_students": [
+                "Student B"
+            ],
+            "type": "serial_dictatorship",
+            "student": "Student B",
+            "choice": "y",
+            "reasoning": "Among the currently available schools (x, y, z), my preference is based on my original ranking: w > y > z > x. Since w is not available, I will choose the next most preferred school from my list, which is y. Despite the fact that many applicants also prefer y, my decision is based solely on my personal preference order, without considering the popularity of the schools among others."
+        },
+        {
+            "node_path": [
+                "A:Student A:YES\u2192w",
+                "SD:Student B\u2192y"
+            ],
+            "remaining_students": [
+                "Student C",
+                "Student D"
+            ],
+            "remaining_schools": [
+                "x",
+                "z"
+            ],
+            "top_students": [
+                "Student C",
+                "Student D"
+            ],
+            "type": "yes_no_a",
+            "student": "Student C",
+            "candidate": "x",
+            "fallback": [
+                "z"
+            ],
+            "answer": "NO",
+            "reasoning": "My decision is based on a combination of my preference ordering and the strategic considerations regarding the remaining schools. My preference ordering is w > z > y > x, which means that I prefer school z over school x. Although my priority rank at both x and z is relatively low (3 and 4, respectively), the fact that most applicants seem to favor y > x > w > z suggests that there might be less competition for school z. This could potentially increase my chances of being matched with z if I continue in the process. Additionally, claiming school x now would mean settling for my least preferred option among the four schools. Given that I still have the option to pursue school z, which I rank higher in my preference, it makes sense to continue the process rather than settling for a school I am not as interested in."
+        },
+        {
+            "node_path": [
+                "A:Student A:YES\u2192w",
+                "SD:Student B\u2192y"
+            ],
+            "remaining_students": [
+                "Student C",
+                "Student D"
+            ],
+            "remaining_schools": [
+                "x",
+                "z"
+            ],
+            "top_students": [
+                "Student C",
+                "Student D"
+            ],
+            "type": "yes_no_b",
+            "student": "Student D",
+            "candidate": "z",
+            "fallback": [
+                "x"
+            ],
+            "answer": "NO",
+            "reasoning": "In this situation, I am currently considering whether to claim school z immediately or continue with school x as the only remaining option. My preference ordering clearly ranks z as my least preferred choice, while x is preferred over z. Additionally, my priority rank is the same for both x and z, which means that my chances of being accepted at either school are relatively similar. However, most applicants seem to favor y > x > w > z, suggesting that there might be less competition for z compared to x. \n\nIf I claim z now, I secure a spot at a school, although it is my least preferred option. If I decline z, I will have to compete for a spot at x, which is more preferred by applicants and could potentially be more competitive. Given that x is my third choice and z is my fourth, I am inclined to take the risk and aim for x, as it aligns better with my preferences. The downside of not being accepted at x is that I may end up without a school if I don't get matched there, but the potential gain of being matched to a more preferred school outweighs the certainty of accepting my least preferred option.\n\nTherefore, I decide to continue with school x, hoping to get matched with a more preferred choice."
+        },
+        {
+            "node_path": [
+                "A:Student A:YES\u2192w",
+                "SD:Student B\u2192y"
+            ],
+            "remaining_students": [
+                "Student C",
+                "Student D"
+            ],
+            "remaining_schools": [
+                "x",
+                "z"
+            ],
+            "top_students": [
+                "Student C",
+                "Student D"
+            ],
+            "type": "final_pick_a",
+            "student": "Student C",
+            "choice": "z",
+            "reasoning": "Given the currently available schools, x and z, I need to select the one I most prefer based on my preference ordering. My preference is w > z > y > x, which means I prefer z over x. Although most applicants favor y > x > w > z, this should not affect my decision at this step since I am choosing based on my personal preferences and the currently available options. Therefore, I will choose z because it is higher in my preference ranking than x."
+        },
+        {
+            "node_path": [
+                "A:Student A:YES\u2192w",
+                "SD:Student B\u2192y"
+            ],
+            "remaining_students": [
+                "Student C",
+                "Student D"
+            ],
+            "remaining_schools": [
+                "x",
+                "z"
+            ],
+            "top_students": [
+                "Student C",
+                "Student D"
+            ],
+            "type": "final_pick_b",
+            "student": "Student D",
+            "choice": "x",
+            "reasoning": "Among the currently available schools, the only option is x. According to my preference ordering, x is my third choice after w and y. However, since w and y are not available at this step, I must choose from the available options. My preference for x over z makes x the most preferred choice among the available schools. Additionally, since most applicants favor y over x, it suggests that x might have fewer applicants compared to y, potentially increasing my chances of securing a spot."
+        }
+    ],
+    "truthfulness": {
+        "Student A": false,
+        "Student B": true,
+        "Student C": true,
+        "Student D": true
+    },
+    "truthfulness_rate": 0.75
+}
