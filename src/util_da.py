@@ -817,6 +817,10 @@ class DA_OSP:
             "student_id": student.name.split()[-1],
             "available_set": available_str,
             "preference_order": preference_order,
+            "pw": student.priorities["w"],
+            "px": student.priorities["x"],
+            "py": student.priorities["y"],
+            "pz": student.priorities["z"],
             "global_ranking": self.global_ranking
         })
 
