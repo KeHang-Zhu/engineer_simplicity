@@ -302,7 +302,7 @@ def plot_osp_comparison():
 
         osp_tau = da_df[
             (da_df['model_short'] == model) &
-            (da_df['experiment'] == 'osp_baseline')
+            (da_df['experiment'] == 'osp_yesno_fixed')
         ]['kendall_tau_normalized'].values
 
         # Plot OSP FIRST (colored, behind)
