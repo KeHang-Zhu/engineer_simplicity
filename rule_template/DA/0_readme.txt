@@ -11,25 +11,44 @@ This folder contains prompt templates for LLM experiments on Deferred Acceptance
 4. **Pycia & Troyan (2023)**: k-step foresight and simplicity standards
 
 ### The Key Comparison
-| Interface | Analogy | OSP? | Expected Truthfulness |
-|-----------|---------|------|----------------------|
+| Interface | Analogy | True OSP? | Expected Truthfulness |
+|-----------|---------|-----------|----------------------|
 | Submit full RoL (direct) | Sealed-bid 2P | NO | ~50-60% |
-| Sequential local queries | Ascending clock | YES | ~90%+ |
+| Sequential local queries (iterative) | Ascending clock | See below | ~90%+ |
+
+### IMPORTANT: Iterative vs True OSP (2026-02-09)
+
+The current "OSP" mode is more accurately described as **"Iterative Revelation"**:
+
+| Mode | What We Test | OSP Property? |
+|------|--------------|---------------|
+| **Direct** | Submit full ranking at once | NO |
+| **Iterative** (`da_osp_choice.txt`) | Sequential "pick your favorite" | **NOT TRUE OSP** - doesn't show clinchable set |
+| **True OSP** (`da_osp_yesno_guaranteed.txt`) | Yes/No with guaranteed fallback | **YES** - shows what you get NOW vs continue |
+
+**Why the distinction matters**: True OSP per Li (2017) requires showing the agent what they can "clinch" RIGHT NOW. The iterative choice interface helps (it's simpler than submitting a full ranking), but doesn't provide the "worst-case vs best-case at each divergence point" guarantee that defines obviousness.
+
+**For true OSP testing**: Use `da_osp_yesno_guaranteed.txt` which shows:
+- What happens if YES: immediate match to candidate
+- What happens if NO: continue with fallback set (candidate still available)
+
+See `/docs/OSP_DA_FIX.md` for full specification of true OSP implementation.
 
 ---
 
 ## Prompt Files
 
-### Non-OSP Direct Revelation (submit full Rank Order List)
+### Direct Revelation (submit full Rank Order List)
 - `da_direct_null.txt` - Minimal info baseline
 - `da_direct_traditional.txt` - Standard DA mechanics explained
 - `da_direct_menu_mechanics.txt` - Menu-DA framing (Yannai's two-step description)
 - `da_direct_menu_property.txt` - Menu-SP framing (KEY intervention: "ranking can't change obtainable set")
 - `da_direct_textbook_sp.txt` - Textbook strategyproofness statement
 
-### OSP Sequential Interface (code asks local questions)
-- `da_osp_choice.txt` - "What is your top choice among remaining?"
-- `da_osp_yesno.txt` - "Is X your top choice among remaining? YES/NO"
+### Iterative Interface (sequential local questions)
+- `da_osp_choice.txt` - "What is your top choice among remaining?" (iterative, not true OSP)
+- `da_osp_yesno.txt` - "Is X your top choice?" (simple yes/no, not true OSP)
+- `da_osp_yesno_guaranteed.txt` - **TRUE OSP** with clinchable set and fallback guarantee
 
 ### Axis 1: Contingent Reasoning
 Interventions that prompt reasoning about what happens given others' actions.
@@ -140,6 +159,22 @@ The LLM only answers local questions; code handles DA logic.
 ---
 
 ## Changelog
+
+### 2026-02-09: Iterative vs True OSP Clarification
+
+**Rationale**: Based on the plan in "Comprehensive Intervention Analysis", we clarified the distinction between iterative revelation and true OSP:
+
+- **Iterative** (`da_osp_choice.txt`): Sequential "pick your favorite" - simpler than direct, but NOT true OSP
+- **True OSP** (`da_osp_yesno_guaranteed.txt`): Shows clinchable set and fallback guarantee per Li (2017)
+
+**Key insight**: True OSP requires showing "School X would accept you RIGHT NOW if you chose it" - the agent must see the worst-case/best-case comparison at each divergence point. Simply asking iterative questions doesn't provide this obviousness guarantee.
+
+**Documentation added**:
+- Updated header to distinguish Iterative vs True OSP
+- Added reference to `/docs/OSP_DA_FIX.md`
+- Created `/docs/INTERVENTION_TAXONOMY.md` for comprehensive taxonomy
+
+---
 
 ### 2026-02-04: Axis Reorganization
 

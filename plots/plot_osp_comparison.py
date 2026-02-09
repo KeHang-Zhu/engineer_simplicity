@@ -1,11 +1,12 @@
 """
-OSP/Iterative Mechanisms Comparison Plot
+OSP Mechanisms Comparison Plot
 
-Creates a side-by-side figure showing:
-- Left: Auctions - SPSB (gray) vs Ascending Clock (colored)
-- Right: DA - Direct baseline (gray) vs OSP (colored)
+Creates a grid figure showing:
+- Rows: One per model (Claude, Gemini, GPT-4o, Gemma)
+- Left column: Auctions - SPSB (gray) vs Ascending Clock (colored)
+- Right column: DA - Direct baseline (gray) vs OSP (colored)
 
-Shows that OSP/iterative mechanisms improve play in both domains.
+Shows that OSP mechanisms improve play in both domains across all models.
 """
 
 import json
@@ -52,14 +53,29 @@ OUTPUT_DIR = Path(__file__).parent
 
 # Colors
 BASELINE_COLOR = '#888888'      # Gray for baselines
-AUCTION_COLOR = '#4363d8'       # Blue for ascending clock
-DA_COLOR = '#e6194B'            # Red for OSP
+
+# Model configuration
+MODEL_ORDER = ['Claude 3.5 Haiku', 'Gemini 2.0 Flash', 'GPT-4o', 'Gemma 3 27B']
+
+MODEL_COLORS = {
+    'Claude 3.5 Haiku': '#4363d8',    # Blue
+    'Gemini 2.0 Flash': '#e6194B',    # Red
+    'GPT-4o': '#f58231',              # Orange
+    'Gemma 3 27B': '#3cb44b',         # Green
+}
+
+MODEL_COLORS_DARK = {
+    'Claude 3.5 Haiku': '#2a3d8a',
+    'Gemini 2.0 Flash': '#a11232',
+    'GPT-4o': '#c46820',
+    'Gemma 3 27B': '#297a33',
+}
 
 # ============================================================================
 # DATA LOADING - AUCTIONS
 # ============================================================================
 
-MODEL_NAMES = {
+AUCTION_MODEL_NAMES = {
     'claude-3-5-haiku-20241022': 'Claude 3.5 Haiku',
     'gemini-2.0-flash': 'Gemini 2.0 Flash',
     'google/gemma-3-27b-it': 'Gemma 3 27B',
@@ -75,7 +91,7 @@ def load_auction_data():
     data_path = combined_files[-1]
     print(f"Auctions: {data_path.name}")
     df = pd.read_csv(data_path)
-    df['model_short'] = df['model'].map(MODEL_NAMES)
+    df['model_short'] = df['model'].map(AUCTION_MODEL_NAMES)
     df['deviation'] = df['bid'] - df['player_value']
     return df
 
@@ -194,142 +210,208 @@ def load_da_data():
 
 def plot_osp_comparison():
     """
-    Create side-by-side comparison showing OSP/iterative mechanisms improve play.
+    Create grid comparison showing OSP mechanisms improve play.
 
-    Left panel: Auctions (SPSB baseline vs Ascending Clock)
-    Right panel: DA (Direct baseline vs OSP)
+    Rows: One per model
+    Left column: Auctions (SPSB baseline vs Ascending Clock)
+    Right column: DA (Direct baseline vs OSP)
     """
     print("Loading data...")
 
-    # Load auction data
+    # Load data
     auction_df = load_auction_data()
-    spsb_dev = auction_df[auction_df['experiment'].isin(['spsb_apv', 'spsb'])]['deviation'].values
-    ac_dev = auction_df[auction_df['experiment'].isin(['ascending_clock_apv', 'ascending_clock_closed'])]['deviation'].values
-
-    print(f"  SPSB: n={len(spsb_dev)}, mean={np.mean(spsb_dev):+.2f}")
-    print(f"  Ascending Clock: n={len(ac_dev)}, mean={np.mean(ac_dev):+.2f}")
-
-    # Load DA data
     da_df = load_da_data()
-    direct_tau = da_df[da_df['experiment'] == 'direct_baseline']['kendall_tau_normalized'].values
-    osp_tau = da_df[da_df['experiment'] == 'osp_baseline']['kendall_tau_normalized'].values
 
-    print(f"  Direct DA: n={len(direct_tau)}, mean={np.mean(direct_tau)*100:.1f}%")
-    print(f"  OSP DA: n={len(osp_tau)}, mean={np.mean(osp_tau)*100:.1f}%")
+    # Create figure: 4 rows (models) x 2 columns (auctions, DA)
+    fig, axes = plt.subplots(4, 2, figsize=(10, 12))
 
-    # Create figure with 2 panels
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
-
-    # ─────────────────────────────────────────────────────────────────────────
-    # LEFT PANEL: Auctions
-    # ─────────────────────────────────────────────────────────────────────────
     x_limit = 20
     auction_bins = np.linspace(-x_limit, x_limit, 30)
-
-    # Plot Ascending Clock FIRST (colored, behind)
-    if len(ac_dev) > 0:
-        ac_weights = np.ones_like(ac_dev) * 100 / len(ac_dev)
-        ax1.hist(ac_dev, bins=auction_bins, alpha=0.6, color=AUCTION_COLOR,
-                edgecolor='#2a3d8a', linewidth=0.6, weights=ac_weights,
-                label='Ascending Clock')
-        ac_mean = np.mean(ac_dev)
-        ax1.axvline(ac_mean, color=AUCTION_COLOR, linestyle='--', linewidth=2, alpha=0.9)
-
-    # Plot SPSB SECOND (gray, in front)
-    if len(spsb_dev) > 0:
-        spsb_weights = np.ones_like(spsb_dev) * 100 / len(spsb_dev)
-        ax1.hist(spsb_dev, bins=auction_bins, alpha=0.5, color=BASELINE_COLOR,
-                edgecolor='#333333', linewidth=0.6, weights=spsb_weights,
-                label='SPSB Baseline')
-        spsb_mean = np.mean(spsb_dev)
-        ax1.axvline(spsb_mean, color=BASELINE_COLOR, linestyle='--', linewidth=1.5, alpha=0.8)
-
-    # Add reference line at 0 (truthful bidding)
-    ax1.axvline(0, color='#2d8a2d', linestyle='-', linewidth=1.5, alpha=0.7)
-
-    ax1.set_xlim(-x_limit, x_limit)
-    ax1.set_xlabel('bid − value', fontsize=11)
-    ax1.set_ylabel('% of observations', fontsize=11)
-    ax1.set_title('Auctions', fontweight='bold', fontsize=13, pad=10)
-    ax1.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.0f}%'))
-
-    # Annotation for auction means
-    ax1.text(0.97, 0.95, f'SPSB μ={spsb_mean:+.1f}',
-            transform=ax1.transAxes, fontsize=10, fontweight='bold',
-            ha='right', va='top', color=BASELINE_COLOR,
-            bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.9, edgecolor='none'))
-    ax1.text(0.97, 0.82, f'Asc. Clock μ={ac_mean:+.1f}',
-            transform=ax1.transAxes, fontsize=10, fontweight='bold',
-            ha='right', va='top', color=AUCTION_COLOR,
-            bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.9, edgecolor='none'))
-
-    # ─────────────────────────────────────────────────────────────────────────
-    # RIGHT PANEL: DA
-    # ─────────────────────────────────────────────────────────────────────────
     da_bins = np.linspace(0, 1, 21)
 
-    # Plot OSP FIRST (colored, behind)
-    if len(osp_tau) > 0:
-        osp_weights = np.ones_like(osp_tau) * 100 / len(osp_tau)
-        ax2.hist(osp_tau, bins=da_bins, alpha=0.6, color=DA_COLOR,
-                edgecolor='#a11232', linewidth=0.6, weights=osp_weights,
-                label='OSP (Iterative)')
-        osp_mean = np.mean(osp_tau)
-        ax2.axvline(osp_mean, color=DA_COLOR, linestyle='--', linewidth=2, alpha=0.9)
+    for row_idx, model in enumerate(MODEL_ORDER):
+        color = MODEL_COLORS[model]
+        color_dark = MODEL_COLORS_DARK[model]
 
-    # Plot Direct SECOND (gray, in front)
-    if len(direct_tau) > 0:
-        direct_weights = np.ones_like(direct_tau) * 100 / len(direct_tau)
-        ax2.hist(direct_tau, bins=da_bins, alpha=0.5, color=BASELINE_COLOR,
-                edgecolor='#333333', linewidth=0.6, weights=direct_weights,
-                label='Direct Baseline')
-        direct_mean = np.mean(direct_tau)
-        ax2.axvline(direct_mean, color=BASELINE_COLOR, linestyle='--', linewidth=1.5, alpha=0.8)
+        ax_auction = axes[row_idx, 0]
+        ax_da = axes[row_idx, 1]
 
-    # Add reference line at 0 (perfect play)
-    ax2.axvline(0, color='#2d8a2d', linestyle='-', linewidth=1.5, alpha=0.7)
+        # ─────────────────────────────────────────────────────────────────────
+        # LEFT COLUMN: Auctions
+        # ─────────────────────────────────────────────────────────────────────
+        spsb_dev = auction_df[
+            (auction_df['model_short'] == model) &
+            (auction_df['experiment'].isin(['spsb_apv', 'spsb']))
+        ]['deviation'].values
 
-    ax2.set_xlim(0, 1)
-    ax2.set_xlabel('Kendall τ (% pairs wrong)', fontsize=11)
-    ax2.set_ylabel('% of observations', fontsize=11)
-    ax2.set_title('Deferred Acceptance', fontweight='bold', fontsize=13, pad=10)
-    ax2.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.0f}%'))
-    ax2.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x*100:.0f}%'))
+        ac_dev = auction_df[
+            (auction_df['model_short'] == model) &
+            (auction_df['experiment'].isin(['ascending_clock_apv', 'ascending_clock_closed']))
+        ]['deviation'].values
 
-    # Annotation for DA means
-    ax2.text(0.97, 0.95, f'Direct μ={direct_mean*100:.0f}%',
-            transform=ax2.transAxes, fontsize=10, fontweight='bold',
-            ha='right', va='top', color=BASELINE_COLOR,
-            bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.9, edgecolor='none'))
-    ax2.text(0.97, 0.82, f'OSP μ={osp_mean*100:.0f}%',
-            transform=ax2.transAxes, fontsize=10, fontweight='bold',
-            ha='right', va='top', color=DA_COLOR,
-            bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.9, edgecolor='none'))
+        # Plot Ascending Clock FIRST (colored, behind)
+        if len(ac_dev) > 0:
+            ac_weights = np.ones_like(ac_dev) * 100 / len(ac_dev)
+            ax_auction.hist(ac_dev, bins=auction_bins, alpha=0.6, color=color,
+                           edgecolor=color_dark, linewidth=0.6, weights=ac_weights)
+            ac_mean = np.mean(ac_dev)
+            ax_auction.axvline(ac_mean, color=color, linestyle='--', linewidth=2, alpha=0.9)
+        else:
+            ac_mean = np.nan
+
+        # Plot SPSB SECOND (gray, in front)
+        if len(spsb_dev) > 0:
+            spsb_weights = np.ones_like(spsb_dev) * 100 / len(spsb_dev)
+            ax_auction.hist(spsb_dev, bins=auction_bins, alpha=0.5, color=BASELINE_COLOR,
+                           edgecolor='#333333', linewidth=0.6, weights=spsb_weights)
+            spsb_mean = np.mean(spsb_dev)
+            ax_auction.axvline(spsb_mean, color=BASELINE_COLOR, linestyle='--', linewidth=2, alpha=0.9)
+        else:
+            spsb_mean = np.nan
+
+        # No reference line at 0 for auctions (reduces clutter)
+
+        ax_auction.set_xlim(-x_limit, x_limit)
+        ax_auction.set_ylim(0, 100)
+        ax_auction.set_yticks([0, 20, 40, 60, 80, 100])
+        ax_auction.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.0f}%'))
+
+        # Model label on left
+        ax_auction.set_ylabel(model, fontsize=11, fontweight='bold')
+
+        # Annotation
+        if not np.isnan(spsb_mean) and not np.isnan(ac_mean):
+            ax_auction.text(0.97, 0.95, f'SPSB μ = {spsb_mean:+.1f}',
+                           transform=ax_auction.transAxes, fontsize=9, fontweight='bold',
+                           ha='right', va='top', color=BASELINE_COLOR,
+                           bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.9, edgecolor='none'))
+            ax_auction.text(0.97, 0.75, f'AC μ = {ac_mean:+.1f}',
+                           transform=ax_auction.transAxes, fontsize=9, fontweight='bold',
+                           ha='right', va='top', color=color,
+                           bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.9, edgecolor='none'))
+
+        print(f"  {model} Auctions: SPSB n={len(spsb_dev)}, μ={spsb_mean:+.2f} | AC n={len(ac_dev)}, μ={ac_mean:+.2f}")
+
+        # ─────────────────────────────────────────────────────────────────────
+        # RIGHT COLUMN: DA
+        # ─────────────────────────────────────────────────────────────────────
+        direct_tau = da_df[
+            (da_df['model_short'] == model) &
+            (da_df['experiment'] == 'direct_baseline')
+        ]['kendall_tau_normalized'].values
+
+        osp_tau = da_df[
+            (da_df['model_short'] == model) &
+            (da_df['experiment'] == 'osp_baseline')
+        ]['kendall_tau_normalized'].values
+
+        # Plot OSP FIRST (colored, behind)
+        if len(osp_tau) > 0:
+            osp_weights = np.ones_like(osp_tau) * 100 / len(osp_tau)
+            ax_da.hist(osp_tau, bins=da_bins, alpha=0.6, color=color,
+                      edgecolor=color_dark, linewidth=0.6, weights=osp_weights)
+            osp_mean = np.mean(osp_tau)
+            ax_da.axvline(osp_mean, color=color, linestyle='--', linewidth=2, alpha=0.9)
+        else:
+            osp_mean = np.nan
+
+        # Plot Direct SECOND (gray, in front)
+        if len(direct_tau) > 0:
+            direct_weights = np.ones_like(direct_tau) * 100 / len(direct_tau)
+            ax_da.hist(direct_tau, bins=da_bins, alpha=0.5, color=BASELINE_COLOR,
+                      edgecolor='#333333', linewidth=0.6, weights=direct_weights)
+            direct_mean = np.mean(direct_tau)
+            ax_da.axvline(direct_mean, color=BASELINE_COLOR, linestyle='--', linewidth=2, alpha=0.9)
+        else:
+            direct_mean = np.nan
+
+        # Reference line at 0
+        ax_da.axvline(0, color='#2d8a2d', linestyle='-', linewidth=1.5, alpha=0.7)
+
+        ax_da.set_xlim(0, 1)
+        # Kendall tau for 4 items has 6 pairs: ticks at 0/6, 1/6, 2/6, 3/6, 4/6, 5/6, 6/6
+        ax_da.set_xticks([0, 1/6, 2/6, 3/6, 4/6, 5/6, 1])
+        ax_da.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.0f}%'))
+        ax_da.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x*100:.0f}%'))
+
+        # Annotation
+        if not np.isnan(direct_mean) and not np.isnan(osp_mean):
+            ax_da.text(0.97, 0.95, f'Full Report μ = {direct_mean*100:.0f}%',
+                      transform=ax_da.transAxes, fontsize=9, fontweight='bold',
+                      ha='right', va='top', color=BASELINE_COLOR,
+                      bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.9, edgecolor='none'))
+            ax_da.text(0.97, 0.75, f'Iterative μ = {osp_mean*100:.0f}%',
+                      transform=ax_da.transAxes, fontsize=9, fontweight='bold',
+                      ha='right', va='top', color=color,
+                      bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.9, edgecolor='none'))
+
+        # Set y-axis max to 100% and hide the 0% tick to avoid overlap with x-axis 0%
+        ax_da.set_ylim(0, 100)
+        ax_da.set_yticks([20, 40, 60, 80, 100])
+
+        print(f"  {model} DA: Direct n={len(direct_tau)}, μ={direct_mean*100:.1f}% | OSP n={len(osp_tau)}, μ={osp_mean*100:.1f}%")
+
+    # Column titles (top row only)
+    axes[0, 0].set_title('Second-Price Auction', fontweight='bold', fontsize=13, pad=10)
+    axes[0, 1].set_title('Deferred Acceptance', fontweight='bold', fontsize=13, pad=10)
+
+    # X-axis labels (bottom row only)
+    axes[-1, 0].set_xlabel('bid − value', fontsize=11)
+    axes[-1, 1].set_xlabel('Kendall τ (% pairs wrong)', fontsize=11)
 
     # ─────────────────────────────────────────────────────────────────────────
     # LEGEND
     # ─────────────────────────────────────────────────────────────────────────
+    # Create a multi-colored patch for OSP mechanism
+    from matplotlib.patches import Rectangle
+    from matplotlib.collections import PatchCollection
+
+    class MultiColorPatch:
+        """Custom handler to create a multi-colored legend patch."""
+        pass
+
+    class MultiColorHandler:
+        def __init__(self, colors):
+            self.colors = colors
+        def legend_artist(self, legend, orig_handle, fontsize, handlebox):
+            x0, y0 = handlebox.xdescent, handlebox.ydescent
+            width, height = handlebox.width, handlebox.height
+            n = len(self.colors)
+            patches = []
+            for i, color in enumerate(self.colors):
+                patch = mpatches.FancyBboxPatch(
+                    (x0 + i * width / n, y0), width / n, height,
+                    boxstyle="square,pad=0", facecolor=color, alpha=0.6,
+                    edgecolor='none', transform=handlebox.get_transform())
+                handlebox.add_artist(patch)
+            return patches[0] if patches else None
+
+    osp_colors = [MODEL_COLORS[m] for m in MODEL_ORDER]
+    multi_patch = MultiColorPatch()
+
     legend_elements = [
         mpatches.Patch(facecolor=BASELINE_COLOR, alpha=0.5, edgecolor='#333333',
-                      linewidth=0.6, label='Static Mechanism (SPSB / Direct DA)'),
-        mpatches.Patch(facecolor='#666666', alpha=0.6, edgecolor='#333333',
-                      linewidth=0.6, label='Iterative Mechanism (Ascending Clock / OSP)'),
-        plt.Line2D([0], [0], color='#2d8a2d', linestyle='-', linewidth=1.5,
-                  label='Truthful Play'),
+                      linewidth=0.6, label='Base Mechanism (SPSB / Full Report)'),
+        (multi_patch, 'OSP Mechanism (AC / Iterative)'),
         plt.Line2D([0], [0], color='#666666', linestyle='--', linewidth=2,
                   label='Mean'),
     ]
 
-    fig.legend(handles=legend_elements, loc='lower center', ncol=4,
+    # Separate handles and labels for custom handler
+    handles = [legend_elements[0], multi_patch, legend_elements[2]]
+    labels = ['Base Mechanism (SPSB / Full Report)', 'OSP Mechanism (AC / Iterative)', 'Mean']
+
+    fig.legend(handles, labels, loc='lower center', ncol=3,
               frameon=True, framealpha=0.95, edgecolor='#cccccc',
-              bbox_to_anchor=(0.5, -0.02), fontsize=9)
+              bbox_to_anchor=(0.5, -0.01), fontsize=9,
+              handler_map={MultiColorPatch: MultiColorHandler(osp_colors)})
 
     # Main title
-    fig.suptitle('Iterative/OSP Mechanisms Improve Play',
-                fontweight='bold', fontsize=14, y=1.02)
+    fig.suptitle('Comparing Base vs. OSP Mechanisms across Models',
+                fontweight='bold', fontsize=14, y=1.01)
 
     plt.tight_layout()
-    plt.subplots_adjust(bottom=0.15)
+    plt.subplots_adjust(bottom=0.08, hspace=0.3)
 
     output_path = OUTPUT_DIR / 'osp_comparison.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')

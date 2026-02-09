@@ -171,6 +171,18 @@ Following Bini et al. (2024) "Behavioral Economics of AI: LLM Biases and Correct
 
 ## Changelog
 
+### 2026-02-09: Comprehensive Taxonomy Documentation
+
+**Added**: Created `/docs/INTERVENTION_TAXONOMY.md` which provides:
+- Unified taxonomy covering both auctions and DA
+- Proper categorization per Li 2017/2024 framework
+- Clear documentation of what each intervention actually tests
+- Summary of key findings and recommendations
+
+**Note**: The 2026-02-04 reclassification is confirmed correct. The new taxonomy document provides additional context on why SPSB has no forward planning axis and what the "mechanism comprehension" interventions actually test.
+
+---
+
 ### 2026-02-04: Axis Reorganization
 
 **Rationale**: Based on Shengwu Li's "Designing Simple Mechanisms" (2024) and Pycia & Troyan's "A Theory of Simplicity" (2023), we reorganized the intervention axes:
