@@ -110,19 +110,54 @@ population shares.
 
 \section{The Digital-Mouse Panel}
 
-\paragraph{Two layers.} A digital mouse is defined by two layers. The
-\emph{rational base} is a state-of-the-art thinking model used as the best
-available fully rational agent. \emph{Defect induction} then imposes a specific
-bounded-rationality instruction on the model's deliberation procedure. The
-construction is model-agnostic by design: the deficit is a reasoning-procedure
-control, so as base models improve the rational mouse improves and the induced
-deficits become cleaner.
+\subsection{Construction: a rational base plus a deficit instruction}
 
-\paragraph{The $3\times 3\times 3$ grid.} The current cognitive basis varies
-three axes, each at three levels, giving $27$ strains. Table~\ref{tab:panel}
-lists the axis definitions. The lowest level of each axis is the engineered
-deficit; the highest is the repaired state. The cell with all axes repaired is
-closest to the rational mouse; the all-axes-off cell is the most deficient.
+A digital mouse is a single prompt assembled from two layers. The first layer,
+the \emph{rational base}, is identical across all strains and instructs the
+model to play the auction as a long-run profit maximizer:
+
+\begin{quote}\small\itshape
+Your TOP PRIORITY is to place bids which maximize your profit in the long run.
+Learn from the history of previous rounds in order to maximize your total
+profit. Don't forget the values are redrawn independently each round.
+\end{quote}
+
+The second layer, \emph{defect induction}, appends a ``cognitive style'' block
+containing exactly one paragraph per cognitive axis. Each paragraph constrains
+the model's deliberation \emph{procedure}---not its objective---at one of three
+levels. The intervention is therefore a reasoning-procedure control rather than
+a payoff or preference change. Concretely, the contingent-reasoning axis ranges
+from a level-0 paragraph that forbids reasoning about opponents to a level-2
+paragraph that mandates a worst-case/dominance check:
+
+\begin{quote}\small
+\textbf{Contingent reasoning, level 0 (deficit).}\itshape{} Do NOT enumerate
+possible bids by other bidders or compute best responses to specific opponent
+moves. Choose your bid without conditioning on what others might do.
+\end{quote}
+\begin{quote}\small
+\textbf{Contingent reasoning, level 2 (repaired).}\itshape{} For each possible
+bid you could make, consider the worst-case outcome given the range of possible
+opponent bids. Find the bid where even the worst-case outcome is acceptable. If
+you deviated from this bid, could the worst case become worse?
+\end{quote}
+
+\noindent The forward-planning and belief-reasoning axes are constructed the
+same way (from ``do not trace consequences'' to a multi-step decision tree, and
+from ``do not model others'' to explicit second-order beliefs). A strain is thus
+the rational base plus a triple $(c,f,b)\in\{0,1,2\}^3$ that selects one
+paragraph for each axis. The all-off triple $(0,0,0)$ is the most deficient
+mouse; the all-repaired triple $(2,2,2)$ is closest to the rational base.
+
+\subsection{The $3\times 3\times 3$ grid}
+
+Varying three axes at three levels each gives the $27$-strain panel of
+Table~\ref{tab:panel}. A useful intuition: the rational base supplies the
+\emph{goal} (maximize profit), and the cognitive-style block rations the
+\emph{reasoning steps} the mouse is allowed to use to pursue it. A mouse told
+not to enumerate opponents, not to trace payoffs, and not to model others must
+fall back on a crude own-value heuristic; a mouse granted all three faculties
+can in principle reconstruct the dominant strategy.
 
 \begin{table}[t]
 \centering
@@ -142,7 +177,17 @@ Belief reasoning     & no model of others & first-order beliefs & second-order b
 \end{tabular}
 \end{table}
 
-\section{Experimental Design}
+\paragraph{Hardening the base (strict variant).} The base layer above makes
+profit maximization the top priority, which leaves room for a very capable model
+to ``see through'' a deficit and revert to the optimal strategy. For the
+cross-model analysis of Section~6 we therefore also build a \emph{strict}
+variant whose base layer inverts the priority---``follow the cognitive procedure
+exactly\,\dots\ if the cognitive procedure conflicts with the profit-maximizing
+strategy, the cognitive procedure wins''---and explicitly forbids invoking
+dominant-strategy or Vickrey shortcuts. The strict variant is used only where
+noted; all construct-validation and calibration results use the standard panel.
+
+\section{Experimental Design and Methodology}
 
 \paragraph{Environment.} The mechanism is a single-item second-price sealed-bid
 auction with $N=3$ bidders. Private values are drawn independently and
@@ -162,12 +207,100 @@ and a ``payment panic'' strain that bids near zero). Seven error strains are
 specified; two had completed runs at the time of this analysis and feed the
 calibration scorecard below.
 
-\paragraph{Outcome metrics.} For each bidder-decision we record the bid, the
+\paragraph{Behavioral classes.} For each bidder-decision we record the bid, the
 value, and the deviation $b-v$. We define a truthful bid as $|b-v|\le 0.05$,
 moderate underbidding as $b<v-0.05$ (excluding near-zero bids), overbidding as
 $b>v+0.05$, extreme overbidding as $b-v\ge 5$, and near-zero bidding as
 $b\le 0.1$ with $v>5$. These thresholds operationalize the five canonical SPSB
 mistake classes used in the calibration step.
+
+\subsection{Outcome variables and the robustness objective}
+\label{sec:fitness}
+
+We now define the panel-based objective used to score mechanisms in Section~6.
+Fix a mechanism and a persona panel $\mathcal{P}=\{p_1,\dots,p_M\}$, and run
+$R$ independent auctions per persona. Index the resulting completed auctions by
+$a\in\mathcal{A}$, with $\mathcal{A}_p$ the subset run under persona $p$. Each
+auction has $N=3$ bidders with private values $v_{a,i}$ and elicited bids
+$b_{a,i}$; the winner is $i^\star(a)=\arg\max_i b_{a,i}$ and the mechanism's
+pricing rule sets the payment $\rho(a)$ (the second-highest bid under SPSB, the
+own bid under all-pay, and so on). Let $A_{\text{att}}$ be the number of
+\emph{attempted} auctions and $F$ the number that fail to parse or violate the
+response format, so the failure rate is $\phi = F/A_{\text{att}}$.
+
+\paragraph{Per-auction quantities.} Write $v^{\max}_a=\max_i v_{a,i}$. We use
+allocative efficiency, a bid-shading dispersion, and realized winner surplus:
+\begin{equation}
+\mathrm{eff}(a)=\frac{v_{a,i^\star(a)}}{v^{\max}_a},
+\qquad
+s(a)=\operatorname{std}_{\,i:\,v_{a,i}>0}\!\left(\frac{b_{a,i}}{v_{a,i}}\right),
+\qquad
+\pi(a)=v_{a,i^\star(a)}-\rho(a).
+\end{equation}
+
+\paragraph{Panel aggregates.} With $A=|\mathcal{A}|$ and a value scale
+$\bar v=\max_{a}v^{\max}_a$, define normalized revenue, mean efficiency, a
+simplicity proxy, and normalized surplus variance:
+\begin{equation}
+\hat\rho=\frac{1}{A\,\bar v}\sum_{a}\rho(a),
+\quad
+\overline{\mathrm{eff}}=\frac1A\sum_{a}\mathrm{eff}(a),
+\quad
+\sigma=1-\frac1A\sum_{a}s(a),
+\quad
+\widehat{\mathrm{Var}}=\frac{\operatorname{Var}_a\!\big(\pi(a)\big)}{\bar v^{2}}.
+\end{equation}
+The simplicity proxy $\sigma$ is high when bidders converge on a common
+bid/value ratio (an ``obvious'' mechanism) and low when their shading scatters.
+
+\paragraph{Intended-action rate.} Each mechanism declares the action a correctly
+reasoning bidder should take, $\tau\in\{\textsc{truthful},\textsc{shade},
+\textsc{aggressive},\dots\}$, with tolerance $\epsilon=0.1$. For a scoreable
+decision $(v,b)$ with $v>0$ define the match indicator
+\begin{equation}
+m_\tau(v,b)=
+\begin{cases}
+\mathbf{1}\!\left[\,|b-v|\le \epsilon\,\right] & \tau=\textsc{truthful},\\[2pt]
+\mathbf{1}\!\left[\,\kappa < b < v-\epsilon\,\right] & \tau=\textsc{shade},\\[2pt]
+\mathbf{1}\!\left[\,b+\epsilon \ge \alpha\, v\,\right] & \tau=\textsc{aggressive},
+\end{cases}
+\end{equation}
+with floor $\kappa$ and aggressiveness threshold $\alpha=0.4$ by default. The
+intended-action rate $\mu_\tau$ is the mean of $m_\tau$ over scoreable decisions;
+targets labeled \textsc{unknown} or \textsc{mechanism-specific} are not scored
+($\mu_\tau$ omitted).
+
+\paragraph{Lower-tail (per-persona) statistics.} Let
+$\overline{\mathrm{eff}}_p$, $\sigma_p$, and $\operatorname{Var}_p(\pi)$ be the
+above computed within persona $p$. Robustness rewards good \emph{worst-case}
+behavior across the panel, not just the average:
+\begin{equation}
+E_{\min}=\min_p \overline{\mathrm{eff}}_p,
+\quad
+E_{20}=Q_{0.2}\!\big(\{\overline{\mathrm{eff}}_p\}\big),
+\quad
+\Sigma_{\min}=\min_p \sigma_p,
+\quad
+\widehat V_{\max}=\frac{\max_p \operatorname{Var}_p(\pi)}{\bar v^{2}},
+\end{equation}
+where $Q_{0.2}$ is the $20$th percentile across personas.
+
+\paragraph{Fitness.} The aggregate and robust fitness are weighted sums
+\begin{align}
+F_{\mathrm{agg}} &= w_1\hat\rho + w_2\overline{\mathrm{eff}} + w_3\mu_\tau
++ w_4\sigma - w_5\widehat{\mathrm{Var}} - w_6\phi,\\
+F_{\mathrm{tail}} &= w_7 E_{\min} + w_8 E_{20} + w_9 \Sigma_{\min}
+- w_{10}\widehat V_{\max},\\
+F_{\mathrm{robust}} &= F_{\mathrm{agg}} + F_{\mathrm{tail}}.
+\end{align}
+Following the Stage-C calibration mapping, the default weights are
+$(w_1,\dots,w_{10}) = (1,\,1,\,0.5,\,0.5,\,0.25,\,1,\,0.5,\,0.5,\,0.25,\,0.25)$,
+grouping into domain performance $(w_1,w_2)$, intended action $(w_3)$, simplicity
+$(w_4,w_9)$, regret $(w_5,w_{10})$, compliance $(w_6)$, and cognitive fragility
+$(w_7,w_8)$. Section~6 reports $F_{\mathrm{robust}}$ and $\mu_\tau$; the
+sign convention is that fragility, regret, and failure enter negatively, so a
+mechanism scores well only if it is allocatively efficient, induces its intended
+action, and does so \emph{uniformly} across the digital-mouse panel.
 
 \section{Result 1: Construct Validity}
 
