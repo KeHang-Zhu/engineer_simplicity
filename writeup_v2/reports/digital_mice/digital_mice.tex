@@ -34,15 +34,19 @@ cognitive deficits whose behavior can be studied before human subjects are
 recruited. Using a canonical second-price sealed-bid auction (SPSB) and a
 $3\times 3\times 3$ panel of \emph{digital mice} defined over three cognitive
 axes (contingent reasoning, forward planning, belief reasoning), we establish
-two facts. First, the deficits have \emph{construct validity}: repairing each
+three facts. First, the deficits have \emph{construct validity}: repairing each
 axis moves truthful bidding in the theory-predicted direction, monotonically
 and with the predicted sign in all five pre-registered directional tests.
 Second, the panel---augmented by a small set of targeted error strains---attains
 \emph{calibration coverage}: it reproduces all five canonical SPSB human-mistake
 classes (truthful, moderate underbidding, overbidding, extreme overbidding,
-and near-zero bidding) at rates above their detection thresholds. These results
-support the use of instructed-deficit language models as a phase-I screening
-population for mechanism design.
+and near-zero bidding) at rates above their detection thresholds. Third, the
+panel is \emph{discriminating}: scored against candidate auction mechanisms
+under two base models, it exposes a cross-model portability gap in which an
+all-pay design's intended ``bid aggressively'' behavior collapses on a stronger
+held-out model while a second-price design's truthful target stays stable. These
+results support the use of instructed-deficit language models as a phase-I
+screening population for mechanism design.
 
 \vspace{0.6em}
 \noindent\textit{Keywords:} bounded rationality, mechanism design, second-price
@@ -92,8 +96,13 @@ bidder-decisions), repairing each cognitive axis raises the truthful-bid rate
 by $+0.23$ (contingent reasoning), $+0.14$ (forward planning), and $+0.05$
 (belief reasoning); all five pre-registered directional hypotheses pass their
 sign test. The panel, augmented by two targeted error strains, covers all five
-canonical SPSB human-mistake classes at rates above threshold. We are explicit
-about a boundary of the construction: the clean procedural basis naturally
+canonical SPSB human-mistake classes at rates above threshold. Third, using the
+panel as an evaluator of four candidate auction mechanisms under two base models,
+we find robustness does not fully port: the all-pay designs' intended ``bid
+aggressively'' rate falls from roughly $0.65$ to $0.25$ on a stronger held-out
+model, while a second-price design's truthful target is unchanged. We are
+explicit about a boundary of the construction: the clean procedural basis
+naturally
 produces truthful and underbidding behavior but not overbidding, which we
 recover with a small number of hand-specified heuristic strains. We treat the
 digital-mouse panel as phase-I screening evidence, not as a prediction of human
@@ -289,6 +298,77 @@ members of the clean $27$-cell procedural basis.\par}
 \end{minipage}
 \end{table}
 
+\section{Result 3: Robustness Across Models and an All-Pay Stress Test}
+
+A panel is only useful for screening if its verdicts are not an artifact of the
+particular base model used to run it. We therefore put the panel to a harder
+test. We take a small set of four candidate auction mechanisms---three all-pay
+variants (with a refundable deposit and varying information rules, and one with
+a reserve and a pre-bid signal) and one second-price design---and score each one
+against the digital-mouse panel under \emph{two} base models: the model used to
+generate the candidates (\texttt{gpt-5.4-mini}) and a stronger held-out model
+(\texttt{gpt-5.4}). For each mechanism we declare the intended action of a
+correctly reasoning bidder---``bid aggressively'' for the all-pay designs (a bidder
+who pays regardless of winning should bid up toward value), ``truthful'' for the
+second-price design---and measure the fraction of bidder actions that match it,
+together with a robust panel-fitness score.
+
+Figure~\ref{fig:portability} and Table~\ref{tab:portability} report the result.
+Two facts stand out. First, robust fitness does not fully port: the two
+refundable-deposit all-pay mechanisms lose $1.0$ and $1.6$ fitness points when
+moved to the held-out model, and even the second-price design loses $1.3$.
+Second, and more diagnostically, the all-pay intended action collapses on the
+stronger model: the ``bid aggressively'' rate falls from $0.63$ to $0.30$ and
+from $0.67$ to $0.23$, whereas the second-price ``truthful'' rate is unchanged
+($0.60\to0.60$). In other words, a mechanism that looked robust under the
+generating model is substantially less so under a more capable one---a concrete
+instance of the overfitting risk that any model-based screening procedure must
+guard against. The stability of the truthful target relative to the
+aggressive-bidding target also mirrors the construct-validation finding that
+truthfulness is the most reliably induced behavior in this environment.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig4.pdf}
+\caption{Cross-model portability of four candidate mechanisms on the
+digital-mouse panel. Left: robust panel-fitness under the generating model
+(\texttt{gpt-5.4-mini}) versus a held-out model (\texttt{gpt-5.4}). Right:
+fraction of bids matching the mechanism's intended action. The all-pay
+``bid aggressively'' target degrades sharply on the held-out model; the
+second-price truthful target is stable.}
+\label{fig:portability}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Cross-model robustness of candidate mechanisms. Robust fitness and
+intended-action rate are computed against the same digital-mouse panel under two
+base models. $\Delta$ is held-out minus generating model.}
+\label{tab:portability}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+& & \multicolumn{2}{c}{Robust fitness} & & \multicolumn{2}{c}{Intended-action rate} \\
+\cmidrule(lr){3-4}\cmidrule(lr){6-7}
+Mechanism & Intended action & mini & gpt-5.4 & $\Delta$ & mini & gpt-5.4 \\
+\midrule
+all-pay: deposit, no reveal      & bid aggressively   & $2.52$  & $1.53$ & $-1.00$ & $0.63$ & $0.30$ \\
+all-pay: deposit, post-reveal    & bid aggressively   & $2.85$  & $1.27$ & $-1.57$ & $0.67$ & $0.23$ \\
+all-pay: reserve, pre-bid signal & mechanism-specific & $-1.37$ & $1.17$ & $+2.54$ & ---    & ---    \\
+second-price: deposit, binary    & truthful           & $2.24$  & $0.99$ & $-1.25$ & $0.60$ & $0.60$ \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\footnotesize\textit{Notes.} ``mini'' is \texttt{gpt-5.4-mini} (the model used
+to generate the candidates); ``gpt-5.4'' is the held-out model. The
+reserve/pre-bid-signal mechanism declares a mechanism-specific target that the
+first-pass scorer does not evaluate, so its intended-action rate is omitted.\par}
+\end{minipage}
+\end{table}
+
 \section{Discussion}
 
 \paragraph{Procedural basis versus authored error mice.} The construct-validity
@@ -303,10 +383,13 @@ more bespoke device for spanning the mistake space. The two should be reported
 as distinct epistemic objects.
 
 \paragraph{Model dependence.} Because deficits are defined as procedural
-controls rather than artifacts of one model, the protocol can in principle be
-rerun on the next frontier model. The present results use a single base model;
-a portability check on an alternate reasoning model is the natural robustness
-test and is left to subsequent work.
+controls rather than artifacts of one model, the protocol can be rerun on a
+different frontier model. Section~6 exploits this: scoring the same candidate
+mechanisms against the panel under a held-out model exposes a portability gap,
+with the all-pay intended action degrading sharply. This is a feature of the
+design, not a bug---the panel is precisely the instrument that makes such
+overfitting visible---but it cautions against reading single-model panel scores
+as model-invariant.
 
 \paragraph{External validity.} Digital mice are a phase-I screening population.
 A strain reproducing a mistake class establishes that the panel can express that
@@ -320,11 +403,14 @@ We show that a frontier reasoning model can be instructed into stable, separable
 cognitive deficits whose behavior in a second-price sealed-bid auction (i) moves
 in the theory-predicted direction as each cognitive axis is repaired and (ii)
 spans the canonical space of human SPSB mistakes once a small set of targeted
-error strains is added. This supports a research program in which instructed
-language-model agents are used as a phase-I population to screen mechanisms for
-robustness to bounded rationality before human-subject experiments are run. The
-immediate next steps are a cross-model portability check and the extension of
-both the construct-validation and calibration protocols to a second domain
+error strains is added, and (iii) discriminates candidate mechanisms by
+robustness, including an all-pay stress test in which the intended action fails
+to port to a stronger held-out model. This supports a research program in which
+instructed language-model agents are used as a phase-I population to screen
+mechanisms for robustness to bounded rationality before human-subject
+experiments are run. The immediate next steps are to scale the cross-model
+robustness analysis beyond the present handful of mechanisms and to extend both
+the construct-validation and calibration protocols to a second domain
 (matching).
 
 \begin{thebibliography}{9}

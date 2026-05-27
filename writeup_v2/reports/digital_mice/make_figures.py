@@ -28,6 +28,11 @@ AXIS = os.path.join(REPO_ROOT, "analysis_v2/construct_validation/spsb_axis_diagn
 GRID = os.path.join(REPO_ROOT, "data_v2/results/spsb_basis_grid_summary.csv")
 COVERAGE = os.path.join(REPO_ROOT, "analysis_v2/calibration/coverage_scores.csv")
 INTENSITY = os.path.join(REPO_ROOT, "analysis_v2/calibration/intensity_scores.csv")
+PORTABILITY = os.path.join(
+    REPO_ROOT,
+    "analysis_v2/evolution/model_portability/"
+    "run_20260526_231759_p3g1s20260529_gpt54mini_vs_gpt54.csv",
+)
 
 # Print-safe, restrained style.
 plt.rcParams.update({
@@ -188,8 +193,74 @@ def fig3_calibration_coverage():
     return out
 
 
+def fig4_model_portability():
+    """Slope chart: robust fitness and intended-action rate, search model -> held-out model."""
+    d = pd.read_csv(PORTABILITY)
+    short = {
+        "mech_000_all_pay_refundable_deposit_no_reveal": "all-pay: deposit, no reveal",
+        "mech_002_all_pay_refundable_deposit_post_reveal": "all-pay: deposit, post-reveal",
+        "mech_001_all_pay_reserve_ranked_prebid_signal": "all-pay: reserve, pre-bid signal",
+        "mech_000_second_price_refundable_deposit_binary_accept_shared_signal":
+            "second-price: deposit, binary",
+    }
+
+    def label(m):
+        for key, lab in short.items():
+            if m.startswith(key):
+                return lab
+        return m[:28]
+
+    d = d.copy()
+    d["label"] = d["mechanism"].map(label)
+    d["is_allpay"] = d["mechanism"].str.contains("all_pay")
+
+    fig, axs = plt.subplots(1, 2, figsize=(10.0, 3.8))
+    x = [0, 1]
+    xlabels = ["gpt-5.4-mini\n(search model)", "gpt-5.4\n(held-out)"]
+
+    # Panel A: robust fitness
+    for _, r in d.iterrows():
+        c = ACCENT if r["is_allpay"] else INK
+        axs[0].plot(x, [r["robust_fitness_gpt54mini"], r["robust_fitness_gpt54"]],
+                    "-o", color=c, lw=1.8, markersize=6, alpha=0.9)
+        axs[0].annotate(r["label"], xy=(1.02, r["robust_fitness_gpt54"]),
+                        fontsize=7.5, va="center", color=c)
+    axs[0].axhline(0, color=GREY, lw=0.7, ls=":")
+    axs[0].set_xticks(x); axs[0].set_xticklabels(xlabels)
+    axs[0].set_xlim(-0.15, 2.05)
+    axs[0].set_ylabel("Robust fitness on the panel")
+    axs[0].set_title("Robust fitness does not fully port")
+    axs[0].grid(axis="y", color=GREY, alpha=0.25, lw=0.6)
+
+    # Panel B: intended-action rate (only the scoreable targets)
+    scoreable = d[d["intended_action_rate_gpt54mini"] + d["intended_action_rate_gpt54"] > 0]
+    for _, r in scoreable.iterrows():
+        c = ACCENT if r["is_allpay"] else INK
+        axs[1].plot(x, [r["intended_action_rate_gpt54mini"], r["intended_action_rate_gpt54"]],
+                    "-o", color=c, lw=1.8, markersize=6, alpha=0.9)
+        axs[1].annotate(r["label"], xy=(1.02, r["intended_action_rate_gpt54"]),
+                        fontsize=7.5, va="center", color=c)
+    axs[1].set_xticks(x); axs[1].set_xticklabels(xlabels)
+    axs[1].set_xlim(-0.15, 2.05); axs[1].set_ylim(0, 1.0)
+    axs[1].set_ylabel("Intended-action rate")
+    axs[1].set_title("``Bid aggressively'' collapses on the held-out model")
+    axs[1].grid(axis="y", color=GREY, alpha=0.25, lw=0.6)
+
+    from matplotlib.lines import Line2D
+    handles = [Line2D([0], [0], color=ACCENT, lw=2, marker="o", label="all-pay variant"),
+               Line2D([0], [0], color=INK, lw=2, marker="o", label="second-price")]
+    axs[0].legend(handles=handles, loc="upper right", frameon=False, fontsize=8)
+    fig.suptitle("Cross-model portability of candidate mechanisms on the digital-mouse panel",
+                 y=1.04, fontsize=12)
+    out = os.path.join(HERE, "fig4.pdf")
+    fig.savefig(out)
+    plt.close(fig)
+    return out
+
+
 def main():
-    for fn in (fig1_construct_marginals, fig2_behavioral_signatures, fig3_calibration_coverage):
+    for fn in (fig1_construct_marginals, fig2_behavioral_signatures, fig3_calibration_coverage,
+               fig4_model_portability):
         path = fn()
         size = os.path.getsize(path)
         print(f"wrote {os.path.relpath(path, REPO_ROOT)}  ({size} bytes)")
