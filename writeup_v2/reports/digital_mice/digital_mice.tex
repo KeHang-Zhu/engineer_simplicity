@@ -369,6 +369,53 @@ first-pass scorer does not evaluate, so its intended-action rate is omitted.\par
 \end{minipage}
 \end{table}
 
+\paragraph{Strain-level portability.} The mechanism-level gap raises a prior
+question: do the deficit \emph{strains} themselves behave consistently across
+models? A pilot exposed a failure mode---the stronger model spontaneously
+``repaired'' the most deficient basis strain into truthful Vickrey bidding---so
+we hardened the panel into a \emph{strict} scaffold that states the
+reasoning-procedure constraint explicitly rather than as a secondary goal. We
+then re-ran five reserved strict strains under both base models and compared
+their dominant behavioral class (Table~\ref{tab:strict}). Four of five strains
+preserve their dominant class across models---a partial pass. The exception is
+the strain isolating a contingent-reasoning deficit, whose moderate-underbidding
+signature on \texttt{gpt-5.4-mini} is repaired into truthful bidding on
+\texttt{gpt-5.4} (truthful rate $0.33\to1.00$). Consistent with the
+construct-validation finding that contingent reasoning is the highest-leverage
+axis (Table~\ref{tab:construct}), it is also the hardest deficit to hold fixed
+against a more capable model: the strict scaffold mitigates the portability
+problem but does not fully close it.
+
+\begin{table}[t]
+\centering
+\caption{Strain-level cross-model portability on the strict panel. Dominant
+behavioral class of five reserved strict strains under each base model. Four of
+five agree; the contingent-isolated strain's deficit is repaired away by the
+stronger model.}
+\label{tab:strict}
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}lllc@{}}
+\toprule
+Strain & Isolated role & mini $\to$ gpt-5.4 (dominant class) & Agree \\
+\midrule
+\texttt{c2\_f2\_b0} & belief deficit          & truthful $\to$ truthful                   & \checkmark \\
+\texttt{c2\_f0\_b2} & forward deficit         & mod.\ underbid $\to$ mod.\ underbid        & \checkmark \\
+\texttt{c0\_f0\_b1} & near-all-defect         & mod.\ underbid $\to$ mod.\ underbid        & \checkmark \\
+\texttt{c1\_f1\_b1} & all-intermediate        & truthful $\to$ truthful                   & \checkmark \\
+\texttt{c0\_f2\_b2} & contingent deficit      & mod.\ underbid $\to$ \textbf{truthful}     & --- \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\footnotesize\textit{Notes.} Agreement $=4/5$. ``Isolated role'' names the axis
+held in its deficit state (others repaired), or a corner strain. The
+contingent-deficit strain's truthful rate rises $0.33\to1.00$ across models;
+all other strains' dominant class is stable.\par}
+\end{minipage}
+\end{table}
+
 \section{Discussion}
 
 \paragraph{Procedural basis versus authored error mice.} The construct-validity
@@ -384,12 +431,16 @@ as distinct epistemic objects.
 
 \paragraph{Model dependence.} Because deficits are defined as procedural
 controls rather than artifacts of one model, the protocol can be rerun on a
-different frontier model. Section~6 exploits this: scoring the same candidate
-mechanisms against the panel under a held-out model exposes a portability gap,
-with the all-pay intended action degrading sharply. This is a feature of the
-design, not a bug---the panel is precisely the instrument that makes such
-overfitting visible---but it cautions against reading single-model panel scores
-as model-invariant.
+different frontier model. Section~6 exploits this at two levels. At the
+mechanism level, the all-pay intended action degrades sharply on a held-out
+model. At the strain level, four of five reserved strict strains preserve their
+dominant behavioral class across models, the lone exception being the
+contingent-reasoning deficit, which a stronger model tends to repair into
+truthful bidding. Both findings are features of the design rather than
+bugs---the panel is precisely the instrument that makes such overfitting
+visible---but they caution against reading single-model panel scores as
+model-invariant, and they identify contingent reasoning as the deficit most in
+need of a hardened scaffold.
 
 \paragraph{External validity.} Digital mice are a phase-I screening population.
 A strain reproducing a mistake class establishes that the panel can express that
