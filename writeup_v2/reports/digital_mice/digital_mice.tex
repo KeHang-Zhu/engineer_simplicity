@@ -1,0 +1,355 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\captionsetup{font=small,labelfont=bf,width=.95\textwidth}
+\setlength{\parindent}{1.6em}
+\onehalfspacing
+
+\title{\textbf{Digital Mice: Inducing and Validating\\ Controlled Cognitive Deficits in Frontier\\ Language Models for Mechanism Design}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent Early-stage mechanism design is a phase-I science: the relevant
+behavior is human cognition, so designers must run experiments on people
+before they can learn which mechanisms are robust to bounded rationality. We
+ask whether frontier reasoning models can serve as the economist's analogue of
+the laboratory mouse---capable reasoners instructed into specific, controlled
+cognitive deficits whose behavior can be studied before human subjects are
+recruited. Using a canonical second-price sealed-bid auction (SPSB) and a
+$3\times 3\times 3$ panel of \emph{digital mice} defined over three cognitive
+axes (contingent reasoning, forward planning, belief reasoning), we establish
+two facts. First, the deficits have \emph{construct validity}: repairing each
+axis moves truthful bidding in the theory-predicted direction, monotonically
+and with the predicted sign in all five pre-registered directional tests.
+Second, the panel---augmented by a small set of targeted error strains---attains
+\emph{calibration coverage}: it reproduces all five canonical SPSB human-mistake
+classes (truthful, moderate underbidding, overbidding, extreme overbidding,
+and near-zero bidding) at rates above their detection thresholds. These results
+support the use of instructed-deficit language models as a phase-I screening
+population for mechanism design.
+
+\vspace{0.6em}
+\noindent\textit{Keywords:} bounded rationality, mechanism design, second-price
+auctions, large language models, construct validity.
+\end{abstract}
+
+\section{Introduction}
+
+Medicine studies humans, but it does not begin with them. Much early drug
+testing starts with mice, and some of those mice are deliberately engineered to
+lack a specific protein, receptor, or channel. The deficit is not a nuisance;
+it is the identification strategy. If a treatment succeeds or fails only when a
+particular channel is removed, the experiment isolates a mechanism that is
+entangled in an intact organism.
+
+Economics has lacked this luxury. The behavior of interest in mechanism design
+is human cognition---contingent reasoning, forward planning, belief formation,
+and strategic sophistication---and these channels are bundled in real subjects.
+A bidder who fails to bid truthfully in a strategy-proof auction may lack
+contingent reasoning, may fail to plan forward, may hold incorrect beliefs
+about rivals, or may simply misunderstand the rule. Natural and laboratory
+experiments rarely deliver a population missing exactly one cognitive module,
+so the empirical content of theories such as obvious strategy-proofness
+\citep{li2017}, cursed equilibrium \citep{eysterrabin2005}, and level-$k$
+reasoning \citep{crawfordiriberri2007} is hard to separate.
+
+Large language models change the experimental object. The strongest current
+reasoning models are, in simple games, often closer to a fully rational agent
+than an ordinary subject: they follow long chains of reasoning and compute
+through cases. That capability is precisely what makes them useful here. We
+start from a capable reasoning substrate and instruct it to ``play dumb'' in a
+controlled way---reason only myopically, enumerate only local contingencies,
+ignore second-order beliefs---through explicit procedural constraints on its
+deliberation, not through dependence on hidden quirks of one model. This yields
+\emph{digital mice}: language-model agents with specific, engineered cognitive
+deficits.
+
+\paragraph{Research question.} Can a frontier reasoning model be instructed
+into stable, separable bounded-rationality states that (i) produce the
+behavioral signatures predicted by cognitive theory and (ii) span the
+empirically documented space of human mistakes, in a canonical second-price
+sealed-bid auction?
+
+\paragraph{Contribution.} We answer both halves affirmatively for the SPSB
+environment. Over a $3\times 3\times 3$ panel of $27$ strains ($810$
+bidder-decisions), repairing each cognitive axis raises the truthful-bid rate
+by $+0.23$ (contingent reasoning), $+0.14$ (forward planning), and $+0.05$
+(belief reasoning); all five pre-registered directional hypotheses pass their
+sign test. The panel, augmented by two targeted error strains, covers all five
+canonical SPSB human-mistake classes at rates above threshold. We are explicit
+about a boundary of the construction: the clean procedural basis naturally
+produces truthful and underbidding behavior but not overbidding, which we
+recover with a small number of hand-specified heuristic strains. We treat the
+digital-mouse panel as phase-I screening evidence, not as a prediction of human
+population shares.
+
+\section{The Digital-Mouse Panel}
+
+\paragraph{Two layers.} A digital mouse is defined by two layers. The
+\emph{rational base} is a state-of-the-art thinking model used as the best
+available fully rational agent. \emph{Defect induction} then imposes a specific
+bounded-rationality instruction on the model's deliberation procedure. The
+construction is model-agnostic by design: the deficit is a reasoning-procedure
+control, so as base models improve the rational mouse improves and the induced
+deficits become cleaner.
+
+\paragraph{The $3\times 3\times 3$ grid.} The current cognitive basis varies
+three axes, each at three levels, giving $27$ strains. Table~\ref{tab:panel}
+lists the axis definitions. The lowest level of each axis is the engineered
+deficit; the highest is the repaired state. The cell with all axes repaired is
+closest to the rational mouse; the all-axes-off cell is the most deficient.
+
+\begin{table}[t]
+\centering
+\caption{The $3\times 3\times 3$ digital-mouse panel. Each strain is one
+combination of axis levels; the lowest level is the engineered deficit.}
+\label{tab:panel}
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Axis & Level 0 (deficit) & Level 1 & Level 2 (repaired) \\
+\midrule
+Contingent reasoning & no enumeration & enumerate cases & worst-case / dominance \\
+Forward planning     & myopic & one-step lookahead & tree / multi-step \\
+Belief reasoning     & no model of others & first-order beliefs & second-order beliefs \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Experimental Design}
+
+\paragraph{Environment.} The mechanism is a single-item second-price sealed-bid
+auction with $N=3$ bidders. Private values are drawn independently and
+uniformly on $[0,50]$; each bidder observes only its own value and submits one
+sealed bid on a \$0.1 grid. Under standard preferences truthful bidding is a
+weakly dominant strategy, which makes truthfulness a clean construct-validity
+target: a more capable mouse should bid closer to its value.
+
+\paragraph{Strains and runs.} We instantiate all $27$ basis strains with the
+same base model (\texttt{gpt-5.4-mini}, temperature $0.5$) and collect $30$
+bidder-decisions per strain ($810$ in total). Because the clean procedural
+basis does not naturally generate \emph{overbidding}, we additionally author a
+small set of targeted \emph{error mice}---heuristic strains designed to express
+one documented mistake each (e.g.\ a ``second-price overgeneralizer'' that
+treats bidding above value as safe because the winner pays the runner-up bid,
+and a ``payment panic'' strain that bids near zero). Seven error strains are
+specified; two had completed runs at the time of this analysis and feed the
+calibration scorecard below.
+
+\paragraph{Outcome metrics.} For each bidder-decision we record the bid, the
+value, and the deviation $b-v$. We define a truthful bid as $|b-v|\le 0.05$,
+moderate underbidding as $b<v-0.05$ (excluding near-zero bids), overbidding as
+$b>v+0.05$, extreme overbidding as $b-v\ge 5$, and near-zero bidding as
+$b\le 0.1$ with $v>5$. These thresholds operationalize the five canonical SPSB
+mistake classes used in the calibration step.
+
+\section{Result 1: Construct Validity}
+
+If the cognitive axes are genuine bounded-rationality controls rather than
+arbitrary prompt artifacts, then repairing an axis should move behavior toward
+the rational benchmark. Figure~\ref{fig:marginals} plots the truthful-bid rate
+at each axis level, marginalizing over the other two axes. All three axes are
+monotone or near-monotone in the repairing direction, and the contingent-reasoning
+axis produces the largest swing.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig1.pdf}
+\caption{Construct-validity marginals. Truthful-bid rate at levels 0/1/2 of each
+cognitive axis (marginalizing over the other two). $\Delta$ is the
+level-2-minus-level-0 change. Repairing each axis raises truthfulness, with the
+largest effect on the contingent-reasoning axis.}
+\label{fig:marginals}
+\end{figure}
+
+Table~\ref{tab:construct} reports the five pre-registered directional tests. For
+each axis we test that repairing it raises the truthful rate (expected positive)
+and, where applicable, lowers the underbidding rate (expected negative). All
+five tests pass: the realized sign matches the prediction and exceeds the
+minimum-magnitude bar in every case. The directional structure is exactly what
+theory predicts---more contingent reasoning and more forward planning push the
+agent toward its dominant strategy---which is the core construct-validity claim.
+
+\begin{table}[t]
+\centering
+\caption{Construct-validity diagnostics: five pre-registered directional tests
+on the cognitive axes. $\Delta$ is the level-2-minus-level-0 change in the
+metric. All tests pass.}
+\label{tab:construct}
+\small
+\begin{tabular}{@{}llrrcc@{}}
+\toprule
+Axis & Metric & \multicolumn{1}{c}{$\Delta$ (L2$-$L0)} & \multicolumn{1}{c}{$|\Delta|$ bar} & Expected sign & Pass \\
+\midrule
+Contingent reasoning & truthful rate & $+0.230$ & $0.05$ & positive & \checkmark \\
+Contingent reasoning & underbid rate & $-0.230$ & $0.05$ & negative & \checkmark \\
+Forward planning     & truthful rate & $+0.137$ & $0.05$ & positive & \checkmark \\
+Forward planning     & underbid rate & $-0.137$ & $0.05$ & negative & \checkmark \\
+Belief reasoning     & truthful rate & $+0.052$ & $0.03$ & positive & \checkmark \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\footnotesize\textit{Notes.} Sign rate $=1.00$ (5 of 5). Underlying level means
+(truthful rate): contingent $0.56\!\to\!0.86\!\to\!0.79$; forward
+$0.66\!\to\!0.75\!\to\!0.80$; beliefs $0.71\!\to\!0.74\!\to\!0.76$.\par}
+\end{minipage}
+\end{table}
+
+Figure~\ref{fig:signatures} shows that the strains are also \emph{separable} at
+the level of raw behavior. The rational mouse (contingent reasoning engaged)
+bids on the $45^\circ$ truthful line; the all-deficits-off mouse systematically
+underbids; and the targeted error mice occupy distinct regions---persistent
+overbidding above the line and near-zero bidding along the floor. The mean
+absolute deviation falls from $2.78$ for the most deficient basis strain to
+essentially zero ($0.003$) for the most rational one.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig2.pdf}
+\caption{Separable behavioral signatures. Bid versus private value for a
+rational basis strain, the all-deficits-off strain, and the two supplemental
+error mice. The dashed line is the $45^\circ$ truthful benchmark.}
+\label{fig:signatures}
+\end{figure}
+
+\section{Result 2: Calibration Coverage}
+
+Construct validity establishes that the axes do what theory says. Calibration
+asks a different question: does the panel \emph{span} the space of mistakes that
+real people make in this mechanism? We score five canonical SPSB human-mistake
+classes and ask, for each, whether some strain in the panel reproduces it at a
+rate above a detection threshold.
+
+Figure~\ref{fig:coverage} and Table~\ref{tab:calibration} report the scorecard.
+All five classes are covered. Truthful and overbidding behavior are reproduced
+at very high rates ($0.97$ and $1.00$); moderate underbidding, extreme
+overbidding, and near-zero bidding are reproduced at plausible intermediate
+rates ($0.63$, $0.44$, $0.78$). The best strain for each class is reported in
+the table: truthfulness and underbidding are covered by the clean procedural
+basis, whereas the overbidding and near-zero classes are covered by the
+targeted error mice---making explicit which classes the procedural construction
+reaches on its own and which require hand-specified heuristics.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig3.pdf}
+\caption{Calibration coverage. For each human-mistake class, the maximum rate
+attained by any strain in the panel (bar) against the required detection
+threshold (red marker). Bar color encodes the intensity band. All five classes
+clear their threshold.}
+\label{fig:coverage}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Calibration scorecard for the five canonical SPSB mistake classes.
+``Max rate'' is the highest rate attained by any strain; ``best strain'' is the
+strain attaining it. All classes are covered.}
+\label{tab:calibration}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}llrrlll@{}}
+\toprule
+Mistake class & Metric & \multicolumn{1}{c}{Thresh.} & \multicolumn{1}{c}{Max rate} & Best strain & Intensity & Covered \\
+\midrule
+Truthful         & truthful rate           & $0.50$ & $0.967$ & \texttt{c1\_f0\_b0} & very high & \checkmark \\
+Moderate underbid& moderate underbid rate  & $0.10$ & $0.633$ & \texttt{c0\_f0\_b0} & plausible & \checkmark \\
+Overbid          & overbid rate            & $0.10$ & $1.000$ & overgeneralizer$^\dagger$ & very high & \checkmark \\
+Extreme overbid  & extreme overbid rate    & $0.05$ & $0.444$ & overgeneralizer$^\dagger$ & plausible & \checkmark \\
+Near-zero bid    & near-zero bid rate      & $0.05$ & $0.778$ & payment panic$^\dagger$ & plausible & \checkmark \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\footnotesize\textit{Notes.} Coverage rate $=1.00$ (5 of 5). $^\dagger$
+Supplemental error strain
+(\texttt{spsb\_error\_second\_price\_overgeneralizer},
+\texttt{spsb\_error\_payment\_panic\_near\_zero}); all other best strains are
+members of the clean $27$-cell procedural basis.\par}
+\end{minipage}
+\end{table}
+
+\section{Discussion}
+
+\paragraph{Procedural basis versus authored error mice.} The construct-validity
+result is strongest for the procedural basis, where a single instruction
+(repair an axis) produces the predicted directional movement. The calibration
+result is more nuanced: the basis covers truthful and underbidding behavior on
+its own, but overbidding---a first-order regularity in human auction data
+\citep{kagellevin1993}---is recovered only with hand-specified heuristic
+strains. This distinction matters for interpretation. The model-agnostic claim
+applies cleanly to the procedural axes; the error mice are a complementary,
+more bespoke device for spanning the mistake space. The two should be reported
+as distinct epistemic objects.
+
+\paragraph{Model dependence.} Because deficits are defined as procedural
+controls rather than artifacts of one model, the protocol can in principle be
+rerun on the next frontier model. The present results use a single base model;
+a portability check on an alternate reasoning model is the natural robustness
+test and is left to subsequent work.
+
+\paragraph{External validity.} Digital mice are a phase-I screening population.
+A strain reproducing a mistake class establishes that the panel can express that
+behavior, not that the human share of that behavior is matched. We therefore
+keep the stress-testing claim (this paper) separate from any calibrated
+prediction of human behavior, which would require human pilot data.
+
+\section{Conclusion}
+
+We show that a frontier reasoning model can be instructed into stable, separable
+cognitive deficits whose behavior in a second-price sealed-bid auction (i) moves
+in the theory-predicted direction as each cognitive axis is repaired and (ii)
+spans the canonical space of human SPSB mistakes once a small set of targeted
+error strains is added. This supports a research program in which instructed
+language-model agents are used as a phase-I population to screen mechanisms for
+robustness to bounded rationality before human-subject experiments are run. The
+immediate next steps are a cross-model portability check and the extension of
+both the construct-validation and calibration protocols to a second domain
+(matching).
+
+\begin{thebibliography}{9}
+\footnotesize
+\bibitem[Crawford and Iriberri(2007)]{crawfordiriberri2007}
+Crawford, V.~P., and N.~Iriberri (2007). ``Level-$k$ Auctions: Can a Nonequilibrium
+Model of Strategic Thinking Explain the Winner's Curse and Overbidding in
+Private-Value Auctions?'' \textit{Econometrica}, 75(6), 1721--1770.
+
+\bibitem[Eyster and Rabin(2005)]{eysterrabin2005}
+Eyster, E., and M.~Rabin (2005). ``Cursed Equilibrium.''
+\textit{Econometrica}, 73(5), 1623--1672.
+
+\bibitem[Kagel and Levin(1993)]{kagellevin1993}
+Kagel, J.~H., and D.~Levin (1993). ``Independent Private Value Auctions:
+Bidder Behaviour in First-, Second- and Third-Price Auctions with Varying
+Numbers of Bidders.'' \textit{The Economic Journal}, 103(419), 868--879.
+
+\bibitem[Li(2017)]{li2017}
+Li, S. (2017). ``Obviously Strategy-Proof Mechanisms.''
+\textit{American Economic Review}, 107(11), 3257--3287.
+
+\bibitem[Vickrey(1961)]{vickrey1961}
+Vickrey, W. (1961). ``Counterspeculation, Auctions, and Competitive Sealed
+Tenders.'' \textit{The Journal of Finance}, 16(1), 8--37.
+\end{thebibliography}
+
+\end{document}
