@@ -1,0 +1,40 @@
+# SPSB second-price config for the CoT-vs-instruction pilot.
+experiment:
+  name: "spsb_cot_pilot"
+  version: "v2-cot-pilot"
+  description: "SPSB for instruction-only vs CoT-exemplar persona comparison"
+mechanism_metadata:
+  incentive_target:
+    action: "truthful_bid"
+    description: "Second-price: truthful bidding is weakly dominant."
+auction:
+  number_agents: 3
+  rounds: 1
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "second"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 0
+  special_name: "private_second_price.txt"
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 8001
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "rule_template/auctions/"
+  include_payment_example: true
+  persona_file: ""
+execution:
+  repetitions: 5
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/stress_test_first_price/spsb_cot_pilot"

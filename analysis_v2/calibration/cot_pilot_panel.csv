@@ -1,0 +1,3 @@
+persona_id,persona_file,source,target_class
+c0_f0_b0_cot,rule_prompt_v2/personas/spsb_basis_cot/c0_f0_b0.txt,basis_cot,spsb_underbid
+c2_f2_b2_cot,rule_prompt_v2/personas/spsb_basis_cot/c2_f2_b2.txt,basis_cot,spsb_truthful

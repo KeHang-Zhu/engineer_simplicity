@@ -1,0 +1,501 @@
+{
+  "yaml": "config_v2/configs_auction/stress_test_first_price/fpsb_stress.yaml",
+  "n_runs": 15,
+  "n_personas": 5,
+  "reps_per_persona": 3,
+  "persona_manifest": "analysis_v2/calibration/stage_e_debug_panel.csv",
+  "persona_ids": [
+    "c0_f0_b0",
+    "c2_f0_b2",
+    "c2_f2_b2",
+    "spsb_error_second_price_overgeneralizer",
+    "spsb_error_payment_panic_near_zero"
+  ],
+  "incentive_target": {
+    "action": "shade_below_value",
+    "description": "Risk-neutral bidders shade toward the (n-1)/n = 2/3 BNE; overbidding above this is the documented human regularity.",
+    "parameters": {
+      "min_bid_value_ratio": 0.4
+    }
+  },
+  "metrics": {
+    "attempted_runs": 15,
+    "failed_runs": 0,
+    "failure_rate": 0.0,
+    "intended_action_scoreable": true,
+    "intended_action_target": "shade_below_value",
+    "intended_action_rate": 0.4888888888888889,
+    "intended_action_n": 45,
+    "revenue_mean": 21.753333333333337,
+    "revenue_normalized": 0.530569105691057,
+    "efficiency_mean": 0.9403508771929824,
+    "simplicity_proxy": 0.7527108893373137,
+    "regret_var": 178.43048888888887,
+    "regret_var_normalized": 0.106145442527596,
+    "max_val_observed": 41
+  },
+  "persona_summary": [
+    {
+      "persona": "c0_f0_b0",
+      "n": 3,
+      "revenue_mean": 23.53333333333333,
+      "revenue_min": 13.6,
+      "revenue_max": 31.0,
+      "efficiency_mean": 1.0,
+      "efficiency_min": 1.0,
+      "simplicity_proxy_mean": 0.8971296195613592,
+      "winner_profit_mean": 9.799999999999999,
+      "winner_profit_var": 12.346666666666666
+    },
+    {
+      "persona": "c2_f0_b2",
+      "n": 3,
+      "revenue_mean": 24.53333333333333,
+      "revenue_min": 12.6,
+      "revenue_max": 31.0,
+      "efficiency_mean": 1.0,
+      "efficiency_min": 1.0,
+      "simplicity_proxy_mean": 0.7945263717816858,
+      "winner_profit_mean": 8.799999999999999,
+      "winner_profit_var": 2.8799999999999994
+    },
+    {
+      "persona": "c2_f2_b2",
+      "n": 3,
+      "revenue_mean": 22.266666666666666,
+      "revenue_min": 12.7,
+      "revenue_max": 27.1,
+      "efficiency_mean": 1.0,
+      "efficiency_min": 1.0,
+      "simplicity_proxy_mean": 0.7887863063123444,
+      "winner_profit_mean": 11.066666666666668,
+      "winner_profit_var": 11.495555555555551
+    },
+    {
+      "persona": "spsb_error_payment_panic_near_zero",
+      "n": 3,
+      "revenue_mean": 0.10000000000000002,
+      "revenue_min": 0.1,
+      "revenue_max": 0.1,
+      "efficiency_mean": 0.7017543859649122,
+      "efficiency_min": 0.10526315789473684,
+      "simplicity_proxy_mean": 0.9772751887283105,
+      "winner_profit_mean": 27.566666666666663,
+      "winner_profit_var": 329.55555555555554
+    },
+    {
+      "persona": "spsb_error_second_price_overgeneralizer",
+      "n": 3,
+      "revenue_mean": 38.333333333333336,
+      "revenue_min": 24.0,
+      "revenue_max": 47.0,
+      "efficiency_mean": 1.0,
+      "efficiency_min": 1.0,
+      "simplicity_proxy_mean": 0.3058369603028685,
+      "winner_profit_mean": -5.0,
+      "winner_profit_var": 0.6666666666666666
+    }
+  ],
+  "lower_tail": {
+    "worst_persona_revenue_mean": 0.10000000000000002,
+    "p20_persona_revenue_mean": 17.833333333333336,
+    "worst_persona_efficiency_mean": 0.7017543859649122,
+    "p20_persona_efficiency_mean": 0.9403508771929825,
+    "min_persona_simplicity_proxy": 0.3058369603028685,
+    "max_persona_winner_profit_var": 329.55555555555554,
+    "max_persona_winner_profit_var_normalized": 0.1960473263269218
+  },
+  "weights": {
+    "revenue": 1.0,
+    "efficiency": 1.0,
+    "intended_action": 0.0,
+    "simplicity": 0.5,
+    "regret": 0.25,
+    "failure": 1.0,
+    "worst_persona_efficiency": 0.0,
+    "p20_persona_efficiency": 0.0,
+    "min_persona_simplicity": 0.0,
+    "persona_profit_variance": 0.0
+  },
+  "aggregate_fitness": 1.8207390669207972,
+  "lower_tail_adjustment": 0.0,
+  "robust_fitness": 1.8207390669207972,
+  "fitness": 1.8207390669207972,
+  "per_run": [
+    {
+      "values": [
+        2,
+        19,
+        16
+      ],
+      "bids": [
+        1.0,
+        13.6,
+        10.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 19,
+      "price": 13.6,
+      "profits": [
+        0.0,
+        5.4,
+        0.0
+      ],
+      "max_val": 19,
+      "efficiency": 1.0,
+      "bid_value_std": 0.08846394462325978,
+      "persona": "c0_f0_b0",
+      "rep": 0
+    },
+    {
+      "values": [
+        17,
+        41,
+        22
+      ],
+      "bids": [
+        11.3,
+        31.0,
+        14.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 41,
+      "price": 31.0,
+      "profits": [
+        0.0,
+        10.0,
+        0.0
+      ],
+      "max_val": 41,
+      "efficiency": 1.0,
+      "bid_value_std": 0.051090262751518865,
+      "persona": "c0_f0_b0",
+      "rep": 1
+    },
+    {
+      "values": [
+        36,
+        40,
+        1
+      ],
+      "bids": [
+        24.0,
+        26.0,
+        0.3
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 40,
+      "price": 26.0,
+      "profits": [
+        0.0,
+        14.0,
+        0.0
+      ],
+      "max_val": 40,
+      "efficiency": 1.0,
+      "bid_value_std": 0.16905693394114377,
+      "persona": "c0_f0_b0",
+      "rep": 2
+    },
+    {
+      "values": [
+        2,
+        19,
+        16
+      ],
+      "bids": [
+        1.9,
+        12.6,
+        8.5
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 19,
+      "price": 12.6,
+      "profits": [
+        0.0,
+        6.4,
+        0.0
+      ],
+      "max_val": 19,
+      "efficiency": 1.0,
+      "bid_value_std": 0.1748108973674462,
+      "persona": "c2_f0_b2",
+      "rep": 0
+    },
+    {
+      "values": [
+        17,
+        41,
+        22
+      ],
+      "bids": [
+        11.3,
+        31.0,
+        11.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 41,
+      "price": 31.0,
+      "profits": [
+        0.0,
+        10.0,
+        0.0
+      ],
+      "max_val": 41,
+      "efficiency": 1.0,
+      "bid_value_std": 0.10596982135431358,
+      "persona": "c2_f0_b2",
+      "rep": 1
+    },
+    {
+      "values": [
+        36,
+        40,
+        1
+      ],
+      "bids": [
+        24.0,
+        30.0,
+        0.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 40,
+      "price": 30.0,
+      "profits": [
+        0.0,
+        10.0,
+        0.0
+      ],
+      "max_val": 40,
+      "efficiency": 1.0,
+      "bid_value_std": 0.3356401659331826,
+      "persona": "c2_f0_b2",
+      "rep": 2
+    },
+    {
+      "values": [
+        2,
+        19,
+        16
+      ],
+      "bids": [
+        0.1,
+        12.7,
+        10.7
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 19,
+      "price": 12.7,
+      "profits": [
+        0.0,
+        6.300000000000001,
+        0.0
+      ],
+      "max_val": 19,
+      "efficiency": 1.0,
+      "bid_value_std": 0.29160404452390976,
+      "persona": "c2_f2_b2",
+      "rep": 0
+    },
+    {
+      "values": [
+        17,
+        41,
+        22
+      ],
+      "bids": [
+        8.5,
+        27.1,
+        14.5
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 41,
+      "price": 27.1,
+      "profits": [
+        0.0,
+        13.899999999999999,
+        0.0
+      ],
+      "max_val": 41,
+      "efficiency": 1.0,
+      "bid_value_std": 0.0754443256008596,
+      "persona": "c2_f2_b2",
+      "rep": 1
+    },
+    {
+      "values": [
+        36,
+        40,
+        1
+      ],
+      "bids": [
+        23.6,
+        27.0,
+        0.1
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 40,
+      "price": 27.0,
+      "profits": [
+        0.0,
+        13.0,
+        0.0
+      ],
+      "max_val": 40,
+      "efficiency": 1.0,
+      "bid_value_std": 0.2665927109381973,
+      "persona": "c2_f2_b2",
+      "rep": 2
+    },
+    {
+      "values": [
+        2,
+        19,
+        16
+      ],
+      "bids": [
+        3.0,
+        24.0,
+        18.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 19,
+      "price": 24.0,
+      "profits": [
+        0.0,
+        -5.0,
+        0.0
+      ],
+      "max_val": 19,
+      "efficiency": 1.0,
+      "bid_value_std": 0.15485003020973448,
+      "persona": "spsb_error_second_price_overgeneralizer",
+      "rep": 0
+    },
+    {
+      "values": [
+        17,
+        41,
+        22
+      ],
+      "bids": [
+        21.0,
+        47.0,
+        22.6
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 41,
+      "price": 47.0,
+      "profits": [
+        0.0,
+        -6.0,
+        0.0
+      ],
+      "max_val": 41,
+      "efficiency": 1.0,
+      "bid_value_std": 0.08522052274650903,
+      "persona": "spsb_error_second_price_overgeneralizer",
+      "rep": 1
+    },
+    {
+      "values": [
+        17,
+        41,
+        22
+      ],
+      "bids": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 41,
+      "price": 0.1,
+      "profits": [
+        0.0,
+        40.9,
+        0.0
+      ],
+      "max_val": 41,
+      "efficiency": 1.0,
+      "bid_value_std": 0.0014173863595024303,
+      "persona": "spsb_error_payment_panic_near_zero",
+      "rep": 1
+    },
+    {
+      "values": [
+        2,
+        19,
+        16
+      ],
+      "bids": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "winner_name": "Bidder Andy",
+      "winner_value": 2,
+      "price": 0.1,
+      "profits": [
+        1.9,
+        0.0,
+        0.0
+      ],
+      "max_val": 19,
+      "efficiency": 0.10526315789473684,
+      "bid_value_std": 0.020860439429940553,
+      "persona": "spsb_error_payment_panic_near_zero",
+      "rep": 0
+    },
+    {
+      "values": [
+        36,
+        40,
+        1
+      ],
+      "bids": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 40,
+      "price": 0.1,
+      "profits": [
+        0.0,
+        39.9,
+        0.0
+      ],
+      "max_val": 40,
+      "efficiency": 1.0,
+      "bid_value_std": 0.04589660802562524,
+      "persona": "spsb_error_payment_panic_near_zero",
+      "rep": 2
+    },
+    {
+      "values": [
+        36,
+        40,
+        1
+      ],
+      "bids": [
+        39.0,
+        44.0,
+        5.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 40,
+      "price": 44.0,
+      "profits": [
+        0.0,
+        -4.0,
+        0.0
+      ],
+      "max_val": 40,
+      "efficiency": 1.0,
+      "bid_value_std": 1.842418566135151,
+      "persona": "spsb_error_second_price_overgeneralizer",
+      "rep": 2
+    }
+  ]
+}

@@ -41,12 +41,16 @@ Second, the panel---augmented by a small set of targeted error strains---attains
 \emph{calibration coverage}: it reproduces all five canonical SPSB human-mistake
 classes (truthful, moderate underbidding, overbidding, extreme overbidding,
 and near-zero bidding) at rates above their detection thresholds. Third, the
-panel is \emph{discriminating}: scored against candidate auction mechanisms
-under two base models, it exposes a cross-model portability gap in which an
-all-pay design's intended ``bid aggressively'' behavior collapses on a stronger
-held-out model while a second-price design's truthful target stays stable. These
-results support the use of instructed-deficit language models as a phase-I
-screening population for mechanism design.
+panel is \emph{discriminating}: in a first-price sealed-bid stress test the
+reasoning strains track the risk-neutral Bayes--Nash benchmark ($b=\tfrac23 v$),
+overbid relative to it at the rate documented for human subjects, and a strain
+that overgeneralizes the second-price payment rule overbids above value and
+loses money---a mechanistic account of a winner's-curse pathology. We also show
+that augmenting the deficit instruction with a worked chain-of-thought
+demonstration sharpens and stabilizes the induced behavior, and that at the
+strain level four of five reserved deficits preserve their behavioral class
+across base models. These results support the use of instructed-deficit language
+models as a phase-I screening population for mechanism design.
 
 \vspace{0.6em}
 \noindent\textit{Keywords:} bounded rationality, mechanism design, second-price
@@ -96,17 +100,19 @@ bidder-decisions), repairing each cognitive axis raises the truthful-bid rate
 by $+0.23$ (contingent reasoning), $+0.14$ (forward planning), and $+0.05$
 (belief reasoning); all five pre-registered directional hypotheses pass their
 sign test. The panel, augmented by two targeted error strains, covers all five
-canonical SPSB human-mistake classes at rates above threshold. Third, using the
-panel as an evaluator of four candidate auction mechanisms under two base models,
-we find robustness does not fully port: the all-pay designs' intended ``bid
-aggressively'' rate falls from roughly $0.65$ to $0.25$ on a stronger held-out
-model, while a second-price design's truthful target is unchanged. We are
-explicit about a boundary of the construction: the clean procedural basis
-naturally
-produces truthful and underbidding behavior but not overbidding, which we
-recover with a small number of hand-specified heuristic strains. We treat the
-digital-mouse panel as phase-I screening evidence, not as a prediction of human
-population shares.
+canonical SPSB human-mistake classes at rates above threshold. Third, in a
+first-price stress test the reasoning strains shade to the risk-neutral BNE
+($b=\tfrac23 v$, median ratios $0.65$--$0.67$) and overbid relative to it at
+$38\%$, while the second-price-overgeneralizer mouse bids above value and loses
+money. Along the way we show that a worked chain-of-thought demonstration is a
+stronger control than instruction alone---it drives the all-deficit strain's
+truthful rate from $0.39$ to $0$ and the all-repaired strain's to a perfect $1.0$
+while lowering bid dispersion---and that four of five reserved deficits keep their
+behavioral class across base models. We are explicit about a boundary of the
+construction: the clean procedural basis naturally produces truthful and
+underbidding behavior but not overbidding, which we recover with a small number
+of hand-specified heuristic strains. We treat the digital-mouse panel as phase-I
+screening evidence, not as a prediction of human population shares.
 
 \section{The Digital-Mouse Panel}
 
@@ -431,78 +437,116 @@ members of the clean $27$-cell procedural basis.\par}
 \end{minipage}
 \end{table}
 
-\section{Result 3: Robustness Across Models and an All-Pay Stress Test}
+\section{Result 3: Demonstrations Sharpen Induction}
 
-A panel is only useful for screening if its verdicts are not an artifact of the
-particular base model used to run it. We therefore put the panel to a harder
-test. We take a small set of four candidate auction mechanisms---three all-pay
-variants (with a refundable deposit and varying information rules, and one with
-a reserve and a pre-bid signal) and one second-price design---and score each one
-against the digital-mouse panel under \emph{two} base models: the model used to
-generate the candidates (\texttt{gpt-5.4-mini}) and a stronger held-out model
-(\texttt{gpt-5.4}). For each mechanism we declare the intended action of a
-correctly reasoning bidder---``bid aggressively'' for the all-pay designs (a bidder
-who pays regardless of winning should bid up toward value), ``truthful'' for the
-second-price design---and measure the fraction of bidder actions that match it,
-together with a robust panel-fitness score.
+The panel so far induces a deficit by \emph{instruction}. A natural alternative,
+familiar from few-shot chain-of-thought prompting, is to also \emph{demonstrate}
+the bounded procedure with a worked example. We append to a persona a single
+worked example that walks through the allowed reasoning on a sample value and
+ends in a bid: a margin-of-safety underbid for the all-deficit strain, and the
+contingent/forward/belief reasoning that yields a truthful Vickrey bid for the
+all-repaired strain. We then compare instruction-only and demonstration-augmented
+personas on \emph{identical} second-price value draws.
 
-Figure~\ref{fig:portability} and Table~\ref{tab:portability} report the result.
-Two facts stand out. First, robust fitness does not fully port: the two
-refundable-deposit all-pay mechanisms lose $1.0$ and $1.6$ fitness points when
-moved to the held-out model, and even the second-price design loses $1.3$.
-Second, and more diagnostically, the all-pay intended action collapses on the
-stronger model: the ``bid aggressively'' rate falls from $0.63$ to $0.30$ and
-from $0.67$ to $0.23$, whereas the second-price ``truthful'' rate is unchanged
-($0.60\to0.60$). In other words, a mechanism that looked robust under the
-generating model is substantially less so under a more capable one---a concrete
-instance of the overfitting risk that any model-based screening procedure must
-guard against. The stability of the truthful target relative to the
-aggressive-bidding target also mirrors the construct-validation finding that
-truthfulness is the most reliably induced behavior in this environment.
+Table~\ref{tab:cot} shows that demonstrations make induction both sharper and
+more consistent. For the all-deficit strain, adding the worked example pulls the
+mean bid/value ratio down toward the demonstrated $\approx 0.7$ and eliminates
+truthful bidding entirely (truthful rate $0.39\to0.00$) while \emph{lowering} the
+dispersion of bid/value ratios ($\operatorname{sd}0.124\to0.081$). For the
+all-repaired strain, the truthful demonstration produces exact Vickrey
+truth-telling on every decision (truthful rate $0.83\to1.00$, dispersion
+$0.076\to0.000$). Demonstration is thus a stronger control than instruction: it
+lowers behavioral variance and makes the mouse follow the prescribed procedure
+more faithfully---a promising lever for the portability problem documented below,
+since a more forcefully induced deficit should be harder for a capable model to
+``repair'' away.
+
+\begin{table}[t]
+\centering
+\caption{Instruction-only versus chain-of-thought (CoT) demonstration, on
+identical second-price draws ($n=18$ bidder-decisions per cell). Demonstration
+shifts behavior toward the demonstrated procedure and lowers the dispersion of
+bid/value ratios.}
+\label{tab:cot}
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+Strain & Construction & mean $b/v$ & truthful rate & $\operatorname{sd}(b/v)$ \\
+\midrule
+\texttt{c0\_f0\_b0} (all-deficit)  & instruction only     & $0.89$ & $0.39$ & $0.124$ \\
+\texttt{c0\_f0\_b0} (all-deficit)  & + CoT demonstration  & $0.77$ & $0.00$ & $0.081$ \\
+\addlinespace
+\texttt{c2\_f2\_b2} (all-repaired) & instruction only     & $0.98$ & $0.83$ & $0.076$ \\
+\texttt{c2\_f2\_b2} (all-repaired) & + CoT demonstration  & $1.00$ & $1.00$ & $0.000$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Result 4: A First-Price Stress Test and Cross-Model Portability}
+
+A panel is useful for screening only if it reproduces known mechanism
+regularities and if its verdicts are not an artifact of the base model. We test
+both. For the first, we move from the second-price environment to a
+\emph{first-price} sealed-bid auction, where theory and human data are sharp:
+with $n=3$ risk-neutral bidders and uniform values, the symmetric Bayes--Nash
+equilibrium is to shade to $b=\frac{n-1}{n}v=\frac{2}{3}v$, and the canonical
+experimental regularity is overbidding \emph{relative} to this risk-neutral
+benchmark \citep{kagellevin1993}.
+
+Figure~\ref{fig:fpsb} and Table~\ref{tab:fpsb} report the panel's first-price
+behavior. The three reasoning strains track the equilibrium closely: their median
+bid/value ratios are $0.65$--$0.67$, essentially on the $\frac{2}{3}$ BNE line,
+and across all reasoning decisions the mean ratio is $0.67$ with $38\%$ of bids
+above the risk-neutral benchmark---the documented overbidding regularity. The two
+error mice separate cleanly and \emph{mechanistically}: the payment-panic mouse
+bids near zero, while the second-price-overgeneralizer mouse bids \emph{above its
+value} (median ratio $1.15$), because it applies the second-price intuition ``I
+will not pay my own bid'' to a mechanism where the winner does pay their own bid.
+In a first-price auction that error is not harmless---it yields negative
+surplus---giving a concrete, mechanism-level account of a winner's-curse
+pathology.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{fig4.pdf}
-\caption{Cross-model portability of four candidate mechanisms on the
-digital-mouse panel. Left: robust panel-fitness under the generating model
-(\texttt{gpt-5.4-mini}) versus a held-out model (\texttt{gpt-5.4}). Right:
-fraction of bids matching the mechanism's intended action. The all-pay
-``bid aggressively'' target degrades sharply on the held-out model; the
-second-price truthful target is stable.}
-\label{fig:portability}
+\includegraphics[width=0.82\textwidth]{fig4.pdf}
+\caption{First-price stress test. Submitted bid versus private value for the
+panel. Reasoning strains cluster on the risk-neutral BNE line $b=\frac{2}{3}v$;
+the second-price-overgeneralizer mouse bids above the $45^\circ$ value line
+(loss-making overbidding); the payment-panic mouse bids near zero.}
+\label{fig:fpsb}
 \end{figure}
 
 \begin{table}[t]
 \centering
-\caption{Cross-model robustness of candidate mechanisms. Robust fitness and
-intended-action rate are computed against the same digital-mouse panel under two
-base models. $\Delta$ is held-out minus generating model.}
-\label{tab:portability}
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{@{}llrrrrr@{}}
+\caption{First-price bid/value ratios by strain ($n=9$ bidder-decisions each).
+The risk-neutral BNE benchmark is $\frac{2}{3}\approx0.667$. Reasoning strains
+sit on the benchmark; the error mice separate above value and near zero.}
+\label{tab:fpsb}
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}llrr@{}}
 \toprule
-& & \multicolumn{2}{c}{Robust fitness} & & \multicolumn{2}{c}{Intended-action rate} \\
-\cmidrule(lr){3-4}\cmidrule(lr){6-7}
-Mechanism & Intended action & mini & gpt-5.4 & $\Delta$ & mini & gpt-5.4 \\
+Strain & Role & mean $b/v$ & median $b/v$ \\
 \midrule
-all-pay: deposit, no reveal      & bid aggressively   & $2.52$  & $1.53$ & $-1.00$ & $0.63$ & $0.30$ \\
-all-pay: deposit, post-reveal    & bid aggressively   & $2.85$  & $1.27$ & $-1.57$ & $0.67$ & $0.23$ \\
-all-pay: reserve, pre-bid signal & mechanism-specific & $-1.37$ & $1.17$ & $+2.54$ & ---    & ---    \\
-second-price: deposit, binary    & truthful           & $2.24$  & $0.99$ & $-1.25$ & $0.60$ & $0.60$ \\
+\texttt{c0\_f0\_b0} & reasoning (all-deficit) & $0.61$ & $0.65$ \\
+\texttt{c2\_f0\_b2} & reasoning (forward-off) & $0.61$ & $0.67$ \\
+\texttt{c2\_f2\_b2} & reasoning (all-repaired) & $0.52$ & $0.66$ \\
+overgeneralizer     & error: overbid          & $1.61$ & $1.15$ \\
+payment panic       & error: near-zero        & $0.02$ & $0.01$ \\
 \bottomrule
 \end{tabular}
 
 \vspace{0.4em}
 \begin{minipage}{0.95\textwidth}
-{\footnotesize\textit{Notes.} ``mini'' is \texttt{gpt-5.4-mini} (the model used
-to generate the candidates); ``gpt-5.4'' is the held-out model. The
-reserve/pre-bid-signal mechanism declares a mechanism-specific target that the
-first-pass scorer does not evaluate, so its intended-action rate is omitted.\par}
+{\footnotesize\textit{Notes.} Pooled over reasoning strains, the mean ratio is
+$0.67$ (the BNE), $38\%$ of bids exceed the benchmark, and $20\%$ exceed value.
+The overgeneralizer's above-value bids are loss-making under first-price
+pricing.\par}
 \end{minipage}
 \end{table}
 
-\paragraph{Strain-level portability.} The mechanism-level gap raises a prior
+\paragraph{Strain-level portability.} The first-price result raises a prior
 question: do the deficit \emph{strains} themselves behave consistently across
 models? A pilot exposed a failure mode---the stronger model spontaneously
 ``repaired'' the most deficient basis strain into truthful Vickrey bidding---so
@@ -564,16 +608,16 @@ as distinct epistemic objects.
 
 \paragraph{Model dependence.} Because deficits are defined as procedural
 controls rather than artifacts of one model, the protocol can be rerun on a
-different frontier model. Section~6 exploits this at two levels. At the
-mechanism level, the all-pay intended action degrades sharply on a held-out
-model. At the strain level, four of five reserved strict strains preserve their
-dominant behavioral class across models, the lone exception being the
-contingent-reasoning deficit, which a stronger model tends to repair into
-truthful bidding. Both findings are features of the design rather than
-bugs---the panel is precisely the instrument that makes such overfitting
-visible---but they caution against reading single-model panel scores as
-model-invariant, and they identify contingent reasoning as the deficit most in
-need of a hardened scaffold.
+different frontier model. At the strain level (Section~7), four of five reserved
+strict strains preserve their dominant behavioral class across base models, the
+lone exception being the contingent-reasoning deficit, which a stronger model
+tends to repair into truthful bidding. This is a feature of the design rather
+than a bug---the panel is precisely the instrument that makes such repair
+visible---but it cautions against reading single-model panel scores as
+model-invariant and identifies contingent reasoning as the deficit most in need
+of a hardened scaffold. The chain-of-thought result (Section~6) suggests one
+remedy: demonstration induces deficits more forcefully than instruction, and so
+should be harder for a capable model to override.
 
 \paragraph{External validity.} Digital mice are a phase-I screening population.
 A strain reproducing a mistake class establishes that the panel can express that
@@ -587,15 +631,17 @@ We show that a frontier reasoning model can be instructed into stable, separable
 cognitive deficits whose behavior in a second-price sealed-bid auction (i) moves
 in the theory-predicted direction as each cognitive axis is repaired and (ii)
 spans the canonical space of human SPSB mistakes once a small set of targeted
-error strains is added, and (iii) discriminates candidate mechanisms by
-robustness, including an all-pay stress test in which the intended action fails
-to port to a stronger held-out model. This supports a research program in which
-instructed language-model agents are used as a phase-I population to screen
-mechanisms for robustness to bounded rationality before human-subject
-experiments are run. The immediate next steps are to scale the cross-model
-robustness analysis beyond the present handful of mechanisms and to extend both
-the construct-validation and calibration protocols to a second domain
-(matching).
+error strains is added, and (iii) reproduces sharp mechanism regularities in a
+first-price stress test---reasoning strains shade to the risk-neutral BNE and
+overbid relative to it, while an overgeneralizing strain bids above value and
+loses money. We further find that worked chain-of-thought demonstrations induce
+deficits more forcefully than instructions, and that most reserved deficits
+preserve their behavioral class across base models. This supports a research
+program in which instructed language-model agents are used as a phase-I
+population to screen mechanisms for robustness to bounded rationality before
+human-subject experiments are run. The immediate next steps are to extend the
+cross-model and first-price analyses at scale and to carry both the
+construct-validation and calibration protocols into a second domain (matching).
 
 \begin{thebibliography}{9}
 \footnotesize
