@@ -32,6 +32,8 @@ FPSB_FITNESS = os.path.join(
     REPO_ROOT,
     "config_v2/configs_auction/stress_test_first_price/fpsb_stress.fitness.json",
 )
+RESULTS_DB = os.path.join(REPO_ROOT, "data_v2/results.sqlite")
+EA_RUN_ID = 9
 
 # Print-safe, restrained style.
 plt.rcParams.update({
@@ -239,9 +241,114 @@ def fig4_first_price():
     return out
 
 
+def fig5_ea_dynamics():
+    """EA-over-genotypes: fitness by (generation, op) + top-5 mechanisms by fitness."""
+    import json
+    import sqlite3
+    conn = sqlite3.connect(RESULTS_DB)
+    rows = list(conn.execute(
+        "SELECT generation, op, fitness, rule_hash, genotype_json "
+        "FROM individuals WHERE run_id = ? ORDER BY generation, fitness DESC",
+        (EA_RUN_ID,),
+    ))
+
+    op_color = {
+        "init": GREY,
+        "elite": GREEN,
+        "genotype_mutation": INK,
+        "genotype_crossover": ACCENT,
+    }
+    op_label = {
+        "init": "init",
+        "elite": "elite",
+        "genotype_mutation": "mutation",
+        "genotype_crossover": "crossover",
+    }
+
+    fig, axs = plt.subplots(1, 2, figsize=(10.4, 4.0),
+                            gridspec_kw={"width_ratios": [1.2, 1.0]})
+
+    # ---- Panel A: strip by (gen, op) ----
+    rng = np.random.default_rng(0)
+    by_gen_max = {}
+    seen = set()
+    for gen, op, fit, h, _g in rows:
+        if (gen, op) not in seen:
+            seen.add((gen, op))
+        by_gen_max[gen] = max(by_gen_max.get(gen, -1e9), fit)
+        op_offset = {"init": -0.20, "elite": -0.07, "genotype_mutation": 0.06,
+                     "genotype_crossover": 0.20}.get(op, 0)
+        x = gen + op_offset + rng.uniform(-0.025, 0.025)
+        axs[0].scatter([x], [fit], s=26, color=op_color.get(op, GREY),
+                       alpha=0.85, edgecolor="white", lw=0.4)
+    gens = sorted(by_gen_max)
+    axs[0].plot(gens, [by_gen_max[g] for g in gens], "-", color=GREEN, lw=1.6,
+                marker="o", markersize=7, markerfacecolor="white",
+                markeredgewidth=1.6, label="best-of-generation")
+    axs[0].axhline(0, color=GREY, lw=0.6, ls=":")
+    axs[0].set_xticks(gens)
+    axs[0].set_xlabel("Generation")
+    axs[0].set_ylabel("Robust fitness")
+    axs[0].set_title("EA dynamics on the strict 5-mouse panel")
+    axs[0].grid(axis="y", color=GREY, alpha=0.25, lw=0.6)
+
+    from matplotlib.lines import Line2D
+    handles = [Line2D([0], [0], marker="o", color="w",
+                      markerfacecolor=op_color[k], markersize=7, label=op_label[k])
+               for k in ("init", "elite", "genotype_mutation", "genotype_crossover")]
+    handles.append(Line2D([0], [0], color=GREEN, lw=1.6, marker="o",
+                          markerfacecolor="white", markersize=7,
+                          label="best-of-generation"))
+    axs[0].legend(handles=handles, loc="lower left", frameon=False, fontsize=8)
+
+    # ---- Panel B: top-5 unique mechanisms by fitness ----
+    seen_h = set()
+    top = []
+    for r in sorted(rows, key=lambda x: -x[2]):
+        if r[3] in seen_h:
+            continue
+        seen_h.add(r[3])
+        top.append(r)
+        if len(top) >= 5:
+            break
+    pay_color = {"first_price": ACCENT, "second_price": INK,
+                 "posted_price": "#c79a00", "all_pay": GREEN}
+    labels = []; fits = []; cols = []
+    pay_rules = []
+    for gen, op, fit, h, gjson in reversed(top):
+        g = json.loads(gjson) if gjson else {}
+        pay = (g.get("mechanism") or {}).get("payment_rule", "?")
+        lang = (g.get("mechanism") or {}).get("bid_language", "?")
+        short = f"{pay}, {lang}".replace("_", "-")
+        labels.append(short)
+        fits.append(fit)
+        cols.append(pay_color.get(pay, GREY))
+        pay_rules.append(pay)
+    y = np.arange(len(labels))
+    axs[1].barh(y, fits, color=cols, alpha=0.9, height=0.6, zorder=3)
+    for yi, f in zip(y, fits):
+        axs[1].text(f + 0.04, yi, f"{f:.2f}", va="center", fontsize=9, color=INK)
+    axs[1].set_yticks(y)
+    axs[1].set_yticklabels(labels, fontsize=9)
+    axs[1].set_xlim(0, max(fits) * 1.22)
+    axs[1].set_xlabel("Robust fitness")
+    axs[1].set_title("Top-5 evolved mechanisms")
+    axs[1].grid(axis="x", color=GREY, alpha=0.25, lw=0.6)
+    # No legend: payment-rule is already in each y-tick label; the bar colors
+    # are a redundant visual cue (red=first-price, ink=second-price, gold=posted).
+
+    fig.suptitle("Evolutionary search over auction genotypes "
+                 "(24 individuals $\\times$ 2 generations $\\times$ 5-mouse panel)",
+                 y=1.04, fontsize=12)
+    out = os.path.join(HERE, "fig5.pdf")
+    fig.savefig(out)
+    plt.close(fig)
+    return out
+
+
 def main():
     for fn in (fig1_construct_marginals, fig2_behavioral_signatures, fig3_calibration_coverage,
-               fig4_first_price):
+               fig4_first_price, fig5_ea_dynamics):
         path = fn()
         size = os.path.getsize(path)
         print(f"wrote {os.path.relpath(path, REPO_ROOT)}  ({size} bytes)")

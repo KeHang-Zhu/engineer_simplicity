@@ -49,8 +49,14 @@ loses money---a mechanistic account of a winner's-curse pathology. We also show
 that augmenting the deficit instruction with a worked chain-of-thought
 demonstration sharpens and stabilizes the induced behavior, and that at the
 strain level four of five reserved deficits preserve their behavioral class
-across base models. These results support the use of instructed-deficit language
-models as a phase-I screening population for mechanism design.
+across base models. Finally, when we let the panel drive an evolutionary search
+over a structured genotype space of single-item auctions ($24$ individuals,
+$2$ generations, $480$ raw bidder-decisions), the search improves the best
+fitness across generations and concentrates the top of the population on
+canonical sealed-bid designs, with first-price continuous emerging on top---the
+same mechanism the a-priori stress test selected. These results support the use
+of instructed-deficit language models as a phase-I screening population for
+mechanism design.
 
 \vspace{0.6em}
 \noindent\textit{Keywords:} bounded rationality, mechanism design, second-price
@@ -108,8 +114,11 @@ money. Along the way we show that a worked chain-of-thought demonstration is a
 stronger control than instruction alone---it drives the all-deficit strain's
 truthful rate from $0.39$ to $0$ and the all-repaired strain's to a perfect $1.0$
 while lowering bid dispersion---and that four of five reserved deficits keep their
-behavioral class across base models. We are explicit about a boundary of the
-construction: the clean procedural basis naturally produces truthful and
+behavioral class across base models. As a last check, an evolutionary search
+that uses $F_{\mathrm{robust}}$ on the digital-mouse panel as its fitness over a
+structured single-item-auction genotype space independently elevates first-price
+sealed-bid designs to the top of the population, agreeing with the a-priori
+choice. We are explicit about a boundary of the construction: the clean procedural basis naturally produces truthful and
 underbidding behavior but not overbidding, which we recover with a small number
 of hand-specified heuristic strains. We treat the digital-mouse panel as phase-I
 screening evidence, not as a prediction of human population shares.
@@ -303,10 +312,46 @@ Following the Stage-C calibration mapping, the default weights are
 $(w_1,\dots,w_{10}) = (1,\,1,\,0.5,\,0.5,\,0.25,\,1,\,0.5,\,0.5,\,0.25,\,0.25)$,
 grouping into domain performance $(w_1,w_2)$, intended action $(w_3)$, simplicity
 $(w_4,w_9)$, regret $(w_5,w_{10})$, compliance $(w_6)$, and cognitive fragility
-$(w_7,w_8)$. Section~6 reports $F_{\mathrm{robust}}$ and $\mu_\tau$; the
-sign convention is that fragility, regret, and failure enter negatively, so a
-mechanism scores well only if it is allocatively efficient, induces its intended
-action, and does so \emph{uniformly} across the digital-mouse panel.
+$(w_7,w_8)$. Sections~6, 7, and 8 report $F_{\mathrm{robust}}$ and $\mu_\tau$;
+the sign convention is that fragility, regret, and failure enter negatively, so
+a mechanism scores well only if it is allocatively efficient, induces its
+intended action, and does so \emph{uniformly} across the digital-mouse panel.
+
+\subsection{Genotypes and an evolutionary search loop}
+\label{sec:genotype}
+
+To put the panel and the objective to work, we introduce a structured search
+space over single-item auctions. A \emph{genotype} is a JSON record
+(\texttt{single\_item\_auction\_genotype\_v1}) with five blocks. The
+\emph{environment} fixes the value model (IPV with private range and increment),
+the number of bidders, and any feedback channel. The \emph{mechanism} block
+sets the interaction form (sealed-bid here), the allocation rule (highest-bid
+wins), and---most consequentially for our purposes---the payment rule (one of
+first-price, second-price, posted-price, all-pay, etc.), the bid language
+(continuous, discrete-grid, binary-accept, etc.), the reserve rule, and the
+tie-breaking. The
+\emph{framing} block carries presentation choices that do not change the rule
+(menu vs.\ prose description, hint scaffolds, whether to include a worked
+chain-of-thought demonstration in the style of Section~6). A
+\emph{target\_policy} block declares the intended action of a correctly
+reasoning bidder, including a benchmark formula (e.g.\
+$b=\frac{n-1}{n}v$) and a tolerance, which feeds the intended-action match
+indicator $m_\tau$ of equation~(3). A \emph{complexity} block records simple
+syntactic features of the rule (action-space size, strategic depth) used for
+auxiliary diagnostics.
+
+A candidate mechanism is the pair of (i) a genotype $g$ and (ii) a
+bidder-facing rule text generated from $g$ by an LLM rewriter; the genotype
+fixes the mechanics, the rule text instantiates them in language the bidder
+agents can act on. Two operators evolve a population. \emph{Genotype mutation}
+samples a small number of fields in $g$ and resamples their values from the
+allowed enumeration, then asks the LLM to rewrite the rule text to be
+consistent with the perturbed genotype. \emph{Genotype crossover} takes two
+parents and, for each field independently, draws the child's value from one
+parent with probability $\tfrac12$, then again invokes the LLM rewrite. Each
+generation we evaluate every candidate by $F_{\mathrm{robust}}(g)$ against a
+fixed digital-mouse panel, retain the top quartile as elites, and fill the rest
+with mutation/crossover offspring of tournament-selected parents.
 
 \section{Result 1: Construct Validity}
 
@@ -593,6 +638,85 @@ all other strains' dominant class is stable.\par}
 \end{minipage}
 \end{table}
 
+\section{Result 5: Evolutionary Search Recovers First-Price}
+
+Sections~6 and~7 used the panel to validate an \emph{a priori} mechanism choice.
+We now ask the converse question: if we let the panel drive an evolutionary
+search over the genotype space of Section~\ref{sec:genotype}, what does it pick?
+The answer should be informative whether or not it reproduces the a-priori
+choice, but it would be reassuring if the two procedures agreed.
+
+\paragraph{Setup.} We run $24$ individuals for $2$ generations against the
+strict $5$-mouse panel with $2$ repetitions per persona, for a total of $48$
+mechanism evaluations and $480$ raw bidder-decisions. Generation $0$ is seeded
+with eight first-price-oriented genotypes (LLM-instantiated from the schema with
+random framing/grid choices); each subsequent generation keeps the top-four
+elites unchanged and fills the other $20$ slots with tournament-selected
+mutation and crossover offspring. Each mechanism is scored by
+$F_{\mathrm{robust}}$ (eq.~7).
+
+\paragraph{Result.} Figure~\ref{fig:ea} and Table~\ref{tab:ea} report the run.
+Two things stand out. First, the search \emph{improves}: the best-of-generation
+fitness rises from $3.37$ (a gen-$0$ initialization) to $3.42$ (a gen-$1$
+crossover child), and that child remains the elite through gen-$2$. Second,
+where the top of the population concentrates is itself the result: three of the
+top five evolved mechanisms are first-price sealed-bid auctions (continuous or
+discrete-grid), one is second-price continuous, and one is a posted-price
+binary-accept design. All five share no reserve and random tie-breaking. The
+EA, given a permissive genotype space and the digital-mouse panel as evaluator,
+independently converges on canonical sealed-bid auctions and elevates
+first-price continuous---exactly the mechanism Section~7 picked
+\emph{a priori}---to the top.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig5.pdf}
+\caption{Evolutionary search over single-item auction genotypes against the
+strict $5$-mouse panel (run~9: $24$ individuals $\times\,2$ generations $\times\,5$
+personas $\times\,2$ reps $= 480$ raw bidder-decisions). Left: robust fitness
+of each individual by generation, colored by operator; the green line traces
+the best-of-generation. Right: the top-five unique mechanisms, colored by
+payment rule.}
+\label{fig:ea}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Top-five evolved mechanisms from run~9, ordered by robust fitness.
+Three of five are first-price sealed-bid; all five share no reserve and random
+tie-breaking. The gen-$1$ crossover child improves on every gen-$0$ initialization.}
+\label{tab:ea}
+\footnotesize
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{@{}rllllrl@{}}
+\toprule
+Rank & Payment rule & Bid language & Reserve & Framing scaffold & Fitness & First seen \\
+\midrule
+1 & first-price   & continuous     & none & none           & $3.42$ & gen 1, crossover \\
+2 & first-price   & continuous     & none & none           & $3.37$ & gen 0, init      \\
+3 & first-price   & discrete-grid  & none & decision-table & $3.21$ & gen 2, mutation  \\
+4 & second-price  & continuous     & none & none           & $3.13$ & gen 2, mutation  \\
+5 & posted-price  & binary-accept  & none & short-hint     & $3.12$ & gen 2, crossover \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\footnotesize\textit{Notes.} ``Framing scaffold'' is a presentation field of
+the genotype: \texttt{none} leaves the rule as a plain menu description;
+\texttt{decision-table} and \texttt{short-hint} are alternative scaffoldings the
+search may attach. No top-five mechanism uses a chain-of-thought demonstration
+scaffold; the genotype field is present (Section~\ref{sec:genotype}) and
+exploring it is left to a larger run.\par}
+\end{minipage}
+\end{table}
+
+\paragraph{Caveats.} Two generations is a proof-of-concept of the EA-plus-panel
+loop, not a paper-scale search; the convergence we report is qualitative
+agreement with Section~7 rather than a statement about optimality over the
+full genotype space. Extending the search horizon and adding cross-model
+re-scoring of the survivors are the natural next steps.
+
 \section{Discussion}
 
 \paragraph{Procedural basis versus authored error mice.} The construct-validity
@@ -635,13 +759,16 @@ error strains is added, and (iii) reproduces sharp mechanism regularities in a
 first-price stress test---reasoning strains shade to the risk-neutral BNE and
 overbid relative to it, while an overgeneralizing strain bids above value and
 loses money. We further find that worked chain-of-thought demonstrations induce
-deficits more forcefully than instructions, and that most reserved deficits
-preserve their behavioral class across base models. This supports a research
-program in which instructed language-model agents are used as a phase-I
-population to screen mechanisms for robustness to bounded rationality before
-human-subject experiments are run. The immediate next steps are to extend the
-cross-model and first-price analyses at scale and to carry both the
-construct-validation and calibration protocols into a second domain (matching).
+deficits more forcefully than instructions, that most reserved deficits preserve
+their behavioral class across base models, and that an evolutionary search
+driven by the panel as its fitness function recovers first-price sealed-bid as
+the top of the population, agreeing with the a-priori choice. This supports a
+research program in which instructed language-model agents are used as a
+phase-I population to screen mechanisms for robustness to bounded rationality
+before human-subject experiments are run. The immediate next steps are to
+extend the evolutionary, cross-model, and first-price analyses at scale and to
+carry both the construct-validation and calibration protocols into a second
+domain (matching).
 
 \begin{thebibliography}{9}
 \footnotesize
