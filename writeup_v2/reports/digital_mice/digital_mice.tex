@@ -316,42 +316,8 @@ $(w_7,w_8)$. Sections~6, 7, and 8 report $F_{\mathrm{robust}}$ and $\mu_\tau$;
 the sign convention is that fragility, regret, and failure enter negatively, so
 a mechanism scores well only if it is allocatively efficient, induces its
 intended action, and does so \emph{uniformly} across the digital-mouse panel.
-
-\subsection{Genotypes and an evolutionary search loop}
-\label{sec:genotype}
-
-To put the panel and the objective to work, we introduce a structured search
-space over single-item auctions. A \emph{genotype} is a JSON record
-(\texttt{single\_item\_auction\_genotype\_v1}) with five blocks. The
-\emph{environment} fixes the value model (IPV with private range and increment),
-the number of bidders, and any feedback channel. The \emph{mechanism} block
-sets the interaction form (sealed-bid here), the allocation rule (highest-bid
-wins), and---most consequentially for our purposes---the payment rule (one of
-first-price, second-price, posted-price, all-pay, etc.), the bid language
-(continuous, discrete-grid, binary-accept, etc.), the reserve rule, and the
-tie-breaking. The
-\emph{framing} block carries presentation choices that do not change the rule
-(menu vs.\ prose description, hint scaffolds, whether to include a worked
-chain-of-thought demonstration in the style of Section~6). A
-\emph{target\_policy} block declares the intended action of a correctly
-reasoning bidder, including a benchmark formula (e.g.\
-$b=\frac{n-1}{n}v$) and a tolerance, which feeds the intended-action match
-indicator $m_\tau$ of equation~(3). A \emph{complexity} block records simple
-syntactic features of the rule (action-space size, strategic depth) used for
-auxiliary diagnostics.
-
-A candidate mechanism is the pair of (i) a genotype $g$ and (ii) a
-bidder-facing rule text generated from $g$ by an LLM rewriter; the genotype
-fixes the mechanics, the rule text instantiates them in language the bidder
-agents can act on. Two operators evolve a population. \emph{Genotype mutation}
-samples a small number of fields in $g$ and resamples their values from the
-allowed enumeration, then asks the LLM to rewrite the rule text to be
-consistent with the perturbed genotype. \emph{Genotype crossover} takes two
-parents and, for each field independently, draws the child's value from one
-parent with probability $\tfrac12$, then again invokes the LLM rewrite. Each
-generation we evaluate every candidate by $F_{\mathrm{robust}}(g)$ against a
-fixed digital-mouse panel, retain the top quartile as elites, and fill the rest
-with mutation/crossover offspring of tournament-selected parents.
+The full machinery of evolutionary search over auction designs is deferred to
+Section~\ref{sec:ea}, which is self-contained.
 
 \section{Result 1: Construct Validity}
 
@@ -638,45 +604,173 @@ all other strains' dominant class is stable.\par}
 \end{minipage}
 \end{table}
 
-\section{Result 5: Evolutionary Search Recovers First-Price}
+\section{Evolutionary Search over Auction Mechanisms}
+\label{sec:ea}
 
-Sections~6 and~7 used the panel to validate an \emph{a priori} mechanism choice.
-We now ask the converse question: if we let the panel drive an evolutionary
-search over the genotype space of Section~\ref{sec:genotype}, what does it pick?
-The answer should be informative whether or not it reproduces the a-priori
-choice, but it would be reassuring if the two procedures agreed.
+So far the panel has been used to \emph{verify} mechanisms picked by hand
+(Sections~6 and~7). The natural next question is whether the same panel can
+\emph{drive} a search over mechanisms. This section makes that loop concrete.
+The audience for what follows is the reader who has not previously seen an
+evolutionary algorithm; we lay out the procedure, why language models change
+what is possible, our specific setting, and the result.
 
-\paragraph{Setup.} We run $24$ individuals for $2$ generations against the
-strict $5$-mouse panel with $2$ repetitions per persona, for a total of $48$
-mechanism evaluations and $480$ raw bidder-decisions. Generation $0$ is seeded
-with eight first-price-oriented genotypes (LLM-instantiated from the schema with
-random framing/grid choices); each subsequent generation keeps the top-four
-elites unchanged and fills the other $20$ slots with tournament-selected
-mutation and crossover offspring. Each mechanism is scored by
-$F_{\mathrm{robust}}$ (eq.~7).
+\subsection{Why an evolutionary algorithm?}
 
-\paragraph{Result.} Figure~\ref{fig:ea} and Table~\ref{tab:ea} report the run.
-Two things stand out. First, the search \emph{improves}: the best-of-generation
-fitness rises from $3.37$ (a gen-$0$ initialization) to $3.42$ (a gen-$1$
-crossover child), and that child remains the elite through gen-$2$. Second,
-where the top of the population concentrates is itself the result: three of the
-top five evolved mechanisms are first-price sealed-bid auctions (continuous or
-discrete-grid), one is second-price continuous, and one is a posted-price
-binary-accept design. All five share no reserve and random tie-breaking. The
-EA, given a permissive genotype space and the digital-mouse panel as evaluator,
+Mechanism design is, at bottom, a search problem: among the auctions one could
+implement, which ones perform well? The economist's standard answer is
+analytic---Myerson's optimal auction, Vickrey--Clarke--Groves, OSP
+variants \citep{li2017,vickrey1961}---each derived in closed form from a tight
+model of rational bidders and a known value distribution. When we replace the
+rational benchmark with a panel of boundedly rational digital mice
+(Section~2), the closed-form route no longer applies: ``best for the strict
+$5$-mouse panel'' is not a function one can differentiate or solve in closed
+form.
+
+An \emph{evolutionary algorithm} (EA) is a heuristic search procedure suited
+to exactly this situation. It does not require gradients, convexity, or a
+parameterized family that admits first-order conditions; it only needs the
+ability to \emph{evaluate} a candidate against an objective. The procedure is
+the following loop. (i) Maintain a population of $N$ candidate mechanisms.
+(ii) Score each candidate by a fitness function $F$. (iii) Retain the top
+performers (the \emph{elites}). (iv) Produce a new generation of size $N$ by
+applying small perturbations to elites (\emph{mutation}) and recombinations of
+pairs of elites (\emph{crossover}). (v) Iterate. Over generations, the
+population concentrates on regions of the design space where $F$ is high.
+
+EAs are routine in machine learning and engineering but largely absent from
+economic mechanism design, where searches are usually done with pencils. The
+reason has been operational: previous EAs over auction mechanisms have had to
+specify candidates as numeric vectors in a fixed family (e.g.\ ``set the
+reserve price, set the entry fee'') and have had to simulate bidders with a
+closed-form behavioral model, typically risk-neutral BNE. Neither restriction
+is comfortable: many design choices in real mechanisms live in the rule text
+rather than in numeric parameters, and many of the empirical pathologies of
+real bidders are exactly the behaviors a rational benchmark cannot generate.
+
+\subsection{How language models change the picture}
+
+Frontier language models loosen both restrictions. On the bidder side, the
+digital-mouse panel of Section~2 supplies instructable, cognitively varied
+bidder agents whose deficits are procedural controls rather than implicit
+artifacts of one closed-form benchmark. On the mechanism side, an LLM can map
+a structured \emph{genotype}---a JSON record listing payment rule, bid
+language, reserve, framing---into a coherent natural-language rule that the
+bidder LLMs can act on. The genotype carries the discrete design choices that
+the EA operates on; the rule text carries the implementation that the bidders
+see.
+
+This decoupling is the key methodological move. Mutation and crossover
+operate at the \emph{genotype} level, where they are well-typed and
+schema-validated: ``flip \texttt{bid\_language} from \texttt{continuous} to
+\texttt{discrete\_grid}'' is an unambiguous operation on a JSON record. The
+bidder-facing artifact, however, remains language: the LLM compiles the
+perturbed genotype into a rule the bidders can read. The result is an EA that
+can search over a design space which is genuinely discrete and categorical, on
+a bidder population whose behavior captures bounded rationality directly. To
+our knowledge, this combination---structured-genotype EA plus instructable
+bounded-rational bidders plus a robustness fitness aggregated across a
+cognitive-deficit panel---is new to mechanism design.
+
+\paragraph{What ``fitness'' means here.} The fitness function $F_{\mathrm{robust}}$
+of equation~(7) is panel-based: a candidate mechanism scores well only if it
+is allocatively efficient, induces its declared intended action, and does so
+\emph{across} the digital-mouse panel, not just for a rational outlier. The
+search is therefore explicitly searching for mechanisms that are robust to
+bounded rationality, not for mechanisms that are optimal against a rational
+benchmark. This is why the EA-plus-panel loop is the natural pairing for the
+research program of this paper.
+
+\subsection{Our setting}
+
+\paragraph{The genotype.} A candidate is a JSON record
+(\texttt{single\_item\_auction\_genotype\_v1}) with five blocks. The
+\emph{environment} fixes the value model (IPV with private range and
+increment), the number of bidders, and any feedback channel. The
+\emph{mechanism} block sets the interaction form (sealed-bid here), the
+allocation rule (highest-bid wins), and---most consequentially---the payment
+rule (one of first-price, second-price, posted-price, all-pay, etc.), the bid
+language (continuous, discrete-grid, binary-accept, etc.), the reserve rule,
+and the tie-breaking. The \emph{framing} block carries presentation choices
+that do not change the rule (menu vs.\ prose description, hint scaffolds,
+whether to include a worked chain-of-thought demonstration in the style of
+Section~6). A \emph{target\_policy} block declares the action a correctly
+reasoning bidder should take, including a benchmark formula (e.g.\
+$b=\frac{n-1}{n}v$) and a tolerance, which feeds the intended-action match
+indicator $m_\tau$ of equation~(3). A \emph{complexity} block records simple
+syntactic features used for diagnostics. A concrete top genotype reads:
+
+\begin{quote}\footnotesize\ttfamily\noindent
+environment:\\
+\hspace*{2em}value\_model: IPV, n\_bidders: 3,\\
+\hspace*{2em}private\_range: [0, 49], increment: 0.1\\
+mechanism:\\
+\hspace*{2em}payment\_rule: first\_price,\\
+\hspace*{2em}bid\_language: continuous\_bid,\\
+\hspace*{2em}reserve\_rule: none, tie\_breaking: random\\
+framing:\\
+\hspace*{2em}description\_style: menu, scaffold: none,\\
+\hspace*{2em}cot\_demo: false\\
+target\_policy:\\
+\hspace*{2em}benchmark: ((n-1)/n)*value,\\
+\hspace*{2em}target\_bid\_value\_ratio: 0.667,\\
+\hspace*{2em}tolerance: 0.1
+\end{quote}
+
+\paragraph{Operators.} A \emph{genotype mutation} samples a small number of
+fields in $g$ and resamples their values from the allowed enumeration, then
+asks the LLM to rewrite the rule text consistently with the perturbed
+genotype---e.g.\ flip \texttt{bid\_language} from \texttt{continuous} to
+\texttt{discrete\_grid} and replace ``submit a bid in \$0.1 increments'' with
+``choose a bid from the grid $\{0, 1, 5, 10, 20, 30, 50\}$''. A
+\emph{genotype crossover} takes two parents and, for each field independently,
+draws the child's value from one parent with probability $\tfrac12$, then again
+invokes the LLM rewrite. A schema validator (Section~3.1) rejects ill-typed
+offspring; duplicates by rule-text hash are discarded.
+
+\paragraph{Selection and panel.} Each generation we score every candidate by
+$F_{\mathrm{robust}}$ (eq.~7) against the \emph{strict} $5$-mouse panel of
+Section~7, with $2$ repetitions per mouse. We retain the top quartile as
+elites and fill the remaining $20$ slots with $50/50$ mutation and crossover
+offspring of tournament-selected parents (tournament size $3$).
+
+\paragraph{Scale.} The run reported below uses $24$ individuals for $2$
+generations against the strict $5$-mouse panel with $2$ repetitions per mouse,
+for a total of $48$ mechanism evaluations and $480$ raw bidder-decisions,
+under the base model \texttt{gpt-5.4-mini}. This is a proof-of-concept of the
+EA-plus-panel loop; a paper-scale run would extend the horizon and re-score
+survivors on a held-out model along the lines of Section~7.
+
+\subsection{Result: the search recovers first-price}
+
+Figure~\ref{fig:ea} and Table~\ref{tab:ea} report the run. Two findings stand
+out. First, the search \emph{improves}: the best-of-generation fitness rises
+from $3.37$ (a gen-$0$ initialization) to $3.42$ (a gen-$1$ crossover child),
+and that child remains the elite through gen-$2$. The absolute improvement is
+small over two generations, but it is a real one: the population's best moves
+beyond the seeded population. Second, and more substantively, where the top of
+the population concentrates is the result: three of the top five evolved
+mechanisms are first-price sealed-bid auctions (continuous or discrete-grid),
+one is second-price continuous, and one is a posted-price binary-accept
+design. All five share no reserve and random tie-breaking. The EA,
+given a permissive genotype space and the digital-mouse panel as evaluator,
 independently converges on canonical sealed-bid auctions and elevates
 first-price continuous---exactly the mechanism Section~7 picked
 \emph{a priori}---to the top.
+
+We read this as \emph{convergent validation} of two procedures rather than as
+a statement of EA optimality. The a-priori choice in Section~7 rested on sharp
+theory and human data; the EA choice rests on panel-based robustness. They
+agree, which they need not have done.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{fig5.pdf}
 \caption{Evolutionary search over single-item auction genotypes against the
-strict $5$-mouse panel (run~9: $24$ individuals $\times\,2$ generations $\times\,5$
-personas $\times\,2$ reps $= 480$ raw bidder-decisions). Left: robust fitness
-of each individual by generation, colored by operator; the green line traces
-the best-of-generation. Right: the top-five unique mechanisms, colored by
-payment rule.}
+strict $5$-mouse panel (run~9: $24$ individuals $\times\,2$ generations
+$\times\,5$ personas $\times\,2$ reps $= 480$ raw bidder-decisions). Left:
+robust fitness of each individual by generation, colored by operator; the
+green line traces the best-of-generation. Right: the top-five unique
+mechanisms, colored by payment rule.}
 \label{fig:ea}
 \end{figure}
 
@@ -706,16 +800,21 @@ Rank & Payment rule & Bid language & Reserve & Framing scaffold & Fitness & Firs
 the genotype: \texttt{none} leaves the rule as a plain menu description;
 \texttt{decision-table} and \texttt{short-hint} are alternative scaffoldings the
 search may attach. No top-five mechanism uses a chain-of-thought demonstration
-scaffold; the genotype field is present (Section~\ref{sec:genotype}) and
-exploring it is left to a larger run.\par}
+scaffold; the genotype field is present and exploring it is left to a larger
+run.\par}
 \end{minipage}
 \end{table}
 
-\paragraph{Caveats.} Two generations is a proof-of-concept of the EA-plus-panel
-loop, not a paper-scale search; the convergence we report is qualitative
-agreement with Section~7 rather than a statement about optimality over the
-full genotype space. Extending the search horizon and adding cross-model
-re-scoring of the survivors are the natural next steps.
+\subsection{Caveats}
+
+Two generations is a proof-of-concept of the EA-plus-panel loop, not a
+paper-scale search; the convergence we report is qualitative agreement with
+Section~7 rather than a statement about optimality over the full genotype
+space. The fitness weights are the Stage-C-aligned defaults of Section~3.1 and
+have not been re-tuned to this specific search. Cross-model re-scoring of the
+survivors, along the lines of Section~7's strict-panel portability check, is a
+natural extension and would let us flag candidates that scored well on the
+search model but degrade on a stronger held-out model.
 
 \section{Discussion}
 
