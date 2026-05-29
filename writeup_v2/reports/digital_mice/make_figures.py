@@ -36,6 +36,11 @@ RESULTS_DB = os.path.join(REPO_ROOT, "data_v2/results.sqlite")
 EA_RUN_ID = 9
 SMAD_CSV = os.path.join(REPO_ROOT, "analysis_v2/evolution/ea_smad_ranking.csv")
 AUDIT_CSV = os.path.join(REPO_ROOT, "analysis_v2/reasoning_audit/reasoning_chain_audit.csv")
+SCOPE_LOCKED_CSV = os.path.join(
+    REPO_ROOT,
+    "analysis_v2/evolution/run_20260528_232958_p24g2s20260531/"
+    "run_20260528_232958_p24g2s20260531_robust_rescore.csv",
+)
 
 # Print-safe, restrained style.
 plt.rcParams.update({
@@ -449,13 +454,80 @@ def fig7_reasoning_audit():
     return out
 
 
+def fig8_scope_locked_first_price():
+    """Hardened, scope-locked first-price run: ranking by family + what drives robust fitness."""
+    df = pd.read_csv(SCOPE_LOCKED_CSV)
+
+    def family(name):
+        n = name.lower()
+        if "grid" in n:
+            return "grid"
+        if "continuous" in n or "menu" in n:
+            return "continuous/menu"
+        return "other"
+
+    df["family"] = df["mechanism"].map(family)
+    df = df.sort_values("robust_fitness", ascending=False).reset_index(drop=True)
+    fam_color = {"grid": ACCENT, "continuous/menu": INK, "other": GREY}
+
+    fig, axs = plt.subplots(1, 2, figsize=(10.4, 4.0),
+                            gridspec_kw={"width_ratios": [1.15, 1.05]})
+
+    # ---- Panel A: 44 valid mechanisms ranked by robust fitness, colored by family ----
+    x = np.arange(len(df))
+    axs[0].bar(x, df["robust_fitness"],
+               color=[fam_color[f] for f in df["family"]], width=0.82, zorder=3)
+    axs[0].axhline(0, color=GREY, lw=0.8, ls=":")
+    top = df.iloc[0]
+    axs[0].annotate(f"top: fpsb grid ({top['robust_fitness']:.2f})",
+                    xy=(0, top["robust_fitness"]),
+                    xytext=(14, 2.55), fontsize=8.5, color=ACCENT,
+                    arrowprops=dict(arrowstyle="->", color=ACCENT, lw=1))
+    axs[0].set_xlabel("Mechanism rank (44 valid first-price candidates)")
+    axs[0].set_ylabel("Robust fitness")
+    axs[0].grid(axis="y", color=GREY, alpha=0.25, lw=0.6)
+    axs[0].set_title("Scope-locked first-price ranking\n(grid/scaffolded variants lead)")
+    from matplotlib.patches import Patch
+    axs[0].legend(handles=[Patch(color=fam_color[k], label=k) for k in
+                           ("grid", "continuous/menu", "other")],
+                  loc="upper right", frameon=False, fontsize=8.5)
+
+    # ---- Panel B: mean efficiency stays high; the worst-persona tail discriminates ----
+    order = df.sort_values("robust_fitness")
+    axs[1].scatter(order["robust_fitness"], order["efficiency_mean"],
+                   s=30, color=GREY, alpha=0.85, edgecolor="white", linewidth=0.4,
+                   label="mean efficiency")
+    axs[1].scatter(order["robust_fitness"], order["worst_persona_efficiency_mean"],
+                   s=30, color=ACCENT, alpha=0.85, edgecolor="white", linewidth=0.4,
+                   label="worst-persona efficiency")
+    for _, r in order.iterrows():
+        axs[1].plot([r["robust_fitness"], r["robust_fitness"]],
+                    [r["worst_persona_efficiency_mean"], r["efficiency_mean"]],
+                    color=GREY, lw=0.5, alpha=0.4, zorder=1)
+    axs[1].set_xlabel("Robust fitness")
+    axs[1].set_ylabel("Allocative efficiency")
+    axs[1].set_ylim(0, 1.05)
+    axs[1].grid(color=GREY, alpha=0.2, lw=0.6)
+    axs[1].legend(loc="lower right", frameon=False, fontsize=8.5)
+    axs[1].set_title("Efficiency is uniformly high;\nthe worst-persona tail drives the score")
+
+    fig.suptitle("Hardened, scope-locked first-price search "
+                 "(44 valid candidates $\\times$ 5-mouse panel, GPT-5.4-mini)",
+                 y=1.04, fontsize=12)
+    out = os.path.join(HERE, "fig8.pdf")
+    fig.savefig(out)
+    plt.close(fig)
+    return out
+
+
 def main():
     # Regenerate the SMAD and reasoning-audit CSVs first (no LLM calls).
     import make_extra_analyses as mx
     mx.ea_smad_ranking()
     mx.reasoning_audit()
     for fn in (fig1_construct_marginals, fig2_behavioral_signatures, fig3_calibration_coverage,
-               fig4_first_price, fig5_ea_dynamics, fig6_smad_vs_fitness, fig7_reasoning_audit):
+               fig4_first_price, fig5_ea_dynamics, fig6_smad_vs_fitness, fig7_reasoning_audit,
+               fig8_scope_locked_first_price):
         path = fn()
         size = os.path.getsize(path)
         print(f"wrote {os.path.relpath(path, REPO_ROOT)}  ({size} bytes)")

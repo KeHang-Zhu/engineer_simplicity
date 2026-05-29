@@ -858,7 +858,16 @@ other strains' dominant class is stable.\par}
 So far the panel has \emph{verified} mechanisms picked by hand. The natural next
 question is whether the same panel can \emph{drive} a search over mechanisms. This
 section makes that loop concrete: why a search is the right tool, what the design
-space is, how the operators act on an actual auction, and what the search returns.
+space is, and how the operators act on an actual auction. We then report the search
+in \emph{two passes}. Pass~1 is an exploratory, permissive run across mechanism
+classes (first-price, second-price, third-price, posted-price); it shows the loop
+works and motivates a sharper question. Pass~2 is a hardened, \emph{scope-locked}
+run restricted to first-price IPV, with semantic validators that reject malformed or
+out-of-scope candidates before any digital-mouse evaluation, and a portability check
+against a stronger model. The two passes serve different ends: the first asks
+whether the loop discovers sensible mechanism \emph{classes}; the second asks what
+the loop finds inside a single class once the pipeline is clean enough to trust the
+ranking.
 
 \subsection{Why search, and why language models make it possible}
 
@@ -934,7 +943,15 @@ Simplicity emphasis & none, low, medium, high \\
 \end{tabular}
 \end{table}
 
-\subsection{The operators on a concrete auction}
+Table~\ref{tab:designspace} is the \emph{conceptual} target: the full space of
+mechanism classes and failure modes the panel is meant to screen, in the phase-I
+spirit of Section~\ref{sec:intro}. The two passes below cover it at two different
+widths. Pass~1 lets the operators roam across pricing rules to confirm the loop
+behaves sensibly. Pass~2 then locks the executable search to a single cell of this
+table---single-item sealed-bid, IPV, three bidders, first-price payment, no
+reserve---so that the rule text the mice actually see is enforceably consistent with
+the genotype. Narrowing is deliberate: it trades breadth for a ranking we can defend
+cell by cell, rather than a winner that may hinge on a malformed or ambiguous rule.
 
 It helps to watch the operators act on a real mechanism. Take the rank-2 elite, a
 \emph{first-price continuous} sealed-bid auction (the gen-$0$ seed). An
@@ -949,9 +966,13 @@ field by field, draws each child field from one parent, yielding for instance a
 first-price continuous auction that inherits the other parent's framing scaffold;
 the LLM then rewrites a single coherent rule. A schema validator rejects ill-typed
 offspring and duplicates (by rule-text hash) are discarded. The gen-$1$ crossover
-child built this way is the eventual rank-1 mechanism.
+child built this way is the eventual rank-1 mechanism. Pass~2 adds a stricter gate
+in front of this step---a chain of \emph{semantic} validators described in
+Section~\ref{sec:scopelocked}---that rejects out-of-scope or self-inconsistent
+offspring before any mouse evaluates them.
 
-\subsection{Scale and result}
+\subsection{Pass 1: an exploratory cross-mechanism search}
+\label{sec:ea-pass1}
 
 The run uses $24$ individuals for $2$ generations against the strict $5$-mouse
 panel with $2$ repetitions per mouse---$48$ mechanism evaluations and $480$ raw
@@ -1038,13 +1059,137 @@ actual objective. The search is explicitly looking for mechanisms that are robus
 bounded rationality, not for mechanisms that minimize bidders' deviation from a
 rational optimum; first-price wins the former and second-price the latter.
 
-\paragraph{Caveats.} Two generations is a proof-of-concept, not a paper-scale
-search; the convergence is qualitative agreement with Section~\ref{sec:external},
-not a statement about optimality over the full genotype space. The weights are the
-calibration-aligned defaults of Section~\ref{sec:fitness} and have not been re-tuned
-to this search. Cross-model re-scoring of survivors, along the lines of the
-strict-panel portability check, would flag candidates that score well on the search
-model but degrade on a stronger held-out model.
+\paragraph{From Pass 1 to Pass 2.} Pass~1 is a proof-of-concept, not a paper-scale
+search: two generations, calibration-aligned default weights, and---most
+importantly---a permissive genotype space in which the LLM is free to drift across
+pricing rules. That permissiveness is what makes Pass~1 a useful sanity check, but it
+also leaves two soft spots. First, when offspring can carry any pricing rule, the
+generator occasionally emits a rule text that disagrees with its own genotype (a
+``first-price'' record described to bidders as paying the second-highest bid), and
+nothing in Pass~1 catches it before the mice bid. Second, the ranking has not been
+checked against a stronger model, so a winner could be an artifact of the small
+search model. Pass~2 closes both gaps: it locks the scope to a single first-price
+cell, adds semantic validators that reject inconsistent or out-of-scope candidates
+\emph{before} evaluation, and re-scores survivors on a stronger held-out model.
+
+\subsection{Pass 2: a hardened, scope-locked first-price search}
+\label{sec:scopelocked}
+
+Pass~2 asks a sharper question than Pass~1: holding the mechanism \emph{class} fixed
+at first-price IPV, what does the panel-driven search prefer \emph{within} that
+class, once the pipeline is clean enough that every ranked candidate is a genuine,
+well-formed first-price auction? Fixing the class is what makes the question
+answerable---differences in the ranking can no longer be confounded by a candidate
+having silently become a different mechanism.
+
+\paragraph{Scope lock and semantic validators.} A genotype-scope constraint
+(\texttt{first\_price\_ipv}) restricts the executable search to the target cell:
+IPV with three bidders, sealed-bid, highest-bid-wins, first-price payment, no
+reserve, no binary accept/reject. Mutation and crossover may still edit the
+\emph{executable} first-price dimensions---bid language, description style, scaffold,
+feedback---but cannot mutate into a different payment rule or value environment. On
+top of the scope lock, a chain of semantic validators screens every candidate
+\emph{before} it reaches a mouse: a phenotype-consistency check that the generated
+rule text agrees with the genotype; a strict dry-render that catches unresolved
+template variables before the text is shown to bidders; a payment-rule detector that
+rejects rule text without a clear first-price cue or with second-/third-price
+wording presented as the actual rule; and an action-interface check that the rule
+exposes a numeric-bid action (rejecting binary accept/reject in this version).
+Crucially, these validators police the \emph{mechanism}, not the \emph{mouse}: a
+bounded-rationality strain that \emph{believes} ``the winner pays the second-highest
+bid'' while playing a first-price auction is a measured cognitive failure and is
+preserved, not filtered.
+
+\paragraph{The run.} Under this hardened pipeline we ran $24$ individuals for $2$
+generations on \texttt{gpt-5.4-mini} (seed $20260531$), scored against the same
+strict $5$-mouse panel with $2$ repetitions per mouse. Strict validation and a
+fraction of remote-inference failures mean not every candidate slot completes: the
+run yielded $44$ valid, fully scored mechanisms ($8$ in gen-$0$, $17$ in gen-$1$,
+$19$ in gen-$2$) from $440$ raw evaluated mouse decisions. We treat these $44$ as a
+diagnostic population, not a final leaderboard---the completion rate is itself one of
+the findings.
+
+\paragraph{What the search prefers.} Figure~\ref{fig:scopelocked} and
+Table~\ref{tab:scopelocked} report the result. The scope lock held: no evaluated
+mechanism drifted into second-price, third-price, posted-price, all-pay,
+common-value, or binary accept/reject; candidates that tried to drift were rejected
+before evaluation. Within the clean first-price neighborhood, the top of the ranking
+concentrates on \emph{grid and scaffolded} first-price designs rather than the
+continuous-bid design that led Pass~1---the best is a short-hinted first-price
+sealed-bid grid at $F_{\mathrm{robust}}=3.23$. Two features of the population explain
+the ranking. Allocative efficiency is uniformly high (mostly $\geq0.95$), so it does
+\emph{not} separate good from bad candidates; what discriminates is the
+\emph{worst-persona} lower tail, which collapses toward $0.1$ for the
+negative-fitness mechanisms while the mean stays high (Figure~\ref{fig:scopelocked},
+right). Robust fitness here is almost entirely a story about the lower tail, not the
+average---exactly the behavior the tail-adjusted objective~\eqref{eq:frobust} was
+built to reward.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig8.pdf}
+\caption{Hardened, scope-locked first-price search ($44$ valid candidates against the
+strict $5$-mouse panel, \texttt{gpt-5.4-mini}). Left: the $44$ candidates ranked by
+robust fitness and colored by bid-language family; grid and scaffolded variants lead,
+and a long negative tail of mechanisms is penalized. Right: mean allocative
+efficiency (grey) stays uniformly high across the population, while the worst-persona
+efficiency (red) fans down for low-fitness mechanisms---the lower tail, not the mean,
+drives the score.}
+\label{fig:scopelocked}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Top-five mechanisms from the hardened, scope-locked first-price search,
+ordered by robust fitness. All are first-price by construction; the leaders are grid
+or menu/scaffolded variants. ``Intended-action rate'' is the share of bids landing in
+the declared target band; it is low and roughly flat across the leaders, so it is not
+what separates them---the worst-persona efficiency tail is.}
+\label{tab:scopelocked}
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}rlrrrr@{}}
+\toprule
+Rank & Mechanism (bid language) & $F_{\mathrm{robust}}$ & Intended-action & Revenue & Efficiency \\
+\midrule
+1 & fpsb grid, short hint   & $3.23$ & $0.33$ & $27.10$ & $0.99$ \\
+2 & first-price grid        & $3.21$ & $0.27$ & $27.90$ & $0.99$ \\
+3 & first-price discrete grid & $3.20$ & $0.37$ & $28.50$ & $0.99$ \\
+4 & fpsb continuous menu    & $3.19$ & $0.37$ & $26.27$ & $0.99$ \\
+5 & first-price sealed-bid  & $3.13$ & $0.37$ & $28.12$ & $0.93$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Portability against a stronger model.} A high score on the small search
+model is only worth keeping if it survives a stronger one. We therefore re-score
+survivors on a stronger held-out model and report a \emph{portability-adjusted}
+fitness, $F_{\mathrm{port}} = F_{\mathrm{mini}} - \max(0,\,F_{\mathrm{mini}} -
+F_{\mathrm{full}})$, which equals the smaller of the two robust fitnesses and so
+demotes any candidate that collapses under the stronger model. Most leaders are
+stable---a BNE-hinted first-price design scores $3.21$ on the search model and $3.27$
+on the stronger model (no penalty), and first-price continuous moves $3.07
+\rightarrow 3.34$ (no penalty). The check earns its keep on the failures: a
+coarse-grid first-price design that looks strong on the search model
+($F_{\mathrm{mini}}=3.07$) collapses on the stronger model ($F_{\mathrm{full}}=-1.29$),
+a penalty of $4.36$ that pushes its portability-adjusted fitness to $-1.29$. Coarse
+grids, it turns out, work only because the smaller model coordinates on a convenient
+grid point; the stronger model does not, and the design's apparent robustness
+evaporates.
+
+\paragraph{Caveats, and why we have not scaled yet.} Three limits keep this a
+diagnostic pass. (i)~Action-space enforcement is still only at the rule-text level:
+the validators check that a grid is \emph{described}, but the current runner and
+scorer would accept any numeric bid, so grid-versus-continuous revenue and simplicity
+differences are not yet enforced where they are measured. (ii)~Completion is partial
+($44$ of the $72$ candidate slots), a mix of strict-validator rejections and remote
+failures, so the ranking is a guide, not a verdict. (iii)~The grid leaders are
+promising but not yet cleanly comparable to continuous designs until enforcement
+moves into the runner. For these reasons we deliberately did \emph{not} launch a
+larger EA on this result. The next engineering step is runner/scorer-level
+action-interface enforcement and an explicit action-compliance penalty, after which
+the same first-price scope can be rerun at scale and only the finalists carried to a
+full-model portability test.
 
 \section{Discussion}
 \label{sec:discussion}
