@@ -12,6 +12,8 @@
 \usepackage[round,authoryear]{natbib}
 \usepackage[hidelinks]{hyperref}
 \usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
 
 \captionsetup{font=small,labelfont=bf,width=.95\textwidth}
 \setlength{\parindent}{1.6em}
@@ -26,164 +28,265 @@
 
 \begin{abstract}
 \noindent Early-stage mechanism design is a phase-I science: the relevant
-behavior is human cognition, so designers must run experiments on people
-before they can learn which mechanisms are robust to bounded rationality. We
-ask whether frontier reasoning models can serve as the economist's analogue of
-the laboratory mouse---capable reasoners instructed into specific, controlled
-cognitive deficits whose behavior can be studied before human subjects are
-recruited. Using a canonical second-price sealed-bid auction (SPSB) and a
-$3\times 3\times 3$ panel of \emph{digital mice} defined over three cognitive
-axes (contingent reasoning, forward planning, belief reasoning), we establish
-three facts. First, the deficits have \emph{construct validity}: repairing each
-axis moves truthful bidding in the theory-predicted direction, monotonically
-and with the predicted sign in all five pre-registered directional tests.
-Second, the panel---augmented by a small set of targeted error strains---attains
-\emph{calibration coverage}: it reproduces all five canonical SPSB human-mistake
-classes (truthful, moderate underbidding, overbidding, extreme overbidding,
-and near-zero bidding) at rates above their detection thresholds. Third, the
-panel is \emph{discriminating}: in a first-price sealed-bid stress test the
-reasoning strains track the risk-neutral Bayes--Nash benchmark ($b=\tfrac23 v$),
-overbid relative to it at the rate documented for human subjects, and a strain
-that overgeneralizes the second-price payment rule overbids above value and
-loses money---a mechanistic account of a winner's-curse pathology. We also show
-that augmenting the deficit instruction with a worked chain-of-thought
-demonstration sharpens and stabilizes the induced behavior, and that at the
-strain level four of five reserved deficits preserve their behavioral class
-across base models. Finally, when we let the panel drive an evolutionary search
-over a structured genotype space of single-item auctions ($24$ individuals,
-$2$ generations, $480$ raw bidder-decisions), the search improves the best
-fitness across generations and concentrates the top of the population on
-canonical sealed-bid designs, with first-price continuous emerging on top---the
-same mechanism the a-priori stress test selected. These results support the use
-of instructed-deficit language models as a phase-I screening population for
-mechanism design.
+behavior is human cognition, so designers must run experiments on people before
+they can learn which mechanisms are robust to bounded rationality. Frontier
+language models are an appealing in-silico substitute, but a documented failure
+of LLM ``digital twins'' is that they are systematically \emph{too} rational and
+too model-dependent to stand in for the full distribution of human behavior. We
+turn this distortion into an instrument. Rather than asking a model to reproduce
+the human population, we start from a capable reasoning substrate and instruct
+it---through explicit procedural constraints on its deliberation---into specific,
+controlled cognitive deficits: \emph{digital mice}, the economist's analogue of
+the knockout laboratory mouse. Using a canonical second-price sealed-bid auction
+(SPSB) and a $3\times3\times3$ panel defined over three cognitive axes
+(contingent reasoning, forward planning, belief reasoning), we establish four
+facts. First, the deficits have \emph{construct validity}: engaging each axis
+moves truthful bidding in the theory-predicted direction, monotonically and with
+the predicted sign in all five pre-registered directional tests. Second, the
+panel---augmented by a small set of targeted error strains---attains
+\emph{calibration coverage} in the sense of support: it can express all five
+canonical SPSB human-mistake classes above a-priori detection floors. Third, an
+audit of the models' own reasoning chains shows the induction is real but
+\emph{leaky}: a deficit instruction that forbids contingent reasoning still lets
+the model reconstruct the dominance argument $41\%$ of the time, which both
+explains and is mitigated by a hardened (``strict'') prompt and worked
+demonstrations. Fourth, the panel is \emph{externally discriminating}: in a
+first-price stress test the reasoning strains track the risk-neutral
+Bayes--Nash benchmark ($b=\tfrac23 v$) and overbid relative to it at the
+documented human rate, while a strain that overgeneralizes the second-price
+payment rule bids above value and loses money---a mechanistic winner's-curse
+pathology---and four of five reserved strains preserve their behavioral class
+across base models. Finally, when the panel drives an evolutionary search over a
+structured space of single-item auctions, the search improves fitness and
+elevates first-price sealed-bid to the top of the population, agreeing with the
+a-priori stress test; a transparent re-ranking by scaled deviation from each
+mechanism's own optimum tells the complementary story that second-price is
+easiest to bid in optimally. These results support instructed-deficit language
+models as a phase-I screening population for mechanism design, to be validated
+against human experiments rather than treated as a substitute for them.
 
 \vspace{0.6em}
 \noindent\textit{Keywords:} bounded rationality, mechanism design, second-price
-auctions, large language models, construct validity.
+auctions, large language models, construct validity, integrative experiments.
 \end{abstract}
 
 \section{Introduction}
+\label{sec:intro}
 
 Medicine studies humans, but it does not begin with them. Much early drug
 testing starts with mice, and some of those mice are deliberately engineered to
-lack a specific protein, receptor, or channel. The deficit is not a nuisance;
-it is the identification strategy. If a treatment succeeds or fails only when a
-particular channel is removed, the experiment isolates a mechanism that is
-entangled in an intact organism.
+lack a specific protein, receptor, or channel. The deficit is not a nuisance; it
+is the identification strategy. If a treatment succeeds or fails only when a
+particular channel is knocked out, the experiment isolates a mechanism that would
+be entangled in an intact organism. Mechanism design has lacked this luxury. The
+behavior of interest---contingent reasoning, forward planning, belief formation,
+strategic sophistication---is bundled in real subjects. A bidder who fails to bid
+truthfully in a strategy-proof auction may lack contingent reasoning, may fail to
+plan forward, may hold incorrect beliefs about rivals, or may simply misunderstand
+the rule. Natural and laboratory experiments rarely deliver a population missing
+exactly one cognitive module, so the empirical content of theories such as
+obvious strategy-proofness \citep{li2017}, cursed equilibrium
+\citep{eysterrabin2005}, and level-$k$ reasoning \citep{crawfordiriberri2007} is
+hard to separate.
 
-Economics has lacked this luxury. The behavior of interest in mechanism design
-is human cognition---contingent reasoning, forward planning, belief formation,
-and strategic sophistication---and these channels are bundled in real subjects.
-A bidder who fails to bid truthfully in a strategy-proof auction may lack
-contingent reasoning, may fail to plan forward, may hold incorrect beliefs
-about rivals, or may simply misunderstand the rule. Natural and laboratory
-experiments rarely deliver a population missing exactly one cognitive module,
-so the empirical content of theories such as obvious strategy-proofness
-\citep{li2017}, cursed equilibrium \citep{eysterrabin2005}, and level-$k$
-reasoning \citep{crawfordiriberri2007} is hard to separate.
+Large language models have been proposed as simulated economic subjects that
+could fill this gap, generating experimental data in silico before human subjects
+are recruited \citep{horton2023large,manning2024automated}. The promise is real,
+but so is a now well-documented hazard. \citet{peng2025funhouse} show that
+LLM ``digital twins'' distort the populations they are meant to mirror along five
+systematic axes; one of these is \emph{hyper-rationality}---the strongest current
+reasoning models are, in simple games, often closer to a fully rational agent than
+an ordinary human subject---and another is heavy dependence on the particular base
+model. Faithfully reproducing the entire distribution of human behavior with such
+a twin is therefore both unattainable and fragile, which counsels against treating
+an LLM as a drop-in replica of a human population.
 
-Large language models change the experimental object. The strongest current
-reasoning models are, in simple games, often closer to a fully rational agent
-than an ordinary subject: they follow long chains of reasoning and compute
-through cases. That capability is precisely what makes them useful here. We
-start from a capable reasoning substrate and instruct it to ``play dumb'' in a
-controlled way---reason only myopically, enumerate only local contingencies,
-ignore second-order beliefs---through explicit procedural constraints on its
+Our approach turns hyper-rationality from a bug into the instrument. We do not ask
+a model to match the human distribution. Instead we start from the capable,
+hyper-rational substrate and instruct it to ``play dumb'' in a controlled
+way---reason only myopically, enumerate only local contingencies, ignore
+second-order beliefs---through explicit procedural constraints on its
 deliberation, not through dependence on hidden quirks of one model. This yields
 \emph{digital mice}: language-model agents with specific, engineered cognitive
-deficits.
+deficits. The deficit is induced by rationing which reasoning steps the model may
+use, while leaving its objective (maximize profit) intact, exactly as a knockout
+removes one faculty while leaving the organism otherwise whole.
 
-\paragraph{Research question.} Can a frontier reasoning model be instructed
-into stable, separable bounded-rationality states that (i) produce the
-behavioral signatures predicted by cognitive theory and (ii) span the
-empirically documented space of human mistakes, in a canonical second-price
-sealed-bid auction?
+\paragraph{Research question.} Can a frontier reasoning model be instructed into
+stable, separable bounded-rationality states that (i) produce the behavioral
+signatures predicted by cognitive theory and (ii) span the empirically documented
+space of human mistakes, in a canonical second-price sealed-bid auction---and can
+such a panel then screen candidate mechanisms for robustness to bounded
+rationality?
 
-\paragraph{Contribution.} We answer both halves affirmatively for the SPSB
-environment. Over a $3\times 3\times 3$ panel of $27$ strains ($810$
-bidder-decisions), repairing each cognitive axis raises the truthful-bid rate
-by $+0.23$ (contingent reasoning), $+0.14$ (forward planning), and $+0.05$
-(belief reasoning); all five pre-registered directional hypotheses pass their
-sign test. The panel, augmented by two targeted error strains, covers all five
-canonical SPSB human-mistake classes at rates above threshold. Third, in a
-first-price stress test the reasoning strains shade to the risk-neutral BNE
-($b=\tfrac23 v$, median ratios $0.65$--$0.67$) and overbid relative to it at
-$38\%$, while the second-price-overgeneralizer mouse bids above value and loses
-money. Along the way we show that a worked chain-of-thought demonstration is a
-stronger control than instruction alone---it drives the all-deficit strain's
-truthful rate from $0.39$ to $0$ and the all-repaired strain's to a perfect $1.0$
-while lowering bid dispersion---and that four of five reserved deficits keep their
-behavioral class across base models. As a last check, an evolutionary search
-that uses $F_{\mathrm{robust}}$ on the digital-mouse panel as its fitness over a
-structured single-item-auction genotype space independently elevates first-price
-sealed-bid designs to the top of the population, agreeing with the a-priori
-choice. We are explicit about a boundary of the construction: the clean procedural basis naturally produces truthful and
-underbidding behavior but not overbidding, which we recover with a small number
-of hand-specified heuristic strains. We treat the digital-mouse panel as phase-I
-screening evidence, not as a prediction of human population shares.
+\paragraph{An integrative-experiment design.} Rather than run a single experiment,
+we define a \emph{space} and sample it, in the spirit of integrative experiment
+design \citep{almaatouq2024,alsobay2025integrative}. There are two spaces. The
+first is cognitive: a $3\times3\times3$ panel that crosses three cognitive axes at
+three levels each, yielding $27$ strains. The second is institutional: a
+structured genotype space of single-item auctions over which an evolutionary
+search can move. Figure~\ref{fig:pipeline} lays out the full pipeline---from a
+base model, to instructed deficits, to auction environments, to behavioral
+measurement, to a panel-based fitness that drives mechanism search and, finally,
+to human validation.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\footnotesize,>=Latex,
+  node distance=0.95cm and 1.0cm,
+  box/.style={draw,rounded corners,align=center,inner sep=4pt,
+              minimum height=3.6em,text width=8.6em}]
+\node[box] (b1) {Capable reasoning LLM\\(rational / strict base)};
+\node[box,right=of b1] (b2) {Cognitive-style block\\contingent $\times$ forward\\$\times$ belief (levels 0/1/2)};
+\node[box,right=of b2] (b3) {Digital-mouse panel\\27 strains $+$ error mice};
+\node[box,below=of b3] (b4) {Auction environments\\SPSB and FPSB};
+\node[box,below=of b2] (b5) {Behavioral signatures \&\\SMAD: construct validity,\\calibration, reasoning audit};
+\node[box,below=of b1] (b6) {Panel robustness fitness\\$\to$ mechanism search\\$\to$ human validation};
+\draw[->] (b1)--(b2);\draw[->] (b2)--(b3);\draw[->] (b3)--(b4);
+\draw[->] (b4)--(b5);\draw[->] (b5)--(b6);
+\end{tikzpicture}
+\caption{The digital-mouse pipeline. A capable reasoning model is instructed into
+a panel of controlled cognitive deficits (top row); the panel is run in auction
+environments and its behavior is measured against theory (bottom right); the
+resulting panel-based robustness objective drives a search over auction
+mechanisms, whose output is a short list of candidate mechanisms for
+human-subject validation (bottom left).}
+\label{fig:pipeline}
+\end{figure}
+
+\paragraph{Contribution.} We answer the question affirmatively for the SPSB
+environment and demonstrate the screening loop. (1)~\emph{Construct validity.}
+Over the $27$-strain panel ($810$ bidder-decisions), engaging each cognitive axis
+raises the truthful-bid rate by $+0.23$ (contingent reasoning), $+0.14$ (forward
+planning), and $+0.05$ (belief reasoning); all five pre-registered directional
+hypotheses pass their sign test. (2)~\emph{Calibration coverage.} Augmented by two
+targeted error strains, the panel expresses all five canonical SPSB mistake
+classes above their detection floors. (3)~\emph{Reasoning audit.} Parsing the
+models' logged reasoning shows the deficit instruction works in the right
+direction but leaks: contingent-off strains still reconstruct the dominance
+argument $41\%$ of the time (versus $77\%$ when contingent reasoning is engaged),
+which motivates a hardened prompt and worked demonstrations. (4)~\emph{External
+validity.} In a first-price stress test the reasoning strains shade to the
+risk-neutral BNE ($b=\tfrac23 v$, median ratios $0.65$--$0.67$) and overbid
+relative to it at $38\%$, while a second-price-overgeneralizer mouse bids above
+value and loses money; four of five reserved strains preserve their behavioral
+class across base models. (5)~\emph{Mechanism search.} An evolutionary search that
+scores candidates on the panel independently elevates first-price sealed-bid to
+the top of the population---the same mechanism the a-priori stress test
+selected---and a transparent re-ranking by deviation from each mechanism's own
+optimum shows that second-price, by contrast, is the easiest mechanism to bid in
+optimally. We are explicit about a boundary: the clean procedural basis naturally
+produces truthful and underbidding behavior but not overbidding, which we recover
+with a small number of hand-specified heuristic strains, and we treat the panel as
+phase-I screening evidence rather than a prediction of human population shares.
+
+\paragraph{Roadmap.} Section~\ref{sec:panel} constructs the digital-mouse panel.
+Section~\ref{sec:design} gives the experimental design and the outcome variables,
+including the deviation metric (SMAD) and the panel-based robustness objective.
+Sections~\ref{sec:construct} and~\ref{sec:calibration} report construct validity
+and calibration coverage. Section~\ref{sec:audit} audits the reasoning chains, and
+Section~\ref{sec:cot} shows that worked demonstrations sharpen induction.
+Section~\ref{sec:external} is the external-validity chapter: the first-price stress
+test, a map from deficits to human error theories, and cross-model portability.
+Section~\ref{sec:ea} drives an evolutionary mechanism search with the panel.
+Section~\ref{sec:discussion} discusses limits (including the digital-twin
+distortions), Section~\ref{sec:validation} lays out a path to human validation, and
+Section~\ref{sec:conclusion} concludes. Appendix~\ref{app:prompts} gives the full
+prompts; Appendix~\ref{app:direct} specifies a planned outcome-instruction
+robustness check.
 
 \section{The Digital-Mouse Panel}
+\label{sec:panel}
 
 \subsection{Construction: a rational base plus a deficit instruction}
 
-A digital mouse is a single prompt assembled from two layers. The first layer,
-the \emph{rational base}, is identical across all strains and instructs the
-model to play the auction as a long-run profit maximizer:
+A digital mouse is a single prompt assembled from two layers. The first layer, the
+\emph{base}, is identical across all strains in a variant and fixes the objective.
+The second layer, the \emph{cognitive-style block}, appends exactly one paragraph
+per cognitive axis, each constraining the model's deliberation \emph{procedure}
+(not its objective) at one of three levels. The intervention is therefore a
+reasoning-procedure control, analogous to knocking out one faculty while leaving
+the organism's goal intact.
 
+\paragraph{Two base layers, and why the strict one is the workhorse.} The natural
+first base simply makes profit the top priority:
 \begin{quote}\small\itshape
 Your TOP PRIORITY is to place bids which maximize your profit in the long run.
-Learn from the history of previous rounds in order to maximize your total
-profit. Don't forget the values are redrawn independently each round.
+Learn from the history of previous rounds in order to maximize your total profit.
+Don't forget the values are redrawn independently each round.
 \end{quote}
+This \emph{standard} base has a defect that matters for our purpose: it leaves room
+for a very capable model to ``see through'' an assigned deficit and revert to the
+optimal strategy, because the instruction it is told to prioritize (maximize
+profit) points straight at the dominant strategy. We document this leakage directly
+in Section~\ref{sec:audit}. We therefore also build a \emph{strict} base that
+inverts the priority and explicitly forbids the dominance shortcut:
+\begin{quote}\small\itshape
+You are acting as a digital mouse with a specified cognitive procedure. Your TOP
+PRIORITY is to follow the cognitive procedure exactly\,\dots\ if the cognitive
+procedure conflicts with the profit-maximizing strategy, the cognitive procedure
+wins. \dots\ Do not invoke auction theorems, dominant-strategy labels, or Vickrey
+truth-telling shortcuts unless the allowed procedure below gives you enough
+reasoning steps to derive them.
+\end{quote}
+The strict base is the workhorse for any analysis that must hold a deficit fixed
+against a capable model---the cross-model and evolutionary-search results of
+Sections~\ref{sec:external} and~\ref{sec:ea}. The construct-validity and
+calibration results of Sections~\ref{sec:construct}--\ref{sec:calibration} use the
+standard base, which we report transparently; the reasoning audit
+(Section~\ref{sec:audit}) is precisely the evidence that motivates migrating the
+whole battery to the strict base, a re-run we flag rather than assume.
 
-The second layer, \emph{defect induction}, appends a ``cognitive style'' block
-containing exactly one paragraph per cognitive axis. Each paragraph constrains
-the model's deliberation \emph{procedure}---not its objective---at one of three
-levels. The intervention is therefore a reasoning-procedure control rather than
-a payoff or preference change. Concretely, the contingent-reasoning axis ranges
-from a level-0 paragraph that forbids reasoning about opponents to a level-2
-paragraph that mandates a worst-case/dominance check:
-
+\paragraph{The three axes.} Each axis paragraph ranges from a level-0 ablation
+that forbids a class of reasoning to a level-2 paragraph that mandates it. For the
+contingent-reasoning axis:
 \begin{quote}\small
-\textbf{Contingent reasoning, level 0 (deficit).}\itshape{} Do NOT enumerate
-possible bids by other bidders or compute best responses to specific opponent
-moves. Choose your bid without conditioning on what others might do.
+\textbf{Contingent reasoning, level 0 (ablated).}\itshape{} Do NOT enumerate
+possible opponent bids, best responses, dominance cases, or theorems about
+opponent-independent optimal bids. Treat the auction as a fixed environment and
+choose from a simple own-value rule.
 \end{quote}
 \begin{quote}\small
-\textbf{Contingent reasoning, level 2 (repaired).}\itshape{} For each possible
-bid you could make, consider the worst-case outcome given the range of possible
-opponent bids. Find the bid where even the worst-case outcome is acceptable. If
-you deviated from this bid, could the worst case become worse?
+\textbf{Contingent reasoning, level 2 (engaged).}\itshape{} You may compare
+candidate bids across the full range of opponent bids, including worst-case and
+dominance-style reasoning. If one bid is robust across all cases, use it.
 \end{quote}
+\noindent The forward-planning axis runs from ``do not trace consequences''
+(a fixed margin-of-safety underbid) to a multi-step decision tree, and the
+belief-reasoning axis from ``do not model others'' to explicit second-order
+beliefs; the full text is in Appendix~\ref{app:prompts}. A strain is the base plus
+a triple $(c,f,b)\in\{0,1,2\}^3$. The all-ablated triple $(0,0,0)$ is the most
+deficient mouse; the all-engaged triple $(2,2,2)$ is closest to the rational base.
+To avoid overloading the word ``repair,'' we reserve it for its prompt-level
+meaning---a capable model spontaneously \emph{repairing} its own assigned deficit,
+the failure mode of Section~\ref{sec:audit}---and use ``engage'' for the analyst's
+act of moving an axis from level 0 to level 2.
 
-\noindent The forward-planning and belief-reasoning axes are constructed the
-same way (from ``do not trace consequences'' to a multi-step decision tree, and
-from ``do not model others'' to explicit second-order beliefs). A strain is thus
-the rational base plus a triple $(c,f,b)\in\{0,1,2\}^3$ that selects one
-paragraph for each axis. The all-off triple $(0,0,0)$ is the most deficient
-mouse; the all-repaired triple $(2,2,2)$ is closest to the rational base.
-
-\subsection{The $3\times 3\times 3$ grid}
+\subsection{The $3\times3\times3$ grid}
 
 Varying three axes at three levels each gives the $27$-strain panel of
-Table~\ref{tab:panel}. A useful intuition: the rational base supplies the
-\emph{goal} (maximize profit), and the cognitive-style block rations the
-\emph{reasoning steps} the mouse is allowed to use to pursue it. A mouse told
-not to enumerate opponents, not to trace payoffs, and not to model others must
-fall back on a crude own-value heuristic; a mouse granted all three faculties
-can in principle reconstruct the dominant strategy.
+Table~\ref{tab:panel}. The base supplies the \emph{goal} (maximize profit) and the
+cognitive-style block rations the \emph{reasoning steps} the mouse may use to
+pursue it. A mouse told not to enumerate opponents, not to trace payoffs, and not
+to model others must fall back on a crude own-value heuristic; a mouse granted all
+three faculties can in principle reconstruct the dominant strategy---which, in this
+second-price environment, is truthful bidding. (We are careful with this claim: a
+dominant strategy exists \emph{here} because the mechanism is strategy-proof; in
+the first-price environment of Section~\ref{sec:external} there is no dominant
+strategy, only a Bayes--Nash best response, and we phrase the benchmark
+accordingly.)
 
 \begin{table}[t]
 \centering
-\caption{The $3\times 3\times 3$ digital-mouse panel. Each strain is one
-combination of axis levels; the lowest level is the engineered deficit.}
+\caption{The $3\times3\times3$ digital-mouse panel. Each strain is one combination
+of axis levels; level 0 is the engineered (ablated) deficit, level 2 the engaged
+faculty.}
 \label{tab:panel}
 \small
 \setlength{\tabcolsep}{5pt}
 \begin{tabular}{@{}llll@{}}
 \toprule
-Axis & Level 0 (deficit) & Level 1 & Level 2 (repaired) \\
+Axis & Level 0 (ablated) & Level 1 & Level 2 (engaged) \\
 \midrule
 Contingent reasoning & no enumeration & enumerate cases & worst-case / dominance \\
 Forward planning     & myopic & one-step lookahead & tree / multi-step \\
@@ -192,86 +295,124 @@ Belief reasoning     & no model of others & first-order beliefs & second-order b
 \end{tabular}
 \end{table}
 
-\paragraph{Hardening the base (strict variant).} The base layer above makes
-profit maximization the top priority, which leaves room for a very capable model
-to ``see through'' a deficit and revert to the optimal strategy. For the
-cross-model analysis of Section~6 we therefore also build a \emph{strict}
-variant whose base layer inverts the priority---``follow the cognitive procedure
-exactly\,\dots\ if the cognitive procedure conflicts with the profit-maximizing
-strategy, the cognitive procedure wins''---and explicitly forbids invoking
-dominant-strategy or Vickrey shortcuts. The strict variant is used only where
-noted; all construct-validation and calibration results use the standard panel.
-
 \section{Experimental Design and Methodology}
+\label{sec:design}
 
 \paragraph{Environment.} The mechanism is a single-item second-price sealed-bid
-auction with $N=3$ bidders. Private values are drawn independently and
-uniformly on $[0,50]$; each bidder observes only its own value and submits one
-sealed bid on a \$0.1 grid. Under standard preferences truthful bidding is a
-weakly dominant strategy, which makes truthfulness a clean construct-validity
-target: a more capable mouse should bid closer to its value.
+auction with $N=3$ bidders. Private values are drawn independently and uniformly on
+$[0,50]$; each bidder observes only its own value and submits one sealed bid on a
+\$0.1 grid. Under standard preferences truthful bidding is a weakly dominant
+strategy, which makes truthfulness a clean construct-validity target: a more
+capable mouse should bid closer to its value.
 
-\paragraph{Strains and runs.} We instantiate all $27$ basis strains with the
-same base model (\texttt{gpt-5.4-mini}, temperature $0.5$) and collect $30$
-bidder-decisions per strain ($810$ in total). Because the clean procedural
-basis does not naturally generate \emph{overbidding}, we additionally author a
-small set of targeted \emph{error mice}---heuristic strains designed to express
-one documented mistake each (e.g.\ a ``second-price overgeneralizer'' that
-treats bidding above value as safe because the winner pays the runner-up bid,
-and a ``payment panic'' strain that bids near zero). Seven error strains are
-specified; two had completed runs at the time of this analysis and feed the
-calibration scorecard below.
+\paragraph{Strains and runs.} We instantiate all $27$ basis strains with the same
+base model (\texttt{gpt-5.4-mini}, temperature $0.5$) and collect $30$
+bidder-decisions per strain ($810$ in total). Because the clean procedural basis
+does not naturally generate \emph{overbidding} (explained next), we additionally
+author a small set of targeted \emph{error mice}.
 
-\paragraph{Behavioral classes.} For each bidder-decision we record the bid, the
-value, and the deviation $b-v$. We define a truthful bid as $|b-v|\le 0.05$,
-moderate underbidding as $b<v-0.05$ (excluding near-zero bids), overbidding as
-$b>v+0.05$, extreme overbidding as $b-v\ge 5$, and near-zero bidding as
-$b\le 0.1$ with $v>5$. These thresholds operationalize the five canonical SPSB
-mistake classes used in the calibration step.
+\paragraph{How the error mice are built, and why they are needed.} A procedural
+deficit rations \emph{how many} reasoning steps a mouse may take but leaves its
+goal---maximize profit---intact. Rationing steps can only make a profit-seeking
+bidder \emph{more cautious}: it produces truthful bidding (when enough steps remain
+to find the dominant strategy) or underbidding (a margin-of-safety fallback), but
+it has no route to systematic \emph{overbidding}, which requires a positively wrong
+belief rather than a missing reasoning step. Overbidding is, however, a first-order
+regularity in human auctions \citep{kagellevin1993}. We therefore author error
+mice as small heuristic strains, each expressing one documented content error.
+Two have completed runs and feed the scorecard below. The
+``second-price overgeneralizer'' is built from a single mistaken shortcut:
+\begin{quote}\small\itshape
+You strongly focus on the fact that the winner pays the second-highest bid, not
+their own bid. Overgeneralize this rule: treat bidding above your value as mostly
+safe because you expect not to pay your own bid.
+\end{quote}
+and the ``payment panic'' mouse from a fear of its own bid:
+\begin{quote}\small\itshape
+You are afraid that your bid is the amount you might have to pay\,\dots\ choose the
+smallest positive bid allowed by the auction grid\,\dots\ Even if your value is
+high, protect yourself by bidding 0.1 rather than trying to win.
+\end{quote}
+Both use the strict framing (``follow the cognitive style even if a more careful
+strategy is available''). The distinction between the procedural basis and the
+authored error mice is an honest construct-validity boundary, not a patch: the
+basis cleanly demonstrates that \emph{rationing reasoning} reproduces the
+cautious-mistake half of the space, and the error mice show that the
+\emph{remaining} half requires injecting a specific wrong belief.
 
-\subsection{Outcome variables and the robustness objective}
+\paragraph{Behavioral classes.} For each bidder-decision we record the bid $b$,
+the value $v$, and the deviation $b-v$. A truthful bid is $|b-v|\le 0.05$; moderate
+underbidding is $b<v-0.05$ (excluding near-zero bids); overbidding is $b>v+0.05$;
+extreme overbidding is $b-v\ge 5$; near-zero bidding is $b\le 0.1$ with $v>5$.
+These operationalize the five canonical SPSB mistake classes scored in
+Section~\ref{sec:calibration}.
+
+\subsection{Outcome variables, a deviation metric, and the robustness objective}
 \label{sec:fitness}
 
-We now define the panel-based objective used to score mechanisms in Section~6.
-Fix a mechanism and a persona panel $\mathcal{P}=\{p_1,\dots,p_M\}$, and run
-$R$ independent auctions per persona. Index the resulting completed auctions by
-$a\in\mathcal{A}$, with $\mathcal{A}_p$ the subset run under persona $p$. Each
-auction has $N=3$ bidders with private values $v_{a,i}$ and elicited bids
-$b_{a,i}$; the winner is $i^\star(a)=\arg\max_i b_{a,i}$ and the mechanism's
-pricing rule sets the payment $\rho(a)$ (the second-highest bid under SPSB, the
-own bid under all-pay, and so on). Let $A_{\text{att}}$ be the number of
-\emph{attempted} auctions and $F$ the number that fail to parse or violate the
-response format, so the failure rate is $\phi = F/A_{\text{att}}$.
+We use two kinds of summary. The first, SMAD, is a single transparent scalar that
+answers ``how close do bidders come to this mechanism's own optimum?'' The second,
+$F_{\mathrm{robust}}$, is a composite that the evolutionary search of
+Section~\ref{sec:ea} optimizes. We introduce both here and use SMAD as the
+interpretable lens on the composite later.
 
-\paragraph{Per-auction quantities.} Write $v^{\max}_a=\max_i v_{a,i}$. We use
-allocative efficiency, a bid-shading dispersion, and realized winner surplus:
+\paragraph{SMAD: scaled deviation from a mechanism's own optimum.} Many mechanisms
+declare a benchmark bid $b^\star(v)$ that a correctly reasoning bidder should
+submit: $b^\star=v$ for second-price (truthful), $b^\star=\tfrac{n-1}{n}v$ for
+first-price, and so on. Define
+\begin{equation}
+\mathrm{SMAD}=100\cdot\frac{\operatorname{mean}_a|b_a-b^\star(v_a)|}
+{\operatorname{mean}_a|b^\star(v_a)|},
+\label{eq:smad}
+\end{equation}
+the mean absolute deviation of realized bids from the mechanism's own optimum,
+expressed as a percentage of the mean optimal bid. Lower is better; SMAD is
+undefined for mechanisms with no scalar benchmark (e.g.\ posted-price
+binary-accept). Unlike the composite below, SMAD lives on one interpretable scale,
+which is why we use it in Section~\ref{sec:ea} as a cross-check.
+
+\paragraph{Per-auction quantities, and why we keep them separate.} Fix a mechanism
+and a persona panel $\mathcal{P}=\{p_1,\dots,p_M\}$ and run $R$ independent auctions
+per persona. Index completed auctions by $a\in\mathcal{A}$, each with $N=3$ bidders,
+values $v_{a,i}$, bids $b_{a,i}$, winner $i^\star(a)=\arg\max_i b_{a,i}$, and
+payment $\rho(a)$ set by the pricing rule. With $v^{\max}_a=\max_i v_{a,i}$,
 \begin{equation}
 \mathrm{eff}(a)=\frac{v_{a,i^\star(a)}}{v^{\max}_a},
 \qquad
 s(a)=\operatorname{std}_{\,i:\,v_{a,i}>0}\!\left(\frac{b_{a,i}}{v_{a,i}}\right),
 \qquad
 \pi(a)=v_{a,i^\star(a)}-\rho(a).
+\label{eq:perauction}
 \end{equation}
+We deliberately keep these three as separate components rather than collapsing them
+into one number: efficiency measures whether the item is allocated to the
+highest-value bidder, the bid/value dispersion $s$ measures whether bidders
+coordinate on a common ``obvious'' shading (an OSP-style desideratum), and winner
+surplus $\pi$ measures tail risk borne by bidders. A single scalar would conflate
+three economically distinct objectives; SMAD is the one place we do want a single
+number, and it answers a different question (closeness to the declared optimum)
+than any of the three.
 
-\paragraph{Panel aggregates.} With $A=|\mathcal{A}|$ and a value scale
-$\bar v=\max_{a}v^{\max}_a$, define normalized revenue, mean efficiency, a
-simplicity proxy, and normalized surplus variance:
+\paragraph{Panel aggregates and lower tail.} With $A=|\mathcal{A}|$, value scale
+$\bar v=\max_a v^{\max}_a$, and failure rate $\phi=F/A_{\text{att}}$ (responses that
+fail to parse), define normalized revenue $\hat\rho=\frac1{A\bar v}\sum_a\rho(a)$,
+mean efficiency $\overline{\mathrm{eff}}$, a simplicity proxy
+$\sigma=1-\frac1A\sum_a s(a)$, and normalized surplus variance
+$\widehat{\mathrm{Var}}=\operatorname{Var}_a(\pi(a))/\bar v^2$. Robustness rewards
+good \emph{worst-case} behavior across the panel, so we also take the per-persona
+minima and a low quantile:
 \begin{equation}
-\hat\rho=\frac{1}{A\,\bar v}\sum_{a}\rho(a),
-\quad
-\overline{\mathrm{eff}}=\frac1A\sum_{a}\mathrm{eff}(a),
-\quad
-\sigma=1-\frac1A\sum_{a}s(a),
-\quad
-\widehat{\mathrm{Var}}=\frac{\operatorname{Var}_a\!\big(\pi(a)\big)}{\bar v^{2}}.
+E_{\min}=\min_p \overline{\mathrm{eff}}_p,\quad
+E_{20}=Q_{0.2}\!\big(\{\overline{\mathrm{eff}}_p\}\big),\quad
+\Sigma_{\min}=\min_p \sigma_p,\quad
+\widehat V_{\max}=\frac{\max_p \operatorname{Var}_p(\pi)}{\bar v^{2}}.
+\label{eq:tail}
 \end{equation}
-The simplicity proxy $\sigma$ is high when bidders converge on a common
-bid/value ratio (an ``obvious'' mechanism) and low when their shading scatters.
 
 \paragraph{Intended-action rate.} Each mechanism declares the action a correctly
 reasoning bidder should take, $\tau\in\{\textsc{truthful},\textsc{shade},
-\textsc{aggressive},\dots\}$, with tolerance $\epsilon=0.1$. For a scoreable
-decision $(v,b)$ with $v>0$ define the match indicator
+\textsc{aggressive}\}$, with tolerance $\epsilon=0.1$; for a scoreable $(v,b)$ with
+$v>0$,
 \begin{equation}
 m_\tau(v,b)=
 \begin{cases}
@@ -279,26 +420,10 @@ m_\tau(v,b)=
 \mathbf{1}\!\left[\,\kappa < b < v-\epsilon\,\right] & \tau=\textsc{shade},\\[2pt]
 \mathbf{1}\!\left[\,b+\epsilon \ge \alpha\, v\,\right] & \tau=\textsc{aggressive},
 \end{cases}
+\label{eq:match}
 \end{equation}
-with floor $\kappa$ and aggressiveness threshold $\alpha=0.4$ by default. The
-intended-action rate $\mu_\tau$ is the mean of $m_\tau$ over scoreable decisions;
-targets labeled \textsc{unknown} or \textsc{mechanism-specific} are not scored
-($\mu_\tau$ omitted).
-
-\paragraph{Lower-tail (per-persona) statistics.} Let
-$\overline{\mathrm{eff}}_p$, $\sigma_p$, and $\operatorname{Var}_p(\pi)$ be the
-above computed within persona $p$. Robustness rewards good \emph{worst-case}
-behavior across the panel, not just the average:
-\begin{equation}
-E_{\min}=\min_p \overline{\mathrm{eff}}_p,
-\quad
-E_{20}=Q_{0.2}\!\big(\{\overline{\mathrm{eff}}_p\}\big),
-\quad
-\Sigma_{\min}=\min_p \sigma_p,
-\quad
-\widehat V_{\max}=\frac{\max_p \operatorname{Var}_p(\pi)}{\bar v^{2}},
-\end{equation}
-where $Q_{0.2}$ is the $20$th percentile across personas.
+with floor $\kappa$ and $\alpha=0.4$; $\mu_\tau$ is the mean of $m_\tau$ over
+scoreable decisions.
 
 \paragraph{Fitness.} The aggregate and robust fitness are weighted sums
 \begin{align}
@@ -306,51 +431,52 @@ F_{\mathrm{agg}} &= w_1\hat\rho + w_2\overline{\mathrm{eff}} + w_3\mu_\tau
 + w_4\sigma - w_5\widehat{\mathrm{Var}} - w_6\phi,\\
 F_{\mathrm{tail}} &= w_7 E_{\min} + w_8 E_{20} + w_9 \Sigma_{\min}
 - w_{10}\widehat V_{\max},\\
-F_{\mathrm{robust}} &= F_{\mathrm{agg}} + F_{\mathrm{tail}}.
+F_{\mathrm{robust}} &= F_{\mathrm{agg}} + F_{\mathrm{tail}},
+\label{eq:frobust}
 \end{align}
-Following the Stage-C calibration mapping, the default weights are
-$(w_1,\dots,w_{10}) = (1,\,1,\,0.5,\,0.5,\,0.25,\,1,\,0.5,\,0.5,\,0.25,\,0.25)$,
-grouping into domain performance $(w_1,w_2)$, intended action $(w_3)$, simplicity
+with defaults $(w_1,\dots,w_{10})=(1,1,0.5,0.5,0.25,1,0.5,0.5,0.25,0.25)$ grouping
+into domain performance $(w_1,w_2)$, intended action $(w_3)$, simplicity
 $(w_4,w_9)$, regret $(w_5,w_{10})$, compliance $(w_6)$, and cognitive fragility
-$(w_7,w_8)$. Sections~6, 7, and 8 report $F_{\mathrm{robust}}$ and $\mu_\tau$;
-the sign convention is that fragility, regret, and failure enter negatively, so
-a mechanism scores well only if it is allocatively efficient, induces its
-intended action, and does so \emph{uniformly} across the digital-mouse panel.
-The full machinery of evolutionary search over auction designs is deferred to
-Section~\ref{sec:ea}, which is self-contained.
+$(w_7,w_8)$. The sign convention is that fragility, regret, and failure enter
+negatively, so a mechanism scores well only if it is efficient, induces its
+intended action, and does so \emph{uniformly} across the panel. We acknowledge that
+$F_{\mathrm{robust}}$ is a deliberately multi-objective composite and hence harder
+to read than a single number; this is exactly why Section~\ref{sec:ea} re-ranks the
+evolved mechanisms by SMAD~\eqref{eq:smad} as a transparent check.
 
 \section{Result 1: Construct Validity}
+\label{sec:construct}
 
 If the cognitive axes are genuine bounded-rationality controls rather than
-arbitrary prompt artifacts, then repairing an axis should move behavior toward
-the rational benchmark. Figure~\ref{fig:marginals} plots the truthful-bid rate
-at each axis level, marginalizing over the other two axes. All three axes are
-monotone or near-monotone in the repairing direction, and the contingent-reasoning
-axis produces the largest swing.
+arbitrary prompt artifacts, then engaging an axis should move behavior toward the
+rational benchmark. Figure~\ref{fig:marginals} plots the truthful-bid rate at each
+axis level, marginalizing over the other two. All three axes are monotone or
+near-monotone in the engaging direction, and contingent reasoning produces the
+largest swing.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{fig1.pdf}
 \caption{Construct-validity marginals. Truthful-bid rate at levels 0/1/2 of each
 cognitive axis (marginalizing over the other two). $\Delta$ is the
-level-2-minus-level-0 change. Repairing each axis raises truthfulness, with the
+level-2-minus-level-0 change. Engaging each axis raises truthfulness, with the
 largest effect on the contingent-reasoning axis.}
 \label{fig:marginals}
 \end{figure}
 
 Table~\ref{tab:construct} reports the five pre-registered directional tests. For
-each axis we test that repairing it raises the truthful rate (expected positive)
-and, where applicable, lowers the underbidding rate (expected negative). All
-five tests pass: the realized sign matches the prediction and exceeds the
-minimum-magnitude bar in every case. The directional structure is exactly what
-theory predicts---more contingent reasoning and more forward planning push the
-agent toward its dominant strategy---which is the core construct-validity claim.
+each axis we test that engaging it raises the truthful rate (expected positive)
+and, where applicable, lowers the underbidding rate (expected negative). All five
+pass: the realized sign matches the prediction and exceeds the minimum-magnitude
+bar in every case. The directional structure is exactly what theory
+predicts---more contingent reasoning and more forward planning push the agent
+toward its dominant strategy---which is the core construct-validity claim.
 
 \begin{table}[t]
 \centering
-\caption{Construct-validity diagnostics: five pre-registered directional tests
-on the cognitive axes. $\Delta$ is the level-2-minus-level-0 change in the
-metric. All tests pass.}
+\caption{Construct-validity diagnostics: five pre-registered directional tests on
+the cognitive axes. $\Delta$ is the level-2-minus-level-0 change in the metric. All
+tests pass.}
 \label{tab:construct}
 \small
 \begin{tabular}{@{}llrrcc@{}}
@@ -369,66 +495,79 @@ Belief reasoning     & truthful rate & $+0.052$ & $0.03$ & positive & \checkmark
 \begin{minipage}{0.95\textwidth}
 {\footnotesize\textit{Notes.} Sign rate $=1.00$ (5 of 5). Underlying level means
 (truthful rate): contingent $0.56\!\to\!0.86\!\to\!0.79$; forward
-$0.66\!\to\!0.75\!\to\!0.80$; beliefs $0.71\!\to\!0.74\!\to\!0.76$.\par}
+$0.66\!\to\!0.75\!\to\!0.80$; beliefs $0.71\!\to\!0.74\!\to\!0.76$. Standard base
+model; $810$ bidder-decisions.\par}
 \end{minipage}
 \end{table}
 
-Figure~\ref{fig:signatures} shows that the strains are also \emph{separable} at
-the level of raw behavior. The rational mouse (contingent reasoning engaged)
-bids on the $45^\circ$ truthful line; the all-deficits-off mouse systematically
-underbids; and the targeted error mice occupy distinct regions---persistent
-overbidding above the line and near-zero bidding along the floor. The mean
-absolute deviation falls from $2.78$ for the most deficient basis strain to
-essentially zero ($0.003$) for the most rational one.
+Figure~\ref{fig:signatures} shows that the strains are also \emph{separable} at the
+level of raw behavior. The rational mouse (contingent reasoning engaged) bids on
+the $45^\circ$ truthful line; the all-ablated mouse systematically underbids; and
+the targeted error mice occupy distinct regions---persistent overbidding above the
+line and near-zero bidding along the floor. The mean absolute deviation falls from
+$2.78$ for the most deficient basis strain to essentially zero ($0.003$) for the
+most rational one.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{fig2.pdf}
-\caption{Separable behavioral signatures. Bid versus private value for a
-rational basis strain, the all-deficits-off strain, and the two supplemental
-error mice. The dashed line is the $45^\circ$ truthful benchmark.}
+\caption{Separable behavioral signatures. Bid versus private value for a rational
+basis strain, the all-ablated strain, and the two supplemental error mice. The
+dashed line is the $45^\circ$ truthful benchmark.}
 \label{fig:signatures}
 \end{figure}
 
-\section{Result 2: Calibration Coverage}
+\section{Result 2: Calibration as Support Coverage}
+\label{sec:calibration}
 
-Construct validity establishes that the axes do what theory says. Calibration
-asks a different question: does the panel \emph{span} the space of mistakes that
-real people make in this mechanism? We score five canonical SPSB human-mistake
-classes and ask, for each, whether some strain in the panel reproduces it at a
-rate above a detection threshold.
+Construct validity establishes that the axes do what theory says. Calibration asks
+a different question, and it is important to be precise about \emph{which} question.
+We are \textbf{not} doing moment matching: we do not claim that the panel reproduces
+the human \emph{share} of each mistake. We are testing \emph{support coverage}---can
+the panel \emph{express} each mistake class at all? This is the relevant question
+for a screening instrument: a panel that cannot produce overbidding can never
+stress-test a mechanism against overbidders, regardless of the human rate.
 
-Figure~\ref{fig:coverage} and Table~\ref{tab:calibration} report the scorecard.
-All five classes are covered. Truthful and overbidding behavior are reproduced
-at very high rates ($0.97$ and $1.00$); moderate underbidding, extreme
-overbidding, and near-zero bidding are reproduced at plausible intermediate
-rates ($0.63$, $0.44$, $0.78$). The best strain for each class is reported in
-the table: truthfulness and underbidding are covered by the clean procedural
-basis, whereas the overbidding and near-zero classes are covered by the
-targeted error mice---making explicit which classes the procedural construction
-reaches on its own and which require hand-specified heuristics.
+\paragraph{Where the thresholds come from.} For each class we set an a-priori
+\emph{detection floor}---the rate above which we are willing to say ``the panel can
+express this behavior''---and ask whether some strain clears it. These floors are
+fixed in advance and are deliberately \emph{not} human population shares: truthful
+$0.50$, moderate underbid $0.10$, overbid $0.10$, extreme overbid $0.05$, near-zero
+$0.05$. They encode a detectability bar (a class counts as covered if a strain
+produces it at least one-tenth to one-half of the time), not a calibration target.
+Reading the bars in Figure~\ref{fig:coverage} as ``distance above the detection
+floor'' rather than ``distance from the human share'' is the whole point.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{fig3.pdf}
 \caption{Calibration coverage. For each human-mistake class, the maximum rate
-attained by any strain in the panel (bar) against the required detection
-threshold (red marker). Bar color encodes the intensity band. All five classes
-clear their threshold.}
+attained by any strain (bar) against its a-priori detection floor (red marker). Bar
+color encodes the intensity band. All five classes clear their floor. The floors
+are detectability bars, not human population shares.}
 \label{fig:coverage}
 \end{figure}
 
+Table~\ref{tab:calibration} reports the scorecard. All five classes are covered.
+Truthful and overbidding behavior are expressed at very high rates ($0.97$ and
+$1.00$); moderate underbidding, extreme overbidding, and near-zero bidding at
+intermediate rates ($0.63$, $0.44$, $0.78$). Crucially, the table makes explicit
+which classes the procedural construction reaches on its own (truthfulness and
+underbidding, via basis strains) and which require the hand-specified error mice
+(overbidding and near-zero, via the two authored strains).
+
 \begin{table}[t]
 \centering
-\caption{Calibration scorecard for the five canonical SPSB mistake classes.
-``Max rate'' is the highest rate attained by any strain; ``best strain'' is the
-strain attaining it. All classes are covered.}
+\caption{Support-coverage scorecard for the five canonical SPSB mistake classes.
+``Max rate'' is the highest rate attained by any strain; ``best strain'' attains
+it. ``Floor'' is the a-priori detection bar, not a human share. All classes are
+covered.}
 \label{tab:calibration}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{@{}llrrlll@{}}
 \toprule
-Mistake class & Metric & \multicolumn{1}{c}{Thresh.} & \multicolumn{1}{c}{Max rate} & Best strain & Intensity & Covered \\
+Mistake class & Metric & \multicolumn{1}{c}{Floor} & \multicolumn{1}{c}{Max rate} & Best strain & Intensity & Covered \\
 \midrule
 Truthful         & truthful rate           & $0.50$ & $0.967$ & \texttt{c1\_f0\_b0} & very high & \checkmark \\
 Moderate underbid& moderate underbid rate  & $0.10$ & $0.633$ & \texttt{c0\_f0\_b0} & plausible & \checkmark \\
@@ -448,36 +587,83 @@ members of the clean $27$-cell procedural basis.\par}
 \end{minipage}
 \end{table}
 
-\section{Result 3: Demonstrations Sharpen Induction}
+\section{Result 3: Auditing the Reasoning Chains}
+\label{sec:audit}
+
+Behavioral signatures tell us \emph{what} a mouse did, not \emph{whether it
+reasoned as instructed}. Because the models log their plan (a free-text
+chain-of-thought) before bidding, we can read the reasoning directly and ask: does
+a strain that is forbidden to reason contingently actually refrain from doing so?
+We parse the $810$ logged plans and flag each one for whether it invokes the
+second-price dominance/truthful argument---the very move a contingent-reasoning
+ablation ($c=0$) is instructed not to make. (We tightened the classifier to catch
+genuine derivations of the dominant strategy while excluding boilerplate
+restatements of the payment rule.)
+
+Figure~\ref{fig:audit} and the underlying rates tell a two-part story. First, the
+instruction works \emph{in the right direction}: contingent-ablated strains invoke
+the dominance argument far less often than strains where the axis is engaged
+(mean invocation $0.41$ at $c{=}0$ versus $0.77$ at $c{=}1$ and $0.66$ at $c{=}2$).
+Second, the instruction is \emph{leaky}: a $0.41$ invocation rate means that even
+when told not to reason contingently, the capable model still reconstructs the
+dominance argument in roughly two of every five plans. A representative leak, from a
+$c{=}0$ strain, reads: ``In a second-price auction, truthful bidding is the standard
+dominant strategy because it avoids overpaying while preserving the chance to win.''
+The model is doing exactly what the deficit forbids.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig7.pdf}
+\caption{Auditing the reasoning chains. Left: rate at which a strain's logged plans
+invoke the second-price dominance argument, by contingent-reasoning level; ablation
+($c{=}0$) lowers invocation but does not eliminate it. Right: dominance-invocation
+rate versus truthful-bid rate across the $27$ strains, colored by contingent level;
+plans that reconstruct the dominance argument bid truthfully more often, and the
+ablated strains (red) cluster low on both.}
+\label{fig:audit}
+\end{figure}
+
+This audit does two jobs. It is independent evidence that the induction is real
+(ablation moves the reasoning, not just the output), and it diagnoses precisely why
+the standard base is fragile against a strong model: the dominance argument leaks
+back in through the very objective the standard base prioritizes. The leak is
+heaviest for strains that engage the other two axes while ablating contingent
+reasoning (e.g.\ \texttt{c0\_f2\_b2}, invocation $0.53$), and---tying the threads
+together---that same strain is the one whose deficit a stronger model repairs away
+in the cross-model test of Section~\ref{sec:external}. The remedy is to make the
+deficit harder to override, which motivates both the strict base
+(Section~\ref{sec:panel}) and the worked demonstrations we turn to next.
+
+\section{Result 4: Demonstrations Sharpen Induction}
+\label{sec:cot}
 
 The panel so far induces a deficit by \emph{instruction}. A natural alternative,
 familiar from few-shot chain-of-thought prompting, is to also \emph{demonstrate}
-the bounded procedure with a worked example. We append to a persona a single
-worked example that walks through the allowed reasoning on a sample value and
-ends in a bid: a margin-of-safety underbid for the all-deficit strain, and the
+the bounded procedure. Concretely, we append to a persona one fully worked example
+placed after the cognitive-style block and before the live decision: it states a
+sample private value, walks through only the reasoning the strain is allowed to use,
+and ends in a bid---a margin-of-safety underbid for the all-ablated strain, and the
 contingent/forward/belief reasoning that yields a truthful Vickrey bid for the
-all-repaired strain. We then compare instruction-only and demonstration-augmented
-personas on \emph{identical} second-price value draws.
+all-engaged strain. The full demonstration text is in Appendix~\ref{app:prompts}.
+We then compare instruction-only and demonstration-augmented personas on
+\emph{identical} second-price value draws.
 
-Table~\ref{tab:cot} shows that demonstrations make induction both sharper and
-more consistent. For the all-deficit strain, adding the worked example pulls the
-mean bid/value ratio down toward the demonstrated $\approx 0.7$ and eliminates
-truthful bidding entirely (truthful rate $0.39\to0.00$) while \emph{lowering} the
-dispersion of bid/value ratios ($\operatorname{sd}0.124\to0.081$). For the
-all-repaired strain, the truthful demonstration produces exact Vickrey
-truth-telling on every decision (truthful rate $0.83\to1.00$, dispersion
-$0.076\to0.000$). Demonstration is thus a stronger control than instruction: it
-lowers behavioral variance and makes the mouse follow the prescribed procedure
-more faithfully---a promising lever for the portability problem documented below,
-since a more forcefully induced deficit should be harder for a capable model to
-``repair'' away.
+Table~\ref{tab:cot} shows that demonstrations make induction both sharper and more
+consistent. For the all-ablated strain, the worked example pulls the mean bid/value
+ratio down toward the demonstrated $\approx0.7$, eliminates truthful bidding
+entirely (truthful rate $0.39\to0.00$), and \emph{lowers} the dispersion of
+bid/value ratios ($\operatorname{sd}0.124\to0.081$). For the all-engaged strain the
+truthful demonstration produces exact Vickrey truth-telling on every decision
+(truthful rate $0.83\to1.00$, dispersion $0.076\to0.000$). Demonstration is thus a
+stronger control than instruction: it lowers behavioral variance and makes the
+mouse follow the prescribed procedure more faithfully.
 
 \begin{table}[t]
 \centering
-\caption{Instruction-only versus chain-of-thought (CoT) demonstration, on
-identical second-price draws ($n=18$ bidder-decisions per cell). Demonstration
-shifts behavior toward the demonstrated procedure and lowers the dispersion of
-bid/value ratios.}
+\caption{Instruction-only versus chain-of-thought (CoT) demonstration, on identical
+second-price draws ($n=18$ bidder-decisions per cell). Demonstration shifts
+behavior toward the demonstrated procedure and lowers the dispersion of bid/value
+ratios.}
 \label{tab:cot}
 \small
 \setlength{\tabcolsep}{6pt}
@@ -485,54 +671,71 @@ bid/value ratios.}
 \toprule
 Strain & Construction & mean $b/v$ & truthful rate & $\operatorname{sd}(b/v)$ \\
 \midrule
-\texttt{c0\_f0\_b0} (all-deficit)  & instruction only     & $0.89$ & $0.39$ & $0.124$ \\
-\texttt{c0\_f0\_b0} (all-deficit)  & + CoT demonstration  & $0.77$ & $0.00$ & $0.081$ \\
+\texttt{c0\_f0\_b0} (all-ablated)  & instruction only     & $0.89$ & $0.39$ & $0.124$ \\
+\texttt{c0\_f0\_b0} (all-ablated)  & + CoT demonstration  & $0.77$ & $0.00$ & $0.081$ \\
 \addlinespace
-\texttt{c2\_f2\_b2} (all-repaired) & instruction only     & $0.98$ & $0.83$ & $0.076$ \\
-\texttt{c2\_f2\_b2} (all-repaired) & + CoT demonstration  & $1.00$ & $1.00$ & $0.000$ \\
+\texttt{c2\_f2\_b2} (all-engaged) & instruction only     & $0.98$ & $0.83$ & $0.076$ \\
+\texttt{c2\_f2\_b2} (all-engaged) & + CoT demonstration  & $1.00$ & $1.00$ & $0.000$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\section{Result 4: A First-Price Stress Test and Cross-Model Portability}
+This result also reframes a pilot failure. In an early cross-model pilot the
+stronger model spontaneously repaired the most deficient strain into truthful
+bidding---which we initially read as a portability failure but now read as a
+\emph{prompt-design} failure: an instruction-only deficit, on the standard base, is
+simply too weak to hold against a capable model (Section~\ref{sec:audit} quantifies
+the leak). The demonstration result suggests the fix is to induce the deficit by
+worked CoT rather than instruction alone. Carrying the entire panel over to a
+CoT-induced, strict-base construction is the natural next step; because it requires
+re-running the model battery, we flag it as a deliberate (cost-bearing) extension
+rather than fold it in here.
 
-A panel is useful for screening only if it reproduces known mechanism
-regularities and if its verdicts are not an artifact of the base model. We test
-both. For the first, we move from the second-price environment to a
-\emph{first-price} sealed-bid auction, where theory and human data are sharp:
-with $n=3$ risk-neutral bidders and uniform values, the symmetric Bayes--Nash
-equilibrium is to shade to $b=\frac{n-1}{n}v=\frac{2}{3}v$, and the canonical
-experimental regularity is overbidding \emph{relative} to this risk-neutral
-benchmark \citep{kagellevin1993}.
+\section{External Validity: A First-Price Stress Test and Cross-Model Portability}
+\label{sec:external}
+
+A panel is useful for screening only if it reproduces known mechanism regularities
+and if its verdicts are not an artifact of the base model. This section tests both,
+and maps the panel's behaviors onto the human-error theories they are meant to
+stand in for.
+
+\subsection{First-price stress test}
+
+We move from the second-price environment to a \emph{first-price} sealed-bid
+auction, where theory and human data are sharp: with $n=3$ risk-neutral bidders and
+uniform values, the symmetric Bayes--Nash equilibrium is to shade to
+$b=\frac{n-1}{n}v=\frac{2}{3}v$, and the canonical experimental regularity is
+overbidding \emph{relative} to this risk-neutral benchmark \citep{kagellevin1993}.
+Note there is no dominant strategy here---only a best response in beliefs---so the
+benchmark is BNE, not dominance.
 
 Figure~\ref{fig:fpsb} and Table~\ref{tab:fpsb} report the panel's first-price
-behavior. The three reasoning strains track the equilibrium closely: their median
-bid/value ratios are $0.65$--$0.67$, essentially on the $\frac{2}{3}$ BNE line,
-and across all reasoning decisions the mean ratio is $0.67$ with $38\%$ of bids
-above the risk-neutral benchmark---the documented overbidding regularity. The two
-error mice separate cleanly and \emph{mechanistically}: the payment-panic mouse
-bids near zero, while the second-price-overgeneralizer mouse bids \emph{above its
-value} (median ratio $1.15$), because it applies the second-price intuition ``I
-will not pay my own bid'' to a mechanism where the winner does pay their own bid.
-In a first-price auction that error is not harmless---it yields negative
-surplus---giving a concrete, mechanism-level account of a winner's-curse
-pathology.
+behavior. The three reasoning strains track equilibrium: median bid/value ratios
+are $0.65$--$0.67$, on the $\frac23$ BNE line, and across all reasoning decisions
+the mean ratio is $0.67$ with $38\%$ of bids above the risk-neutral
+benchmark---the documented overbidding regularity. The two error mice separate
+cleanly and \emph{mechanistically}: the payment-panic mouse bids near zero, while
+the second-price-overgeneralizer mouse bids \emph{above its value} (median ratio
+$1.15$) because it applies the second-price intuition ``I will not pay my own bid''
+to a mechanism where the winner does pay their own bid. In a first-price auction
+that error is not harmless---it yields negative surplus---giving a concrete,
+mechanism-level account of a winner's-curse pathology.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.82\textwidth]{fig4.pdf}
-\caption{First-price stress test. Submitted bid versus private value for the
-panel. Reasoning strains cluster on the risk-neutral BNE line $b=\frac{2}{3}v$;
-the second-price-overgeneralizer mouse bids above the $45^\circ$ value line
+\caption{First-price stress test. Submitted bid versus private value for the panel.
+Reasoning strains cluster on the risk-neutral BNE line $b=\frac{2}{3}v$; the
+second-price-overgeneralizer mouse bids above the $45^\circ$ value line
 (loss-making overbidding); the payment-panic mouse bids near zero.}
 \label{fig:fpsb}
 \end{figure}
 
 \begin{table}[t]
 \centering
-\caption{First-price bid/value ratios by strain ($n=9$ bidder-decisions each).
-The risk-neutral BNE benchmark is $\frac{2}{3}\approx0.667$. Reasoning strains
-sit on the benchmark; the error mice separate above value and near zero.}
+\caption{First-price bid/value ratios by strain ($n=9$ bidder-decisions each). The
+risk-neutral BNE benchmark is $\frac{2}{3}\approx0.667$. Reasoning strains sit on
+the benchmark; the error mice separate above value and near zero.}
 \label{tab:fpsb}
 \small
 \setlength{\tabcolsep}{6pt}
@@ -540,46 +743,91 @@ sit on the benchmark; the error mice separate above value and near zero.}
 \toprule
 Strain & Role & mean $b/v$ & median $b/v$ \\
 \midrule
-\texttt{c0\_f0\_b0} & reasoning (all-deficit) & $0.61$ & $0.65$ \\
-\texttt{c2\_f0\_b2} & reasoning (forward-off) & $0.61$ & $0.67$ \\
-\texttt{c2\_f2\_b2} & reasoning (all-repaired) & $0.52$ & $0.66$ \\
-overgeneralizer     & error: overbid          & $1.61$ & $1.15$ \\
-payment panic       & error: near-zero        & $0.02$ & $0.01$ \\
+\texttt{c0\_f0\_b0} & reasoning (all-ablated)  & $0.61$ & $0.65$ \\
+\texttt{c2\_f0\_b2} & reasoning (forward-off)  & $0.61$ & $0.67$ \\
+\texttt{c2\_f2\_b2} & reasoning (all-engaged)  & $0.52$ & $0.66$ \\
+overgeneralizer     & error: overbid           & $1.61$ & $1.15$ \\
+payment panic       & error: near-zero         & $0.02$ & $0.01$ \\
 \bottomrule
 \end{tabular}
 
 \vspace{0.4em}
 \begin{minipage}{0.95\textwidth}
 {\footnotesize\textit{Notes.} Pooled over reasoning strains, the mean ratio is
-$0.67$ (the BNE), $38\%$ of bids exceed the benchmark, and $20\%$ exceed value.
-The overgeneralizer's above-value bids are loss-making under first-price
-pricing.\par}
+$0.67$ (the BNE), $38\%$ of bids exceed the benchmark, and $20\%$ exceed value. The
+overgeneralizer's above-value bids are loss-making under first-price pricing.\par}
 \end{minipage}
 \end{table}
 
-\paragraph{Strain-level portability.} The first-price result raises a prior
-question: do the deficit \emph{strains} themselves behave consistently across
-models? A pilot exposed a failure mode---the stronger model spontaneously
-``repaired'' the most deficient basis strain into truthful Vickrey bidding---so
-we hardened the panel into a \emph{strict} scaffold that states the
-reasoning-procedure constraint explicitly rather than as a secondary goal. We
-then re-ran five reserved strict strains under both base models and compared
-their dominant behavioral class (Table~\ref{tab:strict}). Four of five strains
-preserve their dominant class across models---a partial pass. The exception is
-the strain isolating a contingent-reasoning deficit, whose moderate-underbidding
-signature on \texttt{gpt-5.4-mini} is repaired into truthful bidding on
-\texttt{gpt-5.4} (truthful rate $0.33\to1.00$). Consistent with the
-construct-validation finding that contingent reasoning is the highest-leverage
-axis (Table~\ref{tab:construct}), it is also the hardest deficit to hold fixed
-against a more capable model: the strict scaffold mitigates the portability
-problem but does not fully close it.
+\subsection{From engineered deficits to human-error theories}
+
+The stress test is most useful if each engineered behavior corresponds to a
+documented human phenomenon with a theoretical account. Table~\ref{tab:errormap}
+draws that map. The procedural deficits correspond to failures of contingent
+reasoning, limited lookahead, and non-equilibrium beliefs; the authored error mice
+correspond to overbidding/winner's-curse and to extreme loss aversion. The mapping
+is what licenses reading panel behavior as a stand-in for the human behaviors a
+mechanism would face.
 
 \begin{table}[t]
 \centering
-\caption{Strain-level cross-model portability on the strict panel. Dominant
-behavioral class of five reserved strict strains under each base model. Four of
-five agree; the contingent-isolated strain's deficit is repaired away by the
-stronger model.}
+\caption{From engineered deficits to human-error theories. Each row links a panel
+strain to its procedural restriction, its SPSB/FPSB signature, and the documented
+human phenomenon (and theory) it stands in for.}
+\label{tab:errormap}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{0.20\textwidth}p{0.24\textwidth}p{0.20\textwidth}p{0.26\textwidth}@{}}
+\toprule
+Strain / deficit & Procedural restriction & Signature & Human counterpart (theory) \\
+\midrule
+Contingent ablated ($c{=}0$) & no opponent-contingent or dominance reasoning & underbids; misses truthful dominance & failure of contingent reasoning; obvious strategy-proofness \citep{li2017} \\
+\addlinespace
+Forward ablated ($f{=}0$) & no consequence tracing; margin-of-safety underbid & underbids ($\approx60$--$80\%$ of value) & limited lookahead / myopia; cognitive hierarchy \\
+\addlinespace
+Belief ablated ($b{=}0$) & no model of others & mild miscalibration & non-equilibrium beliefs; level-$k$ \citep{crawfordiriberri2007}, cursed equilibrium \citep{eysterrabin2005} \\
+\addlinespace
+Overgeneralizer (error) & ``winner pays second price, so I won't pay my bid'' & overbids above value; loss-making in FPSB & overbidding / winner's curse \citep{kagellevin1993,crawfordiriberri2007} \\
+\addlinespace
+Payment panic (error) & minimize the bid one might pay & near-zero bids & extreme loss/risk aversion; participation failure \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cross-model portability and the strict 5-mouse panel}
+
+The first-price result raises a prior question: do the deficit \emph{strains}
+themselves behave consistently across models? To test this cheaply we reserve a
+\emph{strict 5-mouse panel}---a small, fixed subset of five strains built on the
+strict base of Section~\ref{sec:panel}, distinct from the full $27$-cell
+$3\times3\times3$ basis. We use this five-strain set (rather than all $27$) wherever
+re-running on a second model would otherwise be prohibitive: here for portability,
+and in Section~\ref{sec:ea} as the evolutionary search's evaluator. The five are
+the two corners (\texttt{c0\_f0\_b0}, \texttt{c2\_f2\_b2}) and three reserved
+mixed strains, chosen to span the behavioral classes while keeping the second-model
+re-run small.
+
+The pilot that prompted this (Section~\ref{sec:cot}) exposed a failure mode---the
+stronger model spontaneously repaired the most deficient strain into truthful
+Vickrey bidding---so the strict scaffold states the reasoning-procedure constraint
+explicitly rather than as a secondary goal. We then re-ran five reserved strict
+strains under both base models and compared their dominant behavioral class
+(Table~\ref{tab:strict}). Four of five preserve their class across models---a
+partial pass. The exception is the strain isolating a contingent-reasoning deficit,
+whose moderate-underbidding signature on \texttt{gpt-5.4-mini} is repaired into
+truthful bidding on \texttt{gpt-5.4} (truthful rate $0.33\to1.00$). Consistent with
+the construct-validation finding that contingent reasoning is the highest-leverage
+axis (Table~\ref{tab:construct}) and with the reasoning audit's finding that it is
+the leakiest deficit (Section~\ref{sec:audit}), it is also the hardest deficit to
+hold fixed against a more capable model: the strict scaffold mitigates the
+portability problem but does not fully close it.
+
+\begin{table}[t]
+\centering
+\caption{Strain-level cross-model portability on the strict $5$-mouse panel.
+Dominant behavioral class of five reserved strict strains under each base model.
+Four of five agree; the contingent-isolated strain's deficit is repaired away by
+the stronger model.}
 \label{tab:strict}
 \footnotesize
 \setlength{\tabcolsep}{6pt}
@@ -589,7 +837,7 @@ Strain & Isolated role & mini $\to$ gpt-5.4 (dominant class) & Agree \\
 \midrule
 \texttt{c2\_f2\_b0} & belief deficit          & truthful $\to$ truthful                   & \checkmark \\
 \texttt{c2\_f0\_b2} & forward deficit         & mod.\ underbid $\to$ mod.\ underbid        & \checkmark \\
-\texttt{c0\_f0\_b1} & near-all-defect         & mod.\ underbid $\to$ mod.\ underbid        & \checkmark \\
+\texttt{c0\_f0\_b1} & near-all-ablated        & mod.\ underbid $\to$ mod.\ underbid        & \checkmark \\
 \texttt{c1\_f1\_b1} & all-intermediate        & truthful $\to$ truthful                   & \checkmark \\
 \texttt{c0\_f2\_b2} & contingent deficit      & mod.\ underbid $\to$ \textbf{truthful}     & --- \\
 \bottomrule
@@ -598,187 +846,145 @@ Strain & Isolated role & mini $\to$ gpt-5.4 (dominant class) & Agree \\
 \vspace{0.4em}
 \begin{minipage}{0.95\textwidth}
 {\footnotesize\textit{Notes.} Agreement $=4/5$. ``Isolated role'' names the axis
-held in its deficit state (others repaired), or a corner strain. The
-contingent-deficit strain's truthful rate rises $0.33\to1.00$ across models;
-all other strains' dominant class is stable.\par}
+held in its deficit state (others engaged), or a corner strain. The
+contingent-deficit strain's truthful rate rises $0.33\to1.00$ across models; all
+other strains' dominant class is stable.\par}
 \end{minipage}
 \end{table}
 
 \section{Evolutionary Search over Auction Mechanisms}
 \label{sec:ea}
 
-So far the panel has been used to \emph{verify} mechanisms picked by hand
-(Sections~6 and~7). The natural next question is whether the same panel can
-\emph{drive} a search over mechanisms. This section makes that loop concrete.
-The audience for what follows is the reader who has not previously seen an
-evolutionary algorithm; we lay out the procedure, why language models change
-what is possible, our specific setting, and the result.
+So far the panel has \emph{verified} mechanisms picked by hand. The natural next
+question is whether the same panel can \emph{drive} a search over mechanisms. This
+section makes that loop concrete: why a search is the right tool, what the design
+space is, how the operators act on an actual auction, and what the search returns.
 
-\subsection{Why an evolutionary algorithm?}
+\subsection{Why search, and why language models make it possible}
 
-Mechanism design is, at bottom, a search problem: among the auctions one could
-implement, which ones perform well? The economist's standard answer is
-analytic---Myerson's optimal auction, Vickrey--Clarke--Groves, OSP
-variants \citep{li2017,vickrey1961}---each derived in closed form from a tight
-model of rational bidders and a known value distribution. When we replace the
-rational benchmark with a panel of boundedly rational digital mice
-(Section~2), the closed-form route no longer applies: ``best for the strict
-$5$-mouse panel'' is not a function one can differentiate or solve in closed
-form.
+Mechanism design is at bottom a search problem: among the auctions one could
+implement, which perform well? The standard answer is analytic---Myerson's optimal
+auction, Vickrey--Clarke--Groves, obvious-strategy-proof variants
+\citep{li2017,vickrey1961}---each derived in closed form from a tight model of
+rational bidders. Replace the rational benchmark with a panel of boundedly rational
+digital mice and the closed-form route closes: ``best for the strict $5$-mouse
+panel'' is not a function one can differentiate.
 
-An \emph{evolutionary algorithm} (EA) is a heuristic search procedure suited
-to exactly this situation. It does not require gradients, convexity, or a
-parameterized family that admits first-order conditions; it only needs the
-ability to \emph{evaluate} a candidate against an objective. The procedure is
-the following loop. (i) Maintain a population of $N$ candidate mechanisms.
-(ii) Score each candidate by a fitness function $F$. (iii) Retain the top
-performers (the \emph{elites}). (iv) Produce a new generation of size $N$ by
-applying small perturbations to elites (\emph{mutation}) and recombinations of
-pairs of elites (\emph{crossover}). (v) Iterate. Over generations, the
-population concentrates on regions of the design space where $F$ is high.
+An \emph{evolutionary algorithm} is a heuristic search for exactly this situation;
+it needs only the ability to \emph{evaluate} a candidate. The loop: (i) hold a
+population of $N$ candidate mechanisms; (ii) score each by a fitness $F$; (iii)
+retain the top performers (\emph{elites}); (iv) form a new generation by perturbing
+elites (\emph{mutation}) and recombining pairs (\emph{crossover}); (v) iterate.
+Such searches are routine in machine learning but rare in mechanism design, where
+candidates have had to be numeric vectors in a fixed family and bidders simulated
+by a closed-form behavioral model. Frontier language models loosen both
+constraints: on the bidder side the digital-mouse panel supplies instructable,
+cognitively varied agents; on the mechanism side an LLM compiles a structured
+\emph{genotype} (a JSON record of payment rule, bid language, reserve, framing)
+into a natural-language rule the bidders can act on. Mutation and crossover act on
+the genotype---``flip \texttt{bid\_language} from \texttt{continuous} to
+\texttt{discrete\_grid}'' is an unambiguous, schema-validated edit---while the
+bidder-facing artifact stays language.
 
-EAs are routine in machine learning and engineering but largely absent from
-economic mechanism design, where searches are usually done with pencils. The
-reason has been operational: previous EAs over auction mechanisms have had to
-specify candidates as numeric vectors in a fixed family (e.g.\ ``set the
-reserve price, set the entry fee'') and have had to simulate bidders with a
-closed-form behavioral model, typically risk-neutral BNE. Neither restriction
-is comfortable: many design choices in real mechanisms live in the rule text
-rather than in numeric parameters, and many of the empirical pathologies of
-real bidders are exactly the behaviors a rational benchmark cannot generate.
+\paragraph{What ``fitness'' means here.} $F_{\mathrm{robust}}$~\eqref{eq:frobust}
+is panel-based: a candidate scores well only if it is efficient, induces its
+declared intended action, and does so \emph{across} the panel, not just for a
+rational outlier. The search is therefore explicitly looking for mechanisms that
+are robust to bounded rationality, not for mechanisms that are optimal against a
+rational benchmark.
 
-\subsection{How language models change the picture}
+\subsection{The design space (an integrative-experiment view)}
 
-Frontier language models loosen both restrictions. On the bidder side, the
-digital-mouse panel of Section~2 supplies instructable, cognitively varied
-bidder agents whose deficits are procedural controls rather than implicit
-artifacts of one closed-form benchmark. On the mechanism side, an LLM can map
-a structured \emph{genotype}---a JSON record listing payment rule, bid
-language, reserve, framing---into a coherent natural-language rule that the
-bidder LLMs can act on. The genotype carries the discrete design choices that
-the EA operates on; the rule text carries the implementation that the bidders
-see.
-
-This decoupling is the key methodological move. Mutation and crossover
-operate at the \emph{genotype} level, where they are well-typed and
-schema-validated: ``flip \texttt{bid\_language} from \texttt{continuous} to
-\texttt{discrete\_grid}'' is an unambiguous operation on a JSON record. The
-bidder-facing artifact, however, remains language: the LLM compiles the
-perturbed genotype into a rule the bidders can read. The result is an EA that
-can search over a design space which is genuinely discrete and categorical, on
-a bidder population whose behavior captures bounded rationality directly. To
-our knowledge, this combination---structured-genotype EA plus instructable
-bounded-rational bidders plus a robustness fitness aggregated across a
-cognitive-deficit panel---is new to mechanism design.
-
-\paragraph{What ``fitness'' means here.} The fitness function $F_{\mathrm{robust}}$
-of equation~(7) is panel-based: a candidate mechanism scores well only if it
-is allocatively efficient, induces its declared intended action, and does so
-\emph{across} the digital-mouse panel, not just for a rational outlier. The
-search is therefore explicitly searching for mechanisms that are robust to
-bounded rationality, not for mechanisms that are optimal against a rational
-benchmark. This is why the EA-plus-panel loop is the natural pairing for the
-research program of this paper.
-
-\subsection{Our setting}
-
-\paragraph{The genotype.} A candidate is a JSON record
-(\texttt{single\_item\_auction\_genotype\_v1}) with five blocks. The
-\emph{environment} fixes the value model (IPV with private range and
-increment), the number of bidders, and any feedback channel. The
-\emph{mechanism} block sets the interaction form (sealed-bid here), the
-allocation rule (highest-bid wins), and---most consequentially---the payment
-rule (one of first-price, second-price, posted-price, all-pay, etc.), the bid
-language (continuous, discrete-grid, binary-accept, etc.), the reserve rule,
-and the tie-breaking. The \emph{framing} block carries presentation choices
-that do not change the rule (menu vs.\ prose description, hint scaffolds,
-whether to include a worked chain-of-thought demonstration in the style of
-Section~6). A \emph{target\_policy} block declares the action a correctly
-reasoning bidder should take, including a benchmark formula (e.g.\
-$b=\frac{n-1}{n}v$) and a tolerance, which feeds the intended-action match
-indicator $m_\tau$ of equation~(3). A \emph{complexity} block records simple
-syntactic features used for diagnostics. A concrete top genotype reads:
+Following integrative experiment design \citep{almaatouq2024,alsobay2025integrative},
+we do not search a single knob but a structured space.
+Table~\ref{tab:designspace} lists the design axes; a genotype
+(\texttt{single\_item\_auction\_genotype\_v1}) is one point in this space, augmented
+by framing fields (description style, scaffold, whether to include a CoT
+demonstration) and a \texttt{target\_policy} block declaring the benchmark bid that
+feeds $m_\tau$~\eqref{eq:match} and SMAD~\eqref{eq:smad}. A concrete top genotype:
 
 \begin{quote}\footnotesize\ttfamily\noindent
-environment:\\
-\hspace*{2em}value\_model: IPV, n\_bidders: 3,\\
-\hspace*{2em}private\_range: [0, 49], increment: 0.1\\
-mechanism:\\
-\hspace*{2em}payment\_rule: first\_price,\\
-\hspace*{2em}bid\_language: continuous\_bid,\\
-\hspace*{2em}reserve\_rule: none, tie\_breaking: random\\
-framing:\\
-\hspace*{2em}description\_style: menu, scaffold: none,\\
-\hspace*{2em}cot\_demo: false\\
-target\_policy:\\
-\hspace*{2em}benchmark: ((n-1)/n)*value,\\
-\hspace*{2em}target\_bid\_value\_ratio: 0.667,\\
-\hspace*{2em}tolerance: 0.1
+environment: \{value\_model: IPV, n\_bidders: 3,\\
+\hspace*{2em}private\_range: [0,49], increment: 0.1\}\\
+mechanism: \{payment\_rule: first\_price, bid\_language: continuous\_bid,\\
+\hspace*{2em}reserve\_rule: none, tie\_breaking: random\}\\
+framing: \{description\_style: menu, scaffold: none, cot\_demo: false\}\\
+target\_policy: \{benchmark: ((n-1)/n)*value,\\
+\hspace*{2em}target\_bid\_value\_ratio: 0.667, tolerance: 0.1\}
 \end{quote}
 
-\paragraph{Operators.} A \emph{genotype mutation} samples a small number of
-fields in $g$ and resamples their values from the allowed enumeration, then
-asks the LLM to rewrite the rule text consistently with the perturbed
-genotype---e.g.\ flip \texttt{bid\_language} from \texttt{continuous} to
-\texttt{discrete\_grid} and replace ``submit a bid in \$0.1 increments'' with
-``choose a bid from the grid $\{0, 1, 5, 10, 20, 30, 50\}$''. A
-\emph{genotype crossover} takes two parents and, for each field independently,
-draws the child's value from one parent with probability $\tfrac12$, then again
-invokes the LLM rewrite. A schema validator (Section~3.1) rejects ill-typed
-offspring; duplicates by rule-text hash are discarded.
+\begin{table}[t]
+\centering
+\caption{The single-item-auction design space the search moves over. A genotype is
+one selection from each axis; the evolutionary operators edit these fields and an
+LLM rewrites the rule text to match.}
+\label{tab:designspace}
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Design axis & Values explored \\
+\midrule
+Pricing rule        & first-price, second-price, third-price, all-pay, average-price \\
+Payment modifier    & none, with-reserve, entry-fee, refundable-deposit \\
+Bid language        & continuous, discrete-grid, binary-accept, ranking \\
+Information          & private-only, post-clearing revelation, pre-bid signal \\
+Simplicity emphasis & none, low, medium, high \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\paragraph{Selection and panel.} Each generation we score every candidate by
-$F_{\mathrm{robust}}$ (eq.~7) against the \emph{strict} $5$-mouse panel of
-Section~7, with $2$ repetitions per mouse. We retain the top quartile as
-elites and fill the remaining $20$ slots with $50/50$ mutation and crossover
-offspring of tournament-selected parents (tournament size $3$).
+\subsection{The operators on a concrete auction}
 
-\paragraph{Scale.} The run reported below uses $24$ individuals for $2$
-generations against the strict $5$-mouse panel with $2$ repetitions per mouse,
-for a total of $48$ mechanism evaluations and $480$ raw bidder-decisions,
-under the base model \texttt{gpt-5.4-mini}. This is a proof-of-concept of the
-EA-plus-panel loop; a paper-scale run would extend the horizon and re-score
-survivors on a held-out model along the lines of Section~7.
+It helps to watch the operators act on a real mechanism. Take the rank-2 elite, a
+\emph{first-price continuous} sealed-bid auction (the gen-$0$ seed). An
+\emph{elite} step simply copies it unchanged into the next generation because it is
+in the top quartile. A \emph{mutation} step resamples one field---say it flips
+\texttt{bid\_language} from \texttt{continuous} to \texttt{discrete\_grid}---and
+asks the LLM to rewrite ``submit any bid in \$0.1 increments'' into ``choose a bid
+from the grid $\{0,1,5,10,20,30,50\}$,'' producing the rank-3 \emph{first-price
+discrete-grid} mechanism. A \emph{crossover} step takes two parents---a first-price
+continuous auction and a mechanism carrying a \texttt{decision-table} framing---and,
+field by field, draws each child field from one parent, yielding for instance a
+first-price continuous auction that inherits the other parent's framing scaffold;
+the LLM then rewrites a single coherent rule. A schema validator rejects ill-typed
+offspring and duplicates (by rule-text hash) are discarded. The gen-$1$ crossover
+child built this way is the eventual rank-1 mechanism.
 
-\subsection{Result: the search recovers first-price}
+\subsection{Scale and result}
 
-Figure~\ref{fig:ea} and Table~\ref{tab:ea} report the run. Two findings stand
-out. First, the search \emph{improves}: the best-of-generation fitness rises
-from $3.37$ (a gen-$0$ initialization) to $3.42$ (a gen-$1$ crossover child),
-and that child remains the elite through gen-$2$. The absolute improvement is
-small over two generations, but it is a real one: the population's best moves
-beyond the seeded population. Second, and more substantively, where the top of
-the population concentrates is the result: three of the top five evolved
-mechanisms are first-price sealed-bid auctions (continuous or discrete-grid),
-one is second-price continuous, and one is a posted-price binary-accept
-design. All five share no reserve and random tie-breaking. The EA,
-given a permissive genotype space and the digital-mouse panel as evaluator,
-independently converges on canonical sealed-bid auctions and elevates
-first-price continuous---exactly the mechanism Section~7 picked
-\emph{a priori}---to the top.
-
-We read this as \emph{convergent validation} of two procedures rather than as
-a statement of EA optimality. The a-priori choice in Section~7 rested on sharp
-theory and human data; the EA choice rests on panel-based robustness. They
-agree, which they need not have done.
+The run uses $24$ individuals for $2$ generations against the strict $5$-mouse
+panel with $2$ repetitions per mouse---$48$ mechanism evaluations and $480$ raw
+bidder-decisions, on \texttt{gpt-5.4-mini}. It is a proof-of-concept of the
+EA-plus-panel loop, not a paper-scale search. Figure~\ref{fig:ea} and
+Table~\ref{tab:ea} report two findings. First, the search \emph{improves}: the
+best-of-generation fitness rises from $3.37$ (a gen-$0$ initialization) to $3.42$ (a
+gen-$1$ crossover child), which remains elite through gen-$2$. Second, and more
+substantively, the top of the population concentrates on canonical sealed-bid
+designs: three of the top five evolved mechanisms are first-price sealed-bid
+(continuous or discrete-grid), one is second-price continuous, and one is a
+posted-price binary-accept design; all five share no reserve and random
+tie-breaking. The EA, given a permissive genotype space and the digital-mouse panel
+as evaluator, elevates first-price continuous---exactly the mechanism the a-priori
+stress test of Section~\ref{sec:external} picked---to the top.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{fig5.pdf}
-\caption{Evolutionary search over single-item auction genotypes against the
-strict $5$-mouse panel (run~9: $24$ individuals $\times\,2$ generations
-$\times\,5$ personas $\times\,2$ reps $= 480$ raw bidder-decisions). Left:
-robust fitness of each individual by generation, colored by operator; the
-green line traces the best-of-generation. Right: the top-five unique
-mechanisms, colored by payment rule.}
+\caption{Evolutionary search over single-item auction genotypes against the strict
+$5$-mouse panel ($24$ individuals $\times\,2$ generations $\times\,5$ personas
+$\times\,2$ reps $=480$ raw bidder-decisions). Left: robust fitness of each
+individual by generation, colored by operator; the green line traces the
+best-of-generation. Right: the top-five unique mechanisms, colored by payment
+rule.}
 \label{fig:ea}
 \end{figure}
 
 \begin{table}[t]
 \centering
-\caption{Top-five evolved mechanisms from run~9, ordered by robust fitness.
-Three of five are first-price sealed-bid; all five share no reserve and random
-tie-breaking. The gen-$1$ crossover child improves on every gen-$0$ initialization.}
+\caption{Top-five evolved mechanisms, ordered by robust fitness. Three of five are
+first-price sealed-bid; all share no reserve and random tie-breaking. The gen-$1$
+crossover child improves on every gen-$0$ initialization.}
 \label{tab:ea}
 \footnotesize
 \setlength{\tabcolsep}{4.5pt}
@@ -793,101 +999,258 @@ Rank & Payment rule & Bid language & Reserve & Framing scaffold & Fitness & Firs
 5 & posted-price  & binary-accept  & none & short-hint     & $3.12$ & gen 2, crossover \\
 \bottomrule
 \end{tabular}
-
-\vspace{0.4em}
-\begin{minipage}{0.95\textwidth}
-{\footnotesize\textit{Notes.} ``Framing scaffold'' is a presentation field of
-the genotype: \texttt{none} leaves the rule as a plain menu description;
-\texttt{decision-table} and \texttt{short-hint} are alternative scaffoldings the
-search may attach. No top-five mechanism uses a chain-of-thought demonstration
-scaffold; the genotype field is present and exploring it is left to a larger
-run.\par}
-\end{minipage}
 \end{table}
 
-\subsection{Caveats}
+\subsection{A transparent re-ranking by SMAD}
 
-Two generations is a proof-of-concept of the EA-plus-panel loop, not a
-paper-scale search; the convergence we report is qualitative agreement with
-Section~7 rather than a statement about optimality over the full genotype
-space. The fitness weights are the Stage-C-aligned defaults of Section~3.1 and
-have not been re-tuned to this specific search. Cross-model re-scoring of the
-survivors, along the lines of Section~7's strict-panel portability check, is a
-natural extension and would let us flag candidates that scored well on the
-search model but degrade on a stronger held-out model.
+$F_{\mathrm{robust}}$ is a multi-objective composite and hence hard to read. As a
+check we re-rank the evolved mechanisms by SMAD~\eqref{eq:smad}, the percentage
+deviation of realized bids from each mechanism's \emph{own} declared optimum
+(Figure~\ref{fig:smad}). The two rankings broadly agree---the Spearman correlation
+between $-\mathrm{SMAD}$ and $F_{\mathrm{robust}}$ is $0.54$---but they tell
+complementary stories, and the disagreement is informative. Second-price mechanisms
+attain the \emph{lowest} SMAD (the best second-price design reaches
+$\mathrm{SMAD}\approx37$, and second-price continuous $\approx39$): under a
+strategy-proof rule, bidders find the mechanism's optimum (truthful bidding) most
+easily. First-price mechanisms---which \emph{win} on $F_{\mathrm{robust}}$---sit
+higher ($\approx45$--$51$), and third-price is worst ($\approx66$). The reading is
+clean: second-price is the easiest mechanism to bid in \emph{optimally}, while
+first-price is the mechanism the panel-based robustness objective \emph{prefers}.
+Both statements are true and they answer different questions, which is exactly why
+we report both rather than collapsing to one number.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig6.pdf}
+\caption{SMAD as a transparent cross-check on robust fitness. Left: robust fitness
+versus SMAD (scaled deviation from each mechanism's own optimum) for the evolved
+mechanisms, colored by payment rule; the two best-by-each-criterion mechanisms are
+annotated. Right: mean SMAD by payment rule---second-price is lowest (easiest to
+bid in optimally), third-price highest.}
+\label{fig:smad}
+\end{figure}
+
+We read the overall agreement as \emph{convergent validation} of two
+procedures---the a-priori choice of Section~\ref{sec:external} rests on sharp theory
+and human data; the EA choice rests on panel-based robustness; they agree, which
+they need not have---while the SMAD/fitness split is a reminder of the search's
+actual objective. The search is explicitly looking for mechanisms that are robust to
+bounded rationality, not for mechanisms that minimize bidders' deviation from a
+rational optimum; first-price wins the former and second-price the latter.
+
+\paragraph{Caveats.} Two generations is a proof-of-concept, not a paper-scale
+search; the convergence is qualitative agreement with Section~\ref{sec:external},
+not a statement about optimality over the full genotype space. The weights are the
+calibration-aligned defaults of Section~\ref{sec:fitness} and have not been re-tuned
+to this search. Cross-model re-scoring of survivors, along the lines of the
+strict-panel portability check, would flag candidates that score well on the search
+model but degrade on a stronger held-out model.
 
 \section{Discussion}
+\label{sec:discussion}
 
-\paragraph{Procedural basis versus authored error mice.} The construct-validity
-result is strongest for the procedural basis, where a single instruction
-(repair an axis) produces the predicted directional movement. The calibration
-result is more nuanced: the basis covers truthful and underbidding behavior on
-its own, but overbidding---a first-order regularity in human auction data
-\citep{kagellevin1993}---is recovered only with hand-specified heuristic
-strains. This distinction matters for interpretation. The model-agnostic claim
-applies cleanly to the procedural axes; the error mice are a complementary,
-more bespoke device for spanning the mistake space. The two should be reported
-as distinct epistemic objects.
+\paragraph{Procedural basis versus authored error mice.} Construct validity is
+strongest for the procedural basis, where a single instruction (engage an axis)
+produces the predicted directional movement. Calibration is more nuanced: the basis
+covers truthful and underbidding behavior on its own, but overbidding---a
+first-order regularity in human data \citep{kagellevin1993}---is recovered only with
+hand-specified heuristic strains. The model-agnostic claim applies cleanly to the
+procedural axes; the error mice are a complementary, more bespoke device for
+spanning the mistake space, and the two should be reported as distinct epistemic
+objects.
 
-\paragraph{Model dependence.} Because deficits are defined as procedural
-controls rather than artifacts of one model, the protocol can be rerun on a
-different frontier model. At the strain level (Section~7), four of five reserved
-strict strains preserve their dominant behavioral class across base models, the
-lone exception being the contingent-reasoning deficit, which a stronger model
-tends to repair into truthful bidding. This is a feature of the design rather
-than a bug---the panel is precisely the instrument that makes such repair
-visible---but it cautions against reading single-model panel scores as
-model-invariant and identifies contingent reasoning as the deficit most in need
-of a hardened scaffold. The chain-of-thought result (Section~6) suggests one
-remedy: demonstration induces deficits more forcefully than instruction, and so
-should be harder for a capable model to override.
+\paragraph{Digital twins as funhouse mirrors.} Our design is a direct response to
+the distortions \citet{peng2025funhouse} document in LLM digital twins. We do not
+attempt the thing those distortions make unreliable---reproducing the full
+distribution of human opinions or behaviors with a single model---because that is
+both unattainable and heavily model-dependent. Instead we exploit one distortion,
+hyper-rationality, as a clean substrate to engineer \emph{specific} deficits from,
+and we measure model-dependence directly rather than assuming it away
+(Section~\ref{sec:external}). The reasoning audit (Section~\ref{sec:audit}) is in
+the same spirit: it is an internal-validity check that the induced deficit is the
+one we intended, not an emergent artifact.
 
-\paragraph{External validity.} Digital mice are a phase-I screening population.
-A strain reproducing a mistake class establishes that the panel can express that
-behavior, not that the human share of that behavior is matched. We therefore
-keep the stress-testing claim (this paper) separate from any calibrated
-prediction of human behavior, which would require human pilot data.
+\paragraph{Model dependence.} Because deficits are procedural controls, the protocol
+can be rerun on a different frontier model. At the strain level, four of five
+reserved strict strains preserve their dominant class across base models; the lone
+exception is the contingent-reasoning deficit, which a stronger model tends to
+repair into truthful bidding. This is a feature, not a bug---the panel is the
+instrument that makes such repair visible---but it cautions against reading
+single-model panel scores as model-invariant and identifies contingent reasoning as
+the deficit most in need of a hardened scaffold; the demonstration result
+(Section~\ref{sec:cot}) is one remedy.
+
+\paragraph{External validity.} Digital mice are a phase-I screening population. A
+strain reproducing a mistake class establishes that the panel can express that
+behavior, not that the human share of that behavior is matched. We therefore keep
+the stress-testing claim (this paper) separate from any calibrated prediction of
+human behavior, which would require human pilot data---the subject of the next
+section.
+
+\section{Toward Validation with Human Experiments}
+\label{sec:validation}
+
+The pipeline so far ends in a short list of candidate mechanisms; it does not end
+in a human-validated one. The final link is to test the panel's verdicts against
+people, and the integrative-experiment framing makes the test well-defined rather
+than ad hoc \citep{almaatouq2024,alsobay2025integrative}. The design space of
+Table~\ref{tab:designspace} is exactly the pre-committed family over which one can
+make externally valid statements: draw a random sample of mechanisms from it,
+assign them to human bidders, and compare two things. First, \emph{behavioral}
+validation---do human bidders in a sampled mechanism produce the bid distribution
+the digital-mouse panel predicted for it (truthful core plus the documented
+overbidding tail in first-price, etc.)? Second, \emph{ranking} validation---does the
+panel's robustness ordering over mechanisms (first-price near the top) survive
+contact with human subjects, the way the simulated open-auction clearing price in
+related work matched both theory and field data \citep{manning2024automated}?
+
+This is also where the limits become testable rather than rhetorical. The error
+mice are calibrated to \emph{support}, not \emph{share}; human pilot data would turn
+the calibration scorecard from a coverage claim into a moment-matching one, letting
+us weight the panel so that the share of overbidders matches the human share in a
+given population. And because the genotype space is pre-committed, even mechanisms
+that happen to appear in a model's training data are handled by the random-sampling
+logic, which only reduces prediction error. We leave the human experiments
+themselves to future work; the contribution here is the screening instrument and the
+evidence that it is internally valid, externally discriminating, and ready to be
+pointed at people.
 
 \section{Conclusion}
+\label{sec:conclusion}
 
 We show that a frontier reasoning model can be instructed into stable, separable
-cognitive deficits whose behavior in a second-price sealed-bid auction (i) moves
-in the theory-predicted direction as each cognitive axis is repaired and (ii)
-spans the canonical space of human SPSB mistakes once a small set of targeted
-error strains is added, and (iii) reproduces sharp mechanism regularities in a
-first-price stress test---reasoning strains shade to the risk-neutral BNE and
-overbid relative to it, while an overgeneralizing strain bids above value and
-loses money. We further find that worked chain-of-thought demonstrations induce
-deficits more forcefully than instructions, that most reserved deficits preserve
-their behavioral class across base models, and that an evolutionary search
-driven by the panel as its fitness function recovers first-price sealed-bid as
-the top of the population, agreeing with the a-priori choice. This supports a
-research program in which instructed language-model agents are used as a
-phase-I population to screen mechanisms for robustness to bounded rationality
-before human-subject experiments are run. The immediate next steps are to
-extend the evolutionary, cross-model, and first-price analyses at scale and to
-carry both the construct-validation and calibration protocols into a second
-domain (matching).
+cognitive deficits whose behavior in a second-price sealed-bid auction (i) moves in
+the theory-predicted direction as each cognitive axis is engaged, (ii) spans the
+canonical space of human SPSB mistakes once a small set of targeted error strains is
+added, and (iii) is internally faithful---an audit of the models' own reasoning
+shows the induced deficit is the intended one, though leakily so under the standard
+base. In a first-price stress test the reasoning strains shade to the risk-neutral
+BNE and overbid relative to it while an overgeneralizing strain bids above value and
+loses money, four of five reserved deficits preserve their class across base models,
+and an evolutionary search driven by the panel recovers first-price sealed-bid as
+the top of the population---agreeing with the a-priori choice, even as a transparent
+SMAD re-ranking shows second-price is the easiest mechanism to bid in optimally.
+Together these support a research program in which instructed language-model agents
+are used as a phase-I population to screen mechanisms for robustness to bounded
+rationality \emph{before} human-subject experiments are run---not as a replacement
+for those experiments, but as the instrument that decides which mechanisms are worth
+running. The immediate next steps are to migrate the panel to a strict, CoT-induced
+construction, to extend the evolutionary and cross-model analyses at scale, and to
+carry both protocols into a second domain (matching) and into the human-subject
+validation of Section~\ref{sec:validation}.
+
+\appendix
+
+\section{Prompts}
+\label{app:prompts}
+
+\paragraph{Standard base.} ``Your TOP PRIORITY is to place bids which maximize your
+profit in the long run. Learn from the history of previous rounds in order to
+maximize your total profit. Don't forget the values are redrawn independently each
+round.''
+
+\paragraph{Strict base.} ``You are acting as a digital mouse with a specified
+cognitive procedure. Your TOP PRIORITY is to follow the cognitive procedure exactly.
+Do not repair, override, or improve the procedure even if you know a more rational
+auction strategy. If the cognitive procedure conflicts with the profit-maximizing
+strategy, the cognitive procedure wins. In your plan, use only the reasoning
+operations explicitly allowed below. Do not invoke auction theorems,
+dominant-strategy labels, or Vickrey truth-telling shortcuts unless the allowed
+procedure below gives you enough reasoning steps to derive them.''
+
+\paragraph{Cognitive axes (level 0 / level 2).} \emph{Contingent reasoning.}
+(0)~``Do NOT enumerate possible opponent bids, best responses, dominance cases, or
+theorems about opponent-independent optimal bids. Treat the auction as a fixed
+environment and choose from a simple own-value rule.'' (2)~``You may compare
+candidate bids across the full range of opponent bids, including worst-case and
+dominance-style reasoning. If one bid is robust across all cases, use it.''
+\emph{Forward planning.} (0)~``Do NOT trace through what happens after different
+candidate bids. Do NOT compare expected profits. Use a margin-of-safety heuristic:
+bid below your value\,\dots\ for values above 5, choose roughly 60--80 percent of
+your value; for very low values, bid zero or a tiny amount.'' (2)~``Build a decision
+tree over several candidate bids. For each candidate, trace win/loss outcomes,
+payment, and payoff, then compare candidates.'' \emph{Beliefs about others.}
+(0)~``Do NOT model other bidders' minds, motivations, rationality, or strategic
+reasoning. Do not assume they will bid truthfully or optimize. Treat them as an
+unknown background.'' (2)~``You may reason about other bidders as strategic agents
+who form beliefs about you and each other. Use second-order strategic reasoning when
+choosing a bid.'' Level-1 paragraphs are intermediate (enumerate a few cases /
+one-step lookahead / first-order beliefs).
+
+\paragraph{Error mice.} \emph{Second-price overgeneralizer:} ``You strongly focus on
+the fact that the winner pays the second-highest bid, not their own bid.
+Overgeneralize this rule: treat bidding above your value as mostly safe because you
+expect not to pay your own bid.'' \emph{Payment panic:} ``You are afraid that your
+bid is the amount you might have to pay\,\dots\ choose the smallest positive bid
+allowed by the auction grid\,\dots\ Even if your value is high, protect yourself by
+bidding 0.1 rather than trying to win.''
+
+\paragraph{CoT demonstration (Section~\ref{sec:cot}).} A single worked example is
+appended after the cognitive-style block and before the live decision. It fixes a
+sample value, walks through only the allowed reasoning, and ends in a bid: a
+margin-of-safety underbid ($\approx0.7\times$ value) for the all-ablated strain, and
+the contingent/forward/belief reasoning that yields a truthful Vickrey bid for the
+all-engaged strain.
+
+\section{A Planned Outcome-Instruction Robustness Check}
+\label{app:direct}
+
+The panel induces deficits by constraining the reasoning \emph{procedure}. A
+complementary design, which we specify here and leave to a (cost-bearing) re-run,
+induces them by naming the \emph{outcome} directly: rather than telling a mouse
+\emph{how} to think, tell it \emph{what} it does---``you tend to overbid,'' ``you
+tend to underbid,'' ``you bid your value.'' Comparing outcome-instructed strains to
+the procedure-instructed strains of this paper would separate two explanations for
+the observed signatures: genuine procedural induction versus simple compliance with
+a labeled behavior. The prediction is that procedure-instructed strains should
+match their outcome-instructed counterparts on the targeted metric but differ on
+\emph{off-target} behavior and on the reasoning audit of Section~\ref{sec:audit}
+(an outcome instruction need not, and likely will not, change the dominance-argument
+invocation rate). We flag this as the cleanest single robustness experiment to run
+next.
 
 \begin{thebibliography}{9}
 \footnotesize
+\bibitem[Almaatouq et al.(2024)]{almaatouq2024}
+Almaatouq, A., T.~L.~Griffiths, J.~W.~Suchow, M.~E.~Whiting, J.~Evans, and
+D.~J.~Watts (2024). ``Beyond Playing 20 Questions with Nature: Integrative
+Experiment Design in the Social and Behavioral Sciences.'' \textit{Behavioral and
+Brain Sciences}, 47, e33.
+
+\bibitem[Alsobay et al.(2025)]{alsobay2025integrative}
+Alsobay, M., D.~G.~Rand, D.~J.~Watts, and A.~Almaatouq (2025). ``Integrative
+Experiments Identify How Punishment Impacts Welfare in Public Goods Games.''
+arXiv:2508.17151.
+
 \bibitem[Crawford and Iriberri(2007)]{crawfordiriberri2007}
 Crawford, V.~P., and N.~Iriberri (2007). ``Level-$k$ Auctions: Can a Nonequilibrium
 Model of Strategic Thinking Explain the Winner's Curse and Overbidding in
 Private-Value Auctions?'' \textit{Econometrica}, 75(6), 1721--1770.
 
 \bibitem[Eyster and Rabin(2005)]{eysterrabin2005}
-Eyster, E., and M.~Rabin (2005). ``Cursed Equilibrium.''
-\textit{Econometrica}, 73(5), 1623--1672.
+Eyster, E., and M.~Rabin (2005). ``Cursed Equilibrium.'' \textit{Econometrica},
+73(5), 1623--1672.
+
+\bibitem[Horton(2023)]{horton2023large}
+Horton, J.~J. (2023). ``Large Language Models as Simulated Economic Agents: What
+Can We Learn from Homo Silicus?'' NBER Working Paper.
 
 \bibitem[Kagel and Levin(1993)]{kagellevin1993}
-Kagel, J.~H., and D.~Levin (1993). ``Independent Private Value Auctions:
-Bidder Behaviour in First-, Second- and Third-Price Auctions with Varying
-Numbers of Bidders.'' \textit{The Economic Journal}, 103(419), 868--879.
+Kagel, J.~H., and D.~Levin (1993). ``Independent Private Value Auctions: Bidder
+Behaviour in First-, Second- and Third-Price Auctions with Varying Numbers of
+Bidders.'' \textit{The Economic Journal}, 103(419), 868--879.
 
 \bibitem[Li(2017)]{li2017}
-Li, S. (2017). ``Obviously Strategy-Proof Mechanisms.''
-\textit{American Economic Review}, 107(11), 3257--3287.
+Li, S. (2017). ``Obviously Strategy-Proof Mechanisms.'' \textit{American Economic
+Review}, 107(11), 3257--3287.
+
+\bibitem[Manning et al.(2024)]{manning2024automated}
+Manning, B.~S., K.~Zhu, and J.~J.~Horton (2024). ``Automated Social Science:
+Language Models as Scientist and Subjects.'' NBER Working Paper.
+
+\bibitem[Peng et al.(2025)]{peng2025funhouse}
+Peng, T., G.~Gui, D.~Merlau, et al. (2025). ``Digital Twins as Funhouse Mirrors:
+Five Key Distortions.'' arXiv:2509.19088.
 
 \bibitem[Vickrey(1961)]{vickrey1961}
 Vickrey, W. (1961). ``Counterspeculation, Auctions, and Competitive Sealed

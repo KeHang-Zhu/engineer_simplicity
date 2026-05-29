@@ -34,6 +34,8 @@ FPSB_FITNESS = os.path.join(
 )
 RESULTS_DB = os.path.join(REPO_ROOT, "data_v2/results.sqlite")
 EA_RUN_ID = 9
+SMAD_CSV = os.path.join(REPO_ROOT, "analysis_v2/evolution/ea_smad_ranking.csv")
+AUDIT_CSV = os.path.join(REPO_ROOT, "analysis_v2/reasoning_audit/reasoning_chain_audit.csv")
 
 # Print-safe, restrained style.
 plt.rcParams.update({
@@ -346,9 +348,114 @@ def fig5_ea_dynamics():
     return out
 
 
+def fig6_smad_vs_fitness():
+    """SMAD (closeness to each mechanism's optimal bid) vs composite robust fitness."""
+    df = pd.read_csv(SMAD_CSV)
+    pay_color = {"first_price": ACCENT, "second_price": INK,
+                 "posted_price": "#c79a00", "all_pay": GREEN, "third_price": "#6a4c93"}
+    valid = df[df["smad"].notna()].copy()
+
+    fig, axs = plt.subplots(1, 2, figsize=(10.2, 4.0),
+                            gridspec_kw={"width_ratios": [1.25, 1.0]})
+
+    # Panel A: scatter SMAD (x, lower=better) vs robust fitness (y, higher=better)
+    for pay, sub in valid.groupby("payment_rule"):
+        axs[0].scatter(sub["smad"], sub["robust_fitness"], s=34,
+                       color=pay_color.get(pay, GREY), alpha=0.8,
+                       edgecolor="white", linewidth=0.4,
+                       label=pay.replace("_", "-"))
+    # mark the two different winners
+    best_fit = valid.sort_values("robust_fitness", ascending=False).iloc[0]
+    best_smad = valid.sort_values("smad").iloc[0]
+    axs[0].annotate("best fitness\n(first-price)",
+                    xy=(best_fit["smad"], best_fit["robust_fitness"]),
+                    xytext=(best_fit["smad"] + 1.5, best_fit["robust_fitness"] - 0.9),
+                    fontsize=8.5, color=ACCENT,
+                    arrowprops=dict(arrowstyle="->", color=ACCENT, lw=1))
+    axs[0].annotate("lowest SMAD\n(second-price)",
+                    xy=(best_smad["smad"], best_smad["robust_fitness"]),
+                    xytext=(best_smad["smad"] - 3.0, best_smad["robust_fitness"] + 0.7),
+                    fontsize=8.5, color=INK,
+                    arrowprops=dict(arrowstyle="->", color=INK, lw=1))
+    axs[0].set_xlabel("SMAD: % deviation from optimal bid (lower better)")
+    axs[0].set_ylabel("Robust fitness (higher better)")
+    axs[0].grid(color=GREY, alpha=0.2, lw=0.6)
+    axs[0].legend(loc="lower left", frameon=False, fontsize=8)
+    axs[0].set_title("Two objectives, two winners")
+
+    # Panel B: mean SMAD by payment rule
+    msm = (valid.groupby("payment_rule")["smad"].mean()
+           .sort_values(ascending=True))
+    y = np.arange(len(msm))
+    axs[1].barh(y, msm.values, color=[pay_color.get(p, GREY) for p in msm.index],
+                height=0.6, alpha=0.9, zorder=3)
+    for yi, v in zip(y, msm.values):
+        axs[1].text(v + 0.6, yi, f"{v:.0f}", va="center", fontsize=9, color=INK)
+    axs[1].set_yticks(y)
+    axs[1].set_yticklabels([p.replace("_", "-") for p in msm.index], fontsize=9)
+    axs[1].set_xlabel("Mean SMAD")
+    axs[1].set_xlim(0, msm.max() * 1.2)
+    axs[1].grid(axis="x", color=GREY, alpha=0.25, lw=0.6)
+    axs[1].set_title("Mice bid closest to optimum\nunder second-price")
+
+    fig.suptitle("SMAD broadly tracks robust fitness, but ranks second-price first",
+                 y=1.04, fontsize=12)
+    out = os.path.join(HERE, "fig6.pdf")
+    fig.savefig(out)
+    plt.close(fig)
+    return out
+
+
+def fig7_reasoning_audit():
+    """Do the mice reason as instructed? Dominance-argument invocation in the PLAN logs."""
+    df = pd.read_csv(AUDIT_CSV)
+    by_c = df.groupby("contingent")["dominance_invocation_rate"].mean()
+
+    fig, axs = plt.subplots(1, 2, figsize=(10.2, 4.0),
+                            gridspec_kw={"width_ratios": [1.0, 1.2]})
+
+    # Panel A: dominance invocation by contingent level
+    xs = [0, 1, 2]
+    ys = [by_c.get(c, np.nan) for c in xs]
+    axs[0].bar(xs, ys, color=[ACCENT, GREY, GREEN], width=0.6, alpha=0.9, zorder=3)
+    for x, yv in zip(xs, ys):
+        axs[0].text(x, yv + 0.02, f"{yv:.2f}", ha="center", fontsize=10, color=INK)
+    axs[0].set_xticks(xs)
+    axs[0].set_xticklabels(["0 (off)", "1", "2 (intact)"])
+    axs[0].set_ylim(0, 1.0)
+    axs[0].set_xlabel("Contingent-reasoning level")
+    axs[0].set_ylabel("Share of plans invoking\nthe dominant-strategy argument")
+    axs[0].grid(axis="y", color=GREY, alpha=0.25, lw=0.6)
+    axs[0].axhspan(0, by_c.get(0, 0), color=ACCENT, alpha=0.06)
+    axs[0].set_title("Reasoning reflects the instructed level\n(but leaks at level 0)")
+
+    # Panel B: per-strain dominance invocation vs truthful behavior
+    cmap = {0: ACCENT, 1: GREY, 2: GREEN}
+    for c, sub in df.groupby("contingent"):
+        axs[1].scatter(sub["dominance_invocation_rate"], sub["truthful_rate"],
+                       s=46, color=cmap[c], alpha=0.85, edgecolor="white",
+                       linewidth=0.5, label=f"contingent = {c}")
+    axs[1].set_xlabel("Share of plans invoking the dominant-strategy argument")
+    axs[1].set_ylabel("Truthful-bid rate")
+    axs[1].grid(color=GREY, alpha=0.2, lw=0.6)
+    axs[1].legend(loc="lower right", frameon=False, fontsize=8.5)
+    axs[1].set_title("Stated reasoning predicts\nrealized truthful bidding")
+
+    fig.suptitle("Auditing the reasoning chains: do the digital mice reason as instructed?",
+                 y=1.04, fontsize=12)
+    out = os.path.join(HERE, "fig7.pdf")
+    fig.savefig(out)
+    plt.close(fig)
+    return out
+
+
 def main():
+    # Regenerate the SMAD and reasoning-audit CSVs first (no LLM calls).
+    import make_extra_analyses as mx
+    mx.ea_smad_ranking()
+    mx.reasoning_audit()
     for fn in (fig1_construct_marginals, fig2_behavioral_signatures, fig3_calibration_coverage,
-               fig4_first_price, fig5_ea_dynamics):
+               fig4_first_price, fig5_ea_dynamics, fig6_smad_vs_fitness, fig7_reasoning_audit):
         path = fn()
         size = os.path.getsize(path)
         print(f"wrote {os.path.relpath(path, REPO_ROOT)}  ({size} bytes)")
