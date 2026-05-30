@@ -79,12 +79,14 @@ the panel through a first-price stress test as an external check on
 the deficits' direction and through one evolutionary search over
 single-item auctions as a robust-ordering exercise. We are explicit
 about what the current evidence does \emph{not} support: moment
-matching to humans, the human ranking validation that decides
-translational validity, and---a separable internal gap---a screening
-panel that includes the overbidding error mice, so that the robust
-ranking is stress-tested against overbidders rather than only against
-cautious procedural deficits. Each of these is the subject of a
-specified next experiment.
+matching to a human population, the human ranking validation that
+decides translational validity, and---a separable internal gap---a
+screening panel that includes the overbidding error mice, so that
+the robust ranking is stress-tested against overbidders rather than
+only against cautious procedural deficits. Each of these is the
+subject of a specified next experiment. The Stage~2 human reference
+is \citet{li2017}'s $144$-subject second-price treatment, so moment
+matching can begin against existing data rather than on a new pilot.
 
 \vspace{0.5em}
 \noindent\textit{Keywords:} bounded rationality, mechanism design,
@@ -494,6 +496,25 @@ bid $b$, the value $v$, and the deviation $b-v$. A truthful bid is
 $|b-v|\le 0.05$; moderate underbidding is $b < v-0.05$ (excluding
 near-zero bids); overbidding is $b > v + 0.05$; extreme overbidding is
 $b - v \ge 5$; near-zero bidding is $b \le 0.1$ with $v > 5$.
+
+\paragraph{The canonical human \SPSB{} reference.} The human \SPSB{}
+benchmark our Stage~2 calibration will match is
+\citet{li2017}'s experimental data. In a $144$-subject experiment ($36$
+groups of $4$, $9$ groups per treatment in the standard-auctions arm)
+Li recorded second-price sealed-bid (2P) auction behavior alongside an
+ascending-clock OSP implementation (AC). The 2P treatment is the human
+population we need: from Li's Figure~2, the auction-level distribution
+of (2nd-highest bid $-$ 2nd-highest value) in 2P is roughly $39\%$
+near-truthful (within \$2 of value), $13\%$ heavy underbidding
+($\le -\$6$), $22\%$ heavy overbidding ($> +\$6$), and the remainder
+moderately above or below value. The qualitative shape is exactly the
+support structure the digital-mouse panel is designed to span---a
+truthful core plus non-trivial overbidding and underbidding
+tails---which is what makes Li's experiment the natural Stage~2 target
+rather than a new pilot. We use this dataset, not a fresh pilot, as
+the human moment source in Section~\ref{sec:validation}; a new pilot
+remains useful for power and for environments outside the standard
+\SPSB{} but is not the gating step we previously framed it as.
 
 \subsection{The moment vector}
 \label{sec:moments}
@@ -1109,22 +1130,80 @@ implied by the FPSB stress test of Section~\ref{sec:external}: a
 mechanism that gives the panel a clean shading benchmark and a
 continuous action space wins on robust fitness.
 
+Figure~\ref{fig:ea} shows the search dynamics and the composition of
+the top of the population. The best-of-generation fitness improves
+from generation~0 to later generations (left panel), with both
+mutation and crossover producing elite candidates. The top of the
+population (right panel) is dominated by first-price designs, with
+second-price and posted-price each accounting for at most one entry.
+The figure is the visual companion to Table~\ref{tab:pass3}: it shows
+that the result is not a single elite outlier but a stable mode of
+the search, with first-price taking the top quartile across operators
+and generations.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig5.pdf}
+\caption{Evolutionary-search dynamics on the 5-strain screening
+panel. Left: robust fitness of each individual by generation, colored
+by operator (initialization / mutation / crossover); the green line
+traces the best-of-generation. Right: the top-five unique evolved
+mechanisms, colored by payment rule. First-price dominates the top of
+the population.}
+\label{fig:ea}
+\end{figure}
+
+Figure~\ref{fig:tail} makes the tail-driven structure of robust
+fitness explicit. Allocative efficiency averaged over the panel
+(grey) sits above $0.95$ for nearly every completed candidate; the
+worst-strain efficiency (red), in contrast, fans down sharply for
+low-fitness mechanisms and tracks the robust score closely. Mechanisms
+do not separate by mean performance; they separate by which strain in
+the panel they fail against.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig8.pdf}
+\caption{Tail efficiency, not the mean, drives the robust ordering.
+Each point is one evaluated mechanism. Left: candidates ranked by
+robust fitness and colored by bid-language family; the upper envelope
+is dominated by continuous and short-hinted designs and there is a
+long negative tail. Right: mean allocative efficiency (grey) stays
+uniformly high across the population, while the worst-strain
+efficiency (red) fans down for low-fitness mechanisms---the lower
+tail, not the mean, drives the score.}
+\label{fig:tail}
+\end{figure}
+
 \subsection{SMAD re-ranking: what the robust ordering does not say}
 
 $F_{\mathrm{robust}}$ is a multi-objective composite; SMAD
 (Eq.~\eqref{eq:smad}) is a single transparent scalar. The two
-rankings broadly agree, but they tell complementary stories. Across
-mechanisms explored across the search, second-price designs attain
-the \emph{lowest} SMAD (a best second-price design reaches
-$\mathrm{SMAD}\approx 37$, second-price continuous $\approx 39$):
-under a strategy-proof rule, bidders find the mechanism's own optimum
-(truthful bidding) most easily. First-price designs sit higher
-($\approx 45$--$51$) and third-price worst ($\approx 66$). The
-reading is clean: second-price is the easiest mechanism to bid in
-optimally, while first-price is the mechanism the panel-based
-robustness objective prefers. Both statements are true and they
-answer different questions, which is exactly why we report both
-rather than collapsing to one number.
+rankings broadly agree (the Spearman correlation between $-\mathrm{SMAD}$
+and $F_{\mathrm{robust}}$ across evaluated mechanisms is $0.54$), but
+they tell complementary stories. Figure~\ref{fig:smad} plots the two
+side by side. Second-price designs attain the \emph{lowest} SMAD
+(a best second-price design reaches $\mathrm{SMAD}\approx 37$,
+second-price continuous $\approx 39$): under a strategy-proof rule,
+bidders find the mechanism's own optimum (truthful bidding) most
+easily. First-price designs sit higher ($\approx 45$--$51$) and
+third-price worst ($\approx 66$). The reading is clean: second-price
+is the easiest mechanism to bid in optimally, while first-price is
+the mechanism the panel-based robustness objective prefers. Both
+statements are true and they answer different questions, which is
+exactly why we report both rather than collapsing to one number.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig6.pdf}
+\caption{SMAD as a transparent cross-check on robust fitness. Left:
+robust fitness versus SMAD (percentage deviation of realized bids
+from each mechanism's own optimum) for the evolved mechanisms,
+colored by payment rule; the two best-by-each-criterion mechanisms
+are annotated. Right: mean SMAD by payment rule---second-price is
+lowest (easiest to bid in optimally), third-price highest.}
+\label{fig:smad}
+\end{figure}
 
 \subsection{What this screen does not yet say}
 
@@ -1154,13 +1233,17 @@ panel's verdicts against people. The integrative-experiment framing
 makes the test well-defined rather than ad hoc
 \citep{almaatouq2024,alsobay2025integrative}: the design space of
 Table~\ref{tab:designspace} is the pre-committed family over which
-externally valid statements can be made. A minimal validation design
-has four steps:
+externally valid statements can be made. The validation design has
+four steps; because \citet{li2017} already provides the human \SPSB{}
+data we need, the first step is to read those data rather than to run
+a new pilot.
 
 \begin{enumerate}
-\item Run a human \SPSB{} pilot and estimate the moment vector
-$m_H^{\SPSB}$ of Eq.~\eqref{eq:moments-discrete} or
-Eq.~\eqref{eq:moments-continuous}.
+\item Estimate $m_H^{\SPSB}$ from \citet{li2017}'s 2P treatment.
+Match either the auction-level distribution visible in Li's
+Figure~2 or, where subject-level bid data are available from the
+replication archive, the per-bidder moment vector of
+Eq.~\eqref{eq:moments-discrete} or Eq.~\eqref{eq:moments-continuous}.
 \item Fit $\widehat{w}$ over the fixed digital-mouse library using the
 moment-matching objective in Eq.~\eqref{eq:momentmatch}.
 \item Use the human-calibrated panel of Eq.~\eqref{eq:humanpred} to
@@ -1176,6 +1259,11 @@ predicted and realized rankings:
 \operatorname{rank}\!\left(Y^{H}_k\right).
 \label{eq:rankval}
 \end{equation}
+Li's design also gives an immediate within-class sanity check: the
+human-calibrated panel should reproduce the AC-versus-2P deviation
+gap of Li's Figure~2 (smaller mass in the truthful bin for 2P than
+for AC, and heavier tails on both sides) before it is asked to rank
+mechanisms outside Li's pair.
 \end{enumerate}
 
 The validation target is translational: \emph{does a moment-matched
@@ -1227,19 +1315,27 @@ identifiable mechanically: any mechanism whose lower-tail efficiency
 collapses against the overgeneralizer (because overbidders
 overpay) or against payment panic (because near-zero bidders kill
 revenue) will fall in the robust ordering.
-\item \textbf{Human \SPSB{} pilot and moment matching.} Run a small
-human \SPSB{} pilot, estimate $m_H^{\SPSB}$, fit $\widehat{w}$ via
-Eq.~\eqref{eq:momentmatch}, and rescore the leaders of the rerun
-\EA{}. The Stage~2 claim of Section~\ref{sec:calibration-two}
-becomes testable at this point.
+\item \textbf{Moment-match against \citet{li2017}.} Use the 2P
+treatment of \citet{li2017} as the human \SPSB{} moment vector
+$m_H^{\SPSB}$; fit $\widehat{w}$ via Eq.~\eqref{eq:momentmatch} over
+the digital-mouse library; rescore the leaders of the rerun \EA{}
+under the human-calibrated ordering of Eq.~\eqref{eq:humanpred}. The
+Stage~2 claim of Section~\ref{sec:calibration-two} becomes testable
+at this point without a new pilot. A sanity check before ranking is
+to confirm that the calibrated panel reproduces Li's AC-versus-2P
+deviation gap.
 \item \textbf{Human ranking validation.} Run the held-out mechanisms
 in Eq.~\eqref{eq:rankval} with human subjects and report rank
-correlation between $\widehat{Y}^{H}_k$ and $Y^{H}_k$. This is the
-translational endpoint.
+correlation between $\widehat{Y}^{H}_k$ and $Y^{H}_k$. Li's design is
+$\{$AC, 2P$\}$, so the held-out set should include at least one
+mechanism outside that pair (e.g.\ first-price continuous and a
+short-hinted grid drawn from Table~\ref{tab:pass3}) to make the test
+genuinely out-of-sample. This is the translational endpoint.
 \end{enumerate}
 The three experiments are sequential by design: the first cleans the
 screening panel; the second turns coverage into a population
-calibration; the third is the decisive translational test.
+calibration using existing data; the third is the decisive
+translational test.
 
 \paragraph{Boundaries.} Two boundaries deserve emphasis. First,
 construct validity is strongest for the procedural basis, where a
