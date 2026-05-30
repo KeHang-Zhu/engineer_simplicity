@@ -1,0 +1,6 @@
+persona_id,weight
+c0_f0_b0_cot,0.1741171724607472
+c2_f2_b2_cot,0.18978665773538586
+spsb_error_overgeneralizer,0.41284798146869617
+spsb_error_payment_panic,0.033461530599785
+spsb_outcome_truthful,0.1897866577353858

@@ -1,0 +1,21 @@
+mechanism_id,mechanism_label,category,persona_id,n_decisions,smad,weight
+vickrey_baseline,E1: Vickrey 2P (baseline easy),easy,c0_f0_b0_cot,45,26.510369702434627,0.1741171724607472
+vickrey_baseline,E1: Vickrey 2P (baseline easy),easy,c2_f2_b2_cot,45,0.0,0.1897866577353858
+vickrey_baseline,E1: Vickrey 2P (baseline easy),easy,spsb_error_overgeneralizer,45,14.91433724075744,0.4128479814686961
+vickrey_baseline,E1: Vickrey 2P (baseline easy),easy,spsb_error_payment_panic,45,99.60324616771865,0.033461530599785
+vickrey_baseline,E1: Vickrey 2P (baseline easy),easy,spsb_outcome_truthful,45,0.0,0.1897866577353858
+vickrey_osp_hint,E2: 2P + OSP-style framing,easy,c0_f0_b0_cot,45,21.63210099188458,0.1741171724607472
+vickrey_osp_hint,E2: 2P + OSP-style framing,easy,c2_f2_b2_cot,45,0.01803426510369728,0.1897866577353858
+vickrey_osp_hint,E2: 2P + OSP-style framing,easy,spsb_error_overgeneralizer,45,15.1487826871055,0.4128479814686961
+vickrey_osp_hint,E2: 2P + OSP-style framing,easy,spsb_error_payment_panic,45,99.60324616771865,0.033461530599785
+vickrey_osp_hint,E2: 2P + OSP-style framing,easy,spsb_outcome_truthful,45,0.0,0.1897866577353858
+allpay_first_price,H1: All-pay first-price,hard,c0_f0_b0_cot,45,53.339286318654445,0.1741171724607472
+allpay_first_price,H1: All-pay first-price,hard,c2_f2_b2_cot,45,92.60747840829393,0.1897866577353858
+allpay_first_price,H1: All-pay first-price,hard,spsb_error_overgeneralizer,45,137.18764339702685,0.4128479814686961
+allpay_first_price,H1: All-pay first-price,hard,spsb_error_payment_panic,45,99.24787742884553,0.033461530599785
+allpay_first_price,H1: All-pay first-price,hard,spsb_outcome_truthful,45,109.57779979866365,0.1897866577353858
+firstprice_with_reserve,H2: First-price with $15 reserve,hard,c0_f0_b0_cot,45,27.229862475442058,0.1741171724607472
+firstprice_with_reserve,H2: First-price with $15 reserve,hard,c2_f2_b2_cot,45,43.61493123772103,0.1897866577353858
+firstprice_with_reserve,H2: First-price with $15 reserve,hard,spsb_error_overgeneralizer,45,77.6424361493124,0.4128479814686961
+firstprice_with_reserve,H2: First-price with $15 reserve,hard,spsb_error_payment_panic,45,40.41257367387035,0.033461530599785
+firstprice_with_reserve,H2: First-price with $15 reserve,hard,spsb_outcome_truthful,45,63.40864440078586,0.1897866577353858

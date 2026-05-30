@@ -1,0 +1,5 @@
+In this game, you will participate in an auction for a prize against {{num_bidders}} other bidders. You will play this game for {{n}} rounds.
+At the start of each round, bidders will see their value for the prize, randomly drawn between $0 and ${{private}}, with all values equally likely.
+After learning your value, you will submit a bid privately at the same time as the other bidders. Bids must be in ${{increment}} increments.
+The auction has a minimum bid (a reserve price) of $15. Bids strictly below $15 are treated as non-participating and earn $0. Among bids of at least $15, the highest bidder wins the prize and pays their own bid (a first-price auction with a $15 reserve). If you win, your earnings will increase by your value for the prize, and decrease by your own bid. If you do not win, your earnings will remain unchanged.
+After each auction, we will display all bids. Ties for the highest bid will be resolved randomly.

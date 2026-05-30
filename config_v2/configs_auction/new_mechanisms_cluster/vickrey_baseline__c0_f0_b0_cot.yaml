@@ -1,0 +1,52 @@
+# New-mechanisms cluster-panel run
+# mechanism: E1: Vickrey 2P (baseline easy)
+# persona:   c0_f0_b0_cot
+
+experiment:
+  name: "vickrey_baseline__c0_f0_b0_cot"
+  version: "v2-newmech-cluster"
+  description: "E1: Vickrey 2P (baseline easy) -- panel strain c0_f0_b0_cot"
+
+mechanism_metadata:
+  incentive_target:
+    action: "truthful_bid"
+    description: "E1: Vickrey 2P (baseline easy)"
+    parameters:
+      benchmark: "value"
+
+auction:
+  number_agents: 3
+  rounds: 1
+
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "second"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 0
+  special_name: "vickrey_baseline.txt"
+
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 9401
+
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "rule_template/auctions/"
+  persona_file: "rule_prompt_v2/personas/spsb_basis_cot/c0_f0_b0.txt"
+  include_payment_example: true
+
+execution:
+  repetitions: 15
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/gpt5mini/newmech_vickrey_baseline__c0_f0_b0_cot"

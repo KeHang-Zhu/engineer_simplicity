@@ -1429,6 +1429,146 @@ action-interface enforcement of v1's Pass~3 as a hard validation
 gate before SMAD is computed, so any noncompliant candidate is
 rejected before scoring rather than penalized at the margin.
 
+\subsection{Li-2017 calibrated mixture weights}
+\label{sec:li-mixture}
+
+The worst-strain aggregator in Eq.~\eqref{eq:smad-fitness} is one
+choice; the moment-matching framework of
+Section~\ref{sec:calibration-two} suggests a population-weighted
+aggregator instead. Once the mixture weights $\widehat{w}$ are fit
+against \citet{li2017}'s 2P moments, the weighted SMAD is the
+canonical Stage~2 fitness:
+\begin{equation}
+F^{\mathrm{SMAD},H}_k
+=
+- \sum_{j \in \mathcal{P}^{\star}} \widehat{w}_j\, \mathrm{SMAD}_{jk},
+\label{eq:smad-weighted}
+\end{equation}
+where the cluster panel $\mathcal{P}^{\star}$ is held fixed and the
+weights are estimated by simplex-constrained least squares against
+the human moment vector
+$m_H^{\SPSB} = (p_{\mathrm{truthful}},
+p_{\mathrm{underbid}},
+p_{\mathrm{overbid}},
+p_{\mathrm{extreme\ overbid}},
+p_{\mathrm{near\ zero}})
+= (0.39, 0.21, 0.39, 0.22, 0.03)$
+read off Li's Figure~2 SP histogram and a conservative near-zero
+estimate.
+
+Solving Eq.~\eqref{eq:momentmatch} on the cluster panel gives the
+weights in Table~\ref{tab:li-weights}: the overgeneralizer carries
+the largest weight ($0.41$) because Li's 2P data contain
+substantial overbidding above value; rationality, literal
+truthfulness, and the contingent-off underbidder share the middle
+band ($0.17$--$0.19$); the payment-panic mouse gets very little
+weight ($0.03$) because near-zero behavior is rare in Li's data.
+The total $L_2$ residual is $0.109$; the largest individual gap is
+on extreme overbidding ($0.114$ fitted vs.\ $0.220$ target), which
+reflects a limitation of the present panel rather than the
+weighting --- to better match Li's extreme-overbid mass we would
+need to add a more aggressive overbidder strain to the library.
+
+\begin{table}[t]
+\centering
+\caption{Li-2017-calibrated mixture weights $\widehat{w}$ over the
+5-strain cluster panel. Fitted by simplex-constrained least
+squares against the per-bidder moment target adapted from Li
+(2017) Figure~2 SP.}
+\label{tab:li-weights}
+\small
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{@{}lrl@{}}
+\toprule
+Strain & $\widehat{w}$ & Role \\
+\midrule
+\texttt{c0\_f0\_b0} (CoT)               & $0.174$ & contingent-off underbidder \\
+\texttt{c2\_f2\_b2} (CoT)               & $0.190$ & rational benchmark \\
+2nd-price overgeneralizer (v1 error)    & $0.413$ & winner's-curse overbidder \\
+payment panic (v1 error)                & $0.033$ & participation failure \\
+\texttt{spsb\_outcome\_truthful}        & $0.190$ & literal label-follower \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Four new mechanisms, ranked by Li-weighted SMAD}
+\label{sec:newmech-ranking}
+
+To make the SMAD-only fitness concrete and to produce candidate
+mechanisms ready for a human-subject pilot, we hand-design four new
+auctions that span easy-to-bid-in-optimally and hard-to-bid-in-
+optimally cells of the design space. Each mechanism was run at
+$15$ reps against the full 5-strain cluster panel
+($300$ auction reps, $900$ bidder-decisions on
+\texttt{gpt-5.4-mini}); the per-mechanism SMAD modules were
+auto-emitted from each candidate's $b^\star(v)$ formula and stored
+under \texttt{data\_v2/results/smad\_scoring\_new\_mechs/}. The
+four mechanisms are:
+
+\begin{enumerate}
+\item[\textbf{E1}] \textbf{Vickrey 2P baseline.} Standard second-
+price sealed-bid; $b^\star(v) = v$.
+\item[\textbf{E2}] \textbf{Vickrey 2P + OSP-style hint.} Identical
+to E1 with one extra sentence in the rule description (``your own
+bid affects ONLY whether you win the prize; the price you pay if
+you win is set by the second-highest bid, which is somebody else's
+bid, not your own''); $b^\star(v) = v$.
+\item[\textbf{H1}] \textbf{All-pay first-price.} All bidders pay
+their bid; highest wins; $b^\star(v) = v^n / V_{\max}^{n-1}$
+(for $n=3$, $V_{\max}=49$: $b^\star \approx v^3 / 2401$).
+\item[\textbf{H2}] \textbf{First-price with $\$15$ reserve.} 1P
+sealed-bid with a binding reserve; $b^\star(v) = 15$ for
+$15 \le v \le 22.5$, $b^\star(v) = (2/3)v$ for $v > 22.5$, and
+non-participation for $v < 15$.
+\end{enumerate}
+
+Table~\ref{tab:newmech-ranking} ranks the four mechanisms by the
+Li-weighted SMAD of Eq.~\eqref{eq:smad-weighted}. The split is
+clean: the two easy mechanisms cluster around $13$--$14$, the two
+hard mechanisms at $58$--$108$.
+
+\begin{table}[t]
+\centering
+\caption{Four new candidate mechanisms ranked by Li-weighted SMAD
+on the 5-strain cluster panel ($15$ reps per cell, $900$
+bidder-decisions, \texttt{gpt-5.4-mini}). Lower SMAD = realized
+bids closer to the mechanism's own optimum. Worst-strain SMAD is
+reported as a robustness check.}
+\label{tab:newmech-ranking}
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+Code & Mechanism & Weighted SMAD & Worst-strain SMAD & Mean SMAD \\
+\midrule
+E2 & Vickrey + OSP-style hint               & $\mathbf{13.4}$  & $99.6$  & $27.3$ \\
+E1 & Vickrey 2P baseline                    & $14.1$           & $99.6$  & $28.2$ \\
+\addlinespace
+H2 & First-price with $\$15$ reserve        & $58.5$           & $77.6$  & $50.5$ \\
+H1 & All-pay first-price                    & $\mathbf{107.6}$ & $137.2$ & $98.4$ \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\footnotesize\textit{Notes.} E2 beats E1 because the explicit
+OSP-style sentence pulls the contingent-off underbidder $\approx
+19\%$ closer to truthful (SMAD $26.5 \to 21.6$ for that strain),
+while leaving the other four strains essentially unchanged. The
+worst-strain operator on the easy mechanisms is dominated by
+payment panic; the Li weights down-weight payment panic to $0.03$
+so the weighted measure reflects the rest of the panel.\par}
+\end{minipage}
+\end{table}
+
+The full rule descriptions for human-subject implementation, with
+optimal-bid formulas, panel-strain signatures, and reporting
+checklist, are collected in
+\texttt{writeup\_v2/reports/digital\_mice\_v2/human\_experiment\_briefing.md}.
+The decisive prediction for the human pilot is that the
+easy/hard cluster gap survives contact with humans, and that E2
+beats E1 within the easy cluster.
+
 \subsection{Why search, and the design space}
 
 Mechanism design is at bottom a search problem. The standard answer is
