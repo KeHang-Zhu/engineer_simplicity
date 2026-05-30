@@ -1,0 +1,3 @@
+mechanism,worst_strain_smad,mean_smad,fitness,module_path
+spsb_ipv_continuous,26.240037505860286,8.746679168620096,-26.240037505860286,data_v2/results/smad_scoring_demo/smad_spsb_ipv_continuous.py
+fpsb_ipv_continuous,99.41634241245133,49.84176394293125,-99.41634241245133,data_v2/results/smad_scoring_demo/smad_fpsb_ipv_continuous.py

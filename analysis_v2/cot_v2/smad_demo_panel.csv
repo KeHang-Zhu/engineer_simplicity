@@ -1,0 +1,11 @@
+mechanism,persona_id,label,n_decisions,smad
+spsb_ipv_continuous,c0_f0_b0_cot,c=0 underbidder (CoT),90,26.240037505860286
+spsb_ipv_continuous,c2_f2_b2_cot,c=2 rational (CoT),90,0.0
+spsb_ipv_continuous,spsb_error_overgeneralizer,overgeneralizer,0,
+spsb_ipv_continuous,spsb_error_payment_panic,payment panic,0,
+spsb_ipv_continuous,spsb_outcome_truthful,outcome: truthful,90,0.0
+fpsb_ipv_continuous,c0_f0_b0_cot,c=0 underbidder (CoT),30,12.269779507133594
+fpsb_ipv_continuous,c2_f2_b2_cot,c=2 rational (CoT),30,21.60830090791181
+fpsb_ipv_continuous,spsb_error_overgeneralizer,overgeneralizer,30,65.91439688715953
+fpsb_ipv_continuous,spsb_error_payment_panic,payment panic,30,99.41634241245133
+fpsb_ipv_continuous,spsb_outcome_truthful,outcome: truthful,30,50.0

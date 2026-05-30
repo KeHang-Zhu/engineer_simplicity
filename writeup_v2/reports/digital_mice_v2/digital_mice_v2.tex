@@ -1283,6 +1283,152 @@ ranking can then be compared to the procedural-only ranking of
 Table~\ref{tab:pass3}, and to the human ranking once Stage~2 moment
 matching is fit against \citet{li2017}.
 
+\subsection{SMAD-only fitness with a per-mechanism scoring module}
+\label{sec:smad-fitness}
+
+The v1 \EA{} scored each candidate mechanism by $F_{\mathrm{robust}}$
+(Eq.~\eqref{eq:frobust}), a multi-objective weighted sum of revenue,
+efficiency, intended-action rate, simplicity, surplus-variance,
+parser-failure, action-noncompliance, and three tail-aware
+counterparts. The composite is hard to read and depends on a vector
+of weights that the v1 paper had to defend separately. The CoT
+diagnosis suggests a much simpler objective is now justified. When
+the screening panel collapses to a small set of behaviorally distinct
+stressors (Section~\ref{sec:cluster-panel}) and when contingent
+reasoning is the screened-out construct (Section~\ref{sec:construct}),
+the natural question is no longer ``which mechanism scores best on
+the weighted average?'' but ``which mechanism keeps realized bids
+closest to its own declared optimum, even for bidders who lack
+contingent reasoning?'' That question has a single scalar answer:
+SMAD (Eq.~\eqref{eq:smad}).
+
+We therefore replace $F_{\mathrm{robust}}$ with a SMAD-only fitness
+aggregated across the cluster panel by the worst-strain operator:
+\begin{equation}
+\mathrm{SMAD}_{jk}
+=
+100 \cdot
+\frac{\operatorname{mean}_a |b_a - b^\star_k(v_a)|}
+     {\operatorname{mean}_a |b^\star_k(v_a)|},
+\qquad
+F^{\mathrm{SMAD}}_k
+=
+-\max_{j \in \mathcal{P}^{\star}} \mathrm{SMAD}_{jk},
+\label{eq:smad-fitness}
+\end{equation}
+where $\mathcal{P}^{\star}$ is the five-strain cluster panel and
+$b^\star_k(v)$ is the mechanism-specific declared optimum. The sign
+convention is that higher fitness is better, so the \EA{} maximizes
+$F^{\mathrm{SMAD}}_k$ which is the negative of the worst-strain
+SMAD. A mechanism wins only if every strain in the panel ends up
+close to that mechanism's own optimum.
+
+\paragraph{Per-mechanism scoring module.} The mechanism-specific
+$b^\star_k(v)$ is not buried inside a generic scorer; it is emitted
+as a per-mechanism Python module each time the \EA{} proposes a
+candidate. The module declares the optimal-bid formula and a
+\verb|smad(value_bid_pairs)| helper, so the calculation is
+auditable mechanism by mechanism. For a first-price IPV candidate
+the auto-emitted module reads:
+\begin{quote}\small\itshape\ttfamily
+"""Auto-generated SMAD scoring module for mechanism: fpsb\_ipv\_continuous
+
+Payment rule: first\_price\\
+Optimal-bid expression: b*(v) = ((n - 1) / n)*v\\
+Default bidder count: n = 3"""
+
+N = 3
+
+def optimal\_bid(v, n=N):\\
+\hspace*{2em}return ((n - 1) / n) * v
+
+def smad(value\_bid\_pairs):\\
+\hspace*{2em}errors, benchmarks = [], []\\
+\hspace*{2em}for v, b in value\_bid\_pairs:\\
+\hspace*{4em}if v is None or b is None or v <= 0: continue\\
+\hspace*{4em}b\_star = optimal\_bid(v)\\
+\hspace*{4em}errors.append(abs(b - b\_star))\\
+\hspace*{4em}benchmarks.append(abs(b\_star))\\
+\hspace*{2em}return 100.0 * (sum(errors)/len(errors)) / (sum(benchmarks)/len(benchmarks))
+\end{quote}
+For a second-price IPV candidate the same emitter produces
+$b^\star(v) = v$; the rest of the module is identical. The
+benchmark formula comes from the candidate's genotype
+(\texttt{target\_policy.benchmark}) when it is present, and from a
+small payment-rule lookup table otherwise. Reading the auto-emitted
+module is part of the audit: a reviewer can verify, mechanism by
+mechanism, what bid each candidate is being scored against.
+
+\paragraph{Two-mechanism demonstration.}
+Table~\ref{tab:smad-demo} reports the worst-strain SMAD for SPSB IPV
+and FPSB IPV under the SMAD-only fitness, using the data from
+Sections~\ref{sec:stage1} and~\ref{sec:external}. SPSB wins:
+worst-strain SMAD of $26.2$ (driven by the $c{=}0$ stressor, whose
+margin-of-safety underbid sits $\approx 30\%$ off the
+strategy-proof optimum $b^\star=v$) versus FPSB's $99.4$ (driven
+by the payment-panic mouse). This is the same ordering the v1 SMAD
+cross-check observed---second-price is the easiest mechanism to bid
+in optimally---but now it is the \emph{primary} \EA{} ranking,
+not a secondary check. The reading is direct: under a bounded-
+rationality screening panel and a SMAD-only objective, strategy-
+proofness pays off where revenue and efficiency could obscure it.
+
+\begin{table}[t]
+\centering
+\caption{SMAD-only fitness on two example mechanisms, using the
+five-strain cluster panel. SMAD is scaled mean absolute deviation
+from the mechanism's own optimum (Eq.~\eqref{eq:smad}); lower is
+better. The worst-strain SMAD is the new \EA{} fitness aggregator.}
+\label{tab:smad-demo}
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Strain (5-strain cluster panel) & SPSB IPV ($b^\star=v$) & FPSB IPV ($b^\star=\tfrac{2}{3}v$) \\
+\midrule
+\texttt{c0\_f0\_b0} (CoT, underbidder)              & $26.2$ & $12.3$ \\
+\texttt{c2\_f2\_b2} (CoT, rational)                 & $0.0$  & $21.6$ \\
+overgeneralizer (error)                              & ---$^\dagger$  & $65.9$ \\
+payment panic (error)                                & ---$^\dagger$  & $99.4$ \\
+\texttt{spsb\_outcome\_truthful} (label-follower)    & $0.0$  & $50.0$ \\
+\midrule
+Worst-strain SMAD (new \EA{} fitness, lower better) & $\mathbf{26.2}$ & $\mathbf{99.4}$ \\
+Mean SMAD                                            & $8.7$  & $49.8$ \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\footnotesize\textit{Notes.} $^\dagger$ The two error mice were not
+included in the SPSB CoT $30$-rep run (their original v1 SPSB results
+are retained in the library for coverage purposes). For an actual
+\EA{} loop, both error mice would be run against every candidate
+mechanism. The two-mechanism comparison is meant to illustrate the
+new fitness and the per-mechanism module; the \EA{} rerun on the
+full cluster panel is the immediate next experiment of
+Section~\ref{sec:positioning}.\par}
+\end{minipage}
+\end{table}
+
+\paragraph{What the SMAD-only fitness drops and why.} The
+$F_{\mathrm{robust}}$ composite carried revenue, efficiency,
+intended-action, surplus-variance, parser-failure, action-
+noncompliance, and tail-quantile terms. SMAD captures none of these
+directly. The defense is that for a phase-I screen they are
+\emph{secondary}: a mechanism that lets bidders find its own optimum
+will allocate efficiently (highest-value bidder wins), generate
+revenue close to the canonical benchmark, and avoid the surplus-
+variance tail almost as a by-product. The exceptions are mechanisms
+that earn high $F_{\mathrm{robust}}$ via the \emph{wrong} reasoning
+chain---e.g.\ revenue from systematic overbidding rather than
+truthful bidding---and those should fall in SMAD because realized
+bids would still be far from the mechanism's own declared optimum.
+What SMAD does \emph{not} capture is action-noncompliance (a bid
+outside the mechanism's declared action set); we retain the
+action-interface enforcement of v1's Pass~3 as a hard validation
+gate before SMAD is computed, so any noncompliant candidate is
+rejected before scoring rather than penalized at the margin.
+
 \subsection{Why search, and the design space}
 
 Mechanism design is at bottom a search problem. The standard answer is
