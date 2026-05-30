@@ -840,6 +840,79 @@ here.\par}
 \end{minipage}
 \end{table}
 
+\subsection{Three induction styles, three signatures}
+\label{sec:induction-comparison}
+
+The cognitive-style block is one of three induction channels that
+can in principle hold a deficit: a \emph{standard} prompt that names
+profit as the priority and adds a constraint paragraph (v1); a
+\emph{strict} prompt that names the cognitive procedure as the
+priority and explicitly forbids dominance-style shortcuts; and a
+\emph{CoT} prompt that adds two worked examples to the strict-style
+constraint paragraph. We ran the strict scaffold on the same $30$-rep
+schedule as the CoT panel ($2{,}430$ bidder-decisions on
+\texttt{gpt-5.4-mini}) so the three signatures can be compared
+directly. Figure~\ref{fig:induction} shows the truthful-rate
+marginals on each axis under each induction style, and the
+right panel shows the dominance-invocation rate from the
+reasoning-chain audit.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig9_panel_comparison.pdf}
+\caption{Three induction styles, three signatures. Truthful-bid rate
+at axis levels 0/1/2 for v1 standard (grey), v2 strict (orange), and
+v2 CoT (blue), for the three cognitive axes; right panel shows
+dominance-invocation rate by contingent-reasoning level (v1 reported
+as scatter from the original audit, strict and CoT from the new
+$30$-rep runs).}
+\label{fig:induction}
+\end{figure}
+
+The three signatures differ in three ways. First, on the
+\emph{contingent} axis the level-2-minus-level-0 truthful-rate gap
+moves from $+0.23$ (v1 standard) to $+0.09$ (strict) to $+0.96$
+(CoT); only CoT delivers a near-binary lever, and strict actually
+\emph{shrinks} the c-axis effect relative to v1. Second, on the
+\emph{forward} axis the same gap moves from $+0.14$ (v1) to $+0.79$
+(strict) to $-0.01$ (CoT); the strict scaffold makes forward
+planning the dominant lever, because its $f{=}0$ paragraph carries an
+explicit ``$60$--$80\%$ of value'' margin-of-safety rule that pins
+the bid to a non-truthful anchor, while its $f{=}2$ paragraph allows
+unconstrained tree planning that recovers truthfulness. Third, on
+the \emph{belief} axis the gap is $+0.05$ (v1), $-0.13$ (strict),
+$+0.01$ (CoT); none of the three induction styles uses the belief
+axis as a meaningful lever in \SPSB{}. The summary is that
+\emph{which axis is the lever depends on the induction style}, and
+the cleanest reading of the panel as a controlled-deficit instrument
+is the CoT one, where the c-axis is the dominant channel and
+mirrors the theoretical role that contingent reasoning plays in
+strategy-proof mechanism design \citep{li2017}.
+
+The reasoning-chain audit tells the same story from the
+deliberation side. The $c{=}0$ dominance-invocation rate is $0.41$
+(v1), $0.25$ (strict), and $0.001$ (CoT). Strict's high
+dominance-invocation rate at $c{=}0$ is initially surprising---the
+strict scaffold explicitly forbids dominance shortcuts---but the
+audit catches phrases like ``bidding my value'' or ``I bid equal to
+my value'' that the model writes after deriving the conclusion under
+$f{=}2$ tree planning. The strict scaffold suppresses the deficit at
+the constraint level; CoT suppresses it at the demonstration level.
+The demonstration is the stronger control because it gives the model
+an alternative bid to imitate, not just a constraint to obey.
+
+The implication for the rest of the paper is that the CoT panel is
+the primary working object: it produces a clean construct-validity
+signature with one identifiable lever, a deficit that is
+internally held (Section~\ref{sec:audit}), and a separable
+behavioral footprint (Section~\ref{sec:coverage}). The strict panel
+is retained as the canonical comparison set for cross-model
+portability tests, where the demonstration-style induction may
+itself become a confound (a stronger model could reason past the
+worked example). All numbers in Sections~\ref{sec:construct},
+\ref{sec:coverage}, and~\ref{sec:audit} below refer to the CoT
+panel unless otherwise noted.
+
 \section{Reading the Reasoning Chains}
 \label{sec:audit}
 

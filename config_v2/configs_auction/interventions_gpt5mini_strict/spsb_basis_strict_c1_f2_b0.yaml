@@ -1,0 +1,45 @@
+# SPSB IPV -- strict basis grid cell c1_f2_b0
+# contingent=enumerate, forward=tree, beliefs=off
+# strict scaffold: cognitive procedure is the top priority; no CoT example
+
+experiment:
+  name: "spsb_basis_strict_c1_f2_b0"
+  version: "v2-strict-grid"
+  description: "SPSB IPV strict-instruction cognitive persona (contingent=enumerate, forward=tree, beliefs=off)"
+
+auction:
+  number_agents: 3
+  rounds: 1
+
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "second"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 0
+  special_name: "private_second_price.txt"
+
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 8001
+
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "rule_template/auctions/"
+  persona_file: "rule_prompt_v2/personas/spsb_basis_strict/c1_f2_b0.txt"
+  include_payment_example: true
+
+execution:
+  repetitions: 30
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/gpt5mini/spsb_basis_strict_c1_f2_b0"
