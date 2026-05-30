@@ -1037,59 +1037,96 @@ regularity is overbidding relative to this risk-neutral benchmark
 \citep{kagellevin1993}. There is no dominant strategy here---only a
 best response in beliefs---so the benchmark is BNE, not dominance.
 
-Figure~\ref{fig:fpsb} and Table~\ref{tab:fpsb} report the panel's
-first-price behavior. The three reasoning strains track equilibrium:
-median bid/value ratios are $0.65$--$0.67$, on the $\tfrac{2}{3}$ BNE
-line, and across all reasoning decisions the mean ratio is $0.67$
-with $38\%$ of bids above the risk-neutral benchmark---the documented
-overbidding regularity. The two error mice separate cleanly and
-mechanistically: the payment-panic mouse bids near zero, while the
-second-price-overgeneralizer mouse bids above its value (median ratio
-$1.15$) because it applies the second-price intuition ``I will not
-pay my own bid'' to a mechanism where the winner does pay their own
-bid. In a first-price auction that error yields negative surplus,
-giving a concrete, mechanism-level account of a winner's-curse
-pathology. This is the falsifiable prediction that justified building
-the overgeneralizer as a content error rather than as an
-unconditional ``bid high'' rule (Section~\ref{sec:errormice}).
+The natural external check for the CoT panel is whether worked
+examples written for \SPSB{} transfer to a different mechanism without
+becoming actively misleading. The CoT prompt tells the model the
+example is ``a second-price auction''; a strain whose example shows
+a truthful Vickrey bid at $v{=}30$ might (i)~follow the example
+literally in FPSB and bid value (loss-making), or (ii)~adapt the
+reasoning to the new mechanism and shade below value. Behaviorally
+the difference is sharp: bidding value in FPSB earns zero surplus on
+average; shading to $\tfrac{2}{3}v$ earns the risk-neutral
+equilibrium surplus.
+
+We re-ran the full $27$-strain CoT panel plus the two v1 error mice
+and the three outcome-instructed strains under an FPSB IPV mechanism
+($n{=}3$, values uniform on $[0,49]$, $0.1$ grid, $10$ reps per
+strain, $960$ bidder-decisions total on \texttt{gpt-5.4-mini}).
+Figure~\ref{fig:fpsb} and Table~\ref{tab:fpsb} report the result.
+The CoT basis strains transfer: across all $27$ cells the mean
+bid/value ratio is $0.71$ with median $0.74$, sitting between the
+risk-neutral BNE $\tfrac{2}{3}\approx 0.667$ and value $1.00$.
+$63\%$ of all reasoning bids exceed the BNE---the documented
+human-overbidding regularity. The error mice and outcome strains
+separate cleanly along expected lines.
+
+The transfer is also \emph{ordered} by the same axis that drove the
+\SPSB{} signature. The contingent-reasoning axis still predicts the
+bid: median ratios are $0.67$ at $c{=}0$ (right on the BNE line),
+$0.73$ at $c{=}1$, and $0.78$ at $c{=}2$, and the rate of
+above-BNE bids rises from $33\%$ to $63\%$ to $87\%$. The reading
+is that engaged contingent reasoning, in FPSB, produces \emph{more}
+overbidding rather than more truthfulness---which is exactly the
+human regularity: the more a bidder thinks about ``I really want to
+win,'' the more likely a bid above the risk-neutral benchmark. The
+CoT $c{=}0$ strain happens to land on the BNE because its
+margin-of-safety rule (``$\approx 70\%$ of value'') is numerically
+close to $\tfrac{2}{3}v$, but the path from prompt to bid is not the
+same as a rational shading argument; the strain is doing the right
+thing for the wrong reason, which is exactly the kind of finding the
+CoT audit (Section~\ref{sec:audit}) was designed to expose.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.82\textwidth]{fig4.pdf}
-\caption{First-price stress test. Submitted bid versus private value
-for the panel. Reasoning strains cluster on the risk-neutral BNE line
-$b=\tfrac{2}{3}v$; the second-price-overgeneralizer mouse bids above
-the $45^\circ$ value line (loss-making overbidding); the
-payment-panic mouse bids near zero.}
+\includegraphics[width=\textwidth]{fig4_cot.pdf}
+\caption{FPSB stress test on the CoT panel. Bids versus private
+value for the three CoT corner strains (left three panels: red
+$c{=}0$, gold $c{=}1$, green $c{=}2$) and the error mice plus
+outcome strains overlaid (right). The dashed line is value; the
+solid line is the risk-neutral BNE $\tfrac{2}{3}v$. $c{=}0$ sits
+on BNE, $c{=}2$ above it; the overgeneralizer and
+\texttt{spsb\_outcome\_overbid} both bid above value (loss-making);
+\texttt{spsb\_outcome\_truthful} bids value (also loss-making in
+FPSB).}
 \label{fig:fpsb}
 \end{figure}
 
 \begin{table}[t]
 \centering
-\caption{First-price bid/value ratios by strain ($n=9$
-bidder-decisions each). The risk-neutral BNE benchmark is
-$\tfrac{2}{3}\approx 0.667$.}
+\caption{First-price stress test on the CoT panel, error mice, and
+outcome-instructed strains ($n=30$ bidder-decisions each;
+\texttt{gpt-5.4-mini}). Risk-neutral BNE benchmark is
+$\tfrac{2}{3}\approx 0.667$. ``Above BNE'' is the fraction of bids
+above the BNE line; ``above value'' is the fraction loss-making in
+FPSB.}
 \label{tab:fpsb}
 \small
-\setlength{\tabcolsep}{6pt}
-\begin{tabular}{@{}llrr@{}}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}llrrrr@{}}
 \toprule
-Strain & Role & mean $b/v$ & median $b/v$ \\
+Strain & Role & mean $b/v$ & median $b/v$ & above BNE & above value \\
 \midrule
-\texttt{c0\_f0\_b0} & reasoning (all-ablated)  & $0.61$ & $0.65$ \\
-\texttt{c2\_f0\_b2} & reasoning (forward-off)  & $0.61$ & $0.67$ \\
-\texttt{c2\_f2\_b2} & reasoning (all-engaged)  & $0.52$ & $0.66$ \\
-overgeneralizer     & error: overbid           & $1.61$ & $1.15$ \\
-payment panic       & error: near-zero         & $0.02$ & $0.01$ \\
+\texttt{c0\_f0\_b0}  & CoT, all-ablated         & $0.65$ & $0.67$ & $0.33$ & $0.00$ \\
+\texttt{c1\_f1\_b1}  & CoT, all-intermediate    & $0.70$ & $0.73$ & $0.63$ & $0.00$ \\
+\texttt{c2\_f2\_b2}  & CoT, all-engaged         & $0.76$ & $0.78$ & $0.87$ & $0.00$ \\
+\addlinespace
+overgeneralizer       & error: overbid           & $1.38$ & $1.12$ & $1.00$ & $0.97$ \\
+payment panic         & error: near-zero         & $0.01$ & $0.00$ & $0.00$ & $0.00$ \\
+\addlinespace
+\texttt{spsb\_outcome\_overbid}    & outcome: overbid         & $1.01$ & $1.00$ & $1.00$ & $1.00$ \\
+\texttt{spsb\_outcome\_underbid}   & outcome: underbid        & $0.81$ & $0.80$ & $1.00$ & $0.00$ \\
+\texttt{spsb\_outcome\_truthful}   & outcome: truthful        & $1.00$ & $1.00$ & $1.00$ & $0.00$ \\
 \bottomrule
 \end{tabular}
 
 \vspace{0.4em}
 \begin{minipage}{0.95\textwidth}
-{\footnotesize\textit{Notes.} Pooled over reasoning strains, the mean
-ratio is $0.67$ (the BNE), $38\%$ of bids exceed the benchmark, and
-$20\%$ exceed value. The overgeneralizer's above-value bids are
-loss-making under first-price pricing.\par}
+{\footnotesize\textit{Notes.} Pooled over CoT reasoning strains
+($27$ cells), the mean ratio is $0.71$ and $63\%$ of bids exceed
+the BNE. \texttt{spsb\_outcome\_truthful} is technically not
+loss-making at $b{=}v$ but earns zero surplus on win (worse than
+the BNE shading by the equilibrium markup
+$\tfrac{1}{3}v$ in expectation).\par}
 \end{minipage}
 \end{table}
 
@@ -1159,22 +1196,92 @@ ordering is the subject of Section~\ref{sec:validation}.
 \label{sec:screen-panel}
 
 For tractability the \EA{} scores each candidate mechanism against a
-5-strain screening panel: the two corners (\texttt{c0\_f0\_b0},
-\texttt{c2\_f2\_b2}) and three procedural mixed strains
-(\texttt{c2\_f2\_b0}, \texttt{c2\_f0\_b2}, \texttt{c1\_f1\_b1}). This
-panel spans the cautious half of the mistake space---underbidding,
-miscalibrated belief reasoning, full rationality---but it is
-procedural-only. \emph{Neither error mouse is in it.} Mechanisms are
-therefore stress-tested against bidders who reason too little, but
-not against bidders who overbid above their value. The robust
-ordering we report below should be read against this boundary: it
-ranks mechanisms by their resistance to procedural deficits, not to
-the overbidder mistake that the FPSB stress test of
-Section~\ref{sec:external} showed the panel can express. Closing this
-gap is one of the three specified next experiments in
-Section~\ref{sec:positioning}; we describe the gap before the
-results, rather than after, so it can be read into every number that
-follows.
+5-strain screening panel. The v1 paper used the two corners
+(\texttt{c0\_f0\_b0}, \texttt{c2\_f2\_b2}) and three procedural
+mixed strains (\texttt{c2\_f2\_b0}, \texttt{c2\_f0\_b2},
+\texttt{c1\_f1\_b1}); this panel spans the cautious half of the
+mistake space---underbidding, miscalibrated belief reasoning, full
+rationality---but it is procedural-only. \emph{Neither error mouse
+is in it.} Mechanisms are therefore stress-tested against bidders
+who reason too little, but not against bidders who overbid above
+their value. The robust ordering we report below should be read
+against this boundary: it ranks mechanisms by their resistance to
+procedural deficits, not to the overbidder mistake that the FPSB
+stress test of Section~\ref{sec:external} showed the panel can
+express. Closing this gap is one of the three specified next
+experiments in Section~\ref{sec:positioning}; we describe the gap
+before the results, rather than after, so it can be read into every
+number that follows.
+
+\subsection{Why the EA should not average over $27$ cells: a
+behaviorally distinct screening panel}
+\label{sec:cluster-panel}
+
+The CoT result of Section~\ref{sec:construct} also has a direct
+design consequence for the \EA{}. In the CoT panel the $27$ cells
+do not span a smooth landscape of behavior: they collapse into
+\emph{two clusters} along the contingent-reasoning axis, with
+forward and belief axes flat. At $c{=}0$ all $9$ cells produce
+margin-of-safety underbidding with truthful rate $\approx 0.04$ and
+mean $b/v\approx 0.71$ in \SPSB{}; at $c{=}2$ all $9$ cells produce
+truthful bidding with truthful rate $1.00$; the $c{=}1$ cells form
+a third, smaller cluster. Averaging robust fitness over $27$ such
+cells is wasteful: most of the panel produces the same bid for the
+same mechanism, and the average leans heavily toward whichever
+cluster has more cells.
+
+The implied redesign is to use a small, \emph{behaviorally distinct}
+screening panel rather than a sample from a $27$-cell grid. A
+minimal version is five strains chosen to cover the support of the
+mistake space, one per documented behavior class:
+\begin{enumerate}
+\item \textbf{Underbidder.} \texttt{c0\_f0\_b0} from the CoT panel.
+Median \SPSB{} bid $\approx 0.71v$; in FPSB still $\approx 0.67v$
+(on the BNE line). Covers the cautious / margin-of-safety class.
+\item \textbf{Rational.} \texttt{c2\_f2\_b2} from the CoT panel.
+Truthful in \SPSB{}; shades modestly above the BNE in FPSB
+($0.78$ median ratio). Covers full reasoning.
+\item \textbf{Overbidder (content error).} The v1
+overgeneralizer mouse. In \SPSB{} produces overbidding at
+$100\%$; in FPSB bids \emph{above} value (median $1.12$),
+loss-making. Covers the second-price-rule overgeneralization
+class.
+\item \textbf{Participation-failure.} The v1 payment-panic mouse.
+In both \SPSB{} and FPSB collapses to the grid floor; covers
+extreme loss aversion.
+\item \textbf{Literal label-follower.} The outcome-instructed
+truthful strain (\texttt{spsb\_outcome\_truthful}). Bids value
+across mechanisms, which is correct in \SPSB{} and loss-making in
+FPSB. Covers bidders whose behavior is a label without reasoning
+behind it.
+\end{enumerate}
+Each of these strains has a distinct signature in both \SPSB{} and
+FPSB and corresponds to a documented human phenomenon. Together they
+test mechanisms against five qualitatively different failure modes
+in $5$ mouse evaluations instead of $27$. The mapping from strain to
+human counterpart is the one already in Table~\ref{tab:errormap},
+extended by the outcome-truthful row.
+
+The price of this redesign is that the screening panel is no longer
+a clean projection of an underlying $3\times 3\times 3$ design.
+Forward and belief axes are dropped because the CoT panel does not
+identify them as separable levers (Section~\ref{sec:construct}). The
+$c$-axis is collapsed to a two-point summary (one strain per
+cluster) because the truthful-rate response is essentially binary.
+This is a design choice grounded in evidence: when the diagnostic
+panel says ``only one axis discriminates, and it discriminates
+binarily,'' the right screening panel is small and behaviorally
+distinct rather than a full grid sample. We retain the larger panel
+as the \emph{diagnostic} object (where the cluster structure is
+itself the finding) and propose this 5-strain panel as the
+\emph{screening} object that the \EA{} should use going forward.
+
+Rerunning the \EA{} with this redesigned 5-strain panel---one
+underbidder, one rational, one overbidder, one near-zero, one
+label-follower---is the immediate next experiment; the new \EA{}
+ranking can then be compared to the procedural-only ranking of
+Table~\ref{tab:pass3}, and to the human ranking once Stage~2 moment
+matching is fit against \citet{li2017}.
 
 \subsection{Why search, and the design space}
 
@@ -1457,13 +1564,20 @@ stressors that the panel itself can express.
 \paragraph{Three specified next experiments.} The natural next steps
 are not vague extensions but three named experiments.
 \begin{enumerate}
-\item \textbf{Add the error mice to the screening panel.} Rerun the
-\EA{} with the overgeneralizer and the payment-panic mouse included.
-Mechanisms whose ranking is sensitive to these stressors are
-identifiable mechanically: any mechanism whose lower-tail efficiency
-collapses against the overgeneralizer (because overbidders
-overpay) or against payment panic (because near-zero bidders kill
-revenue) will fall in the robust ordering.
+\item \textbf{Replace the $5$-procedural screening panel with the
+behaviorally distinct $5$-strain panel} of
+Section~\ref{sec:cluster-panel}: one underbidder
+(\texttt{c0\_f0\_b0}), one rational (\texttt{c2\_f2\_b2}), the
+overgeneralizer, payment panic, and the outcome-instructed truthful
+strain. This both adds the missing overbidder stressor and drops
+the redundant cells that the CoT diagnosis showed produce
+near-identical bids. Mechanisms whose ranking is sensitive to these
+stressors are identifiable mechanically: any mechanism whose
+lower-tail efficiency collapses against the overgeneralizer or
+payment panic will fall in the robust ordering, and the
+outcome-truthful strain catches mechanisms whose loss-making
+profile depends on label-style truthfulness rather than reasoned
+truthfulness.
 \item \textbf{Moment-match against \citet{li2017}.} Use the 2P
 treatment of \citet{li2017} as the human \SPSB{} moment vector
 $m_H^{\SPSB}$; fit $\widehat{w}$ via Eq.~\eqref{eq:momentmatch} over

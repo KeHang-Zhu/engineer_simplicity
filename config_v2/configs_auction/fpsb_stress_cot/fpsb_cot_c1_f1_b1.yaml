@@ -1,0 +1,52 @@
+# FPSB IPV stress test for c1_f1_b1
+# n=3 risk-neutral BNE bid = (n-1)/n * v = (2/3)v
+# Human regularity: overbidding relative to RNNE
+
+experiment:
+  name: "fpsb_cot_c1_f1_b1"
+  version: "v2-fpsb-cot-stress"
+  description: "FPSB IPV stress test on the v2 CoT/error/outcome panel (c1_f1_b1)"
+
+mechanism_metadata:
+  incentive_target:
+    action: "shade_below_value"
+    description: "Risk-neutral bidders shade toward the (n-1)/n = 2/3 BNE."
+    parameters:
+      min_bid_value_ratio: 0.4
+
+auction:
+  number_agents: 3
+  rounds: 1
+
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "first"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 0
+  special_name: "private_first_price.txt"
+
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 9201
+
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "rule_template/auctions/"
+  persona_file: "rule_prompt_v2/personas/spsb_basis_cot/c1_f1_b1.txt"
+  include_payment_example: true
+
+execution:
+  repetitions: 10
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/gpt5mini/fpsb_cot_c1_f1_b1"
