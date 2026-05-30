@@ -1,0 +1,46 @@
+# SPSB IPV — CoT basis grid cell c2_f0_b1
+# contingent=worstcase, forward=off, beliefs=firstorder
+# base prompt: short ("Your goal is to place bids which maximize your profit.")
+# each persona ends with a worked example consistent with the cognitive style
+
+experiment:
+  name: "spsb_basis_cot_c2_f0_b1"
+  version: "v2-cot-grid"
+  description: "SPSB IPV CoT-induced cognitive persona (contingent=worstcase, forward=off, beliefs=firstorder)"
+
+auction:
+  number_agents: 3
+  rounds: 1
+
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "second"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 0
+  special_name: "private_second_price.txt"
+
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 6001
+
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "rule_template/auctions/"
+  persona_file: "rule_prompt_v2/personas/spsb_basis_cot/c2_f0_b1.txt"
+  include_payment_example: true
+
+execution:
+  repetitions: 30
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/gpt5mini/spsb_basis_cot_c2_f0_b1"

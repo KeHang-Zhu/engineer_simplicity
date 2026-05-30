@@ -1,0 +1,6 @@
+mistake_class,metric,floor,max_rate_cot_panel,best_strain,covered_by_cot,outcome_alt
+truthful,truthful_rate,0.5,1.0,c2_f0_b0,True,spsb_outcome_truthful (1.000)
+moderate_underbid,moderate_underbid_rate,0.1,0.967,c0_f0_b1,True,spsb_outcome_underbid (1.000)
+overbid,overbid_rate,0.1,0.0,c0_f0_b0,False,spsb_outcome_overbid (1.000)
+extreme_overbid,extreme_overbid_rate,0.05,0.0,c0_f0_b0,False,spsb_outcome_overbid (0.000)
+near_zero,near_zero_rate,0.05,0.0,c0_f0_b0,False,spsb_outcome_overbid (0.000)

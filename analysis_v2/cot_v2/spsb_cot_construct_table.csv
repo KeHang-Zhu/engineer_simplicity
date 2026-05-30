@@ -1,0 +1,6 @@
+axis,metric,delta_v1,delta_cot,bar,expected_sign,sign_ok,bar_ok,pass,level0_cot,level1_cot,level2_cot
+contingent,truthful_rate,0.23,0.962,0.05,positive,True,True,True,0.038,0.041,1.0
+contingent,underbid_rate,-0.23,-0.962,0.05,negative,True,True,True,0.962,0.959,0.0
+forward,truthful_rate,0.137,-0.009,0.05,positive,False,False,False,0.365,0.357,0.357
+forward,underbid_rate,-0.137,0.009,0.05,negative,False,False,False,0.635,0.643,0.643
+beliefs,truthful_rate,0.052,0.007,0.03,positive,True,False,False,0.358,0.356,0.365
