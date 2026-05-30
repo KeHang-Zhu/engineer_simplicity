@@ -1,6 +1,6 @@
 persona_id,persona_file,role,human_counterpart
 c0_f0_b0_cot,rule_prompt_v2/personas/spsb_basis_cot/c0_f0_b0.txt,contingent-off underbidder,margin-of-safety / failure of contingent reasoning
 c2_f2_b2_cot,rule_prompt_v2/personas/spsb_basis_cot/c2_f2_b2.txt,fully rational control,rational benchmark
-spsb_error_second_price_overgeneralizer,rule_prompt_v2/personas/spsb_error_modes/spsb_error_second_price_overgeneralizer.txt,overbidder (content error),winner's curse / second-price rule overgeneralization
-spsb_error_payment_panic_near_zero,rule_prompt_v2/personas/spsb_error_modes/spsb_error_payment_panic_near_zero.txt,near-zero (extreme loss aversion),participation failure
+spsb_error_win_seeker,rule_prompt_v2/personas/spsb_error_modes/spsb_error_win_seeker.txt,win-seeker (overbidder),strong desire to win regardless of payment rule
+spsb_error_loss_averse,rule_prompt_v2/personas/spsb_error_modes/spsb_error_loss_averse.txt,loss-averse (shading underbidder),Kahneman-Tversky loss aversion in auctions
 spsb_outcome_truthful,rule_prompt_v2/personas/spsb_outcome_instructions/spsb_outcome_truthful.txt,literal label-follower (truthful),bidder whose truthfulness is a label rather than reasoned

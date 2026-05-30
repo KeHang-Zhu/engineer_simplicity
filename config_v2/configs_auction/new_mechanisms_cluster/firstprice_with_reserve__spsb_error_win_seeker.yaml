@@ -1,0 +1,52 @@
+# New-mechanisms cluster-panel run -- replacement error strain
+# mechanism: H2: First-price with $15 reserve
+# persona:   spsb_error_win_seeker
+
+experiment:
+  name: "firstprice_with_reserve__spsb_error_win_seeker"
+  version: "v2-newmech-cluster-v2"
+  description: "H2: First-price with $15 reserve -- panel strain spsb_error_win_seeker"
+
+mechanism_metadata:
+  incentive_target:
+    action: "shade_below_value"
+    description: "H2: First-price with $15 reserve"
+    parameters:
+      benchmark: "max(15, ((3-1)/3) * value) if value >= 15 else 0"
+
+auction:
+  number_agents: 3
+  rounds: 1
+
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "first"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 15
+  special_name: "firstprice_with_reserve.txt"
+
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 9601
+
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "rule_template/auctions/"
+  persona_file: "rule_prompt_v2/personas/spsb_error_modes/spsb_error_win_seeker.txt"
+  include_payment_example: true
+
+execution:
+  repetitions: 15
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/gpt5mini/newmech_firstprice_with_reserve__spsb_error_win_seeker"

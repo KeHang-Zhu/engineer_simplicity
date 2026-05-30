@@ -1,6 +1,6 @@
 persona_id,n,p_truthful,p_underbid,p_overbid,p_extreme_overbid,p_near_zero
 c0_f0_b0_cot,90,0.022988505747126436,0.9770114942528736,0.0,0.0,0.0
 c2_f2_b2_cot,90,1.0,0.0,0.0,0.0,0.0
-spsb_error_overgeneralizer,90,0.0,0.0,1.0,0.27586206896551724,0.0
-spsb_error_payment_panic,90,0.0,1.0,0.0,0.0,0.896551724137931
+spsb_error_win_seeker,90,0.0,0.0,1.0,0.5,0.0
+spsb_error_loss_averse,90,0.0,1.0,0.0,0.0,0.0
 spsb_outcome_truthful,90,1.0,0.0,0.0,0.0,0.0

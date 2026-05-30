@@ -8,22 +8,40 @@ SMAD)**, with the gap between the two clusters of roughly 4× in weighted SMAD.
 
 | Code | Mechanism | Predicted difficulty | Weighted SMAD (Li-2017) |
 |------|-----------|----------------------|------------------------|
-| **E1** | Vickrey 2nd-price baseline | easy | 14.1 |
-| **E2** | Vickrey + OSP-style hint | easy | 13.4 |
-| **H1** | All-pay first-price | hard | 107.6 |
-| **H2** | First-price with $15 reserve | hard | 58.5 |
+| **E1** | Vickrey 2nd-price baseline | easy | 14.9 |
+| **E2** | Vickrey + OSP-style hint | easy | 14.3 |
+| **H1** | All-pay first-price | hard | 102.6 |
+| **H2** | First-price with $15 reserve | hard | 61.4 |
 
-The fitted mixture weights over the cluster panel are:
-- c0 underbidder (CoT): 0.174
-- c2 rational (CoT): 0.190
-- second-price overgeneralizer (error mouse): 0.413
-- payment-panic (error mouse): 0.033
-- outcome-instructed truthful: 0.190
+The fitted mixture weights over the updated cluster panel are:
+- c0 underbidder (CoT): 0.106
+- c2 rational (CoT): 0.194
+- **win-seeker (mechanism-agnostic overbidder): 0.400**
+- loss-averse (Kahneman–Tversky shading): 0.106
+- outcome-instructed truthful: 0.194
+
+The win-seeker carries the largest weight because Li's 2P data contain
+substantial overbidding mass (39% overbid plus 22% extreme overbid). The two
+underbidding strains (CoT c0 + loss-averse) split the 21% underbidding mass.
+
+The replacement strains are deliberately *mechanism-agnostic*:
+- `win_seeker` is prompted to choose 110–130% of value because "the reward of
+  winning weighs heavily; the cost of a small overpayment feels small." It does
+  not invoke "I won't pay my own bid" (which would tie it to second-price).
+- `loss_averse` is prompted to shade to 50–80% of value because "the pain of
+  overpaying feels disproportionately bad." It does not collapse to the grid
+  floor like the v1 payment-panic mouse.
+
+This swap replaces the v1 second-price overgeneralizer (whose rationalization
+was specific to 2P) with a mechanism-neutral overbidder, and replaces the v1
+payment-panic mouse (which always bid near zero) with a moderate shading class
+that gives a sharper underbid signature.
 
 The weights were fitted by simplex-constrained least squares against the
 five-moment human SPSB target vector (p_truthful 0.39, p_underbid 0.21,
 p_overbid 0.39, p_extreme_overbid 0.22, p_near_zero 0.03) read off
-Li (2017) Figure 2 SP. Total L2 residual was 0.11.
+Li (2017) Figure 2 SP. **Total L2 residual was 0.037, a 66% improvement over
+the previous panel's 0.109.**
 
 ---
 
@@ -60,8 +78,12 @@ statistics (truthful rate, mean ratio, near-zero rate) are stable.
 **Optimal bid:** $b^\star(v) = v$. Truthful bidding is weakly dominant.
 
 **Panel signature observed.** c2 rational and outcome-truthful both hit $b^\star$
-exactly. c0 underbids by $\approx 30\%$ (SMAD 26.5), as expected for a
-margin-of-safety mouse that does not invoke dominance.
+exactly (SMAD 0). c0 underbids by $\approx 30\%$ (SMAD 26.5), as expected for a
+margin-of-safety mouse that does not invoke dominance. The loss-averse strain
+underbids by $\approx 38\%$ (SMAD 38.2) — a moderate, non-degenerate shading
+that drives the easy-cluster worst-strain number. The win-seeker overbids by
+$\approx 20\%$ above value (SMAD 20.0); in 2P this is wasteful but not
+catastrophic because the bidder still wins (and pays the 2nd-highest bid).
 
 ---
 
@@ -87,10 +109,11 @@ margin-of-safety mouse that does not invoke dominance.
 **Optimal bid:** $b^\star(v) = v$. Same as E1.
 
 **Panel signature observed.** The added sentence reduces c0's SMAD from $26.5$
-(E1) to $21.6$ (E2), a $19\%$ improvement on the c=0 stressor. The other four
-strains are essentially unchanged. The hypothesis to test on humans is whether
-the same effect holds in the human population, particularly among subjects who
-do not spontaneously derive the dominance argument.
+(E1) to $21.6$ (E2), a $19\%$ improvement on the c=0 stressor. Loss-averse
+similarly shaves slightly (SMAD $38.2 \to 36.7$). The other three strains are
+essentially unchanged. The hypothesis to test on humans is whether the same
+effect holds in the human population, particularly among subjects who do not
+spontaneously derive the dominance argument.
 
 ---
 
@@ -115,12 +138,15 @@ values is $b^\star(v) = v^n / V_{\max}^{n-1}$.
 For $n=3$, $V_{\max}=49$: $b^\star(v) = v^3 / 2401$. At $v=30$, $b^\star\approx
 \$11.2$. At $v=49$, $b^\star\approx\$49$.
 
-**Panel signature observed.** All five strains' SMAD is high (mean $98$); even
+**Panel signature observed.** All five strains' SMAD is high (mean $88$); even
 c2 rational sits at $92.6$ because the LLM tends to shade much less than the
-non-linear equilibrium prescription. Expected human behavior: substantial
-overbidding relative to $b^\star(v)$, with large variance across subjects.
-Sunk-cost / "I already paid, I want the prize" effects likely amplify
-overbidding.
+non-linear equilibrium prescription. The win-seeker is the worst case
+(SMAD $129.7$): bidding above value when all bidders pay their bid is the
+canonical money-pump. Loss-averse is the closest to optimal (SMAD $55.8$)
+because its shading happens to land near the non-linear BNE for low-to-mid
+values. Expected human behavior: substantial overbidding relative to
+$b^\star(v)$, with large variance across subjects. Sunk-cost / "I already
+paid, I want the prize" effects likely amplify overbidding.
 
 ---
 
@@ -148,10 +174,12 @@ overbidding.
 - If $v > 22.5$: $b^\star(v) = (n-1)/n \cdot v = (2/3) v$ (standard first-price
 shading, above the reserve).
 
-**Panel signature observed.** c2 rational has SMAD $43.6$ -- the BNE shading is
-not always derived. Overgeneralizer's $77.6$ reflects above-value bidding that
-ignores the reserve constraint. The non-linear, piecewise optimum is the
-expected source of difficulty.
+**Panel signature observed.** c2 rational has SMAD $43.6$ -- the BNE shading
+is not always derived. Win-seeker's $90.8$ reflects above-value bidding that
+ignores the reserve constraint. Loss-averse, in contrast, scores low (SMAD
+$13.3$) because its $50$--$80\%$-of-value shading happens to land close to the
+piecewise optimum for most $v$. The non-linear, piecewise optimum is the
+expected source of difficulty for human bidders.
 
 ---
 

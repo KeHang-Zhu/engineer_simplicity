@@ -13,6 +13,9 @@
 \usepackage[round,authoryear]{natbib}
 \usepackage[hidelinks]{hyperref}
 \usepackage{microtype}
+\usepackage{xcolor}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newenvironment{redpar}{\par\color{red}}{\par}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta,fit}
 \hypersetup{
@@ -1241,14 +1244,24 @@ Median \SPSB{} bid $\approx 0.71v$; in FPSB still $\approx 0.67v$
 \item \textbf{Rational.} \texttt{c2\_f2\_b2} from the CoT panel.
 Truthful in \SPSB{}; shades modestly above the BNE in FPSB
 ($0.78$ median ratio). Covers full reasoning.
-\item \textbf{Overbidder (content error).} The v1
-overgeneralizer mouse. In \SPSB{} produces overbidding at
-$100\%$; in FPSB bids \emph{above} value (median $1.12$),
-loss-making. Covers the second-price-rule overgeneralization
-class.
-\item \textbf{Participation-failure.} The v1 payment-panic mouse.
-In both \SPSB{} and FPSB collapses to the grid floor; covers
-extreme loss aversion.
+\item \red{\textbf{Win-seeking overbidder.} The
+\texttt{win\_seeker} mouse: a bidder who simply wants to win,
+prompted to choose roughly $110$--$130\%$ of value without
+invoking any specific reasoning about the payment rule. In \SPSB{}
+produces overbidding at $100\%$ with $50\%$ extreme-overbidding;
+covers bidders whose overbidding is affective rather than rule-
+rationalized. This strain replaces the v1 second-price
+overgeneralizer, whose rationalization (``I won't pay my own
+bid'') was tied to one specific mechanism class.}
+\item \red{\textbf{Loss-averse shading underbidder.} The
+\texttt{loss\_averse} mouse: a Kahneman--Tversky-style bidder for
+whom the pain of overpaying disproportionately outweighs the
+pleasure of a profitable win, prompted to shade to $50$--$80\%$ of
+value. In \SPSB{} produces underbidding at $100\%$ without
+collapsing to the grid floor; covers the moderate-shading half of
+the mistake space. This strain replaces the v1 payment-panic
+mouse, whose bid-near-zero collapse was too degenerate to inform
+moment matching.}
 \item \textbf{Literal label-follower.} The outcome-instructed
 truthful strain (\texttt{spsb\_outcome\_truthful}). Bids value
 across mechanisms, which is correct in \SPSB{} and loss-making in
@@ -1457,24 +1470,29 @@ read off Li's Figure~2 SP histogram and a conservative near-zero
 estimate.
 
 Solving Eq.~\eqref{eq:momentmatch} on the cluster panel gives the
-weights in Table~\ref{tab:li-weights}: the overgeneralizer carries
-the largest weight ($0.41$) because Li's 2P data contain
-substantial overbidding above value; rationality, literal
-truthfulness, and the contingent-off underbidder share the middle
-band ($0.17$--$0.19$); the payment-panic mouse gets very little
-weight ($0.03$) because near-zero behavior is rare in Li's data.
-The total $L_2$ residual is $0.109$; the largest individual gap is
-on extreme overbidding ($0.114$ fitted vs.\ $0.220$ target), which
-reflects a limitation of the present panel rather than the
-weighting --- to better match Li's extreme-overbid mass we would
-need to add a more aggressive overbidder strain to the library.
+weights in Table~\ref{tab:li-weights}. \red{The win-seeker carries
+the largest weight ($0.400$) because Li's 2P data contain
+substantial overbidding mass, including a large extreme-overbid
+tail. Rationality and the literal-truthful strain share the middle
+band ($0.194$ each); the contingent-off underbidder and the
+loss-averse shading underbidder split the underbidding mass at
+$\approx 0.106$ each. The total $L_2$ residual is $0.037$, a
+$66\%$ improvement over the previous overgeneralizer / payment-
+panic panel (residual $0.109$); the fit on the truthful and
+underbid moments is now essentially exact, the overbid moment is
+$0.40$ vs.\ $0.39$ target, and the extreme-overbid moment is $0.20$
+vs.\ $0.22$ target. The remaining gap is on near-zero bidding
+($0.00$ fitted vs.\ $0.03$ target): the new panel deliberately
+trades near-zero coverage for a moderate loss-averse shading
+class, which is more informative for moment matching against Li's
+2P data where near-zero bids are rare.}
 
 \begin{table}[t]
 \centering
-\caption{Li-2017-calibrated mixture weights $\widehat{w}$ over the
-5-strain cluster panel. Fitted by simplex-constrained least
-squares against the per-bidder moment target adapted from Li
-(2017) Figure~2 SP.}
+\caption{\red{Li-2017-calibrated mixture weights $\widehat{w}$ over
+the 5-strain cluster panel after the win\_seeker / loss\_averse
+swap. Fitted by simplex-constrained least squares against the
+per-bidder moment target adapted from Li (2017) Figure~2 SP.}}
 \label{tab:li-weights}
 \small
 \setlength{\tabcolsep}{7pt}
@@ -1482,13 +1500,27 @@ squares against the per-bidder moment target adapted from Li
 \toprule
 Strain & $\widehat{w}$ & Role \\
 \midrule
-\texttt{c0\_f0\_b0} (CoT)               & $0.174$ & contingent-off underbidder \\
-\texttt{c2\_f2\_b2} (CoT)               & $0.190$ & rational benchmark \\
-2nd-price overgeneralizer (v1 error)    & $0.413$ & winner's-curse overbidder \\
-payment panic (v1 error)                & $0.033$ & participation failure \\
-\texttt{spsb\_outcome\_truthful}        & $0.190$ & literal label-follower \\
+\texttt{c0\_f0\_b0} (CoT)               & \red{$0.106$} & contingent-off underbidder \\
+\texttt{c2\_f2\_b2} (CoT)               & \red{$0.194$} & rational benchmark \\
+\red{\texttt{spsb\_error\_win\_seeker}}     & \red{$\mathbf{0.400}$} & \red{win-seeking overbidder (mechanism-agnostic)} \\
+\red{\texttt{spsb\_error\_loss\_averse}}    & \red{$0.106$} & \red{Kahneman--Tversky loss-averse shading} \\
+\texttt{spsb\_outcome\_truthful}        & \red{$0.194$} & literal label-follower \\
 \bottomrule
 \end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\color{red}\footnotesize\textit{Notes.} Total $L_2$ residual is
+$0.037$, an improvement over the previous panel's $0.109$
+because (a)~win\_seeker's $50\%$ extreme-overbid rate plays
+directly into Li's $0.22$ extreme-overbid mass, and (b)~loss\_averse's
+$100\%$ underbidding without collapsing to the grid floor gives a
+sharper underbid signature than payment panic. The
+mechanism-agnostic framing of both new strains (no
+``second-price'' or ``payment'' vocabulary in their prompts) keeps
+the moments transferable when the panel is used in non-second-price
+mechanisms.\par}
+\end{minipage}
 \end{table}
 
 \subsection{Four new mechanisms, ranked by Li-weighted SMAD}
@@ -1523,17 +1555,24 @@ non-participation for $v < 15$.
 \end{enumerate}
 
 Table~\ref{tab:newmech-ranking} ranks the four mechanisms by the
-Li-weighted SMAD of Eq.~\eqref{eq:smad-weighted}. The split is
-clean: the two easy mechanisms cluster around $13$--$14$, the two
-hard mechanisms at $58$--$108$.
+Li-weighted SMAD of Eq.~\eqref{eq:smad-weighted} \red{using the
+updated cluster panel (win\_seeker / loss\_averse replacing
+overgeneralizer / payment\_panic). The split is clean: the two
+easy mechanisms cluster around $14$--$15$, the two hard
+mechanisms at $61$--$103$. The ordering is preserved relative to
+the previous panel, but the worst-strain numbers are no longer
+dominated by payment panic's bid-near-zero collapse; the worst
+strain is now \texttt{loss\_averse} on the easy mechanisms and
+\texttt{win\_seeker} on the hard ones, which gives a more
+informative tail signature.}
 
 \begin{table}[t]
 \centering
-\caption{Four new candidate mechanisms ranked by Li-weighted SMAD
-on the 5-strain cluster panel ($15$ reps per cell, $900$
-bidder-decisions, \texttt{gpt-5.4-mini}). Lower SMAD = realized
-bids closer to the mechanism's own optimum. Worst-strain SMAD is
-reported as a robustness check.}
+\caption{\red{Four new candidate mechanisms ranked by Li-weighted
+SMAD on the updated 5-strain cluster panel ($15$ reps per cell,
+$900$ bidder-decisions on \texttt{gpt-5.4-mini} for the basis
+strains plus the win\_seeker / loss\_averse runs). Lower SMAD =
+realized bids closer to the mechanism's own optimum.}}
 \label{tab:newmech-ranking}
 \footnotesize
 \setlength{\tabcolsep}{6pt}
@@ -1541,23 +1580,28 @@ reported as a robustness check.}
 \toprule
 Code & Mechanism & Weighted SMAD & Worst-strain SMAD & Mean SMAD \\
 \midrule
-E2 & Vickrey + OSP-style hint               & $\mathbf{13.4}$  & $99.6$  & $27.3$ \\
-E1 & Vickrey 2P baseline                    & $14.1$           & $99.6$  & $28.2$ \\
+E2 & Vickrey + OSP-style hint               & \red{$\mathbf{14.3}$}  & \red{$36.7$}  & \red{$15.7$} \\
+E1 & Vickrey 2P baseline                    & \red{$14.9$}           & \red{$38.2$}  & \red{$16.9$} \\
 \addlinespace
-H2 & First-price with $\$15$ reserve        & $58.5$           & $77.6$  & $50.5$ \\
-H1 & All-pay first-price                    & $\mathbf{107.6}$ & $137.2$ & $98.4$ \\
+H2 & First-price with $\$15$ reserve        & \red{$61.4$}           & \red{$90.8$}  & \red{$47.7$} \\
+H1 & All-pay first-price                    & \red{$\mathbf{102.6}$} & \red{$129.7$} & \red{$88.2$} \\
 \bottomrule
 \end{tabular}
 
 \vspace{0.4em}
 \begin{minipage}{0.95\textwidth}
-{\footnotesize\textit{Notes.} E2 beats E1 because the explicit
-OSP-style sentence pulls the contingent-off underbidder $\approx
-19\%$ closer to truthful (SMAD $26.5 \to 21.6$ for that strain),
-while leaving the other four strains essentially unchanged. The
-worst-strain operator on the easy mechanisms is dominated by
-payment panic; the Li weights down-weight payment panic to $0.03$
-so the weighted measure reflects the rest of the panel.\par}
+{\color{red}\footnotesize\textit{Notes.} E2 still beats E1, by $\approx
+0.6$ weighted-SMAD units: the explicit OSP-style sentence pulls
+the contingent-off underbidder $\approx 19\%$ closer to truthful
+(SMAD $26.5 \to 21.6$ for that strain) and pulls the loss-averse
+strain slightly less far below value (SMAD $38.2 \to 36.7$), with
+the other strains essentially unchanged. Worst-strain SMAD for
+the two easy mechanisms is now $\sim 37$ rather than $\sim 100$,
+because \texttt{loss\_averse}'s moderate shading is the actual
+behavioral tail rather than payment\_panic's degenerate near-zero
+collapse. For the two hard mechanisms the worst strain is
+\texttt{win\_seeker}, whose $\approx 120\%$-of-value overbidding is
+far from the FPSB / all-pay BNE shading optimum.\par}
 \end{minipage}
 \end{table}
 

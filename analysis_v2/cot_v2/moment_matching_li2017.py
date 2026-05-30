@@ -84,14 +84,14 @@ CLUSTER_PANEL = [
         "filter": ("basis_id", "c2_f2_b2"),
     },
     {
-        "persona_id": "spsb_error_overgeneralizer",
+        "persona_id": "spsb_error_win_seeker",
         "source": "spsb_error_v2r2",
-        "filter": ("outcome_id", "spsb_error_second_price_overgeneralizer"),
+        "filter": ("outcome_id", "spsb_error_win_seeker"),
     },
     {
-        "persona_id": "spsb_error_payment_panic",
+        "persona_id": "spsb_error_loss_averse",
         "source": "spsb_error_v2r2",
-        "filter": ("outcome_id", "spsb_error_payment_panic_near_zero"),
+        "filter": ("outcome_id", "spsb_error_loss_averse"),
     },
     {
         "persona_id": "spsb_outcome_truthful",

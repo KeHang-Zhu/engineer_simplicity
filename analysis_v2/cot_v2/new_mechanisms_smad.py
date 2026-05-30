@@ -96,6 +96,10 @@ def main():
             "weight": weights.get(r["persona_id"]),
         })
     per_strain = pd.DataFrame(rows)
+    # Only keep rows whose persona is in the active cluster panel
+    # (i.e. has a non-null Li weight); old strains stay in the source
+    # data but are not part of the current panel.
+    per_strain = per_strain[per_strain["weight"].notna()].reset_index(drop=True)
     per_strain.to_csv(PER_STRAIN_OUT, index=False)
     print(f"\nwrote {PER_STRAIN_OUT}")
     print("\nSMAD per (mechanism, strain):")

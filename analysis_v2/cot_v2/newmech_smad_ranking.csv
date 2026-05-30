@@ -1,5 +1,5 @@
 mechanism_id,mechanism_label,category,weighted_smad_Li2017,worst_strain_smad,mean_smad,n_strains_scored
-vickrey_osp_hint,E2: 2P + OSP-style framing,easy,13.356964345549486,99.60324616771865,27.280432822362485,5
-vickrey_baseline,E1: Vickrey 2P (baseline easy),easy,14.106141707746126,99.60324616771865,28.205590622182143,5
-firstprice_with_reserve,H2: First-price with $15 reserve,hard,58.45962299120149,77.6424361493124,50.461689587426335,5
-allpay_first_price,H1: All-pay first-price,hard,107.61798145553482,137.18764339702685,98.39201707029687,5
+vickrey_osp_hint,E2: 2P + OSP-style framing,easy,14.275108627723613,36.74718196457327,15.716500481349348,5
+vickrey_baseline,E1: Vickrey 2P (baseline easy),easy,14.883211684575953,38.16425120772947,16.94297571182348,5
+firstprice_with_reserve,H2: First-price with $15 reserve,hard,61.36240626367422,90.78637510513039,47.66902235786129,5
+allpay_first_price,H1: All-pay first-price,hard,102.63694345433166,129.66963312679783,88.19471154268156,5

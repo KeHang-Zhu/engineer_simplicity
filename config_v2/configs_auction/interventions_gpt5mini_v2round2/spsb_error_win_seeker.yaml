@@ -1,0 +1,42 @@
+# SPSB IPV -- replacement error mouse spsb_error_win_seeker (v2 round-2 scale)
+experiment:
+  name: "spsb_error_win_seeker_v2r2"
+  version: "v2-round2-error-mice-v2"
+  description: "SPSB IPV with replacement error mouse spsb_error_win_seeker"
+
+auction:
+  number_agents: 3
+  rounds: 1
+
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "second"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 0
+  special_name: "private_second_price.txt"
+
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 9501
+
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "rule_template/auctions/"
+  persona_file: "rule_prompt_v2/personas/spsb_error_modes/spsb_error_win_seeker.txt"
+  include_payment_example: true
+
+execution:
+  repetitions: 30
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/gpt5mini/spsb_error_win_seeker_v2r2"

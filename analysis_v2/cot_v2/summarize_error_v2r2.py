@@ -19,7 +19,11 @@ def _iter(strain_dir):
 
 def main():
     rows = []
-    for strain_dir in sorted(glob.glob(os.path.join(LOG_BASE, "*_v2r2"))):
+    error_dirs = [
+        d for d in sorted(glob.glob(os.path.join(LOG_BASE, "*_v2r2")))
+        if "spsb_error" in os.path.basename(d)
+    ]
+    for strain_dir in error_dirs:
         name = os.path.basename(strain_dir).replace("_v2r2", "")
         for run_idx, payload in enumerate(_iter(strain_dir)):
             for _, rd in payload.items():
