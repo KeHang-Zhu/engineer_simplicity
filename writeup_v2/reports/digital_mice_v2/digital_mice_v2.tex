@@ -197,10 +197,15 @@ deficit. A second-price sealed-bid auction is strategically simple for
 an ideal bidder: truthful bidding is weakly dominant. That makes
 deviations from truthfulness diagnostic. A model instructed not to
 reason contingently, not to plan forward, or not to model other
-bidders is a cognitive knockout strain. A model instructed to
-overgeneralize ``the winner pays the second-highest bid'' is a
-targeted error strain. Together, these strains form a screening
-population.
+bidders is a cognitive knockout strain. A model instructed to behave
+in a specific affective way---to want to win regardless of price, or
+to fear overpayment more than missing out---is a targeted error
+strain. Together, these strains form a screening population. The
+choice of which cognitive operations to ablate is not arbitrary: it
+follows the simplicity dimensions catalogued by \citet{li2024simple}
+(contingent reasoning, forward planning, beliefs about others) and
+the affective failure modes documented in the experimental auctions
+literature.
 
 \begin{table}[t]
 \centering
@@ -1299,6 +1304,24 @@ twenty-seven. We retain the $27$-cell panel as the \emph{diagnostic}
 object (where the cluster structure is itself the finding) and use
 this five-strain panel as the \emph{screening} object for the EA.
 
+The panel design follows the simplicity framework of
+\citet{li2024simple}, which catalogues the cognitive operations a
+``simple'' mechanism should not require: opponent-contingent
+reasoning, multi-step forward planning, second-order beliefs, and
+correct interpretation of unfamiliar payment rules. Each panel
+strain is the operational complement of one of these dimensions.
+The contingent-off underbidder is a mouse for whom
+obvious-strategy-proofness fails, in the sense of \citet{li2017};
+the win-seeker is a mouse for whom the payment rule's incentive
+content is overridden by an affective desire to win; the
+loss-averse strain is a mouse whose private preferences over
+gains and losses defeat risk-neutral shading; the
+outcome-truthful strain is a mouse who follows a labeled behavior
+without engaging the mechanism's logic. A mechanism that scores
+low on the Li-weighted SMAD therefore satisfies the
+\citet{li2024simple} desideratum across multiple simplicity
+dimensions at once, not just along the single OSP axis.
+
 \subsection{SMAD-only fitness with a per-mechanism scoring module}
 \label{sec:smad-fitness}
 
@@ -1534,8 +1557,13 @@ Within this cell the dominant strategy is constant
 ($b^\star(v) = v$), so any SMAD difference between mechanisms
 isolates the marginal effect of framing, bid-language, and
 worked-example scaffold on realized bidding rather than the effect
-of switching mechanism class. This parallels Li (2017)'s
-AC-versus-2P design at the rule-text level.
+of switching mechanism class. This is the within-class simplicity
+question of \citet{li2024simple}: even when the incentive structure
+is strategy-proof, the rule text and presentation determine whether
+bidders find the dominant strategy, and small framing differences
+should produce small but identifiable SMAD differences. Our setup
+parallels \citet{li2017}'s AC-versus-2P design at the rule-text
+level rather than the mechanism level.
 
 The seed population is $12$ second-price IPV genotypes sampled
 across bid-language $\in\{$continuous, discrete-grid,
@@ -2101,6 +2129,10 @@ Auctions with Varying Numbers of Bidders.''
 \bibitem[Li(2017)]{li2017}
 Li, S. (2017). ``Obviously Strategy-Proof Mechanisms.''
 \textit{American Economic Review}, 107(11), 3257--3287.
+
+\bibitem[Li(2024)]{li2024simple}
+Li, S. (2024). ``Designing Simple Mechanisms.''
+\textit{Journal of Economic Perspectives}, 38(4), 175--192.
 
 \bibitem[Manning et al.(2024)]{manning2024automated}
 Manning, B.~S., K.~Zhu, and J.~J.~Horton (2024). ``Automated Social
