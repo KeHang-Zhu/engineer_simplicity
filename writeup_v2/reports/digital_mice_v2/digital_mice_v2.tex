@@ -1565,19 +1565,30 @@ should produce small but identifiable SMAD differences. Our setup
 parallels \citet{li2017}'s AC-versus-2P design at the rule-text
 level rather than the mechanism level.
 
-The seed population is $12$ second-price IPV genotypes sampled
-across bid-language $\in\{$continuous, discrete-grid,
-ranked-price-menu$\}$, description style $\in\{$traditional, menu,
-clock-framing$\}$, and scaffold $\in\{$none, short-hint,
-worked-example, decision-table$\}$. Two generations of mutation
-and crossover with the existing EA operators produce $16$ children,
-for $28$ scored mechanisms total. Each mechanism was scored against $3$ panel
-strains $\times 3$ reps inside the EA loop (the loop's default
-\texttt{--n\_personas} is $3$); we filled in the remaining $2$
-cluster-panel strains
-(\texttt{spsb\_outcome\_truthful}, \texttt{spsb\_error\_loss\_averse})
-in a supplementary $15$-rep pass against the top $4$ candidates,
-so the weighted SMAD reported below covers all $5$ strains.
+\paragraph{Evolution path.} The seed population is $12$ second-price
+IPV genotypes sampled across bid-language $\in\{$continuous,
+discrete-grid, ranked-price-menu$\}$, description style
+$\in\{$traditional, menu, clock-framing$\}$, and scaffold
+$\in\{$none, short-hint, worked-example, decision-table$\}$. Two
+generations advance the population with elite carry-over of size
+$4$ and the rest filled by mutation or crossover. The operator
+breakdown is: gen-$0$ has $12$ initialized individuals; gen-$1$
+adds $7$ mutation children and $1$ crossover child to the $4$
+elite carry-overs; gen-$2$ adds $5$ mutation children and $3$
+crossover children to the $4$ elites. The loop's internal
+multi-objective fitness (not the post-hoc SMAD) rises across
+generations---best of generation $2.17 \to 2.20 \to 2.21$---and
+the mean fitness rises monotonically ($2.04 \to 2.10 \to 2.16$),
+confirming that the search converges rather than drifts. $28$
+individuals produced fully scored fitness JSONs; the remaining
+$8$ failed validation or LLM-generation retries. Each mechanism
+was scored against $3$ panel strains $\times 3$ reps inside the EA
+loop (the loop's default \texttt{--n\_personas} is $3$); we filled
+in the remaining $2$ cluster-panel strains
+(\texttt{spsb\_outcome\_truthful},
+\texttt{spsb\_error\_loss\_averse}) in a supplementary $15$-rep
+pass against the top $4$ candidates, so the weighted SMAD
+reported below covers all $5$ strains.
 
 The full ranking is in
 \texttt{analysis\_v2/cot\_v2/ea\_second\_price\_smad\_ranking.csv}.
@@ -1651,23 +1662,36 @@ that paper places \emph{first-price common-value} at the top
 \emph{second-price IPV} near the bottom ($\approx 9\%$ and
 $\approx 5\%$).
 
-We seed the EA with $14$ genotypes spanning value-model
-$\in\{$IPV, APV, CV$\}\,\times\,$payment-rule
+\paragraph{Evolution path.} We seed the EA with $14$ genotypes
+spanning value-model $\in\{$IPV, APV, CV$\}\,\times\,$payment-rule
 $\in\{$first, second, third$\}$ and run $2$ generations against the
-$5$-strain cluster panel. The EA produces $30$ scored mechanisms,
-but its LLM-mediated genotype-to-phenotype step systematically
-drifts back to IPV: the runner's \texttt{rule.private\_value} field
-is \texttt{private} on every successfully executed mechanism, even
-when the genotype declared \texttt{APV} or \texttt{CV}. This is a
-real limitation of the current pipeline---fixing it would require
-either a deterministic phenotype renderer (no LLM in the
-translation step) or a tighter genotype-scope validator that
-rejects phenotype-genotype mismatches. To cover the missing cells
-we hand-built one $4$-cell complement (FPSB-APV, SPSB-APV, FPSB-CV,
-SPSB-CV) using v1's affiliated-values rule template plus two new
-common-value templates, and scored those mechanisms on the same
-$5$-strain cluster panel at $10$ reps each ($600$ bidder-decisions
-on \texttt{gpt-5.4-mini}).
+$5$-strain cluster panel. $10$ of the $14$ seeds successfully
+instantiate as runnable gen-$0$ mechanisms (the remaining $4$ fail
+LLM-generation or schema validation). Gen-$1$ carries $4$ elites
+forward and adds $5$ mutation children and $5$ crossover children;
+gen-$2$ carries $4$ elites and adds $7$ mutation and $3$ crossover.
+Internal best-of-generation fitness is flat at $2.27$ across all
+three generations---the top-$4$ elite from gen-$0$ dominates---so
+the EA's improvement here is in tail variance rather than peak
+fitness: gen-$0$ has fitness $1.55$--$2.27$, gen-$1$ widens to
+$0.60$--$2.27$ as new LLM-generated children include some that
+score poorly, and gen-$2$ stabilizes again at $1.56$--$2.27$. $30$
+of $38$ total individuals produce fully scored fitness JSONs.
+
+The LLM-mediated genotype-to-phenotype step systematically drifts
+the value model back to IPV: the runner's
+\texttt{rule.private\_value} field is \texttt{private} on every
+successfully executed mechanism, even when the genotype declared
+\texttt{APV} or \texttt{CV}. This is a real limitation of the
+current pipeline---fixing it would require either a deterministic
+phenotype renderer (no LLM in the translation step) or a tighter
+genotype-scope validator that rejects phenotype--genotype
+mismatches. To cover the missing cells we hand-built one $4$-cell
+complement (FPSB-APV, SPSB-APV, FPSB-CV, SPSB-CV) using v1's
+affiliated-values rule template plus two new common-value
+templates, and scored those mechanisms on the same $5$-strain
+cluster panel at $10$ reps each ($600$ bidder-decisions on
+\texttt{gpt-5.4-mini}).
 
 Table~\ref{tab:figure1-recovery} reports the combined LLM ranking
 alongside the Figure-1 human SMAD where available. Two findings.
