@@ -1,0 +1,580 @@
+genotypes:
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: continuous_bid
+    grid: null
+    tie_breaking: random
+  framing:
+    description_style: clock_framing
+    mechanism_scaffold: decision_table
+    has_chain_of_thought_demo: false
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 491
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 4
+    rule_word_count: computed
+  genotype_id: d4d1ba2d5d3a
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: ranked_price_menu
+    grid:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 49
+    tie_breaking: random
+  framing:
+    description_style: traditional
+    mechanism_scaffold: decision_table
+    has_chain_of_thought_demo: false
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 11
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 3
+    rule_word_count: computed
+  genotype_id: 49911c71b7a6
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: continuous_bid
+    grid: null
+    tie_breaking: random
+  framing:
+    description_style: traditional
+    mechanism_scaffold: decision_table
+    has_chain_of_thought_demo: false
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 491
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 3
+    rule_word_count: computed
+  genotype_id: 81c2dd62cca1
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: discrete_grid
+    grid:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 49
+    tie_breaking: random
+  framing:
+    description_style: traditional
+    mechanism_scaffold: none
+    has_chain_of_thought_demo: false
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 11
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 2
+    rule_word_count: computed
+  genotype_id: c9f53c04497f
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: discrete_grid
+    grid:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 49
+    tie_breaking: random
+  framing:
+    description_style: clock_framing
+    mechanism_scaffold: decision_table
+    has_chain_of_thought_demo: false
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 11
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 4
+    rule_word_count: computed
+  genotype_id: 2eceaf2c45df
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: ranked_price_menu
+    grid:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 49
+    tie_breaking: random
+  framing:
+    description_style: clock_framing
+    mechanism_scaffold: worked_example
+    has_chain_of_thought_demo: true
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 11
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 4
+    rule_word_count: computed
+  genotype_id: e71d25c1b1b1
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: discrete_grid
+    grid:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 49
+    tie_breaking: random
+  framing:
+    description_style: clock_framing
+    mechanism_scaffold: none
+    has_chain_of_thought_demo: false
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 11
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 3
+    rule_word_count: computed
+  genotype_id: 31789bccd5eb
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: ranked_price_menu
+    grid:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 49
+    tie_breaking: random
+  framing:
+    description_style: clock_framing
+    mechanism_scaffold: short_hint
+    has_chain_of_thought_demo: false
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 11
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 3
+    rule_word_count: computed
+  genotype_id: fa60603123bf
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: ranked_price_menu
+    grid:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 49
+    tie_breaking: random
+  framing:
+    description_style: menu
+    mechanism_scaffold: worked_example
+    has_chain_of_thought_demo: true
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 11
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 3
+    rule_word_count: computed
+  genotype_id: e725376d3783
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: ranked_price_menu
+    grid:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 49
+    tie_breaking: random
+  framing:
+    description_style: menu
+    mechanism_scaffold: short_hint
+    has_chain_of_thought_demo: false
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 11
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 2
+    rule_word_count: computed
+  genotype_id: d8bc7f075976
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: discrete_grid
+    grid:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 49
+    tie_breaking: random
+  framing:
+    description_style: clock_framing
+    mechanism_scaffold: short_hint
+    has_chain_of_thought_demo: false
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 11
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 3
+    rule_word_count: computed
+  genotype_id: 0d99b3487c9a
+- schema_version: single_item_auction_genotype_v1
+  domain: single_item_auction
+  implementation_scope: sealed_bid_v1
+  environment:
+    value_model: IPV
+    n_bidders: 3
+    value_support:
+      private_range:
+      - 0
+      - 49
+      common_range: null
+      signal_noise: null
+    increment: 0.1
+    repetitions: single_auction
+    feedback: none
+  mechanism:
+    interaction_form: sealed_bid
+    allocation_rule: highest_bid_wins
+    payment_rule: second_price
+    reserve_rule: none
+    bid_language: continuous_bid
+    grid: null
+    tie_breaking: random
+  framing:
+    description_style: traditional
+    mechanism_scaffold: none
+    has_chain_of_thought_demo: false
+    language: english
+  target_policy:
+    type: truthful_bid
+    benchmark_formula: value
+    target_bid_value_ratio: 1.0
+    tolerance: 0.1
+  complexity:
+    action_space_size: 491
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 2
+    rule_word_count: computed
+  genotype_id: c181a2ecb58a

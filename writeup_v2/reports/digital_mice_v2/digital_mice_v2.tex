@@ -1605,13 +1605,95 @@ far from the FPSB / all-pay BNE shading optimum.\par}
 \end{minipage}
 \end{table}
 
-The full rule descriptions for human-subject implementation, with
-optimal-bid formulas, panel-strain signatures, and reporting
-checklist, are collected in
+\subsection{\red{EA-search second-price candidates (replaces the
+hand-designed mechanisms above)}}
+\label{sec:ea-secondprice}
+
+{\color{red}
+The four hand-designed mechanisms of Section~\ref{sec:newmech-ranking}
+spanned easy/hard by mixing payment rules (Vickrey, all-pay, first-
+price-with-reserve). To produce candidates ready for a human pilot
+without hand-engineering, we instead run a $2$-generation EA over
+\texttt{second\_price\_ipv}-scoped genotypes, scored on the
+5-strain cluster panel of Section~\ref{sec:cluster-panel} and
+ranked by the Li-weighted SMAD of Eq.~\eqref{eq:smad-weighted}.
+Locking the scope to second-price IPV is deliberate: within this
+cell the dominant strategy is constant ($b^\star(v) = v$), so any
+SMAD difference between mechanisms isolates the marginal effect of
+framing, bid-language, and worked-example scaffold on the
+realized bid, not the effect of switching mechanism class. This
+parallels the Li (2017) AC-vs-2P design at the rule-text level.
+
+The seed population is $12$ second-price IPV genotypes sampled
+across bid-language $\in\{$continuous, discrete-grid,
+ranked-price-menu$\}$, description style $\in\{$traditional, menu,
+clock-framing$\}$, and scaffold $\in\{$none, short-hint,
+worked-example, decision-table$\}$. Two generations of mutation
+and crossover with the existing EA operators produce $16$ children,
+for $28$ scored mechanisms total. Each mechanism was scored against $3$ panel
+strains $\times 3$ reps inside the EA loop (the loop's default
+\texttt{--n\_personas} is $3$); we filled in the remaining $2$
+cluster-panel strains
+(\texttt{spsb\_outcome\_truthful}, \texttt{spsb\_error\_loss\_averse})
+in a supplementary $15$-rep pass against the top $4$ candidates,
+so the weighted SMAD reported below covers all $5$ strains.
+
+The full ranking is in
+\texttt{analysis\_v2/cot\_v2/ea\_second\_price\_smad\_ranking.csv}.
+The $28$-mechanism range is narrow---$10.6$ to $16.9$ weighted
+SMAD on a $3$-strain subset---confirming that within a strategy-
+proof mechanism class the differences are second-order. From the
+ranking we select two ``easy'' (top) and two ``hard'' (bottom)
+candidates that are free of LLM hallucinations in the rule text
+(some bottom candidates incorrectly state $n{=}2$ bidders). The
+four mechanisms and their full $5$-strain weighted SMAD are in
+Table~\ref{tab:ea-top4}.
+}
+
+\begin{table}[t]
+\centering
+\caption{\red{Four mechanisms selected from the $2$-generation
+EA-search ranking, scored on the full $5$-strain cluster panel
+with Li-weighted SMAD. All four are second-price IPV; the only
+differences are framing strength (E1, E2 nudge bidders toward
+truthful; H1, H2 describe the rule without that nudge).}}
+\label{tab:ea-top4}
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}llp{0.34\textwidth}rr@{}}
+\toprule
+Code & Cat & Framing distinctive feature & Weighted SMAD & Worst-strain \\
+\midrule
+\red{E1} & \red{easy} & \red{``If your value is 20 and you bid 20\dots that is the standard benchmark''} & \red{$\mathbf{11.0}$} & \red{$34.2$} \\
+\red{E2} & \red{easy} & \red{``Please bid as close as possible to your true value''} & \red{$11.8$} & \red{$33.1$} \\
+\red{H1} & \red{hard} & \red{Rule plus a winning-example with no truthful guidance} & \red{$15.3$} & \red{$34.8$} \\
+\red{H2} & \red{hard} & \red{Rule plus a \emph{losing}-example (the example bidder bids below value)} & \red{$\mathbf{15.5}$} & \red{$36.3$} \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\color{red}\footnotesize\textit{Notes.} Easy / hard gap is
+$\approx 4.5$ weighted-SMAD units; smaller than the
+$\approx 90$ units of the hand-designed cross-payment-rule
+comparison (Section~\ref{sec:newmech-ranking}) but, crucially,
+attributable to framing rather than to mechanism class. Worst-
+strain is \texttt{loss\_averse} in every case ($\approx 33$--$36$):
+the loss-averse mouse shades to $50$--$80\%$ of value regardless
+of the rule text, so a framing nudge moves it less than it moves
+the contingent-off underbidder.\par}
+\end{minipage}
+\end{table}
+
+\red{The full rule descriptions for human-subject implementation
+of the four EA-selected mechanisms, with $b^\star(v) = v$ and
+panel-strain signatures, are in
 \texttt{writeup\_v2/reports/digital\_mice\_v2/human\_experiment\_briefing.md}.
-The decisive prediction for the human pilot is that the
-easy/hard cluster gap survives contact with humans, and that E2
-beats E1 within the easy cluster.
+The decisive prediction for the human pilot is that within
+second-price, the framing-strength ordering survives contact with
+humans: easy-cluster mechanisms (E1, E2) produce a higher truthful-
+bid rate than hard-cluster mechanisms (H1, H2), even though the
+dominant strategy is identical.}
 
 \subsection{Why search, and the design space}
 

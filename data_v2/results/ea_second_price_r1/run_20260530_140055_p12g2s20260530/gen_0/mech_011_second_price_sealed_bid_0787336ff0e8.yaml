@@ -1,0 +1,120 @@
+# Generated mechanism: second_price_sealed_bid
+# A sealed-bid auction with 3 bidders where the highest bid wins and the winner pays the second-highest bid.
+# Design coordinates: {"pricing_rule": "second-price", "payment_modifier": "none", "bid_language": "continuous-bid", "info_disclosure": "private-only", "simplicity_emphasis": "none"}
+# Incentive target: {"action": "truthful_bid", "description": "Bid exactly your value.", "parameters": {"absolute_tolerance": 0.1}}
+# Rationale: This phenotype preserves the genotype exactly: it is a single-item sealed-bid auction with 3 bidders, IPV values, no feedback, continuous numeric bidding, highest-bid-wins allocation, second-price payment, no reserve, and random tie-breaking. The bidder-facing text is traditional, concise, and uses only allowed Jinja variables while instructing the participant to submit one numeric bid, which matches the current sealed-bid runner. The incentive target is truthful bidding with a value benchmark and ratio 1.0, consistent with a second-price auction. The YAML overrides restate the genotype fields without introducing any unsupported clock, eBay, or repeated-auction features.
+
+experiment:
+  name: "mech_011_second_price_sealed_bid_0787336ff0e8"
+  version: "v2-evo-gen0"
+  description: "A sealed-bid auction with 3 bidders where the highest bid wins and the winner pays the second-highest bid."
+
+auction:
+  number_agents: 3
+  rounds: 1
+
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "second"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 0
+  special_name: "mech_011_second_price_sealed_bid_0787336ff0e8.txt"
+
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 7001
+
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "../data_v2/results/ea_second_price_r1/run_20260530_140055_p12g2s20260530/gen_0/"
+  include_payment_example: false
+
+mechanism_metadata:
+  incentive_target:
+    action: "truthful_bid"
+    description: "Bid exactly your value."
+    parameters:
+      absolute_tolerance: 0.1
+    scoring_status: "declared_pending_evaluation"
+
+  genotype_id: "c181a2ecb58a"
+  genotype:
+    schema_version: single_item_auction_genotype_v1
+    domain: single_item_auction
+    implementation_scope: sealed_bid_v1
+    environment:
+      value_model: IPV
+      n_bidders: 3
+      value_support:
+        private_range:
+        - 0
+        - 49
+        common_range: null
+        signal_noise: null
+      increment: 0.1
+      repetitions: single_auction
+      feedback: none
+    mechanism:
+      interaction_form: sealed_bid
+      allocation_rule: highest_bid_wins
+      payment_rule: second_price
+      reserve_rule: none
+      bid_language: continuous_bid
+      grid: null
+      tie_breaking: random
+    framing:
+      description_style: traditional
+      mechanism_scaffold: none
+      has_chain_of_thought_demo: false
+      language: english
+    target_policy:
+      type: truthful_bid
+      benchmark_formula: value
+      target_bid_value_ratio: 1.0
+      tolerance: 0.1
+    complexity:
+      action_space_size: 491
+      strategic_depth_required: low
+      belief_required: false
+      payoff_contingency_count: 2
+      rule_word_count: computed
+    genotype_id: c181a2ecb58a
+  complexity:
+    action_space_size: 491
+    strategic_depth_required: low
+    belief_required: false
+    payoff_contingency_count: 2
+    rule_word_count: 100
+  consistency_report:
+    status: passed
+    detected_payment_rule: second_price
+    payment_rule_scores:
+      first_price: 0
+      second_price: 1
+      third_price: 0
+      posted_price: 0
+    checked:
+    - genotype_id
+    - incentive_target
+    - yaml_overrides
+    - template_render
+    - semantic_payment_rule
+    - payment_language
+    - bid_language
+    - action_interface
+
+execution:
+  repetitions: 5
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/run_20260530_140055_p12g2s20260530/gen_0/mech_011_second_price_sealed_bid_0787336ff0e8"
