@@ -1,0 +1,125 @@
+# Generated mechanism: first_price_sealed_bid
+# A three-bidder sealed-bid first-price auction with continuous numeric bids and no feedback.
+# Design coordinates: {"pricing_rule": "first-price", "payment_modifier": "none", "bid_language": "continuous-bid", "info_disclosure": "private-only", "simplicity_emphasis": "none"}
+# Incentive target: {"action": "target_bid_value_ratio", "description": "Bid near the benchmark bid/value ratio implied by the Bayes-Nash prediction.", "parameters": {"target_bid_value_ratio": 0.6666666666666666, "ratio_tolerance": 0.1}}
+# Rationale: This phenotype preserves the genotype exactly: it is a single-item, sealed-bid auction with three bidders, APV values, continuous bids, no reserve, random tie-breaking, and first-price payment. The rule text is bidder-facing, uses traditional framing with no scaffold, states that the bidder submits one numeric bid as the only action, and explicitly says the winner pays their own submitted bid. The text also avoids introducing any clock/eBay features or feedback beyond none, and it uses only the allowed Jinja variables. The incentive target echoes the genotype’s BNE bid ratio benchmark of two-thirds of value with the stated tolerance, and the YAML overrides mirror the mechanism and environment fields needed by the sealed-bid runner.
+
+experiment:
+  name: "mech_000_first_price_sealed_bid_1c9c84496772"
+  version: "v2-evo-gen0"
+  description: "A three-bidder sealed-bid first-price auction with continuous numeric bids and no feedback."
+
+auction:
+  number_agents: 3
+  rounds: 1
+
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "first"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 0
+  special_name: "mech_000_first_price_sealed_bid_1c9c84496772.txt"
+
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 7001
+
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "../data_v2/results/ea_unrestricted_r2/run_20260530_190520_p14g2s20260601/gen_2/"
+  include_payment_example: false
+
+mechanism_metadata:
+  incentive_target:
+    action: "target_bid_value_ratio"
+    description: "Bid near the benchmark bid/value ratio implied by the Bayes-Nash prediction."
+    parameters:
+      ratio_tolerance: 0.1
+      target_bid_value_ratio: 0.6666666666666666
+    scoring_status: "declared_pending_evaluation"
+
+  genotype_id: "0bd2f8967f2a"
+  genotype:
+    schema_version: single_item_auction_genotype_v1
+    domain: single_item_auction
+    implementation_scope: sealed_bid_v1
+    environment:
+      value_model: APV
+      n_bidders: 3
+      value_support:
+        private_range:
+        - 0
+        - 49
+        common_range: null
+        signal_noise: null
+      increment: 0.1
+      repetitions: single_auction
+      feedback: none
+    mechanism:
+      interaction_form: sealed_bid
+      allocation_rule: highest_bid_wins
+      payment_rule: first_price
+      reserve_rule: none
+      bid_language: continuous_bid
+      grid: null
+      tie_breaking: random
+    framing:
+      description_style: traditional
+      mechanism_scaffold: none
+      has_chain_of_thought_demo: false
+      language: english
+    target_policy:
+      type: bne_bid_ratio
+      benchmark_formula: ((n-1)/n)*value
+      target_bid_value_ratio: 0.6666666666666666
+      tolerance: 0.1
+    complexity:
+      action_space_size: 491
+      strategic_depth_required: medium
+      belief_required: true
+      payoff_contingency_count: 3
+      rule_word_count: computed
+    genotype_id: 0bd2f8967f2a
+    op: genotype_mutation
+    parent_genotype_ids:
+    - d50c7f1d19de
+    edit_summary: mutated mechanism_scaffold
+  complexity:
+    action_space_size: 491
+    strategic_depth_required: medium
+    belief_required: true
+    payoff_contingency_count: 3
+    rule_word_count: 107
+  consistency_report:
+    status: passed
+    detected_payment_rule: first_price
+    payment_rule_scores:
+      first_price: 1
+      second_price: 0
+      third_price: 0
+      posted_price: 0
+    checked:
+    - genotype_id
+    - incentive_target
+    - yaml_overrides
+    - template_render
+    - semantic_payment_rule
+    - payment_language
+    - bid_language
+    - action_interface
+
+execution:
+  repetitions: 5
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/run_20260530_190520_p14g2s20260601/gen_2/mech_000_first_price_sealed_bid_1c9c84496772"

@@ -1,0 +1,591 @@
+{
+  "yaml": "data_v2/results/ea_unrestricted_r2/run_20260530_190520_p14g2s20260601/gen_0/mech_006_first_price_apv_sealed_bid_493b64407c79.yaml",
+  "n_runs": 15,
+  "n_personas": 5,
+  "reps_per_persona": 3,
+  "persona_manifest": "config_v2/personas/cluster_panel_manifest.csv",
+  "persona_ids": [
+    "c0_f0_b0_cot",
+    "c2_f2_b2_cot",
+    "spsb_error_win_seeker",
+    "spsb_error_loss_averse",
+    "spsb_outcome_truthful"
+  ],
+  "incentive_target": {
+    "action": "target_bid_value_ratio",
+    "description": "Bid near the benchmark bid/value ratio implied by the Bayes-Nash prediction.",
+    "parameters": {
+      "ratio_tolerance": 0.1,
+      "target_bid_value_ratio": 0.6666666666666666
+    },
+    "scoring_status": "declared_pending_evaluation"
+  },
+  "metrics": {
+    "attempted_runs": 15,
+    "failed_runs": 0,
+    "failure_rate": 0.0,
+    "action_compliance_rate": 1.0,
+    "action_noncompliance_rate": 0.0,
+    "noncompliant_action_count": 0,
+    "action_count": 45,
+    "target_ratio_rate": 0.35555555555555557,
+    "target_ratio_mae": 0.25429533429533446,
+    "smad": 35.00854700854701,
+    "overbid_bne_rate": 0.5555555555555556,
+    "underbid_bne_rate": 0.08888888888888889,
+    "overbid_value_rate": 0.2,
+    "near_zero_rate": 0.022222222222222223,
+    "monotonicity_violation_rate": 0.022222222222222223,
+    "intended_action_scoreable": true,
+    "intended_action_target": "target_bid_value_ratio",
+    "intended_action_rate": 0.35555555555555557,
+    "intended_action_n": 45,
+    "revenue_mean": 36.760000000000005,
+    "revenue_normalized": 0.816888888888889,
+    "efficiency_mean": 0.996969696969697,
+    "simplicity_proxy": 0.9358031388144682,
+    "regret_var": 72.59306666666666,
+    "regret_var_normalized": 0.03584842798353909,
+    "max_val_observed": 45
+  },
+  "persona_summary": [
+    {
+      "persona": "c0_f0_b0_cot",
+      "n": 3,
+      "revenue_mean": 31.333333333333332,
+      "revenue_min": 24.0,
+      "revenue_max": 40.0,
+      "efficiency_mean": 1.0,
+      "efficiency_min": 1.0,
+      "simplicity_proxy_mean": 0.7934901797642939,
+      "winner_profit_mean": 10.0,
+      "winner_profit_var": 20.666666666666668
+    },
+    {
+      "persona": "c2_f2_b2_cot",
+      "n": 3,
+      "revenue_mean": 35.333333333333336,
+      "revenue_min": 30.0,
+      "revenue_max": 40.0,
+      "efficiency_mean": 0.9848484848484849,
+      "efficiency_min": 0.9545454545454546,
+      "simplicity_proxy_mean": 0.9270812409472943,
+      "winner_profit_mean": 5.333333333333333,
+      "winner_profit_var": 8.222222222222221
+    },
+    {
+      "persona": "spsb_error_loss_averse",
+      "n": 3,
+      "revenue_mean": 26.2,
+      "revenue_min": 23.0,
+      "revenue_max": 28.6,
+      "efficiency_mean": 1.0,
+      "efficiency_min": 1.0,
+      "simplicity_proxy_mean": 0.9741577573871206,
+      "winner_profit_mean": 15.133333333333333,
+      "winner_profit_var": 6.035555555555555
+    },
+    {
+      "persona": "spsb_error_win_seeker",
+      "n": 3,
+      "revenue_mean": 49.6,
+      "revenue_min": 42.0,
+      "revenue_max": 54.0,
+      "efficiency_mean": 1.0,
+      "efficiency_min": 1.0,
+      "simplicity_proxy_mean": 0.9842865159736323,
+      "winner_profit_mean": -8.266666666666666,
+      "winner_profit_var": 0.8088888888888879
+    },
+    {
+      "persona": "spsb_outcome_truthful",
+      "n": 3,
+      "revenue_mean": 41.333333333333336,
+      "revenue_min": 35.0,
+      "revenue_max": 45.0,
+      "efficiency_mean": 1.0,
+      "efficiency_min": 1.0,
+      "simplicity_proxy_mean": 1.0,
+      "winner_profit_mean": 0.0,
+      "winner_profit_var": 0.0
+    }
+  ],
+  "lower_tail": {
+    "worst_persona_revenue_mean": 26.2,
+    "p20_persona_revenue_mean": 30.306666666666665,
+    "worst_persona_efficiency_mean": 0.9848484848484849,
+    "p20_persona_efficiency_mean": 0.996969696969697,
+    "min_persona_simplicity_proxy": 0.7934901797642939,
+    "max_persona_winner_profit_var": 20.666666666666668,
+    "max_persona_winner_profit_var_normalized": 0.010205761316872428
+  },
+  "weights": {
+    "revenue": 1.0,
+    "efficiency": 1.0,
+    "intended_action": 0.0,
+    "action_compliance": 1.0,
+    "simplicity": 0.5,
+    "regret": 0.25,
+    "failure": 1.0,
+    "worst_persona_efficiency": 0.0,
+    "p20_persona_efficiency": 0.0,
+    "min_persona_simplicity": 0.0,
+    "persona_profit_variance": 0.0
+  },
+  "aggregate_fitness": 2.272798048269935,
+  "lower_tail_adjustment": 0.0,
+  "robust_fitness": 2.272798048269935,
+  "fitness": 2.272798048269935,
+  "per_run": [
+    {
+      "values": [
+        7,
+        45,
+        20
+      ],
+      "bids": [
+        3.0,
+        30.0,
+        10.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 45,
+      "price": 30.0,
+      "profits": [
+        0.0,
+        15.0,
+        0.0
+      ],
+      "max_val": 45,
+      "efficiency": 1.0,
+      "bid_value_std": 0.09976035785695661,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "c0_f0_b0_cot",
+      "rep": 0
+    },
+    {
+      "values": [
+        35,
+        33,
+        1
+      ],
+      "bids": [
+        24.0,
+        20.0,
+        0.1
+      ],
+      "winner_name": "Bidder Andy",
+      "winner_value": 35,
+      "price": 24.0,
+      "profits": [
+        11.0,
+        0.0,
+        0.0
+      ],
+      "max_val": 35,
+      "efficiency": 1.0,
+      "bid_value_std": 0.25938030212596136,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "c0_f0_b0_cot",
+      "rep": 1
+    },
+    {
+      "values": [
+        42,
+        7,
+        44
+      ],
+      "bids": [
+        30.0,
+        2.0,
+        40.0
+      ],
+      "winner_name": "Bidder Charles",
+      "winner_value": 44,
+      "price": 40.0,
+      "profits": [
+        0.0,
+        0.0,
+        4.0
+      ],
+      "max_val": 44,
+      "efficiency": 1.0,
+      "bid_value_std": 0.2603888007242003,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "c0_f0_b0_cot",
+      "rep": 2
+    },
+    {
+      "values": [
+        7,
+        45,
+        20
+      ],
+      "bids": [
+        5.0,
+        36.0,
+        14.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 45,
+      "price": 36.0,
+      "profits": [
+        0.0,
+        9.0,
+        0.0
+      ],
+      "max_val": 45,
+      "efficiency": 1.0,
+      "bid_value_std": 0.04416008807378909,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "c2_f2_b2_cot",
+      "rep": 0
+    },
+    {
+      "values": [
+        35,
+        33,
+        1
+      ],
+      "bids": [
+        30.0,
+        24.0,
+        1.0
+      ],
+      "winner_name": "Bidder Andy",
+      "winner_value": 35,
+      "price": 30.0,
+      "profits": [
+        5.0,
+        0.0,
+        0.0
+      ],
+      "max_val": 35,
+      "efficiency": 1.0,
+      "bid_value_std": 0.11138251368197928,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "c2_f2_b2_cot",
+      "rep": 1
+    },
+    {
+      "values": [
+        42,
+        7,
+        44
+      ],
+      "bids": [
+        40.0,
+        5.6,
+        39.6
+      ],
+      "winner_name": "Bidder Andy",
+      "winner_value": 42,
+      "price": 40.0,
+      "profits": [
+        2.0,
+        0.0,
+        0.0
+      ],
+      "max_val": 44,
+      "efficiency": 0.9545454545454546,
+      "bid_value_std": 0.06321367540234883,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "c2_f2_b2_cot",
+      "rep": 2
+    },
+    {
+      "values": [
+        7,
+        45,
+        20
+      ],
+      "bids": [
+        8.4,
+        54.0,
+        24.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 45,
+      "price": 54.0,
+      "profits": [
+        0.0,
+        -9.0,
+        0.0
+      ],
+      "max_val": 45,
+      "efficiency": 1.0,
+      "bid_value_std": 0.0,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "spsb_error_win_seeker",
+      "rep": 0
+    },
+    {
+      "values": [
+        35,
+        33,
+        1
+      ],
+      "bids": [
+        42.0,
+        39.6,
+        1.3
+      ],
+      "winner_name": "Bidder Andy",
+      "winner_value": 35,
+      "price": 42.0,
+      "profits": [
+        -7.0,
+        0.0,
+        0.0
+      ],
+      "max_val": 35,
+      "efficiency": 1.0,
+      "bid_value_std": 0.04714045207910321,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "spsb_error_win_seeker",
+      "rep": 1
+    },
+    {
+      "values": [
+        42,
+        7,
+        44
+      ],
+      "bids": [
+        50.4,
+        8.4,
+        52.8
+      ],
+      "winner_name": "Bidder Charles",
+      "winner_value": 44,
+      "price": 52.8,
+      "profits": [
+        0.0,
+        0.0,
+        -8.799999999999997
+      ],
+      "max_val": 44,
+      "efficiency": 1.0,
+      "bid_value_std": 0.0,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "spsb_error_win_seeker",
+      "rep": 2
+    },
+    {
+      "values": [
+        7,
+        45,
+        20
+      ],
+      "bids": [
+        4.2,
+        27.0,
+        13.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 45,
+      "price": 27.0,
+      "profits": [
+        0.0,
+        18.0,
+        0.0
+      ],
+      "max_val": 45,
+      "efficiency": 1.0,
+      "bid_value_std": 0.023570226039551605,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "spsb_error_loss_averse",
+      "rep": 0
+    },
+    {
+      "values": [
+        35,
+        33,
+        1
+      ],
+      "bids": [
+        23.0,
+        20.0,
+        0.6
+      ],
+      "winner_name": "Bidder Andy",
+      "winner_value": 35,
+      "price": 23.0,
+      "profits": [
+        12.0,
+        0.0,
+        0.0
+      ],
+      "max_val": 35,
+      "efficiency": 1.0,
+      "bid_value_std": 0.02562861561245983,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "spsb_error_loss_averse",
+      "rep": 1
+    },
+    {
+      "values": [
+        42,
+        7,
+        44
+      ],
+      "bids": [
+        28.0,
+        4.2,
+        28.6
+      ],
+      "winner_name": "Bidder Charles",
+      "winner_value": 44,
+      "price": 28.6,
+      "profits": [
+        0.0,
+        0.0,
+        15.399999999999999
+      ],
+      "max_val": 44,
+      "efficiency": 1.0,
+      "bid_value_std": 0.028327886186626582,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "spsb_error_loss_averse",
+      "rep": 2
+    },
+    {
+      "values": [
+        7,
+        45,
+        20
+      ],
+      "bids": [
+        7.0,
+        45.0,
+        20.0
+      ],
+      "winner_name": "Bidder Betty",
+      "winner_value": 45,
+      "price": 45.0,
+      "profits": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_val": 45,
+      "efficiency": 1.0,
+      "bid_value_std": 0.0,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "spsb_outcome_truthful",
+      "rep": 0
+    },
+    {
+      "values": [
+        35,
+        33,
+        1
+      ],
+      "bids": [
+        35.0,
+        33.0,
+        1.0
+      ],
+      "winner_name": "Bidder Andy",
+      "winner_value": 35,
+      "price": 35.0,
+      "profits": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_val": 35,
+      "efficiency": 1.0,
+      "bid_value_std": 0.0,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "spsb_outcome_truthful",
+      "rep": 1
+    },
+    {
+      "values": [
+        42,
+        7,
+        44
+      ],
+      "bids": [
+        42.0,
+        7.0,
+        44.0
+      ],
+      "winner_name": "Bidder Charles",
+      "winner_value": 44,
+      "price": 44.0,
+      "profits": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_val": 44,
+      "efficiency": 1.0,
+      "bid_value_std": 0.0,
+      "action_interface": "continuous_bid",
+      "allowed_bids": null,
+      "action_compliant": true,
+      "action_compliance_rate": 1.0,
+      "noncompliant_bids": [],
+      "persona": "spsb_outcome_truthful",
+      "rep": 2
+    }
+  ]
+}

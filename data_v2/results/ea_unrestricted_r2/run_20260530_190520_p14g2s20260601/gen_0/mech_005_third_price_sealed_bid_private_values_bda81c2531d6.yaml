@@ -1,0 +1,121 @@
+# Generated mechanism: third_price_sealed_bid_private_values
+# A three-bidder sealed-bid private-values auction where the highest bid wins and the winner pays the third-highest bid.
+# Design coordinates: {"pricing_rule": "third-price", "payment_modifier": "none", "bid_language": "continuous-bid", "info_disclosure": "private-only", "simplicity_emphasis": "high"}
+# Incentive target: {"action": "target_bid_value_ratio", "description": "Bid near the benchmark bid/value ratio implied by the Bayes-Nash prediction.", "parameters": {"target_bid_value_ratio": 2.0, "ratio_tolerance": 0.15}}
+# Rationale: This phenotype preserves the genotype exactly: it is a single-item sealed-bid auction with IPV values, three bidders, continuous numeric bids, highest-bid allocation, third-price payment, no reserve, random tie-breaking, and no feedback. The rule text uses only the allowed Jinja variables, frames the auction in traditional language, includes one short worked example as required by the worked-example scaffold, and instructs bidders to submit a numeric bid as their action. The incentive target echoes the genotype’s bid-ratio policy and benchmark formula. The YAML overrides restate the genotype-compatible mechanism, environment, and framing settings without introducing any unsupported clock, eBay, or other extensions.
+
+experiment:
+  name: "mech_005_third_price_sealed_bid_private_values_bda81c2531d6"
+  version: "v2-evo-gen0"
+  description: "A three-bidder sealed-bid private-values auction where the highest bid wins and the winner pays the third-highest bid."
+
+auction:
+  number_agents: 3
+  rounds: 1
+
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "third"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 0
+  special_name: "mech_005_third_price_sealed_bid_private_values_bda81c2531d6.txt"
+
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 7001
+
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "../data_v2/results/ea_unrestricted_r2/run_20260530_190520_p14g2s20260601/gen_0/"
+  include_payment_example: false
+
+mechanism_metadata:
+  incentive_target:
+    action: "target_bid_value_ratio"
+    description: "Bid near the benchmark bid/value ratio implied by the Bayes-Nash prediction."
+    parameters:
+      ratio_tolerance: 0.15
+      target_bid_value_ratio: 2.0
+    scoring_status: "declared_pending_evaluation"
+
+  genotype_id: "9956e3871946"
+  genotype:
+    schema_version: single_item_auction_genotype_v1
+    domain: single_item_auction
+    implementation_scope: sealed_bid_v1
+    environment:
+      value_model: IPV
+      n_bidders: 3
+      value_support:
+        private_range:
+        - 0
+        - 49
+        common_range: null
+        signal_noise: null
+      increment: 0.1
+      repetitions: single_auction
+      feedback: none
+    mechanism:
+      interaction_form: sealed_bid
+      allocation_rule: highest_bid_wins
+      payment_rule: third_price
+      reserve_rule: none
+      bid_language: continuous_bid
+      grid: null
+      tie_breaking: random
+    framing:
+      description_style: traditional
+      mechanism_scaffold: worked_example
+      has_chain_of_thought_demo: true
+      language: english
+    target_policy:
+      type: bne_bid_ratio
+      benchmark_formula: ((n-1)/(n-2))*value
+      target_bid_value_ratio: 2.0
+      tolerance: 0.15
+    complexity:
+      action_space_size: 491
+      strategic_depth_required: medium
+      belief_required: true
+      payoff_contingency_count: 3
+      rule_word_count: computed
+    genotype_id: 9956e3871946
+  complexity:
+    action_space_size: 491
+    strategic_depth_required: medium
+    belief_required: true
+    payoff_contingency_count: 3
+    rule_word_count: 103
+  consistency_report:
+    status: passed
+    detected_payment_rule: third_price
+    payment_rule_scores:
+      first_price: 0
+      second_price: 0
+      third_price: 2
+      posted_price: 0
+    checked:
+    - genotype_id
+    - incentive_target
+    - yaml_overrides
+    - template_render
+    - semantic_payment_rule
+    - payment_language
+    - bid_language
+    - action_interface
+
+execution:
+  repetitions: 5
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/run_20260530_190520_p14g2s20260601/gen_0/mech_005_third_price_sealed_bid_private_values_bda81c2531d6"

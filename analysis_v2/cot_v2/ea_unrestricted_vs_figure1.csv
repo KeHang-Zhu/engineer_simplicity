@@ -1,0 +1,4 @@
+value_model,payment_rule,n_mechs,llm_weighted_smad_mean,llm_weighted_smad_min,llm_weighted_smad_max,human_smad_figure1
+IPV,third_price,3,49.65160707272734,49.3302042271073,49.8682025249084,
+IPV,first_price,6,45.53513589461457,43.522833362740435,48.69484385746079,25.0
+IPV,second_price,21,14.800298607586104,11.395816965748788,26.66135368941764,5.0

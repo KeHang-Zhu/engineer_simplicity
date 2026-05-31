@@ -1,0 +1,139 @@
+# Generated mechanism: single_item_second_price_ranked_menu
+# A three-bidder sealed-bid second-price auction using a ranked price menu of numeric bids.
+# Design coordinates: {"pricing_rule": "second-price", "payment_modifier": "none", "bid_language": "ranking", "info_disclosure": "private-only", "simplicity_emphasis": "none"}
+# Incentive target: {"action": "common_value_shading", "description": "Shade below signal to account for adverse selection conditional on winning.", "parameters": {"ratio_tolerance": 0.15}}
+# Rationale: This phenotype preserves the genotype exactly: it is a single-item, sealed-bid, three-bidder auction with highest-bid-wins allocation, second-price payment, no reserve, random tie-breaking, and a ranked price menu on the specified 11-point grid. The bidder-facing text uses traditional framing, gives only the sealed-bid action language as a numeric bid, and avoids any unsupported clock/eBay or feedback features. The rule text correctly states that the winner pays the second-highest bid, matching the payment rule, and includes one short worked example as requested. The YAML overrides mirror the genotype fields so the runner can instantiate the same mechanism without altering the underlying genotype.
+
+experiment:
+  name: "mech_009_single_item_second_price_ranked_menu_214f77757fae"
+  version: "v2-evo-gen0"
+  description: "A three-bidder sealed-bid second-price auction using a ranked price menu of numeric bids."
+
+auction:
+  number_agents: 3
+  rounds: 1
+
+rule:
+  seal_clock: "seal"
+  ascend_descend: "ascend"
+  price_order: "second"
+  private_value: "private"
+  open_blind: "open"
+  closing: false
+  reserve_price: 0
+  special_name: "mech_009_single_item_second_price_ranked_menu_214f77757fae.txt"
+
+value:
+  common_range: [0, 29]
+  private_range: 49
+  increment: 0.1
+  seed_base: 7001
+
+llm:
+  model: "gpt-5.4-mini"
+  temperature: 0.5
+
+prompt:
+  strategy_type: "plan_reflection"
+  prompt_dir: "Prompt/"
+  rule_template_dir: "../data_v2/results/ea_unrestricted_r2/run_20260530_190520_p14g2s20260601/gen_1/"
+  include_payment_example: false
+
+mechanism_metadata:
+  incentive_target:
+    action: "common_value_shading"
+    description: "Shade below signal to account for adverse selection conditional on winning."
+    parameters:
+      ratio_tolerance: 0.15
+    scoring_status: "declared_pending_evaluation"
+
+  genotype_id: "d87fa9504c2d"
+  genotype:
+    schema_version: single_item_auction_genotype_v1
+    domain: single_item_auction
+    implementation_scope: sealed_bid_v1
+    environment:
+      value_model: CV
+      n_bidders: 3
+      value_support:
+        private_range:
+        - 0
+        - 49
+        common_range:
+        - 20
+        - 29
+        signal_noise:
+        - -20
+        - 20
+      increment: 0.1
+      repetitions: single_auction
+      feedback: none
+    mechanism:
+      interaction_form: sealed_bid
+      allocation_rule: highest_bid_wins
+      payment_rule: second_price
+      reserve_rule: none
+      bid_language: ranked_price_menu
+      grid:
+      - 0
+      - 5
+      - 10
+      - 15
+      - 20
+      - 25
+      - 30
+      - 35
+      - 40
+      - 45
+      - 49
+      tie_breaking: random
+    framing:
+      description_style: traditional
+      mechanism_scaffold: none
+      has_chain_of_thought_demo: false
+      language: english
+    target_policy:
+      type: common_value_shading
+      benchmark_formula: custom
+      target_bid_value_ratio: null
+      tolerance: 0.15
+    complexity:
+      action_space_size: 11
+      strategic_depth_required: high
+      belief_required: true
+      payoff_contingency_count: 3
+      rule_word_count: computed
+    genotype_id: d87fa9504c2d
+    op: genotype_mutation
+    parent_genotype_ids:
+    - 513882c3b322
+    edit_summary: mutated bid_language
+  complexity:
+    action_space_size: 11
+    strategic_depth_required: high
+    belief_required: true
+    payoff_contingency_count: 3
+    rule_word_count: 107
+  consistency_report:
+    status: passed
+    detected_payment_rule: second_price
+    payment_rule_scores:
+      first_price: 0
+      second_price: 1
+      third_price: 0
+      posted_price: 0
+    checked:
+    - genotype_id
+    - incentive_target
+    - yaml_overrides
+    - template_render
+    - semantic_payment_rule
+    - payment_language
+    - bid_language
+    - action_interface
+
+execution:
+  repetitions: 5
+  parallel: true
+  max_workers: 4
+  output_dir: "data_v2/experiment_logs/run_20260530_190520_p14g2s20260601/gen_1/mech_009_single_item_second_price_ranked_menu_214f77757fae"

@@ -1782,6 +1782,104 @@ humans: easy-cluster mechanisms (E1, E2) produce a higher truthful-
 bid rate than hard-cluster mechanisms (H1, H2), even though the
 dominant strategy is identical.}
 
+\subsection{\red{Unrestricted EA across value models: recovering
+the Figure-1 ranking}}
+\label{sec:figure1-recovery}
+
+{\color{red}
+The second-price-only EA above tests within-class framing
+sensitivity. As a separate question, we ask whether an
+\emph{unrestricted}-scope EA, which is free to vary the payment
+rule and the value model, recovers the cross-format SMAD ranking
+that \citet{zhuLLMAuction2024} obtained in lab data---Figure~1 of
+that paper places \emph{first-price common-value} at the top
+($\approx 48\%$ SMAD), \emph{first-price IPV} next
+($\approx 25\%$), \emph{second-price CV} below that
+($\approx 18\%$), and \emph{second-price APV} and
+\emph{second-price IPV} near the bottom ($\approx 9\%$ and
+$\approx 5\%$).
+
+We seed the EA with $14$ genotypes spanning value-model
+$\in\{$IPV, APV, CV$\}\,\times\,$payment-rule
+$\in\{$first, second, third$\}$ and run $2$ generations against the
+$5$-strain cluster panel. The EA produces $30$ scored mechanisms,
+but its LLM-mediated genotype-to-phenotype step systematically
+drifts back to IPV: the runner's \texttt{rule.private\_value} field
+is \texttt{private} on every successfully executed mechanism, even
+when the genotype declared \texttt{APV} or \texttt{CV}. This is a
+real limitation of the current pipeline---fixing it would require
+either a deterministic phenotype renderer (no LLM in the
+translation step) or a tighter genotype-scope validator that
+rejects phenotype-genotype mismatches. To cover the missing cells
+we hand-built one $4$-cell complement (FPSB-APV, SPSB-APV, FPSB-CV,
+SPSB-CV) using v1's affiliated-values rule template plus two new
+common-value templates, and scored those mechanisms on the same
+$5$-strain cluster panel at $10$ reps each ($600$ bidder-decisions
+on \texttt{gpt-5.4-mini}).
+
+Table~\ref{tab:figure1-recovery} reports the combined LLM ranking
+alongside the Figure-1 human SMAD where available. Two findings.
+\textbf{First, the major axis matches}: first-price mechanisms
+(any value model) cluster between $45$ and $52$ weighted SMAD; the
+top of the LLM ranking is \emph{first-price common-value}
+($51.7$), which is exactly where Figure~1 places it ($48.0$).
+\textbf{Second, the within-second-price ordering across value
+models is flat}: the LLM gives APV / IPV / CV second-price all
+$\approx 14.7$--$14.8$, whereas the human ranking has
+SP-CV ($18$) above SP-APV ($9$) above SP-IPV ($5$). This is
+informative on its own---the LLM cluster panel does not capture
+the additional cognitive load that human bidders show in
+common-value second-price auctions, plausibly because the panel
+treats the bidder's ``value'' as a private signal regardless of
+the announced value model.
+
+Spearman rank correlation between the LLM weighted SMAD and the
+five Figure-1 cells where both are defined is
+$\rho = 0.70$ (with the small-sample $p = 0.19$). The first-price-
+vs-second-price split is recovered perfectly; the across-value-
+model gradient inside second-price is not.}
+
+\begin{table}[t]
+\centering
+\caption{\red{LLM ranking versus the human SMAD ranking in
+Figure~1 of \citet{zhuLLMAuction2024}. ``IPV'' rows come from the
+$30$-mechanism unrestricted-scope EA run; ``APV'' and ``CV''
+rows come from the hand-built complement
+(Section~\ref{sec:figure1-recovery}). The LLM column is the
+$5$-strain Li-weighted SMAD; the human column is read directly off
+Figure~1's bars.}}
+\label{tab:figure1-recovery}
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Value model & Payment rule & $n$ mechs & LLM SMAD (Li-weighted) & Human SMAD (Fig.~1) \\
+\midrule
+\red{CV}  & \red{first-price}  & \red{$1$}  & \red{$\mathbf{51.7}$} & \red{$48.0$} \\
+\red{IPV} & \red{third-price}  & \red{$3$}  & \red{$49.7$} & \red{---} \\
+\red{APV} & \red{first-price}  & \red{$1$}  & \red{$47.4$} & \red{---} \\
+\red{IPV} & \red{first-price}  & \red{$6$}  & \red{$45.5$} & \red{$25.0$} \\
+\red{APV} & \red{second-price} & \red{$1$}  & \red{$14.8$} & \red{$9.0$} \\
+\red{IPV} & \red{second-price} & \red{$21$} & \red{$14.8$} & \red{$5.0$} \\
+\red{CV}  & \red{second-price} & \red{$1$}  & \red{$14.7$} & \red{$18.0$} \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\color{red}\footnotesize\textit{Notes.} Spearman rank correlation
+between LLM and human SMAD on the $5$ cells with both available is
+$\rho = 0.70$ ($p = 0.19$, $n=5$). The first-price vs second-price
+split is recovered exactly; the within-second-price gradient
+across value models is not recovered (the LLM cluster panel treats
+the bidder's value as a private signal regardless of the announced
+value model). \citet{zhuLLMAuction2024} also report ascending-clock
+APV ($\approx 3\%$) and AC-closed APV ($\approx 5\%$); both are
+sealed-bid-out-of-scope for the current parallel runner and not
+included here.\par}
+\end{minipage}
+\end{table}
+
 \subsection{Why search, and the design space}
 
 Mechanism design is at bottom a search problem. The standard answer is
@@ -2400,6 +2498,10 @@ Paper.
 \bibitem[Peng et al.(2025)]{peng2025funhouse}
 Peng, T., G.~Gui, D.~Merlau, et al. (2025). ``Digital Twins as
 Funhouse Mirrors: Five Key Distortions.'' arXiv:2509.19088.
+
+\bibitem[Zhu et al.(2024)]{zhuLLMAuction2024}
+Zhu, K., and coauthors (2024). ``LLM Auction: Comparing Human and Language-
+Model Bidders across Auction Formats.'' Working paper.
 
 \bibitem[Vickrey(1961)]{vickrey1961}
 Vickrey, W. (1961). ``Counterspeculation, Auctions, and Competitive
