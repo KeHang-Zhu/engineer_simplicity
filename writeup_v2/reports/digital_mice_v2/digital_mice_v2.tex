@@ -492,6 +492,42 @@ basis cleanly demonstrates that rationing reasoning reproduces the
 cautious half of the space, and the error mice show that the remaining
 half requires injecting a specific wrong belief.
 
+\red{\paragraph{Round-2 replacements: win\_seeker and loss\_averse.}
+The two v1 error mice above are mechanism-specific in awkward ways:
+the overgeneralizer is rationalized via second-price-rule
+overgeneralization, which restricts its interpretation to 2P-like
+mechanisms, and payment panic collapses to the grid floor regardless
+of value, which is too degenerate to inform moment matching against
+human distributions where near-zero bidding is rare. We replace both
+with mechanism-agnostic strains that we use throughout the v2
+round-2 panel (Sections~\ref{sec:cluster-panel} onwards).}
+
+\red{\textbf{\texttt{spsb\_error\_win\_seeker}} replaces the
+overgeneralizer. The prompt installs a strong desire to win without
+any specific reasoning about the payment rule: ``the reward of
+winning weighs heavily; the cost of a small overpayment feels small
+in comparison; choose a bid 110--130\% of value.'' This strain
+overbids in any mechanism whose action is a numeric bid (100\% above
+value in \SPSB{}, 100\% above BNE and 100\% above value in FPSB);
+its overbidding survives across mechanism class because it is not
+rule-rationalized.}
+
+\red{\textbf{\texttt{spsb\_error\_loss\_averse}} replaces payment
+panic. The prompt installs a Kahneman--Tversky loss-aversion frame:
+``the pain of overpaying feels disproportionately bad; shade to
+50--80\% of value.'' This strain shades below value at $\approx 60\%$
+in both \SPSB{} and FPSB, without collapsing to the grid floor, so
+it gives a moderate-shading signal that moment matching can fit
+against Li (2017)'s underbid mass.}
+
+\red{The two replacements bring the cluster panel to its final
+form: \texttt{c0\_f0\_b0} (CoT), \texttt{c2\_f2\_b2} (CoT),
+\texttt{win\_seeker}, \texttt{loss\_averse}, and
+\texttt{spsb\_outcome\_truthful}. The v1 error mice remain in the
+library for the historical \SPSB{} coverage scorecard
+(Section~\ref{sec:coverage}) but the moment matching, the FPSB
+stress-test panel, and the EA evaluator all use the round-2 panel.}
+
 \section{The \SPSB{} Calibration Assay}
 \label{sec:assay}
 
@@ -674,6 +710,22 @@ truthful Vickrey bid, the model follows the demonstration regardless
 of what $f$ and $b$ say. Contingent reasoning is the lever; the other
 two axes operate \emph{through} the contingent-reasoning channel and
 not in addition to it.
+
+\red{\paragraph{Forward-planning flatness as a sanity check.} The
+forward-planning axis being flat is the prediction of the
+environment, not a failure of induction. Our assay is a
+\emph{one-shot} second-price auction: a bidder makes one sealed bid,
+no future moves, no learning across rounds within the assay (each
+strain is re-seeded). The only outcome to trace forward is the
+contingent ``if I win at this bid, the price is the second-highest
+bid; if I lose, payoff is zero,'' which is logically equivalent to
+the contingent-reasoning move that the $c$-axis already controls. In
+a multi-round, dynamic, or sequential mechanism the $f$-axis would
+again become an identifiable lever; in this single-decision \SPSB{}
+assay it has nothing extra to trace. We retain the $f$-axis in the
+panel because moving it must \emph{not} change behavior at
+$c$-fixed---and it doesn't---which is the construct-validity
+sanity check we wanted.}
 
 \begin{figure}[t]
 \centering
@@ -1040,16 +1092,35 @@ regularity is overbidding relative to this risk-neutral benchmark
 \citep{kagellevin1993}. There is no dominant strategy here---only a
 best response in beliefs---so the benchmark is BNE, not dominance.
 
-The natural external check for the CoT panel is whether worked
-examples written for \SPSB{} transfer to a different mechanism without
-becoming actively misleading. The CoT prompt tells the model the
-example is ``a second-price auction''; a strain whose example shows
-a truthful Vickrey bid at $v{=}30$ might (i)~follow the example
-literally in FPSB and bid value (loss-making), or (ii)~adapt the
-reasoning to the new mechanism and shade below value. Behaviorally
-the difference is sharp: bidding value in FPSB earns zero surplus on
-average; shading to $\tfrac{2}{3}v$ earns the risk-neutral
-equilibrium surplus.
+\red{The natural external check for the CoT panel is whether the
+panel \emph{spans the FPSB human-error space}---i.e., whether each
+canonical FPSB human behavior is expressible by some strain in the
+panel. The FPSB human literature documents at least five behavior
+classes that a screening panel needs to cover:}
+\red{\begin{itemize}
+\item \textit{Risk-neutral BNE shading} to $\tfrac{n-1}{n}v$
+\citep{kagellevin1993}: the rational benchmark.
+\item \textit{Insufficient shading} above the BNE but below value,
+the dominant human-overbidding regularity in lab experiments
+\citep{kagellevin1993}; level-$k$ best response to
+truth-tellers reproduces it \citep{crawfordiriberri2007}.
+\item \textit{Naïve truth-telling}, $b\approx v$, by subjects who do
+not shade at all---a non-negligible subgroup in early rounds.
+\item \textit{Aggressive overbidding}, $b > v$ (loss-making), driven
+by salience of winning rather than by any specific
+payment-rule rationalization.
+\item \textit{Heavy shading} far below the BNE, driven by loss
+aversion / risk aversion on the payment.
+\end{itemize}}
+\red{The 5-strain cluster panel maps onto these five classes:
+\texttt{c2\_f2\_b2} (CoT) shades to the BNE region (median $b/v
+\approx 0.78$); \texttt{c0\_f0\_b0} (CoT) sits on the BNE line as a
+margin-of-safety bidder; \texttt{spsb\_outcome\_truthful} produces
+the naïve $b=v$ behavior; \texttt{spsb\_error\_win\_seeker} produces
+aggressive overbidding above value; \texttt{spsb\_error\_loss\_averse}
+produces heavy shading below the BNE. The Li-2017-calibrated mixture
+weights of Table~\ref{tab:li-weights} are how those five behaviors
+combine into a human population.}
 
 We re-ran the full $27$-strain CoT panel plus the two v1 error mice
 and the three outcome-instructed strains under an FPSB IPV mechanism
@@ -1082,15 +1153,16 @@ CoT audit (Section~\ref{sec:audit}) was designed to expose.
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{fig4_cot.pdf}
-\caption{FPSB stress test on the CoT panel. Bids versus private
-value for the three CoT corner strains (left three panels: red
-$c{=}0$, gold $c{=}1$, green $c{=}2$) and the error mice plus
-outcome strains overlaid (right). The dashed line is value; the
-solid line is the risk-neutral BNE $\tfrac{2}{3}v$. $c{=}0$ sits
-on BNE, $c{=}2$ above it; the overgeneralizer and
-\texttt{spsb\_outcome\_overbid} both bid above value (loss-making);
-\texttt{spsb\_outcome\_truthful} bids value (also loss-making in
-FPSB).}
+\caption{\red{FPSB stress test on the updated cluster panel. Bids
+versus private value for the three CoT corner strains (left three
+panels: red $c{=}0$, gold $c{=}1$, green $c{=}2$) and the two
+replacement error mice plus three outcome strains overlaid
+(right). The dashed line is value; the solid line is the
+risk-neutral BNE $\tfrac{2}{3}v$. $c{=}0$ sits on BNE, $c{=}2$
+above it; \texttt{win\_seeker} bids $\approx 120\%$ of value
+(loss-making); \texttt{loss\_averse} shades to $\approx 60\%$
+(below BNE); \texttt{spsb\_outcome\_truthful} bids value (also
+loss-making in FPSB).}}
 \label{fig:fpsb}
 \end{figure}
 
@@ -1107,18 +1179,18 @@ FPSB.}
 \setlength{\tabcolsep}{5pt}
 \begin{tabular}{@{}llrrrr@{}}
 \toprule
-Strain & Role & mean $b/v$ & median $b/v$ & above BNE & above value \\
+Strain & Role / FPSB human counterpart & mean $b/v$ & median $b/v$ & above BNE & above value \\
 \midrule
-\texttt{c0\_f0\_b0}  & CoT, all-ablated         & $0.65$ & $0.67$ & $0.33$ & $0.00$ \\
-\texttt{c1\_f1\_b1}  & CoT, all-intermediate    & $0.70$ & $0.73$ & $0.63$ & $0.00$ \\
-\texttt{c2\_f2\_b2}  & CoT, all-engaged         & $0.76$ & $0.78$ & $0.87$ & $0.00$ \\
+\texttt{c0\_f0\_b0}  & CoT, margin-of-safety; lands on BNE       & $0.65$ & $0.67$ & $0.33$ & $0.00$ \\
+\texttt{c1\_f1\_b1}  & CoT, intermediate; mild overbid vs BNE    & $0.70$ & $0.73$ & $0.63$ & $0.00$ \\
+\texttt{c2\_f2\_b2}  & CoT, rational; insufficient shading       & $0.76$ & $0.78$ & $0.87$ & $0.00$ \\
 \addlinespace
-overgeneralizer       & error: overbid           & $1.38$ & $1.12$ & $1.00$ & $0.97$ \\
-payment panic         & error: near-zero         & $0.01$ & $0.00$ & $0.00$ & $0.00$ \\
+\red{\texttt{spsb\_error\_win\_seeker}}  & \red{aggressive overbidder (above value, loss-making)} & \red{$1.20$} & \red{$1.20$} & \red{$1.00$} & \red{$1.00$} \\
+\red{\texttt{spsb\_error\_loss\_averse}} & \red{heavy shading below BNE}                          & \red{$0.61$} & \red{$0.60$} & \red{$0.00$} & \red{$0.00$} \\
 \addlinespace
-\texttt{spsb\_outcome\_overbid}    & outcome: overbid         & $1.01$ & $1.00$ & $1.00$ & $1.00$ \\
-\texttt{spsb\_outcome\_underbid}   & outcome: underbid        & $0.81$ & $0.80$ & $1.00$ & $0.00$ \\
-\texttt{spsb\_outcome\_truthful}   & outcome: truthful        & $1.00$ & $1.00$ & $1.00$ & $0.00$ \\
+\texttt{spsb\_outcome\_overbid}    & label: overbid (minimal margin)          & $1.01$ & $1.00$ & $1.00$ & $1.00$ \\
+\texttt{spsb\_outcome\_underbid}   & label: underbid                          & $0.81$ & $0.80$ & $1.00$ & $0.00$ \\
+\texttt{spsb\_outcome\_truthful}   & label: truthful ($b=v$, loss-making vs BNE) & $1.00$ & $1.00$ & $1.00$ & $0.00$ \\
 \bottomrule
 \end{tabular}
 
@@ -1157,11 +1229,26 @@ Forward ablated ($f{=}0$) & no consequence tracing; margin-of-safety underbid & 
 \addlinespace
 Belief ablated ($b{=}0$) & no model of others & mild miscalibration & non-equilibrium beliefs; level-$k$ \citep{crawfordiriberri2007}, cursed equilibrium \citep{eysterrabin2005} \\
 \addlinespace
-Overgeneralizer (error) & ``winner pays second price, so I won't pay my bid'' & overbids above value; loss-making in FPSB & overbidding / winner's curse \citep{kagellevin1993,crawfordiriberri2007} \\
+Overgeneralizer (v1 error) & ``winner pays second price, so I won't pay my bid'' & overbids above value; loss-making in FPSB & overbidding / winner's curse \citep{kagellevin1993,crawfordiriberri2007} \\
 \addlinespace
-Payment panic (error) & minimize the bid one might pay & near-zero bids & extreme loss/risk aversion; participation failure \\
+Payment panic (v1 error) & minimize the bid one might pay & near-zero bids & extreme loss/risk aversion; participation failure \\
+\addlinespace
+\red{Win seeker (round-2 error)} & \red{``reward of winning weighs heavily; cost of a small overpayment feels small''} & \red{bids $\approx 120\%$ of value in both \SPSB{} and FPSB; loss-making in FPSB} & \red{aggressive overbidding driven by salience of winning rather than rule-rationalization} \\
+\addlinespace
+\red{Loss-averse (round-2 error)} & \red{``pain of overpaying feels disproportionately bad''} & \red{shades to $\approx 60\%$ of value in both \SPSB{} and FPSB; below the FPSB BNE} & \red{Kahneman--Tversky loss aversion / risk aversion on the payment} \\
 \bottomrule
 \end{tabular}
+
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+{\color{red}\footnotesize\textit{Notes.} The v1 error mice
+(overgeneralizer, payment panic) and the round-2 replacements
+(win\_seeker, loss\_averse) live in the same error-mouse library;
+the v1 rows are retained for the Section~\ref{sec:coverage}
+historical scorecard and the round-2 rows are the ones in the
+current 5-strain cluster panel of
+Section~\ref{sec:cluster-panel}.\par}
+\end{minipage}
 \end{table}
 
 \section{Screening Mechanisms with Digital Mice}
@@ -2115,6 +2202,29 @@ Construction rationale: encode one affective heuristic (extreme fear
 of the bid as payment), which collapses bids to the grid floor across
 mechanisms; the strain covers the participation-failure / extreme
 loss-aversion class.
+
+\red{\paragraph{Round-2 error mouse 1: win\_seeker.} ``You really
+want to win this auction. The reward of winning---having the
+prize---weighs heavily in your mind, and the cost of paying a little
+above what the prize is worth feels small in comparison. You bid
+aggressively to maximize your chance of winning, and you are
+willing to overbid above your value. Choose a bid somewhere between
+110\% and 130\% of your value.'' Construction rationale: a
+mechanism-agnostic overbidder---no rationalization via second-price
+rule, no rule-specific vocabulary---so the strain transfers across
+mechanisms without changing meaning. Used in the cluster panel
+(Section~\ref{sec:cluster-panel}) and in moment matching
+(Section~\ref{sec:li-mixture}).}
+
+\red{\paragraph{Round-2 error mouse 2: loss\_averse.} ``You are a
+loss-averse bidder. The pain of overpaying for a prize feels much
+larger to you than the equivalent pleasure of winning a profitable
+auction. You shade your bid below your value. Choose a bid somewhere
+between 50\% and 80\% of your value.'' Construction rationale:
+encode a Kahneman--Tversky-style loss-aversion frame as a moderate-
+shading class without collapsing to the grid floor. Replaces payment
+panic for moment matching against human distributions where
+near-zero bidding is rare.}
 
 \section{Outcome-Instruction Alternative Prompts}
 \label{app:outcome}

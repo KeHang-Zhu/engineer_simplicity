@@ -135,8 +135,8 @@ def plot_fpsb(df):
 
     # Right panel: error mice + outcome strains overlaid
     overlay_strains = [
-        ("spsb_error_second_price_overgeneralizer", "overgeneralizer (error)", "#c75450"),
-        ("spsb_error_payment_panic_near_zero", "payment panic (error)", "#666666"),
+        ("spsb_error_win_seeker", "win_seeker (error)", "#c75450"),
+        ("spsb_error_loss_averse", "loss_averse (error)", "#666666"),
         ("spsb_outcome_overbid", "outcome: overbid", "#a02050"),
         ("spsb_outcome_underbid", "outcome: underbid", "#4070a0"),
         ("spsb_outcome_truthful", "outcome: truthful", "#208050"),
