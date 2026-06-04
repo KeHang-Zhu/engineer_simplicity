@@ -1,0 +1,349 @@
+% ============================================================================
+% related_work.tex
+% Related-work synthesis for the "digital mice" project.
+%
+% Scope of the digital-mice pipeline (for comparison throughout):
+%   (a) instructed cognitive deficits (CoT suppression and prompt-induced
+%       bounded rationality) layered onto frontier LLMs;
+%   (b) calibration to human auction data via Li (2017) moment matching;
+%   (c) SMAD-only evolutionary fitness over auction genotypes.
+%
+% This file is self-contained: it provides its own \begin{thebibliography}
+% and can be \input{} into the main manuscript or compiled standalone with
+% a minimal preamble.
+% ============================================================================
+
+\section*{Related work: digital mice in context}
+
+\subsection*{Executive summary}
+
+The closest antecedents to ``digital mice'' fall into five threads.
+First, recent work explicitly reframes cognitive bias and bounded
+rationality as \emph{instruments} for computational social science
+rather than defects to mitigate (CoBRA; \citealp{cobra2025}), and a
+parallel line uses LLMs as ``Homo silicus'' --- prompt-conditioned
+implicit models of humans to be experimented on
+\citep{horton2023silicus, manning2024automated}. Second, the
+silicon-sampling tradition \citep{argyle2023silicon} and its
+digital-twin descendants \citep{peng2025funhouse} build synthetic
+populations through demographic persona conditioning, but typically
+without manipulating reasoning capacity. Third, an emerging
+auctions-and-games literature deploys LLMs as economic agents and
+benchmarks their behavior against the canonical human experimental
+record \citep{shah2025synthetic, zheng2025bounded, henning2025bubbles},
+in some cases formalizing bounded rationality through QRE
+\citep{pechon2026qre} or prompt-level equilibrium concepts
+\citep{zhu2025llmnash}. Fourth, Li (2017)-style OSP theory
+\citep{li2017osp, breitmoser2022obviousness} provides the diagnostic
+vocabulary --- obvious dominance, contingent reasoning failures ---
+that the digital-mice fitness function reuses. Fifth, multiple
+empirical studies document that off-the-shelf LLMs are
+\emph{too} rational, too homogeneous, and too fair relative to humans
+\citep{henning2025bubbles, peng2025funhouse}, which is precisely the
+gap a controlled-deficit pipeline is built to close.
+
+Digital mice are novel along two axes that no prior line covers
+jointly: (i) systematic, prompt-induced reasoning-capacity knockouts
+treated as an experimental design variable (a ``knockout mouse'' for
+LLM agents), and (ii) quantitative calibration of those knockouts
+against Li (2017) auction moments, then used as the fitness signal in
+an evolutionary search over auction genotypes. Prior work has the
+ingredients --- persona conditioning, bias toolkits, auction
+benchmarks, QRE calibration --- but none combines instructed
+cognitive deficits with moment-matched human auction data inside a
+mechanism-design search loop.
+
+% ----------------------------------------------------------------------------
+\subsection*{1. Bias and bounded rationality as research instruments}
+
+A small but growing literature reframes LLM cognitive limitations as
+something to \emph{program in}, not engineer away. CoBRA
+\citep{cobra2025} provides a toolkit with a Cognitive Bias Index and a
+Behavioral Regulation Engine that explicitly controls biases in
+LLM-based social agents, using validated social-science experiments
+as the scaffold, and positions ``bias not as a flaw but as an
+instrument for scientific reproducibility and behavioral modeling.''
+This is the same instrumental move the digital-mice analogy makes:
+treat the deficit as the apparatus, not the noise. The contrast is
+along the deficit axis --- CoBRA targets classical cognitive biases
+(anchoring, framing, etc.), whereas digital mice target
+\emph{reasoning depth and contingent reasoning capacity} relevant to
+auction strategy. Neither library calibrates against quantitative
+auction moments.
+
+\citet{zheng2025bounded} push in the same direction empirically:
+across repeated games (RPS, Prisoner's Dilemma) LLMs reproduce
+familiar human heuristics such as outcome-based strategy switching
+and increased cooperation under repeated interaction, but ``apply
+these rules more rigidly and demonstrate weaker sensitivity to the
+dynamic changes in the game environment.'' They conclude that current
+LLMs ``capture only a partial form of human-like bounded
+rationality,'' motivating training methods for flexible opponent
+modeling. Digital mice take the opposite engineering route: rather
+than retraining for more flexible bounded rationality, we
+\emph{prompt-instrument} specific deficits and treat the resulting
+behavior as the unit of analysis.
+
+% ----------------------------------------------------------------------------
+\subsection*{2. Homo silicus and automated social science}
+
+\citet{horton2023silicus} introduces the ``Homo silicus'' framing:
+LLMs as ``implicit computational models of humans \dots\ they can be
+given endowments, information, preferences, and so on, and then their
+behavior can be explored in scenarios via simulation.'' Methodologically,
+the paper replicates Charness--Rabin, Kahneman et al., Samuelson--Zeckhauser,
+Oprea, and Horton himself, and treats \emph{qualitative} agreement (or
+generative divergence) as the validation criterion. Digital mice keep
+the prompt-as-endowment idea but replace qualitative replication with
+quantitative moment matching against Li (2017).
+
+\citet{manning2024automated} push this to the full research loop:
+LLMs as both \emph{scientists} (hypothesis generators) and
+\emph{subjects} (experimental agents), with structural causal models
+serving as the language for stating hypotheses, building agents,
+designing experiments, and analyzing data, demonstrated across
+negotiations, bail hearings, job interviews, and auctions. Crucially,
+the paper does not introduce controlled cognitive deficits or
+bounded-rationality constraints --- agents are treated as default
+reasoners. Digital mice can be read as a specialization of this
+framework where the SCM ``treatment'' variable is reasoning capacity
+itself, instrumented via prompted CoT suppression.
+
+% ----------------------------------------------------------------------------
+\subsection*{3. Synthetic populations and digital twins}
+
+\citet{argyle2023silicon} coin ``silicon sampling'' and the criterion
+of ``algorithmic fidelity'': conditioning GPT-3 on thousands of
+sociodemographic backstories from real survey respondents, with the
+goal that ``proper conditioning will cause it to accurately emulate
+response distributions from a wide variety of human subgroups.'' The
+construct propagates downstream into the digital-twin literature.
+Methodologically, this is persona/demographic conditioning, with no
+explicit treatment of bounded rationality or reasoning-capacity
+ablation --- a clear contrast with the digital-mice approach, which
+holds persona fixed and varies cognitive capacity.
+
+\citet{peng2025funhouse} stress-test the digital-twin program across
+nineteen pre-registered replications (164 outcomes) and report an
+average correlation of only $r \approx 0.20$ with human responses, with
+documented distortions including a ``Targeting Fairness'' regime in
+which LLMs produce systematically skewed fairness judgments in
+economic and social scenarios. The finding is directly relevant to
+LLMs-as-bidders or LLMs-as-matching-market participants, where
+fairness and envy considerations shape bid shading and preference
+reports. Digital mice respond to this critique by refusing the naive
+``proxy'' framing: rather than asking whether LLMs \emph{are} humans,
+we ask whether instructed-deficit LLMs can reproduce the
+\emph{moments} of human play under specific cognitive constraints.
+
+% ----------------------------------------------------------------------------
+\subsection*{4. LLMs as auction and game-theoretic agents}
+
+\citet{shah2025synthetic} deploys LLMs as bidders in canonical
+experimental auction frameworks (first-price, second-price, and OSP
+variants), running over a thousand auctions and reporting that LLM
+bidders ``produce results consistent with risk-averse human bidders''
+and ``succumb to the winner's curse in common value settings.'' The
+paper explicitly engages \citet{li2017osp} on obviously strategy-proof
+mechanisms and \citet{breitmoser2022obviousness} on ``obviousness'' as
+a theoretical lens for LLM cognitive limitations, and quantitatively
+benchmarks against \citet{coppinger1980incentives},
+\citet{cox1988theory}, and \citet{kagel1993independent} --- e.g.,
+matching ``the 27\% reported by Kagel (1993)'' for value-bidding
+frequency in SPSB. This is the most direct precedent for the
+auction-side empirical loop in digital mice, sharing both the OSP
+diagnostic language and the human-baseline calibration target. The
+key difference: \citet{shah2025synthetic} does \emph{not} systematically
+manipulate reasoning capacity to recover specific moments, and does not
+run an evolutionary search over auction formats conditional on agent
+cognition.
+
+\citet{pechon2026qre} provide a complementary calibration tool by
+estimating Quantal Response Equilibrium $\lambda$ parameters for LLM
+agents on a continuous scale against human data (with human
+$\lambda \in [1.0, 2.5]$ and frontier-model estimates in
+$[0.05, 1.10]$ across 1{,}855 games and seven models). QRE gives a
+principled one-dimensional handle on strategic sophistication, and is
+in principle complementary to digital mice: QRE measures
+\emph{how} rational an LLM is, while digital mice manipulate that
+quantity through instructed deficits.
+
+\citet{zhu2025llmnash} formalizes an ``LLM-Nash reasoning equilibrium''
+where agents choose \emph{reasoning prompts} rather than actions, and
+defines mindsets as triples (information intake, prompt space,
+worldview parameters), with equilibrium defined over the prompt space
+and actions emerging as LLM inference output. This provides a clean
+theoretical vocabulary for what digital mice do mechanically:
+deficit-injecting prompts are precisely the strategic objects in
+$\mathcal{X}, \mathcal{Y}$ above, and the equilibrium concept formalizes
+why prompt-level manipulations produce behavior distinct from
+classical Nash play.
+
+% ----------------------------------------------------------------------------
+\subsection*{5. Out-of-the-box LLMs are too rational and too homogeneous}
+
+A robust empirical finding across studies is that frontier LLMs,
+absent intervention, are systematically \emph{more} rational and
+\emph{more} homogeneous than human subjects.
+\citet{henning2025bubbles} run the Smith--Suchanek--Williams bubble
+paradigm with LLM populations and find that LLMs ``generally exhibit
+a \emph{textbook-rational} approach, pricing the asset near its
+fundamental value, and show only a muted tendency toward bubble
+formation,'' and that LLM-based agents ``display less trading strategy
+variance in contrast to humans.'' They warn that ``LLM-only data
+\dots\ to replicate human-driven market phenomena'' is unreliable
+because ``key behavioral features, such as large emergent bubbles,
+were not robustly reproduced.'' Together with the fairness
+distortions documented by \citet{peng2025funhouse} and the rigidity
+findings of \citet{zheng2025bounded}, this body of evidence motivates
+the central digital-mice design choice: do not assume a baseline LLM
+matches a human bidder; instead, calibrate a \emph{cognitive
+treatment} that reproduces specified moments of human play, and use
+that treated population as the unit of analysis.
+
+% ----------------------------------------------------------------------------
+\subsection*{6. Where digital mice are novel vs.\ reuse}
+
+\paragraph{Reused ingredients.}
+The instrumental framing of bias/bounded rationality
+\citep{cobra2025}; the Homo-silicus prompt-as-endowment paradigm
+\citep{horton2023silicus, manning2024automated}; the LLM-as-auction-bidder
+setup and OSP diagnostic vocabulary
+\citep{shah2025synthetic, li2017osp, breitmoser2022obviousness}; the
+human-benchmark targets from classical experimental auctions
+\citep{coppinger1980incentives, cox1988theory, kagel1993independent};
+and the quantitative measurement of LLM bounded rationality via QRE
+\citep{pechon2026qre} or prompt-space equilibrium \citep{zhu2025llmnash}.
+
+\paragraph{Novel combination.}
+Digital mice (i) treat reasoning-capacity manipulation (CoT
+suppression, instructed deficits) as a designed experimental variable
+in the spirit of a knockout mouse, going beyond persona conditioning
+\citep{argyle2023silicon, peng2025funhouse} and beyond bias libraries
+\citep{cobra2025}; (ii) calibrate the induced deficit population
+against Li (2017) auction moments rather than against qualitative
+replication \citep{horton2023silicus} or single-dimensional QRE
+\citep{pechon2026qre}; and (iii) plug the calibrated population into
+an evolutionary search over auction genotypes with an SMAD-only
+fitness function --- a mechanism-design loop with no antecedent in the
+LLM-agent literature.
+
+% ============================================================================
+\begin{thebibliography}{99}
+
+\bibitem[Argyle et al.(2023)]{argyle2023silicon}
+Argyle, L.~P., Busby, E.~C., Fulda, N., Gubler, J.~R., Rytting, C.,
+and Wingate, D. (2023).
+Out of one, many: Using language models to simulate human samples.
+\emph{Political Analysis}, 31(3):337--351. arXiv:2209.06899.
+
+\bibitem[Breitmoser and Schweighofer-Kodritsch(2022)]{breitmoser2022obviousness}
+Breitmoser, Y. and Schweighofer-Kodritsch, S. (2022).
+Obviousness around the clock.
+\emph{Experimental Economics}, 25:1--29.
+
+\bibitem[CoBRA(2025)]{cobra2025}
+Authors of CoBRA (2025).
+CoBRA: A toolkit for specifying and controlling cognitive biases in
+LLM-based social agents.
+\emph{Proceedings of CHI 2026} (Best Paper). arXiv:2509.13588.
+
+\bibitem[Coppinger et al.(1980)]{coppinger1980incentives}
+Coppinger, V.~M., Smith, V.~L., and Titus, J.~A. (1980).
+Incentives and behavior in English, Dutch, and sealed-bid auctions.
+\emph{Economic Inquiry}, 18(1):1--22.
+
+\bibitem[Cox et al.(1988)]{cox1988theory}
+Cox, J.~C., Smith, V.~L., and Walker, J.~M. (1988).
+Theory and individual behavior of first-price auctions.
+\emph{Journal of Risk and Uncertainty}, 1(1):61--99.
+
+\bibitem[Henning et al.(2025)]{henning2025bubbles}
+Henning, J., Ojha, A., Spoon, R., Han, J., and Camerer, C.~F. (2025).
+LLM agents do not replicate human market traders: Evidence from
+experimental finance.
+arXiv:2502.15800.
+
+\bibitem[Horton(2023)]{horton2023silicus}
+Horton, J.~J. (2023).
+Large language models as simulated economic agents: What can we
+learn from \emph{Homo silicus}?
+NBER Working Paper 31122. arXiv:2301.07543.
+
+\bibitem[Kagel(1993)]{kagel1993independent}
+Kagel, J.~H. (1993).
+Independent private value auctions: Bidder behavior in first-,
+second- and third-price auctions with varying numbers of bidders.
+\emph{Economic Journal}, 103(419):868--879.
+
+\bibitem[Kagel and Levin(1986)]{kagel1986winner}
+Kagel, J.~H. and Levin, D. (1986).
+The winner's curse and public information in common value auctions.
+\emph{American Economic Review}, 76(5):894--920.
+
+\bibitem[Li(2017)]{li2017osp}
+Li, S. (2017).
+Obviously strategy-proof mechanisms.
+\emph{American Economic Review}, 107(11):3257--3287.
+
+\bibitem[Manning et al.(2024)]{manning2024automated}
+Manning, B.~S., Zhu, K., and Horton, J.~J. (2024).
+Automated social science: Language models as scientist and subjects.
+arXiv:2404.11794.
+
+\bibitem[Pechon-Elkins and Chun(2026)]{pechon2026qre}
+Pechon-Elkins, L. and Chun, S. (2026).
+Quantal response equilibrium as a measure of strategic sophistication:
+Theory and validation for LLM evaluation.
+arXiv:2603.10029.
+
+\bibitem[Peng et al.(2025)]{peng2025funhouse}
+Peng, A. et al. (2025).
+Digital twins as funhouse mirrors: A pre-registered evaluation of
+LLM-based simulated participants.
+arXiv:2509.19088.
+
+\bibitem[Shah et al.(2025)]{shah2025synthetic}
+Shah, A., Zhu, K., Jiang, Y., Wang, J.~G., Dayi, A.~K., Horton, J.~J.,
+and Parkes, D.~C. (2025).
+Learning from synthetic labs: Language models as auction participants.
+arXiv:2507.09083.
+
+\bibitem[Zheng et al.(2025)]{zheng2025bounded}
+Zheng, X., Zhou, J., and Wang, Y. (2025).
+Beyond Nash equilibrium: Bounded rationality of LLMs and humans in
+strategic decision-making.
+arXiv:2506.09390.
+
+\bibitem[Zhu(2025)]{zhu2025llmnash}
+Zhu, Q. (2025).
+LLM-Nash equilibrium: Reasoning prompts as strategies.
+arXiv:2507.08208.
+
+% Supporting / contextual references used in the synthesis but not yet
+% expanded above; kept in the bibliography for completeness.
+
+\bibitem[Charness and Rabin(2002)]{charness2002understanding}
+Charness, G. and Rabin, M. (2002).
+Understanding social preferences with simple tests.
+\emph{Quarterly Journal of Economics}, 117(3):817--869.
+
+\bibitem[Kahneman et al.(1986)]{kahneman1986fairness}
+Kahneman, D., Knetsch, J.~L., and Thaler, R.~H. (1986).
+Fairness as a constraint on profit seeking: Entitlements in the market.
+\emph{American Economic Review}, 76(4):728--741.
+
+\bibitem[Samuelson and Zeckhauser(1988)]{samuelson1988status}
+Samuelson, W. and Zeckhauser, R. (1988).
+Status quo bias in decision making.
+\emph{Journal of Risk and Uncertainty}, 1(1):7--59.
+
+\bibitem[Oprea(2024)]{oprea2024decisions}
+Oprea, R. (2024).
+Decisions under risk are decisions under complexity.
+\emph{American Economic Review}, forthcoming.
+
+\bibitem[Coppinger et al.(1980)]{coppinger1980supp}
+See \citet{coppinger1980incentives}.
+
+\end{thebibliography}
