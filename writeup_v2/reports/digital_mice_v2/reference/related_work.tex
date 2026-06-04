@@ -17,7 +17,7 @@
 
 \subsection*{Executive summary}
 
-The closest antecedents to ``digital mice'' fall into five threads.
+The closest antecedents to ``digital mice'' fall into six threads.
 First, recent work explicitly reframes cognitive bias and bounded
 rationality as \emph{instruments} for computational social science
 rather than defects to mitigate (CoBRA; \citealp{cobra2025}), and a
@@ -40,7 +40,15 @@ that the digital-mice fitness function reuses. Fifth, multiple
 empirical studies document that off-the-shelf LLMs are
 \emph{too} rational, too homogeneous, and too fair relative to humans
 \citep{henning2025bubbles, peng2025funhouse}, which is precisely the
-gap a controlled-deficit pipeline is built to close.
+gap a controlled-deficit pipeline is built to close. Sixth, and
+methodologically closest, an AI-safety literature already studies how
+to make a strong model \emph{play dumb}: sandbagging and
+password-locking deliberately suppress a capable model's competence
+\citep{vanderweij2024sandbagging, greenblatt2024password}, and
+``model organisms'' induce minimal controlled failure modes as
+experimental systems \citep{turner2025modelorganisms}. Digital mice
+borrow this play-dumb move but repurpose it from a safety threat or
+interpretability probe into a social-science instrument.
 
 Digital mice are novel along two axes that no prior line covers
 jointly: (i) systematic, prompt-induced reasoning-capacity knockouts
@@ -202,7 +210,71 @@ treatment} that reproduces specified moments of human play, and use
 that treated population as the unit of analysis.
 
 % ----------------------------------------------------------------------------
-\subsection*{6. Where digital mice are novel vs.\ reuse}
+\subsection*{6. Making a strong model ``play dumb'': capability suppression
+as a method}
+
+The thread closest to the digital-mice \emph{mechanism}---taking a
+capable reasoning model and deliberately degrading its competence in a
+controlled way---comes not from economics but from AI safety and
+evaluation. Three sub-literatures are directly relevant.
+
+\paragraph{Sandbagging and password-locking.}
+\citet{vanderweij2024sandbagging} define \emph{sandbagging} as
+``strategic underperformance on an evaluation'' and show that frontier
+models can be \emph{prompted} to selectively underperform: GPT-4 and
+Claude 3 Opus ``selectively underperform on dangerous capability
+evaluations, while maintaining performance on general capability
+evaluations.'' Crucially for digital mice, they also report that
+``capable password-locked models can reasonably emulate less capable
+models,'' albeit with only ``mediocre success'' when the target is a
+specific weaker model's full answer distribution. \citet{greenblatt2024password}
+formalize the training-side version: a \emph{password-locked model} is
+``fine-tuned such that some of [its] capabilities are deliberately
+hidden,'' exhibiting them only when a password is present and otherwise
+``imitat[ing] a much weaker LLM.'' Their main finding---that ``a few
+high-quality demonstrations are often sufficient to fully elicit
+password-locked capabilities''---is the mirror image of the digital-mice
+concern: a suppressed capability is fragile and can leak back, which is
+exactly what our reasoning-chain audit measures (the $0.001$ vs.\ $0.41$
+dominance-invocation rate under CoT vs.\ instruction-only suppression).
+The difference in goal is sharp: sandbagging is studied as a
+\emph{threat} to evaluation validity and is induced by fine-tuning on
+synthetic answer datasets; digital mice induce the deficit by
+chain-of-thought instruction as a \emph{designed treatment} and then
+calibrate it to human moments.
+
+\paragraph{Chain-of-thought removal as capability ablation.}
+A parallel measurement literature establishes that suppressing or
+perturbing the reasoning trace is a real lever on competence, not a
+cosmetic change. Ablation studies show that ``removing components from
+reasoning mechanisms greatly degrades accuracy,'' while a counter-current
+finds CoT can also \emph{hurt} on some in-context tasks
+\citep{liu2025cursecot}; reasoning models are ``generally robust when
+their chain-of-thought is perturbed'' but not style-invariant, so
+paraphrasing or truncating the trace measurably moves behavior. This is
+the empirical warrant for the digital-mice contingent-reasoning axis:
+turning the dominance argument on or off in the CoT is a genuine
+capability knob, and the $\Delta = +0.96$ swing in truthful bidding is
+the auction-specific manifestation of the same lever.
+
+\paragraph{Model organisms of (mis)alignment.}
+The ``knockout-mouse'' framing has an exact methodological twin in the
+alignment literature's \emph{model organisms}: deliberately induced,
+minimal, reproducible failure modes used as controlled experimental
+systems. \citet{turner2025modelorganisms} create model organisms of
+emergent misalignment using ``a single rank-1 LoRA adapter,'' isolating
+``a single linear direction that induces'' the behavior so that
+defensive techniques can be benchmarked against a known ground truth.
+The shared logic is precise: induce a controlled deficit, verify it is
+the intended one, and use the resulting strain to stress-test something
+downstream. Digital mice differ in the downstream target---a mechanism's
+SMAD against human auction data, rather than an interpretability or
+oversight method---and in the induction channel---prompt-level CoT
+constraints rather than weight-level LoRA edits---but the
+controlled-deficit-as-instrument philosophy is identical.
+
+% ----------------------------------------------------------------------------
+\subsection*{7. Where digital mice are novel vs.\ reuse}
 
 \paragraph{Reused ingredients.}
 The instrumental framing of bias/bounded rationality
@@ -212,21 +284,31 @@ setup and OSP diagnostic vocabulary
 \citep{shah2025synthetic, li2017osp, breitmoser2022obviousness}; the
 human-benchmark targets from classical experimental auctions
 \citep{coppinger1980incentives, cox1988theory, kagel1993independent};
-and the quantitative measurement of LLM bounded rationality via QRE
-\citep{pechon2026qre} or prompt-space equilibrium \citep{zhu2025llmnash}.
+the quantitative measurement of LLM bounded rationality via QRE
+\citep{pechon2026qre} or prompt-space equilibrium \citep{zhu2025llmnash};
+and---most directly---the practice of making a capable model emulate a
+weaker one, established as sandbagging / password-locking
+\citep{vanderweij2024sandbagging, greenblatt2024password} and as
+controlled deficit induction in model organisms
+\citep{turner2025modelorganisms}.
 
 \paragraph{Novel combination.}
 Digital mice (i) treat reasoning-capacity manipulation (CoT
 suppression, instructed deficits) as a designed experimental variable
-in the spirit of a knockout mouse, going beyond persona conditioning
-\citep{argyle2023silicon, peng2025funhouse} and beyond bias libraries
-\citep{cobra2025}; (ii) calibrate the induced deficit population
-against Li (2017) auction moments rather than against qualitative
-replication \citep{horton2023silicus} or single-dimensional QRE
-\citep{pechon2026qre}; and (iii) plug the calibrated population into
-an evolutionary search over auction genotypes with an SMAD-only
-fitness function --- a mechanism-design loop with no antecedent in the
-LLM-agent literature.
+in the spirit of a knockout mouse---the same ``play-dumb'' move as
+sandbagging \citep{vanderweij2024sandbagging} and model organisms
+\citep{turner2025modelorganisms}, but turned from a safety \emph{threat}
+or interpretability \emph{probe} into a social-science \emph{instrument};
+(ii) calibrate the induced-deficit population against Li (2017) auction
+moments rather than against qualitative replication
+\citep{horton2023silicus}, single-dimensional QRE \citep{pechon2026qre},
+or a generic weaker-model target \citep{greenblatt2024password}; and
+(iii) plug the calibrated population into an evolutionary search over
+auction genotypes with an SMAD-only fitness function --- a
+mechanism-design loop with no antecedent in any of the threads above.
+No prior line combines deliberate capability suppression, calibration to
+human economic-experiment moments, and mechanism search; that triple is
+what is new.
 
 % ============================================================================
 \begin{thebibliography}{99}
@@ -258,11 +340,23 @@ Cox, J.~C., Smith, V.~L., and Walker, J.~M. (1988).
 Theory and individual behavior of first-price auctions.
 \emph{Journal of Risk and Uncertainty}, 1(1):61--99.
 
+\bibitem[Greenblatt et al.(2024)]{greenblatt2024password}
+Greenblatt, R., Roger, F., Krasheninnikov, D., and Krueger, D. (2024).
+Stress-testing capability elicitation with password-locked models.
+\emph{Advances in Neural Information Processing Systems (NeurIPS)}.
+arXiv:2405.19550.
+
 \bibitem[Henning et al.(2025)]{henning2025bubbles}
 Henning, J., Ojha, A., Spoon, R., Han, J., and Camerer, C.~F. (2025).
 LLM agents do not replicate human market traders: Evidence from
 experimental finance.
 arXiv:2502.15800.
+
+\bibitem[Liu et al.(2025)]{liu2025cursecot}
+Liu, T., et al. (2025).
+The curse of CoT: On the limitations of chain-of-thought in in-context
+learning.
+arXiv:2504.05081.
 
 \bibitem[Horton(2023)]{horton2023silicus}
 Horton, J.~J. (2023).
@@ -308,6 +402,19 @@ Shah, A., Zhu, K., Jiang, Y., Wang, J.~G., Dayi, A.~K., Horton, J.~J.,
 and Parkes, D.~C. (2025).
 Learning from synthetic labs: Language models as auction participants.
 arXiv:2507.09083.
+
+\bibitem[Turner et al.(2025)]{turner2025modelorganisms}
+Turner, E., Soligo, A., Taylor, M., Rajamanoharan, S., and Nanda, N.
+(2025).
+Model organisms for emergent misalignment.
+arXiv:2506.11613.
+
+\bibitem[van der Weij et al.(2024)]{vanderweij2024sandbagging}
+van der Weij, T., Hofst\"atter, F., Jaffe, O., Brown, S.~F., and
+Ward, F.~R. (2024).
+AI sandbagging: Language models can strategically underperform on
+evaluations.
+arXiv:2406.07358.
 
 \bibitem[Zheng et al.(2025)]{zheng2025bounded}
 Zheng, X., Zhou, J., and Wang, Y. (2025).
