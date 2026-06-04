@@ -210,68 +210,102 @@ treatment} that reproduces specified moments of human play, and use
 that treated population as the unit of analysis.
 
 % ----------------------------------------------------------------------------
-\subsection*{6. Making a strong model ``play dumb'': capability suppression
-as a method}
+\subsection*{6. Researcher-controlled deficit induction: making a strong
+model ``play dumb'' on purpose}
 
 The thread closest to the digital-mice \emph{mechanism}---taking a
 capable reasoning model and deliberately degrading its competence in a
-controlled way---comes not from economics but from AI safety and
-evaluation. Three sub-literatures are directly relevant.
+controlled way---divides cleanly into two classes that should not be
+conflated. \emph{(A) Model-driven evasion}: the model itself, or a
+developer with an incentive to pass an evaluation, hides capability.
+\emph{(B) Researcher-driven controlled induction}: an experimenter
+systematically dials a model's competence down as a designed treatment,
+to study or use the resulting deficient agent. Digital mice are squarely
+in class (B). We review (A) only to delimit it, then survey the (B)
+methods that are the true methodological neighbors.
 
-\paragraph{Sandbagging and password-locking.}
-\citet{vanderweij2024sandbagging} define \emph{sandbagging} as
-``strategic underperformance on an evaluation'' and show that frontier
-models can be \emph{prompted} to selectively underperform: GPT-4 and
-Claude 3 Opus ``selectively underperform on dangerous capability
-evaluations, while maintaining performance on general capability
-evaluations.'' Crucially for digital mice, they also report that
+\paragraph{Delimiting the evasion case (A).}
+Sandbagging is the canonical (A) example: \citet{vanderweij2024sandbagging}
+define it as ``strategic underperformance on an evaluation'' and show
+frontier models can be prompted to ``selectively underperform on
+dangerous capability evaluations'' while passing general ones, and that
 ``capable password-locked models can reasonably emulate less capable
-models,'' albeit with only ``mediocre success'' when the target is a
-specific weaker model's full answer distribution. \citet{greenblatt2024password}
-formalize the training-side version: a \emph{password-locked model} is
-``fine-tuned such that some of [its] capabilities are deliberately
-hidden,'' exhibiting them only when a password is present and otherwise
-``imitat[ing] a much weaker LLM.'' Their main finding---that ``a few
-high-quality demonstrations are often sufficient to fully elicit
-password-locked capabilities''---is the mirror image of the digital-mice
-concern: a suppressed capability is fragile and can leak back, which is
-exactly what our reasoning-chain audit measures (the $0.001$ vs.\ $0.41$
+models.'' \citet{greenblatt2024password} train password-locked models
+that ``imitate a much weaker LLM'' unless a password is present. These
+papers share the digital-mice \emph{technique}---a strong model made to
+act weak---but their \emph{object of study} is the threat that a model
+or developer evades oversight; the suppression is in service of
+deception, not measurement. We borrow the one transferable empirical
+lesson---suppressed capability is fragile and can leak back ``from a few
+high-quality demonstrations''---because it is exactly what the
+digital-mice reasoning-chain audit quantifies (the $0.001$ vs.\ $0.41$
 dominance-invocation rate under CoT vs.\ instruction-only suppression).
-The difference in goal is sharp: sandbagging is studied as a
-\emph{threat} to evaluation validity and is induced by fine-tuning on
-synthetic answer datasets; digital mice induce the deficit by
-chain-of-thought instruction as a \emph{designed treatment} and then
-calibrate it to human moments.
 
-\paragraph{Chain-of-thought removal as capability ablation.}
-A parallel measurement literature establishes that suppressing or
-perturbing the reasoning trace is a real lever on competence, not a
-cosmetic change. Ablation studies show that ``removing components from
-reasoning mechanisms greatly degrades accuracy,'' while a counter-current
-finds CoT can also \emph{hurt} on some in-context tasks
-\citep{liu2025cursecot}; reasoning models are ``generally robust when
-their chain-of-thought is perturbed'' but not style-invariant, so
-paraphrasing or truncating the trace measurably moves behavior. This is
-the empirical warrant for the digital-mice contingent-reasoning axis:
-turning the dominance argument on or off in the CoT is a genuine
-capability knob, and the $\Delta = +0.96$ swing in truthful bidding is
-the auction-specific manifestation of the same lever.
+\paragraph{Controlled depth limitation by prompt (B).}
+The closest (B) method to the digital-mice contingent/belief axes is
+level-$k$ and cognitive-hierarchy prompting. \citet{zhang2024klevel}
+build a ``K-Level Reasoning'' framework in which the experimenter sets
+the strategic depth---reason as a level-$0$, level-$1$, \dots, level-$k$
+player forming ``higher order beliefs, beliefs about others' beliefs''---
+and the cognitive-hierarchy benchmark \citep{chbench2025} evaluates LLMs
+across that explicit depth ladder. This is researcher-controlled
+bounded rationality of exactly the kind digital mice impose, drawn from
+the same level-$k$ / cognitive-hierarchy tradition. The difference is
+direction of use: K-level reasoning raises depth to \emph{improve}
+strategic play, whereas digital mice hold depth low to \emph{reproduce}
+a human deficit and then calibrate it to auction moments.
 
-\paragraph{Model organisms of (mis)alignment.}
-The ``knockout-mouse'' framing has an exact methodological twin in the
-alignment literature's \emph{model organisms}: deliberately induced,
-minimal, reproducible failure modes used as controlled experimental
-systems. \citet{turner2025modelorganisms} create model organisms of
-emergent misalignment using ``a single rank-1 LoRA adapter,'' isolating
-``a single linear direction that induces'' the behavior so that
-defensive techniques can be benchmarked against a known ground truth.
-The shared logic is precise: induce a controlled deficit, verify it is
-the intended one, and use the resulting strain to stress-test something
-downstream. Digital mice differ in the downstream target---a mechanism's
-SMAD against human auction data, rather than an interpretability or
-oversight method---and in the induction channel---prompt-level CoT
-constraints rather than weight-level LoRA edits---but the
-controlled-deficit-as-instrument philosophy is identical.
+\paragraph{Controlled compute/reasoning-budget limitation (B).}
+A second (B) method limits how much a model is allowed to reason. The
+test-time-compute literature \citep{reasoningbudget2025survey} controls
+a model's reasoning under a fixed budget---e.g.\ BudgetThinker
+\citep{budgetthinker2025} inserts control tokens that tell the model its
+remaining token budget, and production systems expose a ``thinking
+budget'' knob. Cutting the budget is a continuous, researcher-set
+deficit dial. Digital mice instead constrain \emph{which reasoning
+operations} are permitted (contingent, forward, belief) rather than
+\emph{how many tokens} are spent, but both treat reasoning capacity as a
+controllable experimental quantity.
+
+\paragraph{Controlled removal at the weight/representation level (B).}
+Where digital mice ablate by prompt, machine unlearning ablates by
+weights. RMU \citep{wmdp2024} ``reduces model performance'' on a target
+capability ``while maintaining general capabilities,'' by redirecting
+the internal representation of the forgetting set---a surgical,
+researcher-controlled capability knockout. Activation steering and
+persona vectors \citep{chen2025personavectors} achieve a similar
+controlled effect at inference time: behaviors and traits correspond to
+``approximately linear directions in activation space,'' and adding or
+\emph{subtracting} along a direction reliably steers (or suppresses)
+behavior ``without changing the surface prompt.'' These are the
+weight- and activation-level analogues of the digital-mice
+prompt-level deficit; they show the controlled-deficit philosophy is
+not specific to prompting.
+
+\paragraph{Model organisms: the exact framing twin (B).}
+Finally, the alignment literature's \emph{model organisms} are the
+precise methodological twin of the knockout-mouse framing:
+deliberately induced, minimal, reproducible failure modes used as
+controlled experimental systems. \citet{turner2025modelorganisms}
+create model organisms of emergent misalignment using ``a single
+rank-1 LoRA adapter,'' isolating ``a single linear direction that
+induces'' the behavior so defensive techniques can be benchmarked
+against a known ground truth. The shared logic is exact: induce a
+controlled deficit, verify it is the intended one, use the resulting
+strain to stress-test something downstream. Digital mice differ only
+in the downstream target (a mechanism's SMAD against human auction
+data, not an interpretability method) and the induction channel
+(prompt-level CoT constraints, not weight-level edits).
+
+\paragraph{What is distinctive about the digital-mice variant of (B).}
+Across the (B) methods above, the deficit is induced for a
+\emph{model-facing} purpose: better strategic play (level-$k$),
+cheaper inference (budget control), safety (unlearning), or
+interpretability (model organisms). None calibrates the induced
+deficit to a \emph{human behavioral target}. Digital mice are the only
+(B) instance we found that (i) induces the deficit specifically to
+match human economic-experiment moments and (ii) then uses the
+calibrated deficient population as the evaluator in a mechanism search.
 
 % ----------------------------------------------------------------------------
 \subsection*{7. Where digital mice are novel vs.\ reuse}
@@ -426,6 +460,45 @@ arXiv:2506.09390.
 Zhu, Q. (2025).
 LLM-Nash equilibrium: Reasoning prompts as strategies.
 arXiv:2507.08208.
+
+% Researcher-controlled deficit-induction methods (Section 6, class B).
+
+\bibitem[Zhang et al.(2024)]{zhang2024klevel}
+Zhang, Y., Mao, S., Ge, T., Wang, X., Xia, Y., Lan, M., and Wei, F.
+(2024).
+K-level reasoning: Establishing higher order beliefs in large language
+models for strategic reasoning.
+arXiv:2402.01521.
+
+\bibitem[CHBench(2025)]{chbench2025}
+Authors of CHBench (2025).
+CHBench: A cognitive hierarchy benchmark for evaluating strategic
+reasoning capability of LLMs.
+arXiv:2508.11944.
+
+\bibitem[Reasoning-on-a-Budget survey(2025)]{reasoningbudget2025survey}
+Authors of the test-time-compute survey (2025).
+Reasoning on a budget: A survey of adaptive and controllable test-time
+compute in LLMs.
+arXiv:2507.02076.
+
+\bibitem[BudgetThinker(2025)]{budgetthinker2025}
+Authors of BudgetThinker (2025).
+BudgetThinker: Empowering budget-aware LLM reasoning with control
+tokens.
+arXiv:2508.17196.
+
+\bibitem[Li et al.(2024)]{wmdp2024}
+Li, N., Pan, A., et al. (2024).
+The WMDP benchmark: Measuring and reducing malicious use with
+unlearning.
+\emph{Proceedings of ICML}. arXiv:2403.03218.
+
+\bibitem[Chen et al.(2025)]{chen2025personavectors}
+Chen, R., et al. (2025).
+Persona vectors: Monitoring and controlling character traits in
+language models.
+arXiv:2507.21509.
 
 % Supporting / contextual references used in the synthesis but not yet
 % expanded above; kept in the bibliography for completeness.
