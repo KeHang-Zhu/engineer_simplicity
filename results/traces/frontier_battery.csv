@@ -1,0 +1,39 @@
+lever,experiment,model,exploratory,n_treat,n_ctrl,n_auction_clusters,prev_baseline,prev_treated,lang_wcb_p_auction,dev_baseline,dev_treated,absdev_baseline,absdev_treated,absdev_diff,absdev_ci_lo,absdev_ci_hi,absdev_wcb_p_auction,absdev_perm_p_auction
+Payoff Safety,axis2_forward_onestep,anthropic/claude-sonnet-5,False,150,300,150,0.0233,0.0467,0.2284,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Payoff Safety,axis2_forward_onestep,google/gemini-2.5-flash,False,150,279,143,0.0,0.0,,-0.071,0.001,0.121,0.001,-0.12,-0.227,-0.048,0.0005,0.038
+Payoff Safety,axis2_forward_onestep,openai/gpt-5,False,132,114,82,0.0,0.1212,0.0005,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Payoff Safety,axis2_forward_onestep,openai/gpt-5-mini,False,123,294,139,0.0034,0.0081,0.7561,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Payoff Safety,axis2_forward_onestep,POOLED_FRONTIER,False,555,987,514,0.0081,0.0432,0.001,-0.02,0.0,0.034,0.0,-0.034,-0.064,-0.013,0.0005,0.0276
+Payoff Tree,axis2_forward_tree,anthropic/claude-sonnet-5,False,150,300,150,1.0,0.9933,0.4983,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Payoff Tree,axis2_forward_tree,google/gemini-2.5-flash,False,135,279,138,0.9104,0.9333,0.3708,-0.071,-0.006,0.121,0.12,-0.001,-0.138,0.117,0.988,0.9944
+Payoff Tree,axis2_forward_tree,openai/gpt-5,False,72,114,62,1.0,1.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Payoff Tree,axis2_forward_tree,openai/gpt-5-mini,False,114,294,136,1.0,1.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Payoff Tree,axis2_forward_tree,POOLED_FRONTIER,False,471,987,486,0.9747,0.9788,0.6427,-0.02,-0.002,0.034,0.034,0.0,-0.038,0.035,0.991,0.994
+Menu restatement,intervention_menu,anthropic/claude-sonnet-5,False,150,300,150,1.0,0.0133,0.0005,0.0,-8.705,0.0,8.705,8.705,8.045,9.407,0.0005,0.0002
+Menu restatement,intervention_menu,google/gemini-2.5-flash,False,147,279,142,0.9104,0.1497,0.0005,-0.071,-2.193,0.121,2.237,2.116,1.503,2.794,0.0005,0.0002
+Menu restatement,intervention_menu,openai/gpt-5,False,15,114,43,1.0,1.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Menu restatement,intervention_menu,openai/gpt-5-mini,False,150,294,148,1.0,0.96,0.016,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Menu restatement,intervention_menu,POOLED_FRONTIER,False,462,987,483,0.9747,0.3961,0.0005,-0.02,-3.524,0.034,3.538,3.504,2.857,4.166,0.0005,0.0002
+Clock-framing,intervention_proxy_breitmoser,anthropic/claude-sonnet-5,False,150,300,150,0.0,0.8267,0.0005,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Clock-framing,intervention_proxy_breitmoser,google/gemini-2.5-flash,False,147,279,142,0.0,0.6939,0.0005,-0.071,-0.285,0.121,0.296,0.175,-0.017,0.364,0.0745,0.0482
+Clock-framing,intervention_proxy_breitmoser,openai/gpt-5,False,27,114,47,0.0,0.8519,0.0005,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Clock-framing,intervention_proxy_breitmoser,openai/gpt-5-mini,False,36,294,110,0.0,0.8889,0.0005,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Clock-framing,intervention_proxy_breitmoser,POOLED_FRONTIER,False,360,987,449,0.0,0.7806,0.0005,-0.02,-0.116,0.034,0.121,0.087,0.013,0.168,0.022,0.006
+Two-stage clock-exit descr.,axis2_forward_baseline,anthropic/claude-sonnet-5,False,150,300,150,0.0,0.4,0.0005,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Two-stage clock-exit descr.,axis2_forward_baseline,google/gemini-2.5-flash,False,150,279,143,0.0,0.2267,0.0005,-0.071,-0.035,0.121,0.054,-0.067,-0.176,0.014,0.1839,0.3651
+Two-stage clock-exit descr.,axis2_forward_baseline,openai/gpt-5,False,87,114,67,0.0,0.3103,0.0005,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Two-stage clock-exit descr.,axis2_forward_baseline,openai/gpt-5-mini,False,135,294,143,0.0,0.3185,0.0005,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Two-stage clock-exit descr.,axis2_forward_baseline,POOLED_FRONTIER,False,522,987,503,0.0,0.3142,0.0005,-0.02,-0.01,0.034,0.016,-0.019,-0.052,0.005,0.2219,0.3929
+Second-order beliefs,axis3_beliefs_secondorder,anthropic/claude-sonnet-5,False,150,300,150,0.0533,0.0933,0.1374,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Second-order beliefs,axis3_beliefs_secondorder,google/gemini-2.5-flash,False,150,279,143,0.1398,0.2,0.0815,-0.071,-0.073,0.121,0.129,0.009,-0.119,0.123,0.903,0.9272
+Second-order beliefs,axis3_beliefs_secondorder,openai/gpt-5,False,54,114,56,0.0702,0.0185,0.078,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Second-order beliefs,axis3_beliefs_secondorder,openai/gpt-5-mini,False,147,294,147,0.1599,0.1429,0.6487,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+Second-order beliefs,axis3_beliefs_secondorder,POOLED_FRONTIER,False,501,987,496,0.1114,0.1317,0.2584,-0.02,-0.022,0.034,0.039,0.005,-0.034,0.04,0.8181,0.8758
+False safety (up),pilot_false_safety_up,anthropic/claude-sonnet-5,True,150,300,150,0.0233,0.02,0.8251,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+False safety (up),pilot_false_safety_up,google/gemini-2.5-flash,True,150,279,143,0.0,0.0,,-0.071,0.584,0.121,0.584,0.463,-0.011,1.171,0.1109,0.0262
+False safety (up),pilot_false_safety_up,openai/gpt-5-mini,True,102,294,132,0.0034,0.0,0.4508,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+False safety (up),pilot_false_safety_up,POOLED_FRONTIER,True,402,987,463,0.0081,0.0075,0.8961,-0.02,0.218,0.034,0.218,0.184,0.008,0.462,0.071,0.0128
+False safety (down),pilot_false_safety_down,anthropic/claude-sonnet-5,True,150,300,150,0.0233,0.0,0.0025,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+False safety (down),pilot_false_safety_down,google/gemini-2.5-flash,True,150,279,143,0.0,0.0,,-0.071,-1.72,0.121,1.728,1.607,1.195,2.048,0.0005,0.0002
+False safety (down),pilot_false_safety_down,openai/gpt-5-mini,True,132,294,142,0.0034,0.0,0.4708,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,
+False safety (down),pilot_false_safety_down,POOLED_FRONTIER,True,432,987,473,0.0081,0.0,0.003,-0.02,-0.597,0.034,0.6,0.566,0.38,0.77,0.0005,0.0002

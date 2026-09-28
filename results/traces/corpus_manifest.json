@@ -1,0 +1,26 @@
+{
+  "frozen_csv": "results/traces/trace_features.csv",
+  "frozen_rows": 21990,
+  "features_sha256": "db63fc547376d3a9c2855cc122758184661ce3e11438e4f776fbd0f949d61764",
+  "features_v2_sha256": "4e7de1add56172ac0d16e31e0674051e7bce9af648d06fe1ea04e08d86b0993e",
+  "frozen_feature_sums": {
+    "dominance_language": 309,
+    "truthful_intent": 1131,
+    "payment_rule_correct": 540,
+    "second_price_mention": 3954,
+    "first_price_mention": 362,
+    "opponent_modeling": 4939,
+    "probability_reasoning": 8376,
+    "expected_value_reasoning": 1386,
+    "shading_intent": 12143,
+    "overbid_intent": 1968,
+    "worst_case": 1105,
+    "safety_recognition": 3,
+    "overpay_concern": 10674,
+    "zero_profit_fallacy": 535,
+    "margin_language": 6462,
+    "conservative_language": 4871,
+    "aggressive_language": 1590,
+    "risk_language": 9102
+  }
+}

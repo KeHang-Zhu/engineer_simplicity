@@ -1,0 +1,14 @@
+lever,dv,kind,cluster_level,n_clusters,diff,ci90_lo,ci90_hi,margin,equivalent,note
+Worst-case scaffold,abs_dev,bids,run,8.0,-0.1735,-2.9098,2.3883,0.5,False,
+Worst-case scaffold,abs_dev,bids,run,8.0,-0.1735,-2.9098,2.3883,1.0,False,
+Worst-case scaffold,abs_dev,bids,auction,383.0,-0.1735,-0.6902,0.3326,0.5,False,
+Worst-case scaffold,abs_dev,bids,auction,383.0,-0.1735,-0.6902,0.3326,1.0,True,
+Menu restatement,abs_dev,bids,run,12.0,0.3513,-1.3519,2.025,0.5,False,
+Menu restatement,abs_dev,bids,run,12.0,0.3513,-1.3519,2.025,1.0,False,
+Menu restatement,abs_dev,bids,auction,592.0,0.3513,-0.0375,0.7232,0.5,False,
+Menu restatement,abs_dev,bids,auction,592.0,0.3513,-0.0375,0.7232,1.0,True,
+Payoff Tree,second_price_mention,language,run,12.0,-0.0033,-0.1914,0.1952,0.05,False,
+Payoff Tree,second_price_mention,language,auction,596.0,-0.0033,-0.0466,0.0396,0.05,True,
+Payoff Safety,payment_rule_correct,language,run,12.0,-0.0104,-0.0433,0.0188,0.05,True,
+Payoff Safety,payment_rule_correct,language,auction,596.0,-0.0104,-0.0254,0.0039,0.05,True,
+Payoff Safety,safety_recognition,language,,,0.0,,,,,degenerate: 0/600 treated traces echo the invariant; rule-of-three one-sided 95% upper bound on prevalence = 0.0050

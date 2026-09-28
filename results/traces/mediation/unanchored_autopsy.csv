@@ -1,0 +1,6 @@
+model,n,share_of_model_traces,mean_dev,mean_absdev,p_dev_below_m5,opponent_modeling,probability_reasoning,overpay_concern,margin_language,conservative_language,none_of_18,stated_bid_coverage,share_H3,share_H4,share_H2,share_U
+claude-3-5-haiku-20241022,578,0.165,0.27,3.729,0.081,0.151,0.529,0.46,0.564,0.069,0.007,0.884,0.083,0.279,0.211,0.256
+gemini-2.0-flash,310,0.089,-5.612,5.621,0.487,0.058,0.229,0.365,0.161,0.255,0.142,0.739,0.035,0.158,0.216,0.526
+google/gemma-3-27b-it,2613,0.752,-6.046,6.266,0.515,0.538,0.286,0.83,0.081,0.758,0.002,0.938,0.113,0.369,0.398,0.091
+gpt-4o,1040,0.289,-4.409,4.578,0.338,0.238,0.377,0.494,0.301,0.136,0.055,0.828,0.075,0.409,0.253,0.254
+POOLED,4541,0.323,-4.838,5.513,0.417,,,,,,,,,,,

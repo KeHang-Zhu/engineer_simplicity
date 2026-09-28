@@ -1,0 +1,13 @@
+corpus,model,experiment,n,p_h6_stated,p_h7,p_unclassified,mean_dev,mean_absdev,mean_dev_h6,mean_absdev_h6,mean_dev_not_h6,mean_absdev_not_h6,n_losers,mean_absdev_losers,p_stayed_beyond_value,note
+frontier,anthropic/claude-sonnet-5,ALL,300,0.5067,0.0,0.4933,-1.285,1.305,-1.03,1.062,-1.547,1.554,200,1.46,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+frontier,google/gemini-2.5-flash,ALL,150,0.42,0.0,0.58,-0.16,0.187,-0.111,0.111,-0.195,0.241,100,0.155,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+frontier,openai/gpt-5,ALL,150,0.4067,0.0,0.5933,0.61,0.65,0.623,0.623,0.601,0.669,100,0.665,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+frontier,openai/gpt-5-mini,ALL,150,0.4067,0.0,0.5933,0.28,0.307,0.23,0.23,0.315,0.36,100,0.275,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+legacy,claude-3-5-haiku-20241022,ALL,150,0.4667,0.0,0.5333,-0.053,0.353,-0.057,0.271,-0.05,0.425,100,0.36,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+legacy,gemini-2.0-flash,ALL,120,0.3417,0.0,0.6583,-1.242,1.267,-0.805,0.805,-1.468,1.506,80,1.156,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+legacy,google/gemma-3-27b-it,ALL,120,0.4083,0.0,0.5917,-0.333,0.458,-0.327,0.551,-0.338,0.394,80,0.506,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+legacy,gpt-4o,ALL,120,0.85,0.0,0.15,-0.446,0.454,-0.446,0.446,-0.444,0.5,80,0.331,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,claude-3-5-haiku-20241022,ALL,72,1.0,0.0,0.0,-0.528,2.5,-0.528,2.5,,,48,1.375,0.1111,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,gemini-2.0-flash,ALL,72,1.0,0.0,0.0,-2.118,2.16,-2.118,2.16,,,48,0.302,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,gpt-4o,ALL,96,1.0,0.0,0.0,-1.845,1.999,-1.845,1.999,,,64,0.278,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,meta-llama/Meta-Llama-3-8B-Instruct,ALL,21,0.9048,0.0,0.0952,-26.019,26.362,-27.737,27.737,-9.7,13.3,14,26.393,0.0476,clock bid = exit/drop price; winners censored at runner-up exit

@@ -1,0 +1,19 @@
+corpus,model,experiment,n,p_h6_stated,p_h7,p_unclassified,mean_dev,mean_absdev,mean_dev_h6,mean_absdev_h6,mean_dev_not_h6,mean_absdev_not_h6,n_losers,mean_absdev_losers,p_stayed_beyond_value,note
+frontier,anthropic/claude-sonnet-5,ascending_clock_closed,150,0.36,0.0,0.64,-2.083,2.117,-2.019,2.093,-2.12,2.13,100,2.33,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+frontier,anthropic/claude-sonnet-5,ascending_clock_ipv_closed,150,0.6533,0.0,0.3467,-0.487,0.493,-0.485,0.495,-0.49,0.49,100,0.59,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+frontier,google/gemini-2.5-flash,ascending_clock_closed,150,0.42,0.0,0.58,-0.16,0.187,-0.111,0.111,-0.195,0.241,100,0.155,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+frontier,openai/gpt-5,ascending_clock_closed,150,0.4067,0.0,0.5933,0.61,0.65,0.623,0.623,0.601,0.669,100,0.665,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+frontier,openai/gpt-5-mini,ascending_clock_closed,150,0.4067,0.0,0.5933,0.28,0.307,0.23,0.23,0.315,0.36,100,0.275,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+legacy,claude-3-5-haiku-20241022,ascending_clock_closed,150,0.4667,0.0,0.5333,-0.053,0.353,-0.057,0.271,-0.05,0.425,100,0.36,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+legacy,gemini-2.0-flash,ascending_clock_closed,120,0.3417,0.0,0.6583,-1.242,1.267,-0.805,0.805,-1.468,1.506,80,1.156,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+legacy,google/gemma-3-27b-it,ascending_clock_closed,120,0.4083,0.0,0.5917,-0.333,0.458,-0.327,0.551,-0.338,0.394,80,0.506,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+legacy,gpt-4o,ascending_clock_closed,120,0.85,0.0,0.15,-0.446,0.454,-0.446,0.446,-0.444,0.5,80,0.331,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,claude-3-5-haiku-20241022,ascending_clock_apv_claude_sonnet,69,1.0,0.0,0.0,-0.464,2.522,-0.464,2.522,,,46,1.435,0.1159,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,claude-3-5-haiku-20241022,ascending_clock_apv_closed_claude_sonnet,3,1.0,0.0,0.0,-2.0,2.0,-2.0,2.0,,,2,0.0,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,gemini-2.0-flash,ascending_clock_apv_closed_gemini,69,1.0,0.0,0.0,-2.08,2.123,-2.08,2.123,,,46,0.315,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,gemini-2.0-flash,ascending_clock_apv_gemini,3,1.0,0.0,0.0,-3.0,3.0,-3.0,3.0,,,2,0.0,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,gpt-4o,ascending_clock_apv_closed_gpt4o_temp01,6,1.0,0.0,0.0,-2.717,2.783,-2.717,2.783,,,4,0.125,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,gpt-4o,ascending_clock_apv_closed_gpt4o_temp10,12,1.0,0.0,0.0,-1.9,1.933,-1.9,1.933,,,8,0.538,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,gpt-4o,ascending_clock_apv_gpt4o_temp10,78,1.0,0.0,0.0,-1.769,1.949,-1.769,1.949,,,52,0.25,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,meta-llama/Meta-Llama-3-8B-Instruct,ascending_clock_apv_closed_llama,3,0.6667,0.0,0.3333,-13.0,13.0,-8.0,8.0,-23.0,23.0,2,16.75,0.0,clock bid = exit/drop price; winners censored at runner-up exit
+robustness,meta-llama/Meta-Llama-3-8B-Instruct,ascending_clock_apv_llama,18,0.9444,0.0,0.0556,-28.189,28.589,-30.059,30.059,3.6,3.6,12,28.0,0.0556,clock bid = exit/drop price; winners censored at runner-up exit

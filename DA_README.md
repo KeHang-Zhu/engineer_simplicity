@@ -1,3 +1,5 @@
+> **Measurement update (September 2026):** This is the historical implementation guide. For current analysis and retained-sample counts, see [the analysis guide](analysis/README.md) and [data sources](data/README.md). A zero Kendall distance for a partial sequential record does not imply zero decision errors. The `osp_baseline` and `osp_yesno_fixed` conditions are distinct. Historical prompts and logs are preserved.
+
 # Deferred Acceptance (DA) Simulation with LLMs
 
 This implementation provides a complete framework for simulating Deferred Acceptance matching mechanisms using Large Language Models, mirroring the architecture of the auction simulation in `src/util_plan.py`.
@@ -291,24 +293,19 @@ Tests verify:
 
 ## Comparison: Direct vs OSP
 
-Based on theoretical predictions:
+Student-proposing deferred acceptance is strategy-proof for students under the standard preference-reporting model. An obviously strategy-proof (OSP) implementation additionally makes a truthful action's worst possible outcome at a decision node at least as good as the best outcome obtainable by deviating there. This stronger local comparison concerns the interface and does not predict a numerical LLM success rate.
 
-| Mechanism | Truthfulness | Complexity | OSP? |
-|-----------|--------------|------------|------|
-| Direct    | ~50-60%      | Low (single query) | No |
-| OSP       | ~90%+        | High (multiple rounds) | Yes |
-
-The OSP mechanism should achieve significantly higher truthfulness due to the sequential local query structure that makes dominant strategies "obvious."
+The empirical comparison must use the appropriate measure for each interface: full-ranking error for direct reports, and value-inconsistent decisions for sequential queries. See [the current matching analysis](analysis/README.md#3-reproduce-matching-measures) for retained-sample counts and the distinction between the round-based and binary-query implementations.
 
 ## Key Differences from Auctions
 
 | Aspect | Auctions | DA |
 |--------|----------|-----|
 | Decision | Single bid | Full ranking or sequence of choices |
-| Dominant strategy | Bid true value | Reveal true preferences (OSP only) |
+| Dominant strategy | Bid true value in second-price auctions | Report true preferences in student-proposing DA |
 | Mechanism | Second-price | Deferred Acceptance |
 | Outcomes | Winner + price | Many-to-one matches |
-| Strategic complexity | Simple | High (without OSP) |
+| Strategic reasoning | Depends on auction format and interface | Depends on report/query interface |
 
 ## Next Steps
 
