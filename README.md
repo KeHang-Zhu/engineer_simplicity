@@ -1,6 +1,7 @@
 # Engineering Simplicity: Simple Mechanism Interfaces Steer LLM Agents
 
 [![arXiv](https://img.shields.io/badge/arXiv-2609.36365-b31b1b.svg)](https://arxiv.org/abs/2609.36365)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Code and data for the paper by Kehang Zhu\*, Anand V. Shah\*, and David C. Parkes (\*equal contribution).
 
@@ -96,3 +97,7 @@ See [configs/auction/README.md](configs/auction/README.md) for the configuration
   year    = {2026}
 }
 ```
+
+## License
+
+Released under the [MIT License](LICENSE).
