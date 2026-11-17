@@ -18,8 +18,8 @@ import yaml
 from functools import lru_cache
 
 current_script_path = os.path.dirname(os.path.abspath(__file__))
-templates_dir = os.path.join(current_script_path, '../rule_template/V10/')
-prompt_dir = os.path.join(current_script_path, '../Prompt/')
+templates_dir = os.path.join(current_script_path, '../prompts/rules/V10/')
+prompt_dir = os.path.join(current_script_path, '../prompts/templates/')
 
 # c = Cache()  
 

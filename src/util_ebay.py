@@ -19,8 +19,8 @@ from dataclasses import dataclass
 from typing import List, Optional
 
 current_script_path = os.path.dirname(os.path.abspath(__file__))
-templates_dir = os.path.join(current_script_path, './rule_template/V10/')
-prompt_dir = os.path.join(current_script_path, './Prompt/')
+templates_dir = os.path.join(current_script_path, './prompts/rules/V10/')
+prompt_dir = os.path.join(current_script_path, './prompts/templates/')
 
 c = Cache() 
 
@@ -177,7 +177,7 @@ class Ebay:
         else:
             previous_bid = f"You haven't placed any bid. "
 
-        ask_prompt_str = Prompt.from_txt("Prompt/ebay_asking.txt")
+        ask_prompt_str = Prompt.from_txt("prompts/templates/ebay_asking.txt")
         ask_prompt = ask_prompt_str.render(
             {
                 "name": agent.name,

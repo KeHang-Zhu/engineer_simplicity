@@ -3,8 +3,8 @@ Batch runner for Auction experiments.
 Loads YAML configs and runs multiple experiment configurations.
 
 Usage:
-    python3 src/run_auction_batch.py configs_auction/interventions_claude/axis1_contingent_baseline.yaml
-    python3 src/run_auction_batch.py configs_auction/interventions_claude/*.yaml  # Run all configs in folder
+    python3 src/run_auction_batch.py configs/auction/interventions_claude/axis1_contingent_baseline.yaml
+    python3 src/run_auction_batch.py configs/auction/interventions_claude/*.yaml  # Run all configs in folder
 """
 
 from edsl import Cache
@@ -57,7 +57,7 @@ def run_single_experiment(i, config, cache):
     temperature = config['llm']['temperature']
     service_name = config['llm'].get('service_name', None)
 
-    templates_dir = config['prompt'].get('rule_template_dir', 'rule_template/auctions/')
+    templates_dir = config['prompt'].get('rule_template_dir', 'prompts/rules/auctions/')
     output_dir = config['execution']['output_dir']
 
     # Create rule
@@ -172,11 +172,11 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python3 src/run_auction_batch.py <config_file1.yaml> [config_file2.yaml] ...")
         print("\nExample:")
-        print("  python3 src/run_auction_batch.py configs_auction/interventions_claude/axis1_contingent_baseline.yaml")
-        print("  python3 src/run_auction_batch.py configs_auction/interventions_gpt4o/*.yaml")
+        print("  python3 src/run_auction_batch.py configs/auction/interventions_claude/axis1_contingent_baseline.yaml")
+        print("  python3 src/run_auction_batch.py configs/auction/interventions_gpt4o/*.yaml")
         print("\nAvailable intervention directories:")
         import glob
-        dirs = sorted(glob.glob("configs_auction/interventions_*/"))
+        dirs = sorted(glob.glob("configs/auction/interventions_*/"))
         for d in dirs:
             configs = glob.glob(f"{d}*.yaml")
             print(f"  - {d} ({len(configs)} configs)")

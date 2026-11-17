@@ -50,7 +50,7 @@ class MetadataManager:
         Create directory for this experiment run.
 
         Creates structure:
-        experiment_logs/{experiment_name}/run_{timestamp}/
+        data/raw/experiment_logs/{experiment_name}/run_{timestamp}/
 
         Returns:
             Path to the created run directory
@@ -400,7 +400,7 @@ def create_experiment_run(config_dict: Dict[str, Any],
     experiment_name = config_dict.get('experiment', {}).get('name', 'unnamed_experiment')
 
     if base_output_dir is None:
-        base_output_dir = config_dict.get('execution', {}).get('output_dir', 'experiment_logs')
+        base_output_dir = config_dict.get('execution', {}).get('output_dir', 'data/raw/experiment_logs')
 
     # Create metadata manager
     metadata_mgr = MetadataManager(base_output_dir, experiment_name)
@@ -416,8 +416,8 @@ def create_experiment_run(config_dict: Dict[str, Any],
     rule_config = config_dict.get('rule', {})
 
     prompt_files = metadata_mgr.copy_prompt_files(
-        prompt_dir=prompt_config.get('prompt_dir', 'Prompt/'),
-        rule_template_dir=prompt_config.get('rule_template_dir', 'rule_template/V10/'),
+        prompt_dir=prompt_config.get('prompt_dir', 'prompts/templates/'),
+        rule_template_dir=prompt_config.get('rule_template_dir', 'prompts/rules/V10/'),
         special_name=rule_config.get('special_name'),
         include_payment_example=prompt_config.get('include_payment_example', False),
         payment_examples_path=prompt_config.get('payment_examples_path')

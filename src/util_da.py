@@ -16,7 +16,7 @@ from edsl.questions import QuestionRank, QuestionMultipleChoice, QuestionFreeTex
 from edsl.prompts import Prompt
 
 current_script_path = os.path.dirname(os.path.abspath(__file__))
-prompt_dir = os.path.join(current_script_path, '../Prompt/')
+prompt_dir = os.path.join(current_script_path, '../prompts/templates/')
 
 
 def save_json(data, filename, directory):
@@ -42,7 +42,7 @@ class Rule_DA:
             mechanism_type: "direct" or "osp"
             intervention_type: Cognitive intervention (e.g., "baseline", "axis1_enumerate")
             special_name: Override template filename
-            templates_dir: Path to rule_template/DA/
+            templates_dir: Path to prompts/rules/DA/
             common_range: Range for common value component
             private_range: Range for private value component
             global_ranking_strategy: Strategy for computing global ranking
@@ -62,7 +62,7 @@ class Rule_DA:
 
         # Resolve templates directory
         if templates_dir is None:
-            self.templates_dir = os.path.join(current_script_path, '../rule_template/DA/')
+            self.templates_dir = os.path.join(current_script_path, '../prompts/rules/DA/')
         elif not os.path.isabs(templates_dir):
             self.templates_dir = os.path.join(current_script_path, '..', templates_dir)
         else:
@@ -723,10 +723,10 @@ class DA_OSP:
         fallback_str = ", ".join(sorted(fallback_set))
 
         # Render yes/no template
-        # Load the yes/no template from rule_template/DA/
+        # Load the yes/no template from prompts/rules/DA/
         current_file_dir = os.path.dirname(os.path.abspath(__file__))
         project_root = os.path.dirname(current_file_dir)
-        template_path = os.path.join(project_root, 'rule_template', 'DA', 'da_osp_yesno_guaranteed.txt')
+        template_path = os.path.join(project_root, 'prompts', 'rules', 'DA', 'da_osp_yesno_guaranteed.txt')
         with open(template_path, 'r') as f:
             template_content = f.read()
 
@@ -802,10 +802,10 @@ class DA_OSP:
         sorted_schools = sorted(student.values.items(), key=lambda x: x[1], reverse=True)
         preference_order = " > ".join([school for school, _ in sorted_schools])
 
-        # Load choice template from rule_template/DA/
+        # Load choice template from prompts/rules/DA/
         current_file_dir = os.path.dirname(os.path.abspath(__file__))
         project_root = os.path.dirname(current_file_dir)
-        template_path = os.path.join(project_root, 'rule_template', 'DA', 'da_osp_choice.txt')
+        template_path = os.path.join(project_root, 'prompts', 'rules', 'DA', 'da_osp_choice.txt')
         with open(template_path, 'r') as f:
             template_content = f.read()
 

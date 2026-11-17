@@ -45,7 +45,7 @@ python scripts/audit_sequential_da.py
 python analysis/build_da_cells.py
 ```
 
-The first is an independent, standard-library-only audit of `osp_yesno_fixed`. It scores YES/NO responses and nonforced final picks against values, treating tied best options as value-consistent. The second produces `results/merged_ranking/da_cells.csv` and a detailed summary for ordinal and cardinal variants, including rank errors, tie-robust errors, retained market counts, parse failures, decision errors, and bootstrap intervals. The eight-row paper extract is `data/da_interface_error_accounting.csv`.
+The first is an independent, standard-library-only audit of `osp_yesno_fixed`. It scores YES/NO responses and nonforced final picks against values, treating tied best options as value-consistent. The second produces `results/merged_ranking/da_cells.csv` and a detailed summary for ordinal and cardinal variants, including rank errors, tie-robust errors, retained market counts, parse failures, decision errors, and bootstrap intervals. The eight-row paper extract is `results/paper/da_interface_error_accounting.csv`.
 
 | Model | Retained markets | Informative decisions | False NO | False YES | Inferior final pick | Total errors |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -56,14 +56,16 @@ The first is an independent, standard-library-only audit of `osp_yesno_fixed`. I
 
 These denominators exclude forced final picks and describe retained logs, not every attempted call. Partial sequential records can contain no comparable ranking pairs, producing zero Kendall error despite decision errors. The round-based `osp_baseline`, binary `osp_yesno_fixed`, and derived-pick `osp_yesno` must remain distinct. Historical prompts are preserved as experimental inputs, including wording later identified as too strong.
 
-## 4. Reproduce current trace figures
+## 4. Reproduce figures
+
+All plotting scripts live in `analysis/plotting/` and write to `figures/`.
 
 ```bash
-python scripts/plot_intervention_language_bids.py
-python scripts/plots/v4_heuristic_prevalence.py
-python scripts/plots/v4_fidelity_selection.py
+python analysis/plotting/plot_intervention_language_bids.py   # Figure 4
+python analysis/plotting/v4_heuristic_prevalence.py
+python analysis/plotting/v4_fidelity_selection.py
 ```
 
-Outputs are under `plots/`. Figure 4 reads the unchanged paper export in `data/`, so a new inference run does not silently replace the paper figure's inputs. Compare any newly generated estimates to that export before explicitly refreshing it. See [Figure 4 documentation](../docs/FIGURE4.md).
+Figure 4 reads the unchanged paper export in `results/paper/`, so a new inference run does not silently replace the paper figure's inputs. Compare any newly generated estimates to that export before explicitly refreshing it. See [Figure 4 documentation](../docs/FIGURE4.md).
 
-Historical auction and DA figure scripts remain in `plots/`; they predate the current trace analysis and may use earlier comparison conventions. Exact provenance of the paper's historical Figure 1 PDF remains unresolved. Do not infer that running a similarly named script recreates that exact PDF.
+The historical auction and DA figure scripts are also in `analysis/plotting/` (`plot_osp_comparison.py`, `plot_interventions.py`, `plot_da_interventions.py`, `plot_da_osp_yesno.py`). They predate the current trace analysis and may use earlier comparison conventions. Exact provenance of the paper's historical Figure 1 PDF remains unresolved. Do not infer that running a similarly named script recreates that exact PDF.

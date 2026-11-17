@@ -39,7 +39,7 @@ if __name__ == "__main__":
     closing = True
     reserve_price = 60
     
-    output_dir = f"experiment_logs/V10/private_second_simple_15"
+    output_dir = f"data/raw/experiment_logs/V10/private_second_simple_15"
     # {seal_clock}_{ascend_descend}_{price_order}_{private_value}_{open_blind}"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)

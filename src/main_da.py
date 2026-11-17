@@ -80,7 +80,7 @@ if __name__ == "__main__":
     temperature = 0.5
 
     # Output directory
-    output_dir = f"experiment_logs/da/{mechanism_type}_{intervention_type}"
+    output_dir = f"data/raw/experiment_logs/da/{mechanism_type}_{intervention_type}"
     os.makedirs(output_dir, exist_ok=True)
 
     # Create rule
@@ -88,7 +88,7 @@ if __name__ == "__main__":
         mechanism_type=mechanism_type,
         intervention_type=intervention_type,
         special_name=special_name,
-        templates_dir="rule_template/DA/",
+        templates_dir="prompts/rules/DA/",
         common_range=common_range,
         private_range=private_range,
         global_ranking_strategy=global_ranking_strategy  # Add strategy

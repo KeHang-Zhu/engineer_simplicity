@@ -1,7 +1,7 @@
 # Figure 4 simplification, 2026-09-25
 
-Output: `plots/intervention_language_bids.pdf` and a PNG preview with the same stem.
-Reproduce with `python3 scripts/plot_intervention_language_bids.py`.
+Output: `figures/intervention_language_bids.pdf` and a PNG preview with the same stem.
+Reproduce with `python3 analysis/plotting/plot_intervention_language_bids.py`.
 The script resolves input and output paths relative to itself, so it also works
 when launched from a different directory. Requires Python and Matplotlib.
 
@@ -28,7 +28,7 @@ No overall title is embedded: the caption supplies context.
 
 ## Exact source and reproducibility
 
-The local input `data/intervention_language_bids.csv` is a byte-for-byte copy of:
+The local input `results/paper/intervention_language_bids.csv` is a byte-for-byte copy of:
 
 `results/traces/mediation/dissociation_full_battery.csv`
 
@@ -37,7 +37,7 @@ SHA-256 of both files:
 
 The prior plotting code was:
 the historical scatterplot script; the current renderer is
-`scripts/plot_intervention_language_bids.py`
+`analysis/plotting/plot_intervention_language_bids.py`
 
 The analysis code documenting the intervals and classification is:
 `analysis/build_trace_mediation_v2.py`

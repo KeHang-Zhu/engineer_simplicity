@@ -21,7 +21,7 @@ A. Combined ES pipeline CSV (4 models x 23 sealed-bid SPSB experiments + one
    ascending-clock cell), one row per bidder-round, column `plan`:
      results/
        all_experiments_combined_20260204_114522.csv
-B. ES experiment_logs flat result JSONs for the two description cells missing
+B. ES data/raw/experiment_logs flat result JSONs for the two description cells missing
    from (A), all 4 models: intervention_menu (B1), intervention_proxy_breitmoser
    (B3 clock-framing; provenance caveat, see paper TODO plan R6).
 C. Recovered GPT-4o V12 grid, `_first` (FPSB) and `_third` (TPSB) variants only
@@ -63,7 +63,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ES = REPO
 COMBINED_CSV = os.path.join(
     ES, "results", "all_experiments_combined_20260204_114522.csv")
-V12 = os.path.join(REPO, "recovered_logs", "experiment_logs_gpt_4o", "V12")
+V12 = os.path.join(REPO, "data/raw/recovered_logs", "experiment_logs_gpt_4o", "V12")
 OUT = os.path.join(REPO, "results", "traces")
 os.makedirs(OUT, exist_ok=True)
 
@@ -198,14 +198,14 @@ def _rows_from_result_json(path, model, experiment, mechanism, source, run_id):
 
 
 def load_menu_proxy() -> pd.DataFrame:
-    """ES experiment_logs flat result files: menu + proxy_breitmoser, 4 models."""
+    """ES data/raw/experiment_logs flat result files: menu + proxy_breitmoser, 4 models."""
     model_map = {"gpt4o": "gpt-4o", "claude": "claude-3-5-haiku-20241022",
                  "gemini": "gemini-2.0-flash", "gemma": "google/gemma-3-27b-it"}
     rows = []
     for mdir, model in model_map.items():
         for exp in ("intervention_menu", "intervention_proxy_breitmoser"):
             files = sorted(glob.glob(os.path.join(
-                ES, "experiment_logs", mdir, exp, "result_*.json")))
+                ES, "data/raw/experiment_logs", mdir, exp, "result_*.json")))
             run_id = f"{model[:12]}|{exp}|flat"
             for fp in files:
                 rows.extend(_rows_from_result_json(

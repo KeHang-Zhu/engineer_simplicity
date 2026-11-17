@@ -108,7 +108,7 @@ FEATURE_COLS = [
 # results/merged_ranking/_axis2_baseline_provenance.md: the V12
 # `axis2_forward_baseline` template was NOT a plain SPSB description — it was a
 # two-stage sealed-bid-as-clock-exit (clock-framing) text (recovered from the
-# engineer_simplicity git history; survives as rule_template/auctions/
+# engineer_simplicity git history; survives as prompts/rules/auctions/
 # axis2_forward_baseline_DEPRECATED.txt). Trace evidence: 15–25% of
 # claude/gemini/gemma plans in that cell contain clock/exit/stage-2 language vs
 # 0% in the axis1/axis3 baselines; behaviorally it fixes gemma (−0.59 vs −5 to
@@ -1030,7 +1030,7 @@ def write_summary(mc, mc_dd, dissoc, dissoc_dd, dissoc_pre, med_df, bound,
     w("")
     w("The V12 `axis2_forward_baseline` template — recovered from the "
       "engineer_simplicity git history and preserved as "
-      "`rule_template/auctions/axis2_forward_baseline_DEPRECATED.txt` — was "
+      "`prompts/rules/auctions/axis2_forward_baseline_DEPRECATED.txt` — was "
       "**not a plain SPSB description**: it was a two-stage "
       "sealed-bid-as-clock-exit (Breitmoser-style clock-framing) text. In the "
       "trace data, 17.3% / 24.7% / 15.3% of Claude/Gemini/Gemma plans in that "

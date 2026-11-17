@@ -4,7 +4,7 @@ Context: the current `osp` mode in `src/util_da.py` labels the iterative DA inte
 
 ## Evidence that the current code is not OSP
 - **Parallel queries:** `DA_OSP._run_one_osp_round` queries *all* unmatched students each round and then runs the standard DA step. Each student must forecast whether others will bid for the same school; this is not obviously dominant.
-- **Choice set is not a guaranteed menu:** The prompt (`rule_template/DA/da_osp_choice.txt`) shows the entire remaining set. A student with high value for a school where she has low priority might gamble on it and be rejected later. The worst outcome under the truthful action can be strictly worse than the best outcome under a deviation, so Li's obvious-dominance test fails.
+- **Choice set is not a guaranteed menu:** The prompt (`prompts/rules/DA/da_osp_choice.txt`) shows the entire remaining set. A student with high value for a school where she has low priority might gamble on it and be rejected later. The worst outcome under the truthful action can be strictly worse than the best outcome under a deviation, so Li's obvious-dominance test fails.
 - **No acyclic-specific tree:** Ashlagi–Gonczarowski show OSP only under acyclic priorities and give a specific decision tree (serial dictatorship if one top-ranked student; otherwise a/b trees when two students are top-ranked). The implementation does not follow that tree and would not be OSP even under acyclic priorities.
 
 ## Minimal OSP spec for the acyclic priorities used in this repo
@@ -20,12 +20,12 @@ Assume the fixed Ergin-acyclic priorities already in the code (A/B top; C/D bott
 ## Harness changes (what to code)
 1) **Replace the round-based loop** in `DA_OSP.run` with a recursive `run_osp_tree(state)` that follows the spec above and queries *one student at a time*.
 2) **Maintain explicit menus (“budgets”)** in state: for each query, compute `guaranteed_if_yes` and `guaranteed_if_no` (fallback set) and pass them to the prompt so the worst/best comparisons are transparent (the “obviousness witness” Li uses).
-3) **Use the guaranteed yes/no prompt**, not the full choice list. Point to `rule_template/DA/da_osp_yesno_guaranteed.txt` so each node is a binary decision about a single school with its guarantee.
+3) **Use the guaranteed yes/no prompt**, not the full choice list. Point to `prompts/rules/DA/da_osp_yesno_guaranteed.txt` so each node is a binary decision about a single school with its guarantee.
 4) **Keep DA as the fallback allocator** for students without remaining priority‑1 claims: once the top‑priority students are assigned, run the ordinary DA among the rest (or continue the recursion; both are fine because obviousness has already been resolved for the queried students).
 5) **Truthfulness metric:** Redefine `DA_OSP._compute_osp_truthfulness` to check whether each response matches the obvious action at that node (YES iff the queried school is the student’s top among remaining when asked; NO otherwise) instead of comparing to ex‑post utilities.
 
 ## Prompt changes
-Use `rule_template/DA/da_osp_yesno_guaranteed.txt`, which exposes the guarantee and fallback set at each node. Required variables (all currently in the template): `student_id`, `remaining_set`, `candidate`, `fallback_set`, `preference_order`, `pw/px/py/pz`, `global_ranking`. This matches the house style of the other DA templates.
+Use `prompts/rules/DA/da_osp_yesno_guaranteed.txt`, which exposes the guarantee and fallback set at each node. Required variables (all currently in the template): `student_id`, `remaining_set`, `candidate`, `fallback_set`, `preference_order`, `pw/px/py/pz`, `global_ranking`. This matches the house style of the other DA templates.
 
 🔴 Bug we fixed: previously the prompt said NO “gives up the candidate forever.” That is *not* the AG mechanism and destroys OSP. The correct text now says NO “keeps all remaining schools (including the candidate).” The code must pass `fallback_set = remaining_schools` so the candidate stays available after NO. Only an actual acceptance removes a school.
 

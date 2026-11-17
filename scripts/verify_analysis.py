@@ -45,7 +45,7 @@ def main():
         if column in labels:
             pd.testing.assert_series_equal(labels[column], expanded[column], check_names=False)
 
-    paper_path = ROOT / 'data/intervention_language_bids.csv'
+    paper_path = ROOT / 'results/paper/intervention_language_bids.csv'
     paper = pd.read_csv(paper_path).set_index('lever')
     require(len(paper) == len(LEVERS) == 20, 'Intervention coverage changed')
     archived = pd.read_csv(trace_dir / 'mediation/dissociation_full_battery.csv').set_index('lever')
@@ -66,7 +66,7 @@ def main():
 
     expected = {'claude': (36,194,13,2,1), 'gemini': (37,179,0,0,0),
                 'gpt4o': (39,188,0,0,0), 'gemma': (43,210,3,0,0)}
-    extract = pd.read_csv(ROOT / 'data/da_interface_error_accounting.csv')
+    extract = pd.read_csv(ROOT / 'results/paper/da_interface_error_accounting.csv')
     for model, counts in expected.items():
         result = audit(model)
         actual = tuple(result[k] for k in ('markets','informative','false_no','false_yes','bad_pick'))

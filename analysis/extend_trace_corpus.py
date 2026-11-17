@@ -11,8 +11,8 @@ frozen file or the frozen 18-feature dictionary:
       (one run per model x experiment);
   (b) previously unscored trace pools, scored with the frozen dictionary:
         - frontier models (gpt5, gpt5mini, claude_sonnet5, gemini25flash)
-          from experiment_logs/  (~5-6k traces)
-        - robustness_logs/ model x format grid (llama, gemma27b, claude_sonnet,
+          from data/raw/experiment_logs/  (~5-6k traces)
+        - data/raw/robustness_logs/ model x format grid (llama, gemma27b, claude_sonnet,
           gemini, gpt5mini, gpt4o temperature variants)  (optional, default on)
   (c) an ADDITIVE feature group `FEATURES_V2` (formal-derivation mode, the
       target of paper Heuristic 7) applied to ALL rows. The original 18
@@ -53,8 +53,8 @@ import build_trace_features as btf  # frozen dictionary + parser of record
 
 REPO = os.path.dirname(HERE)
 ES = REPO
-ES_LOGS = os.path.join(ES, "experiment_logs")
-ROBUST = os.path.join(REPO, "robustness_logs")
+ES_LOGS = os.path.join(ES, "data/raw/experiment_logs")
+ROBUST = os.path.join(REPO, "data/raw/robustness_logs")
 TRACES = os.path.join(REPO, "results", "traces")
 FROZEN_CSV = os.path.join(TRACES, "trace_features.csv")
 OUT_CSV = os.path.join(TRACES, "trace_features_v2.csv")

@@ -3,8 +3,8 @@ Batch runner for DA experiments.
 Loads YAML configs and runs multiple experiment configurations.
 
 Usage:
-    python3 src/run_da_batch.py configs_da/da_direct_baseline_gpt4o.yaml
-    python3 src/run_da_batch.py configs_da/*.yaml  # Run all configs
+    python3 src/run_da_batch.py configs/da/da_direct_baseline_gpt4o.yaml
+    python3 src/run_da_batch.py configs/da/*.yaml  # Run all configs
 """
 
 from edsl import Cache
@@ -156,11 +156,11 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python3 src/run_da_batch.py <config_file1.yaml> [config_file2.yaml] ...")
         print("\nExample:")
-        print("  python3 src/run_da_batch.py configs_da/da_direct_baseline_gpt4o.yaml")
-        print("  python3 src/run_da_batch.py configs_da/da_axis3_secondorder_gpt4o.yaml")
+        print("  python3 src/run_da_batch.py configs/da/da_direct_baseline_gpt4o.yaml")
+        print("  python3 src/run_da_batch.py configs/da/da_axis3_secondorder_gpt4o.yaml")
         print("\nAvailable configs:")
         import glob
-        configs = sorted(glob.glob("configs_da/*.yaml"))
+        configs = sorted(glob.glob("configs/da/*.yaml"))
         for config in configs:
             print(f"  - {config}")
         sys.exit(1)

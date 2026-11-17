@@ -7,7 +7,7 @@ from pathlib import Path
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-LOGS = ROOT / 'experiment_logs/da'
+LOGS = ROOT / 'data/raw/experiment_logs/da'
 
 
 def audit(model):

@@ -38,8 +38,8 @@ if __name__ == "__main__":
     turns = 20
 
     
-    output_dir = f"experiment_logs/V10/intervention_wrong_strat_reveal"
-    # output_dir = os.path.join("experiment_logs/V10" ,f"{seal_clock}_{ascend_descend}_{price_order}_{private_value}_{open_blind}")
+    output_dir = f"data/raw/experiment_logs/V10/intervention_wrong_strat_reveal"
+    # output_dir = os.path.join("data/raw/experiment_logs/V10" ,f"{seal_clock}_{ascend_descend}_{price_order}_{private_value}_{open_blind}")
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
